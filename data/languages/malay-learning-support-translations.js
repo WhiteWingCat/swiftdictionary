@@ -7,7 +7,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
   "humanReviewStatus": "pending",
   "modelLicensingStatus": "pending_verification",
   "modelLicensingNote": "Verify the exact Argos model-package and upstream corpus licences and preserve required attribution before public redistribution.",
-  "generatedAt": "2026-11-28T08:56:37.728442+00:00",
+  "generatedAt": "2026-11-28T09:46:08.961112+00:00",
   "engine": "Argos Translate offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9",
   "provenance": "Machine-assisted drafts generated from original SwiftDictionary lesson, Quiz and Flashcard text. Human Malaysian Standard Malay review is pending.",
   "lessons": {
@@ -30,7 +30,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Pilih kalimat dengan subjek biasa–verb–object order.",
+          "q": "Pilih ayat dengan subjek biasa–verb–object order.",
           "options": [
             "Anak-anak menanam bunga.",
             "Tanaman anak-anak bunga.",
@@ -38,7 +38,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Pilih kalimat yang benar.",
+          "q": "Pilih ayat yang benar.",
           "options": [
             "Ada tiga kursi.",
             "Ada tiga kursi.",
@@ -56,7 +56,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "b-present": [
         {
-          "q": "Pilih kalimat yang benar.",
+          "q": "Pilih ayat yang benar.",
           "options": [
             "Dia bermain tenis di hari Minggu.",
             "Dia bermain tenis di hari Minggu.",
@@ -80,7 +80,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Pilihlah kalimat negatif yang benar.",
+          "q": "Pilih ayat negatif yang benar.",
           "options": [
             "Mereka tidak suka kopi.",
             "Mereka tidak suka kopi.",
@@ -148,7 +148,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kami biasanya naik bis jam 8 pagi.",
+          "q": "Kami biasanya naik bas jam 8 pagi.",
           "options": [
             "Ditangkap",
             "Buat",
@@ -168,11 +168,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Sarapan sarapan",
             "Sarapan sarapan",
-            "Sarapan pagi"
+            "Sarapan sarapan"
           ]
         },
         {
-          "q": "Definisi bahasan mana yang paling cocok dengan kata \\\"menyenangkan\\\"?",
+          "q": "Definisi huraian mana yang paling cocok dengan kata \\\"menyenangkan\\\"?",
           "options": [
             "Menyebabkan daya tarik atau antusiasme yang kuat",
             "Membuat seseorang merasa mengantuk",
@@ -192,7 +192,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Diam",
             "Sibuk",
-            "♪ nyaman ♪"
+            "Coy"
           ]
         },
         {
@@ -212,7 +212,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Pilihlah perkataan yang sebaik-baiknya: \\\"Sesungguhnya orang-orang yang staff itu adalah orang-orang yang baik hati lagi penyambut\\\". Mereka adalah .",
+          "q": "Pilihlah perkataan yang sebaik-baiknya: \\\"Sesungguhnya orang-orang yang staff itu adalah orang-orang yang baik (imannya) dan ucapan selamat datang\\\". Mereka adalah .",
           "options": [
             "friendly",
             "Sibuk",
@@ -238,7 +238,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         {
           "q": "Frasa mana yang berarti melakukan apa yang kau janjikan?",
           "options": [
-            "Aku berjanji.",
+            "Saya berjanji.",
             "Istirahat sejenak",
             "Jangan membuat kesalahan"
           ]
@@ -286,7 +286,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang standar bahasa Inggris?",
+          "q": "Ayat mana yang standar bahasa Inggris?",
           "options": [
             "Kami membeli perabot baru.",
             "Kami membeli beberapa perabot baru.",
@@ -294,7 +294,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Pilih bentuk jamak yang benar: satu anak, dua .",
+          "q": "Pilih plural yang benar: satu anak, dua .",
           "options": [
             "anak",
             "Anak-anak",
@@ -328,7 +328,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Seseorang membantu Anda membawa buku Anda. Apa yang bisa kau katakan?",
+          "q": "Seseorang membantu Anda membawa buku Anda. Apa yang dapat kau katakan?",
           "options": [
             "Keluar",
             "Terima kasih",
@@ -336,7 +336,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Ekspresi yang mana adalah cara yang ramah untuk mengucapkan selamat tinggal dan mengucapkan selamat tinggal kepada seseorang dengan baik?",
+          "q": "Ekspresi yang mana yang ramah untuk mengucapkan selamat tinggal dan mengucapkan selamat tinggal kepada seseorang dengan baik?",
           "options": [
             "Selamat sore",
             "Permisi",
@@ -380,17 +380,17 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "i-perfect": [
         {
-          "q": "Kalimat mana yang menggunakan ungkapan masa lalu dengan benar?",
+          "q": "Ayat mana yang menggunakan ungkapan masa lalu dengan benar?",
           "options": [
-            "Aku telah menyelesaikannya tadi malam.",
-            "Aku menyelesaikannya tadi malam.",
-            "Aku telah menyelesaikannya tadi malam."
+            "Saya telah menyelesaikannya tadi malam.",
+            "Saya menyelesaikannya tadi malam.",
+            "Saya telah menyelesaikannya tadi malam."
           ]
         },
         {
-          "q": "Dia melaporkannya, jadi dia bisa tenang sekarang.",
+          "q": "Dia melaporkannya, jadi dia dapat tenang sekarang.",
           "options": [
-            "Aku sudah selesai.",
+            "Saya sudah selesai.",
             "Setelah selesai",
             "Lulus kemarin"
           ]
@@ -407,7 +407,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "q": "Pilih bentuk sempurna yang berkesinambungan saat ini.",
           "options": [
             "Anda telah belajar",
-            "Aku telah belajar.",
+            "Saya telah belajar.",
             "Zodiak belajar"
           ]
         },
@@ -603,27 +603,27 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Pilih kalimat bersyarat kedua.",
+          "q": "Pilih ayat syarat kedua.",
           "options": [
-            "Jika aku melihatnya, aku akan memberitahunya.",
-            "Jika aku melihatnya, aku akan memberitahunya.",
-            "Jika aku melihatnya, aku akan memberitahunya."
+            "Jika saya melihatnya, saya akan memberitahunya.",
+            "Jika saya melihatnya, saya akan memberitahunya.",
+            "Jika saya melihatnya, saya akan memberitahunya."
           ]
         },
         {
           "q": "Complete: \\\"Jika kita memiliki dapur yang lebih besar, kita lebih sering.\\\"",
           "options": [
             "memasak",
-            "Aku akan memasak",
-            "Aku akan memasak"
+            "Saya akan memasak",
+            "Saya akan memasak"
           ]
         },
         {
-          "q": "Kalimat mana yang menggambarkan kemungkinan hasil masa depan?",
+          "q": "Ayat mana yang menggambarkan kemungkinan hasil masa depan?",
           "options": [
             "Jika cuaca membaik, kita akan pergi mendaki.",
-            "Jika aku lebih tinggi, aku akan bermain basket.",
-            "Jika dia menelepon, aku akan menjawab."
+            "Jika saya lebih tinggi, saya akan bermain basket.",
+            "Jika dia menelepon, saya akan menjawab."
           ]
         },
         {
@@ -643,7 +643,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang menyatakan fakta umum?",
+          "q": "Ayat mana yang menyatakan fakta umum?",
           "options": [
             "Jika kau memanaskan es, itu meleleh.",
             "Jika Anda dipanaskan es, itu akan mencair.",
@@ -671,9 +671,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         {
           "q": "Pilihlah inversi yang benar setelah ” Jarang ”.",
           "options": [
+            "Jarang sekali kita menyaksikan kepedulian tersebut.",
             "Jarang sekali kita menyaksikan kepedulian demikian.",
-            "Jarang sekali kita menyaksikan perawatan seperti itu.",
-            "Saksi yang jarang kita perhatikan."
+            "Saksi jarang kita peduli seperti itu."
           ]
         },
         {
@@ -695,9 +695,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         {
           "q": "Aquird melengkapi inversi bersyarat ketiga: \\\"Jika saya tahu, saya sebelumnya.\\\"",
           "options": [
-            "Aku akan pergi",
+            "Saya akan pergi",
             "Akan ditinggalkan",
-            "Aku akan pergi."
+            "Saya akan pergi."
           ]
         }
       ],
@@ -773,7 +773,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Ini membuktikan tanpa keraguan...",
             "Temuan itu mungkin menunjukkan...",
-            "Tidak mungkin..."
+            "Tentu saja mustahil..."
           ]
         },
         {
@@ -797,7 +797,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "tentatif",
             "tetap",
-            "♪ ♪ tertentu ♪"
+            "♪ tertentu ♪"
           ]
         },
         {
@@ -901,7 +901,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "a-mixed-conditionals": [
         {
-          "q": "Apa yang terjadi di masa lalu dengan hasil sekarang, \\\"Jika aku menerima tawaran itu, aku akan berada di London sekarang.\\\"",
+          "q": "Apa yang terjadi di masa lalu dengan hasil sekarang, \\\"Jika saya menerima tawaran itu, saya akan berada di London sekarang.\\\"",
           "options": [
             "Akan hidup",
             "Akan hidup",
@@ -909,10 +909,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat yang mana yang bersyarat?",
+          "q": "Hukuman mana yang bersyarat?",
           "options": [
-            "Jika aku pergi lebih awal, aku akan naik kereta.",
-            "Jika aku pergi sekarang, aku akan naik kereta.",
+            "Jika saya pergi lebih awal, saya akan naik kereta.",
+            "Jika saya pergi sekarang, saya akan naik kereta.",
             "Jika dia lebih terorganisir, dia tidak akan melewatkan batas waktu."
           ]
         },
@@ -933,7 +933,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang menggabungkan kondisi terbalik dengan hasil sekarang?",
+          "q": "Ayat mana yang menggabungkan kondisi terbalik dengan hasil sekarang?",
           "options": [
             "Data sudah diperiksa, kesalahan sekarang tidak akan mempengaruhi hasilnya.",
             "Jika data diperiksa, kesalahan menghilang kemarin.",
@@ -972,12 +972,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Apa fungsi utama ejaan Cina?",
+          "q": "Apa peran utama ejaan Cina?",
           "options": [
             "Bahasa Mandarin.",
             "Ini menunjukkan urutan tulisan.",
             "Sebaliknya dari semua Hanwords.",
-            "Ini adalah struktur sintaks dari kalimat."
+            "Ini adalah struktur sintaks dari ayat."
           ]
         },
         {
@@ -1002,7 +1002,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "q": "Apa versi yang paling akurat dari yang ketiga?",
           "options": [
             "Ini selalu turun pertama dan kemudian naik.",
-            "Sering dibaca secara terpisah atau di akhir kalimat, dengan first-down dan kemudian-up.",
+            "Sering dibaca secara terpisah atau di akhir ayat, sebelum jatuh atau naik.",
             "Ini masih tinggi.",
             "Itu selalu jatuh cepat."
           ]
@@ -1055,12 +1055,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Hukuman mana yang mengatakan \"Aku Lee Ming\"?",
+          "q": "Hukuman mana yang mengatakan \"Saya Lee Ming\"?",
           "options": [
-            "Nama saya Li Ming.",
+            "Namaku Li Ming.",
             "Siapa namamu?",
             "Ini Lee Ming.",
-            "Aku kenal Li Ming."
+            "Saya kenal Li Ming."
           ]
         },
         {
@@ -1068,19 +1068,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Senang bertemu denganmu.",
             "Apa kabar?",
-            "Aku baik-baik saja.",
+            "Saya baik-baik saja.",
             "Bye."
           ]
         }
       ],
       "zh-b-numbers-dates-time": [
         {
-          "q": "Yang mana satu berarti nomor tujuh?",
+          "q": "Salah satu dari mereka berarti nomor tujuh?",
           "options": [
             "Andika VII",
             "- Sepuluh.",
             "Sembilan.",
-            "Perancis"
+            "Amerika Serikat"
           ]
         },
         {
@@ -1093,7 +1093,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Ekspresi yang mana artinya Senin?",
+          "q": "Ekspresi yang artinya hari Senin?",
           "options": [
             "Isnin",
             "Rabu",
@@ -1131,25 +1131,25 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "zh-b-pronouns-basic-sentences": [
         {
-          "q": "Yang mana kata ganti berarti \"Aku\"?",
+          "q": "Yang mana kata ganti berarti \"Saya\"?",
           "options": [
-            "Aku...",
+            "Saya...",
             "Kau.",
             "Dia.",
             "Her."
           ]
         },
         {
-          "q": "Kata Cina mana yang biasanya ditulisnya saat dia bermaksud...",
+          "q": "Kata-kata Cina mana yang biasanya ditulis wanita ketika mereka berkata \" dia\"?",
           "options": [
             "Her.",
             "Dia.",
-            "Aku...",
+            "Saya...",
             "Guys."
           ]
         },
         {
-          "q": "Kata mana yang \"kita\"?",
+          "q": "Kata mana yang berarti \"kita\"?",
           "options": [
             "Kami...",
             "Kau.",
@@ -1158,16 +1158,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Hukuman mana yang mengatakan \"Aku mahasiswa\"?",
+          "q": "Hukuman mana yang mengatakan \"Saya mahasiswa\"?",
           "options": [
-            "Aku mahasiswa.",
-            "Aku mahasiswa.",
-            "Apa itu aku?",
-            "Aku punya murid."
+            "Saya mahasiswa.",
+            "Saya mahasiswa.",
+            "Apa itu saya?",
+            "Saya punya murid."
           ]
         },
         {
-          "q": "Dalam kalimat seperti \\\"I'm a student\\\", yang mana yang digunakan untuk mengidentifikasi?",
+          "q": "Dalam ayat seperti \\\"I'm a student\\\", yang mana yang digunakan untuk mengidentifikasi?",
           "options": [
             "Ya. Ya.",
             "Ya. Ya.",
@@ -1176,7 +1176,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan, \"Ini adalah buku saya\"?",
+          "q": "Ayat mana yang mengatakan, \"Ini adalah buku saya\"?",
           "options": [
             "Ini bukuku.",
             "Bukuku adalah...",
@@ -1214,12 +1214,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan \"Aku minum air\"?",
+          "q": "Ayat mana yang mengatakan \"Saya minum air\"?",
           "options": [
-            "Aku minum air.",
-            "Aku makan air.",
-            "Aku melihat air.",
-            "Aku akan ke air."
+            "Saya minum air.",
+            "Saya makan air.",
+            "Saya melihat air.",
+            "Saya akan ke air."
           ]
         },
         {
@@ -1252,7 +1252,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kata mana yang \"kekasih\"?",
+          "q": "Yang mana kata iskekasih\"?",
           "options": [
             "Rumah Sakit Hospital",
             "Sekolah",
@@ -1274,7 +1274,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Dimana stasiun bawah tanah?",
             "Apa stasiun bawah tanah?",
-            "Aku akan ke kereta bawah tanah.",
+            "Saya akan ke kereta bawah tanah.",
             "Stasiun kereta bawah tanah besar."
           ]
         },
@@ -1299,9 +1299,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "zh-b-questions-negation": [
         {
-          "q": "Apa yang sering digunakan untuk membuat kalimat non-permintaan?",
+          "q": "Apa yang sering digunakan untuk membuat ayat non-permintaan?",
           "options": [
-            "Maafkan aku.",
+            "Maafkan saya.",
             "Ya. Ya.",
             "Yeah.",
             "Dan?"
@@ -1329,13 +1329,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "q": "Istilah mana yang sering digunakan untuk menyangkal pernyataan umum, seperti \\\"Saya tidak menyukainya\\\"?",
           "options": [
             "Oh, tidak.",
-            "Maafkan aku.",
+            "Maafkan saya.",
             "Ya. Ya.",
             "Ya. Ya."
           ]
         },
         {
-          "q": "Ungkapan mana yang dapat berarti \\\"tidak ada\\\"?",
+          "q": "Ungkapan yang dapat berarti ” tidak ”?",
           "options": [
             "Tak ada.",
             "Tidak.",
@@ -1344,7 +1344,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan, \"Apakah Anda seorang siswa?\"",
+          "q": "Ayat mana yang mengatakan, \"Apakah Anda seorang siswa?\"",
           "options": [
             "Kau mahasiswa?",
             "Kau seorang mahasiswa.",
@@ -1420,7 +1420,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "zh-i-grammar-particles": [
         {
-          "q": "Dalam “Bukuku”, kata - kata pendukung mana yang biasanya memaksudkan kerja keras?",
+          "q": "Dalam \\\"Bukuku\\\", yang mana di antara kata pengantar biasanya berarti affiliasi?",
           "options": [
             "Ya. Ya.",
             "Yeah.",
@@ -1429,12 +1429,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan, \"aku melihat film kemarin\"?",
+          "q": "Ayat mana yang mengatakan, \"saya melihat film kemarin\"?",
           "options": [
-            "Aku menonton film kemarin.",
-            "Apa aku melihat film kemarin?",
-            "Aku menonton film kemarin.",
-            "Aku menonton film kemarin."
+            "Saya menonton film kemarin.",
+            "Apa saya melihat film kemarin?",
+            "Saya menonton film kemarin.",
+            "Saya menonton film kemarin."
           ]
         },
         {
@@ -1443,11 +1443,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "Pass.",
             "Ya. Ya.",
             "Ini.",
-            "Maafkan aku."
+            "Maafkan saya."
           ]
         },
         {
-          "q": "Kalimat mana yang menggambarkan menjaga pintu tetap terbuka?",
+          "q": "Ayat mana yang menggambarkan menjaga pintu tetap terbuka?",
           "options": [
             "Pintunya terbuka.",
             "Pintunya terbuka.",
@@ -1456,7 +1456,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Dalam kata-kata \\\"Mari kita pergi\\\", yang mana sarannya?",
+          "q": "Dalam kata-kata \\\"Mari kita pergi\\\", apa yang disarankan?",
           "options": [
             "Yeah.",
             "Ya. Ya.",
@@ -1465,7 +1465,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang berarti \"Bagaimana denganmu\"?",
+          "q": "Ayat yang mana adalah \"kau?\"",
           "options": [
             "Kau?",
             "Kau?",
@@ -1474,7 +1474,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Mana dari kalimat berikut yang harus digunakan untuk melengkapi deskripsi status seseorang yang menjalankan?",
+          "q": "Mana dari ayat berikut yang harus digunakan untuk melengkapi deskripsi status seseorang yang menjalankan?",
           "options": [
             "Dia berlari cepat.",
             "Dia harus berlari cepat.",
@@ -1485,12 +1485,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "zh-i-time-expressions": [
         {
-          "q": "Apa yang akan terjadi besok?",
+          "q": "Apa tempat besok?",
           "options": [
             "Sebelum kata kerja utama",
             "Setelah sekolah.",
             "Antara kata kerja dan lokasi",
-            "Di akhir kalimat."
+            "Di akhir ayat."
           ]
         },
         {
@@ -1521,12 +1521,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan, \"Aku bangun pukul 7:00 pagi.\"",
+          "q": "Ayat mana yang mengatakan, \"Saya bangun pukul 7:00 pagi.\"",
           "options": [
-            "Aku bangun setiap pagi pukul 7:00.",
-            "Aku bangun setiap pagi pukul 7:00.",
-            "Aku bangun setiap pagi pukul 7:00.",
-            "Apa aku bangun setiap hari jam 7:00 pagi?"
+            "Saya bangun setiap pagi pukul 7:00.",
+            "Saya bangun setiap pagi pukul 7:00.",
+            "Saya bangun setiap pagi pukul 7:00.",
+            "Apa saya bangun setiap hari jam 7:00 pagi?"
           ]
         },
         {
@@ -1539,18 +1539,18 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan, \"Aku belum makan\"?",
+          "q": "Ayat mana yang mengatakan, \"Saya belum makan\"?",
           "options": [
-            "Aku belum makan malam.",
-            "Aku sudah makan malam.",
-            "Aku makan malam setiap hari.",
-            "Aku akan makan malam besok."
+            "Saya belum makan malam.",
+            "Saya sudah makan malam.",
+            "Saya makan malam setiap hari.",
+            "Saya akan makan malam besok."
           ]
         }
       ],
       "zh-i-comparisons": [
         {
-          "q": "Kalimat seperti apa yang menunjukkan \\\"A lebih dari B ...\\\"?",
+          "q": "Ayat seperti apa yang menunjukkan \\\"A lebih dari B ...\\\"?",
           "options": [
             "A-B + objek",
             "A adalah seperti B + objek",
@@ -1559,11 +1559,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan, \"Aku lebih tinggi darinya\"?",
+          "q": "Yang mana ayat mengatakan \"Saya lebih tinggi darinya\"?",
           "options": [
-            "Aku lebih tinggi dari dia.",
-            "Aku setinggi dia.",
-            "Aku tidak memilikinya.",
+            "Saya lebih tinggi dari dia.",
+            "Saya setinggi dia.",
+            "Saya tidak memilikinya.",
             "Dia lebih tinggi dariku."
           ]
         },
@@ -1577,7 +1577,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Frase mana yang menunjukkan \\\"sebesar\\\"?",
+          "q": "Frasa yang menunjukkan ” sebesar”?",
           "options": [
             "Ukurannya sama.",
             "Lebih Besar",
@@ -1586,7 +1586,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kata kalimat yang mana, \" Hari ini lebih dingin dari kemarin\"?",
+          "q": "Ayat yang mana mengatakan \" Hari ini lebih dingin dari kemarin\"?",
           "options": [
             "Lebih dingin dari kemarin.",
             "Hari ini lebih dingin dari kemarin.",
@@ -1595,12 +1595,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat apa yang menunjukkan \\\"A lebih buruk daripada B ...\\\"?",
+          "q": "Ayat apa yang menunjukkan \\\"A lebih buruk daripada B ...\\\"?",
           "options": [
             "A adalah kurang dari B + objek",
             "A-B + objek",
             "A adalah seperti B + objek",
-            "A-most + objek"
+            "maksimum maksimum maksimum + objek"
           ]
         },
         {
@@ -1620,7 +1620,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "Karena...",
             "Tapi...",
             "Satu sisi... satu sisi...",
-            "Pertama ... dan kemudian ..."
+            "Pertama... dan kemudian..."
           ]
         },
         {
@@ -1637,21 +1637,21 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Jika...",
             "Tapi...",
-            "Pertama ... dan kemudian ...",
+            "Pertama... dan kemudian...",
             "Satu sisi... satu sisi..."
           ]
         },
         {
-          "q": "Kelompok kata-kata terkait mana yang berarti kedua tindakan itu terjadi secara bersamaan?",
+          "q": "Dari kelompok kata-kata terkait mana yang berarti kedua tindakan terjadi secara bersamaan?",
           "options": [
             "Satu sisi... satu sisi...",
-            "Pertama ... dan kemudian ...",
+            "Pertama... dan kemudian...",
             "Karena...",
             "Jika..."
           ]
         },
         {
-          "q": "Kalimat mana yang mengatakan \\\"Dia terus belajar, meskipun dia lelah\\\"?",
+          "q": "Ayat mana yang mengatakan \\\"Dia terus belajar, meskipun dia lelah\\\"?",
           "options": [
             "Dia lelah, tapi dia belajar.",
             "Dia melanjutkan belajar karena dia lelah.",
@@ -1671,11 +1671,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "zh-a-complex-sentences": [
         {
-          "q": "Mana dari kalimat berikut yang menggunakan kata \\\"to\\\" untuk menggambarkan bagaimana suatu item ditangani?",
+          "q": "Mana dari ayat berikut yang harus digunakan untuk menggambarkan bagaimana suatu item diperlakukan?",
           "options": [
             "Tolong tutup pintunya.",
             "Ada pintu.",
-            "Aku melihat pintu.",
+            "Saya melihat pintu.",
             "Ini besar."
           ]
         },
@@ -1689,7 +1689,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat seperti apa yang menunjukkan \\\"hanya ...\\\"?",
+          "q": "Ayat seperti apa yang menunjukkan \\\"hanya ...\\\"?",
           "options": [
             "Hanya...",
             "Apakah...",
@@ -1698,7 +1698,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kalimat seperti apa yang menunjukkan \\\"hasilnya tetap tidak berubah terlepas dari kondisinya\\\"?",
+          "q": "Ayat seperti apa yang menunjukkan \\\"hasilnya tetap tidak berubah terlepas dari kondisinya\\\"?",
           "options": [
             "Apakah...",
             "Hanya...",
@@ -1710,26 +1710,26 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "q": "Hukuman yang mana mengatakan, teleponku diambil oleh saudaraku...",
           "options": [
             "Ponselku diambil oleh kakakku.",
-            "Aku mengambil saudaraku.",
+            "Saya mengambil saudaraku.",
             "Kakakku melihat telepon.",
-            "Ponselnya di sebelah saudaramu."
+            "Ini di sebelah adikku."
           ]
         },
         {
-          "q": "Kalimat macam apa yang menggunakan fakta - fakta yang dikenal sebagai pembenaran untuk mencapai kesimpulan?",
+          "q": "Ayat seperti apa yang menggunakan fakta - fakta yang dikenal sebagai dasar untuk mencapai kesimpulan?",
           "options": [
             "Sejak...",
             "Satu sisi... satu sisi...",
-            "Pertama ... dan kemudian ...",
+            "Pertama... dan kemudian...",
             "Semakin banyak... semakin..."
           ]
         },
         {
           "q": "Hukuman mana yang wajar dan benar?",
           "options": [
-            "Aku menyelesaikan pekerjaan rumahku.",
-            "Aku senang.",
-            "Aku mahasiswa.",
+            "Saya menyelesaikan pekerjaan rumahku.",
+            "Saya senang.",
+            "Saya mahasiswa.",
             "Kemarin kutaruh kemarin"
           ]
         }
@@ -1754,7 +1754,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kata penghubung mana yang digunakan untuk melengkapi informasi dengan menunjukkan \\\"tambahan\\\"?",
+          "q": "Kata mata rantai yang digunakan untuk melengkapi informasi dengan ungkapan ” sebagai tambahan ”?",
           "options": [
             "Selain itu,",
             "Sebaliknya.",
@@ -1763,7 +1763,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Istilah mana yang digunakan untuk meringkaskan pembahasan dan menunjukkan \\\"apa pun halnya\\\"?",
+          "q": "Istilah mana yang digunakan untuk meringkaskan pembahasan dan untuk menunjukkan \\\"apa pun halnya\\\"?",
           "options": [
             "Bagaimanapun...",
             "Dan...",
@@ -1781,7 +1781,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Mana dari kalimat berikut secara alami menggunakan kata \\\"bagaimanapun\\\" untuk menunjukkan balik?",
+          "q": "Mana dari ayat berikut yang secara alami menggunakan kata \\\"bagaimanapun\\\" untuk menunjukkan pembalikan?",
           "options": [
             "Itu dingin, tapi dia pergi.",
             "Itu dingin, jadi dia pergi.",
@@ -1804,27 +1804,27 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "q": "Apa arti ungkapan \"menunjukkan ular\"?",
           "options": [
             "Ular ular.",
-            "Aku akan memperbaikinya.",
-            "Dua dalam satu.",
+            "Saya akan memperbaikinya.",
+            "Dua untuk masing-masing satu.",
             "Kita akan pulang."
           ]
         },
         {
-          "q": "Frase apa yang menunjukkan ” solusi prompt jika ada masalah ”?",
+          "q": "Apa frasa ” tepat waktu untuk memperbaiki masalahnya ”?",
           "options": [
-            "Aku akan memperbaikinya.",
+            "Saya akan memperbaikinya.",
             "Ular ular.",
-            "Dua dalam satu.",
+            "Dua untuk masing-masing satu.",
             "Tunggu kelincinya."
           ]
         },
         {
           "q": "Yang mana ungkapan berarti \"satu per satu\"?",
           "options": [
-            "Dua dalam satu.",
+            "Dua untuk masing-masing satu.",
             "Kita akan pulang.",
             "Ular ular.",
-            "Aku akan memperbaikinya."
+            "Saya akan memperbaikinya."
           ]
         },
         {
@@ -1832,7 +1832,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Satu bajak, satu bajak.",
             "Ular ular.",
-            "Dua dalam satu.",
+            "Dua untuk masing-masing satu.",
             "Kita akan pulang."
           ]
         },
@@ -1841,7 +1841,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Kata-kata adalah ungkapan yang tetap; peribahasa adalah kata-kata rakyat atau peribahasa.",
             "Keduanya identik.",
-            "Kata-kata yang modern.",
+            "Ini semua kata-kata modern.",
             "Hanya ada empat kata dalam peribahasa."
           ]
         },
@@ -1849,9 +1849,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "q": "Ekspresi yang mana yang membujuk orang untuk memasuki negara ini?",
           "options": [
             "Kita akan pulang.",
-            "Aku akan memperbaikinya.",
+            "Saya akan memperbaikinya.",
             "Ular ular.",
-            "Dua dalam satu."
+            "Dua untuk masing-masing satu."
           ]
         },
         {
@@ -1860,7 +1860,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "Ular ular.",
             "Satu bajak, satu bajak.",
             "Kita akan pulang.",
-            "Aku akan memperbaikinya."
+            "Saya akan memperbaikinya."
           ]
         }
       ],
@@ -1893,7 +1893,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Kata kerja yang menunjukkan penciptaan hal-hal baru, seperti perangkat?",
+          "q": "Kata kerja yang menunjukkan penciptaan sesuatu yang baru, seperti perangkat?",
           "options": [
             "Inovasi",
             "Ditemukan",
@@ -1902,7 +1902,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Apa ungkapan ungkapan kata-buku ini untuk pemula\"?",
+          "q": "Apa ungkapan yang mengatakan \"buku ini untuk pemula\"?",
           "options": [
             "Buku ini untuk pemula.",
             "Buku menemukan pemula.",
@@ -1920,7 +1920,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Istilah apa yang bisa menimbulkan contoh ekstrem atau mengejutkan dari ” bahkan ”?",
+          "q": "Istilah apa yang dapat menimbulkan contoh ekstrem atau mengejutkan dari ” bahkan ”?",
           "options": [
             "Bahkan.",
             "Terutama sekali.",
@@ -1931,7 +1931,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       ],
       "zh-a-natural-expression-literature": [
         {
-          "q": "Ungkapan yang secara alami dapat menanggapi permintaan maaf?",
+          "q": "Ungkapan apa yang secara alami dapat menanggapi permintaan maaf?",
           "options": [
             "Tak apa.",
             "Sama-sama.",
@@ -1940,7 +1940,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Ungkapan mana yang menunjukkan penerimaan atas apa yang dibayar?",
+          "q": "Ungkapan yang mana yang akan menjadi dukungan atas perbuatan orang lain?",
           "options": [
             "Kerja bagus.",
             "Tak apa.",
@@ -1949,12 +1949,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Puisi yang memuat frasa \\\"Kebanyakan sinar bulan di depan tempat tidur, diduga embun beku di tanah\\\"?",
+          "q": "Puisi yang memuat frasa \\\"Kebanyakan bulan sebelum tidur, diduga membeku di tanah\\\"?",
           "options": [
             "Tidur di malam hari",
             "Chun-hyeok.",
-            "Aku akan pergi ke Freckle House.",
-            "\\\"Kameral\\\"."
+            "Saya akan pergi ke Freckle House.",
+            "Pyo-sun."
           ]
         },
         {
@@ -1962,12 +1962,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           "options": [
             "Nidan Li Bai",
             "Todi!",
-            "Aku tidak tahu.",
-            "Wang Wai!"
+            "Saya tidak tahu.",
+            "- Apa?"
           ]
         },
         {
-          "q": "Apa dua kalimat pertama dari The Nightingale?",
+          "q": "Apa perbedaan antara dua ayat pertama The Nightingale?",
           "options": [
             "Cahaya bulan dan dingin.",
             "Hujan dan Salju",
@@ -1976,12 +1976,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Apa yang salah satu kata lama, yang diambil dari kata-kata \"Sticks of the Sun\" menekankan pentingnya akumulasi progresif?",
+          "q": "Apa yang salah satu kata lama, yang diambil dari kata \"The Sons of the Sons \" , menekankan pentingnya akumulasi progresif?",
           "options": [
             "Tidak ada langkah, tidak ada mil.",
             "Ular ular.",
             "Kita akan pulang.",
-            "Dua dalam satu."
+            "Dua untuk masing-masing satu."
           ]
         }
       ]
@@ -1990,8 +1990,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
   "quiz": {
     "en": {
       "quiz-beginner-001": {
-        "promptLearning": "Pilih kata kerja yang benar: Setiap orang bisa melakukan kesalahan ketika mereka lelah.",
-        "promptTranslation": "Pilih kata kerja yang benar: orang bisa salah ketika mereka lelah.",
+        "promptLearning": "Pilih kata kerja yang benar: Setiap orang dapat melakukan kesalahan ketika mereka lelah.",
+        "promptTranslation": "Pilih kata kerja yang benar: orang dapat salah ketika mereka lelah.",
         "explanationLearning": "Peruntukan standar adalah \\\"buat kesalahan.\\\"",
         "explanationTranslation": "Campuran standar adalah \\\"buat kesalahan\\\".",
         "options": {
@@ -2001,11 +2001,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Diambil",
-            "translation": "Take/take"
+            "translation": "Ambil/ambil"
           },
           "c": {
             "learning": "Buat",
-            "translation": "Perburuhan/penyebab"
+            "translation": "Karena..."
           },
           "d": {
             "learning": "♪ Telah ♪",
@@ -2052,7 +2052,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sarapan."
           },
           "c": {
-            "learning": "Sarapan pagi",
+            "learning": "Sarapan sarapan",
             "translation": "Sarapan sarapan."
           },
           "d": {
@@ -2062,8 +2062,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-004": {
-        "promptLearning": "Aku akan mengerjakan PR setelah makan malam.",
-        "promptTranslation": "Aku bekerja setelah makan malam.",
+        "promptLearning": "Saya akan mengerjakan PR setelah makan malam.",
+        "promptTranslation": "Saya bekerja setelah makan malam.",
         "explanationLearning": "\\\"Lakukan PR\\\" adalah kombinasi kata kerja biasa.",
         "explanationTranslation": "\\\"Lakukan PR\\\" adalah kata kerja umum yang cocok dengan kata benda.",
         "options": {
@@ -2111,7 +2111,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-006": {
         "promptLearning": "Pilihlah artikel yang benar: matahari terbit di timur.",
-        "promptTranslation": "Pilih kata yang tepat: matahari terbit dari timur.",
+        "promptTranslation": "Pilih koroner yang tepat: matahari terbit dari timur.",
         "explanationLearning": "Kita menggunakan \\\"the\\\" untuk matahari yang unik dalam konteks ini.",
         "explanationTranslation": "Dalam konteks ini, matahari unik dan karenanya menggunakan kata \\\"the\\\".",
         "options": {
@@ -2159,7 +2159,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-008": {
         "promptLearning": "Silakan pilih artikel yang benar: Itu adalah kesalahan yang jujur.",
-        "promptTranslation": "Pilih kata yang tepat: itu adalah kesalahan yang tidak disengaja.",
+        "promptTranslation": "Pilih kata-kata yang tepat: itu adalah kesalahan yang tidak disengaja.",
         "explanationLearning": "Kata \\\"h\\\" dalam \\\"jujur\\\" adalah diam, jadi kata dimulai dengan bunyi vokal.",
         "explanationTranslation": "Huruf h dalam \"Honest \" tidak dipronunciasi, sehingga kata diawali dengan vokal.",
         "options": {
@@ -2189,11 +2189,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "anak",
-            "translation": "Aku tidak tahu."
+            "translation": "Saya tidak tahu."
           },
           "b": {
             "learning": "anak",
-            "translation": "Anak-anak."
+            "translation": "Anak."
           },
           "c": {
             "learning": "Anak-anak",
@@ -2213,15 +2213,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "Saranku",
-            "translation": "Aku tidak tahu."
+            "translation": "Saya tidak tahu."
           },
           "b": {
-            "learning": "♪ sepotong nasihat ♪",
-            "translation": "Sedikit nasihat."
+            "learning": "Sebuah sepotong nasihat",
+            "translation": "Sebuah nasihat."
           },
           "c": {
             "learning": "Saranku banyak",
-            "translation": "Aku tidak tahu."
+            "translation": "Saya tidak tahu."
           },
           "d": {
             "learning": "Dua nasihat",
@@ -2233,7 +2233,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Apa yang kita butuhkan?",
         "promptTranslation": "Berapa banyak apel yang kita butuhkan?",
         "explanationLearning": "\\\"Apples\\\" adalah kata benda yang dapat dihitung jamak, jadi pertanyaannya menggunakan \\\"banyak\\\".",
-        "explanationTranslation": "\\\"Apples\\\" adalah beberapa istilah, jadi kalimat pertanyaan menggunakan \\\"banyak\\\".",
+        "explanationTranslation": "\\\"Apples\\\" adalah beberapa istilah, jadi ayat pertanyaan menggunakan \\\"banyak\\\".",
         "options": {
           "a": {
             "learning": "Tidak banyak",
@@ -2256,8 +2256,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-beginner-012": {
         "promptLearning": "Pilih kata yang benar: Tak ada air di botol.",
         "promptTranslation": "Pilih kata yang tepat: tidak ada banyak air dalam botol.",
-        "explanationLearning": "\\\"Air\\\" tidak dapat dihitung di sini, jadi \\\"banyak\\\" digunakan dalam kalimat negatif ini.",
-        "explanationTranslation": "Kata \\\"air\\\" di sini adalah istilah yang tak terhitung jumlahnya dan oleh karena itu kata \\\"banyak\\\" digunakan dalam kalimat negatif.",
+        "explanationLearning": "\\\"Air\\\" tidak dapat dihitung di sini, jadi \\\"banyak\\\" digunakan dalam ayat negatif ini.",
+        "explanationTranslation": "Kata \\\"air\\\" di sini adalah istilah yang tak terhitung jumlahnya dan oleh karena itu kata \\\"banyak\\\" digunakan dalam ayat negatif.",
         "options": {
           "a": {
             "learning": "Ada banyak",
@@ -2278,7 +2278,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-013": {
-        "promptLearning": "Yang mana kalimat mengikuti subjek biasa–verb–object order?",
+        "promptLearning": "Yang mana ayat mengikuti subjek biasa–verb–object order?",
         "promptTranslation": "Hukuman yang sesuai dengan kata kerja utama yang biasa?",
         "explanationLearning": "\\\"Mia\\\" adalah subjek, \\\"baca\\\" adalah kata kerja, dan \\\"buku\\\" adalah objek.",
         "explanationTranslation": "Kata \\\"Mia\\\" adalah kata yang dominan, \\\"baca\\\" adalah kata kerja dan \\\"buku\\\" adalah kacang.",
@@ -2327,9 +2327,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-015": {
         "promptLearning": "Ia memilih pertanyaan sederhana yang menggunakan \\\"does\\\" dengan \\\"he\\\" dan bertanya tentang bekerja di sini.",
-        "promptTranslation": "Pilih kalimat keraguan yang benar.",
+        "promptTranslation": "Pilih ayat keraguan yang benar.",
         "explanationLearning": "Dengan \\\"does,\\\" kata kerja utama tetap dalam bentuk dasarnya: \\\"work.\\\"",
-        "explanationTranslation": "Ketika menggunakan \"does\", kata kerja utama menyimpan asli \"work\".",
+        "explanationTranslation": "Ketika menggunakan \"does\", kata kerja utama mempertahankan asli \"work\".",
         "options": {
           "a": {
             "learning": "Apa dia bekerja di sana?",
@@ -2350,8 +2350,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-016": {
-        "promptLearning": "Pilih kalimat dengan posisi kata sifat biasa.",
-        "promptTranslation": "Memilih posisi kata sifat biasanya kalimat yang tepat.",
+        "promptLearning": "Pilih ayat dengan posisi kata sifat biasa.",
+        "promptTranslation": "Memilih posisi kata sifat biasanya ayat yang tepat.",
         "explanationLearning": "Dalam frasa kata benda ini, kata sifat \\\"merah\\\" datang sebelum kata benda \\\"kantong\\\".",
         "explanationTranslation": "Dalam frasa kata benda ini, kata sifat \\\"merah\\\" diletakkan sebelum kata benda \\\"kantong\\\".",
         "options": {
@@ -2389,7 +2389,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "♪ Pergi ♪",
-            "translation": "Aku dalam perjalanan."
+            "translation": "Saya dalam perjalanan."
           },
           "d": {
             "learning": "Tidak ada",
@@ -2398,8 +2398,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-018": {
-        "promptLearning": "Pilih kalimat negatif yang tepat secara tata bahasa tentang kopi.",
-        "promptTranslation": "Pilihlah kalimat negatif yang benar.",
+        "promptLearning": "Pilih ayat negatif yang tepat secara tata bahasa tentang kopi.",
+        "promptTranslation": "Pilih ayat negatif yang benar.",
         "explanationLearning": "Dengan kata \\\"mereka\\\", gunakan \\\"jangan\\\" diikuti dengan bentuk dasar \\\"seperti.\\\"",
         "explanationTranslation": "Ketika kata dominan adalah \\\"the\\\", masukkan kata kerja \\\"like\\\" dengan kata \\\"jangan/jangan\\\".",
         "options": {
@@ -2422,8 +2422,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-019": {
-        "promptLearning": "Pilihlah kalimat sederhana yang tepat yang menggambarkan kebiasaan biasa.",
-        "promptTranslation": "Memilih deskripsi kebiasaan yang benar biasanya adalah kalimat saat ini.",
+        "promptLearning": "Pilihlah ayat sederhana yang tepat yang menggambarkan kebiasaan biasa.",
+        "promptTranslation": "Memilih deskripsi kebiasaan yang benar biasanya adalah ayat saat ini.",
         "explanationLearning": "\\\"Setiap hari\\\" menggambarkan kebiasaan biasa, dan \\\"dia\\\" mengambil bentuk kata kerja \\\"berjalan.\\\"",
         "explanationTranslation": "Kata \\\"sangat hari\\\" memaksudkan kebiasaan biasa; kata utama \\\"dia\\\" sesuai dengan kata kerja \\\"jalan\\\".",
         "options": {
@@ -2432,8 +2432,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Dia berjalan ke tempat kerja setiap hari."
           },
           "b": {
-            "learning": "Dia berjalan ke kantor kemarin.",
-            "translation": "Dia berjalan ke kantor kemarin."
+            "learning": "Dia berjalan ke pejabat kemarin.",
+            "translation": "Dia berjalan ke pejabat kemarin."
           },
           "c": {
             "learning": "Dia berjalan ke tempat kerja sekarang.",
@@ -2457,14 +2457,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "memiliki",
-            "translation": "Aku makan."
+            "translation": "Saya makan."
           },
           "c": {
             "learning": "♪ Telah ♪",
-            "translation": "Amerika/makan"
+            "translation": "Amerika/Makan"
           },
           "d": {
-            "learning": "Aku punya",
+            "learning": "Saya punya",
             "translation": "Pergi dan makan."
           }
         }
@@ -2472,7 +2472,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-beginner-021": {
         "promptLearning": "Silakan perhatikan jalan.",
         "promptTranslation": "Perhatikan jalan.",
-        "explanationLearning": "Ungkapan standar adalah \\\"perhatian.\\\"",
+        "explanationLearning": "Ungkapan standar adalah \\\"Perhatian.\\\"",
         "explanationTranslation": "Ungkapan standar adalah ” kehadiran yang dibayar ”.",
         "options": {
           "a": {
@@ -2500,11 +2500,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "explanationTranslation": "“Jagalah janji” menunjukkan bahwa janji itu memenuhi komitmennya.",
         "options": {
           "a": {
-            "learning": "♪ Membuat janji ♪",
+            "learning": "♪ Berjanjilah ♪",
             "translation": "Laksanakan fail"
           },
           "b": {
-            "learning": "Aku berjanji.",
+            "learning": "Saya berjanji.",
             "translation": "Kepatuhan"
           },
           "c": {
@@ -2512,7 +2512,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Pelanggaran terhadap komitmen"
           },
           "d": {
-            "learning": "Aku berjanji.",
+            "learning": "Saya berjanji.",
             "translation": "Berjanjilah."
           }
         }
@@ -2567,9 +2567,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-025": {
         "promptLearning": "Ada dua roti di piring.",
-        "promptTranslation": "Ada dua... roti di piring.",
+        "promptTranslation": "Ada dua roti di piring.",
         "explanationLearning": "\\\"Dua\\\" membutuhkan satuan yang dapat dihitung jamak; \\\"dua potong roti\\\" adalah benar.",
-        "explanationTranslation": "Setelah kata \"Dua\" sejumlah kompleks istilah diperlukan; istilah \"dua kata istirahat\" adalah benar.",
+        "explanationTranslation": "Setelah kata \"Dua\" sejumlah istilah yang kompleks diperlukan; kata \"dua kata istirahat\" adalah benar.",
         "options": {
           "a": {
             "learning": "Potong",
@@ -2614,8 +2614,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-027": {
-        "promptLearning": "Pilih kalimat yang benar: tiga kursi di ruangan.",
-        "promptTranslation": "Pilih kalimat yang tepat: tiga kursi di ruangan.",
+        "promptLearning": "Pilih ayat yang benar: tiga kursi di ruangan.",
+        "promptTranslation": "Ada tiga kursi di ruangan.",
         "explanationLearning": "\\\"Tiga kursi\\\" jamak, sehingga struktur yang tepat adalah \\\"Ada.\\\"",
         "explanationTranslation": "\\\"Tiga kursi\\\" adalah bentuk jamak, sehingga struktur yang tepat adalah \\\"Ada\\\".",
         "options": {
@@ -2686,8 +2686,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-030": {
-        "promptLearning": "Kalimat yang menggunakan kata \\\"biasanya\\\" sebelum kata kerja utama dan mengatakan bahwa ia minum teh pada malam hari?",
-        "promptTranslation": "Kalimat mana yang menempatkan adverb frekuensi sebelum kata kerja utama, yang merupakan posisi biasa?",
+        "promptLearning": "Ayat yang menggunakan kata \\\"biasanya\\\" sebelum kata kerja utama dan mengatakan bahwa ia minum teh pada malam hari?",
+        "promptTranslation": "Ayat mana yang menempatkan adverb frekuensi sebelum kata kerja utama, yang merupakan posisi biasa?",
         "explanationLearning": "Frekuensi seperti biasanya muncul sebelum kata kerja utama: Dia biasanya minum teh di malam hari.",
         "explanationTranslation": "Biasanya dia minum teh di malam hari.",
         "options": {
@@ -2697,7 +2697,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Dia minum teh di malam hari.",
-            "translation": "Dia biasanya minum teh di malam hari."
+            "translation": "Pada malam hari, dia biasanya minum teh."
           },
           "c": {
             "learning": "Dia biasanya minum teh di malam hari.",
@@ -2721,7 +2721,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Diambil",
-            "translation": "Take/take"
+            "translation": "Ambil/ambil"
           },
           "c": {
             "learning": "Buat",
@@ -2759,7 +2759,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-003": {
         "promptLearning": "Kata kerja yang mana yang berarti untuk menyelesaikan pekerjaan dengan tanggal yang diperlukan: batas waktu?",
-        "promptTranslation": "Kata kerja yang menunjukkan bahwa pekerjaan itu akan selesai dengan tanggal yang ditentukan: batas waktu?",
+        "promptTranslation": "Kata kerja kata kerja yang menunjukkan bahwa karya tersebut akan diselesaikan dengan tanggal yang ditentukan: Deadline?",
         "explanationLearning": "\\\"Temui tenggat waktu\\\" berarti menyelesaikan pekerjaan dengan tanggal yang diperlukan.",
         "explanationTranslation": "\\\"Temui garis kematian\\\" menunjukkan bahwa pekerjaan akan selesai pada tanggal yang diperlukan.",
         "options": {
@@ -2807,13 +2807,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-005": {
         "promptLearning": "Mengingat cuaca yang cerah, konser luar ruangan akan dibatalkan.",
-        "promptTranslation": "Mengingat ramalan cuaca menunjukkan cuaca yang cerah, sedikit kemungkinan musik di luar ruangan akan dibatalkan.",
+        "promptTranslation": "Mengingat ramalan cuaca cuaca menunjukkan cuaca yang cerah, hanya ada sedikit kemungkinan musik di luar ruangan akan dibatalkan.",
         "explanationLearning": "\\\"Yang sangat tidak mungkin\\\" adalah kolokasi alami yang sangat mustahil.",
         "explanationTranslation": "\\\"Yang sangat tidak mungkin\\\" adalah kombinasi alami dan berarti sangat tidak mungkin.",
         "options": {
           "a": {
             "learning": "Tidak mungkin",
-            "translation": "Tidak mungkin."
+            "translation": "Mustahil."
           },
           "b": {
             "learning": "Tidak mungkin",
@@ -2831,9 +2831,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-006": {
         "promptLearning": "Setiap anggota tim harus bertanggung jawab untuk memeriksa pekerjaan mereka sendiri.",
-        "promptTranslation": "Setiap anggota tim harus bertanggung jawab untuk memeriksa pekerjaannya sendiri.",
-        "explanationLearning": "Ungkapan standar adalah \\\"bertanggung jawab untuk sesuatu\\\".",
-        "explanationTranslation": "Ungkapan standar adalah \\\"bertanggung jawab untuk”.",
+        "promptTranslation": "Setiap anggota tim harus bertanggung jawab atas pekerjaannya.",
+        "explanationLearning": "Ungkapan standar adalah \\\"bertanggung jawab atas sesuatu\\\".",
+        "explanationTranslation": "Ungkapan standar adalah ” bertanggung jawab atas”.",
         "options": {
           "a": {
             "learning": "Buat",
@@ -2854,7 +2854,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-007": {
-        "promptLearning": "Kejatuhan penjualan mendadak bisa menjadi masalah serius untuk bisnis ini.",
+        "promptLearning": "Kejatuhan penjualan mendadak dapat menjadi masalah serius untuk bisnis ini.",
         "promptTranslation": "Penurunan penjualan secara mendadak dapat menyebabkan masalah serius bagi perusahaan.",
         "explanationLearning": "\\\"Pose a problem\\\" berarti menciptakan atau menghadirkan masalah.",
         "explanationTranslation": "\\\"Pose masalah\\\" berarti menyebabkan atau menimbulkan masalah.",
@@ -2903,9 +2903,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-009": {
         "promptLearning": "Pilih penyempurnaan yang benar: Jika cuaca membaik besok, kita akan cocok di luar.",
-        "promptTranslation": "Pilih kalimat yang tepat untuk diselesaikan: jika cuaca membaik besok, kita akan bermain di luar ruangan.",
+        "promptTranslation": "Pilih ayat yang tepat untuk diselesaikan: jika cuaca membaik besok, kita akan bermain di luar ruangan.",
         "explanationLearning": "A conditional pertama menggunakan if-clause masa kini dan \\\"akan\\\" untuk hasil yang mungkin akan datang.",
-        "explanationTranslation": "Kalimat syarat pertama biasanya menggunakan waktu sekarang dalam kalimat dan \\\"akan\\\" pada hasil yang mungkin akan datang.",
+        "explanationTranslation": "Ayat syarat pertama biasanya menggunakan waktu sekarang dalam ayat dan \\\"akan\\\" pada hasil yang mungkin akan datang.",
         "options": {
           "a": {
             "learning": "diselenggarakan",
@@ -2926,10 +2926,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-010": {
-        "promptLearning": "Pilih penyelesaian yang benar: Jika saya lebih dekat ke kantor, saya akan berjalan ke tempat kerja.",
-        "promptTranslation": "Jika saya tinggal dekat dengan kantor, saya akan berjalan ke tempat kerja.",
+        "promptLearning": "Pilih penyelesaian yang benar: Jika saya lebih dekat ke pejabat, saya akan berjalan ke tempat kerja.",
+        "promptTranslation": "Jika saya tinggal dekat dengan pejabat, saya akan berjalan ke tempat kerja.",
         "explanationLearning": "Kondisional kedua menggunakan masa lalu sederhana dalam if-clause untuk situasi yang tidak nyata atau tidak mungkin sekarang.",
-        "explanationTranslation": "Frasa kondisi kedua mengungkapkan, di masa lalu, situasi sekarang, yang tidak nyata atau tidak mungkin.",
+        "explanationTranslation": "Frasa kondisi kedua mengungkapkan, di masa lalu biasa, situasi sekarang yang tidak nyata atau tidak mungkin terjadi.",
         "options": {
           "a": {
             "learning": "hidup",
@@ -2944,8 +2944,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Tempat tinggal (lama)"
           },
           "d": {
-            "learning": "Sebelumnya",
-            "translation": "Digunakan untuk hidup"
+            "learning": "Sebelumnya,",
+            "translation": "Dulu tinggal di"
           }
         }
       },
@@ -2953,7 +2953,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Kau pergi sekarang, kau akan ketinggalan kereta terakhir.",
         "promptTranslation": "Jika kau tidak pergi sekarang, kau akan ketinggalan bus terakhir.",
         "explanationLearning": "Kata \\\"kecuali\\\" berarti \\\"kalau tidak\\\", sehingga menyatakan kondisi bahwa Anda tidak pergi sekarang.",
-        "explanationTranslation": "Kata \\\"kecuali\\\" berarti \\\"kalau tidak\\\", artinya jika kau tidak pergi sekarang.",
+        "explanationTranslation": "Kata \\\"kecuali\\\" berarti \\\"kalau tidak\\\", di sini berarti jika Anda tidak pergi sekarang.",
         "options": {
           "a": {
             "learning": "Meskipun",
@@ -2974,10 +2974,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-012": {
-        "promptLearning": "Pilihlah kalimat nol bersyarat yang benar tentang fakta umum.",
+        "promptLearning": "Pilihlah ayat nol bersyarat yang benar tentang fakta umum.",
         "promptTranslation": "Pilih hukuman nol-kondisi yang benar yang menggambarkan fakta-fakta umum.",
-        "explanationLearning": "ανανανανανανα βανανα ανανα βανανα βανανα βανανα ανανα ανανανα ανανα ανανανανανα αναναναν ανανανα αναναναν ανανανα, ανανανανανα, ανανανανα, ανανανανα, ανανα, ανα, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α,",
-        "explanationTranslation": "Istilah nutfah biasanya digunakan dalam kedua kalimat untuk menyatakan fakta umum.",
+        "explanationLearning": "ανανανανανανα βανανα ανανα βανανα βανανα βανανα ανανα ανανανα ανανα ανανανανανα αναναναν αναναναν ανανανανανανα, ανανανανανανα, ανανανανα, ανανανανα, ανανα, ανα, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, α, dan α, α, α, α, α, α, α, α, α, α, α, α, α,",
+        "explanationTranslation": "Istilah nutfah biasanya digunakan dalam kedua ayat untuk menyatakan fakta umum.",
         "options": {
           "a": {
             "learning": "Jika kau memanaskan es, itu meleleh.",
@@ -2998,22 +2998,22 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-013": {
-        "promptLearning": "Pilih penyelesaian syarat ketiga yang benar: Jika mereka memesan sebelumnya, mereka kurang.",
-        "promptTranslation": "Pilih syarat ketiga yang benar untuk diselesaikan: jika mereka buku sebelumnya, mereka akan menghabiskan lebih sedikit.",
+        "promptLearning": "Pilih pelengkapan syarat ketiga yang benar: Jika mereka memesan sebelumnya, mereka kurang.",
+        "promptTranslation": "Pilih syarat ketiga yang tepat untuk diselesaikan: jika mereka buku sebelumnya, mereka akan menghabiskan lebih sedikit.",
         "explanationLearning": "Karena kondisional ketiga menggunakan \\\"akan memiliki\\\" ditambah participle masa lalu untuk hasil masa lalu yang tidak nyata.",
-        "explanationTranslation": "Kalimat syarat ketiga menggunakan kata \\\"perempuan telah\\\" dan kata \\\"tua\\\" untuk menunjukkan hasil yang bertentangan dengan fakta masa lalu.",
+        "explanationTranslation": "Ayat syarat ketiga menggunakan kata \\\"perempuan telah\\\" untuk menambahkan kata \\\"masih\\\".",
         "options": {
           "a": {
             "learning": "Akan dibayar",
             "translation": "Ini akan membayar."
           },
           "b": {
-            "learning": "Akan dibayar",
+            "learning": "Akan dibayar.",
             "translation": "Akan dibayar"
           },
           "c": {
             "learning": "Akan dibayar",
-            "translation": "Aku akan membayar."
+            "translation": "Saya akan membayar."
           },
           "d": {
             "learning": "Dibayar",
@@ -3022,9 +3022,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-014": {
-        "promptLearning": "Pilih frasa yang melengkapi kalimat dengan benar: Anda dapat menggunakan ruang pertemuan Anda meninggalkannya bersih.",
-        "promptTranslation": "Pilih frasa yang benar untuk menyelesaikan kalimat: Selama Anda menjaga ruang konferensi tetap bersih, Anda dapat menggunakannya.",
-        "explanationLearning": "\\\"Dipersembahkan bahwa\\\" memperkenalkan kondisi yang harus dipenuhi.",
+        "promptLearning": "Pilih frasa yang melengkapi ayat dengan benar: Anda dapat menggunakan ruang pertemuan Anda meninggalkannya bersih.",
+        "promptTranslation": "Pilih frasa yang benar untuk menyelesaikan ayat: Selama Anda menjaga ruang konferensi tetap bersih, Anda dapat menggunakannya.",
+        "explanationLearning": "\\\"Memandari hal itu\\\" memperkenalkan kondisi yang harus dipenuhi.",
         "explanationTranslation": "\\\"Provided that\\\" memperkenalkan kondisi yang harus dipenuhi, yang berarti \\\"hanya\\\".",
         "options": {
           "a": {
@@ -3046,8 +3046,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-015": {
-        "promptLearning": "Pilih kondisional campuran yang benar: Jika saya telah menerima tawaran, saya di Singapura sekarang.",
-        "promptTranslation": "Pilih kalimat hybrid yang tepat: Jika saya menerima pekerjaan itu, saya akan tinggal di Singapura sekarang.",
+        "promptLearning": "Pilih kondisional campuran yang benar: Jika saya telah menerima tawaran itu, saya di Singapura sekarang.",
+        "promptTranslation": "Pilih ayat hybrid yang tepat: Jika saya menerima pekerjaan itu, saya akan tinggal di Singapura sekarang.",
         "explanationLearning": "Masa lalu sempurna menggambarkan kondisi masa lalu yang tidak nyata; \\\"akan hidup\\\" menggambarkan hasilnya saat ini.",
         "explanationTranslation": "Penyelesaian masa lalu menggambarkan kondisi yang bertentangan dengan fakta masa lalu; \\\"manusia purba menjadi hidup\\\" menggambarkan hasil yang sekarang dihasilkannya.",
         "options": {
@@ -3057,21 +3057,21 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Akan hidup",
-            "translation": "Aku akan hidup sekarang."
+            "translation": "Saya akan hidup sekarang."
           },
           "c": {
             "learning": "Akan hidup",
-            "translation": "Aku akan hidup."
+            "translation": "Saya akan hidup."
           },
           "d": {
-            "learning": "Sebelumnya",
+            "learning": "Sebelumnya,",
             "translation": "Dulu."
           }
         }
       },
       "quiz-intermediate-016": {
-        "promptLearning": "Bisa kau bawa anjingku sementara aku pergi akhir pekan ini?",
-        "promptTranslation": "Kau bisa menjaga anjingku sementara aku pergi akhir pekan ini?",
+        "promptLearning": "Dapat kau bawa anjingku sementara saya pergi akhir pekan ini?",
+        "promptTranslation": "Kau dapat menjaga anjingku sementara saya pergi akhir pekan ini?",
         "explanationLearning": "\\\"Awaslah\\\" berarti mengurus seseorang atau binatang.",
         "explanationTranslation": "\" Jagalah \" berarti mengurus seseorang atau binatang.",
         "options": {
@@ -3096,8 +3096,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-017": {
         "promptLearning": "Pertemuan itu berlangsung sampai Senin depan karena direktur sedang sakit.",
         "promptTranslation": "Karena penyakit dari pengawas, pertemuan ditunda sampai Senin.",
-        "explanationLearning": "\\\"Lepaskan\\\" berarti menunda acara atau kegiatan.",
-        "explanationTranslation": "\\\"Lepaskan\\\" menunjukkan penundaan aktivitas atau peristiwa.",
+        "explanationLearning": "\\\"Lepaskan\\\" berarti menunda suatu acara atau kegiatan.",
+        "explanationTranslation": "\\\"Lepaskan\\\" menunjukkan penundaan kegiatan atau peristiwa.",
         "options": {
           "a": {
             "learning": "Dihabisi",
@@ -3121,11 +3121,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Kita perlu membeli susu lagi karena kita memilikinya.",
         "promptTranslation": "Kita perlu membeli susu lagi, karena sudah habis.",
         "explanationLearning": "\\\"Lari dari\\\" berarti tidak ada lagi sesuatu yang tersedia.",
-        "explanationTranslation": "\\\"Lari keluar dari\\\" berarti bahwa sesuatu sudah habis.",
+        "explanationTranslation": "\\\"Lari keluar dari\\\" berarti bahwa sesuatu yang lelah.",
         "options": {
           "a": {
             "learning": "Ke dalam",
-            "translation": "Perjumpaan/perjalanan"
+            "translation": "Pertemuan Pendudukan/hit"
           },
           "b": {
             "learning": "Ditabrak",
@@ -3145,7 +3145,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Meskipun ada gangguan, pembicara menjelaskan hasilnya.",
         "promptTranslation": "Meskipun terganggu, para pembicara terus menjelaskan hasilnya.",
         "explanationLearning": "\\\"Carry on\\\" berarti untuk terus melakukan sesuatu.",
-        "explanationTranslation": "\"Carry on\" berarti melakukan sesuatu.",
+        "explanationTranslation": "\"Carry on\" berarti terus melakukan sesuatu.",
         "options": {
           "a": {
             "learning": "Dilanjutkan",
@@ -3153,11 +3153,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Dilaksanakan",
-            "translation": "Implementasi yang luar biasa"
+            "translation": "Implementasi"
           },
           "c": {
             "learning": "Dibawa pergi",
-            "translation": "Aku sudah gila."
+            "translation": "Saya sudah gila."
           },
           "d": {
             "learning": "Dilepaskan",
@@ -3214,41 +3214,41 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-022": {
-        "promptLearning": "Aku biasanya menjadi rekan baruku karena kita berkomunikasi secara terbuka dan hormat.",
+        "promptLearning": "Saya biasanya menjadi rekan baruku karena kita berkomunikasi secara terbuka dan hormat.",
         "promptTranslation": "Saya biasanya bergaul baik dengan rekan-rekan baru saya, karena kita berbicara terus terang dan saling menghormati.",
-        "explanationLearning": "\\\"Coba bergaul dengan\\\" menggambarkan memiliki hubungan yang ramah atau sukses dengan seseorang.",
+        "explanationLearning": "\\\"Kenalan bersama\\\" menggambarkan memiliki hubungan yang ramah atau sukses dengan seseorang.",
         "explanationTranslation": "\\\"Persamaan\\\" menunjukkan hubungan yang baik dengan seseorang.",
         "options": {
           "a": {
-            "learning": "Aku akan pergi",
+            "learning": "Saya akan pergi",
             "translation": "Kemuliaan Mengatasi"
           },
           "b": {
             "learning": "Akur dengan",
-            "translation": "Senang bisa bersama..."
+            "translation": "Senang dapat bersama..."
           },
           "c": {
             "learning": "Pergi dengan",
             "translation": "Dia melarikan diri."
           },
           "d": {
-            "learning": "Kau bisa melalui",
+            "learning": "Kau dapat melalui",
             "translation": "Siap"
           }
         }
       },
       "quiz-intermediate-023": {
-        "promptLearning": "Aku tinggal di sini selama lima tahun, dan aku masih tinggal di sini.",
+        "promptLearning": "Saya tinggal di sini selama lima tahun, dan saya masih tinggal di sini.",
         "promptTranslation": "Saya telah tinggal di komunitas ini selama lima tahun dan masih tinggal di sini.",
-        "explanationLearning": "Saat ini sempurna menghubungkan situasi yang dimulai di masa lalu dengan masa sekarang; kalimat mengatakan itu berlanjut sekarang.",
-        "explanationTranslation": "Hal ini sekarang dilakukan dengan menghubungkan awal dan kelanjutan masa lalu; kalimat tersebut menunjukkan bahwa ia masih tinggal di sini.",
+        "explanationLearning": "Saat ini sempurna menghubungkan situasi yang dimulai di masa lalu dengan masa sekarang; ayat mengatakan itu berlanjut sekarang.",
+        "explanationTranslation": "Hal ini sekarang dilakukan dengan menghubungkan awal dan kelanjutan masa lalu; ayat tersebut menunjukkan bahwa ia masih tinggal di sini.",
         "options": {
           "a": {
             "learning": "Hidup",
-            "translation": "Hidup (lama)"
+            "translation": "Ya, benar."
           },
           "b": {
-            "learning": "♪ Telah hidup ♪",
+            "learning": "telah hidup",
             "translation": "Ini sudah di sini."
           },
           "c": {
@@ -3256,32 +3256,32 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Living"
           },
           "d": {
-            "learning": "Sebelumnya",
-            "translation": "Aku pernah tinggal di sini sebelumnya."
+            "learning": "Sebelumnya,",
+            "translation": "Saya pernah tinggal di sini sebelumnya."
           }
         }
       },
       "quiz-intermediate-024": {
         "promptLearning": "Pilih ayat yang benar untuk tindakan selesai pada waktu yang telah selesai kemarin.",
-        "promptTranslation": "Pilih kalimat yang benar untuk menggambarkan tindakan yang diselesaikan beberapa waktu kemarin.",
+        "promptTranslation": "Pilih ayat yang benar untuk menggambarkan tindakan yang diselesaikan beberapa waktu kemarin.",
         "explanationLearning": "\\\"Yesterday\\\" adalah waktu yang sudah lewat, jadi \\\"saw\\\" sederhana masa lalu digunakan.",
         "explanationTranslation": "\\\"Yesterday\\\" menunjukkan waktu yang telah berlalu dan karenanya menggunakan \\\"saw\\\" biasa.",
         "options": {
           "a": {
-            "learning": "Aku melihatnya kemarin.",
-            "translation": "Aku melihatnya kemarin."
+            "learning": "Saya melihatnya kemarin.",
+            "translation": "Saya melihatnya kemarin."
           },
           "b": {
-            "learning": "Aku melihatnya kemarin.",
-            "translation": "Aku melihatnya kemarin."
+            "learning": "Saya melihatnya kemarin.",
+            "translation": "Saya melihatnya kemarin."
           },
           "c": {
-            "learning": "Aku melihatnya kemarin.",
-            "translation": "Aku melihatnya kemarin."
+            "learning": "Saya melihatnya kemarin.",
+            "translation": "Saya melihatnya kemarin."
           },
           "d": {
-            "learning": "Aku melihatnya kemarin.",
-            "translation": "Aku menemuinya kemarin."
+            "learning": "Saya melihatnya kemarin.",
+            "translation": "Saya menemuinya kemarin."
           }
         }
       },
@@ -3296,11 +3296,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Mulai dari sekarang (sekarang selesai)"
           },
           "b": {
-            "learning": "Aku mulai",
+            "learning": "Saya mulai",
             "translation": "Itu awalnya."
           },
           "c": {
-            "learning": "Aku sudah mulai",
+            "learning": "Saya sudah mulai",
             "translation": "Ini sudah dimulai."
           },
           "d": {
@@ -3320,12 +3320,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Belajarlah."
           },
           "b": {
-            "learning": "Aku telah belajar.",
-            "translation": "Aku sudah belajar."
+            "learning": "Saya telah belajar.",
+            "translation": "Saya sudah belajar."
           },
           "c": {
             "learning": "Saya belajar bahasa Arab",
-            "translation": "Aku pernah belajar sebelumnya."
+            "translation": "Saya pernah belajar sebelumnya."
           },
           "d": {
             "learning": "studi ilmu kedokteran",
@@ -3334,8 +3334,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-027": {
-        "promptLearning": "Aku telah bekerja di sekolah ini tahun 2020.",
-        "promptTranslation": "Aku telah bekerja di sekolah ini sejak 2020.",
+        "promptLearning": "Saya telah bekerja di sekolah ini tahun 2020.",
+        "promptTranslation": "Saya telah bekerja di sekolah ini sejak 2020.",
         "explanationLearning": "Sejak awal periode yang berlanjut hingga sekarang.",
         "explanationTranslation": "\\\"Semenjak\\\" menawarkan titik awal untuk jangka waktu.",
         "options": {
@@ -3358,34 +3358,34 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-028": {
-        "promptLearning": "Ia memilih kalimat negatif yang sempurna saat ini menggunakan \\\"belum\\\" untuk menunjukkan bahwa laporan tersebut masih belum selesai.",
-        "promptTranslation": "Æð Pilih untuk menggunakan kalimat \\\"belum\\\" dengan benar dalam kalimat negatif yang sekarang selesai.",
+        "promptLearning": "AYAH Pilih negatif ayat sempurna saat ini menggunakan \\\"belum\\\" untuk menunjukkan bahwa laporan masih belum selesai.",
+        "promptTranslation": "Æð Pilih untuk menggunakan ayat \\\"belum\\\" dengan benar dalam ayat negatif yang sekarang selesai.",
         "explanationLearning": "Dalam pernyataan negatif yang sempurna sekarang, \\\"belum\\\" umumnya muncul di akhir setelah participle masa lalu.",
-        "explanationTranslation": "Dalam kalimat negatif, yang sekarang selesai, \\\"belum\\\" biasanya ditempatkan pada akhir kalimat yang mengikuti pembagian sebelumnya.",
+        "explanationTranslation": "Dalam ayat negatif, yang sekarang selesai, \\\"belum\\\" biasanya ditempatkan pada akhir ayat setelah diksi sebelumnya.",
         "options": {
           "a": {
-            "learning": "Aku belum menyelesaikan laporannya.",
-            "translation": "Aku belum menyelesaikan laporanku."
+            "learning": "Saya belum menyelesaikan laporannya.",
+            "translation": "Saya belum menyelesaikan laporanku."
           },
           "b": {
-            "learning": "Aku belum mengirim laporannya.",
-            "translation": "Aku belum mengirim laporannya."
+            "learning": "Saya belum mengirim laporannya.",
+            "translation": "Saya belum mengirim laporannya."
           },
           "c": {
-            "learning": "Aku belum menyelesaikan laporannya.",
-            "translation": "Aku belum menyelesaikan laporannya."
+            "learning": "Saya belum menyelesaikan laporannya.",
+            "translation": "Saya tidak perlu menyelesaikan laporan sekarang."
           },
           "d": {
-            "learning": "Aku belum menyelesaikan laporannya siang ini.",
-            "translation": "Aku belum menyelesaikan laporanku siang ini."
+            "learning": "Saya belum menyelesaikan laporannya siang ini.",
+            "translation": "Saya belum menyelesaikan laporanku siang ini."
           }
         }
       },
       "quiz-intermediate-029": {
-        "promptLearning": "Pilih kalimat sempurna yang menunjukkan bahwa semua tamu pergi sebelum sekarang.",
-        "promptTranslation": "Pilih kalimat yang tepat untuk berarti bahwa tamu telah pergi sebelum sekarang.",
+        "promptLearning": "Pilih ayat sempurna yang menunjukkan bahwa semua tamu pergi sebelum sekarang.",
+        "promptTranslation": "Pilih ayat yang tepat untuk berarti bahwa tamu telah pergi sebelum sekarang.",
         "explanationLearning": "Fondografi jamak \\\"tegukan\\\" mengambil \\\"memiliki,\\\" diikuti oleh participle masa lalu \\\"kiri\\\".",
-        "explanationTranslation": "Kata jamak jamak utama \\\"guests\\\" digunakan sebagai \\\"have\\\", diikuti dengan frasa terakhir \\\"lift\\\".",
+        "explanationTranslation": "Kata jamak jamak utama \\\"tegu\\\" digunakan untuk membaca \\\"memiliki\\\", diikuti dengan frasa terakhir \\\"lift\\\".",
         "options": {
           "a": {
             "learning": "Para tamu sudah pergi.",
@@ -3406,8 +3406,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-030": {
-        "promptLearning": "Ia memilih bentuk kata benda dari kata kerja \\\"putus\\\" untuk melengkapi kalimat: Dia mengejutkan semua orang.",
-        "promptTranslation": "Ia memilih kata kerja untuk menyelesaikan kalimat: keputusannya mengejutkan semua orang.",
+        "promptLearning": "Ia memilih bentuk kata benda dari kata kerja \\\"putus\\\" untuk melengkapi ayat: Dia mengejutkan semua orang.",
+        "promptTranslation": "Ia memilih kata kerja untuk menyelesaikan ayat: keputusannya mengejutkan semua orang.",
         "explanationLearning": "\\\"Keputusan\\\" adalah bentuk kata benda dari \\\"keputusan\\\".",
         "explanationTranslation": "Kata \\\"Desi\\\" adalah kata kerja \\\"putusan\\\".",
         "options": {
@@ -3441,11 +3441,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Mungkin",
-            "translation": "Bisa diandalkan"
+            "translation": "Dapat diandalkan"
           },
           "c": {
             "learning": "Dapat dipercaya",
-            "translation": "Bisa diandalkan"
+            "translation": "Dapat diandalkan"
           },
           "d": {
             "learning": "Keandalan",
@@ -3479,7 +3479,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-033": {
         "promptLearning": "Artis terkenal karena ide-ide aslinya dan hebat.",
-        "promptTranslation": "Seniman ini dikenal karena ide-ide unik dan kreativitasnya yang kaya.",
+        "promptTranslation": "Artis tersebut dikenal karena ide-ide unik dan kreativitasnya yang kaya.",
         "explanationLearning": "\\\"Creativity\\\" adalah kata benda untuk kemampuan menghasilkan ide asli.",
         "explanationTranslation": "‘Kreativitas' adalah istilah untuk kemampuan menghasilkan ide - ide asli.",
         "options": {
@@ -3575,7 +3575,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-001": {
         "promptLearning": "Kata kerja yang mana yang paling tepat? \\\"Hasil awal bahwa proses baru dapat mengurangi penundaan.\\\"",
-        "promptTranslation": "Kata kerja yang terbaik digunakan untuk menyatakan klaim ini dengan hati-hati? \\\"Hasil awal proses baru dapat mengurangi penundaan.\\\"",
+        "promptTranslation": "Kata kerja yang terbaik digunakan untuk menyatakan klaim ini dengan hati-hati? (Dikatakan kepada mereka): \\\"Kedatangan hari yang telah ditentukan, sedang waktu yang telah ditentukan itu ialah waktu yang telah ditentukan\\\".",
         "explanationLearning": "\\\"Cadang\\\" mengemukakan kemungkinan penafsiran tanpa mengklaim bukti pasti.",
         "explanationTranslation": "\\\"Cadang\\\" menyatakan kemungkinan penafsiran, bukan pernyataan bahwa hal itu telah terbukti dengan pasti.",
         "options": {
@@ -3585,7 +3585,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Saran lain",
-            "translation": "Menunjukkan/diindikasikan"
+            "translation": "Menyandang/penunjukan"
           },
           "c": {
             "learning": "Jaminan",
@@ -3601,11 +3601,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Kata-kata yang berhati-hati: Perbedaan mungkin akan menjadi variasi dalam sampel.",
         "promptTranslation": "Kehati-hatian pelucutan: perbedaan ini kemungkinan besar akan berubah dalam sampel.",
         "explanationLearning": "Kata-kata \\\"Sebagian yang dapat dibagikan\\\" menandakan faktor yang mungkin memberikan kontribusi tanpa mengklaim itu adalah satu-satunya penyebab.",
-        "explanationTranslation": "\\\"Bagian yang tersedia untuk\\\" menunjukkan bahwa faktor mungkin sebagian dapat diperbandingkan, tetapi tidak menyatakan bahwa itu adalah penyebab tunggal.",
+        "explanationTranslation": "\\\"Bagian yang tersedia untuk\\\" menunjukkan bahwa faktor mungkin sebagian karena, tetapi tidak mengklaim bahwa itu adalah penyebab tunggal.",
         "options": {
           "a": {
-            "learning": "Benar sekali.",
-            "translation": "Aku yakin itu karena"
+            "learning": "Tentu saja karena",
+            "translation": "Saya yakin itu karena"
           },
           "b": {
             "learning": "Secara keseluruhan disebabkan",
@@ -3647,7 +3647,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-004": {
         "promptLearning": "Pola yang diamati adalah dengan studi sebelumnya, meskipun metode berbeda.",
-        "promptTranslation": "Pola yang diamati berbeda dengan studi sebelumnya, meskipun metodologinya berbeda.",
+        "promptTranslation": "Pola yang diamati berbeda dengan studi sebelumnya, meskipun dengan metode yang berbeda.",
         "explanationLearning": "Wajanford \\\"Konsisten dengan\\\" berarti pola setuju dengan temuan sebelumnya tanpa mengklaim studi identik.",
         "explanationTranslation": "Vichania “berkonsisten dengan” menunjukkan bahwa model tersebut konsisten dengan studi sebelumnya, tetapi tidak berarti bahwa kedua studi tersebut identik.",
         "options": {
@@ -3671,7 +3671,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-005": {
         "promptLearning": "Peningkatan biaya mungkin dari perubahan harga pemasok.",
-        "promptTranslation": "Peningkatan biaya evabia dapat mengubah harga pemasok.",
+        "promptTranslation": "Kenaikan biaya evabia dapat mengubah harga pemasok.",
         "explanationLearning": "\\\"Stem\\\" berasal dari atau disebabkan oleh sesuatu.",
         "explanationTranslation": "Kata \\\"Stem dari\\\" menunjukkan bahwa sesuatu berasal atau disebabkan oleh sesuatu.",
         "options": {
@@ -3684,7 +3684,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sertifikasi"
           },
           "c": {
-            "learning": "simpulkan hasil",
+            "learning": "kesimpulan disimpulkan",
             "translation": "Kesimpulan"
           },
           "d": {
@@ -3701,7 +3701,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "♪ Tak terelakkan ♪",
-            "translation": "Ini tak bisa dihindari."
+            "translation": "Ini tak dapat dihindari."
           },
           "b": {
             "learning": "prematur",
@@ -3736,7 +3736,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Akhirnya."
           },
           "d": {
-            "learning": "♪ ♪ tertentu ♪",
+            "learning": "♪ tertentu ♪",
             "translation": "Tentu."
           }
         }
@@ -3745,7 +3745,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Jadwal yang direvisi kemungkinan besar memiliki efek pada biaya keseluruhan daripada mengubah anggaran.",
         "promptTranslation": "Daftar waktu yang direvisi mungkin hanya memiliki implikasi untuk biaya total dan tidak akan mengubah anggaran sepenuhnya.",
         "explanationLearning": "\\\"Efek modern\\\" sinyal tingkat dampak terbatas daripada menyapu atau hasil tertentu.",
-        "explanationTranslation": "“Efek luar biasa” menunjukkan dampak terbatas daripada hasil yang tidak terelakkan.",
+        "explanationTranslation": "“Efek luar biasa” menunjukkan dampak terbatas daripada hasil yang tidak dapat dihindari.",
         "options": {
           "a": {
             "learning": "Sederhana",
@@ -3801,7 +3801,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Diangkat",
-            "translation": "Diserahkan/dicuri"
+            "translation": "Diserah/dicuri"
           },
           "c": {
             "learning": "Jaminan",
@@ -3816,15 +3816,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-011": {
         "promptLearning": "Ayat lengkap: Tidak sampai laporan akhir diterbitkan skala masalah.",
         "promptTranslation": "Hukuman komplet: sejauh mana masalah tersebut tidak tersedia untuk umum sampai setelah laporan akhir dikeluarkan.",
-        "explanationLearning": "Kata - kata negatif di hadapan orang - orang seperti ” Tidak sampai” memicu subjek–penghindaran tambahan dalam klausa utama: ” Apakah masyarakat mengerti ”.",
-        "explanationTranslation": "Ketika frasa negatif seperti \\\"tidak sampai\\\" ditempatkan pada awal kalimat, kalimat utama perlu ditulis ulang dengan kata utama, menggunakan \\\"melakukan kondisi publik\\\".",
+        "explanationLearning": "Kata - kata negatif di hadapan orang - orang seperti “Tidak sampai” memicu subjek–penghindaran tambahan dalam klausa utama: ” Apakah masyarakat mengerti ”.",
+        "explanationTranslation": "Ketika frasa negatif seperti \\\"Tidak sampai\\\" ditempatkan di awal ayat, frasa utama perlu di-revert, menggunakan \\\"melakukan kondisi publik\\\".",
         "options": {
           "a": {
             "learning": "Masyarakat mengerti",
             "translation": "Masyarakat mengerti."
           },
           "b": {
-            "learning": "Orang awam mengerti",
+            "learning": "Mereka membuat masyarakat mengerti",
             "translation": "Masyarakat mengerti."
           },
           "c": {
@@ -3833,7 +3833,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Orang-orang terkenal mengerti",
-            "translation": "Aku mengerti publik."
+            "translation": "Saya mengerti publik."
           }
         }
       },
@@ -3841,7 +3841,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Pilih inversi yang benar: Jarang seperti analisis rinci dari isu.",
         "promptTranslation": "Kita jarang melihat analisis terperinci tentang masalah ini.",
         "explanationLearning": "Pada permulaan suatu klausa, orang-orang yang tidak percaya kepada Allah akan berkata, \\\"Kami telah melihat kalian.\\\"",
-        "explanationTranslation": "\\\"Ranly\\\" di awal kalimat mengharuskan judul utama untuk terbalik dan oleh karena itu \\\"telah kita lihat\\\".",
+        "explanationTranslation": "\\\"Ranly\\\" di awal ayat mengharuskan judul utama untuk terbalik dan oleh karena itu \\\"telah kita lihat\\\".",
         "options": {
           "a": {
             "learning": "Kita telah melihat",
@@ -3849,7 +3849,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Kita telah melihat",
-            "translation": "Kami melihatnya."
+            "translation": "Kami melihatnya sekali."
           },
           "c": {
             "learning": "Apa yang kita lihat",
@@ -3863,20 +3863,20 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-013": {
         "promptLearning": "Baru setelah data diperiksa tim merilis laporan.",
-        "promptTranslation": "Kalimat lengkap: Hanya ketika verifikasi data selesai tim akan merilis laporan.",
+        "promptTranslation": "Ayat lengkap: Hanya ketika verifikasi data selesai akan tim mengeluarkan laporan.",
         "explanationLearning": "Ketika \\\"Hanya setelah\\\" memperkenalkan kondisi fronted, klausa utama menggunakan inversi: \\\"Apakah tim rilis.\\\"",
-        "explanationTranslation": "Frasa kondisi yang dipandu oleh \\\"Hanya setelah\\\" diletakkan di awal kalimat, dan kalimat utama diganti dengan \\\"did the team release\\\".",
+        "explanationTranslation": "Frasa kondisi yang dipandu oleh \\\"Hanya setelah\\\" diletakkan di awal ayat, dan ayat utama diganti dengan \\\"dilakukan rilis tim\\\".",
         "options": {
           "a": {
             "learning": "Tim melakukan",
             "translation": "Tim tidak."
           },
           "b": {
-            "learning": "Aku punya tim.",
+            "learning": "Mereka punya tim.",
             "translation": "Tim telah..."
           },
           "c": {
-            "learning": "Di tim",
+            "learning": "Dia tim.",
             "translation": "Bakat tim."
           },
           "d": {
@@ -3888,8 +3888,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-014": {
         "promptLearning": "Pilihlah inversion formal yang benar: Tanpa keadaan apapun berkas rahasia dengan pihak luar.",
         "promptTranslation": "Dengan memilih struktur pengaturan ulang formal yang tepat: Dalam situasi apa pun, staf tidak boleh berbagi dokumen rahasia dengan orang luar.",
-        "explanationLearning": "Kata \\\"tidak ada keadaan\\\" adalah kalimat negatif yang dilontarkan dan membutuhkan keengganan, \\\"seharusnya tongkat berbagi.\\\"",
-        "explanationTranslation": "Frasa \\\"di bawah keadaan tanpa keadaan\\\" adalah frasa pertama dari kalimat negatif dan perlu dicairkan menggunakan \\\"harusnya staf berbagi\\\".",
+        "explanationLearning": "Kata \\\"tidak ada keadaan\\\" adalah ayat negatif yang dilontarkan dan membutuhkan keengganan, \\\"seharusnya tongkat berbagi.\\\"",
+        "explanationTranslation": "Frasa \\\"tidak ada keadaan\\\" adalah frasa pertama dari ayat negatif dan perlu dicairkan menggunakan \\\"harusnya staf berbagi\\\".",
         "options": {
           "a": {
             "learning": "Para staf harus berbagi",
@@ -3910,14 +3910,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-015": {
-        "promptLearning": "Jika aku tahu tentang penundaan, aku akan naik kereta sebelumnya.",
+        "promptLearning": "Jika saya tahu tentang penundaan, saya akan naik kereta sebelumnya.",
         "promptTranslation": "Saya akan naik kereta lebih awal.",
-        "explanationLearning": "Andaikata aku tahu, aku akan menggantikan \\\"Jika aku tahu\\\", hasil masa lalu yang tidak nyata akan terjadi \\\"akan memiliki\\\" ditambah participle masa lalu.",
-        "explanationTranslation": "Jika \\\"aku tahu\\\" setara dengan \\\"Jika aku tahu\\\"; kontras dengan fakta-fakta masa lalu, kata \\\"tua telah\\\" digunakan.",
+        "explanationLearning": "Andaikata saya tahu, saya akan menggantikan \\\"Jika saya tahu\\\", hasil masa lalu yang tidak nyata akan terjadi \\\"akan memiliki\\\" ditambah participle masa lalu.",
+        "explanationTranslation": "Jika \\\"saya tahu\\\" setara dengan \\\"Jika saya tahu\\\"; kontras dengan fakta-fakta masa lalu, kata \\\"tua telah\\\" digunakan.",
         "options": {
           "a": {
             "learning": "Akan mengambil",
-            "translation": "Aku bisa naik."
+            "translation": "Saya dapat naik."
           },
           "b": {
             "learning": "Akan diambil",
@@ -3925,7 +3925,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Akan diambil",
-            "translation": "Aku biasa naik."
+            "translation": "Saya biasa naik."
           },
           "d": {
             "learning": "Diambil",
@@ -3936,12 +3936,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-016": {
         "promptLearning": "Pilih penyempurnaan yang benar: Tidak lebih cepat daripada lampu padam.",
         "promptTranslation": "Pilih patch yang tepat: lampu padam segera setelah kami duduk.",
-        "explanationLearning": "Struktur \\\"Tidak lama kemudian memiliki + subjek + masa lalu participle + than\\\" menggambarkan satu peristiwa segera diikuti oleh peristiwa lain.",
+        "explanationLearning": "Struktur \\\"Tidak lama sebelumnya memiliki + subjek + masa lalu participle + than” menggambarkan satu peristiwa segera diikuti oleh peristiwa lain.",
         "explanationTranslation": "Struktur \"Tidak lebih cepat memiliki + Monumen + Kata Sub Masa Lalu + daripada\" berarti bahwa satu hal terjadi dan hal lainnya terjadi.",
         "options": {
           "a": {
             "learning": "Kami telah duduk",
-            "translation": "Kita duduk."
+            "translation": "Kami sedang duduk."
           },
           "b": {
             "learning": "Apakah kita duduk",
@@ -3961,7 +3961,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Sedikit bahwa keputusan akan membentuk kembali industri.",
         "promptTranslation": "Mereka tidak tahu bahwa keputusan akan membentuk kembali seluruh industri.",
         "explanationLearning": "\\\"Little\\\" berarti \\\"tidak sama sekali\\\" di awal klausa memicu keengganan, \\\"apakah mereka tahu.\\\"",
-        "explanationTranslation": "\\\"Little\\\" berarti \\\"tidak ada sama sekali\\\" dan pada awal kalimat memicu rewinding, menggunakan \\\"apakah mereka tahu\\\".",
+        "explanationTranslation": "\\\"Little\\\" berarti \\\"tidak ada sama sekali\\\" dan pada awal ayat memicu rewinding, menggunakan \\\"apakah mereka tahu\\\".",
         "options": {
           "a": {
             "learning": "Mereka tahu",
@@ -3983,9 +3983,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-018": {
         "promptLearning": "Pilih struktur yang benar: Tidak hanya anggaran, tetapi juga mengurangi penundaan.",
-        "promptTranslation": "Memilih struktur yang tepat: rencana tidak hanya mengurangi anggaran tetapi juga mengurangi penundaan.",
+        "promptTranslation": "Rencana ini tidak hanya mengurangi anggaran tetapi juga mengurangi penundaan.",
         "explanationLearning": "Ketika \\\"Tidak hanya\\\" memulai klausa, tambahan mendahului subjek, \\\"Apakah rencana dipotong.\\\"",
-        "explanationTranslation": "\\\"Tidak hanya\\\" pada awal kalimat, kata kerja harus diletakkan sebelum frasa utama, menggunakan \\\"apakah rencana dipotong\\\".",
+        "explanationTranslation": "\\\"Tidak hanya\\\" pada awal ayat, kata kerja harus diletakkan sebelum frasa utama, menggunakan \\\"apakah rencana dipotong\\\".",
         "options": {
           "a": {
             "learning": "Rencana dipotong",
@@ -4024,16 +4024,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Klien diberitahu tentang perubahan kontrak."
           },
           "d": {
-            "learning": "Dia tidak memberitahu klien",
+            "learning": "Klien tidak menginformasikan",
             "translation": "Kliennya memberitahu orang yang bersangkutan."
           }
         }
       },
       "quiz-advanced-020": {
         "promptLearning": "Jadi tidak terduga bahwa komite meminta ulasan kedua.",
-        "promptTranslation": "Penekanan penyempurnaannya adalah pada struktur kelas belakang: hasilnya sangat tidak terduga sehingga Komite meminta ulasan kedua.",
+        "promptTranslation": "Penekanan penyempurnaannya adalah pada struktur kelas belakang: hasilnya sangat tidak terduga sehingga Komisi meminta ulasan kedua.",
         "explanationLearning": "Struktur \\\"So + adjektiva\\\" di awal memicu keengganan, \\\"Jadi tidak terduga adalah hasilnya bahwa .. \\\"",
-        "explanationTranslation": "Struktur \\\"So + adjektiva\\\" perlu dimuat kembali pada awal kalimat: \\\"Jadi yang dikutip adalah hasil yang ...\\\".",
+        "explanationTranslation": "Struktur \\\"Jadi + kata sifat\\\" perlu dimuat ulang pada awal ayat: \\\"Jadi yang dikutip adalah hasil yang ...\\\".",
         "options": {
           "a": {
             "learning": "Hasil hasilnya adalah",
@@ -4041,7 +4041,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Hasil yang dilakukan",
-            "translation": "Aku melakukannya."
+            "translation": "Saya melakukannya."
           },
           "c": {
             "learning": "Hasilnya adalah",
@@ -4054,26 +4054,26 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-021": {
-        "promptLearning": "Pilih kondisional campuran yang benar: Jika aku menerima beasiswa, aku akan kuliah di universitas sekarang.",
-        "promptTranslation": "Pilih kalimat hybrid yang tepat: jika saya menerima beasiswa, saya sekarang akan belajar di universitas.",
+        "promptLearning": "Pilih kondisional campuran yang benar: Jika saya menerima beasiswa, saya akan kuliah di universitas sekarang.",
+        "promptTranslation": "Pilih hukuman hybrid yang tepat: jika saya menerima beasiswa, saya sekarang akan belajar di universitas.",
         "explanationLearning": "Masa lalu sempurna menggambarkan pilihan masa lalu yang tidak nyata; \\\"akan belajar\\\" mengungkapkan hasilnya saat ini.",
-        "explanationTranslation": "Pada masa lalu, pilihan itu digambarkan bertentangan dengan fakta-fakta masa lalu; yang \\\"dipelajari\\\" menyatakan hasil pilihan itu sekarang.",
+        "explanationTranslation": "Pada masa lalu, pilihan itu digambarkan bertentangan dengan fakta-fakta masa lalu; \\\"orang tua belajar\\\" menyatakan hasil pilihan itu sekarang.",
         "options": {
           "a": {
             "learning": "Anda akan belajar",
-            "translation": "Aku akan belajar."
+            "translation": "Saya akan belajar."
           },
           "b": {
-            "learning": "Aku akan belajar.",
+            "learning": "Saya akan belajar.",
             "translation": "Akan belajar"
           },
           "c": {
-            "learning": "Aku akan belajar",
-            "translation": "Aku belajar sekarang."
+            "learning": "Saya akan belajar",
+            "translation": "Saya belajar sekarang."
           },
           "d": {
             "learning": "Saya belajar bahasa Arab",
-            "translation": "Aku pernah belajar sebelumnya."
+            "translation": "Saya pernah belajar sebelumnya."
           }
         }
       },
@@ -4085,11 +4085,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "Tidak akan ketinggalan",
-            "translation": "Aku tidak akan melewatkannya."
+            "translation": "Saya tidak akan melewatkannya."
           },
           "b": {
             "learning": "Tidak akan ketinggalan",
-            "translation": "Aku tidak akan melewatkannya."
+            "translation": "Saya tidak akan melewatkannya."
           },
           "c": {
             "learning": "Tidak akan meleset.",
@@ -4097,7 +4097,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Tidak salah.",
-            "translation": "Aku tidak melewatkannya sebelumnya."
+            "translation": "Saya tidak melewatkannya sebelumnya."
           }
         }
       },
@@ -4105,11 +4105,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Jika mereka tidak pindah ke luar negeri, mereka di sini sekarang.",
         "promptTranslation": "Jika mereka tidak beremigrasi pada saat itu, mereka masih tinggal di sini.",
         "explanationLearning": "Kondisi sempurna masa lalu mengacu pada peristiwa masa lalu yang tidak nyata, sementara \\\"masih akan hidup\\\" memberikan hasil yang dibayangkan saat ini.",
-        "explanationTranslation": "Kondisi pada saat penyelesaian pada masa lalu mengacu pada peristiwa-peristiwa yang bertentangan dengan fakta-fakta masa lalu; \\\"tua masih hidup\\\" menggambarkan hasil saat ini dalam hipotesis tersebut.",
+        "explanationTranslation": "Kondisi pada saat penyelesaian pada masa lampau mengacu pada peristiwa-peristiwa yang bertentangan dengan fakta-fakta masa lalu; \\\"tua masih hidup\\\" menggambarkan hasil saat ini dalam hipotesis tersebut.",
         "options": {
           "a": {
             "learning": "Akan tetap hidup",
-            "translation": "Aku masih hidup."
+            "translation": "Saya masih hidup."
           },
           "b": {
             "learning": "Akan tetap hidup",
@@ -4117,11 +4117,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Akan tetap hidup",
-            "translation": "Aku masih tinggal di sana."
+            "translation": "Saya masih tinggal di sana."
           },
           "d": {
             "learning": "Nuh masih hidup",
-            "translation": "Aku pernah tinggal di sini sebelumnya."
+            "translation": "Saya pernah tinggal di sini sebelumnya."
           }
         }
       },
@@ -4129,7 +4129,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Jika dia minum obatnya, dia akan lebih baik sekarang.",
         "promptTranslation": "Jika dia meminum obatnya, dia akan merasa lebih baik sekarang.",
         "explanationLearning": "Kondisi masa lalu yang tidak nyata mengarah ke hasil sekarang, sehingga klausa utama menggunakan \\\"akan merasa.\\\"",
-        "explanationTranslation": "Kondisi yang bertentangan dengan masa lalu telah menyebabkan hasil saat ini, sehingga kalimat utama menggunakan \\\"perasaan tua\\\".",
+        "explanationTranslation": "Kondisi yang bertentangan dengan masa lalu telah menyebabkan hasil saat ini, sehingga ayat utama menggunakan \\\"perasaan tua\\\".",
         "options": {
           "a": {
             "learning": "Akan terasa",
@@ -4137,35 +4137,35 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Akan terasa",
-            "translation": "Aku akan merasakannya."
+            "translation": "Saya akan merasakannya."
           },
           "c": {
             "learning": "Akan terasa",
             "translation": "Sekarang rasanya seperti..."
           },
           "d": {
-            "learning": "Aku merasa",
-            "translation": "Aku merasa seperti..."
+            "learning": "Saya merasa",
+            "translation": "Saya merasa seperti..."
           }
         }
       },
       "quiz-advanced-025": {
-        "promptLearning": "Jika aku tidak takut ketinggian, aku akan mendaki akhir pekan lalu.",
-        "promptTranslation": "Jika aku tidak takut ketinggian, aku akan berada di pendakian akhir pekan lalu.",
+        "promptLearning": "Jika saya tidak takut ketinggian, saya akan mendaki akhir pekan lalu.",
+        "promptTranslation": "Jika saya tidak takut ketinggian, saya akan berada di pendakian akhir pekan lalu.",
         "explanationLearning": "Kata \\\"tidak takut\\\" yang sekarang ini menjelaskan kemungkinan lain masa lalu, \\\"akan bergabung.\\\"",
-        "explanationTranslation": "Kondisi non-real saat ini \\\"tidak adil\\\" menjelaskan hasil yang berbeda dari masa lalu dan karenanya menggunakan \\\"wanita tua telah bekerja\\\".",
+        "explanationTranslation": "Kondisi non-real \\\"tidak takut\\\" menjelaskan hasil masa lalu yang berbeda dan karenanya menggunakan \\\"wanita telah bekerja\\\".",
         "options": {
           "a": {
-            "learning": "Aku akan bergabung.",
+            "learning": "Saya akan bergabung.",
             "translation": "Ya. Ya."
           },
           "b": {
-            "learning": "Aku akan bergabung.",
+            "learning": "Saya akan bergabung.",
             "translation": "Pilot sudah berpartisipasi"
           },
           "c": {
             "learning": "Kau pasti akan bergabung.",
-            "translation": "Aku pasti pernah ke sana."
+            "translation": "Saya pasti pernah ke sana."
           },
           "d": {
             "learning": "Di sana bergabung",
@@ -4176,7 +4176,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-026": {
         "promptLearning": "Jika perusahaan telah berinvestasi sebelumnya, itu akan menjadi pangsa pasar yang lebih besar hari ini.",
         "promptTranslation": "Jika perusahaan berinvestasi lebih awal, akan memiliki pangsa pasar yang lebih besar hari ini.",
-        "explanationLearning": "Masa lalu sempurna menggambarkan investasi yang tidak nyata sebelumnya, \\\"akan memiliki\\\" menggambarkan keadaan sekarang.",
+        "explanationLearning": "Masa lalu sempurna menggambarkan investasi yang tidak nyata sebelumnya; \\\"akan memiliki\\\" menggambarkan keadaan sekarang.",
         "explanationTranslation": "Pelengkapan yang dilakukan sebelumnya menggambarkan investasi sebelumnya yang tidak terjadi; \\\"wanita tua telah\\\" menggambarkan keadaan dalam skenario.",
         "options": {
           "a": {
@@ -4185,15 +4185,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Akan",
-            "translation": "Aku akan memilikinya sekarang."
+            "translation": "Saya akan memilikinya sekarang."
           },
           "c": {
             "learning": "Akan memiliki",
-            "translation": "Aku akan memilikinya."
+            "translation": "Saya akan memilikinya."
           },
           "d": {
             "learning": "Ada",
-            "translation": "Aku pernah mengalaminya sebelumnya."
+            "translation": "Saya pernah mengalaminya sebelumnya."
           }
         }
       },
@@ -4209,7 +4209,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Tidak akan",
-            "translation": "Aku tidak akan."
+            "translation": "Saya tidak akan."
           },
           "c": {
             "learning": "Tidak akan",
@@ -4223,9 +4223,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-028": {
         "promptLearning": "Jika dia fasih berbahasa Prancis, dia melakukan tugas Paris tahun lalu.",
-        "promptTranslation": "Jika dia fasih berbicara dalam bahasa Prancis, dia akan menerima misi Paris tahun lalu.",
+        "promptTranslation": "Jika dia fasih berbahasa Prancis, dia akan menerima misi Paris tahun lalu.",
         "explanationLearning": "Kondisi kemampuan yang tidak nyata saat ini menyebabkan hasil masa lalu yang tidak nyata, diungkapkan dengan \\\"akan diterima.\\\"",
-        "explanationTranslation": "Kondisi non-kemampuan yang tidak nyata saat ini menyebabkan hasil masa lalu yang tidak tepat waktu, yang dinyatakan dalam \\\"tua telah diterima\\\".",
+        "explanationTranslation": "Kondisi non-kemampuan yang tidak nyata saat ini menyebabkan hasil yang tidak tepat waktu lalu, diungkapkan dengan kata \\\"wanita tua telah menerima\\\".",
         "options": {
           "a": {
             "learning": "Akan menerima",
@@ -4236,8 +4236,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Akan menerima."
           },
           "c": {
-            "learning": "Aku akan menerima",
-            "translation": "Aku akan menerimanya."
+            "learning": "Saya akan menerima",
+            "translation": "Saya akan menerimanya."
           },
           "d": {
             "learning": "Telah diterima",
@@ -4249,7 +4249,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Jika sistemnya lebih dapat diandalkan, itu akan terjadi saat pemadaman kemarin.",
         "promptTranslation": "Jika sistem ini lebih dapat diandalkan, sistem ini tidak akan rusak selama pemadaman listrik kemarin.",
         "explanationLearning": "Kondisi yang tidak nyata saat ini \\\"lebih dapat dipercaya\\\" dikaitkan dengan hasil yang tidak nyata masa lalu, \\\"tidak akan gagal.\\\"",
-        "explanationTranslation": "Kini kondisi yang tidak nyata \\\"lebih mampu\\\" dikaitkan dengan hasil yang tidak tepat waktu di masa lalu, dengan menggunakan \\\"yang tua tidak gagal\\\".",
+        "explanationTranslation": "Kini kondisi yang tidak nyata \\\"lebih mampu\\\" dikaitkan dengan hasil yang tidak tepat waktu di masa lalu, dengan menggunakan \\\"yang sudah tua tidak gagal\\\".",
         "options": {
           "a": {
             "learning": "Tidak akan gagal",
@@ -4270,21 +4270,21 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-030": {
-        "promptLearning": "Jika aku telah menabung lebih banyak uang, aku akan laptop baru sekarang.",
-        "promptTranslation": "Jika aku menabung lebih banyak uang, aku bisa membeli laptop baru sekarang.",
+        "promptLearning": "Jika saya telah menabung lebih banyak uang, saya akan laptop baru sekarang.",
+        "promptTranslation": "Jika saya menabung lebih banyak uang, saya dapat membeli laptop baru sekarang.",
         "explanationLearning": "Masa lalu sempurna menggambarkan kebiasaan menyelamatkan masa lalu yang tidak nyata; \\\"tidak mampu\\\" mengungkapkan hasil saat ini.",
         "explanationTranslation": "Pada masa lalu, tabungan digambarkan bertentangan dengan masa lalu; hasilnya dikemukakan oleh \\\"could aford\\\".",
         "options": {
           "a": {
             "learning": "Tidak mampu membayar",
-            "translation": "Aku mampu sekarang."
+            "translation": "Saya mampu sekarang."
           },
           "b": {
             "learning": "Mungkin dia mampu",
             "translation": "Itu terjangkau."
           },
           "c": {
-            "learning": "Aku mampu",
+            "learning": "Saya mampu",
             "translation": "Ini terjangkau sekarang."
           },
           "d": {
@@ -4297,7 +4297,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Setelah berbulan-bulan merencanakan, tim akhirnya mendapatkan bola bergulir. Apa arti idiom?",
         "promptTranslation": "Setelah berbulan-bulan merencanakan, tim akhirnya mulai beroperasi. Apa maksudmu, mendapatkan bola bergulir\"?",
         "explanationLearning": "\\\"Get the ball rolling\\\" berarti memulai suatu kegiatan, proses atau proyek.",
-        "explanationTranslation": "\\\"Get the ball rolling\\\" menunjukkan awalan suatu kegiatan, proses atau proyek.",
+        "explanationTranslation": "\\\"Get the ball rolling\\\" menandakan inisiasi suatu kegiatan, proses atau proyek.",
         "options": {
           "a": {
             "learning": "Mereka memulai kegiatan atau proses.",
@@ -4318,7 +4318,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-032": {
-        "promptLearning": "Tes keamanan yang gagal itu hanya ujung gunung es. Apa yang tersirat?",
+        "promptLearning": "Tes keamanan yang gagal hanya ada di puncak gunung es. Apa yang tersirat?",
         "promptTranslation": "Gagalnya pemeriksaan keamanan hanyalah puncak gunung es. Apa artinya itu?",
         "explanationLearning": "” Ujung gunung es ” memaksudkan bagian kecil yang tampak dari situasi tersembunyi yang jauh lebih besar.",
         "explanationTranslation": "\\\"Tinggi gunung es\\\" menunjukkan bahwa hanya sebagian kecil dari gambar tersembunyi yang lebih besar yang saat ini terlihat.",
@@ -4343,9 +4343,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-033": {
         "promptLearning": "kontraktor memotong sudut untuk menyelesaikan bangunan lebih cepat. Apa yang kontraktor lakukan?",
-        "promptTranslation": "Untuk mempercepat penyelesaian pekerjaan konstruksi, kontraktor dapat mencuri kurang. Apakah itu berarti apa yang kontraktor lakukan?",
+        "promptTranslation": "Untuk mempercepat penyelesaian pekerjaan konstruksi, kontraktor dapat mencuri kurang. Apa yang kontraktor lakukan?",
         "explanationLearning": "\\\"Cut sudut\\\" berarti mengambil jalan pintas, sering kali dengan mengorbankan kualitas atau prosedur yang tepat.",
-        "explanationTranslation": "\\\"Cut Corners\\\" berarti jalan pintas, yang biasanya berarti mengorbankan kualitas atau proses jatuh tempo.",
+        "explanationTranslation": "“Cut Corners” menunjukkan jalan pintas, biasanya menyiratkan pengorbanan kualitas atau proses jatuh tempo.",
         "options": {
           "a": {
             "learning": "Mengikuti setiap prosedur kualitas dengan hati-hati.",
@@ -4376,8 +4376,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Semua orang memiliki pemahaman yang sama."
           },
           "b": {
-            "learning": "Semua orang bekerja di kantor yang sama.",
-            "translation": "Semua orang bekerja di kantor yang sama."
+            "learning": "Semua orang bekerja di pejabat yang sama.",
+            "translation": "Semua orang bekerja di pejabat yang sama."
           },
           "c": {
             "learning": "Semua orang telah menyelesaikan dokumen yang sama.",
@@ -4408,8 +4408,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Tim menemukan solusi permanen."
           },
           "d": {
-            "learning": "Tim itu pindah ke kantor yang berbeda.",
-            "translation": "Tim pindah ke kantor lain."
+            "learning": "Tim itu pindah ke pejabat yang berbeda.",
+            "translation": "Tim pindah ke pejabat lain."
           }
         }
       },
@@ -4462,9 +4462,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-038": {
-        "promptLearning": "Aku tidak akan ikut mendaki hari ini karena aku merasa di bawah cuaca. Apa arti frasa itu?",
-        "promptTranslation": "Aku tidak berjalan kaki hari ini karena aku tidak enak badan. Apa arti frasa itu?",
-        "explanationLearning": "“ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “””” “””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””” is is””””””””””” is”” is” is is. is is is is is. is is is is is is is is is is is is is is. is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is an an an is is is is is is an is an is is is is",
+        "promptLearning": "Saya tidak akan ikut mendaki hari ini karena saya merasa di bawah cuaca. Apa arti frasa itu?",
+        "promptTranslation": "Saya tidak berjalan kaki hari ini karena saya tidak enak badan. Apa arti frasa itu?",
+        "explanationLearning": "“ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “ “”” “”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””” U”””””””””””””””””””””” is””” is” is is is is is is is” is is is is is is is.. is is is is. is is is is is is is is is is is....... is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is is an an an.... an an is. is an an an. an",
         "explanationTranslation": "\" Di bawah cuaca\" adalah ungkapan tidak resmi dari beberapa ketidaknyamanan.",
         "options": {
           "a": {
@@ -4473,7 +4473,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Merasa luar biasa energik.",
-            "translation": "Aku merasa seperti banyak energi."
+            "translation": "Saya merasa seperti banyak energi."
           },
           "c": {
             "learning": "Karena terjebak dalam hujan lebat.",
@@ -4481,14 +4481,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Merasa bingung tentang arah.",
-            "translation": "Aku bingung tentang arahnya."
+            "translation": "Saya bingung tentang arahnya."
           }
         }
       },
       "quiz-advanced-039": {
         "promptLearning": "Tindakan keselamatan baru mungkin tampak mahal sekarang, tetapi mereka akan menghemat uang dalam jangka panjang. Apa artinya ” dalam jangka panjang ”?",
         "promptTranslation": "Tindakan keamanan baru mungkin sekarang tampak mahal, tetapi akan menghemat biaya dalam jangka panjang. Apa maksudmu, dalam jangka panjang\"?",
-        "explanationLearning": "\\\"Dalam jangka panjang\\\" merujuk pada hasil yang terjadi dalam jangka waktu yang lama.",
+        "explanationLearning": "\\\"Dalam jangka panjang\\\" mengacu pada hasil yang terjadi dalam jangka waktu yang lama.",
         "explanationTranslation": "“Dalam jangka panjang” menunjukkan hasil akhir setelah jangka waktu yang lebih lama.",
         "options": {
           "a": {
@@ -4537,7 +4537,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Pilih kata yang benar: Penandatanganan perjanjian perdamaian adalah sebuah momen dalam sejarah negara.",
         "promptTranslation": "Pilih kata yang tepat: penandatanganan perjanjian perdamaian adalah momen dalam sejarah negara.",
         "explanationLearning": "\\\"Historik\\\" menggambarkan suatu peristiwa yang penting atau signifikan dalam sejarah; \\\"sejarah\\\" berarti berkaitan dengan masa lalu atau studi sejarah.",
-        "explanationTranslation": "\\\"Historik\\\" menggambarkan peristiwa-peristiwa penting sejarah yang besar; \\\"sejarah\\\" menunjukkan kaitan dengan penelitian masa lalu atau sejarah.",
+        "explanationTranslation": "\\\"Historic\\\" menggambarkan peristiwa-peristiwa penting sejarah yang besar; \\\"historik\\\" memaksudkan penelitian masa lalu atau sejarah.",
         "options": {
           "a": {
             "learning": "sejarah",
@@ -4582,9 +4582,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-043": {
-        "promptLearning": "Pilih kata kerja yang benar: Mohon backup lengkap dari semua berkas sebelum server diganti.",
+        "promptLearning": "Pilih kata kerja yang benar: Tolong backup lengkap dari semua berkas sebelum server diganti.",
         "promptTranslation": "Pilih kata kerja yang benar: Sebelum mengganti server, pastikan bahwa semua berkas sepenuhnya didukung.",
-        "explanationLearning": "\\\"Ensure\\\" berarti untuk memastikan bahwa sesuatu terjadi atau benar; \\\"asure\\\" biasanya berarti memberitahu seseorang dengan percaya diri.",
+        "explanationLearning": "\\\"Ensure\\\" berarti untuk memastikan bahwa sesuatu terjadi atau benar; \\\"yakin\\\" biasanya berarti memberitahu seseorang dengan percaya diri.",
         "explanationTranslation": "\\\"Ensure\\\" berarti memastikan bahwa sesuatu terjadi atau benar; \\\"asumsi\\\" biasanya berarti memberikan jaminan kepada seseorang.",
         "options": {
           "a": {
@@ -4600,7 +4600,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Asuransi"
           },
           "d": {
-            "learning": "Keyakinan",
+            "learning": "Tidak meyakinkan",
             "translation": "Berdamailah."
           }
         }
@@ -4654,10 +4654,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-046": {
-        "promptLearning": "Kata yang benar, tirai biru, warna hangat di ruangan.",
-        "promptTranslation": "Pilih kata yang benar: tirai biru melengkapi warna hangat ruangan.",
+        "promptLearning": "Kata yang benar, tirai biru, warna hangat di dalam ruangan.",
+        "promptTranslation": "Pilih kata yang tepat: tirai biru melengkapi warna hangat ruangan.",
         "explanationLearning": "\\\"Komplemen\\\" berarti melengkapi atau menambah sesuatu; \\\"pemberian\\\" berarti ungkapan pujian.",
-        "explanationTranslation": "“Komplemen” menunjukkan tambahan atau liner; ” Pelengkap” menunjukkan pujian.",
+        "explanationTranslation": "Istilah \\\"complement\\\" menunjukkan tambahan atau liner; istilah \\\"complement\\\" menunjukkan pujian.",
         "options": {
           "a": {
             "learning": "Pujian",
@@ -4678,7 +4678,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-047": {
-        "promptLearning": "Jurnalis itu hati-hati untuk menjadi ketika membahas negosiasi rahasia.",
+        "promptLearning": "Jurnalis itu berhati-hati untuk menjadi ketika membahas negosiasi rahasia.",
         "promptTranslation": "Pilih kata yang tepat: jurnalis berhati-hati dan berhati-hati dalam membahas negosiasi rahasia.",
         "explanationLearning": "\\\"Diskrit\\\" berarti hati-hati dan bijaksana, terutama untuk menghindari mengungkapkan informasi pribadi; \\\"bijaksana\\\" berarti terpisah atau berbeda.",
         "explanationTranslation": "Diskreet mengungkapkan kehati-hatian dan kesopanan, khususnya dengan menghindari pengungkapan informasi pribadi; dan \\\"discrete\\\" menunjukkan pemisahan atau kemerdekaan.",
@@ -4728,32 +4728,32 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-beginner-zh-001": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Saya biasanya sarapan di rumah.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Aku biasanya sarapan di rumah.",
-            "translation": "Aku biasanya sarapan di rumah."
+            "learning": "Saya biasanya sarapan di rumah.",
+            "translation": "Saya biasanya sarapan di rumah."
           },
           "b": {
-            "learning": "Aku sarapan di rumah kemarin.",
-            "translation": "Aku sarapan di rumah kemarin."
+            "learning": "Saya makan sarapan di rumah kemarin.",
+            "translation": "Saya sarapan di rumah kemarin."
           },
           "c": {
-            "learning": "Aku biasanya memasak makan malam di rumah.",
-            "translation": "Aku biasanya membuat makan malam di rumah."
+            "learning": "Saya biasanya memasak makan malam di rumah.",
+            "translation": "Saya biasanya membuat makan malam di rumah."
           },
           "d": {
-            "learning": "Aku biasanya makan siang di rumah.",
-            "translation": "Aku biasanya makan siang di rumah."
+            "learning": "Saya biasanya makan siang di rumah.",
+            "translation": "Saya biasanya makan siang di rumah."
           }
         }
       },
       "quiz-beginner-zh-002": {
         "promptLearning": "Dia bekerja dengan bus setiap hari.",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Dia melakukan perjalanan untuk bekerja dengan bus setiap hari.",
@@ -4776,8 +4776,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-beginner-zh-003": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Ada sebuah buku di atas meja.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Buku ada di bawah meja.",
@@ -4800,8 +4800,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-001": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Setelah mempertimbangkan pilihan, dia membuat keputusan.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Setelah menimbang pilihan, dia memutuskan.",
@@ -4822,34 +4822,34 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-zh-002": {
-        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Jika saya punya lebih banyak waktu, saya akan mendaftar untuk kursus.\\\"",
+        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Jika saya punya lebih banyak waktu, saya akan mendaftar untuk kursus.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Jika aku punya lebih banyak waktu, aku akan sudah menyelesaikan kursus.",
-            "translation": "Jika aku punya lebih banyak waktu, aku akan menyelesaikan kursus."
+            "learning": "Jika saya punya lebih banyak waktu, saya akan sudah menyelesaikan kursus.",
+            "translation": "Jika saya punya lebih banyak waktu, saya akan menyelesaikan kursus."
           },
           "b": {
-            "learning": "Jika aku punya lebih banyak waktu, aku akan enrol di kursus.",
-            "translation": "Jika aku punya lebih banyak waktu, aku akan mendaftar untuk kursus ini."
+            "learning": "Jika saya punya lebih banyak waktu, saya akan enrol di kursus.",
+            "translation": "Jika saya punya lebih banyak waktu, saya akan mendaftar untuk kursus ini."
           },
           "c": {
-            "learning": "Karena aku punya lebih banyak waktu, aku telah mendaftar di kursus.",
-            "translation": "Karena aku punya lebih banyak waktu, aku telah mendaftar untuk kursus ini."
+            "learning": "Karena saya punya lebih banyak waktu, saya telah mendaftar di kursus.",
+            "translation": "Karena saya punya lebih banyak waktu, saya telah mendaftar untuk kursus ini."
           },
           "d": {
-            "learning": "Jika aku punya sedikit waktu, aku akan mengajar kursus.",
-            "translation": "Jika aku punya sedikit waktu, aku akan mengajarkannya."
+            "learning": "Jika saya punya sedikit waktu, saya akan mengajar kursus.",
+            "translation": "Jika saya punya sedikit waktu, saya akan mengajarkannya."
           }
         }
       },
       "quiz-intermediate-zh-003": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Pertemuan itu ditunda sampai Jumat.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Pertemuan diadakan pada hari Senin.",
@@ -4872,40 +4872,40 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-004": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Saya telah bekerja di sini selama tiga tahun.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Aku bekerja di sini selama tiga tahun di masa lalu.",
-            "translation": "Aku sudah bekerja di sini selama tiga tahun."
+            "learning": "Saya bekerja di sini selama tiga tahun di masa lalu.",
+            "translation": "Saya bekerja di sini selama tiga tahun."
           },
           "b": {
-            "learning": "Aku akan bekerja di sini selama tiga tahun.",
-            "translation": "Aku akan bekerja di sini selama tiga tahun."
+            "learning": "Saya akan bekerja di sini selama tiga tahun.",
+            "translation": "Saya akan bekerja di sini selama tiga tahun."
           },
           "c": {
-            "learning": "Aku bekerja di sini selama tiga tahun dan kemudian pergi.",
-            "translation": "Aku bekerja di sini selama tiga tahun dan pergi."
+            "learning": "Saya bekerja di sini selama tiga tahun dan kemudian pergi.",
+            "translation": "Saya bekerja di sini selama tiga tahun dan pergi."
           },
           "d": {
-            "learning": "Aku mulai bekerja di sini tiga tahun lalu dan masih bekerja di sini.",
-            "translation": "Aku sudah bekerja di sini selama tiga tahun."
+            "learning": "Saya mulai bekerja di sini tiga tahun lalu dan masih bekerja di sini.",
+            "translation": "Saya sudah bekerja di sini selama tiga tahun."
           }
         }
       },
       "quiz-intermediate-zh-005": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Polisi baru akan mempengaruhi semua staf.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Peraturan baru akan berdampak pada setiap karyawan.",
+            "learning": "Aturan baru akan berdampak pada setiap karyawan.",
             "translation": "Kebijakan baru akan mempengaruhi semua karyawan."
           },
           "b": {
             "learning": "aturan baru akan menggantikan setiap karyawan.",
-            "translation": "Kebijakan baru akan menggantikan semua staf."
+            "translation": "Kebijakan baru akan menggantikan semua karyawan."
           },
           "c": {
             "learning": "Aturan baru akan melindungi setiap karyawan.",
@@ -4920,8 +4920,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-006": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Kita harus bertanggung jawab atas kesalahan ini.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Kita harus menyalahkan orang lain atas kesalahan ini.",
@@ -4944,8 +4944,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-007": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Kecuali jika Anda terburu-buru, Anda akan ketinggalan kereta.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Jika kau terburu-buru, kau akan ketinggalan kereta.",
@@ -4956,20 +4956,20 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Bahkan jika Anda terburu-buru, Anda tidak akan pernah naik kereta."
           },
           "c": {
-            "learning": "Jika kau tidak terburu-buru, kau akan gagal naik kereta.",
+            "learning": "Jika Anda tidak terburu-buru, Anda akan gagal untuk naik kereta.",
             "translation": "Kecuali kau terburu-buru, kau akan ketinggalan kereta."
           },
           "d": {
-            "learning": "Kau bisa naik kereta karena kau tidak terburu-buru.",
-            "translation": "Karena kau tidak terburu-buru, jadi kau bisa naik kereta."
+            "learning": "Kau dapat naik kereta karena kau tidak terburu-buru.",
+            "translation": "Karena kau tidak terburu-buru, jadi kau dapat naik kereta."
           }
         }
       },
       "quiz-intermediate-zh-008": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Dia bertemu dengan seorang teman lama di stasiun.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Dia menunggu teman lama di stasiun.",
@@ -4990,10 +4990,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-zh-009": {
-        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Pada saat kami tiba, film telah dimulai.\\\"",
+        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Pada saat kami tiba, film telah dimulai.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Filmnya sudah dimulai sebelum kita sampai di sana.",
@@ -5004,8 +5004,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Saat kami tiba, film selesai."
           },
           "c": {
-            "learning": "Film ini akan dimulai saat kami tiba di sana.",
-            "translation": "Saat kita tiba, film akan dimulai."
+            "learning": "Filmnya akan dimulai saat kami tiba di sana.",
+            "translation": "Ketika kita tiba, film akan dimulai."
           },
           "d": {
             "learning": "Film ini ditunda hingga setelah kami tiba di sana.",
@@ -5016,8 +5016,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-010": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Penjelasannya meyakinkan.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Penjelasannya membingungkan.",
@@ -5040,8 +5040,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-011": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Meskipun hujan, peristiwa ini akan terus berlanjut.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Jika hujan, acara akan dibatalkan.",
@@ -5053,7 +5053,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Acara ini akan berlangsung terus meskipun kemungkinan hujan.",
-            "translation": "Acara ini akan berlanjut bahkan jika hujan."
+            "translation": "Acara ini akan berlanjut meskipun hujan."
           },
           "d": {
             "learning": "Acara ini sudah berakhir karena hujan.",
@@ -5064,35 +5064,35 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-intermediate-zh-012": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Tolong jaga adik saya selagi saya pergi.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Tolong bawa adikku ke sekolah selagi aku pergi.",
-            "translation": "Saat aku pergi, bawa adikku ke sekolah."
+            "learning": "Tolong bawa adikku ke sekolah selagi saya pergi.",
+            "translation": "Saat saya pergi, bawa adikku ke sekolah."
           },
           "b": {
-            "learning": "Tolong hubungi adikku saat aku pergi.",
-            "translation": "Bila aku pergi, tolong hubungi saudaraku."
+            "learning": "Tolong hubungi adikku saat saya pergi.",
+            "translation": "Bila saya pergi, tolong hubungi saudaraku."
           },
           "c": {
-            "learning": "Tolong cari adikku saat aku pergi.",
-            "translation": "Saat aku pergi, bantu aku menemukan adikku."
+            "learning": "Tolong cari adikku saat saya pergi.",
+            "translation": "Saat saya pergi, bantu saya menemukan adikku."
           },
           "d": {
-            "learning": "Tolong jaga adikku selagi aku pergi.",
-            "translation": "Bila aku pergi, tolong jaga adikku."
+            "learning": "Tolong jaga adikku selagi saya pergi.",
+            "translation": "Bila saya pergi, tolong jaga adikku."
           }
         }
       },
       "quiz-advanced-zh-001": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Temuan ini tampaknya menunjukkan bahwa ukuran mungkin efektif.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Hasilnya tampaknya menunjukkan bahwa ukuran itu bisa berhasil.",
+            "learning": "Hasilnya tampaknya menunjukkan bahwa ukuran itu dapat berhasil.",
             "translation": "Temuan ini tampaknya menunjukkan bahwa ukuran ini mungkin efektif."
           },
           "b": {
@@ -5104,7 +5104,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Hasil penelitian menunjukkan bahwa ukuran ini telah gagal total."
           },
           "d": {
-            "learning": "Hasil yang dihasilkan tidak terkait apakah ukuran itu berhasil.",
+            "learning": "Hasilnya tidak berkaitan dengan apakah ukuran itu berhasil.",
             "translation": "Hasil penelitian tidak ada hubungannya dengan keefektifan ukuran ini."
           }
         }
@@ -5112,8 +5112,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-002": {
         "promptLearning": "Dia memilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Sehingga batas tertentu, penurunan mungkin disebabkan oleh pengurangan permintaan.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Penurunan itu sepenuhnya disebabkan oleh meningkatnya permintaan.",
@@ -5136,15 +5136,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-003": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\" Angka-angka ini secara luas konsisten dengan perkiraan sebelumnya.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Angka-angka ini benar-benar berbeda dari perkiraan sebelumnya.",
             "translation": "Data-data ini benar-benar berbeda dari perkiraan sebelumnya."
           },
           "b": {
-            "learning": "Angka-angka ini menggantikan semua perkiraan sebelumnya.",
+            "learning": "Angka-angka ini menggantikan semua perkiraan awal.",
             "translation": "Data ini menggantikan semua perkiraan sebelumnya."
           },
           "c": {
@@ -5160,8 +5160,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-004": {
         "promptLearning": "Dia memilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Selain penelitian akan diperlukan untuk menetapkan apakah intervensi menyebabkan peningkatan.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Campur tangan telah terbukti menyebabkan peningkatan.",
@@ -5184,8 +5184,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-005": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Sementara buktinya menarik, itu tidak harus membuktikan hubungan kausal.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Meskipun bukti itu persuasif, bukti itu mungkin tidak menetapkan penyebab dan efek.",
@@ -5206,34 +5206,34 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-zh-006": {
-        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Jika aku tahu tentang penundaan itu, aku akan pergi nanti.\\\"",
+        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Jika saya tahu tentang penundaan itu, saya akan pergi nanti.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Karena aku tahu tentang penundaan, aku pergi lebih awal.",
-            "translation": "Karena aku tahu itu akan tertunda, jadi aku pergi lebih awal."
+            "learning": "Karena saya tahu tentang penundaan, saya pergi lebih awal.",
+            "translation": "Karena saya tahu itu akan tertunda, jadi saya pergi lebih awal."
           },
           "b": {
-            "learning": "Jika aku tahu penundaan akan datang, aku akan berangkat nanti.",
-            "translation": "Jika aku tahu itu akan tertunda, aku akan pergi nanti."
+            "learning": "Jika saya tahu penundaan akan datang, saya akan berangkat nanti.",
+            "translation": "Jika saya tahu itu akan tertunda, saya akan pergi nanti."
           },
           "c": {
-            "learning": "Aku akan pergi nanti jika aku mendengar tentang penundaan.",
-            "translation": "Jika aku mendengar penundaan, aku akan pergi nanti."
+            "learning": "Saya akan pergi nanti jika saya mendengar tentang penundaan.",
+            "translation": "Jika saya mendengar penundaan, saya akan pergi nanti."
           },
           "d": {
-            "learning": "Aku pergi kemudian meskipun aku tahu tidak akan ada penundaan.",
-            "translation": "Meskipun aku tahu aku tidak akan menunda, aku pergi kemudian."
+            "learning": "Saya pergi kemudian meskipun saya tahu tidak akan ada penundaan.",
+            "translation": "Saya pergi kemudian, meskipun saya tahu saya tidak akan menundanya."
           }
         }
       },
       "quiz-advanced-zh-007": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Tidak lebih awal telah diumumkan daripada yang direaksikan pasar.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Transaksi pasar telah dilakukan jauh sebelum pengumuman diumumkan.",
@@ -5241,7 +5241,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Pengumuman itu tertunda karena pasar bereaksi.",
-            "translation": "Pengumuman tersebut tertunda karena reaksi dari pasar."
+            "translation": "Pengumuman itu tertunda karena reaksi pasar."
           },
           "c": {
             "learning": "Pasarnya direspon segera setelah pengumuman dikeluarkan.",
@@ -5256,8 +5256,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-008": {
         "promptLearning": "Dia memilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Tidak hanya usulan itu mengurangi biaya, tetapi juga meningkatkan kualitas layanan.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Proposal tersebut mengurangi biaya tetapi memperparah kualitas layanan.",
@@ -5280,8 +5280,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-009": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Tidak ada gunanya informasi rahasia dibagikan kepada orang luar.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Informasi rahasia tidak boleh diberikan kepada orang di luar organisasi.",
@@ -5293,7 +5293,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Informasi rahasia dapat dibagikan setelah pengumuman umum.",
-            "translation": "Setelah diumumkan ke publik, informasi rahasia dapat dibagikan."
+            "translation": "Setelah diumumkan secara terbuka, informasi rahasia dapat dibagikan."
           },
           "d": {
             "learning": "Orang asing bertanggung jawab untuk menjaga rahasia informasi rahasia.",
@@ -5304,8 +5304,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-010": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Jika tim telah bertindak lebih cepat, itu tidak akan menghadapi tekanan seperti sekarang.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Karena tim bertindak lebih awal, itu di bawah tekanan sekarang.",
@@ -5313,7 +5313,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Jika tim telah mengambil tindakan sebelumnya, itu tidak akan berada di bawah begitu banyak tekanan sekarang.",
-            "translation": "Jika tim telah bertindak sebelumnya, itu tidak akan berada di bawah tekanan seperti itu."
+            "translation": "Jika tim mengambil tindakan sebelumnya, itu tidak akan berada di bawah tekanan seperti sekarang."
           },
           "c": {
             "learning": "Jika tim bertindak lebih cepat besok, itu tidak akan menghadapi tekanan kemarin.",
@@ -5328,32 +5328,32 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-011": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Jika saya lebih terorganisir, saya tidak akan melewatkan tenggat waktu.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
-            "learning": "Aku terorganisasi setelah aku melewatkan batas waktu.",
-            "translation": "Setelah kehilangan batas waktu, aku menjadi terorganisir."
+            "learning": "Saya terorganisasi setelah saya melewatkan batas waktu.",
+            "translation": "Setelah kehilangan batas waktu, saya menjadi terorganisir."
           },
           "b": {
-            "learning": "Jika aku mengatur pekerjaanku besok, aku akan memenuhi batas waktu.",
-            "translation": "Jika aku mengatur pekerjaanku besok, aku bisa memenuhi batas waktu."
+            "learning": "Jika saya mengatur pekerjaanku besok, saya akan memenuhi batas waktu.",
+            "translation": "Jika saya mengatur pekerjaanku besok, saya dapat memenuhi batas waktu."
           },
           "c": {
             "learning": "Jika saya umumnya lebih baik terorganisir, saya tidak akan melewatkan batas waktu.",
-            "translation": "Jika aku lebih terstruktur, aku tidak akan melewatkan batas waktu."
+            "translation": "Jika saya lebih terstruktur, saya tidak akan melewatkan batas waktu."
           },
           "d": {
-            "learning": "Aku tidak melewatkan batas waktu karena aku direorganisasi.",
-            "translation": "Aku tidak melewatkan batas waktu, karena aku tidak terstruktur."
+            "learning": "Saya tidak melewatkan batas waktu karena saya direorganisasi.",
+            "translation": "Saya tidak melewatkan batas waktu, karena saya tidak terstruktur."
           }
         }
       },
       "quiz-advanced-zh-012": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Jika data telah diperiksa, kesalahan sekarang tidak akan mempengaruhi hasilnya.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Datanya sedang diperiksa sekarang, jadi hasilnya terpengaruh di masa lalu.",
@@ -5374,10 +5374,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-zh-013": {
-        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Jika dia menerima tawaran itu, dia akan tinggal di luar negeri sekarang.\\\"",
+        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Jika dia menerima tawaran itu, dia akan tinggal di luar negeri sekarang.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Jika dia menerima tawaran itu, dia sekarang akan tinggal di negara lain.",
@@ -5400,8 +5400,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-014": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Setelah berbulan-bulan negosiasi, mereka akhirnya memecahkan es.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Setelah berbulan-bulan berbicara, mereka akhirnya mengakhiri negosiasi.",
@@ -5424,8 +5424,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-015": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Penjelasannya hanya menggores permukaan masalah.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Penjelasannya memecahkan setiap bagian dari masalah.",
@@ -5448,8 +5448,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-016": {
         "promptLearning": "Dia memutuskan untuk terjun dan memulai bisnisnya sendiri.",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Dia memutuskan untuk menunda bisnisnya sendiri.",
@@ -5472,8 +5472,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-017": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Mari kita tidak mengambil kesimpulan sebelum kita mendengar kedua belah pihak.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Kita harus menunggu untuk kedua rekening sebelum membuat penilaian.",
@@ -5481,7 +5481,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Kita harus segera memutuskan tanpa mendengar kedua belah pihak.",
-            "translation": "Kita harus mengambil keputusan segera tanpa mendengarkan pihak manapun."
+            "translation": "Kita harus mengambil keputusan segera tanpa mendengarkan kedua belah pihak."
           },
           "c": {
             "learning": "Kita harus meminta kedua belah pihak untuk mencapai kesimpulan terpisah.",
@@ -5496,8 +5496,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-018": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling akurat yang disederhanakan dari: \\\"Respon manajer itu bijaksana meskipun kritik itu.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Manajernya menjawab terus terang tanpa mempertimbangkan perasaan siapa pun.",
@@ -5505,7 +5505,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Manajernya menanggapinya dengan penuh perhatian dan pertimbangan meskipun dikritik.",
-            "translation": "Meskipun mendapat kritikan, tanggapan manajer 's diterima dengan baik."
+            "translation": "Meskipun ada kritik, respon manajer 's tepat."
           },
           "c": {
             "learning": "Manajernya menjadi marah dan berdebat dengan para kritikus.",
@@ -5518,10 +5518,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-zh-019": {
-        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, ” Komentarnya jujur daripada kasar.",
+        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, ” Komentarnya jujur dan bukannya kasar.",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Komentarnya adalah jujur dan sengaja menghina.",
@@ -5544,8 +5544,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-advanced-zh-020": {
         "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan dari: \\\"Sebuah komentar kebetulan mengarah ke diskusi yang berguna.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Pengumuman formal mengarah ke diskusi yang berguna.",
@@ -5566,10 +5566,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-zh-021": {
-        "promptLearning": "Pilih terjemahan bahasa Cina yang paling tepat yang disederhanakan, \\\"Dia enggan mengungkapkan rincian sebelum ulasan.\\\"",
+        "promptLearning": "Pilih terjemahan bahasa Cina yang paling akurat yang disederhanakan, \\\"Dia enggan mengungkapkan rincian sebelum ulasan.\\\"",
         "promptTranslation": "Sila pilih terjemahan bahasa Mandarin yang paling tepat dan alami.",
-        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks kalimat bahasa Inggris.",
-        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama kalimat Inggris; pilihan lain mengubah pesan kunci.",
+        "explanationLearning": "Pilihan yang benar memelihara makna dan konteks ayat bahasa Inggris.",
+        "explanationTranslation": "Opsi yang benar mempertahankan makna dan konteks utama ayat Inggris; pilihan lain mengubah pesan kunci.",
         "options": {
           "a": {
             "learning": "Dia tidak bersedia mengungkapkan rincian sebelum ulasan.",
@@ -5585,19 +5585,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Dia lupa rincian sebelum ulasan berlangsung.",
-            "translation": "Sebelum ulasan dimulai, dia lupa rincian itu."
+            "translation": "Sebelum ulasan dimulai, dia lupa rinciannya."
           }
         }
       },
       "quiz-beginner-def-001": {
-        "promptLearning": "Definisi bahasan mana yang paling cocok dengan kata ” menyenangkan ”?",
-        "promptTranslation": "Manakah yang paling cocok dengan arti kata \\\"eksiting\\\"?",
+        "promptLearning": "Definisi huraian mana yang paling cocok dengan kata ” menyenangkan ”?",
+        "promptTranslation": "Manakah yang paling cocok dengan makna kata \\\"eksiting\\\"?",
         "explanationLearning": "Menarik menggambarkan sesuatu yang menciptakan minat yang kuat, antusiasme atau antisipasi.",
-        "explanationTranslation": "Eksisensi Eksensif menggambarkan hal-hal yang menimbulkan minat, antusiasme atau ekspektasi yang kuat.",
+        "explanationTranslation": "Eksisensi lendir menggambarkan hal - hal yang menghasilkan minat, antusiasme, atau harapan yang kuat.",
         "options": {
           "a": {
             "learning": "Menyebabkan minat atau antusiasme yang kuat.",
-            "translation": "Aku tidak yakin."
+            "translation": "Ada minat atau antusiasme yang kuat."
           },
           "b": {
             "learning": "Dia membuat seseorang merasa mengantuk dan santai.",
@@ -5629,7 +5629,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Senang makan atau minum.",
-            "translation": "Rasanya enak atau enak."
+            "translation": "Rasanya enak."
           },
           "d": {
             "learning": "Membuat tubuh terasa santai.",
@@ -5639,7 +5639,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-def-003": {
         "promptLearning": "Definisi yang mana yang paling cocok dengan kata ” penuh sesak ”?",
-        "promptTranslation": "Mana yang paling cocok dengan makna kata ” penuh sesak ”?",
+        "promptTranslation": "Mana yang paling cocok dengan arti kata ” penuh sesak ”?",
         "explanationLearning": "Kerumunan orang menggambarkan tempat di mana banyak orang berdekatan dan ruang terbatas.",
         "explanationTranslation": "Ada banyak orang datang bersama dan memiliki ruang yang terbatas.",
         "options": {
@@ -5681,7 +5681,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Memiliki banyak orang di ruang kecil.",
-            "translation": "Banyak orang ramai di ruang - ruang kecil."
+            "translation": "Banyak orang ramai di tempat - tempat kecil."
           }
         }
       },
@@ -5737,11 +5737,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Apa definisi yang paling cocok dengan kata \\\"keluar\\\"?",
         "promptTranslation": "Mana yang paling cocok dengan arti frasa \\\"keluar\\\"?",
         "explanationLearning": "PHK berarti menunda atau menunda suatu acara atau kegiatan.",
-        "explanationTranslation": "PHK menunjukkan bahwa suatu acara atau kegiatan ditunda.",
+        "explanationTranslation": "PHK menunjukkan penundaan dalam suatu peristiwa atau kegiatan.",
         "options": {
           "a": {
             "learning": "Untuk menunda sesuatu sampai nanti.",
-            "translation": "Akan kukembalikan nanti."
+            "translation": "Saya akan menaruh sesuatu nanti."
           },
           "b": {
             "learning": "Untuk menyelesaikan sesuatu lebih awal.",
@@ -5761,7 +5761,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Apa definisi yang paling cocok dengan kata \\\"colocation\\\"?",
         "promptTranslation": "Mana yang paling cocok dengan arti kata \\\"kolokasi\\\"?",
         "explanationLearning": "A kinode sebuah kolokasi adalah kombinasi kata yang wajar atau umum, seperti \\\"membuat keputusan\\\".",
-        "explanationTranslation": "Adonasi kolalokasi mengacu pada kombinasi kata yang alami atau umum, seperti \\\"membuat suatu deklarasi\\\".",
+        "explanationTranslation": "Adonasi kolalokasi mengacu pada kombinasi kata yang alami atau umum, seperti \\\"membuat sebuah deklarasi\\\".",
         "options": {
           "a": {
             "learning": "Gabungan gabungan kata-kata yang umumnya terjadi bersama.",
@@ -5772,8 +5772,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Kata-kata yang berarti sebaliknya."
           },
           "c": {
-            "learning": "Kalimat tanpa kata kerja.",
-            "translation": "Tidak ada kata kerja untuk kalimat."
+            "learning": "Ayat tanpa kata kerja.",
+            "translation": "Tidak ada kata kerja untuk ayat."
           },
           "d": {
             "learning": "Aturan untuk mengeja setiap kata benda jamak.",
@@ -5782,7 +5782,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-def-004": {
-        "promptLearning": "Apa definisi yang paling cocok dengan kata \\\"klarifikasi\\\"?",
+        "promptLearning": "Definisi yang mana yang paling cocok dengan kata \\\"klarifikasi\\\"?",
         "promptTranslation": "Mana yang paling cocok dengan arti kata \\\"klarifikasi\\\"?",
         "explanationLearning": "Klarifikasi faks adalah informasi ekstra atau penjelasan yang membuat titik lebih jelas.",
         "explanationTranslation": "Klarifikasi Keistimewaan mengacu pada keterangan atau penjelasan tambahan untuk membuat suatu titik lebih jelas.",
@@ -5793,14 +5793,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Pernyataan yang membuat sesuatu yang kurang pasti.",
-            "translation": "Pernyataan yang membuat sesuatu yang lebih tidak pasti."
+            "translation": "pernyataan yang membuat sesuatu yang lebih tidak pasti."
           },
           "c": {
             "learning": "Keputusan untuk menghentikan kegiatan.",
             "translation": "Keputusan untuk menangguhkan kegiatan."
           },
           "d": {
-            "learning": "Keterangan tentang kemungkinan masa depan.",
+            "learning": "Gambaran tentang kemungkinan masa depan.",
             "translation": "Keterangan kemungkinan masa depan."
           }
         }
@@ -5813,7 +5813,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "Berdasarkan situasi yang dibayangkan daripada fakta yang dikonfirmasi.",
-            "translation": "Berdasarkan skenario, tidak dikonfirmasi fakta."
+            "translation": "Berdasarkan skenario, tidak membenarkan fakta."
           },
           "b": {
             "learning": "Proven dengan pengukuran langsung.",
@@ -5824,7 +5824,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Ini mungkin terjadi pada waktu yang tepat."
           },
           "d": {
-            "learning": "Menyampaikan sesuatu yang sering terjadi di masa lalu.",
+            "learning": "Menyampaikan sesuatu yang terjadi secara teratur di masa lalu.",
             "translation": "Gambarkan apa yang sering terjadi di masa lalu."
           }
         }
@@ -5837,7 +5837,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "Sarankan sesuatu tanpa menyatakannya secara langsung.",
-            "translation": "Ini bukan pernyataan langsung, itu adalah implikasi."
+            "translation": "Ini bukan pernyataan langsung, itu petunjuk."
           },
           "b": {
             "learning": "Untuk mencapai kesimpulan dari bukti yang tersedia.",
@@ -5845,7 +5845,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Untuk menolak ide secara terbuka.",
-            "translation": "Secara terbuka menolak sebuah ide."
+            "translation": "Secara terbuka menolak ide."
           },
           "d": {
             "learning": "Untuk mengulang pernyataan kata demi kata.",
@@ -5861,7 +5861,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "Untuk mencapai kesimpulan dari bukti atau petunjuk.",
-            "translation": "Kesimpulan yang didasarkan pada bukti atau petunjuk."
+            "translation": "Kesinggungan berdasarkan bukti atau petunjuk."
           },
           "b": {
             "learning": "Sarankan ide tanpa mengatakannya.",
@@ -5878,10 +5878,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-advanced-def-003": {
-        "promptLearning": "Definisi bahasan mana yang paling cocok dengan kata \\\"menarik\\\"?",
+        "promptLearning": "Definisi huraian mana yang paling cocok dengan kata \\\"menarik\\\"?",
         "promptTranslation": "Manakah yang paling cocok dengan arti \\\"menajamkan\\\" dalam linguistik?",
         "explanationLearning": "Hedging menggunakan bahasa yang berhati-hati, seperti \\\"mungkin\\\" atau \\\"suggests\\\", untuk mengungkapkan ketidakpastian yang sesuai.",
-        "explanationTranslation": "Bahasa Hedging berarti ungkapan ketidakpastian yang tepat menggunakan bahasa yang berhati - hati seperti ” mungkin ” atau ” gula - gula ”.",
+        "explanationTranslation": "Bahasa Hedging berarti ungkapan ketidakpastian yang tepat dengan menggunakan istilah-istilah yang berhati-hati seperti \\\"mungkin\\\" atau \\\"sanggup\\\".",
         "options": {
           "a": {
             "learning": "Menggunakan bahasa untuk membuat klaim kurang mutlak atau pasti.",
@@ -5889,11 +5889,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Mengulangi klaim untuk membuatnya terdengar lebih kuat.",
-            "translation": "Pengulangan klaim untuk meningkatkan nada."
+            "translation": "Pemulangan ide untuk meningkatkan nada."
           },
           "c": {
-            "learning": "Perubahan kalimat menjadi pertanyaan.",
-            "translation": "Menggantikan kalimat dengan kalimat pertanyaan."
+            "learning": "Perubahan ayat menjadi pertanyaan.",
+            "translation": "Menggantikan ayat dengan ayat pertanyaan."
           },
           "d": {
             "learning": "Membuang semua bukti pendukung dari sebuah argumen.",
@@ -5917,11 +5917,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Bergabung dengan dua klausa independen dengan bersama.",
-            "translation": "Alirkan dua kalimat terpisah dengan tanda hubung."
+            "translation": "Alirkan dua ayat terpisah dengan tanda hubung."
           },
           "d": {
             "learning": "Perubahan kata kerja ke dalam bentuk participle masa lalu.",
-            "translation": "Kata kerja berubah menjadi suku kata masa lalu."
+            "translation": "Kata kerja berubah menjadi bentuk kata kerja masa lalu."
           }
         }
       },
@@ -5951,9 +5951,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-zh-word-001": {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar disederhanakan dari \\\"menyenangkan\\\"?",
-        "promptTranslation": "Apa di antaranya yang merupakan terjemahan bahasa Cina yang benar dari \\\"mengadu\\\"?",
+        "promptTranslation": "Siapa di antaranya yang merupakan terjemahan bahasa Cina yang benar dari \\\"mengadu\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"menggembirakan\\\" dalam konteks kosakata ini adalah \\\"令人兴奋的\\\".",
-        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"mengajar\\\" adalah \\\"bergairah\\\".",
+        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"ekssisi\\\" adalah \\\"sangat\\\"",
         "options": {
           "a": {
             "learning": "Menarik",
@@ -5984,7 +5984,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Indah sekali."
           },
           "b": {
-            "learning": "♪ nyaman ♪",
+            "learning": "Coy",
             "translation": "Nyaman."
           },
           "c": {
@@ -6028,7 +6028,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"comfortable\\\" adalah \\\"comfortable\\\".",
         "options": {
           "a": {
-            "learning": "♪ nyaman ♪",
+            "learning": "Coy",
             "translation": "Nyaman."
           },
           "b": {
@@ -6047,7 +6047,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-zh-word-005": {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang diterjemahkan dari bahasa Indonesia yang ” lezat ”?",
-        "promptTranslation": "Apa di antaranya adalah terjemahan bahasa Cina yang benar dari bahasa Indonesia yang \\\"berharga\\\"?",
+        "promptTranslation": "Apa di antaranya yang merupakan terjemahan bahasa Cina yang benar dari \\\"kebal\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"delicious\\\" dalam konteks kosakata ini adalah \\\"美味的\\\".",
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"delicious\\\" adalah \\\"delicious\\\".",
         "options": {
@@ -6070,7 +6070,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-zh-word-006": {
-        "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"friendly\\\"?",
+        "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang diterjemahkan dari bahasa Cina yang ” ramah ”?",
         "promptTranslation": "Siapa di antaranya yang merupakan terjemahan bahasa Cina yang benar dari \\\"friendly\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"friendly\\\" dalam konteks kosakata ini adalah \\\"友好的\\\".",
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"friendly\\\" adalah \\\"friendly\\\".",
@@ -6088,7 +6088,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Boring."
           },
           "d": {
-            "learning": "♪ nyaman ♪",
+            "learning": "Coy",
             "translation": "Nyaman."
           }
         }
@@ -6097,7 +6097,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"tenang\\\"?",
         "promptTranslation": "Manakah terjemahan bahasa Cina yang benar dari \\\"tenang\\\"?",
         "explanationLearning": "Terjemahan \\\"tenang\\\" yang benar dalam konteks kosakata ini adalah \\\"安静的\\\".",
-        "explanationTranslation": "Dalam kosakata ini, terjemahan \\\"tenang\\\" yang benar adalah \\\"diam\\\".",
+        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"tenang\\\" adalah \\\"diam\\\".",
         "options": {
           "a": {
             "learning": "Diam",
@@ -6118,7 +6118,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-zh-word-008": {
-        "promptLearning": "Manakah terjemahan bahasa Tionghoa yang benar dari bahasa Indonesia yang ” berguna ”?",
+        "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang disederhanakan dari ” berguna ”?",
         "promptTranslation": "Siapa di antaranya yang benar dalam terjemahan bahasa Cina yang ” berguna ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"berguna\\\" dalam konteks kosakata ini adalah \\\"有用的\\\".",
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"berguna\\\" adalah \\\"berguna\\\".",
@@ -6156,7 +6156,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Murah."
           },
           "c": {
-            "learning": "♪ nyaman ♪",
+            "learning": "Coy",
             "translation": "Nyaman."
           },
           "d": {
@@ -6166,7 +6166,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-zh-word-010": {
-        "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"boring\\\"?",
+        "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"bosan\\\"?",
         "promptTranslation": "Siapa di antaranya yang merupakan terjemahan bahasa Cina yang benar dari \\\"Bring\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"pemboran\\\" dalam konteks kosakata ini adalah \\\"无聊的\\\".",
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"membawa\\\" adalah \\\"diam\\\".",
@@ -6190,7 +6190,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-beginner-zh-word-011": {
-        "promptLearning": "Manakah terjemahan dalam bahasa Cina yang benar dari ” Saran ”?",
+        "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari ” Saran ”?",
         "promptTranslation": "Manakah terjemahan bahasa Cina yang benar dari ” Saran ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"nasihat\\\" dalam konteks kosakata ini adalah \\\"建议\\\".",
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"advice\\\" adalah \\\"rekomendasi\\\".",
@@ -6217,7 +6217,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang disederhanakan dari \\\"informasi\\\"?",
         "promptTranslation": "Manakah terjemahan bahasa Cina yang benar dari ” informasi”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"informasi\\\" dalam konteks kosakata ini adalah \\\"信息\\\".",
-        "explanationTranslation": "Dalam kosakata ini, terjemahan yang tepat dari \\\"informasi\\\" adalah \\\"informasi\\\".",
+        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"informasi\\\" adalah \\\"informasi\\\".",
         "options": {
           "a": {
             "learning": "Informasi",
@@ -6239,7 +6239,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-beginner-zh-word-013": {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang disederhanakan dari ” pernyataan ”?",
-        "promptTranslation": "Manakah terjemahan bahasa Cina yang benar dari ” pernyataan ”?",
+        "promptTranslation": "Apa di antaranya adalah terjemahan bahasa Cina yang benar dari ” pernyataan ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"perlengkapan\\\" dalam konteks kosakata ini adalah \\\"设备\\\".",
         "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"perlengkapan\\\" adalah \\\"perlengkapan\\\".",
         "options": {
@@ -6289,11 +6289,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"jam\\\"?",
         "promptTranslation": "Manakah terjemahan bahasa Cina yang benar dari ” jam ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"jam\\\" dalam konteks kosakata ini adalah \\\"小时\\\".",
-        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"jam\\\" adalah \\\"jam\\\".",
+        "explanationTranslation": "Dalam kosakata ini, terjemahan \\\"jam\\\" yang benar adalah \\\"jam\\\".",
         "options": {
           "a": {
             "learning": "Jam",
-            "translation": "Hari Jam"
+            "translation": "Jam"
           },
           "b": {
             "learning": "Burung hantu",
@@ -6321,7 +6321,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Jam",
-            "translation": "Hari Jam"
+            "translation": "Jam"
           },
           "c": {
             "learning": "Artikel artikel",
@@ -6337,7 +6337,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"rutin\\\"?",
         "promptTranslation": "Siapa di antaranya yang merupakan terjemahan bahasa Cina yang benar dari \\\"rutin\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"rutin\\\" dalam konteks kosakata ini adalah \\\"日常惯例\\\".",
-        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"rutin\\\" adalah \\\"praktik sehari-hari\\\".",
+        "explanationTranslation": "Dalam kosakata ini, terjemahan yang benar dari \\\"rutin\\\" adalah ” praktek masa kini ”.",
         "options": {
           "a": {
             "learning": "rutin",
@@ -6376,7 +6376,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Penn"
           },
           "d": {
-            "learning": "Kalimat morf",
+            "learning": "Ayat morf",
             "translation": "Ayat"
           }
         }
@@ -6407,7 +6407,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-zh-word-002": {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang disederhanakan dari \\\"menyerah\\\"?",
-        "promptTranslation": "Apa di antaranya adalah terjemahan bahasa Mandarin yang benar dari frasa \\\"menyerah\\\"?",
+        "promptTranslation": "Apa di antaranya adalah terjemahan bahasa Tionghoa yang benar dari frasa \\\"menyerah\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"menyerah\\\" dalam konteks pelajaran ini adalah \\\"放弃\\\".",
         "explanationTranslation": "Dalam konteks kelas ini, terjemahan yang benar dari \\\"menyerah\\\" adalah \\\"mengumumkan\\\".",
         "options": {
@@ -6433,7 +6433,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"klarifikasi\\\"?",
         "promptTranslation": "Manakah terjemahan bahasa Tionghoa yang benar dari ” klarifikasi ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"klarifikasi\\\" dalam konteks pelajaran ini adalah \\\"澄清\\\".",
-        "explanationTranslation": "Dalam konteks subjek ini, terjemahan yang benar dari \\\"klarifikasi\\\" adalah \\\"klarifikasi\\\".",
+        "explanationTranslation": "Dalam konteks kelas ini, terjemahan \\\"klarifikasi\\\" yang benar adalah \\\"klarifikasi\\\".",
         "options": {
           "a": {
             "learning": "klarifikasi",
@@ -6455,13 +6455,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-intermediate-zh-word-004": {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"tidak jelas\\\"?",
-        "promptTranslation": "Yang mana di antaranya adalah terjemahan Cina yang benar dari \"unclar\"?",
+        "promptTranslation": "Yang mana dari yang berikut adalah terjemahan Cina yang benar dari \"unclar\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"tidak jelas\\\" dalam konteks pelajaran ini adalah \\\"不清楚的\\\".",
         "explanationTranslation": "Dalam konteks kelas ini, terjemahan yang benar dari \\\"unclar\\\" adalah \\\"tidak didefinisikan\\\".",
         "options": {
           "a": {
             "learning": "Tidak jelas",
-            "translation": "Aku tidak tahu."
+            "translation": "Saya tidak tahu."
           },
           "b": {
             "learning": "BAHWA akurat",
@@ -6469,7 +6469,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Dapat dipercaya",
-            "translation": "Bisa diandalkan"
+            "translation": "Dapat diandalkan"
           },
           "d": {
             "learning": "Hanya formal",
@@ -6481,7 +6481,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"kolokasi\\\"?",
         "promptTranslation": "Apa di antaranya terjemahan bahasa Cina yang benar dari \\\"kolokasi\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"colocation\\\" dalam konteks pelajaran ini adalah \\\"词语搭配\\\".",
-        "explanationTranslation": "Dalam konteks subjek ini, terjemahan yang benar dari \\\"kolokasi\\\" adalah \\\"pencocokan kata\\\".",
+        "explanationTranslation": "Dalam konteks subjek ini, terjemahan yang benar dari \\\"kolokasi\\\" adalah \\\"cocok kata-kata\\\".",
         "options": {
           "a": {
             "learning": "Peruntukan",
@@ -6512,7 +6512,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Keputusan"
           },
           "b": {
-            "learning": "saran",
+            "learning": "saran palsu",
             "translation": "Saran"
           },
           "c": {
@@ -6529,7 +6529,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari ” pengalaman ”?",
         "promptTranslation": "Manakah terjemahan bahasa Cina yang benar dari ” pengalaman ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"pengalaman\\\" dalam konteks pelajaran ini adalah \\\"经历\\\".",
-        "explanationTranslation": "Dalam konteks pokok bahasan ini, terjemahan yang benar dari \\\"pengalaman\\\" adalah \\\"Eksperiensi\\\".",
+        "explanationTranslation": "Terjemahan yang benar dari \\\"pengalaman\\\" adalah \\\"Keunggulan\\\" dalam konteks ini.",
         "options": {
           "a": {
             "learning": "pengalaman",
@@ -6564,7 +6564,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Real."
           },
           "c": {
-            "learning": "♪ ♪ tertentu ♪",
+            "learning": "♪ tertentu ♪",
             "translation": "Tentu."
           },
           "d": {
@@ -6574,7 +6574,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-intermediate-zh-word-009": {
-        "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari terjemahan \\\"realistis\\\"?",
+        "promptLearning": "Manakah terjemahan dalam bahasa Cina yang benar dari \\\"realistis\\\"?",
         "promptTranslation": "Apa di antaranya terjemahan bahasa Cina yang benar dari bahasa Indonesia yang ” realistis ”?",
         "explanationLearning": "Terjemahan yang benar dari \\\"realistik\\\" dalam konteks pelajaran ini adalah \\\"现实的\\\".",
         "explanationTranslation": "Dalam konteks ini, terjemahan \\\"realistis\\\" yang benar adalah \\\"realistis\\\".",
@@ -6593,12 +6593,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Tak pasti",
-            "translation": "Tidak yakin."
+            "translation": "Saya tidak yakin."
           }
         }
       },
       "quiz-advanced-zh-word-001": {
-        "promptLearning": "Manakah terjemahan bahasa Cina yang benar yang disederhanakan dari \\\"imply\\\"?",
+        "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari bahasa Cina yang ” sederhana ”?",
         "promptTranslation": "Manakah terjemahan bahasa Inggris yang benar dari \\\"imply\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"imply\\\" dalam konteks ini adalah \\\"暗示\\\".",
         "explanationTranslation": "Dalam konteks ini, terjemahan yang benar dari \\\"imply\\\" adalah \\\"diindikasikan\\\".",
@@ -6647,7 +6647,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-advanced-zh-word-003": {
         "promptLearning": "Manakah terjemahan bahasa Cina yang benar dari \\\"tentatif\\\"?",
-        "promptTranslation": "Manakah di antaranya terjemahan bahasa Tionghoa yang benar dari bahasa Indonesia yang ” kontentatif ”?",
+        "promptTranslation": "Manakah terjemahan bahasa Mandarin yang benar dari \\\"tentatif\\\"?",
         "explanationLearning": "Terjemahan yang benar dari \\\"tentatif\\\" dalam konteks ini adalah \\\"暂定的\\\".",
         "explanationTranslation": "Dalam konteks ini, terjemahan yang benar dari \\\"konsentatif\\\" adalah \\\"sentatif\\\".",
         "options": {
@@ -6660,7 +6660,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Abadi"
           },
           "c": {
-            "learning": "♪ ♪ tertentu ♪",
+            "learning": "♪ tertentu ♪",
             "translation": "Tentu."
           },
           "d": {
@@ -6767,7 +6767,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-p6-beginner-001": {
         "promptLearning": "Artikel mana yang melengkapi kalimatnya? \\\"Dia menunggu bus yang kami pesan.\\\"",
-        "promptTranslation": "Yang mahkota kata untuk menyelesaikan kalimat?",
+        "promptTranslation": "Yang mahkota kata untuk menyelesaikan ayat?",
         "explanationLearning": "Gunalah ketika pendengar dapat mengidentifikasi bus tertentu dari konteks.",
         "explanationTranslation": "Bila pendengar dapat menentukan bus mana yang ia gunakan.",
         "options": {
@@ -6825,7 +6825,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Suara pertama dalam kejujuran adalah suara vokal.",
-            "translation": "Karena suara pertama Kejujuran adalah lebah."
+            "translation": "Karena suara pertama dari kejujuran adalah bee-synth."
           },
           "c": {
             "learning": "Semua kata sifat mengambil a.",
@@ -6838,25 +6838,25 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-p6-beginner-004": {
-        "promptLearning": "Pilih kalimat yang benar.",
-        "promptTranslation": "Pilih kalimat yang tepat.",
+        "promptLearning": "Pilih ayat yang benar.",
+        "promptTranslation": "Pilih ayat yang tepat.",
         "explanationLearning": "Owl dimulai dengan bunyi vokal, jadi burung hantu cocok untuk kata benda baru.",
         "explanationTranslation": "Burung hantu dimulai dengan vokal; burung hantu harus digunakan ketika pertama kali disebutkan.",
         "options": {
           "a": {
-            "learning": "Aku melihat burung hantu dekat pohon.",
+            "learning": "Saya melihat burung hantu di dekat pohon.",
             "translation": "Kesalahan: burung hantu"
           },
           "b": {
-            "learning": "Aku melihat burung hantu di dekat pohon.",
+            "learning": "Saya melihat burung hantu di dekat pohon.",
             "translation": "Benar: burung hantu"
           },
           "c": {
-            "learning": "Aku melihat burung hantu di dekat pohon dalam setiap konteks.",
+            "learning": "Saya melihat burung hantu di dekat pohon dalam setiap konteks.",
             "translation": "Burung hantu dalam konteks tertentu"
           },
           "d": {
-            "learning": "Aku melihat burung hantu.",
+            "learning": "Saya melihat burung hantu.",
             "translation": "Kesalahan: burung hantu"
           }
         }
@@ -6865,11 +6865,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Artikel mana yang menunjukkan kata benda yang spesifik dan dapat diidentifikasi?",
         "promptTranslation": "Judul mana yang digunakan untuk merujuk pada istilah spesifik dan dapat diidentifikasi?",
         "explanationLearning": "Kata benda tertentu yang dapat dikenali oleh pendengar.",
-        "explanationTranslation": "Istilah ini digunakan untuk merujuk pada istilah spesifik yang dapat diidentifikasi oleh pendengar.",
+        "explanationTranslation": "Istilah ini digunakan untuk merujuk pada istilah tertentu yang dapat diidentifikasi oleh pendengar.",
         "options": {
           "a": {
             "learning": "a",
-            "translation": "Tidak diragukan lagi"
+            "translation": "Gelar yang tidak terduga"
           },
           "b": {
             "learning": "sebuah",
@@ -6877,7 +6877,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "iran",
-            "translation": "Mahkota itu."
+            "translation": "Kata mahkota."
           },
           "d": {
             "learning": "Beberapa",
@@ -6893,7 +6893,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "a": {
             "learning": "Berikan tanggung jawab.",
-            "translation": "Penanggung Jawab atas manufaktur"
+            "translation": "Memproduksi tanggung jawab"
           },
           "b": {
             "learning": "bertanggungjawab",
@@ -6913,11 +6913,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Melengkapi frasa: \\\"Tim harus tenggat waktu.\\\"",
         "promptTranslation": "- Tim harus batas waktu.\"",
         "explanationLearning": "Memenuhi tenggat waktu berarti menyelesaikan pekerjaan dengan waktu yang diperlukan.",
-        "explanationTranslation": "Meet a deadline menandakan bahwa pekerjaan itu diselesaikan oleh waktu yang diperlukan.",
+        "explanationTranslation": "Meet a deadline mengindikasikan bahwa pekerjaan itu diselesaikan oleh waktu yang diperlukan.",
         "options": {
           "a": {
             "learning": "Bertemu",
-            "translation": "Dicapai/disempurnakan tepat waktu"
+            "translation": "Dicapai/pada waktu"
           },
           "b": {
             "learning": "Diangkat",
@@ -6937,11 +6937,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Frase mana yang berarti membuat kemajuan atau peningkatan?",
         "promptTranslation": "Frase mana yang menunjukkan kemajuan atau kemajuan?",
         "explanationLearning": "Kemajuan yang dicapai adalah peruntukan alami untuk bergerak maju atau membaik.",
-        "explanationTranslation": "Kemajuan yang dicapai secara alami merupakan campuran kemajuan atau kemajuan alami.",
+        "explanationTranslation": "Kemajuan yang dicapai secara alami merupakan campuran kemajuan atau kemajuan yang alami.",
         "options": {
           "a": {
             "learning": "Ada kemajuan",
-            "translation": "Kesalahan campuran campuran: membuat kemajuan"
+            "translation": "Pasangan kesalahan: membuat kemajuan"
           },
           "b": {
             "learning": "Ada kemajuan",
@@ -6996,8 +6996,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Hujan deras."
           },
           "c": {
-            "learning": "sangat perhatian",
-            "translation": "Aku sangat khawatir."
+            "learning": "Sangat perhatian",
+            "translation": "Saya sangat khawatir."
           },
           "d": {
             "learning": "Batas akhir yang tinggi",
@@ -7020,7 +7020,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Indosat"
           },
           "c": {
-            "learning": "simpulkan hasil",
+            "learning": "kesimpulan disimpulkan",
             "translation": "Kesimpulan"
           },
           "d": {
@@ -7055,7 +7055,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-p6-advanced-003": {
         "promptLearning": "Dia memilih kata untuk desain yang menggunakan uang dan sumber daya dengan hati-hati.",
-        "promptTranslation": "Pilih kata-kata yang berarti desain untuk menghemat uang dan sumber daya.",
+        "promptTranslation": "Pilih kata-kata untuk berarti bahwa desain menghemat uang dan sumber daya.",
         "explanationLearning": "Ekonomia menggambarkan sesuatu yang menghindari pemborosan atau penggunaan sumber daya secara efisien.",
         "explanationTranslation": "Ini adalah pertama kalinya pemerintah dapat menggunakan sumber dayanya secara efektif.",
         "options": {
@@ -7105,7 +7105,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Kata mana yang berarti \\\"akan terjadi\\\"?",
         "promptTranslation": "Kata mana yang menunjukkan \\\"tidak penting\\\"?",
         "explanationLearning": "Imminent berarti kemungkinan akan segera terjadi; eminent berarti dibedakan.",
-        "explanationTranslation": "Iminent akan terjadi; eminent sangat baik.",
+        "explanationTranslation": "Iminent akan segera terjadi; eminent sangat baik.",
         "options": {
           "a": {
             "learning": "Ominen",
@@ -7127,9 +7127,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "quiz-p6-beginner-006": {
         "promptLearning": "Pilih pertanyaan yang benar: adikmu berbicara Perancis?",
-        "promptTranslation": "Kakakmu bisa bahasa Perancis?",
+        "promptTranslation": "Kakakmu dapat bahasa Perancis?",
         "explanationLearning": "Use do dengan orang ketiga tunggal subjek dalam sederhana saat ini. Kata kerja utama tetap dalam bentuk dasarnya.",
-        "explanationTranslation": "Biasanya, saat ini, orang ketiga mengacu pada kombinasi bahasa utama tunggal tidak; kata kerja utama tetap sama.",
+        "explanationTranslation": "Biasanya, saat ini, orang ketiga mengacu pada kombinasi bahasa induk satu digit tidak; kata kerja utama tetap sama.",
         "options": {
           "a": {
             "learning": "Does",
@@ -7150,7 +7150,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-p6-beginner-007": {
-        "promptLearning": "Kalimat mana yang benar di masa lalu negatif sederhana?",
+        "promptLearning": "Ayat mana yang benar di masa lalu negatif sederhana?",
         "promptTranslation": "Hukuman mana yang benar negatif umum?",
         "explanationLearning": "Use tidak + bentuk dasar dari kata kerja utama: tidak berkunjung.",
         "explanationTranslation": "Use tidak + kata kerja utama: tidak berkunjung.",
@@ -7165,11 +7165,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Mereka tidak mengunjungi kami.",
-            "translation": "Mereka tidak datang menemui kita kemarin. (Learn kata kerja)"
+            "translation": "Mereka tidak datang menemui kita kemarin. (kekurangan kata kerja)"
           },
           "d": {
             "learning": "Mereka tidak mengunjungi kami.",
-            "translation": "Mereka tidak datang mengunjungi kami. (menjadi kesalahan struktural kata kerja)"
+            "translation": "Mereka tidak datang mengunjungi kami. Kata kerja tidak benar"
           }
         }
       },
@@ -7177,7 +7177,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Pilih WH-question yang benar bertanya tentang tempat kerja seseorang.",
         "promptTranslation": "Memilih bahasa yang tepat untuk mempertanyakan seseorang di tempat kerja.",
         "explanationLearning": "Guna di mana + tidak + subjek + dasar kata kerja untuk pertanyaan-WH sederhana sekarang.",
-        "explanationTranslation": "Biasanya, kalimat pertanyaan khusus sekarang digunakan di mana + dos + kata timbal + kata kerja.",
+        "explanationTranslation": "Biasanya, ayat pertanyaan khusus sekarang digunakan di mana + dos + kata timbal + kata kerja.",
         "options": {
           "a": {
             "learning": "Dimana dia bekerja?",
@@ -7185,7 +7185,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Di mana dia bekerja?",
-            "translation": "Dimana dia bekerja? (dalam urutan kesalahan)"
+            "translation": "Dimana dia bekerja? (Dalam urutan kesalahan)"
           },
           "c": {
             "learning": "Di mana dia bekerja?",
@@ -7222,10 +7222,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-p6-intermediate-007": {
-        "promptLearning": "Pilih kalimat pasif sempurna yang benar.",
+        "promptLearning": "Pilih ayat pasif sempurna yang benar.",
         "promptTranslation": "Pilih ayat pasif yang tepat untuk diselesaikan.",
         "explanationLearning": "Saat ini pasif sempurna adalah memiliki/telah + participle masa lalu. Undangan adalah bentuk jamak, sehingga penggunaan telah dikirim.",
-        "explanationTranslation": "Struktur tutur pasif pada saat penyelesaian sekarang adalah telah/telah + kata masa lalu. Investasi adalah kompleks, sehingga penggunaan telah dikirim.",
+        "explanationTranslation": "Struktur ucapan pasif pada saat penyelesaian sekarang adalah telah/telah + kata masa lalu. Investasi adalah kompleks, sehingga penggunaan telah dikirim.",
         "options": {
           "a": {
             "learning": "Undangan telah dikirim.",
@@ -7233,7 +7233,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "b": {
             "learning": "Undangan telah dikirim.",
-            "translation": "Undangan telah dikirim. ***** ********** ******** ****** ****** ****** ***** **** ***** *** *** *** *** **** * **** * * ***** * * * *** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+            "translation": "Undangan telah dikirim. ***** ********** ******** ****** ****** ****** ***** **** **** **** *** *** *** **** * **** * * ***** * * * *** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
           },
           "c": {
             "learning": "Undangan telah dikirim.",
@@ -7241,12 +7241,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Undangan dikirim.",
-            "translation": "Undangan telah dikirim. \" Kata-kata yang salahly"
+            "translation": "Undangan telah dikirim. \"Salah dalam artian\""
           }
         }
       },
       "quiz-p6-intermediate-008": {
-        "promptLearning": "Kapan berguna untuk memasukkan kata demi frasa dalam kalimat pasif?",
+        "promptLearning": "Kapan berguna untuk memasukkan kata demi frasa dalam ayat pasif?",
         "promptTranslation": "Kapan pantas untuk menggunakan frasa dalam pernyataan pasif?",
         "explanationLearning": "Use by + agen ketika mengidentifikasi siapa yang melakukan aksi menambahkan informasi yang berguna.",
         "explanationTranslation": "Penggunaan pengimplementasi tindakan oleh-+ apabila mengindikasikan siapa yang mengeksekusi tindakan tersebut untuk memberikan informasi penting.",
@@ -7256,7 +7256,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Bila pelaksana tindakan penting."
           },
           "b": {
-            "learning": "Setiap kali kalimat pasif digunakan.",
+            "learning": "Setiap kali ayat pasif digunakan.",
             "translation": "Setiap kali pidato pasif digunakan."
           },
           "c": {
@@ -7264,16 +7264,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Hanya pelaksana aksi yang tak diketahui."
           },
           "d": {
-            "learning": "Jangan pernah; kalimat pasif tidak bisa memberi nama agen.",
+            "learning": "Jangan pernah; ayat pasif tidak dapat memberi nama agen.",
             "translation": "Tidak pernah; ucapan pasif tidak menunjukkan pelaksana tindakan."
           }
         }
       },
       "quiz-p6-advanced-006": {
         "promptLearning": "\\\"Saya telah menyelesaikan laporan,\\\" kata Nina. Pilih laporan yang benar.",
-        "promptTranslation": "Aku sudah selesai melapor.\" Kata Nina. Pilih transposisi yang benar.",
+        "promptTranslation": "Saya sudah selesai melapor.\" Kata Nina. Pilih transposisi yang benar.",
         "explanationLearning": "Dengan kata kerja pelaporan masa lalu, hadir sempurna biasa backshift ke masa lalu sempurna: telah selesai → telah selesai.",
-        "explanationTranslation": "Ketika kata kerja digunakan, kalimat asli sekarang dipindahkan ke masa lalu penyelesaian: telah selesai telah selesai.",
+        "explanationTranslation": "Ketika kata kerja digunakan, ayat asli sekarang dipindahkan ke masa lalu penyelesaian: telah selesai telah selesai.",
         "options": {
           "a": {
             "learning": "Kata Nina, dia sudah menyelesaikan laporannya.",
@@ -7289,7 +7289,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Kata Nina dia menyelesaikan laporan besok.",
-            "translation": "Kata Nina dia menyelesaikan laporan besok. Logika waktu."
+            "translation": "Kata Nina dia menyelesaikan laporan besok. Logika waktu (kesalahan logika waktu)"
           }
         }
       },
@@ -7297,23 +7297,23 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "\\\"Di mana kau meletakkan kuncinya?\\\" Dia memintaku.",
         "promptTranslation": "Di mana kau meletakkan kuncinya? Dia bertanya padaku.",
         "explanationLearning": "A dilaporkan WH-question menggunakan pernyataan perintah kata. Dengan kata kerja pelaporan masa lalu, tidak dimasukkan umum menjadi telah dimasukkan.",
-        "explanationTranslation": "Kalimat pertanyaan khusus tidak langsung menggunakan urutan pernyataan. Saat mereproduksi kata kerja dari masa lalu, biasanya sudah dimasukkan.",
+        "explanationTranslation": "Ayat pertanyaan khusus tidak langsung menggunakan urutan pernyataan. Saat mereproduksi kata kerja dari masa lalu, biasanya sudah dimasukkan.",
         "options": {
           "a": {
-            "learning": "Di mana aku meletakkan kunci",
-            "translation": "Dimana aku menaruh kuncinya?"
+            "learning": "Di mana saya meletakkan kunci",
+            "translation": "Dimana saya menaruh kuncinya?"
           },
           "b": {
-            "learning": "Di mana aku meletakkan kunci",
-            "translation": "Dimana aku menaruh kuncinya?"
+            "learning": "Di mana saya meletakkan kunci",
+            "translation": "Dimana saya menaruh kuncinya?"
           },
           "c": {
-            "learning": "Di mana aku meletakkan kunci",
-            "translation": "Dimana aku menaruh kuncinya?"
+            "learning": "Di mana saya meletakkan kunci",
+            "translation": "Dimana saya menaruh kuncinya?"
           },
           "d": {
-            "learning": "Di mana aku meletakkan kunci",
-            "translation": "Dimana aku menaruh kuncinya?"
+            "learning": "Di mana saya meletakkan kunci",
+            "translation": "Dimana saya menaruh kuncinya?"
           }
         }
       },
@@ -7344,8 +7344,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "quiz-p6-beginner-009": {
         "promptLearning": "Pilih bantuan yang sederhana: orang tuamu tinggal di dekat stasiun?",
         "promptTranslation": "Pilih kata kerja yang biasanya dibutuhkan untuk saat ini: Apakah orang tuamu tinggal dekat stasiun?",
-        "explanationLearning": "Anda bisa menggunakan bahasa jamak yang digunakan orang tuamu dalam pertanyaan ya/tidak. Jaga agar kata kerja utama tetap hidup dalam bentuk dasarnya.",
-        "explanationTranslation": "Monolog orang tua Anda kompleks dan biasanya menggunakan kalimat pertanyaan sekarang lakukan; kata kerja utama hidup untuk menyimpannya dalam bentuk aslinya.",
+        "explanationLearning": "Anda dapat menggunakan bahasa jamak yang digunakan orang tuamu dalam pertanyaan ya/tidak. Jaga agar kata kerja utama tetap hidup dalam bentuk dasarnya.",
+        "explanationTranslation": "Monolog orang tua Anda kompleks, dan frasa pertanyaan biasanya digunakan sekarang lakukan; kata kerja utama hidup untuk tetap dalam bentuk.",
         "options": {
           "a": {
             "learning": "Perancis",
@@ -7366,7 +7366,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-p6-beginner-010": {
-        "promptLearning": "Pertanyaan yang mana yang ditanyakan siapa yang melakukan tindakan itu, dengan siapa sebagai subjek?",
+        "promptLearning": "Pertanyaan yang mana yang bertanya siapa yang melakukan tindakan itu, dengan siapa sebagai subjek?",
         "promptTranslation": "Apa salah satu pertanyaan itu? Siapa itu? Siapa itu?",
         "explanationLearning": "Ketika siapa subjek, itu mengambil tempat subjek dan tidak ada dukungan-dibutuhkan: Siapa yang membuka jendela?",
         "explanationTranslation": "Siapa yang membuka jendela?",
@@ -7393,10 +7393,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Kemarin peralatan laboratorium.",
         "promptTranslation": "Peralatan Laboratorium Laboratorium Laboratorium Laboratorium kemarin.",
         "explanationLearning": "Peralatan tak terhitung jumlahnya. Kegunaan pasif sederhana masa lalu adalah + participle masa lalu: diperiksa.",
-        "explanationTranslation": "Peralatan adalah kata yang tak terhitung jumlahnya, ditangani dalam singularitas. Bahasa pasif yang biasa digunakan adalah + kualifier masa lalu: telah ditutup.",
+        "explanationTranslation": "Peralatan adalah kata yang tak terhitung jumlahnya, ditangani dalam singularitas. Bahasa pasif biasa yang digunakan adalah + kualifier masa lalu: telah ditutup.",
         "options": {
           "a": {
-            "learning": "Ogos diperiksa",
+            "learning": "Kecurigaan telah diperiksa",
             "translation": "Sudah diperiksa."
           },
           "b": {
@@ -7414,10 +7414,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "quiz-p6-intermediate-010": {
-        "promptLearning": "Penyebab penundaan masih belum diketahui. Kalimat yang mana yang terus berfokus pada peristiwa itu tanpa menciptakan agen?",
-        "promptTranslation": "Alasan untuk penundaan tetap tidak diketahui. Kalimat yang mana yang berfokus pada peristiwa dan tidak memiliki pelaksana tindakan fiksi?",
-        "explanationLearning": "Ketika agen tidak diketahui atau tidak penting, kalimat pasif dapat menghilangkan kata demi kata dan tetap memperhatikan apa yang terjadi.",
-        "explanationTranslation": "Bila pelaksana tindakan tidak diketahui atau penting, kalimat pasif mengabaikan oleh frasa dan berfokus pada apa yang terjadi.",
+        "promptLearning": "Penyebab penundaan masih belum diketahui. Ayat yang mana yang terus berfokus pada peristiwa itu tanpa menciptakan agen?",
+        "promptTranslation": "Alasan untuk penundaan tetap tidak diketahui. Ayat yang mana yang berfokus pada peristiwa dan tidak memiliki pelaksana tindakan fiksi?",
+        "explanationLearning": "Ketika agen tidak diketahui atau tidak penting, ayat pasif dapat menghilangkan kata demi kata dan tetap memperhatikan apa yang terjadi.",
+        "explanationTranslation": "Bila pelaksana tindakan tidak diketahui atau penting, ayat pasif mengabaikan oleh frasa dan berfokus pada apa yang terjadi.",
         "options": {
           "a": {
             "learning": "Kiriman ditunda.",
@@ -7433,22 +7433,22 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Seseorang menunda pengiriman.",
-            "translation": "Seseorang tertunda dalam distribusi. Bahasa Perancis (struktur bahasa error)"
+            "translation": "Seseorang tertunda dalam distribusi. (Struktur bahasa error)"
           }
         }
       },
       "quiz-p6-advanced-009": {
-        "promptLearning": "Acaranya minggu lalu. \\\"Apakah kamu akan bergabung dengan kami?\\\" Lina bertanya apakah aku mau.",
-        "promptTranslation": "Acara tersebut berlangsung minggu lalu.WillMaukah kau bergabung dengan kami?\" Lina bertanya apakah aku...",
-        "explanationLearning": "Acara ini di masa lalu, jadi gunakan backshifted masa lalu terus menerus dalam laporan ya/tidak pertanyaan: bergabung. Pastikan pernyataan pernyataan kata urutan setelah apakah.",
-        "explanationTranslation": "Acara tersebut sudah pernah diadakan pada masa lalu, dan kalimat pertanyaan umum secara tidak langsung oleh karena itu telah bekerja di masa lalu sejak digunakan. Tetap tinggal setelah pernyataan.",
+        "promptLearning": "Acaranya minggu lalu. \\\"Apakah kamu akan bergabung dengan kami?\\\" Lina bertanya apakah saya mau.",
+        "promptTranslation": "Acara tersebut berlangsung minggu lalu.WillMaukah kau bergabung dengan kami?\" Lina bertanya apakah saya...",
+        "explanationLearning": "Acara ini di masa lalu, jadi gunakan backshifted masa lalu berkesinambungan dalam laporan ya/tidak pertanyaan: bergabung. Pastikan pernyataan pernyataan kata urutan setelah apakah.",
+        "explanationTranslation": "Acara tersebut sudah pernah diadakan di masa lalu, sehingga ayat keraguan umum tidak langsung telah bekerja di masa lalu sejak digunakan. Tunggu setelah pernyataan.",
         "options": {
           "a": {
             "learning": "Dia bergabung dengan mereka.",
             "translation": "Dia akan bersama mereka."
           },
           "b": {
-            "learning": "Aku bergabung dengan mereka.",
+            "learning": "Saya bergabung dengan mereka.",
             "translation": "Berpartisipasi dengan mereka (tidak berlangsung nanti)"
           },
           "c": {
@@ -7457,7 +7457,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "d": {
             "learning": "Mereka sudah bergabung.",
-            "translation": "(Merekalah) golongan-golongan (yang turut serta) golongan-golongan yang bersekutu itu."
+            "translation": "Mereka bergabung."
           }
         }
       },
@@ -7477,7 +7477,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "c": {
             "learning": "Dia menyuruhku menutup jendela.",
-            "translation": "Dia bilang aku menutup jendela. Nak (katakan kesalahan yang cocok)"
+            "translation": "Dia bilang saya menutup jendela. Nak (katakan kesalahan yang cocok)"
           },
           "d": {
             "learning": "Dia meminta saya menutup jendela.",
@@ -7490,7 +7490,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-pinyin-foundations-01": {
         "promptLearning": "Suku kata mana yang menggunakan suara pertama?",
         "promptTranslation": "Suku kata mana yang menggunakan nada pertama?",
-        "explanationLearning": "Suara pertama tinggi dan rata; \"Mom\" dibaca mā, dan nada pertama.",
+        "explanationLearning": "Suara pertama adalah tinggi dan rata; Ma dibaca mā dan nada pertama.",
         "explanationTranslation": "Nada pertama tetap tinggi dan tingkat. 妈 is pronounced diucapkan mā, dengan nada pertama.",
         "options": {
           "o1": {
@@ -7538,7 +7538,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-pinyin-foundations-03": {
         "promptLearning": "Mana yang paling akurat deskripsi suara kedua?",
         "promptTranslation": "Pernyataan yang mana yang terbaik menggambarkan nada kedua?",
-        "explanationLearning": "Suara suara kedua naik dari posisi yang lebih rendah ke tingkat yang lebih tinggi dan terdengar seperti nada ke atas.",
+        "explanationLearning": "Suara suara kedua naik dari posisi yang lebih rendah ke tingkat yang lebih tinggi dan terdengar seperti nada naik.",
         "explanationTranslation": "Nada kedua naik dari nada yang relatif rendah ke nada yang lebih tinggi.",
         "options": {
           "o1": {
@@ -7560,7 +7560,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-pinyin-foundations-04": {
-        "promptLearning": "Apa fungsi utama ejaan Cina?",
+        "promptLearning": "Apa peran utama ejaan Cina?",
         "promptTranslation": "Apa tujuan utama Hanyu Pinyin?",
         "explanationLearning": "Ejaan bahasa Mandarin ditandai dengan huruf dan simbol akustik untuk membaca bahasa Mandarin dan membantu pelajar membaca dan belajar pengucapan.",
         "explanationTranslation": "Bahasa Hanyu Pinyin menggunakan huruf dan tanda nada untuk mewakili pelafalan bahasa Mandarin dan membantu pelajar membaca dan berlatih suara.",
@@ -7578,8 +7578,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "\\\"Indonesia Gantikan Semua Aksara Tionghoa\\\"."
           },
           "o4": {
-            "learning": "Ini adalah struktur sintaks dari kalimat.",
-            "translation": "Tata bahasa kalimat."
+            "learning": "Ini adalah struktur sintaks dari ayat.",
+            "translation": "Tata bahasa ayat."
           }
         }
       },
@@ -7587,7 +7587,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Dalam \"Mom\", suku kata mana yang biasanya dibaca dengan lembut?",
         "promptTranslation": "Suku kata mana yang biasanya diucapkan dengan nada netral?",
         "explanationLearning": "Dalam \"Mom\", yang kedua \"Mom\" biasanya dibaca \"ma\" lembut, dengan aksen yang lebih ringan, lebih pendek dan tanpa suara pertama.",
-        "explanationTranslation": "Dalam 妈妈, suku kata kedua biasanya ma netral-tone, diucapkan ringan dan singkat tanpa tanda nada pertama.",
+        "explanationTranslation": "妈妈, suku kata kedua biasanya ma netral-tone, diucapkan ringan dan singkat tanpa tanda nada pertama.",
         "options": {
           "o1": {
             "learning": "Pertama \"Ibu.\"",
@@ -7611,14 +7611,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Apa ejaan standar untuk halo?",
         "promptTranslation": "Ejaan mana yang merupakan standar tertulis pinyin untuk 你好?",
         "explanationLearning": "Ejaan standard ejaan tetap menyimpan nada yang sama untuk \"you\" dan \"good\" masing-masing, sehingga penulisan n pergi h seo; tiga suara pertama berubah ketika dibaca.",
-        "explanationTranslation": "Standar tertulis Pinyin menyimpan nada dasar dari Á dan Á, sehingga ditulis n è hǎo. Dalam pidato bersambung, nada ketiga pertama berubah.",
+        "explanationTranslation": "Standar penulisan Pinyin menyimpan nada dasar dari Á dan Á, sehingga ditulis n è hǎo. Dalam pidato bersambung, nada ketiga pertama berubah.",
         "options": {
           "o1": {
             "learning": "Ayo pergi.",
             "translation": "Bentuk tertulis standar."
           },
           "o2": {
-            "learning": "Aku suka melihatmu.",
+            "learning": "Saya suka melihatmu.",
             "translation": "pengucapan nada-sandhi yang umum diucapkan."
           },
           "o3": {
@@ -7634,7 +7634,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-pinyin-foundations-07": {
         "promptLearning": "Apa versi yang paling akurat dari yang ketiga?",
         "promptTranslation": "Pernyataan yang mana tentang nada ketiga yang paling tepat?",
-        "explanationLearning": "Suara ketiga cenderung menurun dan naik ketika dibaca sendirian atau di akhir sebuah frasa; mungkin juga hanya membaca setengah atau tiga kali dalam aliran lain.",
+        "explanationLearning": "Suara ketiga cenderung menurun pertama dan kemudian naik ketika dibaca sendirian atau di akhir frasa; juga mungkin membaca hanya setengah tiga kali di aliran lain.",
         "explanationTranslation": "Bila diucapkan sendirian atau di akhir sebuah frasa, nada ketiga sering mencelup dan naik. Di posisi lain yang terhubung-speech, mungkin nada setengah-pertiga.",
         "options": {
           "o1": {
@@ -7642,7 +7642,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Ini selalu sepenuhnya jatuh dan kemudian naik."
           },
           "o2": {
-            "learning": "Sering dibaca secara terpisah atau di akhir kalimat, dengan first-down dan kemudian-up.",
+            "learning": "Sering dibaca secara terpisah atau di akhir ayat, sebelum jatuh atau naik.",
             "translation": "Bila diucapkan sendirian atau pada akhir sebuah frasa, ia sering mencelup dan naik."
           },
           "o3": {
@@ -7699,19 +7699,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o4": {
             "learning": "Permisi.",
-            "translation": "Permisi, boleh aku bertanya"
+            "translation": "Permisi, boleh saya bertanya"
           }
         }
       },
       "zh-en-b-greetings-introductions-03": {
         "promptLearning": "Frase mana yang dengan penuh respek dapat menimbulkan pertanyaan?",
         "promptTranslation": "frase mana yang dengan sopan memperkenalkan pertanyaan?",
-        "explanationLearning": "\\\"Pertanyaan pertanyaan\\\" sering diajukan di hadapan pertanyaan dan digunakan untuk menarik perhatian pihak lain dengan sopan dan mengajukan pertanyaan.",
+        "explanationLearning": "\\\"Pertanyaan pertanyaan\\\" sering kali diletakkan di hadapan pertanyaan dan digunakan untuk menarik perhatian pihak lain dengan sopan dan mengajukan pertanyaan.",
         "explanationTranslation": "请问 biasanya ditempatkan di hadapan pertanyaan untuk dengan sopan mendapatkan perhatian seseorang dan membuat penyelidikan.",
         "options": {
           "o1": {
             "learning": "Permisi.",
-            "translation": "Boleh aku bertanya?"
+            "translation": "Boleh saya bertanya?"
           },
           "o2": {
             "learning": "Silakan.",
@@ -7730,8 +7730,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-greetings-introductions-04": {
         "promptLearning": "Sebagai jawaban atas ucapan \\\"terima kasih\\\", apakah ungkapan yang paling wajar?",
         "promptTranslation": "Manakah jawaban alami untuk 谢谢?",
-        "explanationLearning": "\\\"Sama-sama\\\" sering digunakan sebagai tanggapan \\\"terima kasih\\\", menunjukkan bahwa pihak lain tidak terlalu baik.",
-        "explanationTranslation": "不客气 adalah tanggapan wajar terhadap 谢谢, artinya orang lain tidak perlu menyebutkannya.",
+        "explanationLearning": "\\\"Sama-sama\\\" sering digunakan sebagai tanggapan terhadap \\\"terima kasih\\\", menunjukkan bahwa pihak lain tidak begitu baik.",
+        "explanationTranslation": "不客气 adalah tanggapan alami terhadap 谢谢, artinya orang lain tidak perlu menyebutkannya.",
         "options": {
           "o1": {
             "learning": "Sama-sama.",
@@ -7747,7 +7747,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o4": {
             "learning": "Permisi.",
-            "translation": "Boleh aku bertanya"
+            "translation": "Boleh saya bertanya"
           }
         }
       },
@@ -7771,18 +7771,18 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o4": {
             "learning": "Permisi.",
-            "translation": "Boleh aku bertanya"
+            "translation": "Boleh saya bertanya"
           }
         }
       },
       "zh-en-b-greetings-introductions-06": {
         "promptLearning": "Bagaimana seharusnya mereka menggambarkan nama mereka kepada orang lain?",
-        "promptTranslation": "Kalimat yang memperkenalkan pembicara menggunakan nama Li Ming?",
+        "promptTranslation": "Ayat yang memperkenalkan pembicara menggunakan nama Li Ming?",
         "explanationLearning": "Nama saya Li Myung\" adalah istilah umum untuk memperkenalkan nama, artinya \"Nama saya Li Myung\".",
         "explanationTranslation": "Nama saya Li Ming.",
         "options": {
           "o1": {
-            "learning": "Nama saya Li Ming.",
+            "learning": "Namaku Li Ming.",
             "translation": "Nama saya Li Ming"
           },
           "o2": {
@@ -7794,14 +7794,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Dia Li Ming"
           },
           "o4": {
-            "learning": "Aku kenal Li Ming.",
-            "translation": "Aku kenal Li Ming"
+            "learning": "Saya kenal Li Ming.",
+            "translation": "Saya kenal Li Ming"
           }
         }
       },
       "zh-en-b-greetings-introductions-07": {
-        "promptLearning": "Saat pertama kali bertemu, kau bilang kau senang saling mengenal. Apa yang biasanya kau katakan?",
-        "promptTranslation": "Frase yang mana yang menyatakan senang bertemu dengan seseorang untuk pertama kalinya?",
+        "promptLearning": "Saat pertama kali bertemu, kami bilang kami senang bertemu. Apa yang biasanya kau katakan?",
+        "promptTranslation": "Frasa yang mana yang menyatakan senang bertemu dengan seseorang untuk pertama kalinya?",
         "explanationLearning": "Senang bertemu denganmu. Senang bertemu denganmu.",
         "explanationTranslation": "很高兴认识你 digunakan sewaktu bertemu dengan seseorang untuk pertama kalinya untuk mengatakan bahwa Anda senang bertemu mereka.",
         "options": {
@@ -7814,8 +7814,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Apa kabar?"
           },
           "o3": {
-            "learning": "Aku baik-baik saja.",
-            "translation": "Aku sangat baik"
+            "learning": "Saya baik-baik saja.",
+            "translation": "Saya sangat baik"
           },
           "o4": {
             "learning": "Bye.",
@@ -7842,7 +7842,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Nine"
           },
           "o4": {
-            "learning": "Perancis",
+            "learning": "Amerika Serikat",
             "translation": "Tiga"
           }
         }
@@ -7859,7 +7859,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o2": {
             "learning": "Besok.",
-            "translation": "Esok"
+            "translation": "Besok"
           },
           "o3": {
             "learning": "Kemarin.",
@@ -7946,12 +7946,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-numbers-dates-time-06": {
         "promptLearning": "Kata yang biasanya digunakan pada hari berikutnya menunjukkan tanggal?",
         "promptTranslation": "Kata mana yang merujuk kepada hari setelah hari ini?",
-        "explanationLearning": "Besok\" artinya lusa, yaitu besok.",
+        "explanationLearning": "Besok\" artinya lusa hari ini, itu besok.",
         "explanationTranslation": "明天 memaksudkan hari setelah hari ini, yang berarti ” besok.\\\"",
         "options": {
           "o1": {
             "learning": "Besok.",
-            "translation": "Esok"
+            "translation": "Besok"
           },
           "o2": {
             "learning": "Kemarin.",
@@ -7969,13 +7969,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-b-pronouns-basic-sentences-01": {
         "promptLearning": "Mono-algem orang pertama yang mana yang biasanya digunakan ketika berbicara tentang diri mereka sendiri?",
-        "promptTranslation": "Kata ganti yang berarti \\\"aku\\\"?",
+        "promptTranslation": "Kata ganti yang berarti \\\"saya\\\"?",
         "explanationLearning": "\\\"I\\\" adalah kata satu digit orang pertama, merujuk kepada orang yang berbicara.",
         "explanationTranslation": "Kata ganti tunggal orang pertama mengacu pada pembicara.",
         "options": {
           "o1": {
-            "learning": "Aku...",
-            "translation": "Aku; aku"
+            "learning": "Saya...",
+            "translation": "Saya; saya"
           },
           "o2": {
             "learning": "Kau.",
@@ -8006,8 +8006,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Dia"
           },
           "o3": {
-            "learning": "Aku...",
-            "translation": "Aku; aku"
+            "learning": "Saya...",
+            "translation": "Saya; saya"
           },
           "o4": {
             "learning": "Guys.",
@@ -8018,7 +8018,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-pronouns-basic-sentences-03": {
         "promptLearning": "Aljabar plural orang pertama yang biasanya digunakan ketika pembicara mewakili dirinya sendiri dan setidaknya orang lain?",
         "promptTranslation": "Kata mana yang berarti \\\"kita\\\"?",
-        "explanationLearning": "\\\"Kami\\\" adalah bentuk jamak orang pertama, menunjukkan pembicara dan setidaknya satu orang lain.",
+        "explanationLearning": "\\\"Kami\\\" adalah bentuk jamak orang pertama, menunjukkan orang yang berbicara dan setidaknya satu orang lain.",
         "explanationTranslation": "我们 adalah kata ganti jamak orang pertama, merujuk kepada pembicara dan setidaknya satu orang lainnya.",
         "options": {
           "o1": {
@@ -8041,33 +8041,33 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-b-pronouns-basic-sentences-04": {
         "promptLearning": "Hukuman yang menunjukkan bahwa orang yang berbicara adalah seorang mahasiswa?",
-        "promptTranslation": "Apa kalimat yang mengatakan bahwa pembicara adalah seorang mahasiswa?",
+        "promptTranslation": "Apa ayat yang mengatakan bahwa pembicara adalah seorang mahasiswa?",
         "explanationLearning": "\"Saya mahasiswa\" terdiri dari \"saya + ya + mahasiswa\" artinya \"saya mahasiswa.\"",
         "explanationTranslation": "我是学生 mengikuti pola 我 + 是 + 是 dan berarti ” saya seorang pelajar ”.",
         "options": {
           "o1": {
-            "learning": "Aku mahasiswa.",
-            "translation": "Aku seorang murid"
+            "learning": "Saya mahasiswa.",
+            "translation": "Saya seorang murid"
           },
           "o2": {
-            "learning": "Aku mahasiswa.",
+            "learning": "Saya mahasiswa.",
             "translation": "Hukuman tidak alami"
           },
           "o3": {
-            "learning": "Apa itu aku?",
+            "learning": "Apa itu saya?",
             "translation": "Apakah murid saya?"
           },
           "o4": {
-            "learning": "Aku punya murid.",
-            "translation": "Aku punya murid"
+            "learning": "Saya punya murid.",
+            "translation": "Saya punya murid"
           }
         }
       },
       "zh-en-b-pronouns-basic-sentences-05": {
-        "promptLearning": "Dalam kalimat Cina, kata kerja mana yang umum digunakan untuk menghubungkan bahasa dominan dengan identitas atau alam?",
+        "promptLearning": "Dalam ayat Cina, kata kerja mana yang umum digunakan untuk menghubungkan kata utama dengan identitas atau alam?",
         "promptTranslation": "Kata mana yang menghubungkan seseorang dengan identitas, seperti dalam 我是学生?",
-        "explanationLearning": "Dari jenis kalimat ini, \\\"adalah\\\" menghubungkan bahasa dominan dan deskripsi identitas atau kata benda, setara dengan dalam bahasa Inggris.",
-        "explanationTranslation": "Dalam pola kalimat ini, LU menghubungkan subjek ke sebuah identitas atau frasa kata benda, mirip dengan \\\"jadi\\\" dalam bahasa Inggris.",
+        "explanationLearning": "Pada jenis ayat ini, \\\"is\\\" menghubungkan bahasa dominan dan deskripsi identitas atau kata benda, yang setara dengan dalam bahasa Inggris.",
+        "explanationTranslation": "Dalam pola ayat ini, LU menghubungkan subjek ke sebuah identitas atau frasa kata benda, mirip dengan \\\"menjadi\\\" dalam bahasa Inggris.",
         "options": {
           "o1": {
             "learning": "Ya. Ya.",
@@ -8088,10 +8088,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-pronouns-basic-sentences-06": {
-        "promptLearning": "Frasa yang mana yang berarti bahwa buku milik pembicara dan berada di dekat pembicara?",
+        "promptLearning": "Frasa yang mana yang berarti bahwa sebuah buku milik pembicara dan berada di dekat pembicara?",
         "promptTranslation": "Ayat mana yang mengidentifikasi buku di dekatnya milik pembicara?",
-        "explanationLearning": "(Di dalam kitabku ini, \\\"Inilah) Alquran ini (yang aku maksudkan) yang aku baca (adalah kitab kepunyaanku) kitab catatan amal perbuatanku (dan kitab kepunyaanku) kitab catatan amal perbuatan.",
-        "explanationTranslation": "Dalam 这是我的书, 这 berarti \\\"ini,\\\" 是 menghubungkan deskripsi, 我的 menandai kepemilikan, dan 书 berarti \\\"buku.\\\"",
+        "explanationLearning": "(Di dalam kitabku ini, \\\"Inilah) Alquran ini (yang merujuk kepada ini) yang dimaksud adalah Alquran ('Ya') ini (kepada yang berkaitan dengan apa yang ada pada sisiku) yaitu kitab Taurat (dan apa yang ada di dalamnya) di dalam kitab catatan amal perbuatan.",
+        "explanationTranslation": "Dalam 这是我的书, 这 berarti \\\"ini,\\\" 是 menghubungkan deskripsi, 我的 menandai kepemilikan, dan 书 berarti \\\"buku\\\".",
         "options": {
           "o1": {
             "learning": "Ini bukuku.",
@@ -8099,11 +8099,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o2": {
             "learning": "Bukuku adalah...",
-            "translation": "\\\"Aku menulis buku ini.\\\""
+            "translation": "\\\"Saya menulis buku ini.\\\""
           },
           "o3": {
             "learning": "Ini bukuku.",
-            "translation": "\\\"Ini adalah bukuku.\\\""
+            "translation": "\\\"Ini bukuku.\\\""
           },
           "o4": {
             "learning": "Punyaku adalah buku.",
@@ -8114,7 +8114,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-common-actions-01": {
         "promptLearning": "Kata kerja yang biasanya Anda gunakan untuk mengirim makanan ke pintu masuk sambil makan?",
         "promptTranslation": "Kata kerja yang mana yang menggambarkan mengambil makanan ke dalam mulut Anda selama makan?",
-        "explanationLearning": "\\\"Eating\\\" berarti makan dan merupakan kata kerja umum untuk tindakan, seperti \\\"makan makanan\\\" dan \\\"makan buah\\\".",
+        "explanationLearning": "\\\"Eating\\\" berarti makan dan merupakan kata kerja umum untuk tindakan, seperti \\\"makan\\\" dan \\\"makan buah\\\".",
         "explanationTranslation": "Artinya \\\"makan\\\" dan merupakan kata kerja yang umum, seperti dalam 吃饭 dan 吃水果.",
         "options": {
           "o1": {
@@ -8185,32 +8185,32 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-b-common-actions-04": {
         "promptLearning": "Apa artinya pembicara adalah air minum?",
-        "promptTranslation": "Kalimat mana yang menggambarkan si pembicara meminum air?",
-        "explanationLearning": "Aku minum air \" diatur menurut \"Major + kata kerja + Bing \": Aku adalah bahasa utama, minum adalah kata kerja, air adalah Bing.",
+        "promptTranslation": "Ayat mana yang menggambarkan si pembicara meminum air?",
+        "explanationLearning": "Saya minum air \" diatur menurut \"Major + kata kerja + Bing \": Saya adalah bahasa utama, minum adalah kata kerja, air adalah Bing.",
         "explanationTranslation": "我喝水 mengikuti urutan subjek–verb–objek: 我 我 adalah subjek, 喝 kata kerja, dan 水 adalah objek.",
         "options": {
           "o1": {
-            "learning": "Aku minum air.",
-            "translation": "Aku minum air"
+            "learning": "Saya minum air.",
+            "translation": "Saya minum air"
           },
           "o2": {
-            "learning": "Aku makan air.",
-            "translation": "Aku makan air"
+            "learning": "Saya makan air.",
+            "translation": "Saya makan air"
           },
           "o3": {
-            "learning": "Aku melihat air.",
-            "translation": "Aku melihat air"
+            "learning": "Saya melihat air.",
+            "translation": "Saya melihat air"
           },
           "o4": {
-            "learning": "Aku akan ke air.",
-            "translation": "Aku pergi air"
+            "learning": "Saya akan ke air.",
+            "translation": "Saya pergi air"
           }
         }
       },
       "zh-en-b-common-actions-05": {
         "promptLearning": "Ketika digunakan bersama dengan buku, kata kerja mana yang menunjukkan \\\"membaca\\\"?",
         "promptTranslation": "Kata kerja yang mana yang dapat berarti \\\"untuk dibaca\\\" bila digunakan dengan buku?",
-        "explanationLearning": "Kata \\\"pembacaan\\\" adalah kombinasi umum, menunjukkan pembacaan; juga dapat dilihat atau dilihat ketika digunakan secara terpisah.",
+        "explanationLearning": "Kata \\\"pembacaan\\\" adalah kombinasi yang umum, menunjukkan pembacaan; juga dapat dilihat atau dilihat ketika digunakan secara terpisah.",
         "explanationTranslation": "看书 adalah sebuah kolokasi umum yang berarti \\\"untuk dibaca\\\". 看 dapat juga berarti \\\"untuk melihat\\\" atau \\\"untuk menonton\\\" dalam konteks lain.",
         "options": {
           "o1": {
@@ -8282,7 +8282,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-places-getting-around-02": {
         "promptLearning": "Ke mana orang biasanya pergi untuk diagnosis dan perawatan ketika mereka sakit atau terluka?",
         "promptTranslation": "Ke mana orang biasanya pergi untuk diagnosis dan perawatan ketika sakit atau terluka?",
-        "explanationLearning": "\\\"Hospital\\\" adalah tempat pemberian diagnostik dan layanan medis, sesuai dengan rumah sakit berbahasa Inggris.",
+        "explanationLearning": "Rumah sakit adalah tempat diagnostik dan pelayanan medis diberikan, sesuai dengan rumah sakit berbahasa Inggris.",
         "explanationTranslation": "医院 adalah tempat yang menyediakan diagnosis dan perawatan medis; itu berarti ” rumah sakit ”.",
         "options": {
           "o1": {
@@ -8304,9 +8304,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-places-getting-around-03": {
-        "promptLearning": "Apa nama biasa penumpang menunggu kereta api atau angkutan umum?",
+        "promptLearning": "Apa nama umum penumpang menunggu kereta api atau angkutan umum?",
         "promptTranslation": "Di tempat apa penumpang menunggu kereta api atau angkutan umum?",
-        "explanationLearning": "Stasiun kereta api secara umum berarti stasiun tempat kendaraan berhenti dan penumpang turun dan turun; stasiun ini dapat digunakan secara khusus sebagai \\\"stasiun kereta\\\" atau \\\"stasiun kereta\\\".",
+        "explanationLearning": "Kereta api \\\"Stasiun Kereta Api\\\" secara umum berarti stasiun tempat kendaraan berhenti dan penumpang turun dan turun; stasiun ini dapat digunakan khusus untuk \\\"stasiun kereta\\\" atau \\\"stasiun kereta\\\".",
         "explanationTranslation": "车站 adalah istilah umum untuk sebuah stasiun angkutan di mana kendaraan berhenti dan penumpang naik atau ringan; jenis tertentu termasuk kereta api dan stasiun bus.",
         "options": {
           "o1": {
@@ -8328,9 +8328,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-places-getting-around-04": {
-        "promptLearning": "Yang mana satu bertanya di mana stasiun bawah tanah?",
+        "promptLearning": "Yang mana satu bertanya di mana stasiun bawah tanah itu?",
         "promptTranslation": "Hukuman mana yang bertanya di mana stasiun bawah tanah?",
-        "explanationLearning": "\"Dimana stasiun bawah tanah?\" Tanya \"dimanaitu?\"",
+        "explanationLearning": "\"Dimana stasiun bawah tanah?\" Ask \"where + where\" untuk lokasi.",
         "explanationTranslation": "地铁站在哪里? meminta lokasi menggunakan pola \\\"place + 在哪里\\\" (di mana tempatnya?).",
         "options": {
           "o1": {
@@ -8342,8 +8342,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Apa itu stasiun bawah tanah?"
           },
           "o3": {
-            "learning": "Aku akan ke kereta bawah tanah.",
-            "translation": "Aku akan ke stasiun bawah tanah."
+            "learning": "Saya akan ke kereta bawah tanah.",
+            "translation": "Saya akan ke stasiun bawah tanah."
           },
           "o4": {
             "learning": "Stasiun kereta bawah tanah besar.",
@@ -8400,13 +8400,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-questions-negation-01": {
-        "promptLearning": "Apa yang sering digunakan untuk membuat kalimat non-permintaan?",
+        "promptLearning": "Apa yang sering digunakan untuk membuat ayat non-permintaan?",
         "promptTranslation": "Partikel mana yang biasanya membentuk pertanyaan ya/tidak?",
         "explanationLearning": "Kata \\\"Apa\\\" biasanya diletakkan di akhir pernyataan, mengubah pernyataan menjadi pernyataan yang tidak menantang, yang umumnya tidak berubah.",
         "explanationTranslation": "吗 biasanya ditempatkan di akhir pernyataan untuk mengubahnya menjadi ya/tidak ada pertanyaan; urutan kata umumnya tetap sama.",
         "options": {
           "o1": {
-            "learning": "Maafkan aku.",
+            "learning": "Maafkan saya.",
             "translation": "Ya/tidak ada partikel pertanyaan"
           },
           "o2": {
@@ -8482,7 +8482,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Jangan, jangan"
           },
           "o2": {
-            "learning": "Maafkan aku.",
+            "learning": "Maafkan saya.",
             "translation": "Partikel pertanyaan partikel"
           },
           "o3": {
@@ -8546,8 +8546,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-i-measure-words-01": {
         "promptLearning": "Istilah mana yang biasanya digunakan dalam buku?",
         "promptTranslation": "Kata ukuran yang lazim digunakan untuk buku?",
-        "explanationLearning": "\\\"Buku ini\\\" adalah istilah umum untuk barang-barang yang terikat seperti buku, majalah, dll.",
-        "explanationTranslation": "Kata yang biasa digunakan untuk buku dan majalah.",
+        "explanationLearning": "\\\"Buku ini\\\" adalah istilah umum yang digunakan untuk barang-barang berikat seperti buku, majalah, dll.",
+        "explanationTranslation": "Kata yang biasa digunakan untuk buku - buku dan majalah.",
         "options": {
           "o1": {
             "learning": "Ben.",
@@ -8592,7 +8592,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-measure-words-03": {
-        "promptLearning": "Istilah mana yang paling tepat adalah kombinasi yang paling tepat dengan \\\"air\\\" dan mewakili berat minum yang biasa?",
+        "promptLearning": "Istilah mana yang paling sesuai dengan kombinasi \\\"air\\\" untuk menunjukkan jumlah konsumsi yang biasa?",
         "promptTranslation": "Kata ukuran yang lazim digunakan untuk melayani air?",
         "explanationLearning": "\\\"Cup\\\" digunakan untuk minuman yang diorganisir seperti \\\"gelas air\\\" atau \\\"dua cangkir teh\\\".",
         "explanationTranslation": "杯 mengukur minuman yang disajikan oleh cawan, seperti dalam 一杯水 atau 两杯茶.",
@@ -8737,25 +8737,25 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-grammar-particles-02": {
         "promptLearning": "Apa artinya bahwa pembicara melihat film hari sebelumnya?",
-        "promptTranslation": "Kalimat mana yang melaporkan bahwa pembicara menonton film pada hari sebelumnya?",
-        "explanationLearning": "Setelah kata kerja \\\"melihat\\\", artinya tindakan menonton film telah berlangsung atau telah selesai.",
+        "promptTranslation": "Ayat mana yang melaporkan bahwa pembicara menonton film pada hari sebelumnya?",
+        "explanationLearning": "Setelah kata kerja \\\"lihat\\\", artinya tindakan menonton film telah berlangsung atau telah selesai.",
         "explanationTranslation": "Setelah kata kerja itu menandai peristiwa menonton film seperti yang telah terjadi atau telah selesai.",
         "options": {
           "o1": {
-            "learning": "Aku menonton film kemarin.",
-            "translation": "Aku menonton film kemarin"
+            "learning": "Saya menonton film kemarin.",
+            "translation": "Saya menonton film kemarin"
           },
           "o2": {
-            "learning": "Apa aku melihat film kemarin?",
+            "learning": "Apa saya melihat film kemarin?",
             "translation": "Aneh tegang dan bertanya, \\\"Apakah saya punya pengalaman menonton film kemarin?\\\""
           },
           "o3": {
-            "learning": "Aku menonton film kemarin.",
-            "translation": "Aku menonton film kemarin."
+            "learning": "Saya menonton film kemarin.",
+            "translation": "Saya menonton film kemarin."
           },
           "o4": {
-            "learning": "Aku menonton film kemarin.",
-            "translation": "Aku menonton film kemarin."
+            "learning": "Saya menonton film kemarin.",
+            "translation": "Saya menonton film kemarin."
           }
         }
       },
@@ -8778,7 +8778,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Negara bagian Ongoing"
           },
           "o4": {
-            "learning": "Maafkan aku.",
+            "learning": "Maafkan saya.",
             "translation": "Ya/tidak ada pertanyaan"
           }
         }
@@ -8786,7 +8786,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-i-grammar-particles-04": {
         "promptLearning": "Apa artinya pintu terbuka?",
         "promptTranslation": "Hukuman mana yang menunjukkan bahwa pintu tetap terbuka?",
-        "explanationLearning": "Setelah ” terbuka ”, penekanan ditempatkan pada kesinambungan bukaan pintu, daripada pada tindakan pembukaan.",
+        "explanationLearning": "Setelah ” membuka ”, penekanan ditempatkan pada kesinambungan bukaan pintu, daripada sekadar menunjukkan tindakan pembukaan.",
         "explanationTranslation": "Setelah itu, penekanan terus keadaan pintu terbuka, daripada hanya tindakan membukanya.",
         "options": {
           "o1": {
@@ -8810,7 +8810,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-i-grammar-particles-05": {
         "promptLearning": "Kata akhir mana yang akan membuat proposal terdengar lebih alami?",
         "promptTranslation": "Partikel mana yang dapat menandai suatu saran dalam 我们走吧?",
-        "explanationLearning": "Kata \\\"bar\\\" di akhir kalimat dapat membuat saran atau usulan terdengar lebih eufemistik, seperti \\\"Mari kita pergi\\\".",
+        "explanationLearning": "Kata \\\"bar\\\" di akhir ayat akan membuat saran atau usulan terdengar lebih eufemistik, seperti \\\"Mari kita pergi\\\".",
         "explanationTranslation": "Ayat terakhir吧 dapat melunakkan usul atau usulan, seperti dalam 我们走吧.",
         "options": {
           "o1": {
@@ -8833,7 +8833,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-grammar-particles-06": {
         "promptLearning": "Apa yang akan mengalihkan topik pembicaraan dan mengundang mereka untuk berbagi situasi mereka sendiri?",
-        "promptTranslation": "Kalimat mana yang mengubah topik kembali ke orang lain dan mengajak mereka untuk berbagi tentang diri mereka sendiri?",
+        "promptTranslation": "Ayat mana yang mengubah topik kembali ke orang lain dan mengundang mereka untuk berbagi tentang diri mereka sendiri?",
         "explanationLearning": "Apa\" setelah \"kamu\" dapat mengambil alih dan bertanya satu sama lain, yang sama dengan \"Bagaimana dengan kamu?\"",
         "explanationTranslation": "呢 Setelah 你 dapat melanjutkan topik dan bertanya tentang orang lain, seperti \\\"Dan Anda?\\\"",
         "options": {
@@ -8857,7 +8857,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-grammar-particles-07": {
         "promptLearning": "Frasa mana yang benar menggunakan struktur adjunct \\\"got\\\" untuk melengkapi aksi?",
-        "promptTranslation": "Kalimat mana yang menggunakan struktur partikel PALIK dengan benar untuk menggambarkan tingkat tindakan?",
+        "promptTranslation": "Ayat mana yang menggunakan struktur partikel PALIK dengan benar untuk menggambarkan tingkat tindakan?",
         "explanationLearning": "Setelah kata kerja \\\"run\\\", sisipkan tingkat atau suplemen negara; kata kerja \\\"go fast\\\" menunjukkan kecepatan lari.",
         "explanationTranslation": "Setelah 跑 memperkenalkan suatu gelar atau cara yang saling menggambarkan. 跑得很快 menggambarkan kecepatan berlari.",
         "options": {
@@ -8880,9 +8880,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-time-expressions-01": {
-        "promptLearning": "Apa yang akan terjadi besok?",
+        "promptLearning": "Apa tempat besok?",
         "promptTranslation": "Di mana 明天 biasanya muncul dalam 我明天去学校?",
-        "explanationLearning": "Kata waktu \\\"Besok\\\" biasanya ditempatkan setelah kata dominan, sebelum kata kerja utama, seperti \\\"Aku pergi ke sekolah besok\\\".",
+        "explanationLearning": "Kata \\\"Besok\\\" biasanya diletakkan setelah kata utama, sebelum kata kerja utama, seperti \\\"Saya pergi ke sekolah besok\\\".",
         "explanationTranslation": "Ungkapan waktu 明天 biasanya muncul setelah subjek dan sebelum kata kerja utama, seperti dalam 我明天去学校.",
         "options": {
           "o1": {
@@ -8898,13 +8898,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Antara kata kerja dan tempat"
           },
           "o4": {
-            "learning": "Di akhir kalimat.",
+            "learning": "Di akhir ayat.",
             "translation": "Hanya di akhir"
           }
         }
       },
       "zh-en-i-time-expressions-02": {
-        "promptLearning": "Waktu apa yang biasanya dibutuhkan untuk menggambarkan apa yang terjadi setiap hari?",
+        "promptLearning": "Apa yang biasanya dibutuhkan untuk menggambarkan apa yang terjadi setiap hari?",
         "promptTranslation": "Ungkapan waktu mana yang memaksudkan sesuatu yang terjadi setiap hari?",
         "explanationLearning": "Bahasa sehari-hari berarti setiap hari dan sering digunakan untuk menggambarkan tata cara adat atau rutin yang berulang.",
         "explanationTranslation": "每天 berarti ” setiap hari ” dan sering kali digunakan untuk kebiasaan atau rutin yang berulang.",
@@ -8952,8 +8952,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-time-expressions-04": {
-        "promptLearning": "Ungkapan apa yang biasanya digunakan untuk menunjukkan bahwa sesuatu belum terjadi sampai saat ini?",
-        "promptTranslation": "Ekspresi yang menunjukkan bahwa sesuatu belum terjadi sampai sekarang?",
+        "promptLearning": "Ungkapan apa yang biasanya digunakan untuk menunjukkan bahwa sesuatu belum terjadi?",
+        "promptTranslation": "Ungkapan yang menunjukkan bahwa sesuatu tidak terjadi sampai sekarang?",
         "explanationLearning": "Tidak, \\\"belum\\\" berarti sesuatu belum terjadi sejauh ini, sering kali setara dengan \\\"belum\\\".",
         "explanationTranslation": "还没 menunjukkan bahwa ada sesuatu yang belum terjadi sampai sekarang; itu berarti \\\"belum\\\".",
         "options": {
@@ -8977,24 +8977,24 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-time-expressions-05": {
         "promptLearning": "Frasa yang artinya pembicara bangun pukul 7:00 setiap pagi?",
-        "promptTranslation": "Kalimat mana yang menggambarkan rutinitas pagi hari pada jam tertentu?",
-        "explanationLearning": "\\\"Aku bangun pukul 7 pagi setiap pagi\\\" disusun dalam bahasa utama, waktu dan gerakan, menunjukkan bahwa pembicara naik pada pukul 7 pagi setiap pagi.",
+        "promptTranslation": "Ayat mana yang menggambarkan rutinitas pagi hari pada jam tertentu?",
+        "explanationLearning": "\\\"Saya bangun pukul 7 pagi setiap pagi\\\" disusun dalam bahasa utama, waktu dan gerakan, menunjukkan bahwa pembicara naik pada pukul 7 pagi setiap pagi.",
         "explanationTranslation": "我每天早上七点起床 menempatkan topik sebelum pernyataan dan tindakan waktu; artinya pembicara bangun pukul tujuh setiap pagi.",
         "options": {
           "o1": {
-            "learning": "Aku bangun setiap pagi pukul 7:00.",
-            "translation": "Aku bangun jam tujuh setiap pagi"
+            "learning": "Saya bangun setiap pagi pukul 7:00.",
+            "translation": "Saya bangun jam tujuh setiap pagi"
           },
           "o2": {
-            "learning": "Aku bangun setiap pagi pukul 7:00.",
-            "translation": "Aku bangun setiap hari tujuh pagi."
+            "learning": "Saya bangun setiap pagi pukul 7:00.",
+            "translation": "Saya bangun setiap hari tujuh pagi."
           },
           "o3": {
-            "learning": "Aku bangun setiap pagi pukul 7:00.",
-            "translation": "\\\"Aku di tujuh setiap hari bangun pagi.\\\""
+            "learning": "Saya bangun setiap pagi pukul 7:00.",
+            "translation": "\\\"Saya di tujuh setiap hari bangun pagi.\\\""
           },
           "o4": {
-            "learning": "Apa aku bangun setiap hari jam 7:00 pagi?",
+            "learning": "Apa saya bangun setiap hari jam 7:00 pagi?",
             "translation": "Apakah saya bangun setiap pagi pukul tujuh?"
           }
         }
@@ -9003,7 +9003,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Apa tanggal setelah makan siang dan sebelum malam?",
         "promptTranslation": "Bagian mana dari hari itu jatuh setelah makan siang dan sebelum malam?",
         "explanationLearning": "\\\"Pagi\\\" merujuk pada periode setelah siang dan sebelum sore.",
-        "explanationTranslation": "下午 mengacu pada periode setelah tengah hari dan sebelum sore; itu berarti ” sore hari ”.",
+        "explanationTranslation": "下午 mengacu pada periode setelah tengah hari dan sebelum petang; itu berarti \\\"siang\\\".",
         "options": {
           "o1": {
             "learning": "Selamat sore",
@@ -9025,31 +9025,31 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-time-expressions-07": {
         "promptLearning": "Apa artinya pembicara belum makan malam?",
-        "promptTranslation": "Kalimat mana yang menyatakan bahwa makan malam pembicara tetap tidak dimakan sampai sekarang?",
+        "promptTranslation": "Ayat mana yang menyatakan bahwa makan malam pembicara masih belum dimakan sampai sekarang?",
         "explanationLearning": "Kata-kata \\\"belum\\\" sebelum kata kerja menunjukkan bahwa makan malam tidak dimakan sampai waktu berbicara; kata \\\"dinner\\\" adalah kata kerja ditambah tamu.",
         "explanationTranslation": "还没 sebelum frasa kata kerja menunjukkan bahwa makan malam belum dimakan; 吃晚饭 adalah frasa kata kerja-objek.",
         "options": {
           "o1": {
-            "learning": "Aku belum makan malam.",
-            "translation": "Aku belum makan malam."
+            "learning": "Saya belum makan malam.",
+            "translation": "Saya belum makan malam."
           },
           "o2": {
-            "learning": "Aku sudah makan malam.",
-            "translation": "Aku sudah makan malam"
+            "learning": "Saya sudah makan malam.",
+            "translation": "Saya sudah makan malam"
           },
           "o3": {
-            "learning": "Aku makan malam setiap hari.",
-            "translation": "Aku makan malam setiap hari"
+            "learning": "Saya makan malam setiap hari.",
+            "translation": "Saya makan malam setiap hari"
           },
           "o4": {
-            "learning": "Aku akan makan malam besok.",
-            "translation": "Aku akan makan malam besok"
+            "learning": "Saya akan makan malam besok.",
+            "translation": "Saya akan makan malam besok"
           }
         }
       },
       "zh-en-i-comparisons-01": {
-        "promptLearning": "Apa jenis kalimat yang digunakan untuk membandingkan derajat perbedaan dalam sifat yang sama antara kedua objek?",
-        "promptTranslation": "Pola kalimat mana yang membandingkan derajat kualitas yang sama antara dua subjek?",
+        "promptLearning": "Apa jenis ayat yang digunakan untuk membandingkan derajat perbedaan dalam sifat yang sama antara kedua objek?",
+        "promptTranslation": "Pola ayat mana yang membandingkan derajat kualitas yang sama antara dua subjek?",
         "explanationLearning": "Istilah \\\"A + adjektiva\\\" digunakan untuk membandingkan perbedaan antara A dan B dalam beberapa pengertian.",
         "explanationTranslation": "Pola A</B + kata sifat membandingkan kualitas A dengan kualitas B yang sama.",
         "options": {
@@ -9073,20 +9073,20 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-comparisons-02": {
         "promptLearning": "Frasa yang menunjukkan bahwa pembicara lebih tinggi daripada orang lain?",
-        "promptTranslation": "Kalimat mana yang membandingkan tinggi badan pembicara dengan orang lain dan tempat pembicara lebih tinggi?",
-        "explanationLearning": "Aku lebih tinggi dari dia\" untuk menarik seorang comparator dari \"lebih tinggi\" dan kata sifat \"lebih tinggi\" berarti aku lebih tinggi darinya.",
+        "promptTranslation": "Ayat mana yang membandingkan tinggi badan pembicara dengan orang lain dan tempat pembicara lebih tinggi?",
+        "explanationLearning": "Saya lebih tinggi dari dia\" untuk menarik seorang comparator dari \"lebih tinggi\" dan kata sifat \"lebih tinggi\" berarti saya lebih tinggi darinya.",
         "explanationTranslation": "我比他高 menggunakan 比 untuk memperkenalkan perbandingan; 高 menyatakan bahwa saya lebih tinggi daripada dia.",
         "options": {
           "o1": {
-            "learning": "Aku lebih tinggi dari dia.",
-            "translation": "Aku lebih tinggi dari dia"
+            "learning": "Saya lebih tinggi dari dia.",
+            "translation": "Saya lebih tinggi dari dia"
           },
           "o2": {
-            "learning": "Aku setinggi dia.",
-            "translation": "Aku setinggi dia"
+            "learning": "Saya setinggi dia.",
+            "translation": "Saya setinggi dia"
           },
           "o3": {
-            "learning": "Aku tidak memilikinya.",
+            "learning": "Saya tidak memilikinya.",
             "translation": "Saya tidak setinggi dia"
           },
           "o4": {
@@ -9096,7 +9096,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-comparisons-03": {
-        "promptLearning": "Kata mana yang umum digunakan ketika berbagai objek menunjukkan peringkat pertama?",
+        "promptLearning": "Kata mana yang umum digunakan ketika berbagai objek menunjuk ke peringkat pertama?",
         "promptTranslation": "Kata yang biasanya menandakan superlatif?",
         "explanationLearning": "Frasa \\\"paling\\\" sebelum kata sifat atau kata kerja menunjukkan tingkat perbandingan tertinggi.",
         "explanationTranslation": "Kata sifat atau frasa kata kerja muncul sebelum menunjukkan derajat tertinggi dalam kelompok perbandingan.",
@@ -9145,7 +9145,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-i-comparisons-05": {
         "promptLearning": "Apa artinya suhu hari ini lebih rendah dari kemarin?",
-        "promptTranslation": "Kalimat mana yang membandingkan suhu hari ini dengan kemarin dan menunjukkan nilai yang lebih rendah?",
+        "promptTranslation": "Ayat mana yang membandingkan suhu hari ini dengan kemarin dan menunjukkan nilai yang lebih rendah?",
         "explanationLearning": "Hari ini \\\"hari ini lebih dingin daripada kemarin\\\" dibandingkan dengan dua hari, menunjukkan bahwa suhu hari ini lebih rendah.",
         "explanationTranslation": "今天比昨天冷 今天比昨天冷 membandingkan suhu hari ini dan kemarin dan mengatakan bahwa hari ini lebih dingin.",
         "options": {
@@ -9168,8 +9168,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-comparisons-06": {
-        "promptLearning": "Kalimat seperti apa yang menunjukkan bahwa A kurang alami daripada B?",
-        "promptTranslation": "Pola kalimat mana yang menunjukkan bahwa A memiliki tingkat kualitas yang lebih rendah daripada B?",
+        "promptLearning": "Ayat apa yang menunjukkan bahwa A kurang dari sifat B?",
+        "promptTranslation": "Pola ayat mana yang menunjukkan bahwa A memiliki tingkat kualitas yang lebih rendah daripada B?",
         "explanationLearning": "\\\"A kurang dari B + kata sifat\\\" berarti A tidak setinggi B, yaitu A kurang dari B ...",
         "explanationTranslation": "A没有B那么 + kata sifat berarti A tidak sebagai [adjektif] sebagai B.",
         "options": {
@@ -9186,13 +9186,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "A adalah sebagai ... sebagai B"
           },
           "o4": {
-            "learning": "A-most + objek",
+            "learning": "maksimum maksimum maksimum + objek",
             "translation": "A adalah yang paling ..."
           }
         }
       },
       "zh-en-i-comparisons-07": {
-        "promptLearning": "Apa yang bisa menunjukkan peningkatan dari level aslinya?",
+        "promptLearning": "Apa yang menunjukkan peningkatan atas aslinya?",
         "promptTranslation": "Adaverb mana yang menunjukkan peningkatan derajat relatif terhadap perbandingan sebelumnya?",
         "explanationLearning": "\\\"Lebih\\\" biasanya didahului oleh kata sifat, yang meningkatkan derajat perbandingan dan setara dengan \\\"lebih banyak\\\".",
         "explanationTranslation": "Biasanya muncul sebelum kata sifat untuk memperkuat perbandingan, itu berarti \\\"lagi\\\".",
@@ -9234,7 +9234,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sementara... pada saat yang sama..."
           },
           "o4": {
-            "learning": "Pertama ... dan kemudian ...",
+            "learning": "Pertama... dan kemudian...",
             "translation": "Pertama... lalu..."
           }
         }
@@ -9242,7 +9242,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-i-sentence-expansion-02": {
         "promptLearning": "Kelompok istilah terkait yang mana yang mewakili reversal atau konsesi?",
         "promptTranslation": "Pasangan mana yang menyatakan kontras atau konsesi?",
-        "explanationLearning": "\\\"Meskipun\\\" mengarah pada konsesi, \\\"tapi\\\" menghasilkan kontras dengan harapan.",
+        "explanationLearning": "\\\"Meskipun\\\" mengarah ke konsesi, \\\"tapi\\\" menghasilkan kontras dengan harapan.",
         "explanationTranslation": "虽然 memperkenalkan konsesi, dan 但是 memperkenalkan hasil yang kontras.",
         "options": {
           "o1": {
@@ -9267,7 +9267,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Mana satu set istilah terkait menunjukkan kondisi dan hasilnya?",
         "promptTranslation": "Pasangan mana yang menyatakan suatu kondisi dan hasilnya?",
         "explanationLearning": "\\\"Jika\\\" kondisi diletakkan di tempat, \\\"sejauh ini\\\" hasil pendirian mereka.",
-        "explanationTranslation": "如果 menyatakan suatu kondisi, dan Ü memperkenalkan hasilnya jika kondisi tersebut terpenuhi.",
+        "explanationTranslation": "如果 menyatakan suatu kondisi, dan Ü memperkenalkan hasilnya jika kondisi tersebut dipenuhi.",
         "options": {
           "o1": {
             "learning": "Jika...",
@@ -9278,7 +9278,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Meskipun... bagaimanapun..."
           },
           "o3": {
-            "learning": "Pertama ... dan kemudian ...",
+            "learning": "Pertama... dan kemudian...",
             "translation": "Pertama... lalu..."
           },
           "o4": {
@@ -9288,9 +9288,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-sentence-expansion-04": {
-        "promptLearning": "Kelompok kata-kata terkait mana yang berarti kedua tindakan itu terjadi secara bersamaan?",
-        "promptTranslation": "Pasangan pair mana yang menunjukkan dua tindakan yang terjadi pada waktu yang sama?",
-        "explanationLearning": "“ “ dalam satu sisi ... di sisi lain ” berarti bahwa dua tindakan dilakukan secara bersamaan oleh subjek yang sama.",
+        "promptLearning": "Dari kelompok kata-kata terkait mana yang berarti kedua tindakan terjadi secara bersamaan?",
+        "promptTranslation": "Mana pasangan yang menunjukkan dua tindakan yang terjadi pada waktu yang sama?",
+        "explanationLearning": "\\\"Di satu sisi ... di sisi lain\\\" berarti bahwa dua tindakan dilakukan secara bersamaan oleh subjek yang sama.",
         "explanationTranslation": "一边 一边 ... 一边 ... menunjukkan bahwa subjek yang sama melakukan dua tindakan sekaligus.",
         "options": {
           "o1": {
@@ -9298,7 +9298,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sementara... pada saat yang sama..."
           },
           "o2": {
-            "learning": "Pertama ... dan kemudian ...",
+            "learning": "Pertama... dan kemudian...",
             "translation": "Pertama... lalu..."
           },
           "o3": {
@@ -9312,8 +9312,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-sentence-expansion-05": {
-        "promptLearning": "Frase mana yang mengungkapkan hubungan kompromi dan menunjukkan bahwa para pembicara terus belajar sekalipun mereka lelah?",
-        "promptTranslation": "Kalimat mana yang menyatakan konsesi dan mengatakan pembicara terus belajar meskipun lelah?",
+        "promptLearning": "Kata - kata apa yang berbicara tentang kompromi dan mengatakan bahwa para pembicara terus belajar sekalipun mereka lelah?",
+        "promptTranslation": "Ayat mana yang menyatakan konsesi dan mengatakan pembicara terus belajar meskipun lelah?",
         "explanationLearning": "\\\"Meskipun lelah\\\" mengakui kelelahan, \\\"tapi dia terus belajar\\\" menunjukkan tindakan sebaliknya.",
         "explanationTranslation": "虽然很累 mengakui bahwa ia lelah, sementara 但是她继续学习 memberikan tindakan yang kontras.",
         "options": {
@@ -9360,10 +9360,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-complex-sentences-01": {
-        "promptLearning": "Mana dari kalimat berikut yang menggunakan kata \\\"to\\\" untuk menggambarkan bagaimana suatu item ditangani?",
-        "promptTranslation": "Kalimat mana yang digunakan untuk menunjukkan bagaimana suatu objek ditangani?",
+        "promptLearning": "Mana dari ayat berikut yang harus digunakan untuk menggambarkan bagaimana suatu item diperlakukan?",
+        "promptTranslation": "Hukuman mana yang digunakan untuk menunjukkan bagaimana suatu objek ditangani?",
         "explanationLearning": "Kata - kata ” untuk menggerakkan barang - barang yang terpengaruh ke depan ke kata kerja; kata - kata ” untuk menutup ” menunjukkan hasil menutup pintu.",
-        "explanationTranslation": "Sebuah kalimat menempatkan objek yang terkena sebelum kata kerja. 关上 menyatakan hasil menutup pintu.",
+        "explanationTranslation": "Sebuah ayat menempatkan objek yang terkena sebelum kata kerja. 关上 menyatakan hasil menutup pintu.",
         "options": {
           "o1": {
             "learning": "Tolong tutup pintunya.",
@@ -9374,8 +9374,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Pintunya ada di sini"
           },
           "o3": {
-            "learning": "Aku melihat pintu.",
-            "translation": "Aku melihat pintu"
+            "learning": "Saya melihat pintu.",
+            "translation": "Saya melihat pintu"
           },
           "o4": {
             "learning": "Ini besar.",
@@ -9385,7 +9385,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-a-complex-sentences-02": {
         "promptLearning": "Apa peranan kata \\\"oleh\\\" khususnya?",
-        "promptTranslation": "Apa fungsi utama dalam kalimat ?",
+        "promptTranslation": "Apa fungsi utama dalam ayat ?",
         "explanationLearning": "Pengarang atau sumber dari tindakan tersebut \\\"ditaksir\\\" dan menunjukkan bahwa bahasa yang dominan tunduk pada tindakan tersebut dan karenanya merupakan ungkapan pasif.",
         "explanationTranslation": "Dan menunjukkan bahwa subjek menerima tindakan, membentuk konstruksi pasif.",
         "options": {
@@ -9408,8 +9408,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-complex-sentences-03": {
-        "promptLearning": "Kalimat seperti apa yang menunjukkan hubungan antara kondisi yang diperlukan dan konsekuensinya?",
-        "promptTranslation": "Pola mana yang berarti \\\"Hanya jika... bisa..\\\"?",
+        "promptLearning": "Ayat seperti apa yang menunjukkan hubungan antara kondisi yang diperlukan dan konsekuensinya?",
+        "promptTranslation": "Pola mana yang berarti \\\"Hanya jika... dapat..\\\"?",
         "explanationLearning": "Hanya jika kondisi yang diperlukan ditaruh di tempat akan timbul hasilnya apabila kondisi tersebut dipenuhi.",
         "explanationTranslation": "只有 menyatakan suatu kondisi yang diperlukan, dan Á memperkenalkan hasil yang hanya mengikuti hanya ketika kondisi terpenuhi.",
         "options": {
@@ -9432,8 +9432,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-complex-sentences-04": {
-        "promptLearning": "Kalimat seperti apa yang menunjukkan \\\"hasilnya tetap tidak berubah terlepas dari kondisinya\\\"?",
-        "promptTranslation": "Pola mana yang berarti \\\"Tidak peduli apa syaratnya, hasilnya masih berlaku\\\"?",
+        "promptLearning": "Ayat seperti apa yang menunjukkan \\\"hasilnya tetap tidak berubah terlepas dari kondisinya\\\"?",
+        "promptTranslation": "Pola mana yang berarti ‘apa pun kondisinya, hasilnya masih berlaku'?",
         "explanationLearning": "\\\"Apapun\\\" berarti bahwa kondisi tidak dibatasi, \\\"semua\\\" menekankan konsistensi hasil di bawah berbagai kondisi.",
         "explanationTranslation": "无论 membuat kondisinya tidak dibatasi, seraya menandaskan bahwa hasilnya tetap sama dalam setiap kasus.",
         "options": {
@@ -9456,32 +9456,32 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-complex-sentences-05": {
-        "promptLearning": "Frasa yang menggunakan kalimat pasif untuk menunjukkan bahwa ponsel seorang pembicara diambil oleh saudaranya?",
-        "promptTranslation": "Kalimat mana yang menggunakan konstruksi pasif untuk menggambarkan saudara yang lebih muda mengambil ponsel pembicara?",
-        "explanationLearning": "Ini adalah kalimat pasif: telepon genggam adalah objek tindakan, \\\"mengambil\\\" pelaksana tindakan, \\\"mengambil\\\" hasilnya.",
-        "explanationTranslation": "Ini adalah kalimat pasif: telepon menerima tindakan, 被弟弟 nama agen, dan 拿走了 memberikan hasilnya.",
+        "promptLearning": "Frasa yang menggunakan ayat pasif untuk menunjukkan bahwa ponsel seorang pembicara diambil oleh saudaranya?",
+        "promptTranslation": "Ayat mana yang menggunakan konstruksi pasif untuk menggambarkan saudara yang lebih muda mengambil ponsel pembicara?",
+        "explanationLearning": "Ini adalah ayat pasif: telepon genggam adalah objek tindakan, \\\"mengambil\\\" pelaksana tindakan, \\\"mengambil\\\" hasilnya.",
+        "explanationTranslation": "Ini adalah ayat pasif: telepon menerima tindakan, 被弟弟 nama agen, dan 拿走了 memberikan hasilnya.",
         "options": {
           "o1": {
             "learning": "Ponselku diambil oleh kakakku.",
             "translation": "Ponselku diambil oleh adikku."
           },
           "o2": {
-            "learning": "Aku mengambil saudaraku.",
-            "translation": "Aku membawa adikku pergi"
+            "learning": "Saya mengambil saudaraku.",
+            "translation": "Saya membawa adikku pergi"
           },
           "o3": {
             "learning": "Kakakku melihat telepon.",
             "translation": "Adikku melihat telepon"
           },
           "o4": {
-            "learning": "Ponselnya di sebelah saudaramu.",
+            "learning": "Ini di sebelah adikku.",
             "translation": "Ponsel ini di samping adikku"
           }
         }
       },
       "zh-en-a-complex-sentences-06": {
-        "promptLearning": "Kalimat macam apa yang menggunakan fakta - fakta yang dikenal sebagai pembenaran untuk mencapai kesimpulan?",
-        "promptTranslation": "Pola mana yang menggunakan fakta yang nyata sebagai alasan kesimpulan?",
+        "promptLearning": "Ayat seperti apa yang menggunakan fakta - fakta yang dikenal sebagai dasar untuk mencapai kesimpulan?",
+        "promptTranslation": "Pola mana yang menggunakan fakta yang pasti sebagai alasan kesimpulan?",
         "explanationLearning": "\\\"As\\\" itu menimbulkan fakta yang kuat, \\\"menghormati\\\" kesimpulan yang dicapai atas dasar itu atau pengaturan penerus.",
         "explanationTranslation": "既然 memperkenalkan fakta yang dapat diterima, dan LU menghubungkannya dengan kesimpulan atau langkah selanjutnya berdasarkan fakta itu.",
         "options": {
@@ -9494,7 +9494,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sementara... pada saat yang sama..."
           },
           "o3": {
-            "learning": "Pertama ... dan kemudian ...",
+            "learning": "Pertama... dan kemudian...",
             "translation": "Pertama... lalu..."
           },
           "o4": {
@@ -9505,25 +9505,25 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-a-complex-sentences-07": {
         "promptLearning": "Frasa yang benar menggunakan kata \\\"put\\\" dan menjelaskan bahwa semua pekerjaan telah selesai?",
-        "promptTranslation": "Kalimat mana yang jelas mengatakan bahwa pekerjaan rumah telah selesai?",
-        "explanationLearning": "Aku sudah menyelesaikan PR-ku, , \" aku sudah selesai mengerjakan PR\" , \" aku sudah selesai mengerjakan PR\" , yang berarti tindakan itu telah selesai.",
+        "promptTranslation": "Ayat mana yang jelas mengatakan bahwa pekerjaan rumah telah selesai?",
+        "explanationLearning": "Saya sudah menyelesaikan PR-ku, , \" saya sudah selesai mengerjakan PR\" , \" saya sudah menyelesaikan PR-ku\" , yang berarti tindakan itu telah selesai.",
         "explanationTranslation": "Dalam 我把作业写完了, 把 memindahkan objek 作业 sebelum kata kerja, dan 写完 menunjukkan hasil dari menyelesaikan pekerjaan.",
         "options": {
           "o1": {
-            "learning": "Aku menyelesaikan pekerjaan rumahku.",
-            "translation": "Aku selesai menulis PR."
+            "learning": "Saya menyelesaikan pekerjaan rumahku.",
+            "translation": "Saya selesai menulis PR."
           },
           "o2": {
-            "learning": "Aku menulis PR dengan cepat.",
-            "translation": "Aku menulis PR dengan cepat."
+            "learning": "Saya menulis PR dengan cepat.",
+            "translation": "Saya menulis PR dengan cepat."
           },
           "o3": {
-            "learning": "Aku menulis PR di buku ini.",
-            "translation": "Aku menulis PR di buku catatan."
+            "learning": "Saya menulis PR di buku ini.",
+            "translation": "Saya menulis PR di buku catatan."
           },
           "o4": {
-            "learning": "Aku menulis PR-ku setengah.",
-            "translation": "Aku menulis setengah dari pekerjaan rumah."
+            "learning": "Saya menulis PR menjadi dua.",
+            "translation": "Saya menulis setengah dari pekerjaan rumah."
           }
         }
       },
@@ -9553,7 +9553,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-a-connectors-02": {
         "promptLearning": "Apa kata-kata yang menghubungkan digunakan untuk mengekstrak unsur yang kontras dengan atau terbalik dari teks sebelumnya?",
-        "promptTranslation": "Yang mana konektor memperkenalkan kontras dengan titik yang baru saja dibuat?",
+        "promptTranslation": "Konektor mana yang menunjukkan kontras dengan pokok yang baru saja dibuat?",
         "explanationLearning": "Namun, frasa yang digunakan untuk menghubungkan dua transformasi atau kontras biasanya lebih ditulis daripada \\\"tapi\\\".",
         "explanationTranslation": "然而 menghubungkan klausa yang saling bertolak belakang dan umumnya lebih formal atau ditulis daripada 但是.",
         "options": {
@@ -9579,7 +9579,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Kata hubung yang mana yang dapat menambahkan pesan lain ke teks sebelumnya?",
         "promptTranslation": "Manakah konektor yang memperkenalkan titik pendukung tambahan?",
         "explanationLearning": "Lebih jauh lagi, untuk informasi tambahan yang tidak disebutkan sebelumnya, setara dengan \\\"yang lain\\\" atau \\\"yang lain\\\".",
-        "explanationTranslation": "此外 menambahkan informasi yang tidak disebutkan sebelumnya; artinya \\\"selain itu\\\" atau \\\"selain itu.\\\"",
+        "explanationTranslation": "此外 menambahkan informasi yang tidak disebutkan sebelumnya; itu berarti \\\"selain\\\" atau \\\"selain\\\".",
         "options": {
           "o1": {
             "learning": "Selain itu,",
@@ -9603,7 +9603,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Istilah mana yang sering digunakan untuk merangkum poin utama di bagian sebelumnya?",
         "promptTranslation": "Ungkapan mana yang umum digunakan untuk menyimpulkan gagasan utama secara singkat?",
         "explanationLearning": "\\\"In sum\\\" digunakan untuk meringkas diskusi atau fokus sebelumnya dan untuk mengekstrak ringkasan singkat.",
-        "explanationTranslation": "总之 isyaratkan ringkasan pembahasan atau pokok utama sebelumnya.",
+        "explanationTranslation": "总之 isyaratkan ringkasan pembahasan atau pokok utama yang mengawali.",
         "options": {
           "o1": {
             "learning": "Bagaimanapun...",
@@ -9626,7 +9626,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-connectors-05": {
         "promptLearning": "Kata penghubung yang menunjukkan hasilnya bertentangan dengan harapan?",
         "promptTranslation": "Mana tanda konektor yang berlawanan dengan harapan?",
-        "explanationLearning": "“ Sebaliknya”, ini berarti bahwa hasil yang sebenarnya, bertentangan dengan apa yang semula diharapkan, sering digunakan untuk menekankan pergeseran yang tidak terduga.",
+        "explanationLearning": "\\\"Kebalikannya\\\", itu berarti bahwa hasil yang sebenarnya, bertentangan dengan apa yang semula diharapkan, sering digunakan untuk menyoroti pergeseran yang tidak diinginkan.",
         "explanationTranslation": "反而 menunjukkan bahwa hasil sebenarnya adalah kebalikan dari apa yang diharapkan, sering kali menonjolkan giliran yang tidak terduga.",
         "options": {
           "o1": {
@@ -9648,9 +9648,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-connectors-06": {
-        "promptLearning": "Mana dari kalimat-kalimat berikut yang paling alami ekspresi terbalik?",
-        "promptTranslation": "Kalimat mana yang paling alami menyatakan perbedaan antara dua situasi?",
-        "explanationLearning": "Kalimat pertama menunjukkan bahwa cuaca dingin, dan bahwa \\\"bagaimanapun\\\" mengarah ke lawan dari apa yang biasanya diharapkan: ia masih keluar.",
+        "promptLearning": "Mana dari ayat-ayat berikut yang paling alami ekspresi terbalik?",
+        "promptTranslation": "Ayat mana yang paling alami menyatakan perbedaan antara dua situasi?",
+        "explanationLearning": "Ayat pertama menunjukkan bahwa cuaca dingin, dan bahwa \\\"bagaimanapun\\\" mengarah ke lawan dari apa yang biasanya diharapkan: ia masih keluar.",
         "explanationTranslation": "klausa pertama mengatakan cuaca dingin; 然而 memperkenalkan fakta kontras, yang tidak terduga bahwa ia masih keluar.",
         "options": {
           "o1": {
@@ -9698,7 +9698,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-idioms-proverbs-01": {
         "promptLearning": "Bahasa apa yang digunakan untuk mengkritik apa yang berlebihan dan merusak apa yang baik?",
         "promptTranslation": "Ekspresi yang mana yang berarti merusak sesuatu dengan menambahkan rincian yang tidak perlu?",
-        "explanationLearning": "Metafora \\\"menggerutu\\\" itu sangat berlebihan dan melemahkan apa yang atau baik.",
+        "explanationLearning": "Metafora \\\"menggerutu\\\" itu berlebihan dan melemahkan apa yang atau baik.",
         "explanationTranslation": "画蛇添足 menggambarkan melakukan sesuatu yang tidak perlu yang merusak hasil yang tidak lengkap atau baik.",
         "options": {
           "o1": {
@@ -9706,11 +9706,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Untuk merusak sesuatu dengan berlebihan"
           },
           "o2": {
-            "learning": "Aku akan memperbaikinya.",
+            "learning": "Saya akan memperbaikinya.",
             "translation": "Untuk memperbaiki lipatan setelah domba hilang"
           },
           "o3": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Untuk mencapai dua hal sekaligus"
           },
           "o4": {
@@ -9720,13 +9720,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-idioms-proverbs-02": {
-        "promptLearning": "Frase apa yang menunjukkan ” solusi prompt jika ada masalah ”?",
+        "promptLearning": "Apa frasa ” tepat waktu untuk memperbaiki masalahnya ”?",
         "promptTranslation": "Apa artinya mengambil tindakan korektif setelah suatu masalah terjadi?",
         "explanationLearning": "\\\"pemulihan orang mati\\\" adalah metafora dari tindakan remediasi waktu setelah masalah terjadi untuk menghindari kerusakan lebih lanjut.",
         "explanationTranslation": "亡羊补牢 berarti mengambil tindakan korektif setelah suatu masalah terjadi untuk mencegah kerugian lebih lanjut.",
         "options": {
           "o1": {
-            "learning": "Aku akan memperbaikinya.",
+            "learning": "Saya akan memperbaikinya.",
             "translation": "Setelah kehilangan domba"
           },
           "o2": {
@@ -9734,7 +9734,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Tambahkan kaki ke ular"
           },
           "o3": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Dua keuntungan dari satu tindakan"
           },
           "o4": {
@@ -9744,13 +9744,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-idioms-proverbs-03": {
-        "promptLearning": "Kata - kata mana yang menggambarkan satu operasi yang memiliki dua keuntungan?",
+        "promptLearning": "Kata-kata mana yang menggambarkan operasi tunggal sebagai memiliki dua keuntungan?",
         "promptTranslation": "Ungkapan yang berarti \\\"untuk mencapai dua hal dengan satu tindakan\\\"?",
-        "explanationLearning": "2-per-satu berarti mengambil satu tindakan, dengan dua keuntungan atau berakhir bersamaan.",
+        "explanationLearning": "2-1 artinya mengambil satu tindakan, dengan dua keuntungan atau berakhir bersamaan.",
         "explanationTranslation": "一举两得 berarti mencapai dua manfaat atau tujuan dengan satu tindakan.",
         "options": {
           "o1": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Achieve dua hal sekaligus"
           },
           "o2": {
@@ -9762,7 +9762,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sesuatu yang berlebihan"
           },
           "o4": {
-            "learning": "Aku akan memperbaikinya.",
+            "learning": "Saya akan memperbaikinya.",
             "translation": "Setelah itu, kau harus memperbaiki masalah."
           }
         }
@@ -9782,7 +9782,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Kebodohan akan berlebihan"
           },
           "o3": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Sebuah idiom tentang keuntungan ganda"
           },
           "o4": {
@@ -9806,7 +9806,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Mereka identik"
           },
           "o3": {
-            "learning": "Kata-kata yang modern.",
+            "learning": "Ini semua kata-kata modern.",
             "translation": "Sayadiom selalu slang modern"
           },
           "o4": {
@@ -9826,7 +9826,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Ketika di Roma, lakukan seperti yang orang Romawi lakukan"
           },
           "o2": {
-            "learning": "Aku akan memperbaikinya.",
+            "learning": "Saya akan memperbaikinya.",
             "translation": "Membetulkan masalah setelah itu terjadi"
           },
           "o3": {
@@ -9834,7 +9834,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sesuatu yang berlebihan"
           },
           "o4": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Achieve dua hal sekaligus"
           }
         }
@@ -9842,8 +9842,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-idioms-proverbs-07": {
         "promptLearning": "Ungkapan yang mana yang sebaiknya menggambarkan menambahkan fitur - fitur yang tidak perlu ke rancangan yang sudah bagus?",
         "promptTranslation": "Ekspresi yang mana yang paling cocok untuk seseorang menambahkan fitur yang tidak perlu ke desain yang sudah bagus?",
-        "explanationLearning": "Menambah fitur yang tidak perlu untuk desain yang sudah baik akan membuat hasilnya berlebihan atau bahkan lebih buruk dan akan sejalan dengan makna \" snatch-ups\".",
-        "explanationTranslation": "Menambahkan fitur yang tidak perlu pada desain yang sudah baik membuatnya berlebihan atau lebih buruk, yang persis apa yang digambarkan.",
+        "explanationLearning": "Menambah fitur yang tidak perlu untuk desain yang sudah baik akan membuat hasil redundan atau bahkan lebih buruk dan akan sejalan dengan makna \" snatch-ups\".",
+        "explanationTranslation": "Menambah fitur yang tidak perlu pada desain yang sudah baik membuatnya berlebihan atau lebih buruk, yang persis apa yang digambarkan.",
         "options": {
           "o1": {
             "learning": "Ular ular.",
@@ -9858,7 +9858,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Ikuti adat setempat"
           },
           "o4": {
-            "learning": "Aku akan memperbaikinya.",
+            "learning": "Saya akan memperbaikinya.",
             "translation": "Baiki masalah setelah itu"
           }
         }
@@ -9866,7 +9866,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-nuanced-vocabulary-01": {
         "promptLearning": "Kata mana yang sering berarti sesuatu terjadi lebih lambat dari yang diharapkan?",
         "promptTranslation": "Kata mana yang sering menunjukkan bahwa sesuatu terjadi di kemudian hari?",
-        "explanationLearning": "\\\"Foundations\\\" sering kali menekankan dalam ungkapan waktu bahwa hal-hal terjadi di kemudian hari atau lebih lambat dari yang diharapkan, seperti \\\"ia datang pukul 10:00\\\".",
+        "explanationLearning": "\\\"Foundations\\\" sering kali menekankan dalam ungkapan waktu bahwa hal-hal terjadi di kemudian hari atau di kemudian hari dari yang diharapkan, seperti \\\"ia datang pukul 10:00\\\".",
         "explanationTranslation": "Dalam ungkapan waktu, Á sering menekankan bahwa sesuatu terjadi terlambat atau lambat dari yang diharapkan, seperti dalam 他十点才来.",
         "options": {
           "o1": {
@@ -9936,8 +9936,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-nuanced-vocabulary-04": {
-        "promptLearning": "Kata kerja yang menunjukkan penciptaan hal-hal baru, seperti perangkat?",
-        "promptTranslation": "Kata kerja mana yang berarti menciptakan sesuatu yang baru, seperti perangkat?",
+        "promptLearning": "Kata kerja yang menunjukkan penciptaan sesuatu yang baru, seperti perangkat?",
+        "promptTranslation": "Kata kerja yang berarti menciptakan sesuatu yang baru, seperti perangkat?",
         "explanationLearning": "\\\"Inventasi\\\" berarti penciptaan hal-hal baru atau metode baru yang tidak ada sebelumnya; hal ini berbeda dengan penemuan apa yang sudah ada.",
         "explanationTranslation": "发明 berarti menciptakan sesuatu atau metode yang tidak ada sebelumnya; berbeda dengan 发现, yang berarti menemukan sesuatu yang sudah ada.",
         "options": {
@@ -9962,8 +9962,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-nuanced-vocabulary-05": {
         "promptLearning": "Ungkapan seperti apa yang menunjukkan isi atau kesulitan buku bagi seseorang yang baru saja mulai mempelajari pokok itu?",
         "promptTranslation": "Ekspresi yang mana yang menunjukkan kepada pembaca bahwa buku cocok untuk seseorang yang memulai topiknya?",
-        "explanationLearning": "\\\"According\\\" berarti bahwa seseorang atau sesuatu memenuhi kebutuhan atau kondisi tertentu; \\\"Menurut seorang pemula\\\" berlaku bagi seseorang yang baru saja mulai belajar.",
-        "explanationTranslation": "适合 berarti cocok untuk kebutuhan atau kondisi tertentu. 适合初学者 berarti cocok untuk pemula.",
+        "explanationLearning": "\\\"According\\\" berarti bahwa seseorang atau hal yang memenuhi kebutuhan atau kondisi tertentu; \\\"Menurut seorang pemula\\\" adalah berlaku bagi seseorang yang baru saja mulai belajar.",
+        "explanationTranslation": "适合 berarti cocok untuk kebutuhan atau kondisi tertentu. 适合初学者 artinya cocok untuk pemula.",
         "options": {
           "o1": {
             "learning": "Buku ini untuk pemula.",
@@ -10008,9 +10008,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-nuanced-vocabulary-07": {
-        "promptLearning": "Apa yang bisa menjadi contoh yang ekstrem atau tidak terduga?",
+        "promptLearning": "Apa yang dapat menjadi contoh yang ekstrem atau tidak terduga?",
         "promptTranslation": "Kata mana yang dapat memperkenalkan contoh yang ekstrem atau mengejutkan, yang berarti ” bahkan ”?",
-        "explanationLearning": "\\\"bahkan\\\" memberikan contoh yang lebih dalam atau lebih ekstrem, yang menunjukkan bahwa situasi di luar harapan normal.",
+        "explanationLearning": "” Bahkan ” memberikan contoh yang lebih dalam atau lebih ekstrem dari situasi yang melebihi harapan umum.",
         "explanationTranslation": "甚至 memperkenalkan teladan yang bahkan lebih kuat atau lebih ekstrem, yang memperlihatkan bahwa sesuatu melampaui harapan biasa.",
         "options": {
           "o1": {
@@ -10032,9 +10032,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-natural-expression-literature-01": {
-        "promptLearning": "Ungkapan yang secara alami dapat menanggapi permintaan maaf?",
+        "promptLearning": "Ungkapan apa yang secara alami dapat menanggapi permintaan maaf?",
         "promptTranslation": "Ungkapan yang secara alami menanggapi permintaan maaf?",
-        "explanationLearning": "\\\"Ini tidak penting\\\" sering digunakan sebagai tanggapan atas permintaan maaf, menunjukkan bahwa tidak perlu ada pikiran atau bahwa tidak ada yang telah serius mempengaruhi mereka.",
+        "explanationLearning": "\\\"Ini tidak penting\\\" sering digunakan sebagai tanggapan atas permintaan maaf, menunjukkan bahwa tidak ada yang perlu dipikirkan atau bahwa tidak ada yang serius mempengaruhi mereka.",
         "explanationTranslation": "没关系 adalah respon umum untuk permintaan maaf, yang berarti \\\"tidak apa-apa\\\" atau \\\"jangan khawatir tentang hal itu.\\\"",
         "options": {
           "o1": {
@@ -10056,9 +10056,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-natural-expression-literature-02": {
-        "promptLearning": "Ungkapan mana yang menunjukkan penerimaan atas apa yang dibayar?",
+        "promptLearning": "Ungkapan yang mana yang akan menjadi dukungan atas perbuatan orang lain?",
         "promptTranslation": "Ungkapan yang mengakui usaha seseorang?",
-        "explanationLearning": "Kekhawatiran digunakan untuk mengakui upaya atau kerja keras orang lain, sering kali menyatakan pengertian dan rasa syukur setelah satu sama lain telah menyelesaikan pekerjaan mereka.",
+        "explanationLearning": "Kekhawatiran digunakan untuk mengakui upaya atau kerja keras orang lain, sering kali menyatakan pengertian dan rasa syukur setelah selesainya pekerjaan mereka.",
         "explanationTranslation": "辛苦了 mengakui upaya atau kerja keras seseorang dan sering dikatakan setelah mereka menyelesaikan suatu tugas.",
         "options": {
           "o1": {
@@ -10071,7 +10071,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o3": {
             "learning": "Permisi.",
-            "translation": "Boleh aku bertanya"
+            "translation": "Boleh saya bertanya"
           },
           "o4": {
             "learning": "Selamat malam.",
@@ -10080,10 +10080,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-natural-expression-literature-03": {
-        "promptLearning": "Puisi yang memuat frasa \\\"Kebanyakan sinar bulan di depan tempat tidur, diduga embun beku di tanah\\\"?",
-        "promptTranslation": "Puisi yang mana yang berisi baris 床前明月月光光光疑是地上霜疑是地上霜疑是地上霜?",
-        "explanationLearning": "Dua kata pertama dari \"Moonlight di depan tempat tidur, diduga adalah frost di tanah\" adalah Li Baek, seorang penyair Dom Dynasty.",
-        "explanationTranslation": "床前明 “ “ “月月月月,””””””””””””””””””””””””””””””””””””””””” are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are",
+        "promptLearning": "Puisi yang memuat frasa \\\"Kebanyakan bulan sebelum tidur, diduga membeku di tanah\\\"?",
+        "promptTranslation": "Puisi yang mana yang memuat baris 床前明月月光光光,,,?",
+        "explanationLearning": "Dua kata pertama dari \"Moonlight di depan tempat tidur, diduga adalah frost di tanah\" adalah Li Baek, seorang penyair Dondai.",
+        "explanationTranslation": "床前明 “ “ “月月月月,,”””””””””””””””””””””””””””””””””””””””” are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are are",
         "options": {
           "o1": {
             "learning": "Tidur di malam hari",
@@ -10094,11 +10094,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Yoo"
           },
           "o3": {
-            "learning": "Aku akan pergi ke Freckle House.",
+            "learning": "Saya akan pergi ke Freckle House.",
             "translation": "Menara Bangau yang Menurun"
           },
           "o4": {
-            "learning": "\\\"Kameral\\\".",
+            "learning": "Pyo-sun.",
             "translation": "Sympatpati Sympat untuk Peasant"
           }
         }
@@ -10106,7 +10106,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-natural-expression-literature-04": {
         "promptLearning": "Siapa penulis Dinasti Tang?",
         "promptTranslation": "Siapa yang menulis puisi Tang-dynasty ?",
-        "explanationLearning": "Ia adalah penyair terkenal Dinasti Tang, yang sering disebut sebagai \"Sympire \" dan The Nightingale adalah salah satu delegasinya.",
+        "explanationLearning": "Ia adalah penyair terkenal dari Dinasti Tang, yang sering disebut sebagai \"Poems \" ;; The Nightingale adalah salah satu delegasinya.",
         "explanationTranslation": "Dia adalah seorang penyair dinasti Tang yang terkenal, yang sering disebut \\\"puisi abadi.\\\" Salah satu karyanya yang paling dikenal.",
         "options": {
           "o1": {
@@ -10118,19 +10118,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Woi Du Fu"
           },
           "o3": {
-            "learning": "Aku tidak tahu.",
+            "learning": "Saya tidak tahu.",
             "translation": "Bai Juyi"
           },
           "o4": {
-            "learning": "Wang Wai!",
+            "learning": "- Apa?",
             "translation": "Wang Wang Wei"
           }
         }
       },
       "zh-en-a-natural-expression-literature-05": {
-        "promptLearning": "Apa dua kalimat pertama dari The Nightingale?",
+        "promptLearning": "Apa perbedaan antara dua ayat pertama The Nightingale?",
         "promptTranslation": "Apa perbandingan pasangan pembuka 静夜思?",
-        "explanationLearning": "Puisi-puisi melihat cahaya bulan terang sebagai embun beku putih di tanah, menunjukkan pemandangan penyair ketika mereka bangun di malam hari.",
+        "explanationLearning": "Puisi-puisi melihat cahaya bulan terang sebagai embun beku putih di tanah, mencerminkan visi penyair ketika mereka bangun di malam hari.",
         "explanationTranslation": "Garis-garis membandingkan cahaya bulan terang dengan embun beku putih di tanah, menggambarkan kesan visual penyair di malam hari.",
         "options": {
           "o1": {
@@ -10152,14 +10152,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-natural-expression-literature-06": {
-        "promptLearning": "Apa yang salah satu kata lama, yang diambil dari kata-kata \"Sticks of the Sun\" menekankan pentingnya akumulasi progresif?",
+        "promptLearning": "Apa yang salah satu kata lama, yang diambil dari kata \"The Sons of the Sons \" , menekankan pentingnya akumulasi progresif?",
         "promptTranslation": "Kata klasik mana yang berasal dari Xunzi's Encouraging Belajar dan stres akumulasi bertahap?",
-        "explanationLearning": "\\\"Tidak ada langkah, tidak ada mile”, yang berasal dari \\\"Treasure Quest\\\", menyarankan bahwa tujuan ambisius perlu dimulai dengan langkah kecil.",
+        "explanationLearning": "\\\"Tidak ada langkah, tidak ada mile”, berasal dari \\\"Treasure Quest\\\", menyarankan bahwa tujuan ambisius perlu dimulai dengan langkah kecil.",
         "explanationTranslation": "勸學 dan mengajarkan bahwa tujuan besar membutuhkan akumulasi langkah - langkah kecil yang mantap.",
         "options": {
           "o1": {
             "learning": "Tidak ada langkah, tidak ada mil.",
-            "translation": "Tanpa langkah-langkah kecil, satu tidak bisa perjalanan seribu mil"
+            "translation": "Tanpa langkah-langkah kecil, satu tidak dapat perjalanan seribu mil"
           },
           "o2": {
             "learning": "Ular ular.",
@@ -10170,7 +10170,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Ikuti adat setempat"
           },
           "o4": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Achieve dua hal sekaligus"
           }
         }
@@ -10178,8 +10178,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-01": {
         "promptLearning": "Bahasa penolong mana yang dapat digunakan untuk menunjukkan bahwa orang yang berbicara memiliki pengalaman pribadi?",
         "promptTranslation": "Partikel mana yang menunjukkan bahwa seseorang memiliki pengalaman tertentu?",
-        "explanationLearning": "Kata \\\"over\\\" setelah kata \\\"go\\\" menunjukkan pengalaman sebelumnya untuk pergi ke Beijing; di akhir kalimat, kata \\\"does\\\" mengubah kalimat menjadi kalimat non-questioning.",
-        "explanationTranslation": "Setelah pengalaman terakhir, sementara kalimat-final吗 mengubah pernyataan menjadi pertanyaan ya/tidak.",
+        "explanationLearning": "Kata \\\"over\\\" setelah kata \\\"go\\\" menunjukkan pengalaman sebelumnya untuk pergi ke Beijing; di akhir ayat, kata \\\"does\\\" mengubah ayat menjadi ayat non-questioning.",
+        "explanationTranslation": "Setelah pengalaman terakhir, sementara ayat-final吗 mengubah pernyataan menjadi pertanyaan ya/tidak.",
         "options": {
           "o1": {
             "learning": "Pass.",
@@ -10191,7 +10191,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o3": {
             "learning": "Ini.",
-            "translation": "[ Gambar di hlm."
+            "translation": "tanda sebuah keadaan sedang berlangsung"
           },
           "o4": {
             "learning": "Ya. Ya.",
@@ -10201,30 +10201,30 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "zh-en-extra-02": {
         "promptLearning": "Frase yang menggambarkan kebiasaan olahraga pembicara setiap pagi?",
-        "promptTranslation": "Kalimat mana yang menggambarkan rutin latihan pagi speaker?",
-        "explanationLearning": "Istilah \\\"di pagi hari\\\" menunjukkan waktu yang ditetapkan di mana tindakan berlangsung dan \\\"lari\\\" adalah kata kerja yang menunjukkan gerakan.",
+        "promptTranslation": "Ayat mana yang menggambarkan rutin latihan pagi speaker?",
+        "explanationLearning": "Istilah \\\"di pagi hari\\\" menunjukkan waktu yang ditetapkan saat terjadinya tindakan, dan \\\"lari\\\" adalah kata kerja yang menunjukkan gerakan.",
         "explanationTranslation": "每天早上 memberikan waktu yang berulang dari tindakan, dan 跑步 adalah frasa kata kerja yang berarti \\\"untuk menjalankan\\\".",
         "options": {
           "o1": {
-            "learning": "Aku berlari setiap pagi.",
-            "translation": "Aku berlari setiap pagi."
+            "learning": "Saya berlari setiap pagi.",
+            "translation": "Saya berlari setiap pagi."
           },
           "o2": {
-            "learning": "Aku berlari setiap pagi.",
-            "translation": "\\\"Aku berlari setiap pagi setiap hari.\\\""
+            "learning": "Saya berlari setiap pagi.",
+            "translation": "\\\"Saya berlari setiap pagi setiap hari.\\\""
           },
           "o3": {
-            "learning": "Setiap hari aku berlari di pagi hari.",
-            "translation": "\\\"Setiap hari aku lari pagi.\\\""
+            "learning": "Setiap hari saya berlari di pagi hari.",
+            "translation": "\\\"Setiap hari saya lari pagi.\\\""
           },
           "o4": {
-            "learning": "Aku berlari setiap pagi.",
-            "translation": "\\\"Aku berlari pagi setiap hari.\\\""
+            "learning": "Saya berlari setiap pagi.",
+            "translation": "\\\"Saya berlari pagi setiap hari.\\\""
           }
         }
       },
       "zh-en-extra-03": {
-        "promptLearning": "Kalimat mana yang benar menggunakan kata \\\"to\\\" untuk berarti \\\"tolong kirim surat ini\\\"?",
+        "promptLearning": "Ayat mana yang benar menggunakan kata \\\"to\\\" untuk berarti \\\"tolong kirim surat ini\\\"?",
         "promptTranslation": "Hukuman mana yang menggunakan konstruksi pembuangan untuk membuat permintaan tentang pengiriman surat-menyurat?",
         "explanationLearning": "\\\"Kirim surat\\\" menunjukkan di muka orang yang akan ditangani, dan \\\"mengirimkannya\\\" menunjukkan tempat di mana orang itu berbicara.",
         "explanationTranslation": "把这封信 mengidentifikasi surat itu ditangani, dan 寄出去 berarti mengirimkannya dari lokasi pembicara.",
@@ -10248,7 +10248,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-extra-04": {
-        "promptLearning": "Mana yang menggunakan kalimat pasif untuk menunjukkan bahwa sepeda diambil?",
+        "promptLearning": "Mana yang menggunakan ayat pasif untuk menunjukkan bahwa sepeda diambil?",
         "promptTranslation": "Hukuman mana yang menggunakan konstruksi pasif untuk menggambarkan sepeda yang diambil oleh seseorang?",
         "explanationLearning": "\\\"Gikalku\\\" adalah kata utama untuk tindakan, \\\"orang\\\" berarti pelaku tidak spesifik dan \\\"mencuri\\\" berarti pencurian.",
         "explanationTranslation": "我的自行车 adalah subjek yang menerima tindakan; 被人 meninggalkan agen yang tidak dinyatakan, dan 偷了 menyatakan bahwa itu dicuri.",
@@ -10258,21 +10258,21 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "Sepedaku dicuri."
           },
           "o2": {
-            "learning": "Aku mengambil sepeda.",
-            "translation": "Aku naik sepeda pergi."
+            "learning": "Saya mengambil sepeda.",
+            "translation": "Saya mengendarai sepeda pergi."
           },
           "o3": {
             "learning": "Sepeda motor di luar pintu.",
             "translation": "Sepedanya ada di luar pintu."
           },
           "o4": {
-            "learning": "Aku membeli sepeda motor.",
-            "translation": "Aku membeli sepeda."
+            "learning": "Saya membeli sepeda motor.",
+            "translation": "Saya membeli sepeda."
           }
         }
       },
       "zh-en-extra-05": {
-        "promptLearning": "Kekhalifahan untuk mengungkapkan frasa \\\"keberuntungan harus dipremikan pada usaha\\\", apa struktur kata yang sering dikaitkan?",
+        "promptLearning": "Kekhalifahan untuk menyatakan \\\"keberuntungan harus dipremikan pada usaha\\\", apa struktur kata yang biasanya dikaitkan?",
         "promptTranslation": "Struktur yang berpasangan mana yang menyatakan bahwa keberhasilan bergantung pada upaya sebagai syarat yang diperlukan?",
         "explanationLearning": "\\\"Hanya upaya\\\" mengatur kondisi yang diperlukan, dan \\\"hanya sukses\\\" menunjukkan bahwa keberhasilan harus diatur pada upaya.",
         "explanationTranslation": "只有努力 menyatakan syarat yang diperlukan, dan 才能成功 mengatakan bahwa keberhasilan bergantung pada pertemuannya.",
@@ -10296,9 +10296,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-extra-06": {
-        "promptLearning": "Untuk menyatakan \\\"bagaimana perubahan kondisi dan hasilnya selalu sama\\\", apa struktur kata yang biasanya dikaitkan?",
+        "promptLearning": "Untuk menyatakan \\\"bagaimana kondisi telah berubah dan hasilnya selalu sama\\\", apakah struktur kata yang biasanya dikaitkan?",
         "promptTranslation": "Struktur berpasangan mana yang menyatakan bahwa hasilnya tetap sama terlepas dari perubahan kondisi?",
-        "explanationLearning": "\\\"Tidak peduli seberapa sibuk\\\" berarti bahwa tidak ada batas untuk tingkat kesibukan, dan \\\"penerima\\\" menunjukkan bahwa ini selalu terjadi.",
+        "explanationLearning": "\\\"Tidak peduli seberapa sibuk\\\" berarti bahwa tidak ada batas untuk tingkat kesibukan, dan \\\"penerima\\\" menunjukkan bahwa hal ini selalu terjadi.",
         "explanationTranslation": "无论多忙 berarti bahwa setiap tingkat kesibukan tidak ada kendala; 都会回信 menyatakan hasil yang konsisten.",
         "options": {
           "o1": {
@@ -10326,11 +10326,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "explanationTranslation": "多此一举 mengatakan tindakan itu tidak perlu, sementara 反而坏事 menjelaskan bahwa tindakan ekstra mungkin memperburuk keadaan.",
         "options": {
           "o1": {
-            "learning": "Ini hal yang buruk.",
+            "learning": "Ini buruk.",
             "translation": "Menambah hal-hal yang tidak perlu dan membuatnya lebih buruk."
           },
           "o2": {
-            "learning": "Ini sangat cepat.",
+            "learning": "Sangat cepat.",
             "translation": "Melakukan sesuatu dengan sangat cepat."
           },
           "o3": {
@@ -10346,8 +10346,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-08": {
         "promptLearning": "Kita akan pulang.",
         "promptTranslation": "Peribahasa yang mana yang menganjurkan orang untuk menyesuaikan perilaku mereka dengan kebiasaan tempat yang mereka kunjungi?",
-        "explanationLearning": "Kalimat ini menjelaskan istilah \\\"ke dalam negeri\\\": ketika suatu tempat baru tercapai, kalimat ini mengikuti adat istiadat setempat.",
-        "explanationTranslation": "Ini menjelaskan 入乡随俗: sewaktu Anda pergi ke suatu tempat baru, ikuti kebiasaan tempat itu.",
+        "explanationLearning": "Ayat ini menjelaskan istilah \\\"ke dalam negeri\\\": ketika suatu tempat baru tercapai, ayat ini mengikuti adat setempat.",
+        "explanationTranslation": "Ini menjelaskan 入乡随俗: sewaktu Anda pergi ke tempat yang baru, ikuti kebiasaan tempat itu.",
         "options": {
           "o1": {
             "learning": "Pergi ke satu tempat dan ikuti adat setempat.",
@@ -10370,7 +10370,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-09": {
         "promptLearning": "Kata sifat apa yang digunakan seseorang untuk menggambarkan kapan ia melakukan apa yang ia lakukan, mengurus perinciannya dan tidak membuat kesalahan?",
         "promptTranslation": "Kata sifat yang mana yang menggambarkan seseorang yang bekerja dengan hati-hati dan memperhatikan detail?",
-        "explanationLearning": "Istilah \\\"hati-hati\\\" menggambarkan keseriusan apa yang dilakukan dan apa yang terperinci, dan tidak mudah untuk mengabaikan tempat-tempat kecil.",
+        "explanationLearning": "Tak mudah mengabaikan tempat - tempat kecil dengan karakterisasi ” berhati - hati ” untuk mengurus perinciannya.",
         "explanationTranslation": "细心 menggambarkan bahwa berhati - hati dan memperhatikan perincian daripada mengabaikan hal - hal kecil.",
         "options": {
           "o1": {
@@ -10394,7 +10394,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-10": {
         "promptLearning": "Kata kerja apa yang umum digunakan sewaktu lembaga memutuskan untuk membuat informasi yang tidak tersedia untuk umum?",
         "promptTranslation": "Kata kerja mana yang berarti untuk membuat informasi non-public sebelumnya publik?",
-        "explanationLearning": "“Public” berarti bahwa informasi, informasi atau kegiatan yang sebaliknya tidak tersedia untuk umum terbuka atau dapat diakses oleh masyarakat.",
+        "explanationLearning": "“Public” berarti bahwa informasi, informasi atau kegiatan yang sebaliknya tidak tersedia untuk umum terbuka atau dapat diakses oleh publik.",
         "explanationTranslation": "公开 berarti membuat informasi, bahan, atau peristiwa yang tidak dapat diakses umum atau diketahui oleh masyarakat.",
         "options": {
           "o1": {
@@ -10416,13 +10416,13 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-extra-11": {
-        "promptLearning": "Frase apa yang menunjukkan ” satu operasi mendatangkan dua manfaat secara bersamaan ”?",
+        "promptLearning": "Frasa frase mana yang menunjukkan \\\"satu operasi mendatangkan dua manfaat secara bersamaan\\\"?",
         "promptTranslation": "Apa artinya satu tindakan mendatangkan dua keuntungan?",
         "explanationLearning": "Satu per satu menekankan pada dua manfaat dari satu tindakan membuatnya tepat untuk menguraikan pendekatan yang seimbang.",
         "explanationTranslation": "一举两得 menggambarkan satu tindakan yang mendatangkan dua manfaat, sehingga cocok untuk solusi yang mencapai dua tujuan sekaligus.",
         "options": {
           "o1": {
-            "learning": "Dua dalam satu.",
+            "learning": "Dua untuk masing-masing satu.",
             "translation": "Mecapai dua hal sekaligus"
           },
           "o2": {
@@ -10431,7 +10431,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           },
           "o3": {
             "learning": "Secara ironis.",
-            "translation": "♪ bertentangan dengan diri sendiri ♪"
+            "translation": "Salah satu diri bertentangan"
           },
           "o4": {
             "learning": "Tunggu kelincinya.",
@@ -10446,7 +10446,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "explanationTranslation": "\\\"春眠不觉晓\\\" membuka puisi 孟浩然 dan menggambarkan bangun dari tidur musim semi setelah fajar telah tiba.",
         "options": {
           "o1": {
-            "learning": "Aku tidak bisa tidur.",
+            "learning": "Saya tak dapat tidur.",
             "translation": "Tidur musim semi membuat salah satu tidak menyadari fajar."
           },
           "o2": {
@@ -10466,7 +10466,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-13": {
         "promptLearning": "Apa struktur kata terkait yang biasanya digunakan untuk menunjukkan bahwa ” sang pembicara membatalkan rencana semula sewaktu hujan besok?",
         "promptTranslation": "Struktur berpasangan mana yang menyatakan suatu kondisi dan tindakan yang mengikuti jika dipenuhi?",
-        "explanationLearning": "Jika kondisi hujan besok diusulkan, \\\"hanya\\\" mengarah pada hasil bahwa kondisi tersebut tidak ditetapkan.",
+        "explanationLearning": "Jika kondisi hujan besok dimajukan, \\\"just\\\" mengarah pada hasil bahwa kondisi tersebut didirikan.",
         "explanationTranslation": "如果 Memperkenalkan kondisi bahwa hujan akan turun besok, dan να memberi hasilnya: pembicara tidak akan pergi.",
         "options": {
           "o1": {
@@ -10490,7 +10490,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-14": {
         "promptLearning": "Apa struktur kata - kata terkait yang biasanya digunakan untuk menyatakan konsesi bahwa ” ia lelah, tetapi akhirnya menyelesaikan pekerjaannya ”?",
         "promptTranslation": "Struktur berpasangan mana yang menyatakan konsesi, misalnya seseorang menyelesaikan tugas meskipun lelah?",
-        "explanationLearning": "\\\"Meskipun\\\" mengeluarkan fakta bahwa ia lelah dengan konsesi, \\\"tetapi\\\" menekankan bahwa ia masih menyelesaikan pekerjaannya.",
+        "explanationLearning": "\\\"Meskipun\\\" menunjukkan fakta bahwa ia lelah dengan konsesi, \\\"tetapi\\\" menekankan bahwa ia masih menyelesaikan pekerjaannya.",
         "explanationTranslation": "虽然 memperkenalkan konsesi bahwa ia lelah, sementara 但是 menekankan bahwa ia menyelesaikan pekerjaan itu pula.",
         "options": {
           "o1": {
@@ -10514,7 +10514,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-extra-15": {
         "promptLearning": "Secara ironis.",
         "promptTranslation": "Untuk melawan diri sendiri.",
-        "explanationLearning": "Istilah \\\"kontroversial\\\" (kontroversial) menggambarkan orang yang sama yang sedang berselisih satu sama lain dan tidak dapat didirikan bersamaan.",
+        "explanationLearning": "Istilah \\\"kontroversial\\\" (kontroversial) menggambarkan klaim atau tingkah laku orang yang sama sebagai konflik dan tidak dapat ditetapkan pada saat yang sama.",
         "explanationTranslation": "自相矛盾 menggambarkan pernyataan atau tindakan seseorang sendiri yang bertentangan satu sama lain sehingga semuanya tidak mungkin benar.",
         "options": {
           "o1": {
@@ -10536,8 +10536,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-extra-17": {
-        "promptLearning": "Kalimat mana yang paling wajar, ” Perhatikan baik - baik sebelum membuat keputusan ”?",
-        "promptTranslation": "Kalimat yang secara alami berarti \\\"Tolong pikirkan dulu sebelum membuat keputusan\\\"?",
+        "promptLearning": "Ayat mana yang paling wajar, ” Perhatikan baik - baik sebelum membuat keputusan ”?",
+        "promptTranslation": "Ayat yang secara alami berarti \\\"Tolong pikirkan dulu sebelum membuat keputusan\\\"?",
         "explanationLearning": "\\\"Memang-harus-melakukan\\\" membutuhkan pertimbangan yang cermat sebelum tindakan atau keputusan diambil, menghindari tergesa-gesa.",
         "explanationTranslation": "三思而后行 menasihati seseorang untuk berpikir dengan saksama sebelum bertindak atau memutuskan, ketimbang terburu - buru.",
         "options": {
@@ -10566,11 +10566,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "explanationTranslation": "Artinya \\\"kuda\\\" dan dilafalkan dengan nada ketiga.",
         "options": {
           "o1": {
-            "learning": "Maafkan aku.",
+            "learning": "Maafkan saya.",
             "translation": "♪"
           },
           "o2": {
-            "learning": "Ibu.",
+            "learning": "Ibu",
             "translation": "Á"
           },
           "o3": {
@@ -10584,7 +10584,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-greetings-translation-01": {
-        "promptLearning": "\"Aku diminta untuk bertemu denganmu.\"",
+        "promptLearning": "\"Saya diminta untuk bertemu denganmu.\"",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
         "explanationLearning": "Senang bertemu denganmu. Senang bertemu denganmu.",
         "explanationTranslation": "很高兴认识你 adalah ungkapan alami yang digunakan sewaktu bertemu dengan seseorang untuk pertama kalinya.",
@@ -10598,7 +10598,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "很高兴认识你。"
           },
           "o3": {
-            "learning": "Boleh aku bertanya?",
+            "learning": "Boleh saya bertanya?",
             "translation": "请问。"
           },
           "o4": {
@@ -10634,7 +10634,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-pronouns-translation-01": {
         "promptLearning": "Kami adalah teman sekelas.\"",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "“Kami” termasuk pembicara dan orang lain; ” adalah” orang yang berhubungan dengan bahasa dan identitas yang dominan, dan ” teman sekelas ” memaksudkan orang yang belajar di sekolah atau kelas yang sama.",
+        "explanationLearning": "\\\"Kami\\\" termasuk pembicara dan lainnya; \\\"adalah\\\" orang yang terhubung dengan bahasa dan identitas yang dominan, dan \\\"kolumn\\\" berarti orang yang belajar di sekolah atau kelas yang sama.",
         "explanationTranslation": "我们 termasuk pembicara dan orang lain. — artinya teman sekelas.",
         "options": {
           "o1": {
@@ -10646,7 +10646,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
             "translation": "我们有同学。"
           },
           "o3": {
-            "learning": "Aku teman sekelas.",
+            "learning": "Saya teman sekelas.",
             "translation": "我是同学。"
           },
           "o4": {
@@ -10658,31 +10658,31 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-actions-translation-01": {
         "promptLearning": "Indra apa yang ” Saya ingin belajar?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "Kata \\\"keinginan\\\" mengungkapkan keinginan bahwa \\\"belajar Tionghoa\\\" berarti belajar bahasa Tionghoa; bersama-sama, kedua bagian tersebut mengungkapkan keinginan untuk belajar bahasa Tionghoa.",
+        "explanationLearning": "Kata \\\"ingin\\\" mengungkapkan keinginan bahwa kata \\\"belajar dalam bahasa Tionghoa\\\" berarti belajar bahasa Tionghoa; kedua bagian bersama-sama mengungkapkan keinginan untuk belajar bahasa Tionghoa.",
         "explanationTranslation": "menyatakan keinginan atau niat. 学习中文 berarti mempelajari bahasa Tionghoa, sehingga kalimatnya berarti \\\"Saya ingin belajar bahasa Tionghoa\\\".",
         "options": {
           "o1": {
-            "learning": "Aku belajar bahasa Cina.",
+            "learning": "Saya belajar bahasa Cina.",
             "translation": "我在学习中文。"
           },
           "o2": {
-            "learning": "Aku ingin belajar.",
+            "learning": "Saya ingin belajar.",
             "translation": "我想学习中文。"
           },
           "o3": {
-            "learning": "Aku tidak belajar bahasa Cina.",
+            "learning": "Saya tidak belajar bahasa Cina.",
             "translation": "我不学习中文。"
           },
           "o4": {
-            "learning": "Aku ingin membaca bahasa Cina.",
+            "learning": "Saya ingin membaca bahasa Cina.",
             "translation": "我想看中文。"
           }
         }
       },
       "zh-en-b-places-translation-01": {
-        "promptLearning": "Keputusan yang mana adalah:",
+        "promptLearning": "Keputusan yang berarti sekolah di sebelah kiri\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "Kata \\\"kiri\\\" berarti kiri; kata \\\"masuk\\\" menandakan lokasi dan lokasi sambungan, sehingga kata \\\"sekolah di sebelah kiri\\\" berarti sekolah berada di sebelah kiri.",
+        "explanationLearning": "Kata \\\"kiri\\\" berarti kiri; kata \\\"masuk\\\" menunjukkan lokasi dan lokasi sambungan, sehingga kata \\\"sekolah di sebelah kiri\\\" berarti sekolah berada di sebelah kiri.",
         "explanationTranslation": "左边 berarti ” sisi kiri ”. Artinya sekolah ini berada di sebelah kiri.",
         "options": {
           "o1": {
@@ -10704,49 +10704,49 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-questions-translation-01": {
-        "promptLearning": "Aku tidak punya waktu hari ini\"?",
+        "promptLearning": "Saya tidak punya waktu hari ini\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "\\\"Tidak\\\" meniadakan \\\"ya\\\", artinya tidak ada barang atau sumber daya; \\\"waktu\\\" berarti waktu yang tersedia untuk mengatur hal-hal, dan \\\"Hari ini\\\" berarti hari ketika pidato dibuat.",
+        "explanationLearning": "\\\"Tidak\\\" meniadakan \\\"ya\\\", artinya tidak ada barang atau sumber daya; \\\"waktu\\\" berarti waktu yang tersedia untuk penjadwalan, dan \\\"Hari ini\\\" berarti hari di mana Anda berbicara.",
         "explanationTranslation": "没有 negates asi dan berarti \\\"tidak memiliki\\\". 时间 berarti \\\"waktu,\\\" dan 今天 berarti \\\"hari ini\\\".",
         "options": {
           "o1": {
-            "learning": "Aku punya waktu hari ini.",
+            "learning": "Saya punya waktu hari ini.",
             "translation": "我今天有时间。"
           },
           "o2": {
-            "learning": "Aku tak punya waktu kemarin.",
+            "learning": "Saya tidak punya waktu kemarin.",
             "translation": "我昨天没有时间。"
           },
           "o3": {
-            "learning": "Aku tak punya teman hari ini.",
+            "learning": "Saya tak punya teman hari ini.",
             "translation": "我今天没有朋友。"
           },
           "o4": {
-            "learning": "Aku tidak punya waktu hari ini.",
+            "learning": "Saya tidak punya waktu hari ini.",
             "translation": "我今天没有时间。"
           }
         }
       },
       "zh-en-i-measure-words-translation-01": {
-        "promptLearning": "Yang arti akal berarti \" Tolong beri aku dua cangkir air\"?",
+        "promptLearning": "Yang arti akal berarti \" Tolong beri saya dua cangkir air\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "Istilah \\\"dua cangkir air\\\" digunakan untuk mengartikan kuantitas kedua, kata \\\"kue\\\" digunakan sebagai ukuran minuman dan kata \\\"air\\\" adalah minuman yang diukur.",
+        "explanationLearning": "Istilah \\\"dua cangkir air\\\" digunakan untuk mengartikan kuantitas kedua, kata \\\"kue\\\" digunakan sebagai ukuran minuman, dan kata \\\"air\\\" adalah minuman yang diukur.",
         "explanationTranslation": "两 menunjukkan dua, 杯 adalah kata ukuran untuk secangkir minuman, dan 水 adalah minuman yang diukur.",
         "options": {
           "o1": {
-            "learning": "Tolong beri aku segelas air.",
+            "learning": "Tolong beri saya segelas air.",
             "translation": "请给我一杯水。"
           },
           "o2": {
-            "learning": "Tolong beri aku dua cangkir air.",
+            "learning": "Tolong beri saya dua cangkir air.",
             "translation": "请给我两杯水。"
           },
           "o3": {
-            "learning": "Tolong beri aku dua buku air.",
+            "learning": "Tolong beri saya dua buku air.",
             "translation": "请给我两本水。"
           },
           "o4": {
-            "learning": "Tolong beri aku dua mata air.",
+            "learning": "Tolong beri saya dua mata air.",
             "translation": "请给我两张水。"
           }
         }
@@ -10754,8 +10754,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-i-grammar-translation-01": {
         "promptLearning": "Apa kau pernah dengar suara bebek Beijing?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "Kata \\\"lebih\\\" setelah kata kerja menunjukkan bahwa telah ada beberapa pengalaman; di akhir kalimat, kata \\\"does\\\" mengubah kalimat menjadi kalimat non-challending.",
-        "explanationTranslation": "Setelah kata kerja bertanya tentang pengalaman sebelumnya. Terakhir吗 mengubah kalimat menjadi pertanyaan ya/tidak.",
+        "explanationLearning": "Kata \\\"lebih\\\" setelah kata kerja menunjukkan bahwa telah ada beberapa pengalaman; di akhir ayat, kata \\\"does\\\" mengubah ayat menjadi ayat non-permintaan.",
+        "explanationTranslation": "Setelah kata kerja bertanya tentang pengalaman sebelumnya. Terakhir吗 mengubah ayat menjadi pertanyaan ya/tidak.",
         "options": {
           "o1": {
             "learning": "Kau makan Beijing fuck?",
@@ -10778,7 +10778,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-i-time-translation-01": {
         "promptLearning": "Apa akal tidak \"dia sudah tiba\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "\\\"As\\\" berarti bahwa sesuatu telah terjadi sejauh ini, dan \\\"pada titik\\\" berarti bahwa gerakan telah dilakukan.",
+        "explanationLearning": "\\\"As\\\" berarti sesuatu telah terjadi sejauh ini, dan \\\"pada titik\\\" berarti bahwa gerakan telah dilakukan.",
         "explanationTranslation": "已经 berarti ” sudah siap,\\\" dan 到了 menunjukkan bahwa kedatangan telah terjadi.",
         "options": {
           "o1": {
@@ -10824,25 +10824,25 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-i-sentence-expansion-translation-01": {
-        "promptLearning": "Yang mana indera karena itu balap, aku tinggal di rumah\"?",
+        "promptLearning": "Karena itu balapan, saya tinggal di rumah\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
         "explanationLearning": "\\\"Kecelakaan\\\" menyebabkan hujan, \\\"jadi\\\" menyebabkan hasil rumah dan menyebabkan kausalitas.",
         "explanationTranslation": "因为 memperkenalkan alasan (hujan), dan 所以 memperkenalkan hasilnya (tinggal di rumah), membentuk hubungan penyebab dan efek.",
         "options": {
           "o1": {
-            "learning": "Meskipun itu balapan, aku tinggal di rumah.",
+            "learning": "Meskipun itu balapan, saya tinggal di rumah.",
             "translation": "虽然下雨,但是我待在家里。"
           },
           "o2": {
-            "learning": "Jika itu berjalan, aku akan tinggal di rumah.",
+            "learning": "Jika itu berjalan, saya akan tinggal di rumah.",
             "translation": "如果下雨,我就待在家里。"
           },
           "o3": {
-            "learning": "Karena aku tinggal di rumah, itu mulai berjalan.",
+            "learning": "Karena saya tinggal di rumah, itu mulai berjalan.",
             "translation": "因为我待在家里,所以开始下雨。"
           },
           "o4": {
-            "learning": "Karena balapan, aku tinggal di rumah.",
+            "learning": "Karena balapan, saya tinggal di rumah.",
             "translation": "因为下雨,所以我待在家里。"
           }
         }
@@ -10875,10 +10875,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Sejarah yang berarti - Tugas itu diskriminatif; meskipun demikian, dia membawanya\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
         "explanationLearning": "\\\"Namun\\\" mengarah ke balik situasi sebelumnya; \\\"bagaimanapun\\\" menekankan bahwa, meskipun kesulitan, tindakan masih terjadi.",
-        "explanationTranslation": "然而 memperkenalkan kontras dengan kesulitan sebelumnya. 还是 Ia menandaskan bahwa ia menyelesaikan tugas itu meskipun demikian.",
+        "explanationTranslation": "然而 memperkenalkan kontras dengan kesulitan sebelumnya. 还是 Ia menekankan bahwa ia menyelesaikan tugas itu meskipun demikian.",
         "options": {
           "o1": {
-            "learning": "Tugas itu sulit, karena itu, dia berhasil.",
+            "learning": "Karena itu, dia berhasil.",
             "translation": "任务很难,因此她完成了。"
           },
           "o2": {
@@ -10898,11 +10898,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-a-idioms-translation-01": {
         "promptLearning": "campur tangan macam apa itu?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "\\\"pemulihan kembali orang mati\\\" adalah kiasan untuk memperbaiki masalah dan menghindari peningkatan kerugian lebih lanjut.",
+        "explanationLearning": "\\\"pemulihan orang mati\\\" adalah kiasan untuk mempercepat penyelesaian masalah dan menghindari kerugian lebih lanjut.",
         "explanationTranslation": "亡羊补牢 menggambarkan mengambil tindakan korektif setelah suatu masalah sehingga kerugian lebih lanjut dapat dicegah.",
         "options": {
           "o1": {
-            "learning": "Ada hutang yang tidak perlu dan hasilnya.",
+            "learning": "Ada utang yang tidak perlu dan ikan hasilnya.",
             "translation": "画蛇添足"
           },
           "o2": {
@@ -10920,7 +10920,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-a-nuanced-vocabulary-translation-01": {
-        "promptLearning": "Apa arti akal dia berarti \"dia secara teknis terlibat dalam sejarah Cina\"?",
+        "promptLearning": "Apa arti akal dia berarti \"dia secara teknis terpengaruh dalam sejarah Cina\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
         "explanationLearning": "\\\"Terutamanya\\\" digunakan untuk menonjolkan seseorang atau benda, yang lebih patut diperhatikan daripada objek lain.",
         "explanationTranslation": "尤其 menonjolkan seseorang yang khususnya patut diperhatikan dibandingkan dengan orang lain.",
@@ -10947,7 +10947,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "promptLearning": "Yang mana arti pada dasarnya berarti \" Anda semua telah bekerja keras hari ini\"?",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
         "explanationLearning": "Kata \\\"kesusahan\\\" digunakan untuk mengakui upaya atau kerja keras orang lain; kata \\\"semua\\\" merujuk kepada semua orang, dan kata \\\"hari\\\" merujuk kepada hari ketika kita berbicara.",
-        "explanationTranslation": "辛苦了 mengakui upaya atau kerja keras seseorang. 大家 berarti semua orang, dan 今天 berarti hari ini.",
+        "explanationTranslation": "辛苦了 mengakui upaya atau kerja keras seseorang. 大家 berarti semua orang, dan 今天 berarti dewasa ini.",
         "options": {
           "o1": {
             "learning": "Semua orang kembali hari ini.",
@@ -10972,5271 +10972,5271 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
   "flashcards": {
     "en": {
       "aberration": {
-        "definitionMs": "",
+        "definitionMs": "Keberangkatan dari apa yang normal, diharapkan, atau khas.",
         "exampleMs": "Hasil yang tidak biasa dianggap sebagai penyimpangan sampai muncul lagi."
       },
       "ability": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan atau kekuatan untuk melakukan sesuatu.",
         "exampleMs": "Dia memiliki kemampuan untuk menjelaskan ide-ide sulit dengan jelas."
       },
       "abiotic": {
-        "definitionMs": "",
+        "definitionMs": "Berhubungan dengan non-hidup fisik dan kimia bagian lingkungan.",
         "exampleMs": "Penelitian itu mengukur bagaimana faktor abiotik mempengaruhi pertumbuhan tanaman."
       },
       "ablation": {
-        "definitionMs": "",
+        "definitionMs": "Kerugian atau hilangnya material dari suatu permukaan, sering kali melalui peleburan, erosi, atau pembedahan.",
         "exampleMs": "Ilmuwan-ilmuwan fakultas mengukur ablasi gletser selama musim panas."
       },
       "abrogate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk secara formal mengulang atau mengakhiri suatu hukum, perjanjian, atau pengaturan yang ditetapkan.",
         "exampleMs": "Undang-undang baru tidak secara otomatis mengobarkan perjanjian sebelumnya."
       },
       "abscission": {
-        "definitionMs": "",
+        "definitionMs": "Cairan alami dari bagian tumbuhan, seperti daun, buah, atau bunga.",
         "exampleMs": "Absissi audon menyebabkan daun terlepas dari cabang."
       },
       "abundant": {
-        "definitionMs": "",
+        "definitionMs": "Ada dalam jumlah besar; lebih dari cukup.",
         "exampleMs": "Buah segar segar berlimpah di pasar pada musim panas."
       },
       "accept": {
-        "definitionMs": "",
+        "definitionMs": "Untuk setuju menerima atau mempertimbangkan sesuatu.",
         "exampleMs": "Dia menerima undangan untuk makan malam."
       },
       "access": {
-        "definitionMs": "",
-        "exampleMs": "Aku tak bisa mengakses rekeningku."
+        "definitionMs": "Kemampuan atau hak untuk masuk, menggunakan, atau memperoleh sesuatu.",
+        "exampleMs": "Saya tak dapat mengakses rekeningku."
       },
       "accretion": {
-        "definitionMs": "",
+        "definitionMs": "Kebesaran tubuh atau struktur secara bertahap melalui penambahan bahan.",
         "exampleMs": "Planet terbentuk melalui akresi debu dan batu."
       },
       "accurate": {
-        "definitionMs": "",
+        "definitionMs": "Dia benar dan bebas dari kesalahan.",
         "exampleMs": "Tolong pastikan informasinya akurat."
       },
       "achievable": {
-        "definitionMs": "",
+        "definitionMs": "Kemungkinan untuk melakukan atau mencapai sukses.",
         "exampleMs": "Tetapkan tujuan yang dapat dicapai untuk minggu ini."
       },
       "achieve": {
-        "definitionMs": "",
+        "definitionMs": "\\\"Zifac\\\" berhasil melakukan atau menyelesaikan sesuatu melalui usaha.",
         "exampleMs": "Dia bekerja keras untuk mencapai tujuannya."
       },
       "acoustics": {
-        "definitionMs": "",
+        "definitionMs": "Ilmu suara, termasuk cara pembuatannya, ditularkan, dan dipahami.",
         "exampleMs": "Akustik studio membuat dialog tenang lebih mudah direkam."
       },
       "active": {
-        "definitionMs": "",
+        "definitionMs": "WHO melakukan sesuatu atau berpindah - pindah ketimbang tidak aktif.",
         "exampleMs": "Kakekku masih sangat aktif."
       },
       "actually": {
-        "definitionMs": "",
+        "definitionMs": "Züdi digunakan untuk menekankan apa yang benar atau untuk memperbaiki suatu asumsi.",
         "exampleMs": "Saya pikir toko ditutup, tapi sebenarnya terbuka."
       },
       "adapt": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengubah perilaku atau pendekatan Anda agar sesuai dengan situasi baru.",
         "exampleMs": "Saya butuh waktu seminggu untuk menyesuaikan diri dengan pekerjaan baru saya."
       },
       "adaptable": {
-        "definitionMs": "",
+        "definitionMs": "Mampu menyesuaikan diri dengan kondisi atau situasi baru.",
         "exampleMs": "Seorang pekerja yang mudah beradaptasi dapat mempelajari alat - alat baru dengan cepat."
       },
       "add": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau tambahkan namaku ke daftar?"
+        "definitionMs": "Untuk menyatukan sesuatu dengan sesuatu yang lain.",
+        "exampleMs": "Dapat kau tambahkan namaku ke daftar?"
       },
       "admire": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menghormati seseorang atau menghargai sesuatu karena itu mengesankan atau indah.",
         "exampleMs": "Saya mengagumi betapa tenangnya ia menangani kritikan itu."
       },
       "admit": {
-        "definitionMs": "",
+        "definitionMs": "Untuk setuju bahwa ada sesuatu yang benar, sering kali enggan.",
         "exampleMs": "Dia mengakui bahwa dia telah membuat kesalahan."
       },
       "adore": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mencintai seseorang atau sesuatu yang sangat banyak, untuk menyukai sesuatu yang intens.",
         "exampleMs": "Dia memuja keponakan kecilnya."
       },
       "advantage": {
-        "definitionMs": "",
-        "exampleMs": "Berbicara dua bahasa bisa menjadi keuntungan."
+        "definitionMs": "Kondisi yang membuat kesuksesan atau kemajuan menjadi lebih mudah.",
+        "exampleMs": "Berbicara dua bahasa dapat menjadi keuntungan."
       },
       "advice": {
-        "definitionMs": "",
+        "definitionMs": "Saran atau saran saran dari orang lain.",
         "exampleMs": "Guruku memberiku saran yang berguna."
       },
       "afford": {
-        "definitionMs": "",
-        "exampleMs": "Aku tidak mampu membeli laptop baru sekarang."
+        "definitionMs": "Untuk memiliki cukup uang, waktu, atau kemampuan untuk sesuatu.",
+        "exampleMs": "Saya tidak mampu membeli laptop baru sekarang."
       },
       "allometry": {
-        "definitionMs": "",
+        "definitionMs": "Studi tentang bagaimana ukuran satu bagian tubuh atau proses berkaitan dengan ukuran tubuh secara keseluruhan.",
         "exampleMs": "Para peneliti menggunakan alometri untuk membandingkan proporsi anggota tubuh di seluruh spesies."
       },
       "allosteric": {
-        "definitionMs": "",
+        "definitionMs": "ungkapkan regulasi protein oleh pengikatan molekul di situs selain situs aktifnya.",
         "exampleMs": "Obat - obatan itu mengubah enzim tersebut melalui mekanisme allosterik."
       },
       "allow": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membiarkan seseorang melakukan sesuatu atau membuat sesuatu menjadi mungkin.",
         "exampleMs": "Orang tuaku mengizinkanku keluar sampai jam 10."
       },
       "alternative": {
-        "definitionMs": "",
+        "definitionMs": "Pilihan atau kemungkinan lain.",
         "exampleMs": "Ada jalan alternatif?"
       },
       "although": {
-        "definitionMs": "",
+        "definitionMs": "Terlepas dari fakta bahwa; digunakan untuk menunjukkan kontras.",
         "exampleMs": "Meskipun hujan, kami pergi jalan-jalan."
       },
       "amaze": {
-        "definitionMs": "",
+        "definitionMs": "Saya ingin mengejutkan seseorang.",
         "exampleMs": "Pemandangan dari atas membuat kami kagum."
       },
       "anachronism": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang, objek, atau gagasan ditempatkan dalam periode waktu di mana ia tidak termasuk.",
         "exampleMs": "A jam tangan di adegan abad pertengahan adalah anatomi yang jelas."
       },
       "analyze": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memeriksa sesuatu dengan cermat untuk memahaminya.",
         "exampleMs": "Kita perlu menganalisis hasilnya sebelum memutuskan."
       },
       "anastomosis": {
-        "definitionMs": "",
+        "definitionMs": "Hubungan antara dua tabung, pembuluh, atau struktur bercabang.",
         "exampleMs": "Dokter bedah membuat anastomosis di antara dua bagian usus."
       },
       "animation": {
-        "definitionMs": "",
-        "exampleMs": "Aku sedang membangun portofolio animasi."
+        "definitionMs": "Proses membuat gambar tampak bergerak.",
+        "exampleMs": "Saya membangun portofolio animasi."
       },
       "anomie": {
-        "definitionMs": "",
+        "definitionMs": "Kondisi di mana norma sosial melemah atau tidak jelas.",
         "exampleMs": "Ahli sosiologi tersebut memeriksa anomie selama perubahan sosial yang pesat."
       },
       "anthropogenic": {
-        "definitionMs": "",
+        "definitionMs": "Menyebabkan atau dihasilkan oleh aktivitas manusia.",
         "exampleMs": "Laporan tersebut memisahkan emisi antropogenik dari sumber alam."
       },
       "anxious": {
-        "definitionMs": "",
-        "exampleMs": "Aku merasa cemas sebelum wawancara kerja."
+        "definitionMs": "Khawatir atau gugup tentang sesuatu yang mungkin terjadi.",
+        "exampleMs": "Saya merasa cemas sebelum wawancara kerja."
       },
       "apocryphal": {
-        "definitionMs": "",
+        "definitionMs": "Meskipun sering diulang - ulang seolah - olah benar.",
         "exampleMs": "Kutipan yang terkenal mungkin apokrifa."
       },
       "apodictic": {
-        "definitionMs": "",
+        "definitionMs": "Mengekspresikan sesuatu seperti biasa atau setan benar.",
         "exampleMs": "Ahli filsafat itu mempertanyakan apakah kesimpulan itu benar - benar apodiktik."
       },
       "apologise": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengatakan bahwa Anda menyesal untuk sesuatu yang Anda lakukan.",
         "exampleMs": "Saya harus minta maaf untuk tiba terlambat."
       },
       "apologize": {
-        "definitionMs": "",
-        "exampleMs": "Aku minta maaf atas keterlambatannya."
+        "definitionMs": "Untuk mengatakan bahwa Anda menyesal untuk sesuatu yang Anda lakukan.",
+        "exampleMs": "Saya minta maaf atas keterlambatannya."
       },
       "apoptosis": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang diatur oleh sel yang menghancurkan diri sendiri.",
         "exampleMs": "Eksperimen itu melacak apoptosis pada sel yang rusak."
       },
       "apparently": {
-        "definitionMs": "",
+        "definitionMs": "Sejauh yang dapat dipahami dari apa yang diketahui atau dilihat.",
         "exampleMs": "Rupanya, pertemuan telah dipindahkan ke hari Jumat."
       },
       "appear": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi terlihat atau tampak dengan cara tertentu.",
         "exampleMs": "Pesan muncul di layarku."
       },
       "application": {
-        "definitionMs": "",
-        "exampleMs": "Aku mengajukan lamaran kerjaku kemarin."
+        "definitionMs": "Sebuah permintaan formal atau program yang dirancang untuk suatu tujuan.",
+        "exampleMs": "Saya mengajukan lamaran kerjaku kemarin."
       },
       "appointment": {
-        "definitionMs": "",
-        "exampleMs": "Aku ada janji dengan dokter gigi besok."
+        "definitionMs": "Ada yang mengatur waktu untuk bertemu seseorang atau menerima layanan.",
+        "exampleMs": "Saya ada janji dengan dokter gigi besok."
       },
       "appreciate": {
-        "definitionMs": "",
-        "exampleMs": "Aku sangat menghargai bantuanmu."
+        "definitionMs": "Untuk mengenali nilai sesuatu, atau merasa bersyukur untuk itu.",
+        "exampleMs": "Saya sangat menghargai bantuanmu."
       },
       "apprehensive": {
-        "definitionMs": "",
+        "definitionMs": "Khawatir atau khawatir tentang sesuatu yang mungkin terjadi.",
         "exampleMs": "Dia merasa khawatir sebelum penampilan pertamanya."
       },
       "approach": {
-        "definitionMs": "",
+        "definitionMs": "Cara berurusan dengan sesuatu; untuk mendekat.",
         "exampleMs": "Kita perlu pendekatan yang berbeda untuk masalah ini."
       },
       "arbitrage": {
-        "definitionMs": "",
+        "definitionMs": "Aset yang sama atau setara di pasar yang berbeda.",
         "exampleMs": "firma menggunakan arbitrase untuk mengeksploitasi perbedaan singkat dalam nilai tukar."
       },
       "archival": {
-        "definitionMs": "",
+        "definitionMs": "Merubah menjadi catatan yang dipertahankan untuk referensi jangka panjang atau penelitian sejarah.",
         "exampleMs": "Sejarawan itu berkonsultasi dengan foto arkeologi dari tahun 1920-an."
       },
       "argue": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tidak sependapat dengan seseorang, sering kali dengan memberi alasan.",
         "exampleMs": "Mereka berdebat tentang tempat makan."
       },
       "arrange": {
-        "definitionMs": "",
-        "exampleMs": "Aku mengatur pertemuan untuk Jumat."
+        "definitionMs": "Untuk mengatur atau merencanakan sesuatu.",
+        "exampleMs": "Saya mengatur pertemuan untuk Jumat."
       },
       "arrive": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mencapai tempat, terutama di akhir perjalanan.",
         "exampleMs": "Kereta tiba sepuluh menit terlambat."
       },
       "ascertain": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mencari tahu atau menetapkan sesuatu dengan keyakinan.",
         "exampleMs": "Tim ini melakukan tes lain untuk memastikan penyebab kesalahan."
       },
       "assume": {
-        "definitionMs": "",
-        "exampleMs": "Kurasa tokonya terbuka, tapi sudah ditutup."
+        "definitionMs": "Untuk menerima sesuatu yang benar tanpa bukti.",
+        "exampleMs": "Saya mengira tokonya terbuka, tapi sudah ditutup."
       },
       "asymptotic": {
-        "definitionMs": "",
+        "definitionMs": "Mengeluarkan nilai atau kurva yang mendekati batas tanpa harus mencapainya.",
         "exampleMs": "Algoritma asiptotik menjalankan masalah waktu untuk dataset yang sangat besar."
       },
       "atavism": {
-        "definitionMs": "",
+        "definitionMs": "Kemunculan kembali suatu sifat yang berkaitan dengan nenek moyang yang jauh.",
         "exampleMs": "Koran tersebut membahas apakah fitur yang diwakili atavisme atau variasi biasa."
       },
       "attempt": {
-        "definitionMs": "",
+        "definitionMs": "Upaya untuk melakukan sesuatu yang sulit.",
         "exampleMs": "Saya membuat upaya lain untuk memecahkan teka-teki."
       },
       "attend": {
-        "definitionMs": "",
+        "definitionMs": "Untuk pergi ke acara, kelas, atau pertemuan.",
         "exampleMs": "Saya menghadiri kelas bahasa Inggris setiap Sabtu."
       },
       "autochthonous": {
-        "definitionMs": "",
+        "definitionMs": "Asal usul atau terbentuk di tempat ditemukannya.",
         "exampleMs": "Para peneliti itu mengidentifikasi spesies tanaman autochthonus di lembah itu."
       },
       "autopoiesis": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang oleh sistem terus menghasilkan dan mempertahankan dirinya sendiri.",
         "exampleMs": "Makalah yang menerapkan autopoiesis untuk mempelajari sistem kehidupan."
       },
       "available": {
-        "definitionMs": "",
+        "definitionMs": "Mampu digunakan, diperoleh, atau dicapai.",
         "exampleMs": "Apakah slot waktu ini masih tersedia?"
       },
       "avoid": {
-        "definitionMs": "",
-        "exampleMs": "Cobalah untuk tidak memeriksa ponsel Anda sewaktu belajar."
+        "definitionMs": "Untuk menjauhi sesuatu atau mencegahnya terjadi.",
+        "exampleMs": "Cobalah untuk tidak memeriksa ponsel Anda sambil belajar."
       },
       "aware": {
-        "definitionMs": "",
+        "definitionMs": "Mengetahui atau menyadari bahwa sesuatu ada atau sedang terjadi.",
         "exampleMs": "Apa kau menyadari jadwal baru?"
       },
       "awkward": {
-        "definitionMs": "",
-        "exampleMs": "Ada kesunyian aneh setelah leluconku."
+        "definitionMs": "Terutama dalam situasi sosial.",
+        "exampleMs": "Ada keheningan canggung setelah lelucon saya."
       },
       "balance": {
-        "definitionMs": "",
+        "definitionMs": "Kondisi stabil atau sama; untuk menjaga hal-hal dalam proporsi yang tepat.",
         "exampleMs": "Hal ini dapat sulit untuk menyeimbangkan pekerjaan dan istirahat."
       },
       "barely": {
-        "definitionMs": "",
-        "exampleMs": "Aku hampir tak naik kereta terakhir."
+        "definitionMs": "Hanya dengan jumlah yang sangat kecil.",
+        "exampleMs": "Saya hampir tidak menangkap kereta terakhir."
       },
       "baroclinic": {
-        "definitionMs": "",
+        "definitionMs": "Mengeluarkan sebuah cairan di mana kepadatan tergantung pada tekanan dan suhu dengan cara yang memungkinkan tekanan dan permukaan kepadatan berpotongan.",
         "exampleMs": "Ketidakstabilan Baroklinik turut menyebabkan perkembangan badai."
       },
       "baroque": {
-        "definitionMs": "",
+        "definitionMs": "Ini menggambarkan gaya artistik yang rumit, khususnya berkaitan dengan detail dan ornamentasi dramatis; juga gaya itu sendiri.",
         "exampleMs": "Museum ini menampilkan sebuah altar Baroque yang rumit."
       },
       "basically": {
-        "definitionMs": "",
+        "definitionMs": "Dalam arti yang paling sederhana atau paling penting.",
         "exampleMs": "Pada dasarnya, kita harus mulai lagi."
       },
       "beam": {
-        "definitionMs": "",
+        "definitionMs": "Senyum lebar-lebar karena Anda senang, bangga, atau senang.",
         "exampleMs": "Dia bersinar saat melihat keluarganya di keramaian."
       },
       "beckon": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberi isyarat kepada seseorang untuk mendekat, sering kali dengan gerakan tangan.",
         "exampleMs": "Pelayan itu memanggil kami menuju meja kosong."
       },
       "behave": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bertindak atau bertingkah laku dengan cara tertentu.",
         "exampleMs": "Anak-anak berperilaku baik di restoran."
       },
       "believable": {
-        "definitionMs": "",
+        "definitionMs": "Tidak masuk akal atau cukup meyakinkan untuk diterima sebagai benar.",
         "exampleMs": "Reaksi tokoh itu dianggap dapat dipercaya."
       },
       "believe": {
-        "definitionMs": "",
-        "exampleMs": "Aku percaya kau bisa melakukannya."
+        "definitionMs": "Untuk berpikir bahwa sesuatu itu benar atau bahwa seseorang mengatakan yang sebenarnya.",
+        "exampleMs": "Saya percaya kau dapat melakukannya."
       },
       "belong": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi milik seseorang atau berada di tempat yang tepat.",
         "exampleMs": "Tas ini milik adikku."
       },
       "benefit": {
-        "definitionMs": "",
+        "definitionMs": "Keuntungan atau hasil yang bermanfaat; untuk dibantu oleh sesuatu.",
         "exampleMs": "Satu manfaat berjalan kaki adalah kebugaran yang lebih baik."
       },
       "benthic": {
-        "definitionMs": "",
+        "definitionMs": "Bermuara ke dasar laut, danau, atau perairan lainnya.",
         "exampleMs": "Organisme benthik dari dasar laut."
       },
       "bewildered": {
-        "definitionMs": "",
+        "definitionMs": "Tidak yakin apa yang terjadi.",
         "exampleMs": "Dia tampak bingung dengan perubahan rencana tiba-tiba."
       },
       "bifurcation": {
-        "definitionMs": "",
+        "definitionMs": "Dipecah menjadi dua cabang, jalur, atau hasil yang berbeda.",
         "exampleMs": "Aliran sungai membuat dua saluran di sekitar pulau."
       },
       "bioaccumulation": {
-        "definitionMs": "",
+        "definitionMs": "Membina secara bertahap zat dalam organisme dari waktu ke waktu.",
         "exampleMs": "Bioakumulasi bioakumulasi merkuri diukur pada ikan predator."
       },
       "bioavailability": {
-        "definitionMs": "",
+        "definitionMs": "Proporsi suatu zat yang memasuki sirkulasi atau sebaliknya menjadi tersedia untuk digunakan oleh suatu organisme.",
         "exampleMs": "Makanan dapat mempengaruhi bioavailabilitas nutrisi tertentu."
       },
       "biogeography": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian terhadap distribusi geografis organisme selama ruang dan waktu.",
         "exampleMs": "Biogeografia membantu menjelaskan mengapa spesies terkait hidup di pulau-pulau terpisah."
       },
       "biomagnification": {
-        "definitionMs": "",
+        "definitionMs": "Kepekatan zat meningkat pada tingkat rantai makanan yang lebih tinggi.",
         "exampleMs": "Penelitian itu meneliti biomagnifikasi polutan pada predator laut."
       },
       "biomimicry": {
-        "definitionMs": "",
+        "definitionMs": "Perancangan material atau sistem dengan menggambar inspirasi dari struktur atau proses biologis.",
         "exampleMs": "Para insinyur menggunakan biomimikri untuk merancang permukaan yang mengusir air."
       },
       "birefringence": {
-        "definitionMs": "",
-        "exampleMs": "Mineral mineral yang ditampilkan Birefringence di bawah cahaya terpolarisasi."
+        "definitionMs": "Sifat dari suatu bahan yang membiaskan cahaya berbeda tergantung polarisasi atau arahnya.",
+        "exampleMs": "Mineral mineral yang ditampilkan dwirefrendingence di bawah cahaya terpolarisasi."
       },
       "blink": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menutup dan membuka mata Anda dengan cepat.",
         "exampleMs": "Dia berkedip terkejut ketika mendengar berita."
       },
       "blush": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi merah di wajah, sering kali karena malu, malu, atau kegembiraan.",
         "exampleMs": "Dia malu ketika semua orang memuji karyanya."
       },
       "bold": {
-        "definitionMs": "",
+        "definitionMs": "Karena percaya diri dan bersedia mengambil risiko; mencolok atau tidak terlihat.",
         "exampleMs": "Itu adalah keputusan yang berani untuk mengubah karir."
       },
       "borrow": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengambil dan menggunakan sesuatu sementara dengan izin.",
         "exampleMs": "Boleh kupinjam penamu sebentar?"
       },
       "bother": {
-        "definitionMs": "",
-        "exampleMs": "Maaf mengganggumu, tapi bisakah aku bertanya?"
+        "definitionMs": "Kesulitan atau kekhawatiran seseorang; kesulitan atau usaha.",
+        "exampleMs": "Maaf mengganggumu, tapi bisakah saya bertanya?"
       },
       "boundary": {
-        "definitionMs": "",
-        "exampleMs": "Aku menetapkan batas yang jelas tentang pesan kerja setelah jam."
+        "definitionMs": "Batas yang mendefinisikan apa yang dapat diterima atau di mana sesuatu berakhir.",
+        "exampleMs": "Saya menetapkan batas yang jelas tentang pesan kerja setelah jam."
       },
       "brave": {
-        "definitionMs": "",
+        "definitionMs": "Siap menghadapi bahaya, kesulitan, atau sesuatu yang menakutkan.",
         "exampleMs": "Ia berani berbicara di depan semua orang."
       },
       "brief": {
-        "definitionMs": "",
+        "definitionMs": "Singkatan waktu atau menggunakan beberapa kata.",
         "exampleMs": "Kami melakukan percakapan singkat setelah kelas."
       },
       "bristle": {
-        "definitionMs": "",
+        "definitionMs": "Washidon bereaksi dengan kemarahan mendadak atau defensif; untuk rambut atau bulu untuk berdiri.",
         "exampleMs": "Dia marah ketika ia mempertanyakan kejujurannya."
       },
       "brood": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berpikir untuk waktu yang lama tentang sesuatu yang tidak bahagia atau khawatir.",
         "exampleMs": "Dia merenungi argumen sepanjang malam."
       },
       "calm": {
-        "definitionMs": "",
+        "definitionMs": "Kedamaian dan tidak bersemangat, marah, atau khawatir; untuk membuat seseorang kurang marah.",
         "exampleMs": "Cobalah untuk tetap tenang selama ujian."
       },
       "candidate": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang yang sedang dipertimbangkan untuk pekerjaan, posisi, atau penghargaan.",
         "exampleMs": "Perusahaan tersebut mewawancarai tiga kandidat."
       },
       "capable": {
-        "definitionMs": "",
+        "definitionMs": "Karena memiliki kemampuan atau sifat - sifat yang dibutuhkan untuk melakukan sesuatu.",
         "exampleMs": "Dia mampu menyelesaikan masalahnya sendiri."
       },
       "career": {
-        "definitionMs": "",
+        "definitionMs": "Pekerjaan atau profesi seseorang mengikuti dari waktu ke waktu.",
         "exampleMs": "Dia ingin berkarier di dunia animasi."
       },
       "carefully": {
-        "definitionMs": "",
+        "definitionMs": "Dengan perhatian untuk menghindari kesalahan atau bahaya.",
         "exampleMs": "Baca instruksi dengan seksama."
       },
       "caress": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyentuh seseorang atau sesuatu yang lembut, biasanya dengan cara kasih sayang.",
         "exampleMs": "Dia membelai kepala anjing untuk menenangkannya."
       },
       "cartography": {
-        "definitionMs": "",
+        "definitionMs": "Ilmu pengetahuan dan praktek membuat peta.",
         "exampleMs": "Kartografi digital poleografi digital memungkinkan peta untuk diperbarui dengan cepat."
       },
       "catabolism": {
-        "definitionMs": "",
+        "definitionMs": "Kebobrokan molekul kompleks menjadi yang lebih sederhana, sering melepaskan energi.",
         "exampleMs": "Puasa fasting dapat mengubah laju katabolisme tubuh."
       },
       "catalysis": {
-        "definitionMs": "",
+        "definitionMs": "Proses peningkatan laju reaksi kimia dengan katalis.",
         "exampleMs": "Eksperimen tersebut memeriksa katalisis pada suhu yang berbeda."
       },
       "certain": {
-        "definitionMs": "",
-        "exampleMs": "Aku yakin aku mengunci pintunya."
+        "definitionMs": "Pasti ada sesuatu yang benar; khususnya tapi tidak bernama.",
+        "exampleMs": "Saya yakin saya mengunci pintunya."
       },
       "challenge": {
-        "definitionMs": "",
+        "definitionMs": "Tugas sulit yang menguji kemampuan Anda; mempertanyakan atau menguji.",
         "exampleMs": "Pengucapan belajar bahasa adalah tantangan bagi saya."
       },
       "chelation": {
-        "definitionMs": "",
+        "definitionMs": "Ikatan ion logam oleh molekul di beberapa situs.",
         "exampleMs": "Zilasi zinah dapat membantu menghilangkan logam tertentu dari larutan."
       },
       "cherish": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mencintai, menghargai, dan melindungi seseorang atau sesuatu yang mendalam.",
         "exampleMs": "Dia menghargai surat yang ditulis kakeknya."
       },
       "choice": {
-        "definitionMs": "",
+        "definitionMs": "Tindakan memilih atau sesuatu yang dapat dipilih.",
         "exampleMs": "Kau punya pilihan antara teh dan kopi."
       },
       "chronometry": {
-        "definitionMs": "",
+        "definitionMs": "Pengukuran waktu atau kinerja alat pengatur waktu.",
         "exampleMs": "kronometri akurat sangat penting untuk navigasi maritim awal."
       },
       "chronotope": {
-        "definitionMs": "",
+        "definitionMs": "Cara perjalanan waktu dan ruang diatur bersama-sama dalam sebuah karya narasi atau budaya.",
         "exampleMs": "Kritikus itu menganalisis kromotop novel di perbatasan."
       },
       "chuckle": {
-        "definitionMs": "",
+        "definitionMs": "Sambil tertawa dengan tenang, sering kali dengan hangat atau menahan diri.",
         "exampleMs": "Dia tertawa di memori."
       },
       "circadian": {
-        "definitionMs": "",
+        "definitionMs": "Berubah menjadi siklus biologis yang berulang sekitar 24 jam.",
         "exampleMs": "shift malam dapat mengganggu irama sirkadian seseorang."
       },
       "cladistics": {
-        "definitionMs": "",
+        "definitionMs": "Metode mengklasifikasikan organisme dengan evolusi bersama.",
         "exampleMs": "Ahli biologi menggunakan kladistik untuk membangun pohon keluarga dari spesies tersebut."
       },
       "clarify": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau jelaskan apa maksudmu?"
+        "definitionMs": "Untuk membuat sesuatu lebih mudah dipahami dengan menjelaskannya.",
+        "exampleMs": "Dapat kau jelaskan apa maksudmu?"
       },
       "clathrate": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah struktur di mana salah satu jenis molekul membentuk kandang di sekitar yang lain.",
         "exampleMs": "Para peneliti telah meneliti metana yang terperangkap di dasar laut."
       },
       "clearly": {
-        "definitionMs": "",
+        "definitionMs": "Dengan cara yang mudah dimengerti, dilihat, atau didengar.",
         "exampleMs": "Tolong jelaskan dengan jelas."
       },
       "clutch": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memegang sesuatu erat, sering kali karena takut, mendesak, atau emosi yang kuat.",
         "exampleMs": "Dia mencengkeram surat ke dadanya."
       },
       "coercivity": {
-        "definitionMs": "",
+        "definitionMs": "Melebihi daya tahan material magnetik untuk menjadi terdemagnetisasi.",
         "exampleMs": "Koerktivitas aloi membuatnya berguna untuk magnet permanen stabil."
       },
       "cohort": {
-        "definitionMs": "",
+        "definitionMs": "Kelompok orang atau subjek yang berbagi karakteristik yang didefinisikan, sering kali dipelajari dari waktu ke waktu.",
         "exampleMs": "Sebuah kohor pasien dipantau selama lima tahun."
       },
       "collaborate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bekerja sama dengan orang lain dalam tugas bersama.",
         "exampleMs": "Para artis berkolaborasi pada sebuah film pendek."
       },
       "collaboration": {
-        "definitionMs": "",
-        "exampleMs": "Kolaborasi yang bagus meningkatkan animasi akhir."
+        "definitionMs": "Proses bekerja sama dengan orang lain.",
+        "exampleMs": "Kolaborasi yang bagus memperbaiki animasi akhir."
       },
       "colleague": {
-        "definitionMs": "",
-        "exampleMs": "Rekan saya membantu saya memeriksa laporan itu."
+        "definitionMs": "Kau bekerja sama dengan seseorang, terutama dalam peran profesional.",
+        "exampleMs": "Teman saya membantu saya memeriksa laporan itu."
       },
       "comfort": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat seseorang merasa kurang sedih, khawatir, atau tertekan; merasa lega atau lega.",
         "exampleMs": "Dia menghibur temannya setelah berita mengecewakan."
       },
       "commensalism": {
-        "definitionMs": "",
+        "definitionMs": "Hubungan di mana satu organisme menguntungkan sementara yang lain tidak membantu atau dirugikan.",
         "exampleMs": "Contoh kompensalisme ini melibatkan burung bersarang di pohon."
       },
       "communicate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbagi informasi, pikiran, atau perasaan.",
         "exampleMs": "Penting untuk berkomunikasi dengan timmu."
       },
       "compare": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memeriksa dua atau lebih hal untuk memperhatikan kesamaan atau perbedaan.",
         "exampleMs": "Bandingkan kedua desain ini sebelum memilih satu."
       },
       "compassionate": {
-        "definitionMs": "",
+        "definitionMs": "Yehuwa memperlihatkan kepedulian dan kebaikan hati kepada orang yang menderita.",
         "exampleMs": "Perawat itu berbelas kasihan dengan setiap pasien."
       },
       "complain": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengatakan bahwa ada sesuatu yang salah atau tidak memuaskan.",
         "exampleMs": "Pelanggannya mengeluh tentang lama menunggu."
       },
       "complete": {
-        "definitionMs": "",
+        "definitionMs": "Memiliki semua bagian; untuk menyelesaikan melakukan sesuatu.",
         "exampleMs": "Sila selesaikan formulir sebelum Jumat."
       },
       "composed": {
-        "definitionMs": "",
+        "definitionMs": "Tenang dan mengendalikan emosi atau perilaku Anda.",
         "exampleMs": "Dia tetap digubah sambil menjawab pertanyaan yang sulit."
       },
       "compromise": {
-        "definitionMs": "",
+        "definitionMs": "Perjanjian di mana setiap pihak memberikan bagian dari apa yang diinginkannya.",
         "exampleMs": "Kami mencapai kompromi tentang rencana akhir pekan."
       },
       "concentrate": {
-        "definitionMs": "",
-        "exampleMs": "Aku sulit berkonsentrasi saat berisik."
+        "definitionMs": "Untuk memberikan perhatian penuh pada sesuatu.",
+        "exampleMs": "Saya sulit berkonsentrasi saat berisik."
       },
       "concomitant": {
-        "definitionMs": "",
+        "definitionMs": "Ada peristiwa atau kondisi lain; sesuatu yang menyertainya.",
         "exampleMs": "Pengobatan medis mengurangi nyeri, dengan peningkatan konkomitansi dalam mobilitas."
       },
       "confidence": {
-        "definitionMs": "",
+        "definitionMs": "Perasaan percaya pada kemampuanmu atau pada orang lain.",
         "exampleMs": "Praktek telah meningkatkan keyakinan saya."
       },
       "confident": {
-        "definitionMs": "",
-        "exampleMs": "Dia merasa yakin bisa berbahasa Inggris sekarang."
+        "definitionMs": "Merasa yakin akan kemampuan Anda atau bahwa sesuatu akan terjadi.",
+        "exampleMs": "Dia merasa yakin dapat berbahasa Inggris sekarang."
       },
       "confirm": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menetapkan bahwa sesuatu itu benar atau pasti.",
         "exampleMs": "Mohon konfirmasi kehadiran Anda pada hari Jumat."
       },
       "confound": {
-        "definitionMs": "",
-        "exampleMs": "Perubahan suhu bisa mengacaukan hasil percobaan."
+        "definitionMs": "Untuk membuat interpretasi hasil sulit dengan mencampurkan efek faktor yang berbeda.",
+        "exampleMs": "Perubahan suhu dapat mengacaukan hasil percobaan."
       },
       "confounding": {
-        "definitionMs": "",
+        "definitionMs": "Pencampuran efek-efek yang membuat hubungan sulit untuk ditafsirkan.",
         "exampleMs": "Para peneliti itu menyesuaikan usia untuk mengurangi kebingungan."
       },
       "confuse": {
-        "definitionMs": "",
-        "exampleMs": "Kata - kata serupa itu membingungkan saya."
+        "definitionMs": "Untuk membuat seseorang tidak dapat memahami sesuatu dengan jelas.",
+        "exampleMs": "Kata - kata serupa membingungkan saya."
       },
       "conjugation": {
-        "definitionMs": "",
+        "definitionMs": "Kebersamaan atau pemindahan bahan genetik antar sel; dalam tata bahasa, infleksi suatu kata kerja.",
         "exampleMs": "Bakteri berkembang biak melalui konjugasi."
       },
       "consider": {
-        "definitionMs": "",
-        "exampleMs": "Aku mempertimbangkan untuk melamar posisi."
+        "definitionMs": "Untuk memikirkan sesuatu sebelum memutuskan.",
+        "exampleMs": "Saya mempertimbangkan untuk melamar posisi."
       },
       "considerate": {
-        "definitionMs": "",
+        "definitionMs": "Hati-hati untuk tidak mengganggu atau membuat orang lain kesal.",
         "exampleMs": "Kau bertimbang rasa untuk memeriksa sebelum berkunjung."
       },
       "consistent": {
-        "definitionMs": "",
+        "definitionMs": "Akting atau terjadi dengan cara yang sama dapat diandalkan dari waktu ke waktu.",
         "exampleMs": "Praktek konsisten membantu meningkatkan waktu."
       },
       "console": {
-        "definitionMs": "",
+        "definitionMs": "Cafine untuk menghibur seseorang yang sedih atau kecewa; atau panel kontrol atau perangkat yang digunakan untuk mengoperasikan suatu sistem.",
         "exampleMs": "Dia mencoba menghibur temannya setelah ditolak."
       },
       "contemplate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memikirkan sesuatu dengan hati-hati, terutama untuk waktu yang lama.",
         "exampleMs": "Dia merenung meninggalkan pekerjaannya untuk bepergian."
       },
       "context": {
-        "definitionMs": "",
+        "definitionMs": "Keadaan atau informasi yang membantu menjelaskan sesuatu.",
         "exampleMs": "Komentar itu lebih masuk akal dalam konteksnya."
       },
       "contingency": {
-        "definitionMs": "",
+        "definitionMs": "Ada kemungkinan peristiwa atau kondisi di masa depan yang membutuhkan persiapan.",
         "exampleMs": "Rencana proyek ini termasuk kontingen untuk kegagalan peralatan."
       },
       "convenient": {
-        "definitionMs": "",
+        "definitionMs": "Mudah atau cocok untuk situasi tertentu.",
         "exampleMs": "Apa jam 3 sore cocok untukmu?"
       },
       "cooperate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bekerja sama menuju tujuan bersama.",
         "exampleMs": "Kedua tim setuju untuk bekerja sama."
       },
       "counterfactual": {
-        "definitionMs": "",
+        "definitionMs": "Dengan mempertimbangkan apa yang akan terjadi jika suatu peristiwa terjadi secara berbeda; pernyataan tentang alternatif seperti itu.",
         "exampleMs": "Analisa itu menjalankan skenario kontrafiktual tanpa perubahan kebijakan."
       },
       "crave": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menginginkan sesuatu yang intens, terutama makanan, kenyamanan, atau pengalaman.",
         "exampleMs": "Setelah kenaikan, ia mendambakan minuman dingin."
       },
       "create": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat sesuatu yang baru atau membawa sesuatu ke dalam keberadaan.",
         "exampleMs": "Kami membuat rencana sederhana untuk akhir pekan."
       },
       "creative": {
-        "definitionMs": "",
+        "definitionMs": "Dia menggunakan imajinasi untuk membuat atau memikirkan hal-hal baru.",
         "exampleMs": "Tim menemukan solusi kreatif."
       },
       "criticise": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengungkapkan ketidaksetujuan atau menunjukkan kesalahan.",
         "exampleMs": "Cobalah untuk tidak mengkritik sebelum mendengar cerita lengkapnya."
       },
       "crouch": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membungkukkan lututmu dan turunkan tubuhmu dekat dengan tanah.",
         "exampleMs": "Juru gambar bersenandung untuk menangkap wajah anjing."
       },
       "cryosphere": {
-        "definitionMs": "",
+        "definitionMs": "Bagian Bumi di mana air ada dalam bentuk beku.",
         "exampleMs": "Data satelit Android menunjukkan perubahan di seluruh krisosfer."
       },
       "cryptography": {
-        "definitionMs": "",
+        "definitionMs": "Studi dan praktek mengamankan informasi melalui kode dan metode matematika.",
         "exampleMs": "Kripografi modern kriptografi modern membantu melindungi pesan yang dikirim melalui internet."
       },
       "curiosity": {
-        "definitionMs": "",
+        "definitionMs": "Keinginan yang kuat untuk tahu atau belajar sesuatu.",
         "exampleMs": "Keingintahuan membuatnya menjelajahi bangunan tua."
       },
       "curious": {
-        "definitionMs": "",
+        "definitionMs": "Dia ingin tahu, belajar, atau memahami sesuatu.",
         "exampleMs": "Anak itu penasaran bagaimana mesinnya bekerja."
       },
       "currently": {
-        "definitionMs": "",
-        "exampleMs": "Aku sedang mengerjakan portofolioku."
+        "definitionMs": "Saat ini.",
+        "exampleMs": "Saya sedang mengerjakan portofolioku."
       },
       "cytokinesis": {
-        "definitionMs": "",
-        "exampleMs": "Šakosis sitokinesis mengikuti pembagian inti sel."
+        "definitionMs": "Pembagian sitoplasma sel untuk membentuk sel putri yang terpisah.",
+        "exampleMs": "Šakologiosis sitokinesis mengikuti pembagian inti sel."
       },
       "deadline": {
-        "definitionMs": "",
-        "exampleMs": "Batas akhir untuk aplikasi adalah Jumat."
+        "definitionMs": "Waktu atau tanggal terbaru yang mana sesuatu harus diselesaikan.",
+        "exampleMs": "Batas waktu untuk aplikasi adalah Jumat."
       },
       "deamination": {
-        "definitionMs": "",
+        "definitionMs": "Pembuangan gugus amino dari molekul.",
         "exampleMs": "Jalur itu termasuk deaminasi asam amino."
       },
       "decarbonization": {
-        "definitionMs": "",
+        "definitionMs": "Pengurangan atau penghapusan emisi karbon dioksida dari suatu aktivitas atau sistem.",
         "exampleMs": "Industri ini menerbitkan rencana dekarbonisasi untuk pabrik-pabriknya."
       },
       "decide": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memilih sesuatu setelah memikirkan pilihan.",
         "exampleMs": "Kita harus memutuskan di mana untuk makan."
       },
       "decision": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah pilihan dibuat setelah memikirkan pilihan.",
         "exampleMs": "Apa kau sudah membuat keputusan?"
       },
       "decolonization": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang dilakukan oleh koloni yang memperoleh kemerdekaan atau sistem kolonial dibongkar.",
         "exampleMs": "Haluan ini diperiksa dekolonisasi di seluruh Afrika dan Asia setelah Perang Dunia Kedua."
       },
       "defiant": {
-        "definitionMs": "",
+        "definitionMs": "Kegantahanan terbuka terhadap otoritas atau oposisi.",
         "exampleMs": "Ia memberikan pandangan menantang dan menolak untuk pergi."
       },
       "definitely": {
-        "definitionMs": "",
-        "exampleMs": "Aku pasti akan ke sana jam 6."
+        "definitionMs": "Tentu saja.",
+        "exampleMs": "Saya pasti akan ke sana jam 6."
       },
       "delay": {
-        "definitionMs": "",
+        "definitionMs": "Periode menunggu atau sesuatu yang terjadi kemudian dari yang direncanakan.",
         "exampleMs": "Ada penundaan karena hujan lebat."
       },
       "demography": {
-        "definitionMs": "",
+        "definitionMs": "Studi statistik populasi manusia dan bagaimana mereka berubah.",
         "exampleMs": "Demografi zodiografi membantu perencana memperkirakan permintaan masa depan untuk sekolah."
       },
       "deontology": {
-        "definitionMs": "",
+        "definitionMs": "Pendekatan etika yang mengevaluasi tindakan berdasarkan tugas atau aturan.",
         "exampleMs": "Perdebatan yang mengkontradiksi deontologi dengan konsekuensialisme."
       },
       "depend": {
-        "definitionMs": "",
+        "definitionMs": "Untuk terpengaruh atau ditentukan oleh sesuatu atau seseorang.",
         "exampleMs": "Harganya tergantung pada ukuran."
       },
       "dependable": {
-        "definitionMs": "",
-        "exampleMs": "Dia anggota tim yang bisa diandalkan."
+        "definitionMs": "Dapat diandalkan dan dapat dipercaya.",
+        "exampleMs": "Dia anggota tim yang dapat diandalkan."
       },
       "describe": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa menggambarkan orang yang kau lihat?"
+        "definitionMs": "Untuk mengatakan atau menulis seperti apa seseorang atau sesuatu.",
+        "exampleMs": "Kau dapat menggambarkan orang yang kau lihat?"
       },
       "deserve": {
-        "definitionMs": "",
+        "definitionMs": "Untuk layak mendapatkan sesuatu karena tindakan atau kualitas.",
         "exampleMs": "Kau berhak istirahat setelah semua pekerjaan itu."
       },
       "despite": {
-        "definitionMs": "",
+        "definitionMs": "Walaupun sesuatu terjadi.",
         "exampleMs": "Meskipun hujan, kami berjalan-jalan."
       },
       "despondent": {
-        "definitionMs": "",
+        "definitionMs": "Sangat tidak bahagia dan tanpa banyak harapan.",
         "exampleMs": "Dia merasa putus asa setelah beberapa upaya yang tidak berhasil."
       },
       "detail": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah sepotong kecil informasi; untuk menggambarkan sesuatu sepenuhnya.",
         "exampleMs": "Tolong periksa setiap detail sebelum mengirimkan."
       },
       "develop": {
-        "definitionMs": "",
-        "exampleMs": "Aku ingin mengembangkan kemampuan menggambarku."
+        "definitionMs": "Untuk tumbuh, berubah, atau menciptakan sesuatu dari waktu ke waktu.",
+        "exampleMs": "Saya ingin mengembangkan kemampuan menggambarku."
       },
       "diagenesis": {
-        "definitionMs": "",
+        "definitionMs": "Secara fisik dan kimia, sedimen berubah menjadi batuan sedimen.",
         "exampleMs": "Perubahan-perubahan mineral selama diagenesis mengubah komposisi asli batuan."
       },
       "diapause": {
-        "definitionMs": "",
+        "definitionMs": "Infansi masa perkembangan yang ditangguhkan atau berkurangnya aktivitas dalam suatu organisme.",
         "exampleMs": "Serangga ini memasuki diakukan selama musim dingin."
       },
       "diaspora": {
-        "definitionMs": "",
+        "definitionMs": "Kependudukan yang tersebar dari tanah air leluhur seraya mempertahankan hubungan dengannya.",
         "exampleMs": "Budaya makanan di kota ini mencerminkan komunitas diasporanya yang telah lama didirikan."
       },
       "dichotomy": {
-        "definitionMs": "",
+        "definitionMs": "Pembahagian antara dua ide atau kategori yang disajikan secara tajam.",
         "exampleMs": "Si peneliti mempertanyakan dikotomi antara alam dan memelihara."
       },
       "difference": {
-        "definitionMs": "",
+        "definitionMs": "Cara di mana orang atau hal yang tidak sama.",
         "exampleMs": "Apa bedanya kata-kata ini?"
       },
       "differentiation": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang oleh sel atau benda menjadi khusus atau berbeda.",
         "exampleMs": "Diferensiasi Stem-cell menghasilkan beberapa tipe sel khusus."
       },
       "dihedral": {
-        "definitionMs": "",
+        "definitionMs": "Berputar ke dua pesawat bersilangan atau sudut di antara mereka.",
         "exampleMs": "Sudut dihedral model mengubah stabilitas sayap."
       },
       "dilution": {
-        "definitionMs": "",
+        "definitionMs": "Proses pembuatan zat kurang terkonsentrasi dengan menambahkan zat lain, biasanya cairan.",
         "exampleMs": "Teknisi teknisi menyiapkan dilusi sebelum mengukur sampel."
       },
       "directly": {
-        "definitionMs": "",
+        "definitionMs": "Dalam garis lurus, tanpa perantara, atau jelas.",
         "exampleMs": "Tolong hubungi manajer secara langsung."
       },
       "disambiguation": {
-        "definitionMs": "",
+        "definitionMs": "Proses pemecahan ambiguitas sehingga suatu kata, frasa, atau isyarat memiliki makna yang jelas.",
         "exampleMs": "Mesin pencari menggunakan konteks untuk disambiguasi word-sense."
       },
       "disappoint": {
-        "definitionMs": "",
-        "exampleMs": "Aku tidak ingin mengecewakan timku."
+        "definitionMs": "Untuk membuat seseorang merasa sedih karena harapan tidak terpenuhi.",
+        "exampleMs": "Saya tidak ingin mengecewakan timku."
       },
       "disappointed": {
-        "definitionMs": "",
+        "definitionMs": "Tidak bahagia karena sesuatu tidak sebaik yang diharapkan.",
         "exampleMs": "Saya kecewa bahwa acara itu dibatalkan."
       },
       "discipline": {
-        "definitionMs": "",
+        "definitionMs": "Pelatihan atau pengendalian yang membantu seseorang mengikuti peraturan atau mencapai tujuan.",
         "exampleMs": "Hikmah harian menggunakan disiplin."
       },
       "discover": {
-        "definitionMs": "",
-        "exampleMs": "Aku menemukan kafe yang tenang dekat kantorku."
+        "definitionMs": "Untuk menemukan atau mempelajari sesuatu untuk pertama kalinya.",
+        "exampleMs": "Saya menemukan kafe yang tenang dekat kantorku."
       },
       "discuss": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara tentang sesuatu dengan orang lain atau kelompok.",
         "exampleMs": "Kami membahas anggaran pagi ini."
       },
       "dismayed": {
-        "definitionMs": "",
+        "definitionMs": "Kesal atau kecewa oleh sesuatu yang tak terduga atau tak diinginkan.",
         "exampleMs": "Dia takut menemukan file yang hilang."
       },
       "dissonance": {
-        "definitionMs": "",
+        "definitionMs": "Ketiadaan harmoni atau perjanjian; dalam psikologi, konflik antara kepercayaan dan tindakan.",
         "exampleMs": "Keputusan ini menciptakan perbedaan antara nilai dan perilaku tim."
       },
       "draft": {
-        "definitionMs": "",
-        "exampleMs": "Saya menyelesaikan draf pertama surat sampul saya."
+        "definitionMs": "Sebuah versi awal dari sebuah karya; untuk mempersiapkan versi pertama.",
+        "exampleMs": "Saya selesai draf pertama surat sampul saya."
       },
       "dread": {
-        "definitionMs": "",
+        "definitionMs": "Untuk merasa takut atau khawatir akan sesuatu yang mungkin terjadi.",
         "exampleMs": "Dia takut mengatakan yang sebenarnya pada keluarganya."
       },
       "eager": {
-        "definitionMs": "",
+        "definitionMs": "Sangat tertarik untuk melakukan atau memiliki sesuatu; antusias.",
         "exampleMs": "Anak - anak sangat ingin membuka hadiah mereka."
       },
       "ecotone": {
-        "definitionMs": "",
+        "definitionMs": "Zona transisi antara dua komunitas atau habitat ekologi.",
         "exampleMs": "Keanekaragaman burung khususnya sangat tinggi di sepanjang ekoton hutan."
       },
       "effective": {
-        "definitionMs": "",
+        "definitionMs": "Memproduksi hasil yang diinginkan.",
         "exampleMs": "Ini adalah cara yang efektif untuk mengingat kosakata."
       },
       "efficacy": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan suatu metode, perawatan, atau intervensi untuk menghasilkan hasil yang dimaksudkan.",
         "exampleMs": "Uji coba tersebut mengevaluasi kemanjuran perawatan baru di bawah kondisi terkendali."
       },
       "efficient": {
-        "definitionMs": "",
+        "definitionMs": "Bekerja dengan baik tanpa membuang waktu, usaha, atau sumber daya.",
         "exampleMs": "Kita perlu cara yang lebih efisien untuk mengatur file."
       },
       "effort": {
-        "definitionMs": "",
+        "definitionMs": "Fizikal atau energi mental digunakan untuk melakukan sesuatu.",
         "exampleMs": "Belajar bahasa membutuhkan waktu dan upaya."
       },
       "either": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa memilih warna."
+        "definitionMs": "Satu atau yang lain dari dua pilihan; digunakan dalam pernyataan negatif untuk berarti \\\"juga tidak\\\".",
+        "exampleMs": "Kau dapat memilih warna."
       },
       "elated": {
-        "definitionMs": "",
+        "definitionMs": "Sangat senang dan bersemangat.",
         "exampleMs": "Dia merasa gembira setelah mendengar bahwa dia telah diterima."
       },
       "embarrassed": {
-        "definitionMs": "",
-        "exampleMs": "Aku malu ketika aku lupa namanya."
+        "definitionMs": "Merasa canggung atau malu karena kesalahan atau perhatian.",
+        "exampleMs": "Saya malu ketika saya lupa namanya."
       },
       "embrace": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memegang seseorang erat di lengan Anda; untuk menerima ide atau perubahan dengan rela.",
         "exampleMs": "Dia memeluk saudaranya setelah berbulan-bulan berpisah."
       },
       "emergency": {
-        "definitionMs": "",
+        "definitionMs": "Situasi yang serius dan tidak terduga yang perlu segera dilakukan.",
         "exampleMs": "Panggil nomor ini dalam keadaan darurat."
       },
       "emotion": {
-        "definitionMs": "",
+        "definitionMs": "Perasaan seperti kebahagiaan, kemarahan, ketakutan, atau kesedihan.",
         "exampleMs": "Musik dapat mengeluarkan emosi yang kuat."
       },
       "empathetic": {
-        "definitionMs": "",
+        "definitionMs": "Mampu memahami dan berbagi perasaan orang lain.",
         "exampleMs": "Seorang pendengar yang berempati membuat orang merasa didengar."
       },
       "empathy": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan untuk memahami dan berbagi perasaan dengan orang lain.",
         "exampleMs": "Mendengarkan tanpa menghakimi adalah cara untuk menunjukkan empati."
       },
       "encounter": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bertemu atau mengalami sesuatu, terutama tanpa diduga.",
         "exampleMs": "Saya mengalami masalah saat memasang perangkat lunak."
       },
       "encourage": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberikan seseorang dukungan, keyakinan, atau harapan untuk melakukan sesuatu.",
         "exampleMs": "Teman - teman saya menganjurkan saya untuk terus berlatih."
       },
       "endemic": {
-        "definitionMs": "",
+        "definitionMs": "Pribumi untuk dan terbatas pada tempat atau populasi tertentu; dalam kedokteran, secara teratur hadir di suatu wilayah.",
         "exampleMs": "Pulau ini dihuni oleh beberapa spesies burung endemik."
       },
       "endogeneity": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah kondisi dalam model statistik atau ekonomi di mana sebuah variabel eksplanatori berkaitan dengan istilah kesalahan model.",
         "exampleMs": "Ekonom-ekonom tersebut menguji endogenitas sebelum menafsirkan efek perkiraan."
       },
       "enough": {
-        "definitionMs": "",
+        "definitionMs": "Hanya sebanyak atau sebanyak yang dibutuhkan.",
         "exampleMs": "Kita punya cukup makanan untuk semua orang."
       },
       "environment": {
-        "definitionMs": "",
+        "definitionMs": "Dunia alam atau kondisi di sekitar seseorang atau aktivitas.",
         "exampleMs": "Kita harus melindungi lingkungan."
       },
       "envy": {
-        "definitionMs": "",
-        "exampleMs": "Aku iri pada keyakinannya saat dia bicara di depan umum."
+        "definitionMs": "Kuharap kau punya sesuatu yang dimiliki orang lain.",
+        "exampleMs": "Saya iri pada keyakinannya saat dia bicara di depan umum."
       },
       "epistasis": {
-        "definitionMs": "",
+        "definitionMs": "Infandinasi yang mana satu gen mempengaruhi atau masker efek gen lain.",
         "exampleMs": "Sifat yang diamati bergantung pada epistasis antara dua gen."
       },
       "epistemic": {
-        "definitionMs": "",
+        "definitionMs": "Berhubungan dengan pengetahuan, bukti, atau pembenaran keyakinan.",
         "exampleMs": "Laporan itu menjelaskan batas bukti epistemik yang tersedia."
       },
       "epistemology": {
-        "definitionMs": "",
+        "definitionMs": "Cabang filsafat yang berkaitan dengan pengetahuan, kepercayaan, dan pembenaran.",
         "exampleMs": "Anime seminar ini mengeksplorasi epistemologi melalui pertanyaan tentang bukti ilmiah."
       },
       "equifinality": {
-        "definitionMs": "",
+        "definitionMs": "Gagasan bahwa hasil yang sama dapat dicapai melalui jalur atau kondisi awal yang berbeda.",
         "exampleMs": "Tim ini mempertimbangkan equifinality ketika beberapa proses menghasilkan hasil serupa."
       },
       "eschatology": {
-        "definitionMs": "",
+        "definitionMs": "Studi ide-ide tentang akhir dunia, peristiwa akhir, atau takdir akhir manusia.",
         "exampleMs": "Sejarawan historiografi membandingkan eschatologi dalam beberapa naskah abad pertengahan."
       },
       "especially": {
-        "definitionMs": "",
-        "exampleMs": "Aku suka buah, terutama mangga."
+        "definitionMs": "terutama.",
+        "exampleMs": "Saya menikmati buah, terutama mangga."
       },
       "essential": {
-        "definitionMs": "",
+        "definitionMs": "Benar-benar diperlukan atau sangat penting.",
         "exampleMs": "Air adalah penting bagi kehidupan."
       },
       "essentially": {
-        "definitionMs": "",
+        "definitionMs": "Pada dasarnya; dalam arti yang paling penting.",
         "exampleMs": "Pada dasarnya, kita perlu rencana yang lebih jelas."
       },
       "ethnography": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian terperinci dan deskripsi budaya atau komunitas, sering kali melalui pengamatan langsung.",
         "exampleMs": "etnografinya menarik pada wawancara dan bulan-bulan kerja lapangan."
       },
       "eutrophication": {
-        "definitionMs": "",
+        "definitionMs": "Kekayaan nutrisi air yang berlebihan yang dapat menyebabkan penipisan oksigen.",
         "exampleMs": "Pengumpulan makanan liar turut menyebabkan eutrofikasi di danau."
       },
       "eventually": {
-        "definitionMs": "",
+        "definitionMs": "Di akhir proses atau setelah beberapa waktu.",
         "exampleMs": "Kami akhirnya menemukan alamat yang tepat."
       },
       "evidence": {
-        "definitionMs": "",
+        "definitionMs": "Fakta atau informasi yang membantu menunjukkan apakah sesuatu itu benar.",
         "exampleMs": "Kita perlu lebih banyak bukti sebelum membuat klaim."
       },
       "exactly": {
-        "definitionMs": "",
+        "definitionMs": "Dengan cara yang benar atau tepat.",
         "exampleMs": "Itulah maksudku."
       },
       "exaggerate": {
-        "definitionMs": "",
-        "exampleMs": "Jangan melebih-lebihkan berapa lama tugas yang diambil."
+        "definitionMs": "Untuk menggambarkan atau mewakili sesuatu yang lebih besar dari sebenarnya.",
+        "exampleMs": "Jangan melebih-lebihkan berapa lama tugasnya."
       },
       "exaptation": {
-        "definitionMs": "",
+        "definitionMs": "Sifat yang berevolusi untuk satu fungsi dan kemudian diadaptasi untuk kegunaan lain.",
         "exampleMs": "Kertas itu menggambarkan bulu - bulu sebagai contoh eksaptasi."
       },
       "exogenous": {
-        "definitionMs": "",
+        "definitionMs": "Asal usul di luar sistem atau organisme.",
         "exampleMs": "Modelnya termasuk kejutan eksogen terhadap harga energi."
       },
       "expect": {
-        "definitionMs": "",
-        "exampleMs": "Aku berharap paketnya tiba besok."
+        "definitionMs": "Percaya sesuatu akan terjadi atau berpikir sesuatu itu mungkin terjadi.",
+        "exampleMs": "Saya berharap paketnya tiba besok."
       },
       "experience": {
-        "definitionMs": "",
+        "definitionMs": "Pengetahuan tentang ilmu pengetahuan diperoleh dengan melakukan sesuatu; menjalani suatu peristiwa atau perasaan.",
         "exampleMs": "Pengalaman kerja zodiak dapat membantu Anda mencari pekerjaan."
       },
       "explain": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau jelaskan aturan ini lagi?"
+        "definitionMs": "Untuk membuat ide atau situasi lebih mudah dipahami.",
+        "exampleMs": "Dapat kau jelaskan aturan ini lagi?"
       },
       "express": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengkomunikasikan suatu pemikiran, perasaan, atau gagasan; atau untuk menggambarkan suatu layanan atau bentuk transportasi yang cepat dan langsung.",
         "exampleMs": "Sulit mengungkapkan perasaanmu."
       },
       "expression": {
-        "definitionMs": "",
+        "definitionMs": "Ada yang melihat wajah seseorang, atau cara berkomunikasi.",
         "exampleMs": "Ekspresi wajahnya menunjukkan kejutan."
       },
       "factor": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu hal yang mempengaruhi hasil atau situasi.",
         "exampleMs": "Biaya adalah faktor penting dalam keputusan kita."
       },
       "fair": {
-        "definitionMs": "",
+        "definitionMs": "Bernalar dan memperlakukan orang sama rata; acara di mana barang diperlihatkan atau dijual.",
         "exampleMs": "Kurasa itu harga yang pantas."
       },
       "falsifiability": {
-        "definitionMs": "",
+        "definitionMs": "Kualitas klaim yang diuji dengan cara yang dapat menunjukkan bahwa itu palsu.",
         "exampleMs": "Juru kuliahnya membahas pemalsuan sebagai kriteria dalam filsafat ilmu pengetahuan."
       },
       "familiar": {
-        "definitionMs": "",
+        "definitionMs": "Anda dikenal, atau mudah dikenali karena Anda pernah mengalaminya sebelumnya.",
         "exampleMs": "Lagu itu terdengar familiar."
       },
       "familiarity": {
-        "definitionMs": "",
+        "definitionMs": "Pengetahuan tentang pengetahuan atau pengalaman dengan sesuatu.",
         "exampleMs": "Keakraban dengan perangkat lunak sangat membantu."
       },
       "feedback": {
-        "definitionMs": "",
-        "exampleMs": "Terima kasih atas bantuannya."
+        "definitionMs": "Informasi dan pendapat mengenai seberapa baik sesuatu dilakukan.",
+        "exampleMs": "Terima kasih atas tanggapannya."
       },
       "fermentation": {
-        "definitionMs": "",
+        "definitionMs": "Proses di mana mikroorganisme mengubah zat, sering kali gula, menjadi produk lain.",
         "exampleMs": "Fermentasi wourdonasi memberikan sayuran rasa asam mereka."
       },
       "fidget": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat gerakan kecil dan gelisah karena Anda gugup, bosan, atau tidak sabar.",
         "exampleMs": "Dia gelisah dengan penanya selama wawancara."
       },
       "fiduciary": {
-        "definitionMs": "",
+        "definitionMs": "Melibatkan kewajiban untuk bertindak demi kepentingan orang lain; orang yang memegang tugas itu.",
         "exampleMs": "A fiduciary harus mengelola aset klien dengan perawatan yang tepat."
       },
       "flexible": {
-        "definitionMs": "",
+        "definitionMs": "Mampu mengubah atau beradaptasi dengan mudah; bersedia menyesuaikan rencana.",
         "exampleMs": "Jam kerjaku fleksibel."
       },
       "flexibly": {
-        "definitionMs": "",
-        "exampleMs": "Kita bisa bekerja dengan fleksibel di sekitar batas waktu."
+        "definitionMs": "Dengan cara yang dapat berubah sesuai keadaan.",
+        "exampleMs": "Kita dapat bekerja dengan fleksibel di sekitar batas waktu."
       },
       "flinch": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat gerakan tiba-tiba kecil karena rasa sakit, ketakutan, atau kejutan.",
         "exampleMs": "Dia terkekeh ketika pintu membanting di belakangnya."
       },
       "fluorescence": {
-        "definitionMs": "",
+        "definitionMs": "Cahaya yang dipancarkan oleh zat setelah menyerap energi, biasanya berhenti dengan cepat ketika eksitasi berakhir.",
         "exampleMs": "Sampel itu menunjukkan fluoresensi di bawah sinar ultraviolet."
       },
       "flustered": {
-        "definitionMs": "",
+        "definitionMs": "Kegelisahan, bingung, atau kesal, terutama ketika bergegas atau malu.",
         "exampleMs": "Dia menjadi bingung ketika semua orang bertanya sekaligus."
       },
       "fluvial": {
-        "definitionMs": "",
+        "definitionMs": "Berhubungan dengan sungai atau proses dan bentuk tanah yang diciptakan oleh air yang mengalir.",
         "exampleMs": "Ahli geologi memetakan endapan fluvial sepanjang dasar sungai kuno."
       },
       "focus": {
-        "definitionMs": "",
+        "definitionMs": "Pusat perhatian; untuk memperhatikan satu hal.",
         "exampleMs": "Fokus utama saya adalah meningkatkan bahasa Inggris saya."
       },
       "forensic": {
-        "definitionMs": "",
-        "exampleMs": "Analisis Forensik forensik mengaitkan fragmen tersebut dengan perangkat yang rusak."
+        "definitionMs": "Berhubungan dengan metode ilmiah yang digunakan untuk menyelidiki bukti, khususnya untuk proses hukum.",
+        "exampleMs": "Analisis Forensik forensik menghubungkan fragmen tersebut dengan perangkat yang rusak."
       },
       "forgive": {
-        "definitionMs": "",
-        "exampleMs": "Kuharap kau bisa memaafkanku karena terlambat."
+        "definitionMs": "Jangan marah atau marah kepada seseorang karena suatu tindakan.",
+        "exampleMs": "Kuharap kau dapat memaafkanku karena terlambat."
       },
       "fortunately": {
-        "definitionMs": "",
+        "definitionMs": "Dipakai untuk memperkenalkan hasil positif atau keberuntungan.",
         "exampleMs": "Untungnya, tak ada yang terluka."
       },
       "frequent": {
-        "definitionMs": "",
+        "definitionMs": "Sering terjadi atau sering terjadi dalam jangka waktu tertentu.",
         "exampleMs": "Keseringan istirahat dapat membantu Anda tetap fokus."
       },
       "frequently": {
-        "definitionMs": "",
+        "definitionMs": "Sering kali, atau dalam banyak kesempatan dalam jangka waktu tertentu.",
         "exampleMs": "Saya sering menggunakan jalan pintas ini."
       },
       "frown": {
-        "definitionMs": "",
-        "exampleMs": "Dia mengerutkan muka pada instruksi membingungkan."
+        "definitionMs": "Untuk menarik kening Anda, biasanya karena Anda khawatir, bingung, atau tidak senang.",
+        "exampleMs": "Dia berkerut pada instruksi membingungkan."
       },
       "frustrated": {
-        "definitionMs": "",
-        "exampleMs": "Aku merasa frustrasi ketika file tidak akan terbuka."
+        "definitionMs": "Kesal atau kesal karena ada yang sulit atau tidak.",
+        "exampleMs": "Saya merasa frustrasi ketika file tidak akan terbuka."
       },
       "gasp": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengambil napas tiba-tiba karena shock, kejutan, rasa sakit, atau kesulitan bernapas.",
         "exampleMs": "Penonton yang terengah - engah ketika lampu padam."
       },
       "gather": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyatukan sesuatu atau bersatu dalam sebuah kelompok.",
         "exampleMs": "Tolong kumpulkan barang-barangmu sebelum pergi."
       },
       "gawk": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menatap seseorang atau sesuatu dengan cara yang kasar atau kagum.",
         "exampleMs": "Para turis yang suka melihat patung yang sangat besar itu."
       },
       "gaze": {
-        "definitionMs": "",
+        "definitionMs": "Sering kali dengan kagum atau penuh perhatian.",
         "exampleMs": "Mereka menatap bintang dalam keheningan."
       },
       "genealogy": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian atau catatan tentang keturunan dan hubungan keluarga; lebih luas lagi, sejarah tentang bagaimana sesuatu berkembang.",
         "exampleMs": "Arsip itu membantunya melacak silsilah keluarganya."
       },
       "generally": {
-        "definitionMs": "",
+        "definitionMs": "Biasanya di kebanyakan situasi.",
         "exampleMs": "Umumnya, bus dapat diandalkan."
       },
       "gently": {
-        "definitionMs": "",
+        "definitionMs": "Dengan cara yang lembut, hati-hati, atau baik.",
         "exampleMs": "Dia dengan lembut menutup pintu."
       },
       "geochronology": {
-        "definitionMs": "",
+        "definitionMs": "Ilmu ilmu ilmu pengetahuan menentukan zaman batuan, fosil, dan peristiwa geologi.",
         "exampleMs": "Geokronologi morfosis membantu pembentukan ketika lapisan vulkanik terbentuk."
       },
       "geomorphology": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian ilmiah ilmu pengetahuan tentang bentuk tanah dan proses yang membentuk permukaan bumi.",
         "exampleMs": "Geomorfologi morfoma membantu menjelaskan bagaimana ngarai telah berkembang."
       },
       "gesture": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat gerakan dengan tangan, kepala, atau tubuh untuk berkomunikasi sesuatu.",
         "exampleMs": "Dia bergerak ke arah kursi kosong."
       },
       "giggle": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tertawa dalam cahaya, bernada tinggi, sering gugup atau bermain-main.",
         "exampleMs": "Anak-anak tertawa di balik tirai."
       },
       "glance": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat dengan cepat pada seseorang atau sesuatu.",
         "exampleMs": "Dia melirik jam dan bergegas keluar."
       },
       "glare": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat seseorang marah atau sengit.",
         "exampleMs": "Dia menatapnya setelah mengganggunya."
       },
       "glower": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat seseorang dengan marah, biasanya dalam keheningan.",
         "exampleMs": "Dia bersinar di jejak kaki berlumpur di lantai."
       },
       "goal": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang ingin kau capai.",
         "exampleMs": "Tujuan saya adalah untuk berbicara bahasa Inggris lebih alami."
       },
       "gradually": {
-        "definitionMs": "",
+        "definitionMs": "Perlahan-lahan, dalam tahap kecil dari waktu ke waktu.",
         "exampleMs": "Secara bertahap, cuaca menjadi lebih hangat."
       },
       "grateful": {
-        "definitionMs": "",
-        "exampleMs": "Aku berterima kasih atas dukunganmu."
+        "definitionMs": "Merasa kasihan atau menunjukkan terima kasih untuk sesuatu.",
+        "exampleMs": "Saya berterima kasih atas dukunganmu."
       },
       "grieve": {
-        "definitionMs": "",
+        "definitionMs": "Untuk merasakan kesedihan yang mendalam, terutama setelah seseorang meninggal atau sesuatu yang penting hilang.",
         "exampleMs": "Dia membutuhkan waktu untuk berduka setelah kematian ayahnya."
       },
       "grimace": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memutar wajahmu ke dalam ekspresi rasa sakit, jijik, atau ketidaknyamanan.",
         "exampleMs": "Dia suram saat dia mencicipi obat pahit."
       },
       "grip": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memegang sesuatu dengan teguh; cara sesuatu dipegang atau kekuatan untuk memegang.",
         "exampleMs": "Dia mencengkeram pegangan saat ia naik tangga."
       },
       "grumble": {
-        "definitionMs": "",
+        "definitionMs": "Keluh kesah dalam suara yang rendah dan tidak bahagia.",
         "exampleMs": "Dia menggerutu tentang antrian panjang."
       },
       "habit": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang Anda lakukan secara teratur, sering kali tanpa memikirkannya.",
         "exampleMs": "Membaca sebelum tidur adalah kebiasaan yang baik."
       },
       "handle": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa menangani tugas ini hari ini?"
+        "definitionMs": "Untuk menangani situasi atau mengendalikan sesuatu; bagian yang digunakan untuk memegang suatu objek.",
+        "exampleMs": "Kau dapat menangani tugas ini hari ini?"
       },
       "hermeneutics": {
-        "definitionMs": "",
+        "definitionMs": "Teori dan praktik tafsir teks, terutama sastra, hukum, atau teks agama.",
         "exampleMs": "Penelitiannya menggunakan hermeneutika untuk memeriksa dokumen sejarah."
       },
       "hesitate": {
-        "definitionMs": "",
+        "definitionMs": "Jangan berhenti sejenak sebelum melakukan atau mengatakan sesuatu karena Anda tidak yakin atau gugup.",
         "exampleMs": "Jangan ragu untuk bertanya."
       },
       "hesitation": {
-        "definitionMs": "",
+        "definitionMs": "jeda yang disebabkan oleh ketidakpastian atau keraguan.",
         "exampleMs": "Setelah keraguan singkat, ia menjawab."
       },
       "heteroskedasticity": {
-        "definitionMs": "",
+        "definitionMs": "Kondisi di mana perbedaan kesalahan dalam model statistik tidak konstan.",
         "exampleMs": "Analisa itu menggunakan kesalahan standar yang kuat untuk mengatasi heteroskedastikitas."
       },
       "heuristic": {
-        "definitionMs": "",
+        "definitionMs": "Hukum atau strategi praktis yang membantu menyelesaikan masalah dengan cepat, meskipun mungkin tidak selalu memberikan jawaban terbaik.",
         "exampleMs": "Desainer ini menggunakan heuristik sederhana untuk memprioritaskan tugas yang paling mendesak."
       },
       "historiography": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian mengenai bagaimana sejarah ditulis, ditafsirkan, dan diperdebatkan oleh para sejarawan.",
         "exampleMs": "Esai tersebut membandingkan sekolah yang berbeda dengan historiografi."
       },
       "homology": {
-        "definitionMs": "",
+        "definitionMs": "Persamaan karena asal usul bersama atau struktur yang berhubungan, terutama dalam biologi.",
         "exampleMs": "Tulang forelimb menunjukkan homologi di beberapa mamalia."
       },
       "honest": {
-        "definitionMs": "",
+        "definitionMs": "Jujur dan tidak bermaksud menyesatkan.",
         "exampleMs": "Tolong jujur tentang apa yang terjadi."
       },
       "honestly": {
-        "definitionMs": "",
-        "exampleMs": "Sejujurnya, aku tidak mengharapkan hasilnya."
+        "definitionMs": "Sejujurnya atau terus terang.",
+        "exampleMs": "Sejujurnya, saya tidak mengharapkan hasilnya."
       },
       "however": {
-        "definitionMs": "",
+        "definitionMs": "Dipakai untuk memperkenalkan kontras atau pengecualian.",
         "exampleMs": "Namun, saya terlalu sibuk."
       },
       "hunch": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membengkokkan tubuh Anda ke depan dan mengangkat bahu Anda, sering kali dari dingin, takut, atau konsentrasi.",
         "exampleMs": "Dia membungkuk di notebook-nya untuk menyelesaikan sketsa."
       },
       "hydrology": {
-        "definitionMs": "",
+        "definitionMs": "Studi ilmiah air, termasuk gerakan, distribusi, dan properti di Bumi.",
         "exampleMs": "Data hidrologi morfologi membantu memprediksi aliran musiman sungai."
       },
       "hydrolysis": {
-        "definitionMs": "",
+        "definitionMs": "Reaksi kimia di mana suatu senyawa dipecah dengan bereaksi dengan air.",
         "exampleMs": "Hidrolisis hidrolisis hidrolisis dipecah molekul yang lebih besar menjadi satuan yang lebih kecil."
       },
       "ignore": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tidak memperhatikan seseorang atau sesuatu.",
         "exampleMs": "Cobalah untuk mengabaikan gangguan saat belajar."
       },
       "imagine": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membentuk gambar atau ide dalam pikiranmu.",
         "exampleMs": "Bayangkan tinggal di seberang laut."
       },
       "imitate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk meniru tindakan, gaya, atau penampilan seseorang atau sesuatu.",
         "exampleMs": "Dia mencoba meniru aksen aktor."
       },
       "immediately": {
-        "definitionMs": "",
+        "definitionMs": "Segera, tanpa penundaan.",
         "exampleMs": "Tolong hubungi saya segera jika ada perubahan."
       },
       "impact": {
-        "definitionMs": "",
+        "definitionMs": "Efek atau pengaruh yang kuat.",
         "exampleMs": "Perubahan tersebut berdampak positif bagi tim."
       },
       "impatient": {
-        "definitionMs": "",
+        "definitionMs": "Khawatir karena harus menunggu atau karena penundaan.",
         "exampleMs": "Saya menjadi tidak sabar menunggu bus."
       },
       "improve": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi lebih baik, atau untuk membuat sesuatu yang lebih baik.",
         "exampleMs": "Berlatih setiap hari akan meningkatkan pengucapan Anda."
       },
       "improvement": {
-        "definitionMs": "",
-        "exampleMs": "Aku bisa melihat peningkatan dalam waktumu."
+        "definitionMs": "Perubahan yang membuat sesuatu yang lebih baik.",
+        "exampleMs": "Saya dapat melihat peningkatan dalam waktumu."
       },
       "impulsive": {
-        "definitionMs": "",
+        "definitionMs": "Memerhatikan tindakan tiba-tiba tanpa memikirkan konsekuensinya.",
         "exampleMs": "Dia melakukan pembelian impulsif setelah melihat iklan."
       },
       "include": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memiliki sesuatu atau seseorang sebagai bagian dari kelompok atau keseluruhan.",
         "exampleMs": "Harganya termasuk sarapan."
       },
       "increase": {
-        "definitionMs": "",
-        "exampleMs": "Harganya bisa meningkat bulan depan."
+        "definitionMs": "Untuk menjadi atau membuat lebih besar dalam jumlah, ukuran, atau derajat.",
+        "exampleMs": "Harganya dapat meningkat bulan depan."
       },
       "independent": {
-        "definitionMs": "",
+        "definitionMs": "Mampu bertindak atau membuat keputusan tanpa bergantung pada orang lain.",
         "exampleMs": "Dia menjadi mandiri secara finansial."
       },
       "individual": {
-        "definitionMs": "",
+        "definitionMs": "Satu orang atau hal yang dianggap terpisah; berkaitan dengan satu orang.",
         "exampleMs": "Setiap individu memiliki kekuatan yang berbeda."
       },
       "insecure": {
-        "definitionMs": "",
+        "definitionMs": "Tidak yakin diri atau tidak merasa aman atau stabil.",
         "exampleMs": "Dia merasa tidak aman berbicara di depan umum."
       },
       "instead": {
-        "definitionMs": "",
+        "definitionMs": "Ajari sebagai alternatif atau pengganti.",
         "exampleMs": "Kami tinggal di rumah bukannya keluar."
       },
       "intentional": {
-        "definitionMs": "",
+        "definitionMs": "Dilakukan dengan sengaja daripada secara tidak sengaja.",
         "exampleMs": "jeda itu disengaja, bukan kesalahan."
       },
       "interest": {
-        "definitionMs": "",
-        "exampleMs": "Aku punya ketertarikan yang kuat pada animasi."
+        "definitionMs": "Perasaan ingin tahu lebih banyak; menarik perhatian seseorang.",
+        "exampleMs": "Saya punya ketertarikan yang kuat pada animasi."
       },
       "interpret": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjelaskan makna dari sesuatu atau memahaminya dengan cara tertentu.",
         "exampleMs": "Orang-orang mungkin menafsirkan pesan secara berbeda."
       },
       "interrupt": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menghentikan seseorang saat mereka berbicara atau melakukan sesuatu.",
         "exampleMs": "Dia mengganggu percakapan dengan pertanyaan penting."
       },
       "interview": {
-        "definitionMs": "",
-        "exampleMs": "Aku ada wawancara Senin pagi."
+        "definitionMs": "Sebuah pertemuan formal untuk mengajukan pertanyaan, sering kali untuk pekerjaan; untuk mempertanyakan seseorang.",
+        "exampleMs": "Saya ada wawancara Senin pagi."
       },
       "involve": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memasukkan seseorang atau sesuatu sebagai bagian yang diperlukan.",
         "exampleMs": "Pekerjaan ini melibatkan kerja sama dengan tim."
       },
       "isostasy": {
-        "definitionMs": "",
+        "definitionMs": "Keseimbangan gravitasi antara kerak bumi dan mantel yang lebih padat di bawahnya.",
         "exampleMs": "Model ini menggambarkan bagaimana kerak disesuaikan melalui isostasy."
       },
       "isotope": {
-        "definitionMs": "",
+        "definitionMs": "Satu dari dua atau lebih bentuk unsur yang memiliki jumlah proton yang sama tetapi jumlah neutron yang berbeda.",
         "exampleMs": "Peneliti menggunakan isotop stabil untuk melacak asal usul air."
       },
       "isotropy": {
-        "definitionMs": "",
+        "definitionMs": "Sifat memiliki karakteristik yang sama dalam setiap arah.",
         "exampleMs": "Isotropi bahan itu memudahkan model teknik."
       },
       "issue": {
-        "definitionMs": "",
+        "definitionMs": "Topik atau masalah penting untuk memberikan sesuatu secara resmi.",
         "exampleMs": "Kita harus menyelesaikan masalah ini dengan cepat."
       },
       "jargon": {
-        "definitionMs": "",
+        "definitionMs": "Kata-kata khusus yang digunakan oleh profesi atau kelompok tertentu.",
         "exampleMs": "Laporan itu menjelaskan jargon sehingga non-spesialis dapat mengikutinya."
       },
       "jealous": {
-        "definitionMs": "",
+        "definitionMs": "Tidak bahagia atau kesal karena seseorang memiliki sesuatu yang Anda inginkan.",
         "exampleMs": "Dia merasa cemburu ketika temannya mendapatkan peran."
       },
       "jettison": {
-        "definitionMs": "",
+        "definitionMs": "Beasch untuk membuang sesuatu yang tidak lagi berguna atau meninggalkannya untuk mengurangi beban.",
         "exampleMs": "Tim tim jettissoned metode ketinggalan zaman setelah meninjau hasil."
       },
       "joule": {
-        "definitionMs": "",
+        "definitionMs": "Satuan SI digunakan untuk mengukur energi, pekerjaan, atau panas.",
         "exampleMs": "Perangkat itu memindahkan beberapa joule energi ke sampel."
       },
       "journey": {
-        "definitionMs": "",
+        "definitionMs": "Tindakan perjalanan dari satu tempat ke tempat lain; juga, proses panjang perubahan atau pembelajaran.",
         "exampleMs": "Perjalanan memakan waktu tiga jam."
       },
       "jovian": {
-        "definitionMs": "",
+        "definitionMs": "Berulang ke planet Jupiter atau, lebih luas, ke planet raksasa seperti Jupiter.",
         "exampleMs": "Misi ini mempelajari atmosfer planet Jovian."
       },
       "juncture": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah titik tertentu dalam waktu atau tempat di mana hal-hal bertemu.",
         "exampleMs": "Pada persimpangan ini, peneliti memutuskan untuk mengulangi percobaan."
       },
       "jurisdiction": {
-        "definitionMs": "",
+        "definitionMs": "Wewenang resmi untuk membuat keputusan hukum atau daerah di mana otoritas tersebut berlaku.",
         "exampleMs": "Perselisihan di luar yurisdiksi pengadilan."
       },
       "jurisprudence": {
-        "definitionMs": "",
+        "definitionMs": "Teori dan filsafat hukum, termasuk sifat dan interpretasi sistem hukum.",
         "exampleMs": "Hal ini diperiksa oleh pengadilan melalui teori keadilan yang bersaing."
       },
       "juxtapose": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menempatkan dua hal berdampingan sehingga perbedaan atau kesamaan mereka menjadi jelas.",
         "exampleMs": "Sejarawan itu menjuxtapos kedua peta itu untuk menunjukkan bagaimana perbatasan berubah."
       },
       "juxtaposition": {
-        "definitionMs": "",
+        "definitionMs": "Tindakan atau hasil menempatkan hal - hal yang saling berdekatan untuk perbandingan atau kontras.",
         "exampleMs": "Gambar-gambar arkeologi menunjukkan skala pembangunan ulang."
       },
       "karyogamy": {
-        "definitionMs": "",
+        "definitionMs": "Afusi fusi dua inti sel, terutama selama reproduksi seksual pada fungi dan organisme lain.",
         "exampleMs": "Karyogami mengikuti fusi sebelumnya dari sel yang kompatibel."
       },
       "karyotype": {
-        "definitionMs": "",
+        "definitionMs": "Angka dan penampilan kromosom dalam sel, biasanya diatur untuk pemeriksaan.",
         "exampleMs": "Laboratorium laboratorium menyediakan karyotipe untuk menyelidiki kondisi kromosom."
       },
       "keratinization": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang oleh sel - selnya menumpuk keratin dan menjadi lebih keras atau lebih protektif.",
         "exampleMs": "Peneliti-peneliti yang meneliti keratinisasi di lapisan luar kulit."
       },
       "keystone": {
-        "definitionMs": "",
-        "exampleMs": "Burung berang laut dapat bertindak sebagai spesies batu kunci dalam beberapa ekosistem pantai."
+        "definitionMs": "Unsur sentral atau esensial yang memegang sistem bersama-sama; dalam ekologi, spesies batu kunci memiliki efek yang tidak proporsional besar pada ekosistemnya.",
+        "exampleMs": "Burung berang laut dapat bertindak sebagai spesies batu kunci di beberapa ekosistem pantai."
       },
       "kindness": {
-        "definitionMs": "",
+        "definitionMs": "Sifat ramah, murah hati, dan bertimbang rasa.",
         "exampleMs": "Kebaikan hatinya membuat siswa baru merasa diterima."
       },
       "kinematics": {
-        "definitionMs": "",
-        "exampleMs": "Tim animasi yang menggunakan kinematika untuk menganalisis jalur pergerakan karakter tersebut."
+        "definitionMs": "Studi gerakan tanpa fokus pada kekuatan yang menyebabkannya.",
+        "exampleMs": "Tim animasi yang menggunakan kinematika untuk menganalisis jalur pergerakan karakter."
       },
       "kinetic": {
-        "definitionMs": "",
+        "definitionMs": "Melakukan gerakan atau energi yang dimiliki suatu objek karena bergerak.",
         "exampleMs": "Proyektil bergerak membawa energi kinetik."
       },
       "kinetics": {
-        "definitionMs": "",
+        "definitionMs": "Studi mengenai tingkat perubahan, terutama tingkat reaksi atau gerak di bawah kekuatan, tergantung pada bidang.",
         "exampleMs": "kinetik kimia yang membantu tim memperkirakan seberapa cepat reaksi akan berlangsung."
       },
       "kneel": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menurunkan dirimu ke satu atau kedua lutut.",
         "exampleMs": "Dia berlutut di samping anak untuk berbicara pada tingkat mata."
       },
       "lacunary": {
-        "definitionMs": "",
-        "exampleMs": "Arsip tersebut menawarkan catatan lacunary tentang negosiasi tersebut."
+        "definitionMs": "Mengandung celah atau penghilangan.",
+        "exampleMs": "Arsip tersebut menawarkan catatan lacunari mengenai negosiasi tersebut."
       },
       "lacustrine": {
-        "definitionMs": "",
+        "definitionMs": "Berhubungan dengan danau atau terbentuk di lingkungan danau.",
         "exampleMs": "Ahli geologi mengidentifikasi sedimen lacustrine di bawah dataran."
       },
       "latency": {
-        "definitionMs": "",
+        "definitionMs": "Keterlambatan antara tindakan atau input dan respon yang dihasilkan.",
         "exampleMs": "Latensi jaringan yang lebih rendah membuat aplikasi jarak jauh merasa lebih responsif."
       },
       "latent": {
-        "definitionMs": "",
+        "definitionMs": "Saat ini belum terlihat, aktif, atau dinyatakan.",
         "exampleMs": "Analisis analisis mendeteksi pola laten dalam data."
       },
       "laugh": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat suara dan gerakan yang menunjukkan hiburan atau kebahagiaan.",
         "exampleMs": "Mereka tertawa di akhir yang tak terduga."
       },
       "lean": {
-        "definitionMs": "",
+        "definitionMs": "Untuk sudut tubuh Anda ke arah atau jauh dari sesuatu, sering untuk mendukung.",
         "exampleMs": "Dia bersandar di dinding sambil menunggu."
       },
       "lexicography": {
-        "definitionMs": "",
+        "definitionMs": "Zodiak dan studi menyusun, mengedit, dan merancang kamus.",
         "exampleMs": "leksikografi modern leksikografi modern sering menggabungkan penelitian korpus dengan penilaian editorial."
       },
       "lexicon": {
-        "definitionMs": "",
+        "definitionMs": "Bahasa kosakata dari suatu bahasa, orang, subjek, atau bidang.",
         "exampleMs": "Makalah itu memperkenalkan leksikon istilah yang digunakan dalam pemodelan iklim."
       },
       "liminality": {
-        "definitionMs": "",
+        "definitionMs": "Wacana kondisi sedang dalam tahap transisi antara dua negara bagian, peran, atau tempat.",
         "exampleMs": "Antropolog ini mempelajari liminalitas selama upacara datang-dari-usia."
       },
       "lineage": {
-        "definitionMs": "",
+        "definitionMs": "Garis keturunan atau urutan sejarah dari mana sesuatu berkembang.",
         "exampleMs": "Para peneliti itu menelusuri garis keturunan sampel virus."
       },
       "linger": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tinggal di tempat yang lebih lama dari yang diperlukan atau tetap setelah hal-hal lain telah pergi.",
         "exampleMs": "Bau hujan berlarut-larut di udara."
       },
       "listen": {
-        "definitionMs": "",
-        "exampleMs": "Aku mendengarkan dengan seksama penjelasannya."
+        "definitionMs": "Untuk memperhatikan suara atau apa yang dikatakan seseorang.",
+        "exampleMs": "Saya mendengarkan dengan seksama penjelasannya."
       },
       "lithification": {
-        "definitionMs": "",
-        "exampleMs": "Kompaksi dan sedimentasi phibrida berkontribusi pada litifikasi."
+        "definitionMs": "Proses yang oleh sedimen lepas menjadi batuan padat.",
+        "exampleMs": "Kompaksi dan peredangan kaki kaki berkontribusi pada litifikasi."
       },
       "lithography": {
-        "definitionMs": "",
+        "definitionMs": "Pencetakan atau proses pola yang menggunakan permukaan yang diobati; dalam pekerjaan semikonduktor, ia mentransfer pola ke material.",
         "exampleMs": "Pembuat cetakan menunjukkan litografi tradisional."
       },
       "lithosphere": {
-        "definitionMs": "",
+        "definitionMs": "lapisan luar Bumi yang kaku, terdiri dari kerak dan mantel paling atas.",
         "exampleMs": "Lempeng Tektonik adalah bagian dari litosfer Bumi."
       },
       "littoral": {
-        "definitionMs": "",
+        "definitionMs": "Melayang ke pantai laut atau danau; zona pantai itu sendiri.",
         "exampleMs": "Berbagai habitat Littoral dipengaruhi oleh naiknya permukaan air."
       },
       "locus": {
-        "definitionMs": "",
+        "definitionMs": "Kekhalifahan atau kedudukan tertentu; dalam matematika, satu set poin memuaskan suatu kondisi; dalam genetika, posisi gen pada suatu kromosom.",
         "exampleMs": "Tim ini mengidentifikasi lokus yang terkait dengan sifat mewarisi."
       },
       "lonely": {
-        "definitionMs": "",
-        "exampleMs": "Aku merasa kesepian setelah pindah ke kota baru."
+        "definitionMs": "Kau merasa kesepian atau terputus dari orang lain.",
+        "exampleMs": "Saya merasa kesepian setelah pindah ke kota baru."
       },
       "longitudinal": {
-        "definitionMs": "",
+        "definitionMs": "Berdasarkan pengamatan atau pengukuran yang dikumpulkan selama periode yang diperpanjang.",
         "exampleMs": "A studi longitudinal anak muda mengikuti peserta selama sepuluh tahun."
       },
       "maintain": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjaga sesuatu dalam kondisi baik atau melanjutkannya pada tingkat yang sama.",
         "exampleMs": "Ini penting untuk menjaga rutinitas yang sehat."
       },
       "manage": {
-        "definitionMs": "",
-        "exampleMs": "Aku berhasil menyelesaikannya sebelum batas waktu."
+        "definitionMs": "Untuk berhasil melakukan sesuatu atau bertanggung jawab atas sesuatu.",
+        "exampleMs": "Saya berhasil menyelesaikannya sebelum batas waktu."
       },
       "meaningful": {
-        "definitionMs": "",
+        "definitionMs": "Memiliki pentingnya, nilai, atau tujuan.",
         "exampleMs": "Kami memiliki percakapan yang berarti."
       },
       "meanwhile": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan menyiapkan makan malam, sementara itu, Anda dapat mengatur meja."
+        "definitionMs": "Selama periode waktu yang sama.",
+        "exampleMs": "Saya akan menyiapkan makan malam, sementara itu, Anda dapat mengatur meja."
       },
       "mention": {
-        "definitionMs": "",
+        "definitionMs": "Untuk merujuk kepada sesuatu secara singkat; referensi singkat.",
         "exampleMs": "Dia menyebutkan namamu selama pertemuan."
       },
       "metacognition": {
-        "definitionMs": "",
+        "definitionMs": "Kesadaran dan regulasi dari pemikiran dan proses belajar seseorang sendiri.",
         "exampleMs": "Murid-murid menggunakan metakognisi untuk mengevaluasi metode studi mana yang bekerja dengan baik."
       },
       "method": {
-        "definitionMs": "",
+        "definitionMs": "Cara tertentu untuk melakukan sesuatu.",
         "exampleMs": "Metode ini membantu saya mempelajari kata - kata baru."
       },
       "metonymy": {
-        "definitionMs": "",
+        "definitionMs": "Kata-kata yang merujuk pada sesuatu dengan nama suatu hal yang berkaitan erat.",
         "exampleMs": "Artikel ini menggunakan ” mahkota ” sebagai kehormatan bagi monarki."
       },
       "metrology": {
-        "definitionMs": "",
+        "definitionMs": "Ilmu ilmu pengukuran, termasuk unit, metode, akurasi, dan jejak.",
         "exampleMs": "Standar-standar Metrologi morfologi membantu laboratorium membandingkan pengukuran di seluruh instrumen."
       },
       "microbiome": {
-        "definitionMs": "",
+        "definitionMs": "Keunikan mikroorganisme dan materi genetik kolektif mereka dalam lingkungan tertentu.",
         "exampleMs": "Para peneliti telah mempelajari mikrobiome usus dalam persidangan."
       },
       "mimesis": {
-        "definitionMs": "",
+        "definitionMs": "Representasi atau peniruan aspek dunia nyata dalam seni atau sastra.",
         "exampleMs": "Esai tersebut mengeksplorasi mimesis dalam fotografi dokumenter."
       },
       "mimic": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyalin suara, gerakan, atau perilaku seseorang.",
         "exampleMs": "Anak itu meniru langkah ayahnya."
       },
       "misunderstanding": {
-        "definitionMs": "",
+        "definitionMs": "Gagal memahami sesuatu dengan benar.",
         "exampleMs": "Ada kesalahpahaman tentang waktu pertemuan."
       },
       "mitigation": {
-        "definitionMs": "",
+        "definitionMs": "Tindakan mengurangi keparahan, dampak, atau risiko sesuatu.",
         "exampleMs": "Rencana ini berfokus pada mitigasi banjir-risk."
       },
       "moreover": {
-        "definitionMs": "",
+        "definitionMs": "Selain apa yang telah dikatakan.",
         "exampleMs": "Ruang ini cerah; lebih, dekat dengan stasiun."
       },
       "morphogenesis": {
-        "definitionMs": "",
+        "definitionMs": "Bioteknologi proses biologis yang melaluinya suatu organisme atau struktur berkembang bentuknya.",
         "exampleMs": "Para peneliti itu mempelajari morfogenesis pada embrio awal."
       },
       "motivate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberi seseorang alasan atau keinginan untuk bertindak.",
         "exampleMs": "Prestasi kecil memotivasi saya untuk melanjutkan."
       },
       "motivation": {
-        "definitionMs": "",
+        "definitionMs": "Alasan atau keinginan yang membuat seseorang ingin bertindak.",
         "exampleMs": "Motivasiku adalah meningkatkan kemampuan animasiku."
       },
       "mourn": {
-        "definitionMs": "",
+        "definitionMs": "Untuk merasakan atau menunjukkan kesedihan mendalam setelah kematian atau kehilangan besar.",
         "exampleMs": "Kota ini berkumpul untuk meratapi korban."
       },
       "mumble": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara dengan cara yang tenang, tidak jelas, membuat kata-kata Anda sulit dimengerti.",
         "exampleMs": "Dia menggumamkan jawabannya ke dalam kerahnya."
       },
       "murmur": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara dengan suara yang rendah dan lembut, sering kali lembut atau tidak jelas.",
         "exampleMs": "Dia menggerutu beberapa kata yang menenteramkan hati."
       },
       "muster": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengumpulkan atau memanggil suatu sifat, perasaan, atau jumlah upaya, sering kali disertai kesulitan.",
         "exampleMs": "Dia mengerahkan keberanian untuk berbicara."
       },
       "mutagenesis": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang mana mutasi genetik muncul.",
         "exampleMs": "Eksperimen yang diperiksa menginduksi mutagenesis dalam sel."
       },
       "mutter": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara dengan tenang dan tidak jelas, sering kali karena Anda kesal atau tidak ingin didengar.",
         "exampleMs": "Dia menggumam permintaan maaf dan berpaling."
       },
       "mycorrhiza": {
-        "definitionMs": "",
+        "definitionMs": "Pergaulan erat antara jamur dan akar tanaman, sering menguntungkan kedua organisme.",
         "exampleMs": "Pohon itu tumbuh lebih baik dengan mycorrhiza sehat di tanah."
       },
       "natural": {
-        "definitionMs": "",
+        "definitionMs": "Ada di alam atau tampak normal dan tidak dipaksakan.",
         "exampleMs": "Gerakannya tampak alami."
       },
       "necessary": {
-        "definitionMs": "",
+        "definitionMs": "Perlu atau diperlukan untuk tujuan tertentu.",
         "exampleMs": "Paspor diperlukan untuk perjalanan internasional."
       },
       "negotiate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membahas sesuatu untuk mencapai kesepakatan.",
         "exampleMs": "Mereka menegosiasikan tanggal pengiriman yang lebih baik."
       },
       "neoliberalism": {
-        "definitionMs": "",
+        "definitionMs": "Pendekatan politik dan ekonomi yang umum dikaitkan dengan persaingan pasar, privatisasi, dan mengurangi intervensi negara, meskipun definisi bervariasi.",
         "exampleMs": "Sejarawan tersebut meneliti perdebatan mengenai neoliberalisme pada akhir abad kedua puluh."
       },
       "neoteny": {
-        "definitionMs": "",
-        "exampleMs": "Ahli biologi biolog tersebut membahas neoteni dalam perkembangan spesies tersebut."
+        "definitionMs": "Kesengsaraan terhadap kedewasaan.",
+        "exampleMs": "Ahli biologi biolog tersebut membahas tentang neoteni dalam perkembangan spesies tersebut."
       },
       "nervous": {
-        "definitionMs": "",
-        "exampleMs": "Aku gugup sebelum berbicara dengan orang banyak."
+        "definitionMs": "Khawatir atau sedikit takut tentang apa yang mungkin terjadi.",
+        "exampleMs": "Saya gugup sebelum berbicara dengan orang banyak."
       },
       "neurogenesis": {
-        "definitionMs": "",
+        "definitionMs": "Formasi neuron baru.",
         "exampleMs": "Penelitian tersebut mengeksplorasi neurogenesis di wilayah otak tertentu."
       },
       "neuroplasticity": {
-        "definitionMs": "",
-        "exampleMs": "Praktek berulang zombi dapat melibatkan perubahan yang berhubungan dengan neuroplastisitas."
+        "definitionMs": "Kemampuan sistem saraf untuk mengubah struktur atau fungsinya melalui pengembangan, pembelajaran, atau pengalaman.",
+        "exampleMs": "Praktek berulang-ulang dapat melibatkan perubahan yang terkait dengan neuroplastisitas."
       },
       "nevertheless": {
-        "definitionMs": "",
+        "definitionMs": "Meskipun apa yang baru saja dikatakan; namun.",
         "exampleMs": "Tugas itu sulit; namun, kami menyelesaikannya."
       },
       "nod": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menggerakkan kepala Anda ke bawah dan ke atas, sering kali untuk menunjukkan kesepakatan atau pemahaman.",
         "exampleMs": "Dia mengangguk untuk menunjukkan bahwa dia mengerti."
       },
       "notice": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat, mendengar, atau menyadari sesuatu; pengumuman tertulis.",
         "exampleMs": "Apa kau melihat tanda dekat pintu?"
       },
       "observe": {
-        "definitionMs": "",
-        "exampleMs": "Aku mengamati bagaimana tim menangani masalah ini."
+        "definitionMs": "Untuk menonton dengan cermat atau melihat sesuatu.",
+        "exampleMs": "Saya mengamati bagaimana tim menangani masalah ini."
       },
       "obvious": {
-        "definitionMs": "",
+        "definitionMs": "Mudah untuk melihat, mengenali, atau memahami.",
         "exampleMs": "Jawabannya sudah jelas sekarang."
       },
       "occasionally": {
-        "definitionMs": "",
-        "exampleMs": "Aku kadang-kadang bekerja di kafe."
+        "definitionMs": "Kadang-kadang, tapi tidak sering.",
+        "exampleMs": "Saya kadang-kadang bekerja di kafe."
       },
       "ontogeny": {
-        "definitionMs": "",
+        "definitionMs": "Perkembangan organisme individu sepanjang hidupnya.",
         "exampleMs": "Dibandingkan kertas dengan ontogeni di seluruh spesies yang berhubungan."
       },
       "ontology": {
-        "definitionMs": "",
+        "definitionMs": "Studi filosofis tentang menjadi dan apa jenis hal yang ada; dalam komputasi, model formal konsep dan hubungan mereka.",
         "exampleMs": "Tim basis data ogford membangun ontologi untuk menyusun konsep ilmiah."
       },
       "operationalize": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mendefinisikan sebuah konsep dalam hal prosedur yang dapat diamati atau terukur.",
         "exampleMs": "Para peneliti itu mengoperasikan stres menggunakan kuesioner yang divalidasi."
       },
       "opinion": {
-        "definitionMs": "",
+        "definitionMs": "Kepercayaan atau pandangan tentang sesuatu yang mungkin bukan fakta.",
         "exampleMs": "Menurut pendapat saya, desain ini lebih mudah digunakan."
       },
       "opportunity": {
-        "definitionMs": "",
+        "definitionMs": "Kau dapat melakukan atau mencapai sesuatu.",
         "exampleMs": "Pekerjaan ini adalah kesempatan besar untuk belajar."
       },
       "option": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu pilihan yang tersedia.",
         "exampleMs": "Kami punya pilihan untuk bekerja dari jauh."
       },
       "ordinary": {
-        "definitionMs": "",
+        "definitionMs": "Biasa atau biasa, tidak istimewa atau tidak biasa.",
         "exampleMs": "Itu hari biasa di tempat kerja."
       },
       "organize": {
-        "definitionMs": "",
-        "exampleMs": "Aku perlu mengatur catatanku."
+        "definitionMs": "Untuk mengatur sesuatu atau merencanakan suatu kegiatan.",
+        "exampleMs": "Saya perlu mengatur catatanku."
       },
       "otherwise": {
-        "definitionMs": "",
-        "exampleMs": "Tolong pergi sekarang, jika tidak, kau boleh ketinggalan bus."
+        "definitionMs": "Dengan cara yang berbeda; jika tidak; atau selain itu.",
+        "exampleMs": "Tolong pergi sekarang, jika tidak kau boleh ketinggalan bus."
       },
       "outcome": {
-        "definitionMs": "",
+        "definitionMs": "Hasil akhir dari suatu tindakan atau situasi.",
         "exampleMs": "Hasil akhirnya lebih baik dari yang kita harapkan."
       },
       "overwhelm": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mempengaruhi seseorang dengan perasaan atau jumlah yang terlalu kuat untuk mengelola dengan mudah.",
         "exampleMs": "Banyaknya pekerjaan membuat tim kecil kewalahan."
       },
       "overwhelmed": {
-        "definitionMs": "",
-        "exampleMs": "Aku merasa kewalahan dengan semua batas waktu."
+        "definitionMs": "Karena terlalu banyak yang harus ditangani.",
+        "exampleMs": "Saya merasa kewalahan dengan semua batas waktu."
       },
       "pace": {
-        "definitionMs": "",
+        "definitionMs": "Sering kali, sering kali, Anda khawatir atau tidak sabar.",
         "exampleMs": "Dia melewati lorong sambil menunggu panggilan."
       },
       "paleoclimatology": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian iklim di masa lalu Bumi jauh menggunakan catatan alam dan bukti lainnya.",
         "exampleMs": "Inti es borough memberikan bukti berharga untuk paleoklimatologi."
       },
       "paleoecology": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian ekosistem masa lalu menggunakan fosil dan bukti lainnya.",
         "exampleMs": "Paleoecologi merekonstruksi vegetasi kuno di wilayah itu."
       },
       "paleography": {
-        "definitionMs": "",
+        "definitionMs": "Studi ilmu tulisan tangan lama dan sistem penulisan sejarah.",
         "exampleMs": "Paleografi membantu para arkeolog membaca naskah yang rusak."
       },
       "palimpsest": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah manuskrip yang digunakan kembali setelah tulisan sebelumnya dihapus; secara kiasan, sesuatu yang mempertahankan jejak lapisan sebelumnya.",
         "exampleMs": "Kota ini terasa seperti palimpsest dari periode sejarah yang berbeda."
       },
       "paradigm": {
-        "definitionMs": "",
+        "definitionMs": "Model, kerangka kerja, atau kumpulan asumsi yang membentuk bagaimana suatu subjek dipahami.",
         "exampleMs": "Penemuan itu menantang paradigma yang berlaku di lapangan."
       },
       "parsimony": {
-        "definitionMs": "",
+        "definitionMs": "Prinsip untuk memilih penjelasan atau model sederhana yang memadai.",
         "exampleMs": "Tim tim memilih model yang menjelaskan data dengan parsimony yang lebih besar."
       },
       "participate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk ikut serta dalam suatu kegiatan atau peristiwa.",
         "exampleMs": "Semua orang dipersilakan untuk berpartisipasi dalam diskusi."
       },
       "pat": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyentuh seseorang atau sesuatu yang ringan dan berulang kali dengan tangan Anda.",
         "exampleMs": "Dia menepuk anjing dengan lembut di belakang."
       },
       "path dependence": {
-        "definitionMs": "",
+        "definitionMs": "Situasi di mana pilihan atau peristiwa masa lalu membatasi pilihan yang tersedia di kemudian hari.",
         "exampleMs": "Jaringan rel lama menciptakan ketergantungan jalur dalam perencanaan transportasi kota."
       },
       "patient": {
-        "definitionMs": "",
+        "definitionMs": "Ableson untuk menunggu atau mengatasi kesulitan tanpa menjadi terganggu; juga, seseorang yang menerima perawatan medis.",
         "exampleMs": "Sabarlah sementara file upload."
       },
       "patiently": {
-        "definitionMs": "",
+        "definitionMs": "Dengan cara yang menunjukkan kemampuan untuk menunggu dengan tenang.",
         "exampleMs": "Dengan sabar ia menunggu giliran."
       },
       "pattern": {
-        "definitionMs": "",
-        "exampleMs": "Aku melihat pola dalam kata-kata ini."
+        "definitionMs": "Sebuah pengaturan berulang, bentuk, atau cara sesuatu terjadi.",
+        "exampleMs": "Saya melihat pola dari kata-kata ini."
       },
       "perform": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melakukan tugas atau kegiatan; untuk menghibur penonton.",
         "exampleMs": "Tim ini tampil dengan baik di bawah tekanan."
       },
       "perhaps": {
-        "definitionMs": "",
+        "definitionMs": "Mungkin; digunakan ketika sesuatu tidak pasti.",
         "exampleMs": "Mungkin kita harus pergi lebih awal."
       },
       "permission": {
-        "definitionMs": "",
+        "definitionMs": "Permintaan untuk melakukan sesuatu.",
         "exampleMs": "Kau perlu izin untuk menggunakan ruangan ini."
       },
       "personally": {
-        "definitionMs": "",
-        "exampleMs": "Secara pribadi, aku lebih suka versi sebelumnya."
+        "definitionMs": "Dalam pandangan seseorang sendiri atau melibatkan diri secara langsung.",
+        "exampleMs": "Secara pribadi, saya lebih suka versi sebelumnya."
       },
       "perspective": {
-        "definitionMs": "",
+        "definitionMs": "Cara berpikir atau memahami sesuatu.",
         "exampleMs": "Bercakap dengannya memberiku perspektif yang berbeda."
       },
       "persuade": {
-        "definitionMs": "",
+        "definitionMs": "Untuk meyakinkan seseorang untuk melakukan atau percaya sesuatu.",
         "exampleMs": "Dia membujukku untuk mencoba restoran baru."
       },
       "pharmacokinetics": {
-        "definitionMs": "",
-        "exampleMs": "Ahli farmasi farmasi membantu menentukan jadwal dosing."
+        "definitionMs": "Studi mengenai bagaimana obat diserap, didistribusikan, dimetabolisme, dan dihilangkan oleh tubuh.",
+        "exampleMs": "Aposekulosis Farmakokinetik membantu menentukan jadwal dosing."
       },
       "phenomenology": {
-        "definitionMs": "",
+        "definitionMs": "Pendekatan filosofis yang berfokus pada bagaimana pengalaman tampak dan dipahami oleh makhluk sadar.",
         "exampleMs": "Penelitinya menggunakan fenomenologi untuk mengeksplorasi bagaimana pasien menggambarkan nyeri."
       },
       "phenotype": {
-        "definitionMs": "",
+        "definitionMs": "Karakteristik yang dapat diamati dari suatu organisme yang dihasilkan dari gen dan lingkungan.",
         "exampleMs": "Para peneliti itu mencatat fenotipe dengan kondisi yang berbeda."
       },
       "phylogeny": {
-        "definitionMs": "",
+        "definitionMs": "Sejarah evolusioner dan hubungan suatu spesies atau kelompok.",
         "exampleMs": "Bukti DNA membuktikan DNA membantu merekonstruksi filogeni burung."
       },
       "phytoremediation": {
-        "definitionMs": "",
+        "definitionMs": "Kegunaan tanaman untuk menghilangkan, mengandung, atau memecah polutan di tanah atau air.",
         "exampleMs": "Proyek ini menguji fitoremediasi pada tanah yang terkontaminasi logam."
       },
       "plebiscite": {
-        "definitionMs": "",
+        "definitionMs": "Pemungutan suara langsung oleh pemilih pada pertanyaan politik penting.",
         "exampleMs": "Pemerintah mengadakan plebisit atas perubahan konstitusi yang diusulkan."
       },
       "pleiotropy": {
-        "definitionMs": "",
+        "definitionMs": "Situasi di mana satu gen mempengaruhi beberapa sifat.",
         "exampleMs": "Para peneliti menyelidiki pleiotropi dalam kondisi mewarisi."
       },
       "point": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengarahkan jari atau objek ke arah seseorang atau sesuatu.",
         "exampleMs": "Dia menunjuk ke arah pintu keluar ketika alarm berbunyi."
       },
       "polish": {
-        "definitionMs": "",
-        "exampleMs": "Aku perlu memoles portofolioku sebelum mengirimnya."
+        "definitionMs": "Untuk memperbaiki sesuatu dengan membuat pemurnian kecil; finish halus.",
+        "exampleMs": "Saya perlu memoles portofolioku sebelum mengirimnya."
       },
       "polite": {
-        "definitionMs": "",
+        "definitionMs": "Memperlihatkan respek dan pertimbangan kepada orang lain.",
         "exampleMs": "Ini sopan untuk mengucapkan terima kasih."
       },
       "politely": {
-        "definitionMs": "",
+        "definitionMs": "Dengan hormat dan sopan.",
         "exampleMs": "Dia sopan meminta mereka untuk menurunkan volume."
       },
       "polymorphism": {
-        "definitionMs": "",
-        "exampleMs": "Studi tersebut meneliti polimorfisme genetik yang berkaitan dengan variasi pada sifat tersebut."
+        "definitionMs": "Kemunculan berbagai bentuk sesuatu; dalam genetika, kehadiran varian yang berbeda dalam suatu populasi.",
+        "exampleMs": "Studi tersebut meneliti polimorfisme genetik yang berkaitan dengan variasi sifat tersebut."
       },
       "ponder": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memikirkan sesuatu selama beberapa waktu.",
         "exampleMs": "Dia memikirkan pertanyaan itu sebelum menjawab."
       },
       "portfolio": {
-        "definitionMs": "",
-        "exampleMs": "Aku menambahkan animasi terbaruku ke portofolioku."
+        "definitionMs": "Koleksi karya yang memperlihatkan keterampilan atau pengalaman seseorang.",
+        "exampleMs": "Saya menambahkan animasi terbaruku ke portofolioku."
       },
       "possibility": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang mungkin terjadi atau benar.",
         "exampleMs": "Ada kemungkinan hujan malam ini."
       },
       "posture": {
-        "definitionMs": "",
+        "definitionMs": "Cara seseorang memegang tubuh mereka ketika berdiri atau duduk.",
         "exampleMs": "Postur tubuh yang baik dapat mengurangi ketegangan sewaktu bekerja."
       },
       "pout": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mendorong bibir Anda ke depan untuk menunjukkan ketidaksenangan, kekecewaan, atau suling.",
         "exampleMs": "Anak itu cemberut ketika permainan berakhir."
       },
       "practical": {
-        "definitionMs": "",
+        "definitionMs": "Berguna dan cocok untuk situasi nyata daripada hanya teori.",
         "exampleMs": "Kita perlu solusi praktis."
       },
       "practice": {
-        "definitionMs": "",
+        "definitionMs": "Mengulang kegiatan untuk meningkatkan keterampilan; melakukan sesuatu berulang kali.",
         "exampleMs": "Latihan harian membantu membangun keyakinan."
       },
       "praise": {
-        "definitionMs": "",
-        "exampleMs": "Managernya memuji hasil karyanya yang cermat."
+        "definitionMs": "Ungkapan persetujuan atau kekaguman; untuk menyatakan persetujuan.",
+        "exampleMs": "Managernya memuji pekerjaannya yang cermat."
       },
       "precise": {
-        "definitionMs": "",
+        "definitionMs": "Tepat dan jelas diungkapkan.",
         "exampleMs": "Gunakan bahasa yang tepat dalam laporan."
       },
       "prefer": {
-        "definitionMs": "",
-        "exampleMs": "Aku mau teh atau kopi."
+        "definitionMs": "Untuk menyukai satu pilihan lebih dari yang lain.",
+        "exampleMs": "Saya mau teh atau kopi."
       },
       "prepare": {
-        "definitionMs": "",
-        "exampleMs": "Aku harus mempersiapkan diri untuk wawancaraku."
+        "definitionMs": "Untuk bersiap untuk sesuatu.",
+        "exampleMs": "Saya harus mempersiapkan diri untuk wawancaraku."
       },
       "prevent": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menghentikan sesuatu yang terjadi.",
         "exampleMs": "Mengenakan helm dapat mencegah cedera serius."
       },
       "preventive": {
-        "definitionMs": "",
+        "definitionMs": "Dia sengaja menghentikan masalah sebelum itu terjadi.",
         "exampleMs": "backup biasa adalah langkah pencegahan."
       },
       "priority": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang dianggap lebih penting daripada hal-hal lain.",
         "exampleMs": "Menyelesaikan proyek adalah prioritas utamaku."
       },
       "privacy": {
-        "definitionMs": "",
-        "exampleMs": "Aku menghargai privasiku online."
+        "definitionMs": "Kenegaraan yang bebas dari perhatian yang tidak diinginkan atau akses ke informasi pribadi.",
+        "exampleMs": "Saya menghargai privasiku online."
       },
       "probably": {
-        "definitionMs": "",
-        "exampleMs": "Aku mungkin akan naik kereta."
+        "definitionMs": "Hampir pasti; kemungkinan besar terjadi atau benar.",
+        "exampleMs": "Saya mungkin akan naik kereta."
       },
       "process": {
-        "definitionMs": "",
+        "definitionMs": "Ada serangkaian langkah; untuk menangani informasi atau materi.",
         "exampleMs": "Belajar adalah proses bertahap."
       },
       "professional": {
-        "definitionMs": "",
+        "definitionMs": "Berhubungan dengan pekerjaan atau karier; seseorang dengan pelatihan khusus.",
         "exampleMs": "Tolong simpan nada profesional di email."
       },
       "progress": {
-        "definitionMs": "",
+        "definitionMs": "Gerakan maju ke arah tujuan; untuk mengembangkan atau meningkatkan.",
         "exampleMs": "Anda telah membuat kemajuan yang baik bulan ini."
       },
       "propaedeutic": {
-        "definitionMs": "",
+        "definitionMs": "Dengan melayani sebagai pengantar atau instruksi persiapan untuk subjek yang lebih maju.",
         "exampleMs": "Kursus ini menawarkan pelatihan propelan sebelum program spesialis."
       },
       "proud": {
-        "definitionMs": "",
-        "exampleMs": "Aku bangga dengan kemajuan yang telah kau buat."
+        "definitionMs": "Merasa senang akan prestasi atau seseorang yang kau sayangi.",
+        "exampleMs": "Saya bangga dengan kemajuan yang telah kau buat."
       },
       "provenance": {
-        "definitionMs": "",
+        "definitionMs": "Asal usul, sejarah kepemilikan, atau sumber dokumentasi suatu objek, catatan, atau data item.",
         "exampleMs": "Museum membuktikan bahwa lukisan itu terbukti sebelum mendapatkannya."
       },
       "provide": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberikan atau membuat sesuatu yang tersedia.",
         "exampleMs": "Perusahaan ini menyediakan pelatihan untuk staf baru."
       },
       "pseudoscience": {
-        "definitionMs": "",
+        "definitionMs": "Klaim atau praktik klaim yang dikemukakan sebagai ilmiah namun kurang mendapat dukungan atau metode ilmiah yang memadai.",
         "exampleMs": "Artikel tersebut menjelaskan mengapa klaim tersebut diklasifikasikan sebagai pseudosains."
       },
       "psychometrics": {
-        "definitionMs": "",
+        "definitionMs": "Ilmu pengetahuan ilmu pengetahuan mengukur sifat dan kemampuan psikologis.",
         "exampleMs": "Psikometrik jenasah membimbing desain penilaian."
       },
       "purpose": {
-        "definitionMs": "",
+        "definitionMs": "Alasan ada sesuatu yang terjadi atau ada.",
         "exampleMs": "Apa tujuan pertemuan ini?"
       },
       "qualification": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan, sertifikat, atau kondisi yang membuat seseorang cocok untuk sesuatu.",
         "exampleMs": "Peran tersebut mencantumkan ijazah sebagai kualifikasi."
       },
       "quanta": {
-        "definitionMs": "",
+        "definitionMs": "Paket diskret atau sejumlah kuantitas fisik; bentuk jamak kuantum.",
         "exampleMs": "Model ini menggambarkan bagaimana quanta cahaya berinteraksi dengan materi."
       },
       "quantitative": {
-        "definitionMs": "",
+        "definitionMs": "Berulang pada kuantitas atau pengukuran yang dinyatakan secara numerik.",
         "exampleMs": "Laporan tersebut menggabungkan pengukuran kuantitatif dengan temuan wawancara."
       },
       "quantization": {
-        "definitionMs": "",
+        "definitionMs": "Proses oleza membatasi kuantitas untuk nilai diskret atau mewakili kisaran kontinu dengan tingkat diskret.",
         "exampleMs": "Pengkuantisasian audio zindah mempengaruhi bagaimana sistem digital mewakili amplitudo sinyal."
       },
       "quantum": {
-        "definitionMs": "",
+        "definitionMs": "A jumlah diskret dari kuantitas fisik; juga berkaitan dengan teori kuantum.",
         "exampleMs": "Artikel tersebut menjelaskan bagaimana keadaan kuantum dapat berubah selama pengukuran."
       },
       "quarantine": {
-        "definitionMs": "",
-        "exampleMs": "Sistem dikuarantina file mencurigakan sebelum bisa berjalan."
+        "definitionMs": "Masa atau ukuran isolasi yang digunakan untuk mencegah penyebaran penyakit atau untuk mengandung ancaman keamanan.",
+        "exampleMs": "Sistem dikarantina file mencurigakan sebelum dapat berjalan."
       },
       "quiescent": {
-        "definitionMs": "",
+        "definitionMs": "Secara sementara tidak aktif, tenang, atau menunjukkan sedikit kegiatan.",
         "exampleMs": "Gunung berapi tetap quiescent selama beberapa dekade."
       },
       "quietly": {
-        "definitionMs": "",
+        "definitionMs": "Dengan sedikit atau tanpa suara; tanpa menarik perhatian.",
         "exampleMs": "Sila berbicara diam-diam di perpustakaan."
       },
       "quintessence": {
-        "definitionMs": "",
+        "definitionMs": "Contoh yang paling murni atau paling karakteristik dari sesuatu.",
         "exampleMs": "Bangunan tersebut dianggap sebagai kintesensi arsitektur periode tersebut."
       },
       "quintile": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu dari lima kelompok yang berisi proporsi yang sama dari sebuah dataset peringkat.",
         "exampleMs": "Studi ini membandingkan tingkat pendapatan di seluruh populasi kuintil."
       },
       "quorum": {
-        "definitionMs": "",
+        "definitionMs": "Angka minimum anggota yang harus hadir untuk rapat atau badan pengambilan keputusan untuk menjalankan bisnis yang valid.",
         "exampleMs": "Komite tersebut menunda pemungutan suara karena kekurangan kuorum."
       },
       "quorum-sensing": {
-        "definitionMs": "",
+        "definitionMs": "Proses yang dilakukan oleh bakteri untuk mengkoordinasikan perilaku dalam menanggapi sinyal yang berkaitan dengan kepadatan populasi.",
         "exampleMs": "Eksperimen memeriksa kuorum-sensing di koloni bakteri."
       },
       "quotient": {
-        "definitionMs": "",
+        "definitionMs": "Hasil dari membagi satu bilangan dengan yang lain; lebih luas, ukuran atau skor.",
         "exampleMs": "Dividing total jarak pada saat memberikan rata-rata kecepatan kuantien dalam contoh yang disederhanakan ini."
       },
       "radiometry": {
-        "definitionMs": "",
+        "definitionMs": "Pengukuran radiasi elektromagnetik, termasuk energi dan intensitasnya.",
         "exampleMs": "Alat musik ini menggunakan radiometri untuk mengukur energi cahaya yang masuk."
       },
       "rarely": {
-        "definitionMs": "",
-        "exampleMs": "Aku jarang minum kopi di malam hari."
+        "definitionMs": "Tidak sering; terjadi hanya pada sejumlah kecil kesempatan.",
+        "exampleMs": "Saya jarang minum kopi di malam hari."
       },
       "reaction": {
-        "definitionMs": "",
+        "definitionMs": "Tanggapan A terhadap suatu peristiwa, pernyataan, atau situasi.",
         "exampleMs": "Reaksi pertamanya adalah tertawa."
       },
       "realise": {
-        "definitionMs": "",
-        "exampleMs": "Aku sadar aku meninggalkan kunciku di rumah."
+        "definitionMs": "Untuk menyadari sesuatu atau memahaminya dengan jelas.",
+        "exampleMs": "Saya sadar saya meninggalkan kunciku di rumah."
       },
       "realize": {
-        "definitionMs": "",
-        "exampleMs": "Aku tidak menyadari itu sudah begitu terlambat."
+        "definitionMs": "Untuk memahami atau menyadari sesuatu.",
+        "exampleMs": "Saya tidak menyadari bahwa itu sudah begitu terlambat."
       },
       "reasonable": {
-        "definitionMs": "",
+        "definitionMs": "Adil, masuk akal, atau tidak berlebihan.",
         "exampleMs": "Sepertinya itu harga yang wajar."
       },
       "reassure": {
-        "definitionMs": "",
-        "exampleMs": "Dia meyakinkannya bahwa kesalahan bisa diperbaiki."
+        "definitionMs": "Untuk membuat seseorang merasa kurang khawatir dengan mengatakan atau menunjukkan bahwa semuanya baik-baik saja.",
+        "exampleMs": "Dia meyakinkannya bahwa kesalahan dapat diperbaiki."
       },
       "recently": {
-        "definitionMs": "",
+        "definitionMs": "Beberapa waktu yang lalu, atau selama periode sebelum sekarang.",
         "exampleMs": "Baru-baru ini saya mulai belajar bahasa Spanyol."
       },
       "reciprocity": {
-        "definitionMs": "",
+        "definitionMs": "Hak saling tukar menukar tindakan, manfaat, atau kewajiban.",
         "exampleMs": "Perjanjian itu didasarkan pada timbal balik antara kedua institusi."
       },
       "recognise": {
-        "definitionMs": "",
-        "exampleMs": "Aku langsung mengenali suaranya."
+        "definitionMs": "Untuk mengidentifikasi seseorang atau sesuatu dari pengetahuan sebelumnya.",
+        "exampleMs": "Saya langsung mengenali suaranya."
       },
       "recognize": {
-        "definitionMs": "",
-        "exampleMs": "Aku langsung mengenali suaranya."
+        "definitionMs": "Untuk mengenal seseorang atau sesuatu karena Anda telah melihat atau mempelajarinya sebelumnya.",
+        "exampleMs": "Saya langsung mengenali suaranya."
       },
       "recoil": {
-        "definitionMs": "",
+        "definitionMs": "Kepindahan kembali tiba-tiba karena ketakutan, shock, sakit, atau jijik.",
         "exampleMs": "Dia datang dari ledakan tiba-tiba panas."
       },
       "recommend": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa merekomendasikan buku yang bagus?"
+        "definitionMs": "Sarannya, seseorang atau sesuatu itu baik atau cocok.",
+        "exampleMs": "Kau dapat merekomendasikan buku yang bagus?"
       },
       "reconsider": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan pertimbangkan lagi tawarannya malam ini."
+        "definitionMs": "Untuk berpikir lagi tentang keputusan atau pendapat.",
+        "exampleMs": "Saya akan pertimbangkan lagi tawarannya malam ini."
       },
       "reduce": {
-        "definitionMs": "",
-        "exampleMs": "Aku mencoba mengurangi waktu layarku."
+        "definitionMs": "Untuk membuat sesuatu yang lebih kecil atau kurang dalam jumlah, ukuran, atau derajat.",
+        "exampleMs": "Saya mencoba mengurangi waktu layarku."
       },
       "reflect": {
-        "definitionMs": "",
-        "exampleMs": "Aku butuh waktu untuk merenungkan saranmu."
+        "definitionMs": "Untuk memikirkan sesuatu dengan hati-hati; untuk menunjukkan gambar atau cahaya.",
+        "exampleMs": "Saya butuh waktu untuk merenungkan saranmu."
       },
       "refuse": {
-        "definitionMs": "",
-        "exampleMs": "Ia menolak untuk menjawab pertanyaan itu."
+        "definitionMs": "Untuk mengatakan bahwa Anda tidak akan melakukan atau menerima sesuatu.",
+        "exampleMs": "Ia menolak menjawab pertanyaan itu."
       },
       "reification": {
-        "definitionMs": "",
+        "definitionMs": "Melayani ide abstrak atau hubungan seolah-olah hal yang konkret.",
         "exampleMs": "Kritikus tersebut berpendapat bahwa model tersebut mempertaruhkan reifikasi kategori sosial."
       },
       "rejoice": {
-        "definitionMs": "",
+        "definitionMs": "Untuk merasa atau menunjukkan kebahagiaan besar tentang sesuatu.",
         "exampleMs": "Keluarga itu bersukacita ketika anjing yang hilang itu kembali."
       },
       "relationship": {
-        "definitionMs": "",
+        "definitionMs": "Cara orang-orang atau hal-hal yang terhubung.",
         "exampleMs": "Komunikasi yang baik menguatkan hubungan."
       },
       "relax": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi kurang tegang, khawatir, atau kaku; untuk beristirahat.",
         "exampleMs": "Dia santai sekali dia menyadari kesalahan itu tidak berbahaya."
       },
       "release": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melepaskan sesuatu yang ditahan atau terperangkap; untuk membiarkan sesuatu menjadi bebas.",
         "exampleMs": "Dia melepaskan tangannya dan melangkah pergi."
       },
       "relevant": {
-        "definitionMs": "",
+        "definitionMs": "Kita hampir terhubung dengan topik atau situasi.",
         "exampleMs": "Ada beberapa contoh yang relevan."
       },
       "reliable": {
-        "definitionMs": "",
-        "exampleMs": "Dia teman yang bisa diandalkan."
+        "definitionMs": "Mampu dipercaya atau diandalkan.",
+        "exampleMs": "Dia teman yang dapat diandalkan."
       },
       "reluctant": {
-        "definitionMs": "",
+        "definitionMs": "Tidak berkemauan atau ragu untuk melakukan sesuatu.",
         "exampleMs": "Ia enggan mengakui bahwa ia salah."
       },
       "remind": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membantu seseorang mengingat sesuatu.",
         "exampleMs": "Tolong ingatkan saya untuk mengirim email."
       },
       "reminisce": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara atau memikirkan pengalaman masa lalu.",
         "exampleMs": "Mereka mengenang masa sekolah mereka saat makan malam."
       },
       "repair": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memperbaiki sesuatu yang rusak atau rusak.",
         "exampleMs": "Teknisi teknisi memperbaiki laptop."
       },
       "replace": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengambil tempat sesuatu atau menempatkan sesuatu yang baru di tempatnya.",
         "exampleMs": "Kita perlu mengganti kabel rusak."
       },
       "replication": {
-        "definitionMs": "",
+        "definitionMs": "Proses pembuatan studi atau menyalin struktur biologis atau digital.",
         "exampleMs": "Replikasi Independenis memperkuat keyakinan akan penemuan tersebut."
       },
       "require": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membutuhkan sesuatu atau membuatnya diperlukan.",
         "exampleMs": "Peran ini membutuhkan keterampilan komunikasi yang baik."
       },
       "requirement": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang dibutuhkan atau dituntut.",
         "exampleMs": "Gelar sarjana tercatat sebagai syarat untuk peran tersebut."
       },
       "resent": {
-        "definitionMs": "",
+        "definitionMs": "Kekebalan atau kemarahan karena sesuatu tampaknya tidak adil.",
         "exampleMs": "Dia benci ditinggalkan dari keputusan."
       },
       "resentful": {
-        "definitionMs": "",
+        "definitionMs": "Merasa tersinggung karena Anda percaya bahwa Anda diperlakukan dengan tidak adil.",
         "exampleMs": "Ia menjadi kesal ketika karyanya tidak dikenal."
       },
       "resolve": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyelesaikan suatu masalah atau membuat keputusan yang tegas.",
         "exampleMs": "Kami bekerja sama untuk menyelesaikan masalah ini."
       },
       "resource": {
-        "definitionMs": "",
+        "definitionMs": "Sumber, sumber, atau alat yang berguna untuk mencapai sesuatu.",
         "exampleMs": "Perpustakaan adalah sumber daya yang berguna bagi siswa."
       },
       "respectful": {
-        "definitionMs": "",
+        "definitionMs": "Dia menunjukkan pertimbangan kepada orang lain dan perasaan mereka.",
         "exampleMs": "Sila tetap penuh respek selama pembahasan."
       },
       "respond": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjawab atau bereaksi terhadap sesuatu.",
         "exampleMs": "Tolong jawab emailnya Jumat nanti."
       },
       "responsible": {
-        "definitionMs": "",
-        "exampleMs": "Aku bertanggung jawab untuk memperbarui website."
+        "definitionMs": "Memiliki kewajiban untuk berurusan dengan sesuatu atau dipercaya untuk bertindak bijaksana.",
+        "exampleMs": "Saya bertanggung jawab untuk memperbarui website."
       },
       "restrain": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengendalikan atau mencegah diri dari melakukan sesuatu; untuk menahan sesuatu.",
         "exampleMs": "Dia menahan diri dari mengganggu."
       },
       "result": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang terjadi karena suatu tindakan; terjadi karena sesuatu.",
         "exampleMs": "Hasilnya lebih baik dari yang kita harapkan."
       },
       "retort": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjawab dengan cepat dan tajam, sering kali dengan marah atau cerdas.",
         "exampleMs": "Dia menolak bahwa dia tidak melakukan kesalahan."
       },
       "retreat": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mundur atau menjauh dari situasi yang sulit, mengancam, atau tidak nyaman.",
         "exampleMs": "Dia mundur ke dapur ketika argumen semakin keras."
       },
       "revise": {
-        "definitionMs": "",
-        "exampleMs": "Aku merevisi resumeku sebelum mendaftar."
+        "definitionMs": "Untuk mengubah sesuatu untuk memperbaiki atau memperbaikinya.",
+        "exampleMs": "Saya merevisi resumeku sebelum mendaftar."
       },
       "rheology": {
-        "definitionMs": "",
+        "definitionMs": "Studi tentang bagaimana material berubah dan mengalir.",
         "exampleMs": "Ahli biologi membantu menjelaskan mengapa gel berperilaku berbeda di bawah tekanan."
       },
       "rhythm": {
-        "definitionMs": "",
+        "definitionMs": "Pola pergerakan, suara, atau peristiwa yang teratur.",
         "exampleMs": "Adegan ini memiliki irama yang kuat."
       },
       "risk": {
-        "definitionMs": "",
+        "definitionMs": "Kemungkinan kemungkinan bahaya atau kerugian; untuk mengungkap bahaya.",
         "exampleMs": "Ada risiko kehilangan pekerjaan yang tidak baik."
       },
       "roughly": {
-        "definitionMs": "",
+        "definitionMs": "Kira - kira, atau dengan cara yang tidak halus atau lembut.",
         "exampleMs": "Perjalanan memakan waktu kurang lebih dua jam."
       },
       "routine": {
-        "definitionMs": "",
+        "definitionMs": "Cara yang teratur untuk melakukan hal-hal; biasa dan biasa.",
         "exampleMs": "Sebuah rutinitas singkat pagi membantu saya fokus."
       },
       "salience": {
-        "definitionMs": "",
+        "definitionMs": "Sifat khususnya yang mencolok, penting, atau menonjol.",
         "exampleMs": "Warna meningkatkan saliensi visual ikon peringatan."
       },
       "schedule": {
-        "definitionMs": "",
+        "definitionMs": "Rencana yang mencantumkan waktu untuk peristiwa atau tugas; untuk mengatur waktu.",
         "exampleMs": "Jadwalku penuh minggu ini."
       },
       "scoff": {
-        "definitionMs": "",
-        "exampleMs": "Dia mencemooh ide bahwa ia bisa menyelesaikan dalam satu jam."
+        "definitionMs": "Untuk tertawa atau berbicara tentang sesuatu dengan penghinaan atau ketidakpercayaan.",
+        "exampleMs": "Dia mengejek ide bahwa dia dapat selesai dalam satu jam."
       },
       "secure": {
-        "definitionMs": "",
-        "exampleMs": "Gunakan kata sandi untuk akun Anda."
+        "definitionMs": "Dia dilindungi dari bahaya atau akses yang tidak sah; untuk mendapatkan sesuatu.",
+        "exampleMs": "Gunakan kata sandi untuk rekeningmu."
       },
       "sedimentology": {
-        "definitionMs": "",
+        "definitionMs": "Studi zodiosis sedimen, pembentukan mereka, transportasi, deposisi, dan transformasi menjadi batuan.",
         "exampleMs": "Sedimentologi mengungkapkan bagaimana delta kuno telah terbentuk."
       },
       "self-aware": {
-        "definitionMs": "",
-        "exampleMs": "Kesadaran dirinya sendiri membantunya menyadari reaksinya."
+        "definitionMs": "Kecerdikan memahami perasaan, kebiasaan, dan pengaruh Saudara terhadap orang lain.",
+        "exampleMs": "Menjadi sadar diri membantunya menyadari reaksinya."
       },
       "semiotics": {
-        "definitionMs": "",
+        "definitionMs": "Studi tentang tanda dan bagaimana mereka menciptakan atau berkomunikasi makna.",
         "exampleMs": "Desainernya menerapkan semiotika untuk menganalisis simbol dalam kampanye."
       },
       "sensitive": {
-        "definitionMs": "",
+        "definitionMs": "Cepat - cepat menyadari atau terpengaruh oleh perasaan atau perubahan.",
         "exampleMs": "Dia sensitif terhadap kritikan."
       },
       "sequence": {
-        "definitionMs": "",
+        "definitionMs": "Serangkaian peristiwa atau tindakan terkait dalam urutan tertentu.",
         "exampleMs": "Urutan animasi membutuhkan transisi yang lebih halus."
       },
       "serendipity": {
-        "definitionMs": "",
+        "definitionMs": "Kemunculan penemuan yang berharga atau menyenangkan secara kebetulan.",
         "exampleMs": "Pengamatan mereka yang tak terduga mengarah ke saat-saat kejenuhan ilmiah."
       },
       "serious": {
-        "definitionMs": "",
+        "definitionMs": "Penting atau membutuhkan pemikiran yang cermat; tidak bercanda.",
         "exampleMs": "Kita harus bicara serius."
       },
       "seriously": {
-        "definitionMs": "",
+        "definitionMs": "Cara yang serius atau tingkat yang signifikan.",
         "exampleMs": "Apa kau serius mau pindah?"
       },
       "shriek": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat suara yang sangat tinggi dan keras karena ketakutan, kegembiraan, atau rasa sakit.",
         "exampleMs": "Dia menjerit ketika laba-laba mendarat di lengan bajunya."
       },
       "shrug": {
-        "definitionMs": "",
-        "exampleMs": "Dia marah karena dia tidak tahu apa yang terjadi."
+        "definitionMs": "Untuk meningkatkan dan menurunkan bahu Anda untuk menunjukkan ketidakpastian, ketidakpedulian, atau bahwa Anda tidak tahu.",
+        "exampleMs": "Karena dia tidak tahu apa yang terjadi."
       },
       "shudder": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berjabat tiba-tiba, sering kali karena takut, jijik, atau dingin.",
         "exampleMs": "Dia terhuyung-huyung memikirkan terjebak di bawah tanah."
       },
       "sigh": {
-        "definitionMs": "",
+        "definitionMs": "Sering kali karena lega, sedih, lelah, atau frustrasi.",
         "exampleMs": "Dia mengeluh lega ketika ujian berakhir."
       },
       "similarly": {
-        "definitionMs": "",
+        "definitionMs": "Dengan cara yang hampir sama dengan, atau sebanding dengan, sesuatu yang lain.",
         "exampleMs": "Tim kedua menghadapi masalah serupa."
       },
       "simple": {
-        "definitionMs": "",
+        "definitionMs": "Mudah dimengerti atau dilakukan; tidak rumit.",
         "exampleMs": "Mari kita mulai dengan contoh sederhana."
       },
       "sink": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak turun di bawah permukaan atau ke bawah secara bertahap; tindakan melakukannya.",
         "exampleMs": "Hatinya tenggelam ketika ia melihat kerangka patah."
       },
       "slump": {
-        "definitionMs": "",
+        "definitionMs": "Untuk duduk, berdiri, atau jatuh dengan tubuh Anda bersandar berat dan bahu Anda diturunkan.",
         "exampleMs": "Dia jatuh ke kursi setelah shift panjang."
       },
       "smile": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membentuk ekspresi yang menyenangkan dengan muncul sudut mulut Anda.",
         "exampleMs": "Dia tersenyum pada anak di seberang lorong."
       },
       "smirk": {
-        "definitionMs": "",
+        "definitionMs": "Senyum dengan cara yang menyiratkan kesejukan, hiburan rahasia, atau kepuasan diri.",
         "exampleMs": "Dia tersenyum seolah-olah dia tahu sesuatu yang orang lain tidak."
       },
       "snarl": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara dengan suara yang marah dan keras; untuk hewan untuk menunjukkan giginya sambil menggeram.",
         "exampleMs": "Dia membuat peringatan ketika mereka terlalu dekat."
       },
       "sneer": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menunjukkan penghinaan dengan berbicara atau tersenyum dengan cara menghina.",
         "exampleMs": "Dia menyindir saran daripada mempertimbangkannya."
       },
       "sniffle": {
-        "definitionMs": "",
+        "definitionMs": "Anda sering menangis atau kedinginan.",
         "exampleMs": "Dia mengendus dan menyeka matanya."
       },
       "soar": {
-        "definitionMs": "",
+        "definitionMs": "Untuk naik atau terbang tinggi; untuk meningkatkan atau merasa seolah-olah bangkit tiba-tiba.",
         "exampleMs": "Burung itu melambung di atas tebing."
       },
       "sob": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menangis dengan napas berulang-ulang dan tak berperasaan.",
         "exampleMs": "Dia menangis diam-diam setelah mengucapkan selamat tinggal."
       },
       "solution": {
-        "definitionMs": "",
+        "definitionMs": "Ada jawaban untuk masalah atau cara untuk mengatasinya.",
         "exampleMs": "Kita perlu solusi praktis untuk masalah ini."
       },
       "soothe": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menenangkan seseorang atau mengurangi rasa sakit, kekhawatiran, atau iritasi.",
         "exampleMs": "Musik lembut menenangkan bayi."
       },
       "specific": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau berikan contoh spesifik?"
+        "definitionMs": "Jelas didefinisikan atau tepat daripada umum.",
+        "exampleMs": "Dapat kau berikan contoh spesifik?"
       },
       "squeeze": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menekan sesuatu dengan tegas, sering dengan jari atau tangan.",
         "exampleMs": "Dia meremas tangannya untuk meyakinkannya."
       },
       "squint": {
-        "definitionMs": "",
+        "definitionMs": "Untuk sebagian menutup mata Anda untuk melihat lebih baik atau karena cahaya terang.",
         "exampleMs": "Dia memekik di tulisan kecil di label."
       },
       "stagger": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berjalan atau bergerak tidak stabil, seolah-olah Anda mungkin jatuh.",
         "exampleMs": "Dia terhuyung-huyung keluar ruangan setelah latihan melelahkan."
       },
       "stammer": {
-        "definitionMs": "",
-        "exampleMs": "Dia gagap penjelasan dan kemudian mengambil napas."
+        "definitionMs": "Untuk berbicara dengan suara berulang atau jeda, sering kali karena gugup atau sulit berbicara.",
+        "exampleMs": "Dia tergagap-gagap penjelasan dan kemudian mengambil napas."
       },
       "stare": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat seseorang atau sesuatu untuk waktu yang lama, sering kali tanpa berpaling.",
         "exampleMs": "Anak itu menatap kue yang sangat besar."
       },
       "startle": {
-        "definitionMs": "",
+        "definitionMs": "Ada yang mendadak terkejut dan membuat mereka bereaksi cepat.",
         "exampleMs": "Tiba-tiba dia terkejut."
       },
       "startled": {
-        "definitionMs": "",
+        "definitionMs": "Tiba-tiba dia terkejut atau ketakutan oleh sesuatu yang tidak terduga.",
         "exampleMs": "Dia tampak terkejut ketika lampu berkedip."
       },
       "stiffen": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi kaku atau membuat sesuatu yang kaku, sering kali karena ketakutan, ketidaknyamanan, atau ketegangan.",
         "exampleMs": "bahu bahunya kaku ketika ia mendengar namanya."
       },
       "stoic": {
-        "definitionMs": "",
+        "definitionMs": "Ketenangan dan pengendalian selama rasa sakit atau kesulitan, tanpa memperlihatkan banyak emosi.",
         "exampleMs": "Dia tetap stoic sementara dokter mengobati cederanya."
       },
       "stoichiometry": {
-        "definitionMs": "",
+        "definitionMs": "Hubungan kuantitatif antara pereaksi dan produk dalam reaksi kimia.",
         "exampleMs": "Siswa menggunakan stoikiometri untuk menghitung reagen yang diperlukan."
       },
       "straighten": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat sesuatu yang lurus atau membuat tubuhmu lebih tegak.",
         "exampleMs": "Dia meluruskan kembali sebelum memasuki ruangan."
       },
       "strategy": {
-        "definitionMs": "",
+        "definitionMs": "Rencana yang dirancang untuk mencapai tujuan.",
         "exampleMs": "Kita perlu strategi untuk meninjau kosakata."
       },
       "stratigraphy": {
-        "definitionMs": "",
+        "definitionMs": "Studi ilmu tentang formasi batuan berlapis dan urutan mereka melalui waktu geologi.",
         "exampleMs": "Stratigrafi morfologi membantu tim memperkirakan usia relatif lapisan batuan."
       },
       "strength": {
-        "definitionMs": "",
+        "definitionMs": "Kualitas kualitas menjadi kuat; kemampuan atau keuntungan yang baik.",
         "exampleMs": "Kesabaran adalah salah satu kekuatan terbesarnya."
       },
       "stroke": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menggerakkan tangan Anda dengan lembut di atas permukaan, rambut, atau binatang.",
         "exampleMs": "Dia mengelus kucing di belakang telinganya."
       },
       "stumble": {
-        "definitionMs": "",
+        "definitionMs": "Kepergian atau kehilangan keseimbangan saat berjalan; untuk membuat kesalahan saat berbicara atau melakukan sesuatu.",
         "exampleMs": "Dia tersandung di trotoar yang tidak rata."
       },
       "subtle": {
-        "definitionMs": "",
+        "definitionMs": "Tidak jelas atau mudah diperhatikan, tetapi penting atau efektif.",
         "exampleMs": "Ada perubahan halus dalam ekspresinya."
       },
       "successful": {
-        "definitionMs": "",
+        "definitionMs": "Mengalahkan hasil yang diinginkan.",
         "exampleMs": "Acara ini berhasil."
       },
       "suggest": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menawarkan ide atau rencana bagi seseorang untuk mempertimbangkan.",
         "exampleMs": "Saranku istirahat sebentar."
       },
       "sulk": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tetap diam dan tidak senang karena Anda merasa kesal atau kecewa.",
         "exampleMs": "Ia merajuk setelah sarannya ditolak."
       },
       "summary": {
-        "definitionMs": "",
+        "definitionMs": "pernyataan singkat dari poin utama.",
         "exampleMs": "Bisakah kau memberiku ringkasan singkat?"
       },
       "support": {
-        "definitionMs": "",
+        "definitionMs": "Bantuan, anjuran, atau bantuan; untuk membantu seseorang atau sesuatu.",
         "exampleMs": "Terima kasih atas dukunganmu."
       },
       "supportive": {
-        "definitionMs": "",
+        "definitionMs": "Pemberian anjuran, bantuan, atau pengertian.",
         "exampleMs": "Para rekan kerja saya mendukung ketika saya berubah peran."
       },
       "surge": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak atau bangkit tiba-tiba dan kuat; peningkatan mendadak atau perasaan kuat.",
         "exampleMs": "Sebuah gelombang lega dicuci di atasnya."
       },
       "syncretism": {
-        "definitionMs": "",
+        "definitionMs": "Campuran beda kepercayaan, tradisi, atau sistem menjadi suatu bentuk gabungan.",
         "exampleMs": "Sejarahwan itu menelusuri sinkretisme dalam praktik keagamaan wilayah."
       },
       "synecdoche": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah kiasan di mana bagian mewakili keseluruhan atau keseluruhan mewakili bagian.",
         "exampleMs": "\\\"All hands on deck\\\" menggunakan synecdoche dengan menamai tangan untuk pelaut."
       },
       "tap": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyentuh sesuatu yang ringan, sering dengan jari atau benda kecil.",
         "exampleMs": "Dia menekan bahunya untuk mendapatkan perhatiannya."
       },
       "taphonomy": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian tentang bagaimana organisme membusuk dan menjadi fosil atau tidak diawetkan.",
         "exampleMs": "Cafonomy membantu menjelaskan mengapa beberapa tulang bertahan hidup sementara yang lain menghilang."
       },
       "taxonomy": {
-        "definitionMs": "",
+        "definitionMs": "Sistem untuk penamaan dan mengklasifikasikan hal-hal ke dalam kelompok terorganisir.",
         "exampleMs": "Tim tersebut merevisi taksonomi yang digunakan untuk mengkategorikan spesimen tersebut."
       },
       "telemetry": {
-        "definitionMs": "",
+        "definitionMs": "Pengumpulan otomatis dan transmisi pengukuran dari lokasi atau perangkat yang jauh.",
         "exampleMs": "Telemetry membantu insinyur memonitor satelit setelah peluncuran."
       },
       "teleology": {
-        "definitionMs": "",
+        "definitionMs": "Penjelasan tentang fenomena dalam hal tujuan, tujuan, atau tujuan.",
         "exampleMs": "Filsuf filsuf tersebut mempertanyakan apakah akun tersebut mengandalkan teleologi."
       },
       "temporary": {
-        "definitionMs": "",
+        "definitionMs": "Terakhir untuk waktu yang terbatas, bukan permanen.",
         "exampleMs": "Ini hanya solusi sementara."
       },
       "tense": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi ketat atau cemas; ketat, gugup, atau tegang.",
         "exampleMs": "rahangnya tegang saat ia mendengarkan argumen."
       },
       "tessellation": {
-        "definitionMs": "",
+        "definitionMs": "Pola bentuk yang menutupi permukaan tanpa celah atau tumpang tindih.",
         "exampleMs": "Perancangnya membangun sebuah tessellasi dari poligon berulang."
       },
       "thanatology": {
-        "definitionMs": "",
+        "definitionMs": "Studi zodok tentang kematian, kematian, dan proses sosial atau psikologis yang berkaitan.",
         "exampleMs": "Mata kuliah ini memperkenalkan tanatologi melalui studi kasus budaya."
       },
       "therefore": {
-        "definitionMs": "",
+        "definitionMs": "Karena alasan itu; sebagai hasilnya.",
         "exampleMs": "Karena itu, kami mengambil rute lain."
       },
       "thermodynamics": {
-        "definitionMs": "",
+        "definitionMs": "Cabang fisika yang berkaitan dengan panas, pekerjaan, energi, dan transformasi mereka.",
         "exampleMs": "Efisiensi mesinnya dianalisis menggunakan termodinamika."
       },
       "thoughtful": {
-        "definitionMs": "",
+        "definitionMs": "Dia menunjukkan kepedulian dengan mempertimbangkan orang lain atau berpikir dengan hati - hati.",
         "exampleMs": "Kau sangat bijaksana mengingat ulang tahunku."
       },
       "throughout": {
-        "definitionMs": "",
+        "definitionMs": "Di setiap bagian dari suatu tempat atau selama seluruh periode.",
         "exampleMs": "Hujan turun sepanjang malam."
       },
       "timid": {
-        "definitionMs": "",
+        "definitionMs": "Malu, gugup, atau kurang percaya diri, terutama di sekitar orang lain.",
         "exampleMs": "Anak pemalu itu tinggal dekat dengan ayahnya."
       },
       "timing": {
-        "definitionMs": "",
+        "definitionMs": "Pilihan atau pengukuran dari ketika sesuatu terjadi.",
         "exampleMs": "Waktu lelucon itu sempurna."
       },
       "tolerant": {
-        "definitionMs": "",
+        "definitionMs": "Dia rela menerima perbedaan atau menanggung sesuatu yang tidak menyenangkan.",
         "exampleMs": "Tim kami bertoleransi dengan gaya kerja yang berbeda."
       },
       "toponymy": {
-        "definitionMs": "",
+        "definitionMs": "Studi zodiak tentang nama tempat, termasuk asal usul dan makna mereka.",
         "exampleMs": "Bahasa Toponymy mengungkapkan bagaimana bahasa di wilayah itu berubah seiring waktu."
       },
       "transdisciplinary": {
-        "definitionMs": "",
+        "definitionMs": "Pengetahuan dan metode gabungan untuk mengatasi masalah yang melebihi satu bidang.",
         "exampleMs": "Proyek tersebut mengambil pendekatan transdisipliner untuk pengelolaan air perkotaan."
       },
       "transduction": {
-        "definitionMs": "",
+        "definitionMs": "Konversi satu bentuk sinyal atau energi ke dalam bentuk lain; dalam biologi, transfer bahan genetik oleh virus.",
         "exampleMs": "Tersensor melakukan transduksi dengan mengubah tekanan menjadi sinyal listrik."
       },
       "tremble": {
-        "definitionMs": "",
+        "definitionMs": "Untuk sedikit gemetar, sering kali karena takut, dingin, marah, atau emosi yang kuat.",
         "exampleMs": "Tangannya gemetar saat ia membuka surat."
       },
       "triangulation": {
-        "definitionMs": "",
+        "definitionMs": "Penggunaan berbagai pengukuran, metode, sumber, atau sudut pandang untuk menetapkan posisi atau memperkuat kesimpulan.",
         "exampleMs": "Tim ini menggunakan triangulasi dengan membandingkan wawancara, catatan, dan pengamatan."
       },
       "trophic": {
-        "definitionMs": "",
+        "definitionMs": "Beralih ke makanan, gizi, atau posisi organisme dalam rantai makanan.",
         "exampleMs": "Konsentrasi polutan meningkat pada tingkat trofik yang lebih tinggi."
       },
       "trust": {
-        "definitionMs": "",
+        "definitionMs": "Yakinlah bahwa seseorang jujur atau dapat dipercaya; percaya akan kejujuran seseorang.",
         "exampleMs": "Kepercayaan butuh waktu untuk membangun."
       },
       "turbidity": {
-        "definitionMs": "",
+        "definitionMs": "Kekakuan cairan akibat partikel yang ditangguhkan.",
         "exampleMs": "Hujan lebat yang turun membuat sungai ini menjadi kacau."
       },
       "typical": {
-        "definitionMs": "",
+        "definitionMs": "Memiliki sifat yang biasa dari seseorang, hal, atau situasi.",
         "exampleMs": "Itu adalah tanggapan yang khas darinya."
       },
       "ubiquitination": {
-        "definitionMs": "",
+        "definitionMs": "Lampiran dari ubiquitin ke protein, sering menandai atau mengatur nasibnya di dalam sel.",
         "exampleMs": "Ubiquitinasi membantu mengatur kerusakan protein."
       },
       "understand": {
-        "definitionMs": "",
-        "exampleMs": "Aku mengerti maksudmu."
+        "definitionMs": "Untuk mengetahui arti atau alasan untuk sesuatu.",
+        "exampleMs": "Saya mengerti maksudmu."
       },
       "understanding": {
-        "definitionMs": "",
+        "definitionMs": "Pengetahuan tentang sesuatu; menunjukkan simpati terhadap orang lain.",
         "exampleMs": "Kami mencapai pemahaman setelah berbicara."
       },
       "uneasy": {
-        "definitionMs": "",
+        "definitionMs": "Khawatir atau tidak nyaman karena sesuatu tidak terasa benar.",
         "exampleMs": "Dia merasa tidak nyaman berjalan di jalan kosong."
       },
       "unexpected": {
-        "definitionMs": "",
+        "definitionMs": "Tidak diperkirakan atau diperkirakan.",
         "exampleMs": "Panggilan yang tak terduga mengubah rencana kami."
       },
       "unfortunately": {
-        "definitionMs": "",
+        "definitionMs": "Digunakan ketika memperkenalkan sesuatu yang mengecewakan atau tidak beruntung.",
         "exampleMs": "Sayangnya, bus terakhir sudah pergi."
       },
       "unless": {
-        "definitionMs": "",
+        "definitionMs": "Kecuali jika; digunakan untuk menggambarkan kondisi.",
         "exampleMs": "Kita akan ketinggalan bus kecuali kita pergi sekarang."
       },
       "update": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau berikan aku kabar terbaru tentang perbaikannya?"
+        "definitionMs": "Informasi terbaru, untuk membuat sesuatu yang terkini.",
+        "exampleMs": "Dapat kau berikan saya kabar terbaru tentang perbaikannya?"
       },
       "upset": {
-        "definitionMs": "",
-        "exampleMs": "Aku kesal dengan perubahan mendadak."
+        "definitionMs": "Tidak bahagia, khawatir, atau terganggu secara emosi; membuat seseorang merasa seperti itu.",
+        "exampleMs": "Saya kesal dengan perubahan mendadak."
       },
       "urgent": {
-        "definitionMs": "",
+        "definitionMs": "Perlu perhatian atau tindakan segera.",
         "exampleMs": "Email ini mendesak, jadi tolong baca dulu."
       },
       "useful": {
-        "definitionMs": "",
+        "definitionMs": "Membantu Anda melakukan atau mencapai sesuatu; praktis.",
         "exampleMs": "Situs web ini berguna untuk mempelajari kosakata."
       },
       "usual": {
-        "definitionMs": "",
+        "definitionMs": "Normal atau sering terjadi.",
         "exampleMs": "Saya mengambil rute biasa saya untuk bekerja."
       },
       "usufruct": {
-        "definitionMs": "",
+        "definitionMs": "Hak hukum untuk menggunakan dan memperoleh manfaat dari properti milik orang lain, tunduk pada batas yang ditentukan.",
         "exampleMs": "Perjanjian itu diberikan usufruct selama kebun selama sepuluh tahun."
       },
       "vague": {
-        "definitionMs": "",
+        "definitionMs": "Tidak jelas atau cukup spesifik untuk memahami sepenuhnya.",
         "exampleMs": "Instruksi itu terlalu samar untuk diikuti."
       },
       "validate": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa membenarkan perasaannya tanpa setuju dengan setiap pilihan."
+        "definitionMs": "Untuk mengenali bahwa perasaan atau pengalaman itu nyata atau dapat dimengerti.",
+        "exampleMs": "Kau dapat membenarkan perasaannya tanpa setuju dengan setiap pilihan."
       },
       "valuable": {
-        "definitionMs": "",
+        "definitionMs": "Worth banyak, atau sangat berguna dan penting.",
         "exampleMs": "Umpan balikmu sangat berharga bagi kami."
       },
       "value": {
-        "definitionMs": "",
-        "exampleMs": "Aku menghargai pendapat jujurmu."
+        "definitionMs": "Kepentingan, kegunaan, atau harga sesuatu; untuk mempertimbangkan hal yang penting.",
+        "exampleMs": "Saya menghargai pendapat jujurmu."
       },
       "variography": {
-        "definitionMs": "",
+        "definitionMs": "Analisis ilmu analisis variasi spasial menggunakan variogram, terutama dalam geostatistik.",
         "exampleMs": "Variografi membantu memperkirakan bagaimana sifat tanah berubah di seluruh situs."
       },
       "various": {
-        "definitionMs": "",
+        "definitionMs": "Beberapa jenis yang berbeda.",
         "exampleMs": "Mata kuliah ini membahas berbagai topik."
       },
       "vectorization": {
-        "definitionMs": "",
+        "definitionMs": "Pengubahan data atau operasi menjadi vektor, atau penggunaan perwakilan berbasis vektor.",
         "exampleMs": "Vektorisasi memungkinkan program untuk memproses banyak nilai sekaligus."
       },
       "verisimilitude": {
-        "definitionMs": "",
-        "exampleMs": "Pencahayaan dan suara yang hati-hati membuat pemandangan menjadi lebih jelas."
+        "definitionMs": "Sifat yang tampaknya realistis atau nyata bagi kehidupan.",
+        "exampleMs": "Pencahayaan dan suara yang cermat membuat pemandangan menjadi lebih nyata."
       },
       "version": {
-        "definitionMs": "",
-        "exampleMs": "Tolong kirimkan aku versi terbaru dari berkas ini."
+        "definitionMs": "Bentuk tertentu dari sesuatu yang berbeda dari yang lain.",
+        "exampleMs": "Tolong kirimkan versi terbaru dari berkas ini."
       },
       "volumetric": {
-        "definitionMs": "",
+        "definitionMs": "Berulang ke volume atau pengukuran tiga dimensi.",
         "exampleMs": "Para seniman menggunakan pencahayaan volumetrik untuk membuat kabut terlihat di tempat kejadian."
       },
       "vulnerable": {
-        "definitionMs": "",
+        "definitionMs": "Keterbukaan untuk terluka secara fisik atau emosi; terkena risiko.",
         "exampleMs": "Dia merasa rentan berbagi cerita pribadi seperti itu."
       },
       "wave": {
-        "definitionMs": "",
+        "definitionMs": "Andika untuk menggerakkan tangan Anda untuk menyapa seseorang, menarik perhatian, atau mengucapkan selamat tinggal.",
         "exampleMs": "Dia melambai dari jendela kereta."
       },
       "waver": {
-        "definitionMs": "",
+        "definitionMs": "Kekekalan atau ketidakpastian; melemahkan keyakinan atau tekad.",
         "exampleMs": "Suaranya goyah saat ia mencoba menyelesaikan pidato."
       },
       "weakness": {
-        "definitionMs": "",
-        "exampleMs": "Semua orang punya kelemahan yang bisa mereka kerjakan."
+        "definitionMs": "Kekurangan kekuatan atau kualitas yang membutuhkan perbaikan.",
+        "exampleMs": "Semua orang punya kelemahan yang dapat mereka kerjakan."
       },
       "whereas": {
-        "definitionMs": "",
+        "definitionMs": "Sebagai kontras; digunakan untuk membandingkan perbedaan.",
         "exampleMs": "Saya lebih suka teh, sedangkan kakak saya lebih suka kopi."
       },
       "whether": {
-        "definitionMs": "",
-        "exampleMs": "Aku tidak tahu apakah dia akan datang."
+        "definitionMs": "Bahasa barat digunakan untuk memperkenalkan alternatif atau ketidakpastian ekspres.",
+        "exampleMs": "Saya tidak tahu apakah dia akan datang."
       },
       "whisper": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berbicara sangat tenang, menggunakan napas daripada suara normal.",
         "exampleMs": "Mereka berbisik agar mereka tidak membangunkan bayinya."
       },
       "willing": {
-        "definitionMs": "",
+        "definitionMs": "Siap atau senang melakukan sesuatu.",
         "exampleMs": "Kau mau membantuku berlatih?"
       },
       "wince": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat ekspresi atau gerakan singkat menunjukkan rasa sakit, rasa malu, atau ketidaknyamanan.",
         "exampleMs": "Dia mengedipkan mata ketika dokter menyentuh memar."
       },
       "withdraw": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menghapus, mengambil kembali, atau menjauh dari sesuatu.",
         "exampleMs": "Dia memutuskan untuk menarik kembali aplikasinya."
       },
       "within": {
-        "definitionMs": "",
+        "definitionMs": "Di dalam daerah tertentu, batas, atau jangka waktu.",
         "exampleMs": "Sila balas dalam dua hari."
       },
       "wonder": {
-        "definitionMs": "",
-        "exampleMs": "Aku ingin tahu jam berapa toko tutup."
+        "definitionMs": "Saya ingin tahu sesuatu atau memikirkannya dengan penuh rasa ingin tahu; perasaan takjub.",
+        "exampleMs": "Saya ingin tahu jam berapa toko tutup."
       },
       "wonderful": {
-        "definitionMs": "",
+        "definitionMs": "Sangat baik, menyenangkan, atau menyenangkan.",
         "exampleMs": "Kami bersenang-senang bersama."
       },
       "workload": {
-        "definitionMs": "",
+        "definitionMs": "Jumlah pekerjaan seseorang atau tim harus dilakukan.",
         "exampleMs": "beban kerjaku lebih berat minggu ini."
       },
       "worth": {
-        "definitionMs": "",
+        "definitionMs": "Karena memiliki nilai atau layak mendapat tindakan tertentu.",
         "exampleMs": "Buku ini layak dibaca."
       },
       "worthwhile": {
-        "definitionMs": "",
+        "definitionMs": "Worth waktu, usaha, atau uang dihabiskan.",
         "exampleMs": "Kursus itu menantang tetapi bermanfaat."
       },
       "x-axis": {
-        "definitionMs": "",
+        "definitionMs": "sumbu acuan horizontal pada sistem koordinat dua dimensi standar.",
         "exampleMs": "Waktu diplot sepanjang sumbu x dan suhu sepanjang sumbu y."
       },
       "xenobiology": {
-        "definitionMs": "",
+        "definitionMs": "Studi fabiografi tentang sistem biologi yang bersifat hipotetis atau non-Bumi-seperti dan bentuk kehidupan alternatif.",
         "exampleMs": "Kelompok penelitian ini membahas xenobiologi dalam kaitannya dengan astrobiologi."
       },
       "xenobiotic": {
-        "definitionMs": "",
+        "definitionMs": "Zat kimia kimia asing bagi organisme hidup atau sistem biologis.",
         "exampleMs": "Liver mengmetabolisme banyak senyawa xenobiotik."
       },
       "xenogenesis": {
-        "definitionMs": "",
+        "definitionMs": "Produksi keturunan atau organisme yang ditandai tidak seperti induknya; dalam konteks modern, penggunaan dispesialisasi dan bervariasi oleh bidang.",
         "exampleMs": "Teks historis yang digunakan xenogenesis untuk menggambarkan teori reproduksi yang tidak biasa."
       },
       "xenograft": {
-        "definitionMs": "",
+        "definitionMs": "tisu atau organ graft dipindahkan antara individu dari spesies yang berbeda.",
         "exampleMs": "Para peneliti itu memonitor respon imun terhadap xenografft."
       },
       "xenolith": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah fragmen batu tertutup dalam jenis batu yang berbeda.",
         "exampleMs": "Ahli geologi tersebut mempelajari sebuah mantel xenolith yang dibawa ke permukaan oleh aktivitas vulkanik."
       },
       "xenotransplantation": {
-        "definitionMs": "",
+        "definitionMs": "Transplantasi sel hidup, jaringan, atau organ tubuh dari satu spesies ke spesies lain.",
         "exampleMs": "Penelitian Xenotransplantasi memeriksa baik fungsi organ maupun penolakan imun."
       },
       "xerophyte": {
-        "definitionMs": "",
+        "definitionMs": "Tanaman yang beradaptasi untuk bertahan hidup di lingkungan dengan sedikit air yang tersedia.",
         "exampleMs": "Arondisemen kaktus merupakan contoh yang familiar dari xerophyte."
       },
       "xerophytic": {
-        "definitionMs": "",
-        "exampleMs": "Wilayah lereng bukit ini mendukung semak - semak xerophytic."
+        "definitionMs": "Diadaptasi untuk tumbuh di lingkungan kering atau kondisi dengan air terbatas.",
+        "exampleMs": "Wilayah lereng bukit mendukung semak - semak xerophytic."
       },
       "xylem": {
-        "definitionMs": "",
+        "definitionMs": "Jaringan tumbuhan yang mengangkut air dan mineral terlarut dari akar ke bagian lain tanaman.",
         "exampleMs": "Xylem membawa air dari akar menuju daun."
       },
       "y-axis": {
-        "definitionMs": "",
+        "definitionMs": "Paksi referensi vertikal pada sistem koordinat dua dimensi standar.",
         "exampleMs": "Paksi y-axis graf graf ini menunjukkan konsentrasi yang diukur."
       },
       "yardstick": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah standar atau kriteria yang digunakan untuk mengevaluasi atau membandingkan sesuatu.",
         "exampleMs": "Retensi customer antri menjadi pijakan utama untuk mengevaluasi pelayanan."
       },
       "yearn": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menginginkan sesuatu yang sangat, terutama sesuatu yang sulit dicapai.",
         "exampleMs": "Dia ingin melihat laut lagi."
       },
       "yeoman": {
-        "definitionMs": "",
+        "definitionMs": "Secara historis, seorang petani pemilik tanah kecil atau orang dengan pangkat tertentu di angkatan laut Inggris; kadang - kadang digunakan secara kiasan untuk pekerjaan keras yang dapat diandalkan.",
         "exampleMs": "Sejarawan itu memeriksa bagaimana para petani yeoman membentuk ekonomi pedesaan."
       },
       "yet": {
-        "definitionMs": "",
+        "definitionMs": "Sampai sekarang; meskipun demikian; atau pada waktu di masa depan.",
         "exampleMs": "Apa kau sudah menyelesaikan pekerjaanmu?"
       },
       "yield": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberi jalan atau berhenti melawan; untuk menghasilkan atau memberikan hasil.",
         "exampleMs": "Akhirnya dia menyerah setelah diskusi panjang."
       },
       "yielding": {
-        "definitionMs": "",
+        "definitionMs": "Memberikan cara di bawah tekanan atau menghasilkan hasil, tergantung konteks.",
         "exampleMs": "Tidak lama kemudian, material yang dihasilkan itu cacat tanpa segera goyah."
       },
       "yottabyte": {
-        "definitionMs": "",
+        "definitionMs": "Satuan informasi digital yang sangat besar sama dengan 1024 byte dalam sistem SI desimal.",
         "exampleMs": "Artikel ini menggunakan yottabyte untuk menggambarkan skala penyimpanan data global yang hipotetis."
       },
       "yottameter": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah unit metrik yang sama dengan 1024 meter.",
         "exampleMs": "Yottameter ini jauh lebih besar dari jarak yang biasanya digunakan untuk menggambarkan sistem astronomi."
       },
       "zeitgeist": {
-        "definitionMs": "",
+        "definitionMs": "Ide, sikap, dan suasana hati dari suatu periode tertentu.",
         "exampleMs": "Pameran ini menangkap zeitgeist era digital awal."
       },
       "zeugma": {
-        "definitionMs": "",
-        "exampleMs": "kalimat yang menggunakan zeugma dengan menghubungkan satu kata kerja dengan objek fisik maupun emosi."
+        "definitionMs": "Seorang tokoh berbicara di mana satu kata mengatur atau berhubungan dengan dua orang lain dalam indra yang berbeda.",
+        "exampleMs": "ayat yang digunakan zeugma dengan menghubungkan satu kata kerja kepada objek fisik maupun emosi."
       },
       "zeugmatic": {
-        "definitionMs": "",
-        "exampleMs": "Kritikus gnoris menggambarkan kalimat tersebut sebagai zeugmatic karena kata kerja yang diterapkan berbeda pada setiap objek."
+        "definitionMs": "Memuaskan kembali ke zeugma, tokoh retorika di mana satu kata menghubungkan ke dua lainnya dalam indra yang berbeda.",
+        "exampleMs": "Kritikus gnoris menggambarkan ayat tersebut sebagai zeugmatic karena kata kerja yang diterapkan berbeda pada setiap objek."
       },
       "zoogeography": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian vadiosis tentang distribusi geografis spesies hewan.",
         "exampleMs": "Zoogeography membantu menjelaskan mengapa spesies terkait terjadi di pulau yang terpisah."
       },
       "zoological": {
-        "definitionMs": "",
+        "definitionMs": "Berlaku pada studi ilmiah hewan.",
         "exampleMs": "Museum ini disusun oleh klasifikasi zoologi."
       },
       "zoonosis": {
-        "definitionMs": "",
+        "definitionMs": "Penyakit menular yang dapat menular secara alami antara hewan dan manusia.",
         "exampleMs": "Tim kesehatan publik ."
       },
       "zoonotic": {
-        "definitionMs": "",
+        "definitionMs": "Berlawanan dengan penyakit yang dapat menular antara hewan dan manusia.",
         "exampleMs": "Para peneliti zoonotik memonitor transmisi di antarmuka satwa liar."
       },
       "zoonotic spillover": {
-        "definitionMs": "",
+        "definitionMs": "Transmisi patogen dari inang hewan menjadi populasi manusia.",
         "exampleMs": "Program pengawasan yang ditujukan untuk mendeteksi tumpahan zoonotik dini hari."
       },
       "zooplankton": {
-        "definitionMs": "",
+        "definitionMs": "Hewan kecil dan organisme mirip hewan yang hanyut di lingkungan akuatik.",
         "exampleMs": "Zooplankton biodata membentuk link penting dalam banyak web makanan akuatik."
       },
       "zygomorphic": {
-        "definitionMs": "",
+        "definitionMs": "Karena memiliki simetri bilateral, maka suatu organisme atau struktur dapat dibagi menjadi bagian serupa dalam satu pesawat saja.",
         "exampleMs": "Ahli botani itu mengidentifikasi bunga itu sebagai zigomorfik."
       },
       "zygosity": {
-        "definitionMs": "",
+        "definitionMs": "Gelar yang sesuai dengan materi genetik identik atau berbeda, terutama pada alel kembar atau berpasangan.",
         "exampleMs": "Para peneliti itu menilai zigositas sebelum membandingkan sifat si kembar."
       },
       "zygotic": {
-        "definitionMs": "",
+        "definitionMs": "Berulang ke zigot, sel terbentuk ketika dua gamet menyatu.",
         "exampleMs": "Diatas kertas membandingkan perkembangan zigot di beberapa spesies."
       },
       "zymogen": {
-        "definitionMs": "",
+        "definitionMs": "Prekursor tidak aktif yang dapat diubah menjadi enzim aktif.",
         "exampleMs": "Pepsinogen adalah zymogen yang diaktifkan di perut."
       },
       "zymology": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian ilmiah fermentasi.",
         "exampleMs": "Zolimologi memberi tahu pengontrol proses pembuatan bir."
       },
       "zymurgy": {
-        "definitionMs": "",
+        "definitionMs": "Cabang kimia terapan yang berkaitan dengan fermentasi, terutama dalam pembuatan bir dan pembuatan anggur.",
         "exampleMs": "Jalur itu meliputi zymurgy dan pengendalian kondisi fermentasi."
       },
       "hello": {
-        "definitionMs": "",
+        "definitionMs": "Salam yang digunakan sewaktu bertemu atau berbicara kepada seseorang. Kata benda dapat mengacu pada tindakan atau bunyi salam seseorang.",
         "exampleMs": "Halo! Senang bertemu denganmu."
       },
       "goodbye": {
-        "definitionMs": "",
+        "definitionMs": "Kata yang digunakan ketika meninggalkan seseorang atau mengakhiri percakapan; sebagai kata benda, tindakan berpisah.",
         "exampleMs": "Selamat tinggal! Sampai jumpa besok."
       },
       "thank": {
-        "definitionMs": "",
-        "exampleMs": "Aku ingin berterima kasih atas bantuanmu."
+        "definitionMs": "Untuk memberitahu seseorang bahwa Anda bersyukur atas sesuatu yang telah mereka lakukan atau diberikan.",
+        "exampleMs": "Saya ingin berterima kasih atas bantuanmu."
       },
       "please": {
-        "definitionMs": "",
+        "definitionMs": "Dipakai dalam permintaan untuk membuat mereka lebih sopan; sebagai kata kerja, untuk membuat seseorang bahagia atau puas.",
         "exampleMs": "Tolong tutup pintunya."
       },
       "sorry": {
-        "definitionMs": "",
-        "exampleMs": "Maaf aku terlambat."
+        "definitionMs": "Merasa menyesal atau sedih; juga digunakan untuk meminta maaf atau sopan menunjukkan simpati.",
+        "exampleMs": "Maaf saya terlambat."
       },
       "welcome": {
-        "definitionMs": "",
+        "definitionMs": "Dipakai untuk menyapa seseorang; dengan senang hati diterima; untuk menyapa atau menerima seseorang dengan hangat; atau salam yang diberikan kepada kedatangan baru.",
         "exampleMs": "Selamat datang di rumah kami!"
       },
       "yes": {
-        "definitionMs": "",
-        "exampleMs": "Ya, aku ingin minum."
+        "definitionMs": "Dipakai untuk memberikan jawaban afirmatif atau menunjukkan persetujuan; sebagai kata benda, jawaban afirmatif.",
+        "exampleMs": "Ya, saya ingin minum."
       },
       "no": {
-        "definitionMs": "",
-        "exampleMs": "Tidak, aku tidak butuh tas."
+        "definitionMs": "Ia digunakan untuk memberikan jawaban negatif atau menunjukkan bahwa sesuatu tidak diperbolehkan; sebagai kata benda, jawaban negatif atau pemungutan suara.",
+        "exampleMs": "Tidak, saya tidak butuh tas."
       },
       "right": {
-        "definitionMs": "",
+        "definitionMs": "Diamond benar atau cocok; di sisi kiri berlawanan; tepat atau segera; sebuah hak moral atau hukum; juga digunakan untuk mengkonfirmasi atau memperbaiki sesuatu.",
         "exampleMs": "Jawabanmu benar."
       },
       "light": {
-        "definitionMs": "",
+        "definitionMs": "Kecerahan yang memungkinkan Anda untuk melihat; sesuatu yang menghasilkan cahaya; tidak berat; pucat dalam warna; atau membuat sesuatu mulai terbakar atau menjadi diterangi.",
         "exampleMs": "Tolong nyalakan lampunya."
       },
       "book": {
-        "definitionMs": "",
-        "exampleMs": "Aku meminjam buku dari perpustakaan."
+        "definitionMs": "Satu set halaman yang ditulis atau dicetak bergabung; juga, untuk menyimpan tempat, tiket, atau dinas di muka.",
+        "exampleMs": "Saya meminjam buku dari perpustakaan."
       },
       "home": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan pulang setelah bekerja."
+        "definitionMs": "Tempat di mana seseorang tinggal; ke atau di tempat seseorang tinggal; atau berhubungan dengan rumah tangga atau negara seseorang.",
+        "exampleMs": "Saya akan pulang setelah bekerja."
       },
       "watch": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat sesuatu untuk jangka waktu tertentu; untuk memperhatikan peristiwa; atau jam kecil yang dikenakan pada pergelangan tangan.",
         "exampleMs": "Kami menonton film semalam."
       },
       "play": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengambil bagian dalam permainan atau kegiatan yang menyenangkan; melakukan musik atau bertindak dalam pertunjukan; atau suatu kegiatan, permainan, atau pekerjaan teatrikal.",
         "exampleMs": "Anak-anak bermain di taman."
       },
       "get": {
-        "definitionMs": "",
-        "exampleMs": "Aku dapat pesan dari temanku."
+        "definitionMs": "Untuk menerima atau memperoleh sesuatu; untuk menjadi atau mencapai suatu keadaan; untuk memahami; atau tiba di suatu tempat.",
+        "exampleMs": "Saya dapat pesan dari temanku."
       },
       "take": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membawa atau memindahkan sesuatu; untuk menerima atau menggunakan sesuatu; untuk membutuhkan waktu; atau untuk melakukan perjalanan dengan bentuk pengangkutan.",
         "exampleMs": "Tolong bawa tas ini ke atas."
       },
       "make": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menciptakan atau menghasilkan sesuatu; untuk menimbulkan suatu hasil atau perasaan; atau untuk memaksa atau memerlukan seseorang untuk melakukan sesuatu.",
         "exampleMs": "Dia membuat kartu ulang tahun."
       },
       "run": {
-        "definitionMs": "",
-        "exampleMs": "Aku berlari di taman setiap pagi."
+        "definitionMs": "Untuk bergerak cepat dengan berjalan kaki; untuk mengelola atau mengoperasikan sesuatu; untuk berfungsi; atau periode atau tindakan berjalan.",
+        "exampleMs": "Saya berlari di taman setiap pagi."
       },
       "set": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menempatkan sesuatu dalam posisi tertentu; untuk menetapkan atau memutuskan sesuatu; sekelompok hal; atau tetap dan siap.",
         "exampleMs": "Set cangkir di atas meja."
       },
       "change": {
-        "definitionMs": "",
-        "exampleMs": "Cuaca bisa berubah dengan cepat."
+        "definitionMs": "Untuk menjadi atau membuat sesuatu yang berbeda; untuk mengganti pakaian atau uang; atau perbedaan yang dihasilkan oleh perubahan.",
+        "exampleMs": "Cuaca dapat berubah dengan cepat."
       },
       "face": {
-        "definitionMs": "",
+        "definitionMs": "Bagian depan kepala seseorang; bagian depan atau permukaan sesuatu; atau untuk menghadapi situasi yang sulit.",
         "exampleMs": "Dia mencuci wajahnya."
       },
       "kind": {
-        "definitionMs": "",
+        "definitionMs": "Ia ramah, suka membantu, dan bertimbang rasa; atau jenis atau kategori sesuatu.",
         "exampleMs": "Kau baik sekali membantu."
       },
       "mean": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memiliki makna atau niat tertentu; untuk berniat melakukan sesuatu; atau tidak baik hati atau tidak menyenangkan.",
         "exampleMs": "Apa arti kata ini?"
       },
       "date": {
-        "definitionMs": "",
+        "definitionMs": "Hari tertentu pada kalender; pertemuan sosial atau romantis; buah manis kecil; atau untuk menulis atau menentukan kapan sesuatu terjadi.",
         "exampleMs": "Tanggal berapa hari ini?"
       },
       "miss": {
-        "definitionMs": "",
-        "exampleMs": "Aku ketinggalan bus."
+        "definitionMs": "Ia gagal meraih, menangkap, atau menghadiri sesuatu; merasa tidak adanya seseorang atau sesuatu; atau tidak menyadari atau memahami.",
+        "exampleMs": "Saya ketinggalan bus."
       },
       "go": {
-        "definitionMs": "",
-        "exampleMs": "Aku pergi bekerja dengan bus."
+        "definitionMs": "Kepindahan atau perjalanan dari satu tempat ke tempat lain; ke cuti; atau ke fungsi atau terjadi.",
+        "exampleMs": "Saya pergi bekerja dengan bus."
       },
       "come": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak ke arah pembicara atau tempat tertentu; untuk tiba; atau untuk terjadi.",
         "exampleMs": "Tolong kemari."
       },
       "give": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membiarkan seseorang memiliki sesuatu; untuk menyediakan atau menyajikan sesuatu; atau untuk menimbulkan hasilnya.",
         "exampleMs": "Tolong berikan kuncinya."
       },
       "keep": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa menyimpan pena ini."
+        "definitionMs": "Untuk terus memiliki sesuatu; untuk mempertahankan atau menyimpannya; atau untuk terus melakukan sesuatu.",
+        "exampleMs": "Kau dapat menyimpan pena ini."
       },
       "put": {
-        "definitionMs": "",
+        "definitionMs": "Kepindahan atau menempatkan sesuatu pada posisi tertentu; atau mengungkapkan sesuatu dengan kata-kata.",
         "exampleMs": "Letakkan cangkir di atas meja."
       },
       "turn": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak di sekitar sumbu atau mengubah arah; untuk menyebabkan sesuatu menghadapi cara lain; atau kesempatan untuk bertindak.",
         "exampleMs": "Belok kiri di jalan berikutnya."
       },
       "hold": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membawa atau menyimpan sesuatu di tangan Anda; untuk menjaga sesuatu dalam posisi; atau untuk menampung atau menampung.",
         "exampleMs": "Pegang tanganku."
       },
       "leave": {
-        "definitionMs": "",
-        "exampleMs": "Aku meninggalkan rumah jam 8."
+        "definitionMs": "Untuk pergi dari suatu tempat; untuk membiarkan sesuatu tetap; atau untuk memberikan sesuatu kepada seseorang setelah pergi.",
+        "exampleMs": "Saya meninggalkan rumah jam 8."
       },
       "call": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan meneleponmu malam ini."
+        "definitionMs": "Untuk berbicara dengan seseorang melalui telepon; untuk berteriak atau mengatakan sesuatu untuk menarik perhatian; atau untuk memberikan seseorang atau sesuatu nama.",
+        "exampleMs": "Saya akan meneleponmu malam ini."
       },
       "tell": {
-        "definitionMs": "",
+        "definitionMs": "Dan untuk memberikan informasi kepada seseorang; untuk mengajar seseorang; atau untuk mengenali atau membedakan sesuatu.",
         "exampleMs": "Katakan yang sebenarnya."
       },
       "ask": {
-        "definitionMs": "",
-        "exampleMs": "Boleh aku bertanya?"
+        "definitionMs": "Untuk mengajukan pertanyaan kepada seseorang; untuk meminta sesuatu; atau untuk mengundang seseorang untuk melakukan sesuatu.",
+        "exampleMs": "Boleh saya bertanya?"
       },
       "work": {
-        "definitionMs": "",
-        "exampleMs": "Aku bekerja di sebuah toko kecil."
+        "definitionMs": "Kekhalifahan untuk melakukan suatu pekerjaan atau kegiatan; beroperasi dengan benar; atau usaha atau kegiatan yang dilakukan untuk mencapai sesuatu.",
+        "exampleMs": "Saya bekerja di sebuah toko kecil."
       },
       "eat": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menaruh makanan di mulut, mengunyah, dan menelannya, atau untuk makan.",
         "exampleMs": "Kita makan malam jam 7."
       },
       "drink": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengambil cairan ke dalam mulut dan menelannya, atau cairan yang disiapkan untuk minum.",
         "exampleMs": "Tolong minum lebih banyak air."
       },
       "see": {
-        "definitionMs": "",
-        "exampleMs": "Aku bisa melihat pegunungan."
+        "definitionMs": "Kesaksian melihat sesuatu dengan mata Anda; untuk memahami; atau untuk bertemu atau mengunjungi seseorang.",
+        "exampleMs": "Saya dapat melihat pegunungan."
       },
       "look": {
-        "definitionMs": "",
+        "definitionMs": "Jangan memandang ke arah sesuatu; tampak; atau penampilan atau gaya seseorang.",
         "exampleMs": "Lihatlah langit."
       },
       "hear": {
-        "definitionMs": "",
-        "exampleMs": "Aku bisa mendengar musik di sebelah."
+        "definitionMs": "Kesaksian untuk memperhatikan suara dengan telinga; atau untuk menerima informasi dengan mendengarkan.",
+        "exampleMs": "Saya dapat mendengar musik di sebelah."
       },
       "feel": {
-        "definitionMs": "",
-        "exampleMs": "Aku merasa dingin."
+        "definitionMs": "Untuk merasakan sensasi fisik atau emosi; untuk merasakan sentuhan; atau kualitas atau kesan.",
+        "exampleMs": "Saya merasa dingin."
       },
       "think": {
-        "definitionMs": "",
-        "exampleMs": "Aku butuh waktu untuk berpikir."
+        "definitionMs": "Menggunakan pikiran Anda untuk mempertimbangkan sesuatu; memiliki pendapat atau kepercayaan.",
+        "exampleMs": "Saya butuh waktu untuk berpikir."
       },
       "know": {
-        "definitionMs": "",
-        "exampleMs": "Aku tahu jawabannya."
+        "definitionMs": "Untuk memiliki informasi atau pemahaman tentang sesuatu; atau untuk mengenal seseorang atau tempat.",
+        "exampleMs": "Saya tahu jawabannya."
       },
       "learn": {
-        "definitionMs": "",
-        "exampleMs": "Aku ingin belajar bahasa Inggris."
+        "definitionMs": "Untuk memperoleh pengetahuan atau keterampilan melalui pelajaran, praktek, atau pengalaman; atau untuk menemukan informasi.",
+        "exampleMs": "Saya ingin belajar bahasa Inggris."
       },
       "teach": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membantu seseorang belajar dengan menjelaskan, mendemonstrasikan, atau memberikan praktek.",
         "exampleMs": "Dia mengajar anak-anak untuk membaca."
       },
       "help": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa membantuku membawa ini?"
+        "definitionMs": "Untuk mempermudah sesuatu bagi seseorang atau memberikan dukungan; atau tindakan memberikan dukungan.",
+        "exampleMs": "Kau dapat membantuku membawa ini?"
       },
       "buy": {
-        "definitionMs": "",
-        "exampleMs": "Aku harus membeli roti."
+        "definitionMs": "Untuk mendapatkan sesuatu dengan membayar uang",
+        "exampleMs": "Saya harus membeli roti."
       },
       "sell": {
-        "definitionMs": "",
+        "definitionMs": "Saya akan memberikan sesuatu pada seseorang untuk ditukar dengan uang",
         "exampleMs": "Mereka menjual buah segar di pasar."
       },
       "pay": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan membayar makan siang hari ini."
+        "definitionMs": "Untuk memberikan uang untuk sesuatu atau untuk menyelesaikan utang",
+        "exampleMs": "Saya akan membayar makan siang hari ini."
       },
       "send": {
-        "definitionMs": "",
+        "definitionMs": "menyebabkan sesuatu untuk pergi ke orang lain atau tempat",
         "exampleMs": "Tolong kirimkan alamatnya."
       },
       "bring": {
-        "definitionMs": "",
+        "definitionMs": "♪ Untuk membawa seseorang atau sesuatu bersamamu ke suatu tempat ♪",
         "exampleMs": "Tolong bawa buku catatanmu besok."
       },
       "show": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membiarkan seseorang melihat sesuatu",
         "exampleMs": "Tunjukkan lukisanmu."
       },
       "move": {
-        "definitionMs": "",
+        "definitionMs": "Ke pindah posisi atau membuat sesuatu berubah posisi",
         "exampleMs": "Tolong pindahkan kursimu lebih dekat."
       },
       "stay": {
-        "definitionMs": "",
+        "definitionMs": "Kekekalan di tempat atau kondisi",
         "exampleMs": "Silakan tinggal di sini sebentar."
       },
       "start": {
-        "definitionMs": "",
+        "definitionMs": "Mulai melakukan sesuatu atau memulainya",
         "exampleMs": "Kelas dimulai jam sembilan."
       },
       "stop": {
-        "definitionMs": "",
+        "definitionMs": "UIN untuk mengakhiri kegiatan atau mencegah gerakan",
         "exampleMs": "Tolong berhenti bicara sebentar."
       },
       "open": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memindahkan sesuatu sehingga tidak lagi ditutup",
         "exampleMs": "Tolong buka jendelanya."
       },
       "close": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menutup sesuatu atau membuatnya tidak lagi terbuka",
         "exampleMs": "Tutup pintunya diam-diam."
       },
       "try": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan menghubungimu malam ini."
+        "definitionMs": "Untuk membuat upaya atau menguji apakah sesuatu bekerja",
+        "exampleMs": "Saya akan menghubungimu malam ini."
       },
       "use": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melakukan sesuatu dengan alat, objek, atau sumber",
         "exampleMs": "Boleh kugunakan pulpenmu?"
       },
       "need": {
-        "definitionMs": "",
-        "exampleMs": "Aku butuh lebih banyak waktu."
+        "definitionMs": "untuk kebutuhan sesuatu karena diperlukan",
+        "exampleMs": "Saya butuh lebih banyak waktu."
       },
       "want": {
-        "definitionMs": "",
-        "exampleMs": "Aku ingin segelas air."
+        "definitionMs": "Untuk berharap untuk memiliki atau melakukan sesuatu",
+        "exampleMs": "Saya ingin segelas air."
       },
       "like": {
-        "definitionMs": "",
-        "exampleMs": "Aku suka lagu ini."
+        "definitionMs": "Untuk menikmati sesuatu atau mirip dengan sesuatu",
+        "exampleMs": "Saya suka lagu ini."
       },
       "love": {
-        "definitionMs": "",
+        "definitionMs": "Untuk merasakan kasih sayang yang dalam atau kenikmatan yang kuat",
         "exampleMs": "Cinta mereka tumbuh seiring waktu."
       },
       "live": {
-        "definitionMs": "",
-        "exampleMs": "Aku tinggal dekat stasiun."
+        "definitionMs": "Di tempat atau tetap hidup",
+        "exampleMs": "Saya tinggal dekat stasiun."
       },
       "remember": {
-        "definitionMs": "",
-        "exampleMs": "Aku ingat namamu."
+        "definitionMs": "♪ Untuk mengingat sesuatu dalam pikiranmu atau mengingatnya ♪",
+        "exampleMs": "Saya ingat namamu."
       },
       "forget": {
-        "definitionMs": "",
-        "exampleMs": "Aku lupa nomor teleponnya."
+        "definitionMs": "Gagal mengingat sesuatu",
+        "exampleMs": "Saya lupa nomor teleponnya."
       },
       "wait": {
-        "definitionMs": "",
+        "definitionMs": "Nak tinggal sampai seseorang atau sesuatu tiba atau sesuatu terjadi",
         "exampleMs": "Tolong tunggu di sini."
       },
       "carry": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa bawa tas ini?"
+        "definitionMs": "♪ Untuk memegang atau memindahkan sesuatu sambil menopang beratnya ♪",
+        "exampleMs": "Kau dapat bawa tas ini?"
       },
       "cut": {
-        "definitionMs": "",
+        "definitionMs": "Ufine untuk membagi atau mengurangi sesuatu menggunakan alat tajam",
         "exampleMs": "Potong apel menjadi empat bagian."
       },
       "cook": {
-        "definitionMs": "",
-        "exampleMs": "Aku memasak makan malam setiap malam."
+        "definitionMs": "Untuk menyiapkan makanan menggunakan panas",
+        "exampleMs": "Saya memasak makan malam setiap malam."
       },
       "clean": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menghapus kotoran dari sesuatu",
         "exampleMs": "Tolong bersihkan mejanya."
       },
       "wash": {
-        "definitionMs": "",
+        "definitionMs": "Kebersihan sesuatu dengan air dan biasanya sabun",
         "exampleMs": "Cuci tanganmu sebelum makan."
       },
       "wear": {
-        "definitionMs": "",
+        "definitionMs": "Ada pakaian, perhiasan, atau aksesoris di tubuhmu",
         "exampleMs": "Dia memakai kemeja biru."
       },
       "drive": {
-        "definitionMs": "",
-        "exampleMs": "Aku mengemudi ke tempat kerja."
+        "definitionMs": "Untuk mengendalikan kendaraan dan membuatnya bergerak",
+        "exampleMs": "Saya mengemudi ke tempat kerja."
       },
       "ride": {
-        "definitionMs": "",
-        "exampleMs": "Dia bisa naik sepeda."
+        "definitionMs": "Melintasi atau mengendalikan sepeda, kuda, atau kendaraan lain",
+        "exampleMs": "Dia dapat naik sepeda."
       },
       "travel": {
-        "definitionMs": "",
+        "definitionMs": "Pergi dari satu tempat ke tempat lain, terutama melalui jarak",
         "exampleMs": "Mereka bepergian dengan kereta api."
       },
       "visit": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan mengunjungi kakek nenekku besok."
+        "definitionMs": "Untuk pergi melihat seseorang atau tempat untuk jangka waktu",
+        "exampleMs": "Saya akan mengunjungi kakek nenekku besok."
       },
       "speak": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengucapkan kata - kata dengan suara keras atau berkomunikasi menggunakan suara Anda.",
         "exampleMs": "Dia berbicara dengan jelas selama pertemuan."
       },
       "say": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengungkapkan sesuatu dengan kata-kata.",
         "exampleMs": "Apa katamu?"
       },
       "cry": {
-        "definitionMs": "",
+        "definitionMs": "Kekeringan untuk meneteskan air mata karena kesedihan, rasa sakit, atau emosi yang kuat.",
         "exampleMs": "Bayi itu mulai menangis."
       },
       "walk": {
-        "definitionMs": "",
-        "exampleMs": "Aku berjalan ke sekolah setiap hari."
+        "definitionMs": "Untuk maju menggunakan kaki Anda, satu demi satu.",
+        "exampleMs": "Saya berjalan ke sekolah setiap hari."
       },
       "jump": {
-        "definitionMs": "",
-        "exampleMs": "Anjing itu bisa melompat sangat tinggi."
+        "definitionMs": "Untuk mendorong diri Anda dari tanah dan ke udara.",
+        "exampleMs": "Anjing itu dapat melompat sangat tinggi."
       },
       "swim": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak melalui air menggunakan lengan dan kaki.",
         "exampleMs": "Mereka berenang di kolam renang pada akhir pekan."
       },
       "dance": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memindahkan tubuhmu tepat waktu dengan musik.",
         "exampleMs": "Mereka menari semalaman."
       },
       "sing": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat suara musik menggunakan suaramu.",
         "exampleMs": "Dia bernyanyi di paduan suara sekolah."
       },
       "smell": {
-        "definitionMs": "",
-        "exampleMs": "Aku bisa mencium bau roti segar."
+        "definitionMs": "Untuk memperhatikan rasa malu dengan hidung Anda; atau kualitas dari kesedihan.",
+        "exampleMs": "Saya dapat mencium bau roti segar."
       },
       "shout": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengatakan sesuatu dengan suara yang sangat keras.",
         "exampleMs": "Jangan berteriak di kelas."
       },
       "begin": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mulai melakukan sesuatu atau menjadi bagian pertama dari suatu peristiwa atau periode.",
         "exampleMs": "Kelas akan dimulai jam sembilan."
       },
       "finish": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyelesaikan sesuatu; bagian akhir atau akhir dari suatu kegiatan.",
         "exampleMs": "Tolong selesaikan PR kalian sebelum makan malam."
       },
       "plan": {
-        "definitionMs": "",
+        "definitionMs": "Ide atau pengaturan untuk apa yang ingin Anda lakukan, untuk memutuskan bagaimana sesuatu akan dilakukan.",
         "exampleMs": "Kami membuat rencana untuk akhir pekan."
       },
       "choose": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa memilih kursi manapun."
+        "definitionMs": "Untuk memutuskan orang mana atau hal yang Anda inginkan dari dua atau lebih kemungkinan.",
+        "exampleMs": "Kau dapat memilih kursi manapun."
       },
       "find": {
-        "definitionMs": "",
-        "exampleMs": "Aku tak bisa menemukan kunciku."
+        "definitionMs": "Untuk menemukan di mana sesuatu atau seseorang adalah; untuk menemukan atau berpikir sesuatu setelah melihat atau mempertimbangkan.",
+        "exampleMs": "Saya tak dapat menemukan kunciku."
       },
       "lose": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tidak lagi memiliki sesuatu, gagal menyimpannya, atau gagal memenangkan pertandingan atau kontes.",
         "exampleMs": "Hati-hati jangan kehilangan tiketmu."
       },
       "win": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi sukses dalam kompetisi atau perjuangan; kemenangan.",
         "exampleMs": "Kuharap tim kita akan menang."
       },
       "meet": {
-        "definitionMs": "",
-        "exampleMs": "Aku akan menemuimu di luar stasiun."
+        "definitionMs": "Untuk melihat dan menghabiskan waktu bersama seseorang, sering kali untuk pertama kalinya atau melalui pengaturan; untuk datang bersama-sama.",
+        "exampleMs": "Saya akan menemuimu di luar stasiun."
       },
       "follow": {
-        "definitionMs": "",
-        "exampleMs": "Tolong ikuti aku."
+        "definitionMs": "Untuk pergi atau mengejar seseorang atau sesuatu; untuk bertindak sesuai dengan petunjuk atau nasihat.",
+        "exampleMs": "Tolong ikuti saya."
       },
       "break": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memisahkan sesuatu menjadi potongan-potongan atau menghentikannya bekerja; istirahat singkat atau jeda.",
         "exampleMs": "Hati-hati jangan pecahkan kacanya."
       },
       "thanks": {
-        "definitionMs": "",
+        "definitionMs": "ungkapan sopan yang digunakan untuk menunjukkan rasa syukur.",
         "exampleMs": "Terima kasih sudah membantuku membawa tas ini."
       },
       "excuse me": {
-        "definitionMs": "",
-        "exampleMs": "Permisi, bisa kau beritahu di mana stasiunnya?"
+        "definitionMs": "Ungkapan sopan yang digunakan untuk mendapatkan perhatian, meminta maaf atas gangguan kecil, atau melewati seseorang.",
+        "exampleMs": "Permisi, dapat kau beritahu dimana stasiunnya?"
       },
       "good morning": {
-        "definitionMs": "",
+        "definitionMs": "Salam yang digunakan ketika bertemu seseorang di pagi hari.",
         "exampleMs": "Selamat pagi, semuanya. Kau siap untuk mulai?"
       },
       "good afternoon": {
-        "definitionMs": "",
+        "definitionMs": "Salam yang digunakan sewaktu bertemu dengan seseorang pada sore hari.",
         "exampleMs": "Selamat sore, Nn. Lee. Bagaimana kabarmu hari ini?"
       },
       "good evening": {
-        "definitionMs": "",
+        "definitionMs": "Salam yang digunakan sewaktu bertemu dengan seseorang pada malam hari.",
         "exampleMs": "Selamat malam, selamat datang di pertunjukan."
       },
       "take care": {
-        "definitionMs": "",
-        "exampleMs": "Jaga dirimu, dan aku berharap bertemu denganmu lagi segera."
+        "definitionMs": "Ungkapan ramah yang digunakan ketika mengucapkan selamat tinggal dan mengucapkan selamat tinggal kepada seseorang dengan baik.",
+        "exampleMs": "Jaga dirimu, dan saya berharap bertemu denganmu lagi segera."
       },
       "station": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana kereta api atau bus secara teratur berhenti untuk penumpang.",
         "exampleMs": "Kita akan bertemu di luar stasiun kereta api."
       },
       "market": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana orang membeli dan menjual makanan atau barang lain.",
         "exampleMs": "Ibu membeli sayuran segar di pasar."
       },
       "library": {
-        "definitionMs": "",
-        "exampleMs": "Aku meminjam dua buku dari perpustakaan."
+        "definitionMs": "Tempat dimana orang dapat membaca, meminjam, atau mempelajari buku dan bahan lainnya.",
+        "exampleMs": "Saya meminjam dua buku dari perpustakaan."
       },
       "hospital": {
-        "definitionMs": "",
+        "definitionMs": "Tempat dimana orang menerima perawatan dan perawatan medis.",
         "exampleMs": "Kakeknya tinggal di rumah sakit untuk perawatan."
       },
       "restaurant": {
-        "definitionMs": "",
+        "definitionMs": "Tempat dimana orang membayar untuk duduk dan makan makanan yang disediakan untuk mereka.",
         "exampleMs": "Kami memilih restoran kecil dekat sungai."
       },
       "museum": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana objek sejarah, artistik, atau minat ilmiah dipamerkan.",
         "exampleMs": "Museum ini memiliki pameran tentang sejarah lokal."
       },
       "entrance": {
-        "definitionMs": "",
-        "exampleMs": "Tolong tunggu aku di pintu masuk utama."
+        "definitionMs": "Pintu, gerbang, atau tempat yang dimasuki orang.",
+        "exampleMs": "Tolong tunggu saya di pintu masuk utama."
       },
       "exit": {
-        "definitionMs": "",
+        "definitionMs": "Pintu atau lorong yang digunakan untuk meninggalkan bangunan atau area.",
         "exampleMs": "Pintu keluar terdekat di samping lift."
       },
       "corner": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana dua jalan bertemu, atau titik di mana dua tepi atau sisi bertemu.",
         "exampleMs": "Belok kiri di sudut jalan."
       },
       "bridge": {
-        "definitionMs": "",
+        "definitionMs": "Struktur yang dibangun di atas sungai, jalan, atau rintangan lain sehingga orang dapat menyeberanginya.",
         "exampleMs": "Kami berjalan menyeberangi jembatan untuk mencapai taman."
       },
       "ticket": {
-        "definitionMs": "",
+        "definitionMs": "Side yang dicetak atau lulus digital yang memungkinkan seseorang untuk melakukan perjalanan atau memasuki suatu acara.",
         "exampleMs": "Simpan tiket keretamu sampai kau meninggalkan stasiun."
       },
       "platform": {
-        "definitionMs": "",
+        "definitionMs": "LAVES A mengangkat area di stasiun kereta api tempat penumpang naik atau meninggalkan kereta api.",
         "exampleMs": "Kereta ke kota berangkat dari peron tiga."
       },
       "adjust": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengubah sesuatu sedikit sehingga bekerja lebih baik, cocok lebih baik, atau sesuai dengan situasi baru.",
         "exampleMs": "Anda dapat menyesuaikan kursi untuk membuatnya lebih nyaman."
       },
       "advise": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberi seseorang saran atau informasi tentang apa yang harus mereka lakukan.",
         "exampleMs": "Dokter menyarankannya untuk beristirahat."
       },
       "agree": {
-        "definitionMs": "",
-        "exampleMs": "Aku setuju dengan idemu."
+        "definitionMs": "Untuk memiliki pendapat yang sama dengan seseorang, menerima saran, atau membuat keputusan bersama.",
+        "exampleMs": "Saya setuju dengan idemu."
       },
       "announce": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat informasi dikenal publik atau resmi.",
         "exampleMs": "Sekolah ini mengumumkan tanggal ujian."
       },
       "apply": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat permintaan formal untuk sesuatu; untuk menggunakan atau menempatkan sesuatu ke permukaan; atau untuk relevan dengan situasi.",
         "exampleMs": "Dia berencana melamar pekerjaan."
       },
       "attach": {
-        "definitionMs": "",
+        "definitionMs": "Ke puasa atau bergabung satu hal ke hal lain; untuk memasukkan berkas dengan pesan; atau untuk menghubungkan penting atau berarti untuk sesuatu.",
         "exampleMs": "Silakan lampirkan tanda terima ke formulir."
       },
       "breathe": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengambil udara ke paru-paru dan membiarkannya keluar lagi.",
         "exampleMs": "Ambil waktu sejenak untuk bernapas perlahan-lahan."
       },
       "calculate": {
-        "definitionMs": "",
+        "definitionMs": "Cara mencari jawaban atau jumlah dengan menggunakan matematika atau penalaran yang cermat.",
         "exampleMs": "Anda dapat menghitung total biaya?"
       },
       "cancel": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memutuskan bahwa suatu acara, pengaturan, ketertiban, atau pelayanan tidak akan terjadi atau berlanjut.",
         "exampleMs": "Mereka membatalkan pertandingan karena hujan lebat."
       },
       "celebrate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melakukan sesuatu yang menyenangkan atau istimewa untuk menunjukkan bahwa suatu peristiwa penting atau prestasi penting.",
         "exampleMs": "Kami merayakan ulang tahunnya di rumah."
       },
       "charge": {
-        "definitionMs": "",
+        "definitionMs": "Kekhalifahan meminta seseorang membayar uang; memasukkan energi listrik ke dalam baterai; menuduh seseorang secara resmi; atau jumlah uang atau tanggung jawab yang terlibat.",
         "exampleMs": "Hotel biaya tambahan untuk sarapan."
       },
       "chase": {
-        "definitionMs": "",
+        "definitionMs": "Tindakan mengikuti seseorang atau sesuatu untuk menangkap atau mencapai mereka.",
         "exampleMs": "Anjing mengejar bola melintasi taman."
       },
       "connect": {
-        "definitionMs": "",
+        "definitionMs": "Ke bergabung atau menghubungkan hal-hal bersama; untuk menjalin hubungan atau komunikasi; atau membentuk suatu asosiasi yang bermakna.",
         "exampleMs": "Apa?"
       },
       "continue": {
-        "definitionMs": "",
+        "definitionMs": "Untuk terus melakukan sesuatu atau terjadi untuk waktu yang lebih lama tanpa berhenti.",
         "exampleMs": "Sila lanjutkan pembacaan halaman berikutnya."
       },
       "control": {
-        "definitionMs": "",
+        "definitionMs": "Ke arah atau mengelola bagaimana sesuatu terjadi; untuk membatasi atau mengatur sesuatu; atau kekuatan untuk mengarahkan seseorang, proses, atau situasi.",
         "exampleMs": "Dia mengendalikan lampu dengan tombol."
       },
       "convince": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat seseorang percaya bahwa sesuatu itu benar atau membujuk mereka untuk melakukan sesuatu.",
         "exampleMs": "Dia meyakinkan saya bahwa rencana itu aman."
       },
       "copy": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat sesuatu yang sama dengan aslinya; untuk mereproduksi informasi; atau hal yang dibuat untuk melihat atau membaca seperti yang lain.",
         "exampleMs": "Tolong salin alamatnya ke buku catatanmu."
       },
       "correct": {
-        "definitionMs": "",
+        "definitionMs": "Ke kanan atau bebas dari kesalahan; atau untuk menemukan dan memperbaiki kesalahan.",
         "exampleMs": "Jawabanmu benar."
       },
       "damage": {
-        "definitionMs": "",
+        "definitionMs": "Kerugian fisik yang membuat sesuatu yang kurang berguna atau berharga; atau menimbulkan kerugian tersebut.",
         "exampleMs": "Badai itu menyebabkan kerusakan pada beberapa rumah."
       },
       "deliver": {
-        "definitionMs": "",
+        "definitionMs": "Kekhalifahan mengambil sesuatu kepada seseorang atau tempat; memberikan pidato atau pesan; atau menghasilkan hasil yang dijanjikan.",
         "exampleMs": "Toko belanja mengantarkan bahan makanan ke rumah kami."
       },
       "address": {
-        "definitionMs": "",
+        "definitionMs": "Rincian yang mengidentifikasi di mana seseorang tinggal atau di mana sesuatu berada; atau berbicara dengan seseorang atau berurusan dengan suatu masalah.",
         "exampleMs": "Tolong tulis alamat rumahmu di formulir."
       },
       "age": {
-        "definitionMs": "",
+        "definitionMs": "Panjang waktu seseorang atau benda telah ada; atau menjadi lebih tua dari waktu ke waktu.",
         "exampleMs": "Berapa usia bangunan ini?"
       },
       "amount": {
-        "definitionMs": "",
+        "definitionMs": "Kuantum atau total dari sesuatu; atau, dalam frasa \\\"hampir\\\", sama dengan atau memiliki efek dari sesuatu.",
         "exampleMs": "Kami menghabiskan sejumlah besar uang untuk perbaikan."
       },
       "area": {
-        "definitionMs": "",
+        "definitionMs": "Bagian tertentu dari suatu tempat, permukaan, atau subjek; atau ukuran permukaan yang diukur dalam satuan persegi.",
         "exampleMs": "Kawasan ini populer dengan wisatawan."
       },
       "article": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah tulisan dalam sebuah surat kabar, majalah, atau situs web; sebuah item atau objek; atau kata seperti \\\"a\\\", \\\"an\\\", atau \\\"the\\\" dalam tata bahasa.",
         "exampleMs": "Saya membaca artikel menarik tentang satwa liar."
       },
       "attention": {
-        "definitionMs": "",
+        "definitionMs": "Tindakan menonton, mendengarkan, atau memikirkan sesuatu; atau minat dan pemberitahuan yang diberikan kepada seseorang atau sesuatu.",
         "exampleMs": "Tolong perhatikan instruksinya."
       },
       "average": {
-        "definitionMs": "",
+        "definitionMs": "A tingkat atau jumlah tipikal; hasil penambahan beberapa angka dan membagi dengan berapa banyak yang ada; atau memiliki jumlah tertentu sebagai hasil biasa.",
         "exampleMs": "Skor rata-ratanya adalah delapan puluh persen."
       },
       "background": {
-        "definitionMs": "",
+        "definitionMs": "Bagian di belakang subjek utama; pendidikan, pengalaman, atau sejarah keluarga seseorang; atau kondisi-kondisi yang membantu menjelaskan suatu situasi.",
         "exampleMs": "Foto itu memiliki gunung di latar belakang."
       },
       "beginning": {
-        "definitionMs": "",
+        "definitionMs": "Titik di mana sesuatu dimulai, atau bagian pertama dari suatu peristiwa, periode, cerita, atau proses.",
         "exampleMs": "Kami hanya di awal proyek."
       },
       "bill": {
-        "definitionMs": "",
-        "exampleMs": "Bisa minta tagihannya?"
+        "definitionMs": "Pernyataan yang menunjukkan berapa banyak uang yang terutang; undang-undang yang diusulkan; nota bank; atau untuk mengirim seseorang permohonan pembayaran.",
+        "exampleMs": "Dapat minta tagihannya?"
       },
       "bit": {
-        "definitionMs": "",
+        "definitionMs": "A kecil sepotong atau sejumlah sesuatu; jangka pendek informal; atau unit informasi dalam komputasi.",
         "exampleMs": "Kau mau kue?"
       },
       "bottom": {
-        "definitionMs": "",
+        "definitionMs": "Bagian terendah dari sesuatu; permukaan atau sisi di bawahnya; atau posisi terendah dalam suatu peringkat atau daftar.",
         "exampleMs": "Sepatumu ada di bawah tangga."
       },
       "budget": {
-        "definitionMs": "",
+        "definitionMs": "Rencana untuk bagaimana uang akan diperoleh dan dihabiskan; jumlah uang yang tersedia untuk tujuan; atau untuk merencanakan pengeluaran dalam jumlah tersebut.",
         "exampleMs": "Kita harus tetap dalam anggaran bulanan."
       },
       "cause": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang, peristiwa, atau hal yang membuat sesuatu terjadi; alasan untuk suatu hasil; atau untuk membuat sesuatu terjadi.",
         "exampleMs": "Apa penyebab penundaan itu?"
       },
       "chance": {
-        "definitionMs": "",
+        "definitionMs": "Kemungkinan bahwa sesuatu mungkin terjadi; kesempatan untuk melakukan sesuatu; atau melakukan sesuatu meskipun ada ketidakpastian.",
         "exampleMs": "Ada kesempatan baik hujan besok."
       },
       "contact": {
-        "definitionMs": "",
-        "exampleMs": "Tolong hubungi kantor jika ada pertanyaan."
+        "definitionMs": "Berkomunikasi dengan seseorang; seseorang yang Anda kenal dapat membantu Anda; atau berkomunikasi dengan atau menyentuh seseorang atau sesuatu.",
+        "exampleMs": "Tolong hubungi pejabat jika ada pertanyaan."
       },
       "claim": {
-        "definitionMs": "",
+        "definitionMs": "Ada sesuatu yang benar, sering kali tanpa membuktikannya; untuk meminta secara resmi sesuatu yang Anda berhak; atau pernyataan bahwa sesuatu itu benar.",
         "exampleMs": "Ia mengklaim bahwa ia melihat kecelakaan itu."
       },
       "class": {
-        "definitionMs": "",
+        "definitionMs": "Kelompok siswa belajar bersama; pelajaran atau kursus; kategori orang atau hal; atau tingkat kualitas atau posisi sosial.",
         "exampleMs": "Kelas kami dimulai jam sembilan."
       },
       "condition": {
-        "definitionMs": "",
-        "exampleMs": "Mobilnya dalam kondisi yang sangat baik."
+        "definitionMs": "Æðah menyatakan bahwa seseorang atau benda tersebut berada dalam; aturan yang harus dipenuhi; atau untuk melatih seseorang atau mempersiapkan sesuatu untuk situasi tertentu.",
+        "exampleMs": "Mobil ini dalam kondisi yang sangat baik."
       },
       "connection": {
-        "definitionMs": "",
+        "definitionMs": "Keterkaitan antara orang, tempat, ide, atau perangkat; hubungan atau asosiasi; atau layanan angkutan yang memungkinkan perjalanan untuk melanjutkan.",
         "exampleMs": "Ada hubungan yang kuat antara tidur dan kesehatan."
       },
       "bake": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memasak makanan menggunakan panas kering dalam oven.",
         "exampleMs": "Kami memanggang kue untuk ulang tahunnya."
       },
       "camp": {
-        "definitionMs": "",
-        "exampleMs": "Kami mendirikan kemah di samping danau."
+        "definitionMs": "Tempat orang tinggal di tempat penampungan sementara; atau tinggal di luar rumah di tenda atau tempat penampungan sementara lainnya.",
+        "exampleMs": "Kami mendirikan kamp di samping danau."
       },
       "chat": {
-        "definitionMs": "",
+        "definitionMs": "Ajarlah orang yang ramah dan santai.",
         "exampleMs": "Kami mengobrol cepat setelah kelas."
       },
       "climb": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak ke atas menggunakan tangan dan kaki, atau naik ke atas sesuatu seperti bukit atau tangga; tindakan mendaki.",
         "exampleMs": "Anak-anak memanjat pohon dengan hati-hati."
       },
       "draw": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat gambar atau tanda dengan pena atau pensil; untuk menarik sesuatu ke arah Anda; atau untuk menyebabkan orang atau hal-hal untuk datang ke tempat.",
         "exampleMs": "Dia suka menggambar binatang."
       },
       "exercise": {
-        "definitionMs": "",
+        "definitionMs": "Kegiatan fisik fisik yang dilakukan untuk meningkatkan kesehatan atau kekuatan; tugas yang dilakukan untuk mengembangkan keterampilan; atau menggunakan hak, kekuatan, atau kemampuan.",
         "exampleMs": "Latihan rutin yang teratur baik untuk kesehatan Anda."
       },
       "fish": {
-        "definitionMs": "",
+        "definitionMs": "Hewan yang hidup di air dan bernapas melalui insang; atau mencoba menangkap ikan.",
         "exampleMs": "Kami melihat ikan berwarna-warni di akuarium."
       },
       "garden": {
-        "definitionMs": "",
+        "definitionMs": "Daerah di mana bunga, tanaman, atau sayuran ditanam; atau bekerja di daerah seperti itu.",
         "exampleMs": "Dia menanam herba di kebun."
       },
       "hike": {
-        "definitionMs": "",
+        "definitionMs": "Perjalanan panjang di pedesaan atau pegunungan, biasanya untuk bersenang - senang atau berolahraga; atau berjalan - jalan seperti itu.",
         "exampleMs": "Kami pergi mendaki melalui hutan."
       },
       "jog": {
-        "definitionMs": "",
-        "exampleMs": "Aku berlari mengelilingi taman setiap pagi."
+        "definitionMs": "Untuk berlari perlahan dan terus menerus, biasanya untuk berolahraga; atau periode kegiatan ini.",
+        "exampleMs": "Saya berlari mengelilingi taman setiap pagi."
       },
       "knit": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat pakaian atau barang - barang lain dengan menggabungkan benang dengan jarum rajutan; atau kain yang dirajut.",
         "exampleMs": "Bibiku mengajariku merajut syal."
       },
       "paint": {
-        "definitionMs": "",
+        "definitionMs": "FODI Sebuah cairan berwarna atau zat yang digunakan untuk menutupi atau menghias suatu permukaan; atau untuk membuat gambar dengan menerapkannya.",
         "exampleMs": "Kita perlu cat lagi untuk dinding kamar tidur."
       },
       "photograph": {
-        "definitionMs": "",
-        "exampleMs": "Aku menemukan foto lama kakek-nenekku."
+        "definitionMs": "Gambar yang dibuat menggunakan kamera; atau mengambil gambar seseorang atau sesuatu dengan kamera.",
+        "exampleMs": "Saya menemukan foto lama kakek-nenekku."
       },
       "practise": {
-        "definitionMs": "",
+        "definitionMs": "Lugi untuk melakukan kegiatan berulang kali guna meningkatkan keterampilan; atau melaksanakan profesi atau metode secara teratur.",
         "exampleMs": "Kau harus berlatih bahasa Inggris setiap hari."
       },
       "read": {
-        "definitionMs": "",
-        "exampleMs": "Aku membaca bab sebelum tidur."
+        "definitionMs": "Untuk melihat dan memahami kata-kata tertulis; atau untuk menafsirkan informasi dari tanda, data, atau sumber lain.",
+        "exampleMs": "Saya membaca bab sebelum tidur."
       },
       "shop": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana barang dijual; atau mengunjungi toko untuk melihat atau membeli barang.",
         "exampleMs": "Ada sebuah toko kecil dekat stasiun."
       },
       "skate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak di atas permukaan pada skate dengan roda atau bilah; atau boot atau sepatu dipasang dengan mereka.",
         "exampleMs": "Anak-anak skate di arena setelah sekolah."
       },
       "ski": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah peralatan yang panjang dan sempit dipasang pada sepatu bot untuk bepergian di atas salju; atau untuk bergerak di atas salju menggunakan ski.",
         "exampleMs": "Dia belajar ski saat masih muda."
       },
       "sleep": {
-        "definitionMs": "",
-        "exampleMs": "Aku butuh lebih banyak tidur selama seminggu."
+        "definitionMs": "Wajarnya keadaan istirahat di mana tubuh dan pikiran kurang aktif; atau berada dalam keadaan itu.",
+        "exampleMs": "Saya butuh lebih banyak tidur selama seminggu."
       },
       "train": {
-        "definitionMs": "",
+        "definitionMs": "Seri kendaraan kereta api yang terhubung yang membawa penumpang atau barang; atau mengajar dan melatih keterampilan untuk pekerjaan atau kegiatan tertentu.",
         "exampleMs": "Kami naik kereta ke kota."
       },
       "write": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membentuk huruf, kata, atau simbol lain di permukaan atau perangkat digital; atau untuk membuat teks seperti pesan, huruf, atau cerita.",
         "exampleMs": "Tolong tulis namamu di atas halaman."
       },
       "airport": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana pesawat lepas landas dan mendarat, dengan fasilitas untuk penumpang dan perjalanan udara.",
         "exampleMs": "Kami tiba di bandara dua jam lebih awal."
       },
       "apartment": {
-        "definitionMs": "",
+        "definitionMs": "Satu set kamar untuk tinggal di, biasanya di satu lantai bangunan yang lebih besar.",
         "exampleMs": "Mereka menyewa apartemen kecil dekat stasiun."
       },
       "avenue": {
-        "definitionMs": "",
+        "definitionMs": "Jalan lebar di kota atau kota, sering kali berjajar dengan pohon atau bangunan; atau cara yang mungkin untuk mencapai sesuatu.",
         "exampleMs": "Hotel ini di jalan yang tenang."
       },
       "bakery": {
-        "definitionMs": "",
-        "exampleMs": "Aku membeli roti segar dari toko roti."
+        "definitionMs": "Kedai atau tempat di mana roti, kue, dan makanan lain yang dipanggang dibuat atau dijual.",
+        "exampleMs": "Saya membeli roti segar dari toko roti."
       },
       "bank": {
-        "definitionMs": "",
-        "exampleMs": "Aku harus mengunjungi bank sepulang kerja."
+        "definitionMs": "Organisasi yang menyimpan uang dan menyediakan jasa keuangan; tanah di tepi sungai; atau untuk menyimpan uang di bank.",
+        "exampleMs": "Saya harus mengunjungi bank setelah bekerja."
       },
       "beach": {
-        "definitionMs": "",
+        "definitionMs": "Daerah pasir atau batu - batu kecil di tepi laut atau danau; atau untuk membawa perahu ke pantai.",
         "exampleMs": "Kami menghabiskan sore di pantai."
       },
       "bedroom": {
-        "definitionMs": "",
+        "definitionMs": "Ruang di rumah atau bangunan lain tempat orang tidur.",
         "exampleMs": "Kamar tidurku punya jendela besar."
       },
       "building": {
-        "definitionMs": "",
+        "definitionMs": "Struktur dengan dinding dan atap, seperti rumah, sekolah, atau pejabat; atau proses membangun sesuatu.",
         "exampleMs": "Bangunan itu dirancang oleh arsitek lokal."
       },
       "bus stop": {
-        "definitionMs": "",
-        "exampleMs": "Aku menunggu di halte bus selama sepuluh menit."
+        "definitionMs": "Sebuah tempat di samping jalan di mana bus berhenti untuk membiarkan penumpang naik atau turun.",
+        "exampleMs": "Saya menunggu di halte bus selama 10 menit."
       },
       "cafe": {
-        "definitionMs": "",
-        "exampleMs": "Kami bertemu di kafe dekat kantor."
+        "definitionMs": "Restoran kecil atau toko di mana orang dapat membeli minuman dan makanan ringan.",
+        "exampleMs": "Kami bertemu di kafe dekat pejabat."
       },
       "cafeteria": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah tempat di mana orang melayani diri mereka sendiri dari counter dan makan makanan, sering kali di sekolah, tempat kerja, atau gedung umum.",
         "exampleMs": "Siswa - Siswa makan siang di kantin sekolah."
       },
       "campus": {
-        "definitionMs": "",
+        "definitionMs": "Universitas, perguruan tinggi, atau sekolah.",
         "exampleMs": "Perpustakaan ada di tengah kampus."
       },
       "capital": {
-        "definitionMs": "",
+        "definitionMs": "Kota di mana pemerintah suatu negara berbasis; uang atau properti yang digunakan untuk bisnis; atau huruf dari bentuk yang lebih besar yang digunakan pada awal nama dan ayat.",
         "exampleMs": "Kuala Lumpur adalah ibu kota negara Malaysia."
       },
       "castle": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah bangunan besar yang kuat dari masa lalu, sering kali dengan dinding dan menara yang tebal, dibangun untuk mempertahankan tempat atau rumah orang-orang penting.",
         "exampleMs": "Istana tua berdiri di atas bukit."
       },
       "cave": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah lubang alam atau ruang besar di sisi bukit atau bawah tanah; atau runtuh ke dalam.",
         "exampleMs": "Kelelawar tidur di dalam gua."
       },
       "church": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan yang digunakan untuk pelayanan keagamaan Kristen; atau komunitas atau organisasi Kristen secara keseluruhan.",
         "exampleMs": "Gereja berada di sebelah balai kota."
       },
       "cinema": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan di mana orang membayar untuk menonton film; atau seni dan industri pembuatan film.",
         "exampleMs": "Kita akan pergi ke bioskop malam ini."
       },
       "clinic": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana orang menerima nasihat atau perawatan medis, sering kali tanpa menginap; atau pertemuan di mana saran atau pelatihan ahli diberikan.",
         "exampleMs": "Dia pergi ke klinik untuk memeriksa."
       },
       "coast": {
-        "definitionMs": "",
+        "definitionMs": "Tanah di tepi laut; atau bergerak lancar tanpa menggunakan banyak kekuatan, upaya, atau kontrol.",
         "exampleMs": "Mereka berkendara di sepanjang pantai."
       },
       "adult": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang telah mencapai usia ketika mereka dewasa secara sah atau sepenuhnya; atau berhubungan dengan orang dewasa daripada anak - anak.",
         "exampleMs": "Orang dewasa harus menemani anak - anak."
       },
       "ancestor": {
-        "definitionMs": "",
+        "definitionMs": "Orang di keluargamu yang hidup lama sebelum kau, seperti kakek buyut.",
         "exampleMs": "Salah satu leluhurnya berasal dari Italia."
       },
       "aunt": {
-        "definitionMs": "",
+        "definitionMs": "Kakak dari ibu atau ayahmu, atau istri pamanmu.",
         "exampleMs": "Bibiku tinggal dekat pantai."
       },
       "baby": {
-        "definitionMs": "",
+        "definitionMs": "Anak yang masih sangat kecil yang belum belajar berjalan atau berbicara; atau anggota termuda atau terkecil dari suatu kelompok.",
         "exampleMs": "Bayinya tidur di kamar mandi."
       },
       "boyfriend": {
-        "definitionMs": "",
+        "definitionMs": "Pasangan pria dalam hubungan romantis; atau, dalam beberapa konteks, teman pria.",
         "exampleMs": "Dia memperkenalkan pacarnya pada orang tuanya."
       },
       "bride": {
-        "definitionMs": "",
+        "definitionMs": "Wanita yang akan menikah atau baru saja menikah.",
         "exampleMs": "Pengantin wanita tiba di upacara bersama ayahnya."
       },
       "brother": {
-        "definitionMs": "",
+        "definitionMs": "Anak laki-laki atau laki-laki yang memiliki orang tua atau orang tua yang sama dengan orang lain; atau pria yang berbagi kelompok, kepercayaan, atau komunitas yang dekat dengan orang lain.",
         "exampleMs": "Saudaraku bekerja di kota lain."
       },
       "buddy": {
-        "definitionMs": "",
+        "definitionMs": "Teman atau pendamping, khususnya teman yang melakukan kegiatan dengan; cara yang tidak resmi untuk menyapa seseorang.",
         "exampleMs": "Dia pergi memancing dengan teman lamanya."
       },
       "citizen": {
-        "definitionMs": "",
-        "exampleMs": "Setiap warga negara memiliki tanggung jawab serta hak."
+        "definitionMs": "Orang yang secara hukum memiliki negara tertentu dan memiliki hak dan tanggung jawab negara itu.",
+        "exampleMs": "Kekhalifahan setiap warga negara memiliki tanggung jawab serta hak."
       },
       "classmate": {
-        "definitionMs": "",
+        "definitionMs": "Anda di sekolah atau lembaga pendidikan lain.",
         "exampleMs": "Saya bekerja dengan teman sekelas proyek sains."
       },
       "cousin": {
-        "definitionMs": "",
+        "definitionMs": "Anak dari bibi atau pamanmu; kerabat yang memiliki hubungan keluarga yang lebih jauh.",
         "exampleMs": "Sepupuku mengunjungi kami akhir pekan ini."
       },
       "couple": {
-        "definitionMs": "",
+        "definitionMs": "Dua orang atau hal-hal yang dianggap bersama, terutama dua orang dalam hubungan romantis; atau untuk menggabungkan dua hal bersama-sama.",
         "exampleMs": "Pasangan itu pindah ke apartemen baru."
       },
       "daughter": {
-        "definitionMs": "",
+        "definitionMs": "Seorang anak perempuan yang berhubungan dengan orang tuanya.",
         "exampleMs": "Putri mereka mulai sekolah tahun depan."
       },
       "neighbour": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang tinggal di dekat Anda; atau berada di samping atau dekat dengan sesuatu.",
         "exampleMs": "Tetangga kami sangat ramah."
       },
       "enemy": {
-        "definitionMs": "",
+        "definitionMs": "Orang, kelompok, atau negara yang menentang atau ingin merugikan orang lain; atau sesuatu yang merugikan yang harus diatasi.",
         "exampleMs": "Dua negara itu pernah menjadi musuh."
       },
       "female": {
-        "definitionMs": "",
+        "definitionMs": "Orang atau hewan yang termasuk dalam jenis kelamin yang dapat menghasilkan telur atau melahirkan; atau berhubungan dengan jenis kelamin tersebut.",
         "exampleMs": "Studi ini mencakup peserta pria maupun wanita."
       },
       "gentleman": {
-        "definitionMs": "",
+        "definitionMs": "Seorang pria yang sopan, bertimbang rasa, dan santun; atau cara formal dan sopan untuk merujuk kepada seorang pria.",
         "exampleMs": "Dia bertingkah seperti pria sejati."
       },
       "guest": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang diundang untuk mengunjungi rumah seseorang atau menghadiri acara; atau orang yang menginap di hotel atau tempat yang sama.",
         "exampleMs": "Ada tamu menginap di sini malam ini."
       },
       "grandfather": {
-        "definitionMs": "",
+        "definitionMs": "Ayah dari ibu atau ayah seseorang.",
         "exampleMs": "Kakekku mengajariku cara memancing."
       },
       "grandmother": {
-        "definitionMs": "",
+        "definitionMs": "Ibu dari ibu atau ayah seseorang.",
         "exampleMs": "Nenekku membuat sup yang enak."
       },
       "divide": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memisahkan sesuatu menjadi bagian atau kelompok, atau berbagi di antara orang-orang.",
         "exampleMs": "Kami membagi pekerjaan menjadi tiga bagian."
       },
       "doubt": {
-        "definitionMs": "",
-        "exampleMs": "Aku ragu dia akan berhasil."
+        "definitionMs": "Rasa ketidakpastian tentang sesuatu; atau mempertanyakan apakah sesuatu itu benar.",
+        "exampleMs": "Saya ragu dia akan berhasil."
       },
       "earn": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menerima uang atau imbalan lain sebagai imbalan atas pekerjaan atau upaya.",
         "exampleMs": "Dia mendapatkan cukup penghasilan untuk mendukung dirinya sendiri."
       },
       "enjoy": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mendapatkan kesenangan atau kepuasan dari sesuatu.",
         "exampleMs": "Saya menikmati berjalan di taman."
       },
       "enter": {
-        "definitionMs": "",
+        "definitionMs": "Untuk pergi atau datang ke suatu tempat; atau untuk menempatkan informasi ke dalam sebuah sistem.",
         "exampleMs": "Silakan masuk ke ruangan diam-diam."
       },
       "escape": {
-        "definitionMs": "",
-        "exampleMs": "Kucing itu kabur melalui jendela terbuka."
+        "definitionMs": "Untuk menjauh dari suatu tempat, orang, atau situasi; atau tindakan melarikan diri.",
+        "exampleMs": "Kucing itu kabur dari jendela terbuka."
       },
       "examine": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melihat atau menguji sesuatu dengan cermat agar dapat memahami atau menilainya.",
         "exampleMs": "Dokter memeriksa pergelangan kakiku."
       },
       "exchange": {
-        "definitionMs": "",
+        "definitionMs": "perbuatan memberikan sesuatu dan menerima sesuatu yang lain; atau memberikan satu hal untuk yang lain.",
         "exampleMs": "Kami bertukar nomor telepon."
       },
       "exist": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi nyata atau hadir; untuk memiliki hidup atau menjadi.",
         "exampleMs": "Apakah bentuk kehidupan ada di planet lain?"
       },
       "explore": {
-        "definitionMs": "",
+        "definitionMs": "Untuk perjalanan melalui atau menyelidiki tempat atau subjek untuk mengetahui lebih lanjut tentang hal itu.",
         "exampleMs": "Kami menjelajahi kota tua berjalan kaki."
       },
       "fail": {
-        "definitionMs": "",
+        "definitionMs": "Karena tidak berhasil melakukan sesuatu; atau hasilnya tidak berhasil.",
         "exampleMs": "Mesinnya gagal menyala."
       },
       "fix": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau perbaiki kursinya?"
+        "definitionMs": "Untuk memperbaiki sesuatu, membuatnya bekerja, atau memutuskannya dengan tegas; solusi untuk suatu masalah.",
+        "exampleMs": "Dapat kau perbaiki kursinya?"
       },
       "guess": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa menebak isi kotak itu?"
+        "definitionMs": "Untuk memberikan jawaban tanpa kepastian; atau jawaban berdasarkan informasi terbatas.",
+        "exampleMs": "Kau dapat tebak apa isi kotak itu?"
       },
       "happen": {
-        "definitionMs": "",
-        "exampleMs": "Kecelakaan bisa terjadi kapan saja."
+        "definitionMs": "Untuk mengambil tempat atau terjadi, sering kali tanpa direncanakan.",
+        "exampleMs": "Kecelakaan dapat terjadi kapan saja."
       },
       "hide": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menempatkan sesuatu di mana hal itu tidak dapat dilihat, atau untuk menjaga sesuatu rahasia.",
         "exampleMs": "Anak-anak bersembunyi di balik sofa."
       },
       "influence": {
-        "definitionMs": "",
-        "exampleMs": "Sahabat dapat memiliki pengaruh yang kuat terhadap kita."
+        "definitionMs": "Kekuatan untuk mempengaruhi seseorang atau situasi; atau memiliki efek demikian.",
+        "exampleMs": "Sahabat dapat sangat mempengaruhi kita."
       },
       "inform": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberikan seseorang fakta atau rincian yang perlu mereka ketahui.",
         "exampleMs": "Tolong beritahu kami tentang perubahan apapun."
       },
       "introduce": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberitahu orang-orang nama masing-masing, menyajikan sesuatu untuk pertama kalinya, atau membawa sesuatu untuk digunakan.",
         "exampleMs": "Biar kuperkenalkan rekanku."
       },
       "invite": {
-        "definitionMs": "",
+        "definitionMs": "Untuk meminta seseorang datang ke acara atau mengambil bagian dalam sesuatu.",
         "exampleMs": "Kami mengundang tetangga kami untuk makan malam."
       },
       "join": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjadi bagian dari kelompok atau kegiatan, atau untuk menghubungkan hal-hal bersama.",
         "exampleMs": "Kau mau bergabung dengan klub kami?"
       },
       "judge": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membentuk pendapat tentang seseorang atau sesuatu; atau seseorang yang membuat keputusan dalam pengadilan atau kompetisi.",
         "exampleMs": "Jangan menghakimi orang dengan penampilan mereka."
       },
       "kick": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memukul atau menggerakkan sesuatu dengan kaki Anda; atau tindakan melakukannya.",
         "exampleMs": "Dia menendang bola ke gawang."
       },
       "knock": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memukul pintu atau permukaan untuk membuat suara; atau suara yang dibuat dengan memukul itu.",
         "exampleMs": "Tolong ketuk pintu sebelum masuk."
       },
       "lend": {
-        "definitionMs": "",
-        "exampleMs": "Bisa pinjamkan penamu?"
+        "definitionMs": "Untuk memberikan sesuatu kepada seseorang untuk jangka waktu, berharap itu akan dikembalikan.",
+        "exampleMs": "Dapat pinjamkan penamu?"
       },
       "lift": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menaikkan sesuatu ke posisi yang lebih tinggi; atau tindakan atau perangkat yang meningkatkan orang atau hal.",
         "exampleMs": "Tolong angkat kotaknya dengan hati-hati."
       },
       "measure": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menemukan ukuran, jumlah, atau tingkat sesuatu; atau sebuah unit atau tindakan yang digunakan untuk perbandingan.",
         "exampleMs": "Ukur meja sebelum membeli penutup."
       },
       "offer": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengatakan bahwa Anda bersedia untuk memberikan atau melakukan sesuatu; atau proposal untuk melakukannya.",
         "exampleMs": "Dia menawarkan untuk membantu kami bergerak."
       },
       "promise": {
-        "definitionMs": "",
+        "definitionMs": "Pernyataan bahwa Anda akan melakukan sesuatu; atau untuk mengatakan bahwa Anda akan melakukannya.",
         "exampleMs": "Dia berjanji untuk menelepon."
       },
       "protect": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjaga seseorang atau sesuatu yang aman dari bahaya, kerusakan, atau bahaya.",
         "exampleMs": "Tabir surya membantu melindungi kulit Anda."
       },
       "prove": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memperlihatkan bahwa sesuatu itu benar dengan menggunakan fakta, bukti, atau penalaran yang jelas.",
         "exampleMs": "Hasil tes membuktikan bahwa metodenya berhasil."
       },
       "publish": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mempersiapkan dan membuat bahan tertulis atau digital tersedia untuk umum.",
         "exampleMs": "Penulis akan menerbitkan buku baru."
       },
       "pull": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menggunakan kekerasan untuk menggerakkan sesuatu ke arah diri sendiri; atau tindakan melakukannya.",
         "exampleMs": "Tarik pintunya dengan lembut untuk membukanya."
       },
       "push": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menggunakan kekerasan untuk memindahkan sesuatu dari diri sendiri; atau upaya untuk membuat kemajuan.",
         "exampleMs": "Tekan tombolnya untuk menyalakan mesinnya."
       },
       "receive": {
-        "definitionMs": "",
-        "exampleMs": "Aku menerima pesanmu pagi ini."
+        "definitionMs": "Untuk mendapatkan atau menerima sesuatu yang diberikan, dikirim, atau ditawarkan.",
+        "exampleMs": "Saya menerima pesanmu pagi ini."
       },
       "reply": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjawab seseorang dengan berbicara, menulis, atau menggunakan pesan; atau jawabannya sendiri.",
         "exampleMs": "Sila membalas email saya pada hari Jumat."
       },
       "report": {
-        "definitionMs": "",
+        "definitionMs": "Catatan yang diucapkan atau tertulis tentang informasi; atau untuk memberikan informasi tentang suatu peristiwa atau situasi.",
         "exampleMs": "Dia menulis laporan tentang perjalanan."
       },
       "rescue": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyelamatkan seseorang atau sesuatu dari bahaya; atau tindakan menyelamatkan mereka.",
         "exampleMs": "Pemadam kebakaran menyelamatkan keluarga."
       },
       "return": {
-        "definitionMs": "",
+        "definitionMs": "Untuk pergi atau kembali ke suatu tempat, atau untuk memberikan sesuatu kembali; tindakan datang kembali.",
         "exampleMs": "Sila kembalikan buku-buku minggu depan."
       },
       "review": {
-        "definitionMs": "",
-        "exampleMs": "Aku membaca ulasan sebelum membeli telepon."
+        "definitionMs": "Hati-hati melihat sesuatu untuk menilainya; atau memeriksanya lagi.",
+        "exampleMs": "Saya membaca ulasan sebelum membeli telepon."
       },
       "save": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menjaga sesuatu untuk digunakan di masa depan, mencegah kehilangan, atau menyelamatkan seseorang dari bahaya.",
         "exampleMs": "Jangan lupa untuk menyelamatkan pekerjaanmu."
       },
       "search": {
-        "definitionMs": "",
+        "definitionMs": "Ada yang mencoba mencari seseorang atau sesuatu, atau mencarinya dengan seksama.",
         "exampleMs": "Polisi mulai mencari daerah itu."
       },
       "select": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memilih seseorang atau sesuatu dari sebuah kelompok.",
         "exampleMs": "Pilih bahasa pilihanmu."
       },
       "share": {
-        "definitionMs": "",
-        "exampleMs": "Kami berbagi kantor yang sama."
+        "definitionMs": "Untuk menggunakan, memiliki, atau memberikan sesuatu bersama dengan orang lain; atau salah satu bagian dari sesuatu yang dibagi di antara orang-orang.",
+        "exampleMs": "Kami berbagi pejabat yang sama."
       },
       "solve": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menemukan jawaban untuk masalah atau menjelaskan sesuatu yang sulit.",
         "exampleMs": "Kami bekerja sama untuk memecahkan teka-teki."
       },
       "survive": {
-        "definitionMs": "",
+        "definitionMs": "Untuk tetap hidup atau terus ada meskipun ada bahaya, kesulitan, atau perubahan.",
         "exampleMs": "Hanya sedikit tanaman yang bertahan hidup di tanah kering ini."
       },
       "throw": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengirim sesuatu melalui udara menggunakan tangan Anda; atau tindakan melakukannya.",
         "exampleMs": "Lempar bolanya padaku."
       },
       "volunteer": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang menawarkan diri untuk melakukan sesuatu tanpa dibayar, atau menawarkan untuk melakukannya.",
         "exampleMs": "Seorang relawan membantu di acara itu."
       },
       "vote": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah pilihan yang dibuat dalam pemilihan atau keputusan; atau untuk menyatakan pilihan tersebut secara formal.",
         "exampleMs": "Setiap anggota berhak memilih."
       },
       "warn": {
-        "definitionMs": "",
+        "definitionMs": "Untuk memberitahu seseorang tentang kemungkinan bahaya atau masalah sehingga mereka dapat berhati-hati.",
         "exampleMs": "Tanda itu memperingatkan pengemudi tentang belokan tajam."
       },
       "waste": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menggunakan lebih banyak waktu, uang, atau bahan daripada yang diperlukan; atau sesuatu yang tidak digunakan secara efektif.",
         "exampleMs": "Jangan buang air bersih."
       },
       "worry": {
-        "definitionMs": "",
+        "definitionMs": "Kekhawatiran akan sesuatu; atau perasaan khawatir.",
         "exampleMs": "Jangan khawatir tentang hasilnya."
       },
       "business": {
-        "definitionMs": "",
+        "definitionMs": "Organisasi yang menjual barang atau jasa, atau kegiatan membeli dan menjual untuk mendapatkan keuntungan.",
         "exampleMs": "Dia menjalankan bisnis kecil."
       },
       "cost": {
-        "definitionMs": "",
+        "definitionMs": "Jumlah uang yang dibutuhkan untuk membeli atau melakukan sesuatu; atau untuk mensyaratkan jumlah tersebut.",
         "exampleMs": "Biaya perjalanan telah meningkat."
       },
       "country": {
-        "definitionMs": "",
+        "definitionMs": "Wilayah tanah dengan pemerintahan, penduduk, dan perbatasannya sendiri; atau tanah di luar kota dan kota.",
         "exampleMs": "Kepangeranan Malaysia adalah sebuah negara di Asia Tenggara."
       },
       "course": {
-        "definitionMs": "",
-        "exampleMs": "Aku mendaftar untuk kursus bahasa Inggris."
+        "definitionMs": "Seri pelajaran tentang subjek, arah gerakan, atau salah satu bagian dari hidangan.",
+        "exampleMs": "Saya mendaftar untuk kursus bahasa Inggris."
       },
       "culture": {
-        "definitionMs": "",
+        "definitionMs": "Kebiasaan, kepercayaan, seni, dan cara hidup kelompok atau masyarakat.",
         "exampleMs": "Makanan merupakan bagian penting dari budaya."
       },
       "customer": {
-        "definitionMs": "",
+        "definitionMs": "Orang atau organisasi yang membeli barang atau jasa dari suatu bisnis.",
         "exampleMs": "Pelanggan meminta tanda terima."
       },
       "direction": {
-        "definitionMs": "",
+        "definitionMs": "Cara di mana seseorang atau sesuatu bergerak atau wajah; atau instruksi tentang ke mana harus pergi.",
         "exampleMs": "Arah mana stasiunnya?"
       },
       "effect": {
-        "definitionMs": "",
+        "definitionMs": "A perubahan atau hasil yang disebabkan oleh suatu tindakan, peristiwa, atau kondisi.",
         "exampleMs": "Obat obatnya berdampak positif."
       },
       "end": {
-        "definitionMs": "",
+        "definitionMs": "Bagian terakhir atau titik dari sesuatu; atau untuk membawa sesuatu untuk menyelesaikan.",
         "exampleMs": "Kami berjalan ke ujung jalan."
       },
       "event": {
-        "definitionMs": "",
+        "definitionMs": "Ada sesuatu yang terjadi, terutama sesuatu yang direncanakan atau penting; atau kegiatan publik.",
         "exampleMs": "Sekolah mengadakan acara olahraga."
       },
       "example": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa memberiku contoh?"
+        "definitionMs": "Seseorang atau hal yang menunjukkan sesuatu seperti atau bagaimana cara kerjanya.",
+        "exampleMs": "Kau dapat memberiku contoh?"
       },
       "fact": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang diketahui atau terbukti benar.",
         "exampleMs": "Ini adalah fakta bahwa air membeku pada suhu rendah."
       },
       "family": {
-        "definitionMs": "",
+        "definitionMs": "Kawin, atau ikatan erat.",
         "exampleMs": "Keluargaku bertemu setiap hari Minggu."
       },
       "feature": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu bagian yang penting atau menarik dari sesuatu; atau menyertakan seseorang atau sesuatu sebagai bagian utama.",
         "exampleMs": "Ponsel ini memiliki fitur keselamatan yang berguna."
       },
       "field": {
-        "definitionMs": "",
+        "definitionMs": "Kawasan terbuka lahan, sering digunakan untuk pertanian atau olahraga; atau area belajar atau pekerjaan.",
         "exampleMs": "Anak-anak bermain di lapangan."
       },
       "figure": {
-        "definitionMs": "",
+        "definitionMs": "Angka atau jumlah, bentuk seseorang, atau orang yang penting; juga untuk menghitung atau memahami.",
         "exampleMs": "Figur terbaru menunjukkan peningkatan."
       },
       "food": {
-        "definitionMs": "",
+        "definitionMs": "Hal-hal yang dimakan orang atau hewan untuk hidup dan tumbuh.",
         "exampleMs": "Makanan segar segar tersedia di pasar."
       },
       "form": {
-        "definitionMs": "",
+        "definitionMs": "Bentuk atau struktur sesuatu, dokumen untuk melengkapi, atau untuk menciptakan atau mengembangkan sesuatu.",
         "exampleMs": "Tolong isi formulir ini."
       },
       "front": {
-        "definitionMs": "",
-        "exampleMs": "Tunggu aku di depan gedung."
+        "definitionMs": "Bagian atau sisi yang menghadap ke depan atau paling tampak; atau terletak di bagian depan.",
+        "exampleMs": "Tunggu saya di depan gedung."
       },
       "future": {
-        "definitionMs": "",
+        "definitionMs": "Waktu yang belum tiba; atau berkaitan dengan waktu itu.",
         "exampleMs": "Kami berencana untuk masa depan."
       },
       "grade": {
-        "definitionMs": "",
-        "exampleMs": "Dia mendapat nilai tinggi di bidang sains."
+        "definitionMs": "Level atau tanda yang menunjukkan kualitas atau prestasi; atau untuk menilai dan menetapkan tingkat seperti itu.",
+        "exampleMs": "Dia menerima nilai tinggi dalam ilmu pengetahuan."
       },
       "ground": {
-        "definitionMs": "",
+        "definitionMs": "Permukaan bumi; alasan atau dasar untuk sesuatu; atau untuk menempatkan sesuatu di tanah.",
         "exampleMs": "Tanahnya basah setelah hujan."
       },
       "group": {
-        "definitionMs": "",
+        "definitionMs": "Sejumlah orang atau hal-hal yang dipertimbangkan bersama-sama; atau untuk menyatukan mereka.",
         "exampleMs": "Kelompok kami menyelesaikan proyek ini lebih awal."
       },
       "growth": {
-        "definitionMs": "",
+        "definitionMs": "Proses menjadi lebih besar, berkembang, atau meningkat dalam jumlah atau pentingnya.",
         "exampleMs": "Pertumbuhan tanaman ini melambat di musim dingin."
       },
       "half": {
-        "definitionMs": "",
-        "exampleMs": "Aku makan setengah sandwich."
+        "definitionMs": "Satu dari dua bagian yang sama dari sesuatu; atau jumlah yang sama dengan salah satu bagian tersebut.",
+        "exampleMs": "Saya makan setengah sandwich."
       },
       "history": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian atau catatan tentang peristiwa masa lalu, khususnya yang melibatkan orang dan masyarakat.",
         "exampleMs": "Kami belajar tentang sejarah kota."
       },
       "idea": {
-        "definitionMs": "",
+        "definitionMs": "Pemikiran, rencana, atau saran terbentuk dalam pikiran.",
         "exampleMs": "Itu ide bagus."
       },
       "information": {
-        "definitionMs": "",
+        "definitionMs": "Fakta atau rincian yang membantu seseorang memahami sesuatu atau membuat keputusan.",
         "exampleMs": "Situs web tersebut menyediakan informasi yang berguna."
       },
       "item": {
-        "definitionMs": "",
+        "definitionMs": "Satu hal dalam sebuah daftar, kelompok, atau koleksi, terutama untuk penjualan atau diskusi.",
         "exampleMs": "Setiap item memiliki label harga."
       },
       "level": {
-        "definitionMs": "",
-        "exampleMs": "Tingkat air meningkat."
+        "definitionMs": "Sebuah posisi atau jumlah pada skala; sebuah lantai atau panggung; atau untuk membuat sesuatu yang datar atau sama.",
+        "exampleMs": "Tingkat air naik."
       },
       "life": {
-        "definitionMs": "",
+        "definitionMs": "Kondisi hidup, periode kehidupan seseorang, atau pengalaman hidup.",
         "exampleMs": "Kehidupan tanaman bergantung pada air dan cahaya."
       },
       "line": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah tanda panjang, sempit atau bentuk; deretan orang atau hal-hal; atau untuk membentuk barisan sepanjang sesuatu.",
         "exampleMs": "Gambar garis lurus di halaman."
       },
       "list": {
-        "definitionMs": "",
-        "exampleMs": "Aku membuat daftar belanjaan."
+        "definitionMs": "Satu set nama, item, atau rincian ditulis satu demi satu; atau untuk menuliskannya.",
+        "exampleMs": "Saya membuat daftar belanjaan."
       },
       "location": {
-        "definitionMs": "",
+        "definitionMs": "Tempat atau posisi tertentu di mana seseorang atau sesuatu, atau di mana suatu peristiwa terjadi.",
         "exampleMs": "Aplikasi dapat berbagi lokasi Anda."
       },
       "loss": {
-        "definitionMs": "",
+        "definitionMs": "Fakta fakta tidak lagi memiliki sesuatu, atau jumlah yang mana sesuatu berkurang.",
         "exampleMs": "Kehilangan tenaga menghentikan mesin."
       },
       "luck": {
-        "definitionMs": "",
+        "definitionMs": "Hal baik atau buruk yang terjadi secara kebetulan daripada melalui perencanaan atau usaha.",
         "exampleMs": "Semoga berhasil dengan ujianmu."
       },
       "main": {
-        "definitionMs": "",
+        "definitionMs": "Bagian terpenting atau terbesar dari sesuatu; bagian utama.",
         "exampleMs": "Pintu masuk utama di sebelah kiri."
       },
       "material": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah zat yang digunakan untuk membuat sesuatu, atau informasi dan sumber daya yang digunakan untuk suatu tujuan; berkaitan dengan hal-hal fisik.",
         "exampleMs": "Kayu adalah bahan bangunan umum."
       },
       "matter": {
-        "definitionMs": "",
-        "exampleMs": "Kita perlu membahas masalah penting."
+        "definitionMs": "A subjek atau situasi untuk dipertimbangkan; substansi fisik; atau menjadi penting.",
+        "exampleMs": "Kita perlu membahas hal penting."
       },
       "meal": {
-        "definitionMs": "",
+        "definitionMs": "Ada peristiwa sewaktu orang makan, atau makanan yang dimakan pada waktu itu.",
         "exampleMs": "Kami makan makanan sederhana di rumah."
       },
       "memory": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan untuk mengingat informasi atau pengalaman; atau sesuatu yang diingat.",
         "exampleMs": "Memorinya sangat bagus."
       },
       "middle": {
-        "definitionMs": "",
+        "definitionMs": "Titik tengah atau bagian antara dua ujung; atau terletak di tengah.",
         "exampleMs": "Letakkan meja di tengah ruangan."
       },
       "mind": {
-        "definitionMs": "",
+        "definitionMs": "Bagian dari orang yang berpikir, merasa, dan mengingat; atau untuk membantah sesuatu.",
         "exampleMs": "Tetaplah berpikiran terbuka saat kau mendengarkan."
       },
       "moment": {
-        "definitionMs": "",
+        "definitionMs": "Waktu yang sangat singkat, atau titik tertentu dalam waktu.",
         "exampleMs": "Tunggu sebentar."
       },
       "money": {
-        "definitionMs": "",
+        "definitionMs": "Apa yang digunakan orang untuk membeli barang dan jasa, biasanya dalam bentuk koin, uang kertas, atau saldo digital.",
         "exampleMs": "Dia menyimpan uang untuk laptop baru."
       },
       "name": {
-        "definitionMs": "",
+        "definitionMs": "Kata yang digunakan untuk mengidentifikasi seseorang, tempat, atau hal; atau untuk memberikan sesuatu nama.",
         "exampleMs": "Tolong tulis namamu di sini."
       },
       "news": {
-        "definitionMs": "",
-        "exampleMs": "Aku mendengar berita pagi ini."
+        "definitionMs": "Informasi mengenai peristiwa terkini, terutama ketika dibagikan melalui televisi, surat kabar, atau internet.",
+        "exampleMs": "Saya mendengar berita pagi ini."
       },
       "noise": {
-        "definitionMs": "",
+        "definitionMs": "Suara, terutama yang keras, tidak menyenangkan, atau tidak diinginkan.",
         "exampleMs": "Suara itu membuatku terjaga."
       },
       "note": {
-        "definitionMs": "",
-        "exampleMs": "Aku meninggalkan catatan di meja."
+        "definitionMs": "Catatan tertulis singkat atau pesan; atau untuk memperhatikan dan merekam sesuatu.",
+        "exampleMs": "Saya meninggalkan catatan di meja."
       },
       "number": {
-        "definitionMs": "",
+        "definitionMs": "Ahli matematika simbol atau jumlah; atau untuk memberikan sesuatu posisi dalam sebuah seri.",
         "exampleMs": "Apa nomor teleponmu?"
       },
       "college": {
-        "definitionMs": "",
+        "definitionMs": "Lembaga pendidikan di mana orang belajar setelah sekolah menengah, sering kali untuk diploma atau gelar.",
         "exampleMs": "Dia berencana kuliah tahun depan."
       },
       "countryside": {
-        "definitionMs": "",
+        "definitionMs": "Tanah dan daerah di luar kota dan kota, terutama tempat dengan ladang, desa, dan pemandangan alam.",
         "exampleMs": "Kami menghabiskan akhir pekan di pedesaan."
       },
       "court": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana kasus hukum didengar; daerah yang ditandai untuk bermain olahraga; atau kelompok formal atau rumah tangga kerajaan.",
         "exampleMs": "Kasus ini akan didengar di pengadilan."
       },
       "object": {
-        "definitionMs": "",
+        "definitionMs": "Hal yang dapat dilihat atau disentuh, daripada seseorang atau ide.",
         "exampleMs": "Dia meletakkan benda kecil di atas meja."
       },
       "order": {
-        "definitionMs": "",
+        "definitionMs": ":2. Permohonan barang atau makanan; suatu pengaturan; atau meminta sesuatu yang akan diberikan.",
         "exampleMs": "Kami memesan dua kopi."
       },
       "owner": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang atau organisasi yang secara hukum memiliki sesuatu.",
         "exampleMs": "Pemilik toko menyambut kami."
       },
       "page": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu sisi lembaran dalam buku, majalah atau dokumen; atau bagian dari sebuah situs web.",
         "exampleMs": "Tolong buka halaman 12."
       },
       "pair": {
-        "definitionMs": "",
-        "exampleMs": "Aku membeli sepasang sepatu yang nyaman."
+        "definitionMs": "Dua orang atau benda yang digunakan atau dipertimbangkan bersama.",
+        "exampleMs": "Saya membeli sepasang sepatu yang nyaman."
       },
       "paper": {
-        "definitionMs": "",
-        "exampleMs": "Bisa berikan aku selembar kertas?"
+        "definitionMs": "Bahan tin yang digunakan untuk menulis atau mencetak; juga sebuah surat kabar, dokumen atau artikel akademik.",
+        "exampleMs": "Dapat beri saya selembar kertas?"
       },
       "part": {
-        "definitionMs": "",
+        "definitionMs": "Bagian atau bagian sesuatu; atau peran dalam suatu kegiatan atau kinerja.",
         "exampleMs": "Ini adalah bagian yang paling sulit dari tugas."
       },
       "party": {
-        "definitionMs": "",
+        "definitionMs": "Wacana sosial di mana orang bertemu untuk bersenang-senang; atau kelompok yang terlibat dalam suatu perjanjian atau kegiatan.",
         "exampleMs": "Kami mengadakan pesta kecil hari Sabtu."
       },
       "period": {
-        "definitionMs": "",
+        "definitionMs": "Panjang waktu; atau pelajaran atau tahap dalam jadwal atau proses.",
         "exampleMs": "Ia tinggal di Jepang untuk waktu yang singkat."
       },
       "place": {
-        "definitionMs": "",
+        "definitionMs": "Lokasi atau posisi tertentu; atau menempatkan sesuatu di suatu tempat.",
         "exampleMs": "Ini adalah tempat yang tenang untuk belajar."
       },
       "position": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana seseorang atau sesuatu adalah; pekerjaan atau peran; atau menempatkan sesuatu di tempat tertentu.",
         "exampleMs": "Kursi kursi berada di posisi yang benar."
       },
       "power": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan atau wewenang untuk mengendalikan, mempengaruhi atau melakukan sesuatu; atau energi yang diberikan untuk mengoperasikan peralatan.",
         "exampleMs": "Manajer baru memiliki kekuatan untuk membuat keputusan itu."
       },
       "price": {
-        "definitionMs": "",
+        "definitionMs": "Jumlah uang yang dibutuhkan untuk membeli sesuatu; atau untuk menetapkan jumlah itu.",
         "exampleMs": "Harga tiket telah meningkat."
       },
       "problem": {
-        "definitionMs": "",
+        "definitionMs": "Situasi atau materi yang menyebabkan kesulitan dan membutuhkan perhatian atau solusi.",
         "exampleMs": "Kita harus mencari solusi untuk masalah ini."
       },
       "product": {
-        "definitionMs": "",
+        "definitionMs": "Sesuatu yang dibuat atau ditanam untuk dijual atau digunakan; atau hasil dari jumlah yang dikalikan.",
         "exampleMs": "Produk produk ini dibuat dari bahan daur ulang."
       },
       "quality": {
-        "definitionMs": "",
+        "definitionMs": "Bagaimana sesuatu yang baik atau buruk adalah; atau fitur atau karakteristik seseorang atau hal.",
         "exampleMs": "Hotel ini dikenal karena kualitas pelayanannya yang tinggi."
       },
       "reason": {
-        "definitionMs": "",
-        "exampleMs": "Apa sebab penundaan itu?"
+        "definitionMs": "Penjelasan untuk mengapa sesuatu terjadi atau dilakukan; atau untuk berpikir logis.",
+        "exampleMs": "Apa alasannya?"
       },
       "record": {
-        "definitionMs": "",
+        "definitionMs": "Informasi yang disimpan untuk referensi di masa depan; atau untuk menuliskan, menyimpan atau menangkap informasi.",
         "exampleMs": "Simpan catatan pengeluaranmu."
       },
       "role": {
-        "definitionMs": "",
+        "definitionMs": "Fungsi atau bagian yang dimiliki seseorang atau sesuatu dalam situasi, kelompok atau aktivitas.",
         "exampleMs": "Semua orang punya peran dalam proyek ini."
       },
       "room": {
-        "definitionMs": "",
+        "definitionMs": "Bagian dari bangunan yang tertutup tembok; atau ruang yang tersedia bagi seseorang atau sesuatu.",
         "exampleMs": "Ada dua kamar tidur di apartemen."
       },
       "rule": {
-        "definitionMs": "",
+        "definitionMs": "Seorang pejabat atau menerima instruksi yang mengendalikan apa yang mungkin dilakukan orang; atau mengendalikan atau memutuskan sesuatu.",
         "exampleMs": "Setiap pemain harus mengikuti aturan."
       },
       "safety": {
-        "definitionMs": "",
-        "exampleMs": "Tolong baca petunjuk keselamatan sebelum menggunakan mesin."
+        "definitionMs": "Kecederaan atau bahaya.",
+        "exampleMs": "Tolong baca instruksi keselamatan sebelum menggunakan mesin."
       },
       "sample": {
-        "definitionMs": "",
+        "definitionMs": "Sejumlah kecil atau contoh yang digunakan untuk mewakili atau menguji kelompok yang lebih besar; atau untuk mencoba sejumlah kecil.",
         "exampleMs": "Toko itu memberi kami sampel gratis minuman baru."
       },
       "science": {
-        "definitionMs": "",
+        "definitionMs": "Studi sistematis dunia alam melalui pengamatan dan eksperimen.",
         "exampleMs": "Ilmu pengetahuan membantu kita memahami bagaimana dunia alam bekerja."
       },
       "service": {
-        "definitionMs": "",
+        "definitionMs": "Pekerjaan kefasihan yang dilakukan untuk membantu atau memenuhi kebutuhan orang lain; atau untuk memberikan pemeliharaan atau bantuan.",
         "exampleMs": "Restoran ini dikenal karena layanannya yang ramah."
       },
       "shape": {
-        "definitionMs": "",
+        "definitionMs": "Bentuk atau garis besar dari sesuatu; atau untuk mempengaruhi bagaimana sesuatu berkembang.",
         "exampleMs": "Tabel memiliki bentuk bulat."
       },
       "side": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu permukaan, tepi atau bagian dari sesuatu; atau satu kelompok dalam perselisihan atau persaingan.",
         "exampleMs": "Tulis namamu di sisi lain koran."
       },
       "sign": {
-        "definitionMs": "",
+        "definitionMs": "Tanda, pemberitahuan atau gerakan yang memberikan informasi; atau untuk menulis nama seseorang pada sebuah dokumen.",
         "exampleMs": "Tanda menunjukkan di mana pintu keluar."
       },
       "skill": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan untuk melakukan sesuatu dengan baik, biasanya diperoleh melalui latihan atau latihan.",
         "exampleMs": "Komunikasi merupakan keterampilan penting dalam pekerjaan."
       },
       "situation": {
-        "definitionMs": "",
+        "definitionMs": "Beberapa kondisi atau fakta yang ada pada waktu dan tempat tertentu.",
         "exampleMs": "Kita perlu memahami situasi sebelum membuat keputusan."
       },
       "size": {
-        "definitionMs": "",
+        "definitionMs": "Bagaimana besar atau kecil sesuatu adalah; atau untuk mengklasifikasikan atau mempersiapkan sesuatu sesuai dengan ukuran.",
         "exampleMs": "Kau pakai baju ukuran berapa?"
       },
       "society": {
-        "definitionMs": "",
-        "exampleMs": "Pendidikan vodina berperan penting dalam masyarakat."
+        "definitionMs": "Orang-orang tinggal bersama dalam komunitas terorganisir, atau sistem dan budaya mereka berbagi.",
+        "exampleMs": "Pendidikan vokasi memainkan peran penting dalam masyarakat."
       },
       "sound": {
-        "definitionMs": "",
-        "exampleMs": "Aku mendengar suara aneh di luar."
+        "definitionMs": "Sesuatu yang dapat didengar; atau tampaknya suatu cara tertentu ketika dibicarakan.",
+        "exampleMs": "Saya mendengar suara aneh di luar."
       },
       "space": {
-        "definitionMs": "",
+        "definitionMs": "Daerah kosong atau jumlah ruang yang tersedia; atau daerah di luar atmosfer bumi.",
         "exampleMs": "Tak cukup ruang di lemari."
       },
       "sport": {
-        "definitionMs": "",
+        "definitionMs": "Keterampilan, persaingan, dan aturan sering kali melibatkan olahraga.",
         "exampleMs": "Basketball adalah olahraga populer di sekolah kami."
       },
       "staff": {
-        "definitionMs": "",
+        "definitionMs": "Orang-orang yang bekerja untuk organisasi atau bisnis.",
         "exampleMs": "Staf hotel sangat membantu dan sopan."
       },
       "story": {
-        "definitionMs": "",
-        "exampleMs": "Kakek Grandpa bercerita sebelum tidur."
+        "definitionMs": "Keterangan tentang peristiwa nyata atau membayangkan; atau satu tingkat bangunan dalam bahasa Inggris Amerika.",
+        "exampleMs": "Kakek Grandpa menceritakan sebuah kisah sebelum tidur."
       },
       "success": {
-        "definitionMs": "",
-        "exampleMs": "Kesuksesannya berasal dari kerja keras selama bertahun-tahun."
+        "definitionMs": "Pencapaian pencapaian tujuan atau hasil yang diinginkan atau dikagumi.",
+        "exampleMs": "Keberhasilannya berasal dari kerja keras selama bertahun-tahun."
       },
       "task": {
-        "definitionMs": "",
-        "exampleMs": "Aku punya satu tugas lagi untuk diselesaikan hari ini."
+        "definitionMs": "Pekerjaan atau kegiatan yang harus diselesaikan seseorang.",
+        "exampleMs": "Saya punya satu tugas lagi untuk diselesaikan hari ini."
       },
       "team": {
-        "definitionMs": "",
+        "definitionMs": "Kelompok orang yang bekerja atau bermain bersama untuk mencapai tujuan bersama.",
         "exampleMs": "Tim kami menyelesaikan proyek lebih awal dari jadwal."
       },
       "person": {
-        "definitionMs": "",
+        "definitionMs": "Seorang manusia, dianggap sebagai individu.",
         "exampleMs": "Setiap orang perlu tiket untuk masuk."
       },
       "question": {
-        "definitionMs": "",
+        "definitionMs": "Ayat atau permintaan untuk meminta informasi; atau untuk menyatakan keraguan tentang sesuatu.",
         "exampleMs": "Guru itu mengajukan pertanyaan yang sulit."
       },
       "office": {
-        "definitionMs": "",
+        "definitionMs": "Keruangan atau bangunan tempat orang bekerja, khususnya melakukan tugas administratif atau profesional.",
         "exampleMs": "Kantorku di lantai empat."
       },
       "school": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana anak-anak atau siswa menerima pendidikan; atau kelompok dengan gagasan atau metode bersama.",
         "exampleMs": "Anak-anak berjalan ke sekolah setiap pagi."
       },
       "subject": {
-        "definitionMs": "",
+        "definitionMs": "Topik yang diteliti atau dibahas; atau orang atau hal yang sedang diperiksa atau dijelaskan.",
         "exampleMs": "Sains adalah subjek favoritku."
       },
       "type": {
-        "definitionMs": "",
+        "definitionMs": "A kind, kategori atau kelompok hal dengan fitur bersama; atau untuk menulis menggunakan keyboard.",
         "exampleMs": "Apa jenis musik yang Anda sukai?"
       },
       "tradition": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah kebiasaan, kepercayaan atau cara melakukan sesuatu yang telah berlanjut dalam kelompok atau masyarakat dari waktu ke waktu.",
         "exampleMs": "Ini adalah tradisi keluarga untuk memasak bersama pada hari libur."
       },
       "student": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang belajar di sekolah, perguruan tinggi atau universitas.",
         "exampleMs": "Setiap siswa harus membawa buku catatan ke kelas."
       },
       "assignment": {
-        "definitionMs": "",
-        "exampleMs": "Aku harus menyelesaikan tugas sejarahku malam ini."
+        "definitionMs": "Karya yang diberikan kepada seseorang, khususnya mahasiswa atau karyawan, untuk diselesaikan.",
+        "exampleMs": "Saya harus menyelesaikan tugas sejarahku malam ini."
       },
       "classroom": {
-        "definitionMs": "",
+        "definitionMs": "Ruang di mana seorang siswa diajarkan.",
         "exampleMs": "Tolong jaga kelas tetap bersih."
       },
       "dictionary": {
-        "definitionMs": "",
-        "exampleMs": "Aku memeriksa ejaan dalam kamus online."
+        "definitionMs": "Buku atau sumber daya digital yang menjelaskan makna, pengucapan dan penggunaan kata.",
+        "exampleMs": "Saya memeriksa ejaan dalam kamus online."
       },
       "essay": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah tulisan singkat yang menyajikan informasi, ide atau argumen tentang sebuah subjek.",
         "exampleMs": "Dia menulis esai tentang perubahan iklim."
       },
       "exam": {
-        "definitionMs": "",
+        "definitionMs": "Tes formal pengetahuan atau kemampuan seseorang dalam sebuah subjek.",
         "exampleMs": "Dia belajar setiap malam sebelum ujian."
       },
       "grammar": {
-        "definitionMs": "",
+        "definitionMs": "Aturan dan pola yang menggambarkan bagaimana kata-kata dibentuk dan digabungkan dalam sebuah bahasa.",
         "exampleMs": "Tata bahasa yang baik membuat tulisan Anda lebih mudah dimengerti."
       },
       "homework": {
-        "definitionMs": "",
-        "exampleMs": "Aku biasanya mengerjakan PR setelah makan malam."
+        "definitionMs": "Kegiatan belajar siswa diharapkan dilakukan di luar kelas.",
+        "exampleMs": "Saya biasanya mengerjakan PR setelah makan malam."
       },
       "lesson": {
-        "definitionMs": "",
+        "definitionMs": "Apa yang diajarkan atau belajar tentang subjek atau keterampilan tertentu; atau sesuatu yang dipelajari dari pengalaman.",
         "exampleMs": "Pelajaran bahasa Inggris kita dimulai jam sembilan."
       },
       "meaning": {
-        "definitionMs": "",
-        "exampleMs": "Bisa kau jelaskan arti kata ini?"
+        "definitionMs": "Gagasan atau pesan bahwa kata, tanda, tindakan atau peristiwa menyatakan.",
+        "exampleMs": "Dapat kau jelaskan arti kata ini?"
       },
       "notebook": {
-        "definitionMs": "",
-        "exampleMs": "Dia menulis kosakata baru di buku catatannya."
+        "definitionMs": "Buku kecil kosong atau halaman bergaris yang digunakan untuk menulis catatan.",
+        "exampleMs": "Dia menulis kosakata baru dalam buku catatannya."
       },
       "paragraph": {
-        "definitionMs": "",
+        "definitionMs": "Bagian tulisan yang mengembangkan satu ide utama dan biasanya dimulai pada baris baru.",
         "exampleMs": "Tulis satu ide utama di setiap paragraf."
       },
       "pencil": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa menghapus tanda yang dibuat oleh pensil."
+        "definitionMs": "Alat tulis atau gambar dengan potongan grafit atau bahan penanda lain di dalamnya.",
+        "exampleMs": "Kau dapat menghapus tanda yang dibuat oleh pensil."
       },
       "sentence": {
-        "definitionMs": "",
-        "exampleMs": "Penulisan kalimat lengkap untuk setiap kata."
+        "definitionMs": "Kumpulan kata-kata yang menyatakan suatu pemikiran yang lengkap; atau hukuman yang diberikan oleh pengadilan.",
+        "exampleMs": "Penulisan ayat lengkap untuk setiap kata."
       },
       "teacher": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang tugasnya membantu orang lain belajar, khususnya di sekolah.",
         "exampleMs": "Guru kami menjelaskan tata bahasa dengan jelas."
       },
       "textbook": {
-        "definitionMs": "",
+        "definitionMs": "Buku yang menyajikan informasi tentang pokok pelajaran bagi siswa untuk belajar.",
         "exampleMs": "Buku pelajaran termasuk latihan di akhir setiap bab."
       },
       "vocabulary": {
-        "definitionMs": "",
+        "definitionMs": "Kata - kata yang dikenal atau digunakan oleh seseorang, kelompok atau bahasa.",
         "exampleMs": "Pembacaan secara teratur dapat meningkatkan kosakata Anda."
       },
       "chapter": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu bagian utama dari sebuah buku atau periode dalam kehidupan seseorang atau dalam sejarah organisasi.",
         "exampleMs": "Kita membaca bab pertama sebelum kelas."
       },
       "lecture": {
-        "definitionMs": "",
+        "definitionMs": "Bahasa formal yang diberikan untuk mengajar orang tentang suatu topik; atau untuk menyampaikan khotbah semacam itu.",
         "exampleMs": "Profesor itu memberikan kuliah tentang sejarah modern."
       },
       "research": {
-        "definitionMs": "",
+        "definitionMs": "Penelitian yang saksama untuk menemukan fakta atau mencapai pemahaman baru; atau untuk melaksanakan pelajaran tersebut.",
         "exampleMs": "Para siswa melakukan penelitian tentang sejarah lokal."
       },
       "study": {
-        "definitionMs": "",
+        "definitionMs": "Kegiatan belajar tentang suatu topik; atau menghabiskan waktu untuk belajar, membaca atau menyelidikinya dengan cermat.",
         "exampleMs": "Dia belajar bahasa Inggris selama satu jam setiap hari."
       },
       "university": {
-        "definitionMs": "",
+        "definitionMs": "Institut di mana siswa belajar untuk gelar sarjana dan di mana penelitian dilakukan.",
         "exampleMs": "Dia berharap untuk kuliah tahun depan."
       },
       "hotel": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan tempat orang membayar untuk tinggal untuk waktu yang singkat, biasanya saat bepergian.",
         "exampleMs": "Kami memesan hotel dekat stasiun."
       },
       "neighbourhood": {
-        "definitionMs": "",
+        "definitionMs": "Daerah di kota atau kota tempat tinggal orang, sering dianggap sebagai komunitas.",
         "exampleMs": "Ada taman kecil di lingkungan kami."
       },
       "park": {
-        "definitionMs": "",
+        "definitionMs": "Tempat umum untuk rekreasi; atau untuk meninggalkan kendaraan di tempat tertentu.",
         "exampleMs": "Anak-anak bermain sepak bola di taman."
       },
       "pharmacy": {
-        "definitionMs": "",
-        "exampleMs": "Aku membeli obat di apotek."
+        "definitionMs": "Toko atau departemen di mana obat-obatan disiapkan atau dijual.",
+        "exampleMs": "Saya membeli obat di farmasi."
       },
       "desert": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah lahan yang luas dan kering yang hanya menerima sedikit hujan; atau meninggalkan seseorang atau sesuatu ketika dukungan diperlukan.",
         "exampleMs": "Beberapa tanaman dapat bertahan hidup di gurun."
       },
       "destination": {
-        "definitionMs": "",
+        "definitionMs": "Tempat seseorang atau sesuatu yang akan.",
         "exampleMs": "Tujuan terakhir kita adalah pantai."
       },
       "downtown": {
-        "definitionMs": "",
+        "definitionMs": "Bisnis pusat kota atau pusat perbelanjaan sebuah kota atau kota.",
         "exampleMs": "Hotel ini terletak di pusat kota."
       },
       "factory": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan atau kumpulan bangunan tempat barang dibuat, biasanya oleh mesin.",
         "exampleMs": "Pabrik membuat suku cadang untuk mobil."
       },
       "farm": {
-        "definitionMs": "",
+        "definitionMs": "Kawasan tanah yang digunakan untuk bercocok tanam atau memelihara hewan; atau untuk bercocok tanam atau beternak untuk mencari nafkah.",
         "exampleMs": "Kakek nenekku tinggal di sebuah peternakan kecil."
       },
       "forest": {
-        "definitionMs": "",
+        "definitionMs": "Kawasan yang luas terutama ditumbuhi pepohonan dan tanaman lainnya.",
         "exampleMs": "Kami berjalan melalui hutan di pagi hari."
       },
       "garage": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan atau bagian dari bangunan tempat mobil disimpan atau diperbaiki.",
         "exampleMs": "Dia parkir sepeda di garasi."
       },
       "gym": {
-        "definitionMs": "",
-        "exampleMs": "Aku pergi ke gym tiga kali seminggu."
+        "definitionMs": "Tempat yang dilengkapi peralatan olahraga, pelatihan kebugaran atau olahraga dalam ruangan.",
+        "exampleMs": "Saya pergi ke gym tiga kali seminggu."
       },
       "harbour": {
-        "definitionMs": "",
+        "definitionMs": "Kawasan perairan yang terlindung di mana kapal dan perahu dapat tetap aman; atau menjaga pikiran atau perasaan.",
         "exampleMs": "Kapal nelayan kembali ke pelabuhan."
       },
       "island": {
-        "definitionMs": "",
+        "definitionMs": "Daerah daratan yang dikelilingi oleh air.",
         "exampleMs": "Mereka menghabiskan liburan mereka di sebuah pulau tropis."
       },
       "kitchen": {
-        "definitionMs": "",
+        "definitionMs": "Ruang atau area tempat makanan disiapkan dan dimasak.",
         "exampleMs": "Bau dapur dari roti segar."
       },
       "lake": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah daerah besar air dikelilingi oleh tanah.",
         "exampleMs": "Kami pergi memancing di danau."
       },
       "path": {
-        "definitionMs": "",
+        "definitionMs": "Cara sempit atau trek bagi orang untuk berjalan bersama; atau rute untuk mencapai tujuan.",
         "exampleMs": "Ikuti jalan melalui taman."
       },
       "playground": {
-        "definitionMs": "",
+        "definitionMs": "Di kawasan luar ruangan yang dirancang agar anak - anak dapat bermain, sering kali dengan ayunan dan peralatan memanjat.",
         "exampleMs": "Anak-anak berlari ke taman bermain sepulang sekolah."
       },
       "police station": {
-        "definitionMs": "",
-        "exampleMs": "Dia pergi ke kantor polisi untuk melaporkan tasnya hilang."
+        "definitionMs": "Pejabat lokal atau gedung tempat petugas polisi bekerja dan anggota masyarakat dapat melaporkan insiden.",
+        "exampleMs": "Dia pergi ke pejabat polisi untuk melaporkan tasnya hilang."
       },
       "post office": {
-        "definitionMs": "",
-        "exampleMs": "Aku pergi ke kantor pos untuk mengirim paket."
+        "definitionMs": "Tempat di mana orang dapat mengirim surat dan paket dan layanan pos akses.",
+        "exampleMs": "Saya pergi ke pejabat pos untuk mengirim paket."
       },
       "prison": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana orang-orang ditahan sebagai hukuman setelah dihukum karena kejahatan atau saat menunggu pengadilan.",
         "exampleMs": "tahanan dipindahkan ke penjara lain."
       },
       "rooftop": {
-        "definitionMs": "",
+        "definitionMs": "Di luar permukaan atas atau atas bangunan.",
         "exampleMs": "Mereka menyaksikan matahari terbenam dari atap."
       },
       "sidewalk": {
-        "definitionMs": "",
+        "definitionMs": "Jalur beraspal di samping jalan bagi orang-orang untuk berjalan.",
         "exampleMs": "Tolong jauhkan sepeda dari trotoar."
       },
       "supermarket": {
-        "definitionMs": "",
+        "definitionMs": "Toko besar yang menjual makanan dan banyak produk rumah tangga bagi pelanggan untuk memilih sendiri.",
         "exampleMs": "Kami membeli sayuran segar di supermarket."
       },
       "temple": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan yang digunakan untuk ibadat agama, khususnya di beberapa agama Asia.",
         "exampleMs": "Para pengunjung pindah sepatu sebelum memasuki kuil."
       },
       "village": {
-        "definitionMs": "",
+        "definitionMs": "A komunitas kecil atau pemukiman, biasanya lebih kecil dari sebuah kota.",
         "exampleMs": "Bibiku tinggal di desa yang tenang."
       },
       "warehouse": {
-        "definitionMs": "",
+        "definitionMs": "Rumah besar yang digunakan untuk menyimpan barang sebelum dijual atau diangkut.",
         "exampleMs": "Perusahaan ini menyimpan produknya di gudang."
       },
       "waterfall": {
-        "definitionMs": "",
-        "exampleMs": "Kita bisa mendengar air terjun sebelum kita melihatnya."
+        "definitionMs": "Sebuah tempat di mana air mengalir di atas tepi curam atau turun drop tinggi di sungai.",
+        "exampleMs": "Kita dapat mendengar air terjun sebelum kita melihatnya."
       },
       "workplace": {
-        "definitionMs": "",
+        "definitionMs": "Tempat dimana seseorang bekerja, seperti pejabat, toko, pabrik atau lokasi lain.",
         "exampleMs": "Semua orang harus merasa aman di tempat kerja."
       },
       "zoo": {
-        "definitionMs": "",
+        "definitionMs": "Tempat dimana hewan liar dipelihara agar orang dapat melihat dan mempelajarinya.",
         "exampleMs": "Anak-anak melihat gajah di kebun binatang."
       },
       "child": {
-        "definitionMs": "",
+        "definitionMs": "Kaum muda yang belum mencapai usia dewasa; atau putra atau putri dari usia berapa pun jika dipandang sehubungan dengan orang tua.",
         "exampleMs": "Anak itu sangat senang dengan perjalanan sekolah."
       },
       "father": {
-        "definitionMs": "",
+        "definitionMs": "Orang tua laki - laki; atau menjadi ayah seorang anak atau menciptakan sesuatu.",
         "exampleMs": "Ayahnya mengajarinya mengendarai sepeda."
       },
       "friend": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang yang seseorang kenal baik dan suka, dan dengan siapa mereka memiliki hubungan kepercayaan dan kasih sayang.",
         "exampleMs": "Teman saya membantu saya mempersiapkan diri untuk wawancara."
       },
       "girl": {
-        "definitionMs": "",
+        "definitionMs": "Anak perempuan atau anak muda.",
         "exampleMs": "Gadis itu membaca buku di dekat jendela."
       },
       "husband": {
-        "definitionMs": "",
+        "definitionMs": "Seorang pria yang menikah dengan seseorang.",
         "exampleMs": "Suaminya bekerja sebagai koki."
       },
       "infant": {
-        "definitionMs": "",
+        "definitionMs": "Anak yang masih sangat kecil, khususnya bayi pada tahun pertama atau tahap awal kehidupan.",
         "exampleMs": "klinik ini menyediakan perawatan untuk bayi."
       },
       "leader": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang membimbing atau mengarahkan suatu kelompok, organisasi atau kegiatan.",
         "exampleMs": "Pemimpin tim menjelaskan rencana baru."
       },
       "manager": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang bertanggung jawab untuk mengatur dan mengendalikan pekerjaan suatu bisnis, tim atau departemen.",
         "exampleMs": "Manajer toko di toko itu menyambut para karyawan baru."
       },
       "member": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang termasuk dalam kelompok, organisasi, tim atau komunitas.",
         "exampleMs": "Setiap anggota klub menerima kartu."
       },
       "mentor": {
-        "definitionMs": "",
+        "definitionMs": "Andika seorang yang berpengalaman yang menasihati dan mendukung seseorang yang kurang berpengalaman; atau memberikan bimbingan itu.",
         "exampleMs": "Guruku membantuku menyiapkan portofolioku."
       },
       "mother": {
-        "definitionMs": "",
+        "definitionMs": "Orang tua wanita; atau merawat seseorang dengan cara yang protektif.",
         "exampleMs": "Ibunya bekerja di sekolah lokal."
       },
       "nephew": {
-        "definitionMs": "",
+        "definitionMs": "Anak dari saudara laki-laki atau perempuan, atau dari saudara perempuan pasangan mereka.",
         "exampleMs": "Keponakanku mulai sekolah menengah tahun ini."
       },
       "niece": {
-        "definitionMs": "",
+        "definitionMs": "Anak perempuan dari saudara laki-laki atau perempuan, atau dari saudara perempuan pasangan mereka.",
         "exampleMs": "Keponakan saya senang menggambar binatang."
       },
       "partner": {
-        "definitionMs": "",
-        "exampleMs": "Tolong bicarakan pertanyaannya dengan rekanmu."
+        "definitionMs": "Seseorang yang bekerja atau melakukan kegiatan dengan; atau seseorang dalam perkawinan atau hubungan romantis.",
+        "exampleMs": "Tolong diskusikan pertanyaannya dengan rekanmu."
       },
       "passenger": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang bepergian dengan kendaraan, kapal atau pesawat yang tidak mengoperasikannya.",
         "exampleMs": "Semua penumpang harus memakai sabuk pengaman mereka."
       },
       "parent": {
-        "definitionMs": "",
+        "definitionMs": "Ayah atau ibu orang; atau untuk membesarkan dan merawat anak.",
         "exampleMs": "Setiap orang tua ingin anak mereka merasa didukung."
       },
       "pedestrian": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang berjalan kaki ketimbang naik kendaraan, atau dirancang untuk atau digunakan oleh orang yang berjalan kaki.",
         "exampleMs": "Pejalan kaki harus menggunakan penyeberangan."
       },
       "player": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang mengambil bagian dalam suatu olahraga, permainan atau pertunjukan musik; atau peserta penting dalam suatu kegiatan.",
         "exampleMs": "Pemain mencetak dua gol di final."
       },
       "professor": {
-        "definitionMs": "",
+        "definitionMs": "Seorang akademisi senior yang mengajar dan memimpin penelitian di universitas atau lembaga serupa.",
         "exampleMs": "Profesor itu memberikan ceramah tentang desain modern."
       },
       "relative": {
-        "definitionMs": "",
+        "definitionMs": "Ia adalah anggota keluarga seseorang; atau dipertimbangkan dalam hubungannya dengan sesuatu yang lain daripada mutlak.",
         "exampleMs": "Kami mengunjungi beberapa kerabat selama liburan."
       },
       "roommate": {
-        "definitionMs": "",
-        "exampleMs": "Teman sekamarku dan aku berbagi masakan."
+        "definitionMs": "Orang yang berbagi kamar, apartemen atau rumah dengan orang lain.",
+        "exampleMs": "Teman sekamarku dan saya berbagi masakan."
       },
       "scientist": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang mempelajari atau bekerja dalam ilmu pengetahuan, sering kali melaksanakan penelitian atau eksperimen.",
         "exampleMs": "Ilmuwan itu mempelajari bagaimana tanaman menanggapi cahaya."
       },
       "sibling": {
-        "definitionMs": "",
+        "definitionMs": "Kakak atau kakak dari seseorang.",
         "exampleMs": "Ia memiliki dua saudara kandung, seorang kakak laki-laki dan seorang adik perempuan."
       },
       "stranger": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang yang seseorang tidak tahu.",
         "exampleMs": "Jangan berbagi informasi pribadi dengan orang asing."
       },
       "teenager": {
-        "definitionMs": "",
+        "definitionMs": "Orang berusia dari tiga belas sampai sembilan belas tahun.",
         "exampleMs": "Program ini dirancang untuk remaja."
       },
       "tourist": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang bepergian ke tempat untuk kesenangan atau kepentingan, biasanya untuk waktu yang terbatas.",
         "exampleMs": "Kota ini menarik wisatawan dari seluruh dunia."
       },
       "visitor": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang pergi ke suatu tempat untuk waktu yang singkat, sering kali sebagai tamu.",
         "exampleMs": "Semua pengunjung harus mendaftar di resepsi."
       },
       "afraid": {
-        "definitionMs": "",
+        "definitionMs": "Merasa takut atau khawatir akan sesuatu yang mungkin terjadi atau menimbulkan bahaya.",
         "exampleMs": "Anak itu takut gelap."
       },
       "alive": {
-        "definitionMs": "",
+        "definitionMs": "Living dan tidak mati; atau masih aktif, hadir atau penuh energi.",
         "exampleMs": "Bunganya masih hidup setelah malam dingin."
       },
       "amazing": {
-        "definitionMs": "",
+        "definitionMs": "Mengejutkan, kagum atau senang.",
         "exampleMs": "Pemandangan dari gunung itu menakjubkan."
       },
       "angry": {
-        "definitionMs": "",
+        "definitionMs": "Karena ada sesuatu yang tidak adil, menjengkelkan atau tidak diinginkan.",
         "exampleMs": "Ia marah atas keputusan yang tidak adil itu."
       },
       "attractive": {
-        "definitionMs": "",
+        "definitionMs": "Ada baiknya atau menarik untuk dilihat; atau mungkin untuk membuat seseorang tertarik.",
         "exampleMs": "Bangunan ini memiliki desain yang menarik."
       },
       "awful": {
-        "definitionMs": "",
+        "definitionMs": "Sangat buruk, tidak menyenangkan atau menjengkelkan.",
         "exampleMs": "Cuaca cuaca buruk selama perjalanan kami."
       },
       "beautiful": {
-        "definitionMs": "",
+        "definitionMs": "Sangat menyenangkan untuk melihat, mendengar atau mengalami.",
         "exampleMs": "Mereka menyaksikan matahari terbenam yang indah di atas laut."
       },
       "bright": {
-        "definitionMs": "",
+        "definitionMs": "Memberi atau memantulkan banyak cahaya; atau cerdas, ceria atau kemungkinan besar sukses.",
         "exampleMs": "Kamar ini cerah di pagi hari."
       },
       "careful": {
-        "definitionMs": "",
+        "definitionMs": "Memperhatikan untuk menghindari kesalahan, bahaya atau kerusakan.",
         "exampleMs": "Hati-hati saat melewati jalan yang sibuk."
       },
       "cheerful": {
-        "definitionMs": "",
+        "definitionMs": "Kebahagiaan dan positif, atau menunjukkan kebahagiaan melalui perilaku dan ekspresi.",
         "exampleMs": "Dia memberi kami salam yang ceria."
       },
       "clever": {
-        "definitionMs": "",
+        "definitionMs": "Cepat memahami, mempelajari atau mencari solusi; menunjukkan kecerdasan atau keterampilan.",
         "exampleMs": "Itu cara pintar untuk memecahkan masalah."
       },
       "comfortable": {
-        "definitionMs": "",
+        "definitionMs": "Kemudahan fisik yang diberikan kepada orang lain atau membuat seseorang merasa santai dan bebas dari kekhawatiran.",
         "exampleMs": "Sepatu ini nyaman untuk berjalan."
       },
       "confused": {
-        "definitionMs": "",
-        "exampleMs": "Aku bingung dengan instruksi baru."
+        "definitionMs": "Tidak dapat memahami sesuatu dengan jelas atau berpikir jernih tentang hal itu.",
+        "exampleMs": "Saya bingung dengan instruksi baru."
       },
       "cool": {
-        "definitionMs": "",
+        "definitionMs": "Sedikit dingin; tenang dan percaya diri; atau modis dan dikagumi.",
         "exampleMs": "Udara malam terasa sejuk."
       },
       "dangerous": {
-        "definitionMs": "",
+        "definitionMs": "Kemungkinan besar akan menimbulkan bahaya, cedera atau kerusakan.",
         "exampleMs": "Ini berbahaya untuk berenang selama badai."
       },
       "delighted": {
-        "definitionMs": "",
+        "definitionMs": "Sangat senang dan senang tentang sesuatu.",
         "exampleMs": "Kami senang mendengar kabar baik."
       },
       "different": {
-        "definitionMs": "",
+        "definitionMs": "Tidak sama dengan orang lain, memiliki sifat - sifat yang berbeda.",
         "exampleMs": "Kedua desain terlihat sangat berbeda."
       },
       "difficult": {
-        "definitionMs": "",
+        "definitionMs": "Tidak mudah untuk dilakukan, memahami atau berurusan dengan.",
         "exampleMs": "Pertanyaan terakhir sulit untuk dijawab."
       },
       "dirty": {
-        "definitionMs": "",
+        "definitionMs": "Tidak bersih; tertutup debu, tanda atau bahan lain yang tidak diinginkan; atau membuat sesuatu yang najis.",
         "exampleMs": "Sepatumu kotor dari hujan."
       },
       "easy": {
-        "definitionMs": "",
+        "definitionMs": "Tidak sulit untuk melakukan, memahami atau mencapai; menuntut sedikit upaya.",
         "exampleMs": "Latihan pertama mudah dimengerti."
       },
       "empty": {
-        "definitionMs": "",
+        "definitionMs": "Tidak ada atau tidak ada seorangpun; atau untuk menghapus segala sesuatu dari wadah atau tempat.",
         "exampleMs": "Kamar itu kosong ketika kami tiba."
       },
       "excited": {
-        "definitionMs": "",
+        "definitionMs": "Merasa sangat senang dan antusias terhadap sesuatu yang akan terjadi.",
         "exampleMs": "Anak-anak itu senang dengan perjalanan sekolah."
       },
       "famous": {
-        "definitionMs": "",
+        "definitionMs": "Dikenal oleh banyak orang, biasanya karena prestasi, kualitas atau peran publik.",
         "exampleMs": "Kota ini terkenal dengan bangunan-bangunan tua."
       },
       "fantastic": {
-        "definitionMs": "",
+        "definitionMs": "Sangat bagus, menyenangkan atau mengesankan.",
         "exampleMs": "Kami memiliki waktu yang fantastis di festival."
       },
       "fast": {
-        "definitionMs": "",
+        "definitionMs": "Moving, terjadi atau beroperasi dengan kecepatan tinggi; atau periode tidak makan.",
         "exampleMs": "Kereta api ini lebih cepat daripada layanan lokal."
       },
       "favourite": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang disukai lebih dari orang lain; atau orang yang disukai orang lain.",
         "exampleMs": "Blue adalah warna kesukaanku."
       },
       "fine": {
-        "definitionMs": "",
+        "definitionMs": "Baik atau memuaskan; sehat atau baik; atau sejumlah uang dibayar sebagai hukuman.",
         "exampleMs": "Kau baik-baik saja hari ini?"
       },
       "fit": {
-        "definitionMs": "",
+        "definitionMs": "Kesehatan dan fisik yang kuat; ukuran atau bentuk yang tepat; atau untuk menjadi ukuran yang tepat atau untuk menempatkan sesuatu ke posisi.",
         "exampleMs": "Dia tetap cocok dengan bersepeda untuk bekerja."
       },
       "flat": {
-        "definitionMs": "",
+        "definitionMs": "Aras dan halus, tanpa permukaan yang terangkat atau melengkung; atau satu set ruangan membentuk satu rumah.",
         "exampleMs": "Jalan ini datar untuk sebagian besar rute."
       },
       "fresh": {
-        "definitionMs": "",
+        "definitionMs": "Baru-baru ini dibuat, dikumpulkan atau dipersiapkan; bersih, keren atau baru dalam kualitas.",
         "exampleMs": "Kami membeli sayuran segar di pasar."
       },
       "friendly": {
-        "definitionMs": "",
+        "definitionMs": "Kebaikan, menyenangkan dan menyambut ke arah orang lain.",
         "exampleMs": "Stafnya ramah dan membantu."
       },
       "funny": {
-        "definitionMs": "",
+        "definitionMs": "Tertawa atau hiburan yang lucu; atau aneh dan sulit dijelaskan.",
         "exampleMs": "Dia menceritakan kisah lucu saat makan malam."
       },
       "gentle": {
-        "definitionMs": "",
+        "definitionMs": "Jenis, tenang dan hati-hati, atau tidak kuat, kasar atau parah.",
         "exampleMs": "Gunakan gerakan lembut saat menangani bayi."
       },
       "glad": {
-        "definitionMs": "",
-        "exampleMs": "Aku senang kau tiba dengan selamat."
+        "definitionMs": "Merasa senang, senang atau bersyukur akan sesuatu.",
+        "exampleMs": "Saya senang kau tiba dengan selamat."
       },
       "healthy": {
-        "definitionMs": "",
+        "definitionMs": "Kekhawatiran dalam kondisi fisik atau mental yang baik; atau kemungkinan besar mendukung kesehatan atau perkembangan yang baik.",
         "exampleMs": "Makanan yang sehat termasuk berbagai jenis makanan."
       },
       "helpful": {
-        "definitionMs": "",
+        "definitionMs": "Memberikan bantuan, informasi, atau dukungan yang berguna.",
         "exampleMs": "Pemandunya sangat membantu selama kunjungan kami."
       },
       "hungry": {
-        "definitionMs": "",
-        "exampleMs": "Aku lapar karena aku melewatkan sarapan."
+        "definitionMs": "Membutuhkan atau menginginkan makanan; atau sangat menginginkan sesuatu.",
+        "exampleMs": "Saya lapar karena saya melewatkan sarapan."
       },
       "important": {
-        "definitionMs": "",
+        "definitionMs": "Karena memiliki nilai yang besar, pengaruh atau makna; perhatian yang layak.",
         "exampleMs": "Penting untuk menghemat pekerjaan secara teratur."
       },
       "impossible": {
-        "definitionMs": "",
+        "definitionMs": "Tidak dapat terjadi, dilakukan atau dicapai.",
         "exampleMs": "Tidak mungkin untuk menyelesaikan proyek dalam satu jam."
       },
       "lazy": {
-        "definitionMs": "",
-        "exampleMs": "Aku merasa malas dan tinggal di sofa sepanjang sore."
+        "definitionMs": "Tidak berkeinginan untuk mengerahkan upaya atau bekerja sewaktu dibutuhkan.",
+        "exampleMs": "Saya merasa malas dan tinggal di sofa sepanjang sore."
       },
       "loud": {
-        "definitionMs": "",
+        "definitionMs": "Membuat atau menghasilkan banyak suara; atau dengan cara yang dapat didengar dengan jelas.",
         "exampleMs": "Musiknya terlalu keras untuk ruangan kecil."
       },
       "lucky": {
-        "definitionMs": "",
-        "exampleMs": "Kita beruntung bisa naik kereta terakhir."
+        "definitionMs": "Memiliki hal-hal baik terjadi secara kebetulan; atau membawa keberuntungan.",
+        "exampleMs": "Kita beruntung dapat naik kereta terakhir."
       },
       "nice": {
-        "definitionMs": "",
+        "definitionMs": "Sangat menyenangkan, menyenangkan atau menyenangkan; sering digunakan untuk menyatakan persetujuan umum.",
         "exampleMs": "Kami makan enak di restoran baru."
       },
       "act": {
-        "definitionMs": "",
+        "definitionMs": "Untuk melakukan sesuatu atau berperilaku dengan cara tertentu; atau satu hal yang seseorang lakukan.",
         "exampleMs": "Kau harus bertindak cepat dalam keadaan darurat."
       },
       "yoga": {
-        "definitionMs": "",
+        "definitionMs": "Praktik yang melibatkan postur fisik, pernapasan dan meditasi untuk mendukung kesehatan dan kesejahteraan.",
         "exampleMs": "Dia melakukan yoga setiap pagi sebelum bekerja."
       },
       "cycle": {
-        "definitionMs": "",
+        "definitionMs": "Untuk naik sepeda; atau serangkaian peristiwa yang berulang dalam urutan yang sama.",
         "exampleMs": "Kami bersepeda ke taman pada akhir pekan."
       },
       "meditate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menghabiskan waktu dengan diam - diam memusatkan pikiran, sering kali untuk menjadi tenang atau lebih sadar.",
         "exampleMs": "Dia bermeditasi selama sepuluh menit setiap pagi."
       },
       "sew": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergabung atau memperbaiki potongan kain menggunakan jarum dan benang.",
         "exampleMs": "Nenekku mengajariku cara menjahit tombol."
       },
       "sail": {
-        "definitionMs": "",
+        "definitionMs": "Untuk perjalanan melintasi air dalam perahu atau kapal; atau sepotong besar kain yang menangkap angin.",
         "exampleMs": "Mereka berlayar mengelilingi pulau selama seminggu."
       },
       "surf": {
-        "definitionMs": "",
+        "definitionMs": "Untuk naik pada gelombang menggunakan papan selancar; atau untuk berpindah dari satu situs web atau halaman ke halaman lain secara online.",
         "exampleMs": "Kami belajar berselancar di pantai."
       },
       "snorkel": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berenang di dekat permukaan sambil bernapas melalui tabung dan mencari di bawah air; atau tabung yang digunakan untuk aktivitas ini.",
         "exampleMs": "Kami tersendok dekat terumbu karang."
       },
       "picnic": {
-        "definitionMs": "",
+        "definitionMs": "Makanan yang dimakan di luar ruangan, sering kali di taman atau pedesaan; atau makan seperti itu.",
         "exampleMs": "Kami piknik di samping danau."
       },
       "barbecue": {
-        "definitionMs": "",
+        "definitionMs": "Makan atau mengumpulkan makanan di mana makanan dimasak di luar ruangan di atas api atau panggangan; atau memasak makanan dengan cara ini.",
         "exampleMs": "Kami sedang mengadakan barbeku di kebun."
       },
       "bowl": {
-        "definitionMs": "",
+        "definitionMs": "Wadah bulat, dalam untuk makanan; atau untuk menggulung bola dalam permainan seperti bowling atau kriket.",
         "exampleMs": "Dia menyajikan sup dalam mangkuk besar."
       },
       "box": {
-        "definitionMs": "",
+        "definitionMs": "Bekasi dengan sisi datar; atau untuk bertarung menggunakan teknik tinju.",
         "exampleMs": "Buku-buku itu tiba di kotak kardus."
       },
       "canoe": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah perahu yang sempit dan ringan bergerak dengan dayung; atau untuk bepergian dalam perahu seperti itu.",
         "exampleMs": "Kami menyewa kano di sungai."
       },
       "debate": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah diskusi formal di mana orang mengemukakan pendapat yang berbeda; atau untuk membahas sebuah topik dari berbagai pihak.",
         "exampleMs": "Kelas tersebut mengadakan debat mengenai seragam sekolah."
       },
       "decorate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk membuat tempat atau objek lebih menarik dengan menambahkan warna, objek atau desain.",
         "exampleMs": "Kami dihiasi ruangan dengan bunga kertas."
       },
       "design": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah rencana atau gambar menunjukkan bagaimana sesuatu akan terlihat atau bekerja; atau untuk membuat rencana tersebut.",
         "exampleMs": "Desainer tersebut mempersembahkan tiga desain logo."
       },
       "dine": {
-        "definitionMs": "",
+        "definitionMs": "Untuk makan, khususnya makan malam, sering kali dalam suasana formal atau khusus.",
         "exampleMs": "Para tamu akan makan di aula utama."
       },
       "golf": {
-        "definitionMs": "",
+        "definitionMs": "Olahraga di mana pemain menggunakan klub untuk memukul bola kecil ke dalam serangkaian lubang dalam beberapa stroke mungkin; atau untuk bermain olahraga ini.",
         "exampleMs": "Pamanku bermain golf setiap Sabtu."
       },
       "hunt": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mencari atau mengejar binatang untuk menangkap atau membunuhnya; atau mencari sesuatu.",
         "exampleMs": "Burung-burung berburu makanan dekat sungai."
       },
       "ice skate": {
-        "definitionMs": "",
+        "definitionMs": "Untuk bergerak melintasi es menggunakan sepatu bot khusus dengan bilah logam yang dipasang di bawahnya.",
         "exampleMs": "Anak-anak belajar es-skat selama liburan musim dingin."
       },
       "kayak": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah perahu kecil, sempit bergerak dengan dayung dua lapis; atau untuk perjalanan dalam satu.",
         "exampleMs": "Kami menyewa kayak dekat pantai."
       },
       "march": {
-        "definitionMs": "",
+        "definitionMs": "Untuk berjalan dengan langkah - langkah yang teratur dan disengaja, sering kali sebagai kelompok; atau berjalan di depan umum untuk menyatakan pendapat.",
         "exampleMs": "Band berbaris melewati kota."
       },
       "model": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah salinan atau representasi kecil dari sesuatu; atau untuk menampilkan pakaian, produk atau ide bagi orang lain untuk melihat.",
         "exampleMs": "Murid-murid membangun model tata surya."
       },
       "motor": {
-        "definitionMs": "",
+        "definitionMs": "Mesin yang mengubah energi menjadi bergerak; atau bepergian menggunakan kendaraan bermotor.",
         "exampleMs": "Motor membuat suara aneh."
       },
       "tweet": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah pesan singkat diposting di media sosial platform X; atau untuk membuat pendek, suara bernada tinggi seperti burung kecil.",
         "exampleMs": "Dia memposting tweet tentang acara itu."
       },
       "algorithm": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah set dari langkah atau aturan yang diperintahkan digunakan untuk menyelesaikan masalah atau melakukan perhitungan, terutama oleh komputer.",
         "exampleMs": "Mesin pencari menggunakan algoritme untuk peringkat hasil."
       },
       "app": {
-        "definitionMs": "",
-        "exampleMs": "Aku menggunakan aplikasi pembelajaran bahasa setiap hari."
+        "definitionMs": "A software programme yang dirancang untuk melakukan tugas tertentu pada telepon, tablet atau komputer.",
+        "exampleMs": "Saya menggunakan aplikasi pembelajaran bahasa setiap hari."
       },
       "battery": {
-        "definitionMs": "",
+        "definitionMs": "Perangkat yang menyimpan energi kimia dan memasok listrik ke peralatan.",
         "exampleMs": "Baterai telepon genggamku hampir habis."
       },
       "browser": {
-        "definitionMs": "",
-        "exampleMs": "- Buka halaman di web browser Anda."
+        "definitionMs": "Sebuah program komputer yang digunakan untuk mengakses dan melihat situs web di internet.",
+        "exampleMs": "Buka halaman di web browser Anda."
       },
       "cable": {
-        "definitionMs": "",
+        "definitionMs": "kawat tebal atau sekelompok kabel yang digunakan untuk membawa listrik atau data; atau untuk mengirim pesan melalui kabel.",
         "exampleMs": "Pemantau terhubung ke komputer oleh kabel."
       },
       "camera": {
-        "definitionMs": "",
+        "definitionMs": "Perangkat yang digunakan untuk mengambil foto atau merekam video.",
         "exampleMs": "Kamera mengambil foto jelas dalam cahaya rendah."
       },
       "computer": {
-        "definitionMs": "",
-        "exampleMs": "Aku menggunakan komputer untuk mengedit video."
+        "definitionMs": "Akomodasi perangkat elektronik yang menyimpan dan memproses informasi sesuai dengan instruksi dari perangkat lunak.",
+        "exampleMs": "Saya menggunakan komputer untuk mengedit video."
       },
       "data": {
-        "definitionMs": "",
+        "definitionMs": "Fakta atau informasi yang dikumpulkan untuk referensi, analisis atau penggunaan oleh komputer.",
         "exampleMs": "Tim analisa data dari survei."
       },
       "device": {
-        "definitionMs": "",
+        "definitionMs": "Bagian peralatan dibuat untuk tujuan tertentu, terutama elektronik atau mekanis.",
         "exampleMs": "Perangkat ini mengukur suhu ruangan."
       },
       "digital": {
-        "definitionMs": "",
+        "definitionMs": "Menggunakan atau berhubungan dengan informasi yang diwakili secara elektronik, terutama oleh komputer.",
         "exampleMs": "Perpustakaan ini menawarkan salinan digital buku-buku lama."
       },
       "download": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menyalin data atau berkas dari internet atau komputer lain ke perangkat Anda sendiri; atau berkas atau proses itu sendiri.",
         "exampleMs": "Anda dapat mengunduh dokumen dari situs web."
       },
       "email": {
-        "definitionMs": "",
-        "exampleMs": "Aku menerima email dari sekolah."
+        "definitionMs": "Pesan yang dikirim secara elektronik melalui internet, atau mengirim pesan seperti itu kepada seseorang.",
+        "exampleMs": "Saya menerima email dari sekolah."
       },
       "file": {
-        "definitionMs": "",
+        "definitionMs": "Koleksi informasi yang disimpan dengan satu nama pada komputer; atau untuk mengatur dokumen atau mengirimkannya secara resmi.",
         "exampleMs": "Simpan gambar sebagai file terpisah."
       },
       "internet": {
-        "definitionMs": "",
-        "exampleMs": "Internet membuatnya mudah untuk menemukan informasi."
+        "definitionMs": "Sistem global global jaringan komputer terhubung yang memungkinkan orang untuk berbagi informasi dan berkomunikasi.",
+        "exampleMs": "Internet membuatnya mudah untuk mencari informasi."
       },
       "keyboard": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah set kunci yang digunakan untuk memasukkan huruf, angka dan perintah ke dalam komputer atau perangkat lain.",
         "exampleMs": "Keyboardnya tidak bekerja dengan baik."
       },
       "laptop": {
-        "definitionMs": "",
+        "definitionMs": "Komputer portabel dengan layar dan keyboard bergabung, dirancang untuk digunakan di pangkuan atau meja seseorang.",
         "exampleMs": "Dia membawa laptopnya ke perpustakaan."
       },
       "network": {
-        "definitionMs": "",
-        "exampleMs": "Jaringan kantor berhenti bekerja pagi ini."
+        "definitionMs": "Kelompok orang yang terhubung, komputer atau sistem; atau terhubung dengan orang lain untuk mendapatkan informasi atau kesempatan.",
+        "exampleMs": "Jaringan pejabat berhenti bekerja pagi ini."
       },
       "password": {
-        "definitionMs": "",
+        "definitionMs": "Kata rahasia atau kombinasi karakter yang digunakan untuk membuktikan identitas pengguna dan mengakses sebuah sistem.",
         "exampleMs": "Pilihlah kata sandi yang kuat untuk akun Anda."
       },
       "printer": {
-        "definitionMs": "",
+        "definitionMs": "Mesin yang menghasilkan teks atau gambar di atas kertas dari komputer atau perangkat digital lainnya.",
         "exampleMs": "Mesin pencetaknya kehabisan kertas."
       },
       "robot": {
-        "definitionMs": "",
+        "definitionMs": "Mesin yang dapat melaksanakan tugas secara otomatis, sering dikendalikan oleh komputer.",
         "exampleMs": "Pabrik menggunakan robot untuk merakit bagian kecil."
       },
       "screen": {
-        "definitionMs": "",
+        "definitionMs": "permukaan datar pada perangkat yang menampilkan gambar dan informasi; atau untuk memeriksa orang atau hal-hal untuk tujuan tertentu.",
         "exampleMs": "Layar telepon buatannya retak."
       },
       "software": {
-        "definitionMs": "",
+        "definitionMs": "Program dan instruksi yang memberitahu komputer atau perangkat apa yang harus dilakukan.",
         "exampleMs": "Perangkat lunak harus diperbarui."
       },
       "animal": {
-        "definitionMs": "",
+        "definitionMs": "Makhluk hidup yang dapat bergerak dan merasakan sekitarnya, tetapi bukan tumbuhan atau manusia.",
         "exampleMs": "Hewan itu bergerak diam-diam melalui rumput."
       },
       "atmosphere": {
-        "definitionMs": "",
+        "definitionMs": "Lapisan gas di sekeliling suatu planet; atau perasaan atau suasana hati suatu tempat atau situasi.",
         "exampleMs": "atmosfer Bumi membantu melindungi kehidupan di planet ini."
       },
       "autumn": {
-        "definitionMs": "",
+        "definitionMs": "Musim antara musim panas dan musim dingin, ketika suhu menjadi dingin dan banyak pohon kehilangan daunnya.",
         "exampleMs": "Daunnya berubah menjadi merah dan emas pada musim gugur."
       },
       "breeze": {
-        "definitionMs": "",
+        "definitionMs": "A ringan, angin lembut; atau untuk bergerak melalui atau menyelesaikan sesuatu dengan mudah dan cepat.",
         "exampleMs": "Angin sejuk datang melalui jendela terbuka."
       },
       "climate": {
-        "definitionMs": "",
+        "definitionMs": "Keadaan cuaca yang biasa terjadi di suatu wilayah dalam jangka waktu yang lama; atau suasana umum suatu keadaan.",
         "exampleMs": "Wilayah ini memiliki iklim yang hangat dan lembap."
       },
       "cloud": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah massa butiran air kecil atau kristal es di langit; atau untuk membuat sesuatu sulit untuk melihat atau memahami.",
         "exampleMs": "Awan gelap berkumpul sebelum badai."
       },
       "coral": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah zat keras yang terbentuk oleh hewan laut kecil, sering menciptakan terumbu; atau warna merah muda-orek mirip dengan karang.",
         "exampleMs": "Teluk karang adalah rumah bagi banyak jenis karang."
       },
       "crop": {
-        "definitionMs": "",
+        "definitionMs": "Tanaman tanaman yang ditanam dan dikumpulkan untuk dijadikan makanan atau penggunaan lainnya; atau untuk memotong sesuatu yang pendek.",
         "exampleMs": "Beras nikel adalah tanaman yang penting di banyak negeri."
       },
       "earth": {
-        "definitionMs": "",
+        "definitionMs": "Planet di mana orang hidup; atau tanah dan tanah di bawah kaki kita.",
         "exampleMs": "Bumi bergerak mengelilingi Matahari."
       },
       "earthquake": {
-        "definitionMs": "",
+        "definitionMs": "A gerakan tiba-tiba tanah disebabkan oleh aktivitas di dalam kerak bumi.",
         "exampleMs": "Gempa bumi gempa bumi ini merusak beberapa bangunan."
       },
       "ecosystem": {
-        "definitionMs": "",
+        "definitionMs": "komunitas makhluk hidup dan lingkungan hidup yang berinteraksi di daerah tertentu.",
         "exampleMs": "Hutan hutan adalah ekosistem dengan banyak spesies yang terhubung."
       },
       "energy": {
-        "definitionMs": "",
+        "definitionMs": "Kemampuan untuk melakukan pekerjaan atau menyebabkan perubahan; atau kekuatan dan antusiasme yang dimiliki seseorang.",
         "exampleMs": "Panel surya mengubah sinar matahari menjadi energi listrik."
       },
       "flower": {
-        "definitionMs": "",
+        "definitionMs": "Bagian tanaman yang menghasilkan biji dan sering kali berwarna - warni; atau berkembang dengan sukses.",
         "exampleMs": "Taman ini penuh dengan bunga di musim semi."
       },
       "habitat": {
-        "definitionMs": "",
-        "exampleMs": "Dataran Wet memberikan habitat bagi banyak burung."
+        "definitionMs": "Rumah atau lingkungan alami binatang.",
+        "exampleMs": "Dataran Wet menyediakan habitat bagi banyak burung."
       },
       "insect": {
-        "definitionMs": "",
+        "definitionMs": "Hewan kecil dengan enam kaki dan biasanya satu atau dua pasang sayap.",
         "exampleMs": "Kupu - kupu adalah serangga berwarna - warni."
       },
       "leaf": {
-        "definitionMs": "",
+        "definitionMs": "A flat, biasanya bagian hijau dari tanaman yang tumbuh dari batang atau cabang.",
         "exampleMs": "Daun kuning jatuh dari pohon."
       },
       "lightning": {
-        "definitionMs": "",
-        "exampleMs": "Petir Lightning menerangi langit saat badai."
+        "definitionMs": "Tiba-tiba kilatan listrik terang di langit saat badai.",
+        "exampleMs": "Petir Lightning menyala di langit saat badai."
       },
       "mountain": {
-        "definitionMs": "",
+        "definitionMs": "Wilayah alami yang sangat tinggi tanah, lebih tinggi dan lebih curam daripada bukit.",
         "exampleMs": "Mereka mendaki gunung sebelum matahari terbit."
       },
       "ocean": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu daerah yang sangat besar air garam yang menutupi sebagian besar permukaan bumi.",
         "exampleMs": "Samudra Pasifik adalah lautan terbesar di Bumi."
       },
       "planet": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah objek bulat besar di ruang yang bergerak di sekitar bintang dan tidak menghasilkan cahaya sendiri.",
         "exampleMs": "Mars adalah planet keempat dari Matahari."
       },
       "pollution": {
-        "definitionMs": "",
+        "definitionMs": "Bahan berbahaya atau limbah yang membuat udara, air atau tanah kotor atau tidak aman.",
         "exampleMs": "Polusi plastik dapat mengancam hewan laut."
       },
       "recycle": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengolah bahan-bahan yang digunakan agar dapat dijadikan produk baru alih-alih dibuang.",
         "exampleMs": "Tolong daur ulang kertas dan botol plastik."
       },
       "season": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu periode utama tahun ini, seperti musim semi, musim panas, musim gugur atau musim dingin; atau periode rutin untuk suatu kegiatan.",
         "exampleMs": "Musim semi adalah musim favoritku."
       },
       "seed": {
-        "definitionMs": "",
+        "definitionMs": "Bagian tanaman yang dapat tumbuh menjadi tanaman baru; atau menanam benih di suatu daerah.",
         "exampleMs": "Setiap benih membutuhkan air dan sinar matahari untuk tumbuh."
       },
       "sky": {
-        "definitionMs": "",
+        "definitionMs": "Ruang di atas Bumi di mana awan, Matahari, Bulan dan bintang dapat dilihat.",
         "exampleMs": "Langit berubah merah muda saat matahari terbenam."
       },
       "soil": {
-        "definitionMs": "",
+        "definitionMs": "Lapisan atas bumi yang ditanam tanaman; atau membuat sesuatu yang kotor.",
         "exampleMs": "tanah yang sehat membantu bercocok tanam."
       },
       "star": {
-        "definitionMs": "",
-        "exampleMs": "Kita bisa melihat bintang terang di atas bukit."
+        "definitionMs": "Sebuah bola besar gas panas dalam ruang yang menghasilkan cahaya; atau memiliki peran penting dalam suatu kinerja.",
+        "exampleMs": "Kita dapat melihat bintang terang di atas bukit."
       },
       "storm": {
-        "definitionMs": "",
+        "definitionMs": "Periode cuaca yang sangat buruk dengan angin kencang, hujan, salju atau petir; atau untuk pindah ke suatu tempat tiba-tiba dan memaksa.",
         "exampleMs": "Badai membawa hujan lebat dan angin kencang."
       },
       "tree": {
-        "definitionMs": "",
+        "definitionMs": "Tanaman tinggi dengan batang yang keras, cabang dan daun atau jarum.",
         "exampleMs": "Pohon yang besar memberikan naungan di taman."
       },
       "valley": {
-        "definitionMs": "",
+        "definitionMs": "Wilayah dataran rendah antara perbukitan atau pegunungan, sering kali dengan sungai mengalir melewatinya.",
         "exampleMs": "Sebuah desa kecil terletak di lembah."
       },
       "ancient": {
-        "definitionMs": "",
+        "definitionMs": "terutama periode sejarah jauh sebelum masa sekarang.",
         "exampleMs": "Museum ini menampilkan peralatan kuno dan tembikar."
       },
       "artist": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang menciptakan seni, seperti lukisan, lukisan, musik atau pertunjukan.",
         "exampleMs": "Si seniman memamerkan lukisannya di galeri."
       },
       "ceremony": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah acara formal yang diadakan untuk menandai peristiwa penting atau mengikuti tradisi.",
         "exampleMs": "Upacara kelulusan dimulai jam 10."
       },
       "community": {
-        "definitionMs": "",
+        "definitionMs": "Kelompok orang yang tinggal di daerah yang sama atau berbagi minat, identitas atau tujuan.",
         "exampleMs": "Komunitas lokal mengatur hari bersih-bersih."
       },
       "concert": {
-        "definitionMs": "",
+        "definitionMs": "A penampilan publik musik, biasanya diberikan oleh satu atau lebih musisi atau kelompok.",
         "exampleMs": "Kami membeli tiket untuk konser bulan depan."
       },
       "custom": {
-        "definitionMs": "",
-        "exampleMs": "Ini adalah kebiasaan setempat untuk menyambut tamu dengan teh."
+        "definitionMs": "Cara tradisional berperilaku atau melakukan sesuatu dalam masyarakat atau kelompok tertentu.",
+        "exampleMs": "Ini adalah kebiasaan setempat untuk menyapa tamu dengan teh."
       },
       "festival": {
-        "definitionMs": "",
+        "definitionMs": "Acara khusus atau rangkaian acara, sering diadakan secara teratur, untuk merayakan suatu budaya, tradisi, seni atau kegiatan.",
         "exampleMs": "Kota ini mengadakan festival musik setiap musim panas."
       },
       "heritage": {
-        "definitionMs": "",
+        "definitionMs": "Tradisi, prestasi, bangunan dan ciri budaya yang diturunkan dari generasi sebelumnya.",
         "exampleMs": "Museum ini melindungi warisan budaya daerah ini."
       },
       "holiday": {
-        "definitionMs": "",
+        "definitionMs": "Saat seseorang tidak bekerja atau belajar, sering bersantai atau bepergian; atau hari perayaan khusus.",
         "exampleMs": "Kita akan berlibur bulan Desember."
       },
       "language": {
-        "definitionMs": "",
-        "exampleMs": "Bahasa Inggris ανία adalah bahasa utama yang digunakan dalam kelas."
+        "definitionMs": "Sistem kata, suara atau tanda yang digunakan oleh orang untuk berkomunikasi.",
+        "exampleMs": "Bahasa Inggris ανανος adalah bahasa utama yang digunakan dalam kelas."
       },
       "legend": {
-        "definitionMs": "",
-        "exampleMs": "Desa itu memiliki legenda tentang harta karun tersembunyi."
+        "definitionMs": "Sebuah cerita tradisional, kadang-kadang berdasarkan pada orang-orang nyata atau peristiwa, yang mungkin termasuk detail luar biasa atau supranatural.",
+        "exampleMs": "Desa ini memiliki legenda tentang harta karun tersembunyi."
       },
       "literature": {
-        "definitionMs": "",
+        "definitionMs": "Karya-karya tulis, terutama yang dihargai untuk kualitas artistik, seperti novel, puisi dan drama.",
         "exampleMs": "Dia belajar sastra Inggris di universitas."
       },
       "monument": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan, patung atau struktur lain yang diciptakan untuk mengingat seseorang atau peristiwa penting.",
         "exampleMs": "Tugu kehormatan orang-orang yang bertugas dalam perang."
       },
       "nation": {
-        "definitionMs": "",
+        "definitionMs": "Negara atau sekelompok besar orang dengan identitas bersama, sejarah atau pemerintahan.",
         "exampleMs": "Bangsa itu merayakan hari kemerdekaannya."
       },
       "channel": {
-        "definitionMs": "",
+        "definitionMs": "Rute yang melalui air, informasi atau sinyal dapat lewat; atau mengarahkan sesuatu melalui rute tertentu.",
         "exampleMs": "Film dokumenter ini ditayangkan di saluran televisi yang berbeda."
       },
       "chip": {
-        "definitionMs": "",
-        "exampleMs": "Sebuah chip cat datang dari dinding."
+        "definitionMs": "Sebuah potongan kecil patah dari benda yang lebih besar; sepotong tipis makanan; atau sebuah sirkuit elektronik kecil.",
+        "exampleMs": "Sebuah chip cat keluar dari dinding."
       },
       "click": {
-        "definitionMs": "",
+        "definitionMs": "Untuk menekan dan melepaskan tombol pada tetikus atau layar; atau suara pendek yang dibuat oleh tindakan tersebut.",
         "exampleMs": "Klik link untuk membuka artikel."
       },
       "engine": {
-        "definitionMs": "",
+        "definitionMs": "Mesin yang menggunakan energi untuk menghasilkan gerakan atau kekuatan, terutama dalam kendaraan.",
         "exampleMs": "Mesin mobil harus diperiksa."
       },
       "hardware": {
-        "definitionMs": "",
+        "definitionMs": "Bagian fisik dari komputer atau sistem elektronik, daripada program yang digunakannya.",
         "exampleMs": "Perangkat lunak baru membutuhkan perangkat keras komputer yang lebih baik."
       },
       "machine": {
-        "definitionMs": "",
+        "definitionMs": "Perangkat dengan bagian bergerak yang menggunakan daya untuk melakukan pekerjaan; atau membuat sesuatu dengan menggunakan mesin.",
         "exampleMs": "Sidik jari mesin memberi label otomatis."
       },
       "online": {
-        "definitionMs": "",
-        "exampleMs": "Kau bisa memesan tiket online."
+        "definitionMs": "Terhubung ke atau tersedia melalui internet.",
+        "exampleMs": "Kau dapat memesan tiket online."
       },
       "program": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah set instruksi yang diikuti komputer; atau untuk memberikan instruksi perangkat untuk melakukan tugas.",
         "exampleMs": "Program ini membantu siswa berlatih kosakata."
       },
       "smartphone": {
-        "definitionMs": "",
+        "definitionMs": "Ponsel yang dapat menjalankan aplikasi dan terhubung ke internet seperti komputer kecil.",
         "exampleMs": "Dia menggunakan ponsel pintarnya untuk mengambil foto."
       },
       "social media": {
-        "definitionMs": "",
+        "definitionMs": "Website dan aplikasi yang memungkinkan pengguna membuat konten, berbagi informasi dan berkomunikasi dengan orang lain.",
         "exampleMs": "Banyak artis berbagi karya mereka di media sosial."
       },
       "speaker": {
-        "definitionMs": "",
+        "definitionMs": "Seseorang yang berbicara kepada penonton; atau alat yang menghasilkan suara dari sinyal audio.",
         "exampleMs": "Pembicaranya menjawab pertanyaan setelah khotbah."
       },
       "technology": {
-        "definitionMs": "",
+        "definitionMs": "Kegunaan ilmu pengetahuan ilmiah dan alat untuk menciptakan metode, mesin dan sistem untuk tujuan praktis.",
         "exampleMs": "Teknologi telah mengubah cara orang berkomunikasi."
       },
       "telephone": {
-        "definitionMs": "",
-        "exampleMs": "Telepon kantor berdering selama pertemuan."
+        "definitionMs": "Perangkat atau sistem yang digunakan untuk berbicara dengan seseorang dari jarak yang jauh; atau untuk memanggil seseorang.",
+        "exampleMs": "Telepon pejabat berdering selama pertemuan."
       },
       "television": {
-        "definitionMs": "",
+        "definitionMs": "Perangkat atau sistem untuk menerima dan menampilkan program dengan suara dan gambar bergerak.",
         "exampleMs": "Mereka menonton berita di televisi."
       },
       "text message": {
-        "definitionMs": "",
-        "exampleMs": "Aku menerima pesan teks dari perusahaan pengiriman."
+        "definitionMs": "Sebuah pesan tertulis singkat dikirim dari satu ponsel atau perangkat digital ke yang lain; atau untuk mengirim pesan tersebut.",
+        "exampleMs": "Saya menerima pesan dari perusahaan pengiriman."
       },
       "upload": {
-        "definitionMs": "",
+        "definitionMs": "Untuk mengirim berkas atau data dari perangkat ke layanan daring atau komputer lain; atau proses atau berkas yang dikirim.",
         "exampleMs": "Upload tugas Anda sebelum tengah malam."
       },
       "video": {
-        "definitionMs": "",
+        "definitionMs": "Rekaman rekaman gambar bergerak, biasanya dengan suara; atau untuk merekam atau mengirim gambar secara elektronik.",
         "exampleMs": "Dia menonton video pendek tentang tata surya."
       },
       "website": {
-        "definitionMs": "",
+        "definitionMs": "Koleksi koleksi halaman dan informasi terkait yang tersedia di bawah satu alamat internet.",
         "exampleMs": "Situs web sekolah Daftar istilah tanggal."
       },
       "wireless": {
-        "definitionMs": "",
+        "definitionMs": "Parameter menggunakan sinyal radio daripada kawat fisik untuk mengirim informasi atau daya; atau sambungan atau perangkat nirkabel.",
         "exampleMs": "Ponselnya terhubung ke telepon tanpa kabel."
       },
       "crossing": {
-        "definitionMs": "",
+        "definitionMs": "Tempat dimana orang atau kendaraan dapat melintasi jalan, kereta api atau badan air; atau tindakan persilangan.",
         "exampleMs": "Gunakan penyeberangan pejalan kaki dekat lampu lalu lintas."
       },
       "department store": {
-        "definitionMs": "",
+        "definitionMs": "Toko besar yang terbagi menjadi beberapa bagian yang menjual berbagai jenis produk, seperti pakaian, perabot dan kosmetik.",
         "exampleMs": "Kami membeli koper di department store."
       },
       "dining room": {
-        "definitionMs": "",
+        "definitionMs": "Ruang di rumah atau bangunan tempat orang duduk dan makan.",
         "exampleMs": "Keluarga makan malam bersama di ruang makan."
       },
       "driveway": {
-        "definitionMs": "",
+        "definitionMs": "Jalan pribadi atau jalan pendek yang mengarah dari jalan ke rumah, garasi atau bangunan lain.",
         "exampleMs": "Tolong jangan parkir di seberang jalan tetangga."
       },
       "gate": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah penghalang yang dapat dilepas yang membuka dan menutup pintu masuk di pagar atau dinding; atau sebuah area asrama bandara.",
         "exampleMs": "Tolong tutup gerbang taman di belakangmu."
       },
       "house": {
-        "definitionMs": "",
+        "definitionMs": "Bangunan tempat tinggal orang; atau untuk menyediakan tempat bagi seseorang atau sesuatu.",
         "exampleMs": "Mereka membeli sebuah rumah kecil dekat taman."
       },
       "river": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah aliran air alami besar yang bergerak melintasi daratan menuju laut, danau atau sungai lain.",
         "exampleMs": "Sungai mengalir melalui pusat kota."
       },
       "road": {
-        "definitionMs": "",
+        "definitionMs": "Sebuah kapal yang disiapkan untuk kendaraan dan orang - orang untuk bepergian antar tempat.",
         "exampleMs": "Jalan ditutup karena banjir."
       },
       "store": {
-        "definitionMs": "",
-        "exampleMs": "Aku membeli buku catatan di toko."
+        "definitionMs": "Toko di mana barang dijual; atau menyimpan sesuatu untuk digunakan di masa depan.",
+        "exampleMs": "Saya membeli buku catatan di toko."
       },
       "street": {
-        "definitionMs": "",
+        "definitionMs": "Jalan umum di kota atau kota, biasanya dengan bangunan di sepanjang satu atau kedua sisi.",
         "exampleMs": "kafenya ada di jalan berikutnya."
       },
       "studio": {
-        "definitionMs": "",
+        "definitionMs": "Ruang atau bangunan di mana seorang seniman, fotografer, musisi atau karya profesional lainnya; atau tempat di mana siaran atau film dibuat.",
         "exampleMs": "Senimannya bekerja di studio kecil."
       },
       "town": {
-        "definitionMs": "",
+        "definitionMs": "Tempat di mana orang tinggal dan bekerja yang biasanya lebih besar dari desa tapi lebih kecil dari kota.",
         "exampleMs": "Kota ini memiliki alun-alun pasar yang sibuk."
       },
       "academy": {
-        "definitionMs": "",
+        "definitionMs": "Sekolah atau institusi yang menyediakan pendidikan atau pelatihan khusus; atau organisasi untuk mempromosikan suatu seni atau ilmu pengetahuan.",
         "exampleMs": "Dia belajar animasi di akademi seni."
       },
       "alphabet": {
-        "definitionMs": "",
+        "definitionMs": "Satu set huruf yang digunakan dalam penulisan bahasa, disusun dalam urutan yang tetap.",
         "exampleMs": "Anak-anak belajar abjad sebelum mereka mulai membaca."
       },
       "curriculum": {
-        "definitionMs": "",
+        "definitionMs": "Mata pelajaran dan konten pembelajaran termasuk dalam kursus atau program pendidikan.",
         "exampleMs": "Sekolah ini memperbarui kurikulum sainsnya."
       },
       "education": {
-        "definitionMs": "",
+        "definitionMs": "2. Proses pendidikan dan pembelajaran, terutama di sekolah, perguruan tinggi dan lembaga lainnya.",
         "exampleMs": "Pendidikan vokasi dapat menciptakan kesempatan bagi orang."
       },
       "experiment": {
-        "definitionMs": "",
+        "definitionMs": "Uji ilmiah yang dilakukan untuk menemukan atau menunjukkan sesuatu; atau untuk mencoba metode atau ide baru.",
         "exampleMs": "Para siswa melakukan percobaan di laboratorium."
       },
       "instructor": {
-        "definitionMs": "",
+        "definitionMs": "Orang yang mengajarkan keterampilan atau subjek praktis, sering kali dalam pengaturan khusus.",
         "exampleMs": "Instruktur mengemudi menjelaskan aturan dengan jelas."
       },
       "knowledge": {
-        "definitionMs": "",
+        "definitionMs": "Pengetahuan, pemahaman dan keterampilan yang diperoleh melalui pembelajaran atau pengalaman.",
         "exampleMs": "Pembacaan itu memberi kita pengetahuan tentang dunia."
       },
       "mathematics": {
-        "definitionMs": "",
+        "definitionMs": "Studi zodiak tentang jumlah, jumlah, bentuk, dan pola, termasuk bagaimana mereka berhubungan satu sama lain.",
         "exampleMs": "Matematika membantu siswa mengembangkan keterampilan memecahkan masalah."
       },
       "pupil": {
-        "definitionMs": "",
+        "definitionMs": "Seorang pribadi, khususnya seorang anak, yang diajar di sekolah.",
         "exampleMs": "Murid-murid berbaris di luar kelas."
       },
       "semester": {
-        "definitionMs": "",
+        "definitionMs": "Salah satu dari dua periode utama di mana tahun akademik sering dibagi.",
         "exampleMs": "semester baru dimulai bulan September."
       },
       "spelling": {
-        "definitionMs": "",
+        "definitionMs": "Cara suatu kata ditulis menggunakan huruf yang benar dengan urutan yang benar.",
         "exampleMs": "Ejaan kata ini sukar diingat."
       },
       "make a decision": {
-        "definitionMs": "Apa yang akan Anda lakukan setelah memikirkan pilihan",
+        "definitionMs": "Apa yang akan kau lakukan setelah memikirkan pilihan",
         "exampleMs": "Kita harus membuat keputusan sebelum Jumat."
       },
       "take responsibility": {
@@ -16256,8 +16256,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kita kehabisan kertas printer."
       },
       "look forward to": {
-        "definitionMs": "Aku merasa senang dan senang dengan sesuatu yang akan terjadi.",
-        "exampleMs": "Aku ingin bertemu tim baru."
+        "definitionMs": "Untuk merasa senang dan bersemangat tentang sesuatu yang akan terjadi",
+        "exampleMs": "Saya ingin bertemu tim baru."
       },
       "put off": {
         "definitionMs": "Untuk menunda melakukan sesuatu sampai nanti",
@@ -16273,14 +16273,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "come up with": {
         "definitionMs": "Untuk memikirkan atau menyarankan ide, rencana atau jawaban",
-        "exampleMs": "Anda dapat datang dengan judul yang lebih baik?"
+        "exampleMs": "Kau dapat datang dengan judul yang lebih baik?"
       },
       "break the ice": {
         "definitionMs": "♪ Untuk membuat orang merasa lebih santai saat pertama kali bertemu ♪",
         "exampleMs": "Perkenalan singkat membantu memecahkan es."
       },
       "on the same page": {
-        "definitionMs": "Aku punya pemahaman yang sama atau kesepakatan tentang sesuatu",
+        "definitionMs": "Saya punya pemahaman yang sama atau kesepakatan tentang sesuatu",
         "exampleMs": "Mari kita periksa halaman yang sama sebelum kita mulai."
       },
       "once in a while": {
@@ -16301,7 +16301,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "make an effort": {
         "definitionMs": "Untuk mencoba keras untuk melakukan sesuatu atau mencapai hasilnya",
-        "exampleMs": "Jika Anda berupaya berlatih, keyakinan Anda akan bertumbuh."
+        "exampleMs": "Jika kau berusaha berlatih, keyakinanmu akan tumbuh."
       },
       "take into account": {
         "definitionMs": "mempertimbangkan fakta atau situasi sewaktu membuat keputusan",
@@ -16317,7 +16317,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "come to an agreement": {
         "definitionMs": "Kebijaksanaan untuk mencapai keputusan atau pengaturan yang diterima setiap orang yang terlibat",
-        "exampleMs": "Setelah diskusi yang panjang, kedua tim itu sepakat."
+        "exampleMs": "Setelah diskusi panjang, kedua tim itu sepakat."
       },
       "raise awareness": {
         "definitionMs": "membantu lebih banyak orang memahami masalah atau menjadi khawatir tentang hal itu",
@@ -16342,11 +16342,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kita berangkat jam 8:00."
       },
       "帮": {
-        "definitionMs": "Bantuan atau bantuan; bisa juga berarti sekelompok orang atau kelompok.",
-        "exampleMs": "Kau bisa pegang ini untukku?"
+        "definitionMs": "Bantuan atau bantuan; dapat juga berarti sekelompok orang atau kelompok.",
+        "exampleMs": "Kau dapat pegang ini untukku?"
       },
       "包": {
-        "definitionMs": "Tas atau kemasan; kemasan, kemasan; termasuk.",
+        "definitionMs": "Tas atau kemasan; dikemas, dibungkus; termasuk.",
         "exampleMs": "Tolong masukkan bukunya ke dalam tas."
       },
       "备": {
@@ -16358,12 +16358,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Hari ini lebih dingin dari kemarin."
       },
       "边": {
-        "definitionMs": "Di tepi, sisi; yang menunjukkan arah atau lokasi.",
+        "definitionMs": "tepi, sisi; menunjukkan arah atau lokasi.",
         "exampleMs": "Silakan duduk dengan saya."
       },
       "常": {
-        "definitionMs": "Biasa, sering; biasa; biasa atau biasa.",
-        "exampleMs": "Dulu aku belajar di sini."
+        "definitionMs": "Reguler, sering; biasa; biasa atau biasa.",
+        "exampleMs": "Dulu saya belajar di sini."
       },
       "场": {
         "definitionMs": "Indicate Indicate menunjukkan di mana lokasi, situs atau aktivitas berlangsung. ); istilah kuantitatif yang digunakan untuk peristiwa tertentu atau fenomena alam, seperti \\\"hujan\\\".",
@@ -16378,7 +16378,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Ini pertama kalinya bagiku."
       },
       "打": {
-        "definitionMs": "Mereka juga digunakan dalam kombinasi umum seperti \\\"calling\\\" dan \\\"playing\\\".",
+        "definitionMs": "Mereka juga digunakan dalam kombinasi umum seperti \\\"calling\\\" dan \\\"playing\\\", dan dinyatakan dalam 12 ukuran, sering kali dalam \\\"dozen telur\\\".",
         "exampleMs": "Dia bermain basket setiap hari."
       },
       "大": {
@@ -16386,7 +16386,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kamar ini besar."
       },
       "地": {
-        "definitionMs": "tanah, tanah atau lokasi. ; kata kerja diikuti dengan kata kerja, tindakan dan keterangan.",
+        "definitionMs": "Ini berarti tanah, tanah atau lokasi.",
         "exampleMs": "Ada buku di tanah."
       },
       "弟": {
@@ -16394,7 +16394,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kakakku berusia 10 tahun."
       },
       "第": {
-        "definitionMs": "Kata itu diletakkan di depan kata dalam urutan atau nomor.",
+        "definitionMs": "Ada kata di depan kata, menunjukkan urutan atau nama.",
         "exampleMs": "Dia mendapat tempat pertama."
       },
       "点": {
@@ -16406,15 +16406,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong jangan bergerak."
       },
       "都": {
-        "definitionMs": "Kota ini merupakan ibu kota atau kota utama, yang sering kali merupakan \\\"kota\\\" ibu kota.",
+        "definitionMs": "Ini berarti bahwa ibu kota atau kota besar adalah hal yang umum dalam \\\"kota\\\" \\\"kota\\\".",
         "exampleMs": "Kita semua menyukai buku ini."
       },
       "饿": {
         "definitionMs": "Perlu makan, kelaparan.",
-        "exampleMs": "Aku sedikit lapar."
+        "exampleMs": "Saya sedikit lapar."
       },
       "儿": {
-        "definitionMs": "Anak, anak; juga dapat menjadi akhiran pasca-anak.",
+        "definitionMs": "Anak, anak; juga dapat menjadi akhiran anak.",
         "exampleMs": "Dia anak kecil dari keluarga."
       },
       "放": {
@@ -16431,10 +16431,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "分": {
         "definitionMs": "Pemisahan, distribusi; bagian, saham; juga menunjukkan menit atau fraksi.",
-        "exampleMs": "Tolong bagi kuenya menjadi empat potong."
+        "exampleMs": "Tolong bagi kue menjadi empat bagian."
       },
       "干": {
-        "definitionMs": "Kering; bisa juga berarti melakukan, melakukan atau bekerja.",
+        "definitionMs": "Kering; dapat juga berarti melakukan, melakukan atau bekerja.",
         "exampleMs": "Dia bekerja di perusahaan setiap hari."
       },
       "高": {
@@ -16447,14 +16447,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "歌": {
         "definitionMs": "Lagu-lagu enodon; juga kata kerja, nyanyian.",
-        "exampleMs": "Itu lagu yang bagus."
+        "exampleMs": "Lagu yang bagus."
       },
       "馆": {
-        "definitionMs": "Tempat-tempat di mana layanan atau kegiatan tertentu disediakan, seperti perpustakaan, restoran, dll.",
+        "definitionMs": "Tempat-tempat di mana layanan atau kegiatan tertentu disediakan, seperti perpustakaan, restoran.",
         "exampleMs": "Kami pergi ke perpustakaan untuk membaca."
       },
       "贵": {
-        "definitionMs": "Harga - harga yang tinggi; harganya sangat berharga dan mulia; harganya juga dapat dinamai.",
+        "definitionMs": "Harga - harga yang tinggi; harganya berharga dan mulia; harganya juga dapat dinamakan.",
         "exampleMs": "Pakaian ini terlalu mahal."
       },
       "国": {
@@ -16462,28 +16462,28 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Cina adalah negara besar."
       },
       "过": {
-        "definitionMs": "Lulusan, lulus; pengalaman; atau bantuan dinamis, menunjukkan bahwa telah dilakukan.",
-        "exampleMs": "Aku pernah ke Beijing."
+        "definitionMs": "Lulusan, lulus; pengalaman; atau bantuan dinamis, menunjukkan bahwa hal itu telah dilakukan.",
+        "exampleMs": "Saya pernah ke Beijing."
       },
       "孩": {
         "definitionMs": "Anak-anak, anak-anak; biasanya kata-kata lain.",
         "exampleMs": "Anak itu tertawa."
       },
       "汉": {
-        "definitionMs": "Bahasa Han; bahasa Tionghoa; Dinasti Han; bagian dari istilah juga merujuk kepada laki-laki.",
-        "exampleMs": "Aku belajar bahasa Cina."
+        "definitionMs": "Kekhanan Han; Tiongkok; Dinasti Han; bagian dari istilah juga merujuk pada laki-laki.",
+        "exampleMs": "Saya belajar bahasa Cina."
       },
       "号": {
-        "definitionMs": "Penomoran, penandaan, nama atau tanggal; juga dapat menunjukkan urutan, teriakan.",
+        "definitionMs": "Nomor, tanda, nama atau tanggal; mungkin juga menunjukkan urutan, teriakan.",
         "exampleMs": "Kenal nomor kamarmu."
       },
       "候": {
-        "definitionMs": "Penantian, penyambutan; juga menunjukkan musim atau iklim.",
-        "exampleMs": "Aku akan menunggu di pintu."
+        "definitionMs": "Wait, sapa; mungkin juga menunjukkan musim atau iklim.",
+        "exampleMs": "Saya akan menunggu di pintu."
       },
       "话": {
         "definitionMs": "Kata-kata, bahasa atau percakapan.",
-        "exampleMs": "Kami bisa bahasa Cina."
+        "exampleMs": "Kami dapat bahasa Cina."
       },
       "坏": {
         "definitionMs": "Kerusakan parah; rusak, rusak atau cacat.",
@@ -16502,12 +16502,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Berapa banyak teman yang kau punya?"
       },
       "记": {
-        "definitionMs": "Catatan, catatan; ingat, ingat; tanda.",
+        "definitionMs": "Recording, perekaman; mengingat, mengingat; menandai.",
         "exampleMs": "Ingat nama itu."
       },
       "假": {
-        "definitionMs": "Tidak nyata, salah; meminjam; mungkin juga berarti meninggalkan.",
-        "exampleMs": "Aku akan libur besok."
+        "definitionMs": "Tidak nyata, salah; meminjam; mungkin juga menunjukkan cuti.",
+        "exampleMs": "Saya akan libur besok."
       },
       "间": {
         "definitionMs": "Antara mereka; kamar; jarak atau perpisahan.",
@@ -16534,16 +16534,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Biar kuperkenalkan temanku."
       },
       "今": {
-        "definitionMs": "Sekarang, sekarang; sering kali untuk hari ini atau tahun ini.",
+        "definitionMs": "Sekarang, sekarang; sering untuk hari ini atau tahun ini.",
         "exampleMs": "Ini hari yang indah."
       },
       "进": {
-        "definitionMs": "Kemasukan, perjalanan; juga menunjukkan kemajuan atau kemajuan.",
+        "definitionMs": "Aksesi, perjalanan; juga mewakili kemajuan atau kemajuan.",
         "exampleMs": "Silakan masuk."
       },
       "京": {
-        "definitionMs": "Keibukotaan Keibukotaan; mungkin juga merupakan bagian dari nama tempat atau nama keluarga.",
-        "exampleMs": "Aku ingin pergi ke Beijing."
+        "definitionMs": "Ibu kota Kebayoran; mungkin juga merupakan bagian dari nama geografis atau nama keluarga.",
+        "exampleMs": "Saya ingin pergi ke Beijing."
       },
       "净": {
         "definitionMs": "Bersih, murni; dapat juga berarti lengkap atau hanya.",
@@ -16551,39 +16551,39 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "九": {
         "definitionMs": "Nomor 9.",
-        "exampleMs": "Aku mulai jam 9:00."
+        "exampleMs": "Saya mulai jam 9:00."
       },
       "就": {
         "definitionMs": "Setelah itu, Express Express segera atau tidak; mungkin juga menunjukkan kedekatan atau keterlibatan.",
-        "exampleMs": "Aku akan pulang setelah makan malam."
+        "exampleMs": "Saya akan pulang setelah makan malam."
       },
       "考": {
         "definitionMs": "Pemeriksaan, pemeriksaan; pemeriksaan; dapat juga menunjukkan verifikasi atau refleksi.",
         "exampleMs": "Besok kita akan mengikuti tes."
       },
       "渴": {
-        "definitionMs": "Air kering dan kebutuhan; juga merupakan ungkapan keinginan.",
-        "exampleMs": "Aku haus dan ingin air."
+        "definitionMs": "Ini kering, itu membutuhkan air; itu juga ekspresi keinginan.",
+        "exampleMs": "Saya haus dan ingin air."
       },
       "客": {
         "definitionMs": "Tamu, pengunjung; juga pelanggan atau pelanggan.",
         "exampleMs": "Ada tamu di rumah hari ini."
       },
       "课": {
-        "definitionMs": "Kursus, kelas atau disiplin; mereka juga dapat merujuk kepada isi suatu bagian.",
+        "definitionMs": "Kurikulum, kelas, atau disiplin; dapat juga mengacu pada suatu bagian.",
         "exampleMs": "Kita ada tiga pelajaran hari ini."
       },
       "块": {
         "definitionMs": "Blok (b) Blok, fragmen; juga kualifier, menunjukkan sepotong atau sepotong.",
-        "exampleMs": "Aku membeli dua kue."
+        "exampleMs": "Saya membeli dua kue."
       },
       "老": {
-        "definitionMs": "Other Older; berpengalaman; juga dikenal atau dikenal prefiks.",
+        "definitionMs": "Odoza Tua; berpengalaman; atau diawali oleh kasih sayang atau keakraban.",
         "exampleMs": "Orang tua itu sangat baik."
       },
       "累": {
-        "definitionMs": "Kelelahan, lelah; membaca lěi dapat berarti akumulasi atau kontinuitas.",
-        "exampleMs": "Aku lelah bekerja hari ini."
+        "definitionMs": "Kelelahan, lelah; membaca lěi berarti akumulasi atau kontinuitas.",
+        "exampleMs": "Saya lelah bekerja hari ini."
       },
       "冷": {
         "definitionMs": "Temperaturnya rendah; ia juga dapat digambarkan sebagai dingin atau kurang antusias.",
@@ -16591,14 +16591,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "六": {
         "definitionMs": "Nomor 6; digunakan untuk nama tempat minoritas ketika membaca jimat.",
-        "exampleMs": "Aku punya enam buku."
+        "exampleMs": "Saya punya enam buku."
       },
       "楼": {
         "definitionMs": "Bangunan multi-toko; mungkin juga berarti lantai di sebuah bangunan.",
-        "exampleMs": "Aku tinggal di lantai tiga."
+        "exampleMs": "Saya tinggal di lantai tiga."
       },
       "马": {
-        "definitionMs": "Hewan seperti kuda; bisa juga diberi nama atau menunjukkan kuda dalam kategori catur.",
+        "definitionMs": "Hewan seperti kuda; dapat juga diberi nama atau menunjukkan kuda dalam kategori catur.",
         "exampleMs": "Kuda berlari di rumput."
       },
       "么": {
@@ -16615,11 +16615,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "拿": {
         "definitionMs": "Ambil dengan tangan, pegang atau ambil; itu mungkin juga berarti penguasaan.",
-        "exampleMs": "Bantu aku dengan bukunya."
+        "exampleMs": "Bantu saya dengan bukunya."
       },
       "奶": {
-        "definitionMs": "Susu, susu; mungkin juga berarti menyusui.",
-        "exampleMs": "Aku minum susu setiap pagi."
+        "definitionMs": "Susu, susu; juga berarti menyusui.",
+        "exampleMs": "Saya minum susu setiap pagi."
       },
       "男": {
         "definitionMs": "Pria, pria; menunjukkan karakteristik pria.",
@@ -16630,7 +16630,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Masalahnya tidak sulit."
       },
       "脑": {
-        "definitionMs": "Otak, otak; juga dapat berarti kemampuan berpikir atau inti.",
+        "definitionMs": "Otak, pikiran; dapat juga berarti kemampuan berpikir atau inti.",
         "exampleMs": "Dia menggunakan kepalanya untuk mencari tahu."
       },
       "您": {
@@ -16638,7 +16638,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Halo. Siapa namamu?"
       },
       "旁": {
-        "definitionMs": "Sisi, sisi; juga merujuk pada bagian samping Han.",
+        "definitionMs": "Sisi, sisi; juga merujuk pada bagian samping dari Han.",
         "exampleMs": "Ada toko di sebelah sekolah."
       },
       "跑": {
@@ -16650,8 +16650,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Dia sahabatku."
       },
       "票": {
-        "definitionMs": "Tiket, kertas ballot atau uang kertas; mungkin juga merujuk kepada voucher.",
-        "exampleMs": "Aku membeli dua tiket untuk film."
+        "definitionMs": "Tiket, ballot atau banknotes; juga dapat merujuk kepada voucher.",
+        "exampleMs": "Saya membeli dua tiket untuk film."
       },
       "七": {
         "definitionMs": "Nomor UMUM 7.",
@@ -16674,12 +16674,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Anak-anak bermain sepak bola di taman."
       },
       "热": {
-        "definitionMs": "Temperaturnya tinggi; panasnya panas; juga dapat mengekspresikan antusiasme dan antusiasme.",
+        "definitionMs": "Suhunya tinggi; panasnya panas; juga dapat memperlihatkan antusiasme dan antusiasme.",
         "exampleMs": "Musim panas panas panas."
       },
       "认": {
         "definitionMs": "Kenali, kenali; akui atau konfirmasi.",
-        "exampleMs": "Aku kenal gurunya."
+        "exampleMs": "Saya kenal gurunya."
       },
       "商": {
         "definitionMs": "Bisnis, pedagang; tawar-menawar; juga urusan bisnis dalam dinasti atau matematika.",
@@ -16690,7 +16690,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Biar kuperkenalkan diriku."
       },
       "什": {
-        "definitionMs": "Shengén sering digunakan untuk \\\"apa\\\"; dapat digunakan sebagai desile atau miselan ketika membaca shí.",
+        "definitionMs": "shén sering digunakan untuk \\\"apa\\\"; shí dapat digunakan untuk menunjukkan 10 atau berbeda.",
         "exampleMs": "Apa yang ingin kau makan?"
       },
       "师": {
@@ -16699,7 +16699,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "十": {
         "definitionMs": "Nomor 10.",
-        "exampleMs": "Aku 10 tahun."
+        "exampleMs": "Saya 10 tahun."
       },
       "时": {
         "definitionMs": "Waktu, jam, periode atau musim; mungkin juga menunjukkan waktu tertentu.",
@@ -16707,18 +16707,18 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "识": {
         "definitionMs": "Pengetahuan, pengakuan; pengetahuan; ingatan atau catatan ketika membaca zhì.",
-        "exampleMs": "Aku tahu banyak karakter Han."
+        "exampleMs": "Saya tahu banyak karakter Han."
       },
       "事": {
         "definitionMs": "Sesuatu, masalah, pekerjaan atau acara.",
         "exampleMs": "Ini penting."
       },
       "试": {
-        "definitionMs": "Percobaan, tes; dapat juga mengacu pada pemeriksaan atau eksperimen.",
-        "exampleMs": "Kau bisa mencoba."
+        "definitionMs": "Percobaan, tes; mereka juga dapat mengacu pada pemeriksaan atau eksperimen.",
+        "exampleMs": "Kau dapat mencoba."
       },
       "视": {
-        "definitionMs": "Lihat, amati, lihat; juga dapat berarti penglihatan.",
+        "definitionMs": "Lihat, lihat, lihat; dapat juga berarti penglihatan.",
         "exampleMs": "Tolong jangan lama-lama menonton TV."
       },
       "四": {
@@ -16727,11 +16727,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "送": {
         "definitionMs": "Untuk dikirim, disampaikan, diberikan atau diberikan; untuk didampingi.",
-        "exampleMs": "Aku membawa teman-temanku ke stasiun."
+        "exampleMs": "Saya membawa teman-temanku ke stasiun."
       },
       "诉": {
-        "definitionMs": "Informasi, pernyataan; keluhan atau penuntutan.",
-        "exampleMs": "Tolong katakan padaku apa yang kau pikirkan."
+        "definitionMs": "Pengaduan, pernyataan; pengaduan atau penuntutan.",
+        "exampleMs": "Tolong katakan apa yang kau pikirkan."
       },
       "太": {
         "definitionMs": "Sangat tinggi; terlalu tinggi; juga tertinggi atau maksimal.",
@@ -16742,7 +16742,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Keolahragaan adalah baik untuk tubuh."
       },
       "条": {
-        "definitionMs": "(a) Sebuah bar; istilah kuantitatif yang digunakan dalam hal-hal halus, juga untuk artikel atau proyek.",
+        "definitionMs": "(a) Sebuah bar; istilah kuantitatif untuk hal-hal yang baik, juga untuk artikel atau proyek.",
         "exampleMs": "Ada ikan di atas meja."
       },
       "同": {
@@ -16754,24 +16754,24 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Lihat peta ini."
       },
       "玩": {
-        "definitionMs": "Main, hiburan; mainan; juga bisa menjadi lelucon.",
+        "definitionMs": "Main, hiburan; mainan; juga dapat menjadi lelucon.",
         "exampleMs": "Anak-anak bermain di taman."
       },
       "网": {
         "definitionMs": "Net, net; net capture.",
-        "exampleMs": "Aku membeli buku ini secara online."
+        "exampleMs": "Saya membeli buku ini secara online."
       },
       "忘": {
         "definitionMs": "Lupakan, lupa mengingat; abaikan.",
-        "exampleMs": "Aku lupa kunciku."
+        "exampleMs": "Saya lupa kunciku."
       },
       "文": {
-        "definitionMs": "Teks, bahasa, budaya; artikel; aristokratik atau formal.",
-        "exampleMs": "Aku suka membaca bahasa Cina."
+        "definitionMs": "Teks, bahasa, budaya; artikel; elegan atau formal.",
+        "exampleMs": "Saya suka membaca bahasa Cina."
       },
       "五": {
         "definitionMs": "No. 5.",
-        "exampleMs": "Aku punya lima apel."
+        "exampleMs": "Saya punya lima apel."
       },
       "午": {
         "definitionMs": "Noon, siang, juga untuk satu hari.",
@@ -16779,19 +16779,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "息": {
         "definitionMs": "Bernafaslah, istirahatlah; berhenti; berita; minat.",
-        "exampleMs": "Aku ingin istirahat."
+        "exampleMs": "Saya ingin istirahat."
       },
       "习": {
         "definitionMs": "Praktik, pelajaran; kebiasaan atau kebiasaan.",
         "exampleMs": "Ini penting untuk berlatih bahasa Cina setiap hari."
       },
       "洗": {
-        "definitionMs": "Cuci, mencuci; mandi; bisa juga berarti mencuci kartu atau mencuci foto.",
-        "exampleMs": "Aku mandi setiap malam."
+        "definitionMs": "Cuci, mencuci; mandi; dapat juga berarti mencuci kartu atau mencuci foto.",
+        "exampleMs": "Saya mandi setiap malam."
       },
       "喜": {
         "definitionMs": "Cinta, cinta; sukacita, sukacita.",
-        "exampleMs": "Aku suka lagu ini."
+        "exampleMs": "Saya suka lagu ini."
       },
       "系": {
         "definitionMs": "Sambungan, dasi; sistem, fakultas; baca ì bila artinya adalah dasi atau tombol.",
@@ -16799,35 +16799,35 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "先": {
         "definitionMs": "Terdahulu, pertama; maju dalam waktu atau urutan.",
-        "exampleMs": "Kau makan dulu, aku akan menunggu."
+        "exampleMs": "Kau makan dulu, saya akan menunggu."
       },
       "现": {
         "definitionMs": "Wajid hadir; hadir; tersedia.",
         "exampleMs": "Dia sudah pulang sekarang."
       },
       "笑": {
-        "definitionMs": "Senyum, senyum; bisa juga diejek.",
+        "definitionMs": "Senyum, senyum; dapat dicemooh.",
         "exampleMs": "Dia tersenyum ketika melihat seorang teman."
       },
       "些": {
         "definitionMs": "Beberapa, beberapa; menunjukkan jumlah kecil atau tidak pasti.",
-        "exampleMs": "Aku membeli beberapa buah."
+        "exampleMs": "Saya membeli beberapa buah."
       },
       "谢": {
-        "definitionMs": "Ungkapan terima kasih, terima kasih, maaf, penolakan, dan terima kasih kepada bunga.",
+        "definitionMs": "Ungkapan terima kasih, terima kasih, maaf, penolakan, dan terima kasih untuk bunga.",
         "exampleMs": "Terima kasih atas bantuanmu."
       },
       "新": {
         "definitionMs": "Baru, baru; baru.",
-        "exampleMs": "Aku membeli gaun baru."
+        "exampleMs": "Saya membeli gaun baru."
       },
       "星": {
-        "definitionMs": "Bintang, benda-benda langit; mungkin juga merujuk kepada satelit atau bintang.",
+        "definitionMs": "Bintang, benda-benda langit; mungkin juga merujuk pada satelit atau bintang.",
         "exampleMs": "Bintang-bintang terang malam ini."
       },
       "行": {
         "definitionMs": "Mungkin juga menunjukkan bahwa mungkin atau layak untuk berjalan. ; menunjukkan pengelompokan, perdagangan atau kelompok pendudukan.",
-        "exampleMs": "Itu bisa dilakukan."
+        "exampleMs": "Itu dapat dilakukan."
       },
       "兴": {
         "definitionMs": "Bangkit, bersinar; minat, kesenangan.",
@@ -16842,11 +16842,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kedua pakaian ini terlihat berbeda."
       },
       "爷": {
-        "definitionMs": "Kakek surau; bisa juga disebut orang yang lebih tua.",
+        "definitionMs": "Kakek surau; dapat juga disebut orang yang lebih tua.",
         "exampleMs": "Kakekku suka menanam bunga."
       },
       "页": {
-        "definitionMs": "Buku-buku, satu halaman dokumen; juga foliage.",
+        "definitionMs": "Buku-buku, halaman dokumen; juga foliage.",
         "exampleMs": "Sila beralih ke halaman 10."
       },
       "影": {
@@ -16854,16 +16854,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Ada bayangan di bawah pohon."
       },
       "用": {
-        "definitionMs": "Penggunaan, penggunaan; kebutuhan; mungkin juga menunjukkan cara tertentu.",
-        "exampleMs": "Aku memeriksa kamus di ponselku."
+        "definitionMs": "Penggunaan, penerapan; kebutuhan; mungkin juga menunjukkan cara tertentu.",
+        "exampleMs": "Saya memeriksa kamus di ponselku."
       },
       "右": {
         "definitionMs": "Kanan, kanan; ke kiri.",
         "exampleMs": "Bank tepat di sekolah."
       },
       "语": {
-        "definitionMs": "Bahasa, dialek, dialek, dialek; Anda dapat mengetahui kapan Anda membaca yurt.",
-        "exampleMs": "Aku belajar bahasa Cina."
+        "definitionMs": "Bahasa-bahasa, dialek, dialek; mungkin diucapkan ketika membaca yurt.",
+        "exampleMs": "Saya belajar bahasa Cina."
       },
       "元": {
         "definitionMs": "Dolar Ogori; unit moneter; inisial, dasar.",
@@ -16879,31 +16879,31 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "找": {
         "definitionMs": "Cari, cari; ambil; juga menandakan nol.",
-        "exampleMs": "Aku mencari kunciku."
+        "exampleMs": "Saya mencari kunciku."
       },
       "着": {
-        "definitionMs": "Menurut dugaan, tindakan atau keadaan terus berlanjut. Artinya menyentuh, mencapai atau memasuki suatu negara. ; menunjukkan metode, jumlah atau ukuran. ); menunjukkan pakaian, lampiran atau penanganan.",
+        "definitionMs": "Menurut dugaan, tindakan atau keadaan terus berlanjut. Artinya menyentuh, mencapai atau memasuki suatu negara. ); menunjukkan metode, nomor atau ukuran.; menunjukkan pakaian, lampiran atau penanganan.",
         "exampleMs": "Pintunya terbuka."
       },
       "真": {
-        "definitionMs": "Nyata, nyata; nyata, nyata.",
+        "definitionMs": "Real, real; real, real.",
         "exampleMs": "Itu benar."
       },
       "正": {
-        "definitionMs": "Positif, benar; berkelanjutan, sempurna; mungkin juga menunjukkan bulan - bulan besar atau positif.",
+        "definitionMs": "BAHASA yang benar, benar; sedang berlangsung, benar; juga dapat menunjukkan bulan-bulan besar atau positif.",
         "exampleMs": "Dia membaca."
       },
       "知": {
         "definitionMs": "Tahu, mengerti; mengenali.",
-        "exampleMs": "Aku tahu jawabannya."
+        "exampleMs": "Saya tahu jawabannya."
       },
       "重": {
         "definitionMs": "Besar besar; serius, penting; ulangi atau ulangi ketika cóng dibaca.",
         "exampleMs": "Kotak ini berat."
       },
       "准": {
-        "definitionMs": "Akurat, standar; diperbolehkan; oleh atau pada.",
-        "exampleMs": "Ini adalah waktu yang tepat."
+        "definitionMs": "Ketepatan, standar; diperbolehkan; oleh atau pada.",
+        "exampleMs": "Ini waktu yang tepat."
       },
       "子": {
         "definitionMs": "Anak-anak, anak-anak; benih; dan sering kali akhiran kata benda.",
@@ -16915,7 +16915,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "昨": {
         "definitionMs": "Kemarin; melambangkan hari terakhir.",
-        "exampleMs": "Aku pergi ke taman kemarin."
+        "exampleMs": "Saya pergi ke taman kemarin."
       },
       "左": {
         "definitionMs": "Kiri, kiri; kanan.",
@@ -16927,7 +16927,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "做": {
         "definitionMs": "Membuat, membawa, terlibat; menjadi atau menahan.",
-        "exampleMs": "Aku akan membuat makanan Cina."
+        "exampleMs": "Saya akan membuat makanan Cina."
       },
       "般": {
         "definitionMs": "Jenis, tata krama atau penampilan; biasa ditemukan dalam kata \\\"umum\\\".",
@@ -16939,15 +16939,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "办": {
         "definitionMs": "Menangani, menangani, mengatur atau mengatur suatu perkara.",
-        "exampleMs": "Aku pergi ke bank untuk berbisnis."
+        "exampleMs": "Saya pergi ke bank untuk berbisnis."
       },
       "饱": {
-        "definitionMs": "Makan, memuaskan; artinya makanan tidak diperlukan lagi.",
-        "exampleMs": "Aku sudah cukup."
+        "definitionMs": "Makan, memenuhi; artinya makanan tidak diperlukan lagi.",
+        "exampleMs": "Saya sudah cukup."
       },
       "报": {
         "definitionMs": "Laporan, pemberitahuan; jawaban; juga surat kabar atau publikasi.",
-        "exampleMs": "Aku membaca koran setiap pagi."
+        "exampleMs": "Saya membaca koran setiap pagi."
       },
       "必": {
         "definitionMs": "Harus, harus, harus; berarti bahwa hal-hal yang tak terelakkan atau perlu.",
@@ -16958,11 +16958,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tiba-tiba menjadi dingin."
       },
       "便": {
-        "definitionMs": "Hal itu juga bisa menunjukkan kenyamanan, kenyamanan, atau keterpaduan.",
+        "definitionMs": "Hal itu juga dapat menunjukkan kenyamanan, kenyamanan, atau keterpaduan.",
         "exampleMs": "Ini mudah di sini."
       },
       "遍": {
-        "definitionMs": "Di mana-mana, di mana-mana; di mana-mana; di mana-mana.",
+        "definitionMs": "Semuanya sudah berakhir, di mana-mana, di mana-mana, di mana-mana; di seluruh tempat.",
         "exampleMs": "Baca lagi."
       },
       "表": {
@@ -16971,10 +16971,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "部": {
         "definitionMs": "Jabatan, bagian, gaya; juga istilah kuantitatif untuk film, buku, dll.",
-        "exampleMs": "Aku menonton film."
+        "exampleMs": "Saya menonton film."
       },
       "才": {
-        "definitionMs": "Bakat, bakat; juga kata sifat yang menunjukkan bahwa hal itu telah terjadi, hanya atau tidak pada suatu titik.",
+        "definitionMs": "Bakat, bakat; juga kata sifat yang menunjukkan bahwa baru saja terjadi, hanya atau sampai beberapa waktu.",
         "exampleMs": "Dia baru saja datang."
       },
       "参": {
@@ -16987,19 +16987,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "层": {
         "definitionMs": "Aras, lapisan; lantai bangunan; juga kata untuk benda berlapis.",
-        "exampleMs": "Aku tinggal di lantai lima."
+        "exampleMs": "Saya tinggal di lantai lima."
       },
       "查": {
         "definitionMs": "Pemeriksaan, pencarian, penyelidikan; juga dapat menunjukkan akses informasi.",
-        "exampleMs": "Aku sedang memeriksa kata ini di kamus."
+        "exampleMs": "Saya sedang memeriksa kata ini di kamus."
       },
       "超": {
-        "definitionMs": "Di atas, di atas, di atas; juga dapat diprefikskan sebagai super atau abnormal.",
+        "definitionMs": "Lebih, lebih, lebih; juga dapat diprefikskan untuk menunjukkan super atau abnormal.",
         "exampleMs": "Dia segera melampaui saya."
       },
       "晨": {
         "definitionMs": "Pagi, pagi; permulaan hari.",
-        "exampleMs": "Aku berlari setiap pagi."
+        "exampleMs": "Saya berlari setiap pagi."
       },
       "称": {
         "definitionMs": "Remark, nama, pujian; chèn proporsional dan sesuai.",
@@ -17022,7 +17022,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kami naik perahu ke pulau."
       },
       "吹": {
-        "definitionMs": "Tiuplah, tiup, tiup, mainkan alat musik pipa; ini juga berarti membual.",
+        "definitionMs": "Meledak, meniup, meniup, memainkan alat musik pipa; juga berarti membual.",
         "exampleMs": "Angin bertiup lembut."
       },
       "春": {
@@ -17030,7 +17030,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Bunga musim semi."
       },
       "词": {
-        "definitionMs": "Kata-kata, kata-kata; lirik; juga puisi klasik.",
+        "definitionMs": "Kata-kata, kata-kata; lirik; juga bentuk puisi klasik.",
         "exampleMs": "Gunakan kata itu."
       },
       "带": {
@@ -17042,20 +17042,20 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong tulis namamu di daftar ini."
       },
       "但": {
-        "definitionMs": "Namun, itu juga bisa berarti hanya, hanya.",
-        "exampleMs": "Aku suka, tapi tidak ada waktu hari ini."
+        "definitionMs": "Namun, itu juga dapat berarti hanya, hanya.",
+        "exampleMs": "Saya suka, tapi tidak ada waktu hari ini."
       },
       "倒": {
         "definitionMs": "Disongsangkan, ke bawah; dicurahkan dari cairan; mungkin juga menunjukkan bertentangan dengan harapan.",
         "exampleMs": "Tolong tuangkan air ke gelas."
       },
       "低": {
-        "definitionMs": "Low Rendah, rendah; lebih rendah; bisa juga berarti rendah suara atau rendah posisi.",
+        "definitionMs": "Low Rendah, rendah; lebih rendah; dapat juga berarti rendah suara atau rendah posisi.",
         "exampleMs": "Meja ini terlalu rendah."
       },
       "典": {
         "definitionMs": "Buku-buku, standar, upacara, seremonial, seremonial, dan sandiwara.",
-        "exampleMs": "Aku melihat kata itu di kamus."
+        "exampleMs": "Saya melihat kata itu di kamus."
       },
       "掉": {
         "definitionMs": "Kejatuhan, jatuh; hilang atau hilang; mungkin juga menunjukkan pengalihan atau perubahan.",
@@ -17070,7 +17070,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Musim dingin dingin dingin di sini."
       },
       "度": {
-        "definitionMs": "derajat, derajat, batas; dapat juga berarti lembur; ukuran ketika membaca duó.",
+        "definitionMs": "Derajat, derajat, batas; mungkin juga berarti lembur; mereka diukur ketika membaca duós.",
         "exampleMs": "Suhunya tinggi hari ini."
       },
       "短": {
@@ -17086,7 +17086,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kita punya tim sepak bola di sekolah."
       },
       "而": {
-        "definitionMs": "Menghubungkan kata-kata atau subbagian untuk mengartikan hubungan paralel, turn-over, kausal atau progresif.",
+        "definitionMs": "Menghubungkan kata atau subbagian untuk mengartikan hubungan paralel, putar, kausal atau progresif.",
         "exampleMs": "Dia pintar dan keras."
       },
       "发": {
@@ -17099,39 +17099,39 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "份": {
         "definitionMs": "Kongsi, suku cadang; juga kata kuantitatif untuk hadiah, dokumen, laporan, dll.",
-        "exampleMs": "Tolong beri aku menu."
+        "exampleMs": "Tolong beri saya menu."
       },
       "封": {
-        "definitionMs": "Segel, Segel, Segel, Segel, Surat, dll.",
-        "exampleMs": "Aku dapat surat."
+        "definitionMs": "Meterai, segel, segel, segel, huruf, dll.",
+        "exampleMs": "Saya dapat surat."
       },
       "复": {
         "definitionMs": "Kerumitan atau kompleksitas.",
-        "exampleMs": "Aku akan belajar sebelum ujian."
+        "exampleMs": "Saya harus belajar sebelum ujian."
       },
       "该": {
-        "definitionMs": "Seharusnya, harus menunjukkan tanggung jawab, rekomendasi atau giliran seseorang.",
+        "definitionMs": "Seharusnya, seharusnya, itu harus menunjukkan tanggung jawab, saran atau giliran seseorang.",
         "exampleMs": "Saatnya kau beristirahat."
       },
       "改": {
-        "definitionMs": "Berubah, dimodifikasi, diperbaiki atau ditingkatkan.",
-        "exampleMs": "Aku ingin mengubah kalimat itu."
+        "definitionMs": "Ubah, ubah, perbaiki atau perbaiki.",
+        "exampleMs": "Saya ingin mengubah ayat itu."
       },
       "感": {
         "definitionMs": "Perasaan, perasaan, emosi, pengaruh, juga dapat mengungkapkan perasaan atau perasaan.",
-        "exampleMs": "Aku merasa dingin hari ini."
+        "exampleMs": "Saya merasa dingin hari ini."
       },
       "刚": {
         "definitionMs": "Baru saja, sekarang ini; menunjukkan bahwa gerakan itu terjadi segera; juga dapat menjadi keras dan kuat.",
-        "exampleMs": "Aku baru saja pulang."
+        "exampleMs": "Saya baru saja pulang."
       },
       "公": {
-        "definitionMs": "Publik, publik; adil, adil; mungkin juga dinyatakan sebagai hewan jantan atau duke.",
+        "definitionMs": "Publik, publik; adil, adil; mungkin juga berarti hewan jantan atau duke.",
         "exampleMs": "Ada banyak orang di taman."
       },
       "卡": {
         "definitionMs": "Kartu, truk, jamming, bloking, kalori.",
-        "exampleMs": "Aku membeli barang dengan kartu bank."
+        "exampleMs": "Saya membeli barang dengan kartu bank."
       },
       "康": {
         "definitionMs": "Kesehatan, kesejahteraan dan kesejahteraan; juga dapat berarti stabilitas dan kemakmuran.",
@@ -17142,11 +17142,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong jangan bersandar di pintu."
       },
       "科": {
-        "definitionMs": "Subjek, subjek, departemen administrasi atau daerah spesialisasi.",
+        "definitionMs": "Subjek, subjek; departemen administratif atau wilayah spesialisasi.",
         "exampleMs": "Kelas sains favoritku."
       },
       "可": {
-        "definitionMs": "Hal ini dimungkinkan, mungkin, mungkin, diizinkan, dan dapat digunakan untuk memperkuat nada.",
+        "definitionMs": "Hal ini dimungkinkan, hal ini dimungkinkan; mungkin, dapat dibenarkan; juga dapat digunakan untuk memperkuat nada.",
         "exampleMs": "Masalah ini dapat diselesaikan."
       },
       "克": {
@@ -17154,7 +17154,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kita harus mencoba mengatasi kesulitan."
       },
       "刻": {
-        "definitionMs": "Car Carving, ukir; 15 menit; juga waktu yang singkat.",
+        "definitionMs": "Ukiran, ukiran; seperempat jam; juga waktu yang singkat.",
         "exampleMs": "Ini jam 3:00."
       },
       "空": {
@@ -17167,7 +17167,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "筷": {
         "definitionMs": "sumpit sumpit; utensil untuk makanan.",
-        "exampleMs": "Tolong beri aku sepasang sumpit."
+        "exampleMs": "Tolong beri saya sepasang sumpit."
       },
       "拉": {
         "definitionMs": "Tarik, tarik, tarik; tarik alat musik tali; juga dapat diucapkan.",
@@ -17182,7 +17182,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Bola basket di keranjang."
       },
       "乐": {
-        "definitionMs": "Ini tentang sukacita, kegembiraan atau sesuatu. Ini tentang musik atau musik.",
+        "definitionMs": "Ini tentang kebahagiaan, kegembiraan atau sesuatu.",
         "exampleMs": "Mendengarkan musik membuatku bahagia."
       },
       "离": {
@@ -17211,10 +17211,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "练": {
         "definitionMs": "Praktek, pelatihan; keterampilan meningkatkan mutu melalui kegiatan yang berulang.",
-        "exampleMs": "Aku berlatih menulis bahasa Cina setiap hari."
+        "exampleMs": "Saya berlatih menulis bahasa Cina setiap hari."
       },
       "凉": {
-        "definitionMs": "Ini keren, dingin, juga tanda pendinginan atau kekecewaan.",
+        "definitionMs": "Keren, dingin, dingin atau kecewa.",
         "exampleMs": "Malam ini agak dingin."
       },
       "亮": {
@@ -17231,7 +17231,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "留": {
         "definitionMs": "Tinggalkan, simpan, tinggal, simpan; mungkin juga disediakan untuk seseorang.",
-        "exampleMs": "Tolong tinggalkan aku kursi."
+        "exampleMs": "Tolong tinggalkan saya kursi."
       },
       "流": {
         "definitionMs": "Gerakan, aliran; transmisi, proliferasi; juga air atau arus.",
@@ -17242,7 +17242,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kami merencanakan perjalanan musim panas."
       },
       "绿": {
-        "definitionMs": "Wadond Green; juga pengucapan dalam beberapa judul.",
+        "definitionMs": "Wajando Green; juga pengucapan dalam beberapa judul.",
         "exampleMs": "Daunnya hijau."
       },
       "论": {
@@ -17255,7 +17255,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "末": {
         "definitionMs": "Akhir, tahap akhir; mungkin juga menunjukkan halus atau bubuk.",
-        "exampleMs": "Aku akan pulang pada akhir bulan."
+        "exampleMs": "Saya akan pulang pada akhir bulan."
       },
       "目": {
         "definitionMs": "Mata mata mata mata; item, entri; direktori atau klasifikasi.",
@@ -17275,7 +17275,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "怕": {
         "definitionMs": "Takut, takut, mungkin juga diungkapkan atau ditakuti.",
-        "exampleMs": "Aku sedikit takut gelap."
+        "exampleMs": "Saya sedikit takut gelap."
       },
       "排": {
         "definitionMs": "Orrange, antrian; dikecualikan, dikecualikan; juga mengacu pada baris atau baris.",
@@ -17287,11 +17287,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "篇": {
         "definitionMs": "Buku, artikel; juga artikel, artikel, artikel, dll.",
-        "exampleMs": "Aku menulis artikel singkat."
+        "exampleMs": "Saya menulis tulisan pendek."
       },
       "片": {
         "definitionMs": "Snippet, klip; film; juga kata untuk film, wilayah atau adegan.",
-        "exampleMs": "Tolong beri aku sepotong roti."
+        "exampleMs": "Tolong beri saya sepotong roti."
       },
       "漂": {
         "definitionMs": "♪ Terapung, hanyut; pemutihan; dan membaca pião untuk \"pretty.\"",
@@ -17315,7 +17315,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "骑": {
         "definitionMs": "Pada kuda, pada mobil, pada wahana, juga dapat berarti kavaleri atau berkuda.",
-        "exampleMs": "Aku bersepeda ke sekolah setiap hari."
+        "exampleMs": "Saya bersepeda ke sekolah setiap hari."
       },
       "千": {
         "definitionMs": "Angka 1000; mungkin juga menunjukkan angka yang besar.",
@@ -17330,12 +17330,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Pendekatan ini sederhana dan efektif."
       },
       "腿": {
-        "definitionMs": "Kaki binatang; juga Kuantifikasi barang - barang yang baik.",
+        "definitionMs": "Kaki kaki; juga dapat digunakan untuk mengkuantifikasi artikel panjang.",
         "exampleMs": "Kakiku sakit sedikit."
       },
       "完": {
         "definitionMs": "Selesai, selesai, selesai, selesai.",
-        "exampleMs": "Aku sudah menyelesaikan pekerjaan rumahku."
+        "exampleMs": "Saya sudah menyelesaikan pekerjaan rumahku."
       },
       "碗": {
         "definitionMs": "Mangkuk mangkuk; wadah nasi, sup atau makanan lainnya, yang juga digunakan sebagai alat ukur.",
@@ -17343,7 +17343,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "万": {
         "definitionMs": "Angka 10,000; juga menunjukkan angka yang sangat tinggi; beberapa nama keluarga dibaca mò.",
-        "exampleMs": "Harga mobil ini 10.000 jenis."
+        "exampleMs": "Biaya mobil ini 10.000 jenis."
       },
       "王": {
         "definitionMs": "Raja, raja; mungkin juga menunjukkan yang terkuat atau yang terbaik dari hal-hal tertentu; nama belakang umum.",
@@ -17354,8 +17354,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong teruskan."
       },
       "为": {
-        "definitionMs": "Be, be, do; membaca wèi untuk, karena atau untuk seseorang.",
-        "exampleMs": "Aku punya hadiah untukmu."
+        "definitionMs": "Be, be, do; membaca wèi untuk, untuk atau untuk seseorang.",
+        "exampleMs": "Saya punya hadiah untukmu."
       },
       "位": {
         "definitionMs": "Lokasi, lokasi; juga humanistik, sopan atau hormat.",
@@ -17367,7 +17367,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "喂": {
         "definitionMs": "Pemberian makan, membesarkan, atau mengucapkan salam, atau digunakan untuk menjawab telepon dengan mengatakan \\\"Halo\\\".",
-        "exampleMs": "Aku memberi makan kucing setiap hari."
+        "exampleMs": "Saya memberi makan kucing setiap hari."
       },
       "温": {
         "definitionMs": "Kehangatan, ringan; suhu; mungkin juga berarti mencela atau menyegarkan.",
@@ -17375,26 +17375,26 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "闻": {
         "definitionMs": "Dengar, dengar.",
-        "exampleMs": "Aku mencium bau bunga."
+        "exampleMs": "Saya mencium bau bunga."
       },
       "务": {
         "definitionMs": "Layanan, operasi; melakukan, menangani pekerjaan.",
         "exampleMs": "Tugas ini penting."
       },
       "物": {
-        "definitionMs": "Item, objek; berarti benda selain orang atau benda.",
+        "definitionMs": "Artikel, hal; berarti benda selain orang atau benda.",
         "exampleMs": "Objek ini penting."
       },
       "夏": {
-        "definitionMs": "Musim panas, musim panas; juga merujuk pada dinasti musim panas atau nama keluarga terkait.",
-        "exampleMs": "Musim panas aku suka berenang."
+        "definitionMs": "musim panas, musim panas; juga disebut sebagai musim haji musim panas atau nama keluarga terkait.",
+        "exampleMs": "Musim panas saya suka berenang."
       },
       "相": {
-        "definitionMs": "xiang dibaca dengan penampilan, penampilan atau gambar.",
+        "definitionMs": "Satu sama lain, satu sama lain; xiang menunjukkan penampilan, penampilan atau gambar.",
         "exampleMs": "Kita saling membantu."
       },
       "响": {
-        "definitionMs": "Suara, gema, suara, cincin, juga bisa keras.",
+        "definitionMs": "Suara, gema, suara, cincin, juga dapat keras.",
         "exampleMs": "Loceng pintu berbunyi."
       },
       "向": {
@@ -17402,12 +17402,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong belok kanan."
       },
       "像": {
-        "definitionMs": "Seperti, mirip; penampilan, gambar atau potret.",
+        "definitionMs": "Seperti, mirip; penampilan, gambar atau gambar.",
         "exampleMs": "Dia mirip ayah."
       },
       "信": {
         "definitionMs": "Surat, surat; kepercayaan, kepercayaan; dapat juga menyatakan keyakinan atau kepercayaan.",
-        "exampleMs": "Aku menulis surat untuk seorang teman."
+        "exampleMs": "Saya menulis surat untuk seorang teman."
       },
       "姓": {
         "definitionMs": "Nama keluarga, menunjukkan nama keluarga seseorang.",
@@ -17430,7 +17430,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Lukisan yang indah."
       },
       "阳": {
-        "definitionMs": "Matahari, matahari, matahari di bawah sinar matahari, juga dapat menunjukkan matahari dan kecerahan.",
+        "definitionMs": "Matahari, matahari, matahari, matahari di matahari, juga dapat menunjukkan matahari dan kecerahan.",
         "exampleMs": "Matahari terbit."
       },
       "养": {
@@ -17438,7 +17438,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Keluargaku punya kucing."
       },
       "业": {
-        "definitionMs": "Industri, kependudukan, pekerjaan; studi, karier; dan juga kompetensi Buddhis.",
+        "definitionMs": "Industri, kependudukan, pekerjaan, studi, karier, dan juga kompetensi Buddhis.",
         "exampleMs": "Dia mengerjakan PR."
       },
       "夜": {
@@ -17450,27 +17450,27 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Cuaca di sini baik untuk berjalan-jalan."
       },
       "已": {
-        "definitionMs": "Sudah; berarti suatu tindakan atau kondisi terjadi atau selesai sebelum suatu waktu tertentu.",
-        "exampleMs": "Aku sudah makan."
+        "definitionMs": "Sudah; menunjukkan bahwa tindakan atau kondisi tersebut terjadi atau selesai sebelum waktu tertentu.",
+        "exampleMs": "Saya sudah makan."
       },
       "以": {
-        "definitionMs": "Kegunaan, kebergantungan; kesesuaian; karena; pengungkapan tujuan atau tata cara.",
-        "exampleMs": "Kita bisa berkomunikasi dalam bahasa Cina."
+        "definitionMs": "Kegunaan, kebergantungan; pengenaan; karena; pengungkapan tujuan atau tata cara.",
+        "exampleMs": "Kita dapat berkomunikasi dalam bahasa Cina."
       },
       "亿": {
         "definitionMs": "Bilangan 100.000.000; melambangkan angka yang sangat besar.",
         "exampleMs": "Cina memiliki miliaran orang."
       },
       "意": {
-        "definitionMs": "Arti, pikiran, makna; niat, suasana hati atau kehendak.",
+        "definitionMs": "Makna, pikiran, makna; niat, suasana hati atau kehendak.",
         "exampleMs": "Apa maksudmu?"
       },
       "因": {
         "definitionMs": "Alasan, faktor, sebab, sebab, alasan, alasan.",
-        "exampleMs": "Aku tidak pergi karena hujan."
+        "exampleMs": "Saya tidak pergi karena hujan."
       },
       "阴": {
-        "definitionMs": "Matahari, gelap; matahari, gelap; mungkin juga tersembunyi atau negatif.",
+        "definitionMs": "Matahari, gelap; matahari, gelap; mungkin juga menunjukkan kutub tersembunyi atau negatif.",
         "exampleMs": "Ini hari yang gelap."
       },
       "音": {
@@ -17491,7 +17491,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "英": {
         "definitionMs": "Inggris, Inggris; pahlawan, orang yang menonjol; atau bunga.",
-        "exampleMs": "Aku belajar bahasa Inggris."
+        "exampleMs": "Saya belajar bahasa Inggris."
       },
       "迎": {
         "definitionMs": "Selamat datang, selamat datang, wajah atau sesuatu.",
@@ -17499,19 +17499,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "永": {
         "definitionMs": "Selamanya, secara permanen; menunjukkan bahwa waktu itu konstan.",
-        "exampleMs": "Aku akan selalu ingat hari ini."
+        "exampleMs": "Saya akan selalu ingat hari ini."
       },
       "由": {
         "definitionMs": "Oleh, dari; melalui; karena; menunjukkan sumber, sebab atau pelaksana.",
-        "exampleMs": "Aku akan menulis surat ini."
+        "exampleMs": "Saya akan menulis surat ini."
       },
       "油": {
-        "definitionMs": "Minyak, minyak, minyak; mungkin juga dinyatakan sebagai minyak yang dilapisi atau berminyak.",
+        "definitionMs": "Minyak, minyak, minyak; mungkin juga menunjukkan pelapis minyak atau berminyak.",
         "exampleMs": "Tolong masukkan minyak ke dalam panci."
       },
       "游": {
         "definitionMs": "Berenang, bermain, bepergian; bergerak di air atau di suatu tempat.",
-        "exampleMs": "Aku suka berenang di akhir pekan."
+        "exampleMs": "Saya suka berenang di akhir pekan."
       },
       "又": {
         "definitionMs": "Sekali lagi, juga; digunakan untuk menghubungkan atau menunjukkan duplikasi.",
@@ -17522,7 +17522,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Ini penting bagiku."
       },
       "育": {
-        "definitionMs": "Membina, mendidik, memelihara; memelihara pertumbuhan dan perkembangan.",
+        "definitionMs": "Kepedulian akan pertumbuhan dan perkembangan.",
         "exampleMs": "Sekolah ini menekankan pada pendidikan fisik bagi siswa."
       },
       "园": {
@@ -17530,7 +17530,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Anak-anak bermain di taman."
       },
       "共": {
-        "definitionMs": "Komunal, bersama; dibagi; total, total.",
+        "definitionMs": "Umum, bersama; umum; total, total.",
         "exampleMs": "Kita berlima."
       },
       "狗": {
@@ -17538,7 +17538,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Rumahku punya anjing."
       },
       "够": {
-        "definitionMs": "Cukup dan cukup; dapat dijangkau; bahasa juga dapat ditingkatkan.",
+        "definitionMs": "Cukup dan cukup; jangkauan tangan; bahasa juga dapat diperkuat.",
         "exampleMs": "Uang yang cukup untuk membeli tiket."
       },
       "故": {
@@ -17555,14 +17555,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "惯": {
         "definitionMs": "Kebiasaan, kebiasaan, atau kebiasaan; hal itu mungkin juga menunjukkan kelebihan memilih atau menyetujui.",
-        "exampleMs": "Aku biasa bangun pagi."
+        "exampleMs": "Saya biasa bangun pagi."
       },
       "广": {
         "definitionMs": "lebar, lebar; lebar dan kuantitatif.",
         "exampleMs": "Ada banyak orang di alun-alun."
       },
       "海": {
-        "definitionMs": "Samudra samudra dan laut; juga dapat menunjukkan jumlah atau jangkauan yang sangat besar.",
+        "definitionMs": "Samudra samudra, laut dan lautan; mereka juga dapat mewakili jumlah atau kisaran yang sangat besar.",
         "exampleMs": "Kami pergi ke pantai untuk musim panas."
       },
       "喊": {
@@ -17578,7 +17578,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kucingku hitam."
       },
       "红": {
-        "definitionMs": "red; bisa juga populer, merah atau sukses.",
+        "definitionMs": "red; dapat juga populer, merah atau sukses.",
         "exampleMs": "Dia mengenakan gaun merah."
       },
       "忽": {
@@ -17586,7 +17586,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Dia tiba-tiba teringat sesuatu."
       },
       "湖": {
-        "definitionMs": "Danau Tasik; luas perairan yang luas dikelilingi daratan.",
+        "definitionMs": "Danau Tasik; luas perairan yang besar dikelilingi daratan.",
         "exampleMs": "Ada banyak pohon di tepi danau."
       },
       "护": {
@@ -17599,11 +17599,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "画": {
         "definitionMs": "Lukisan-lukisan lukisan, lukisan, lukisan, gambar dan lukisan, juga dalam bahasa Tionghoa.",
-        "exampleMs": "Aku suka melukis."
+        "exampleMs": "Saya suka melukis."
       },
       "换": {
         "definitionMs": "JENIS Exchange, ganti, ganti; ubah item asli atau keadaan.",
-        "exampleMs": "Aku ingin ganti pakaian."
+        "exampleMs": "Saya ingin ganti pakaian."
       },
       "黄": {
         "definitionMs": "Xody Yellow; juga dapat digunakan untuk menunjukkan kegagalan atau kandungan yang tidak tepat.",
@@ -17615,15 +17615,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "或": {
         "definitionMs": "Atau, mungkin; menunjukkan kemungkinan pilihan atau ketidakpastian.",
-        "exampleMs": "Kau bisa minum teh atau kopi."
+        "exampleMs": "Kau dapat minum teh atau kopi."
       },
       "级": {
         "definitionMs": "Tingkatan, tingkat, nilai; mereka juga merupakan langkah atau tingkatan yang diistilahkan.",
-        "exampleMs": "Dia pergi ke kelas atas."
+        "exampleMs": "Dia pergi ke kelas tinggi."
       },
       "急": {
         "definitionMs": "Darurat, mendesak; cemas, cemas; cepat.",
-        "exampleMs": "Aku ada urusan penting."
+        "exampleMs": "Saya ada urusan penting."
       },
       "己": {
         "definitionMs": "Secara pribadi, secara pribadi; juga dalam urutan alami.",
@@ -17651,7 +17651,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "件": {
         "definitionMs": "Kuantitas untuk pakaian, barang, artikel, dll.",
-        "exampleMs": "Aku membeli dua pakaian."
+        "exampleMs": "Saya membeli dua pakaian."
       },
       "健": {
         "definitionMs": "Kesehatan, kuat; membuat tubuh atau kapasitas lebih kuat.",
@@ -17662,20 +17662,20 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Guru-guru sedang mengajar."
       },
       "交": {
-        "definitionMs": "Berikan, antar, bayar, cari teman; bertemu dan bertukar.",
+        "definitionMs": "Menyerahkan, mengantarkan, membayar; membuat teman; bertemu dan bertukar.",
         "exampleMs": "Tolong berikan PR-mu pada guru."
       },
       "角": {
-        "definitionMs": "Anda juga dapat menggunakan sudut, sudut, atau tanduk binatang sebagai unit RMB.",
+        "definitionMs": "Anda juga dapat menggunakan sudut, sudut, atau tanduk binatang sebagai unit renminbi.",
         "exampleMs": "Pojok meja agak tajam."
       },
       "饺": {
         "definitionMs": "Pangsit ladu; pasta biasa, biasanya dengan pai.",
-        "exampleMs": "Aku suka pangsit."
+        "exampleMs": "Saya suka pangsit."
       },
       "接": {
         "definitionMs": "Terima, terima, selamat datang; sambung, tangkap; ambil alih.",
-        "exampleMs": "Aku akan menjemput teman-temanku di bandara."
+        "exampleMs": "Saya akan menjemput teman-temanku di bandara."
       },
       "街": {
         "definitionMs": "Jalan, jalan dan jalan; jalan untuk orang dan kendaraan di kota.",
@@ -17691,11 +17691,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "借": {
         "definitionMs": "Meminjam, meminjamkan; memanfaatkan kesempatan atau kondisi tertentu.",
-        "exampleMs": "Aku meminjam buku dari seorang teman."
+        "exampleMs": "Saya meminjam buku dari seorang teman."
       },
       "斤": {
         "definitionMs": "Unit berat badan yang digunakan di Tiongkok daratan adalah 500 gram per pound.",
-        "exampleMs": "Aku membeli apel."
+        "exampleMs": "Saya membeli apel."
       },
       "近": {
         "definitionMs": "Jarak dekat, jarak dekat, mungkin juga menunjukkan hubungan dekat atau perkiraan.",
@@ -17703,7 +17703,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "经": {
         "definitionMs": "Pengalaman, pengalaman; klasik, kitab suci; atau seni dalam pengobatan tradisional.",
-        "exampleMs": "Aku biasa naik bus untuk bekerja."
+        "exampleMs": "Saya biasa naik bus untuk bekerja."
       },
       "睛": {
         "definitionMs": "Mata mata mata, mata; biasanya sebagai bagian dari konstruksi \\\"mata\\\".",
@@ -17723,26 +17723,26 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "举": {
         "definitionMs": "Dibesarkan, diangkat, dicontohkan, didaftar atau menunjukkan tindakan atau pemilihan.",
-        "exampleMs": "Tolong angkat tanganmu untuk menjawab pertanyaan."
+        "exampleMs": "Tolong angkat tanganmu ke pertanyaan."
       },
       "句": {
-        "definitionMs": "Kalimat, pernyataan; ayat atau ayat.",
-        "exampleMs": "Tolong tulis kalimat dengan kata itu."
+        "definitionMs": "Ayat, pernyataan; ayat atau ayat.",
+        "exampleMs": "Tolong tulis ayat dengan kata itu."
       },
       "青": {
-        "definitionMs": "Cyan; juga dapat menunjukkan usia muda atau muda.",
+        "definitionMs": "Sian; juga dapat menunjukkan usia muda atau muda.",
         "exampleMs": "Pakaian ini hijau."
       },
       "轻": {
         "definitionMs": "Berat badan kecil; ringan, mudah; juga tidak berat.",
-        "exampleMs": "Ini ringan. Kau bisa mengambilnya sendiri."
+        "exampleMs": "Ini ringan. Kau dapat mengambilnya sendiri."
       },
       "清": {
         "definitionMs": "Bersih, bersih; bersih, murni; atau diam atau tertutup.",
         "exampleMs": "Sungai ini aman."
       },
       "情": {
-        "definitionMs": "Emosi emosional, emosi, emosi, dan juga bisa menunjukkan situasi atau situasi.",
+        "definitionMs": "Emosi emosional, emosi, emosi, dan juga dapat menunjukkan situasi atau situasi.",
         "exampleMs": "Tolong mengertilah suasana hatiku."
       },
       "晴": {
@@ -17755,7 +17755,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "求": {
         "definitionMs": "Cari, minta, minta; cari sesuatu atau bantuan.",
-        "exampleMs": "Aku ingin kau membantuku."
+        "exampleMs": "Saya ingin kau membantuku."
       },
       "取": {
         "definitionMs": "Ambil, ambil, pilih, ambil yang kau butuhkan.",
@@ -17770,12 +17770,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Berita itu benar."
       },
       "然": {
-        "definitionMs": "Ini, dan seterusnya, sering kali diikuti dengan kata-kata yang membentuk suatu keadaan ekspresi atau hubungan.",
+        "definitionMs": "Ini dan ini; sering kali adalah akhir kata-kata yang merupakan keadaan ekspresi atau hubungan.",
         "exampleMs": "Ini dingin, tapi nyaman."
       },
       "让": {
-        "definitionMs": "Kompromi, memungkinkan; membuat seseorang melakukan sesuatu; juga dapat digunakan dalam kalimat pasif.",
-        "exampleMs": "Tolong biarkan aku mencoba."
+        "definitionMs": "Kompromi, memungkinkan; membuat seseorang melakukan sesuatu; juga dapat digunakan dalam ayat pasif.",
+        "exampleMs": "Tolong biarkan saya mencoba."
       },
       "如": {
         "definitionMs": "Sebagai; e.g., sering digunakan untuk menyatakan hubungan atau kondisi secara tertulis.",
@@ -17795,7 +17795,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "省": {
         "definitionMs": "Provinsi, prefectures; X-ng untuk refleksi atau ulasan; sh-ng untuk tabungan.",
-        "exampleMs": "Aku bekerja di Provinsi Guangdong."
+        "exampleMs": "Saya bekerja di Provinsi Guangdong."
       },
       "实": {
         "definitionMs": "Benar, realistis; jujur, padat; juga lambang buah atau biji.",
@@ -17815,14 +17815,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "市": {
         "definitionMs": "Kota-kota; juga munisipalitas di distrik administratif.",
-        "exampleMs": "Aku bekerja di pusat kota."
+        "exampleMs": "Saya bekerja di pusat kota."
       },
       "适": {
         "definitionMs": "fit, fit; beradaptasi; menunjukkan bahwa suatu kebutuhan atau kondisi terpenuhi.",
         "exampleMs": "Sepatu ini cocok untukku."
       },
       "室": {
-        "definitionMs": "Kamar - kamar, ruang dalam ruangan; bisa juga memaksudkan tempat kerja atau keluarga.",
+        "definitionMs": "Kamar - kamar, ruang dalam ruangan; dapat juga memaksudkan tempat kerja atau keluarga.",
         "exampleMs": "Tolong jangan berisik."
       },
       "收": {
@@ -17847,15 +17847,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "顺": {
         "definitionMs": "Bawahan, tunduk; halus, berurutan; dan masuk akal.",
-        "exampleMs": "Silakan ikuti jalan ini."
+        "exampleMs": "Tolong ikuti jalan ini."
       },
       "司": {
-        "definitionMs": "Manajemen, pengendalian; departemen atau instansi; juga dapat diberi nama keluarga.",
+        "definitionMs": "Manajemen, pengendalian; departemen atau instansi; dapat juga diberi nama keluarga.",
         "exampleMs": "Sopir mengemudi."
       },
       "思": {
         "definitionMs": "Pikirkan, pikirkan, pikirkan.",
-        "exampleMs": "Aku sedang memikirkannya."
+        "exampleMs": "Saya sedang memikirkannya."
       },
       "算": {
         "definitionMs": "Menghitung, menghitung; menghitung atau mempertimbangkan sebagai ya.",
@@ -17878,7 +17878,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Dia sangat ramah."
       },
       "堂": {
-        "definitionMs": "Balai - Balai dan balai - balai; mereka mungkin juga menunjukkan kelas atau kerabat yang sama.",
+        "definitionMs": "Aula dan aula; mungkin juga menunjukkan ruang kelas atau hubungan relatif yang sama.",
         "exampleMs": "Kita ada pertemuan di auditorium."
       },
       "讨": {
@@ -17887,7 +17887,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "套": {
         "definitionMs": "Set, fit; satu set, satu set; atau pola atau metode tetap.",
-        "exampleMs": "Aku membeli setelan baru."
+        "exampleMs": "Saya membeli satu set pakaian baru."
       },
       "特": {
         "definitionMs": "Khusus, khusus; berbeda dari situasi umum.",
@@ -17898,7 +17898,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kepalaku sakit sedikit."
       },
       "提": {
-        "definitionMs": "Diangkat, diangkat; angkat, sebutkan; baca dBell untuk diperhatikan.",
+        "definitionMs": "Angkat, angkat; angkat, sebutkan; baca dBei untuk \"Beware\".",
         "exampleMs": "Tolong tanyakan pertanyaanmu."
       },
       "题": {
@@ -17910,7 +17910,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Jembatannya terbuat dari besi."
       },
       "庭": {
-        "definitionMs": "Halaman, halaman; bisa juga berarti pelataran atau balai.",
+        "definitionMs": "Halaman, halaman; dapat juga berarti pelataran atau balai.",
         "exampleMs": "Anak-anak bermain di halaman."
       },
       "停": {
@@ -17922,7 +17922,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Ini hari yang indah."
       },
       "通": {
-        "definitionMs": "Melalui, terhubung, dikomunikasikan; diinformasikan dengan baik; juga kata untuk telepon atau aktivitas penuh.",
+        "definitionMs": "Melalui, terhubung, berkomunikasi; berinformasi baik; juga kata untuk telepon atau aktivitas penuh.",
         "exampleMs": "Jalan ini menuju ke sekolah."
       },
       "推": {
@@ -17935,7 +17935,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "愿": {
         "definitionMs": "Harapan, keinginan, kesenangan.",
-        "exampleMs": "Aku akan membantumu."
+        "exampleMs": "Saya akan membantumu."
       },
       "越": {
         "definitionMs": "Di atas dan di atas; juga untuk struktur \\\"lebih dan lebih\\\".",
@@ -17955,7 +17955,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "澡": {
         "definitionMs": "Kebaptisan; sering kali \\\"kebajikan\\\".",
-        "exampleMs": "Aku mandi setiap malam."
+        "exampleMs": "Saya mandi setiap malam."
       },
       "占": {
         "definitionMs": "Baca zhàn untuk pendudukan, pendudukan; baca zhān untuk tenung.",
@@ -17978,8 +17978,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Ini jam 3:00."
       },
       "周": {
-        "definitionMs": "bulder, bulat; juga berarti minggu atau siklus.",
-        "exampleMs": "Aku ada ujian minggu depan."
+        "definitionMs": "Putaran, putaran; juga menunjukkan minggu atau siklus.",
+        "exampleMs": "Saya ada ujian minggu depan."
       },
       "主": {
         "definitionMs": "Í Main; juga berarti pemilik, presiding petugas atau subjek.",
@@ -17990,7 +17990,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Terima kasih atas bantuanmu."
       },
       "装": {
-        "definitionMs": "Pakaian, beban, pemasangan; mungkin juga merupakan representasi penyamaran.",
+        "definitionMs": "Pakaian, beban, pemasangan; mungkin juga merupakan representasi dari penyamaran.",
         "exampleMs": "Tolong masukkan bukunya ke dalam tas."
       },
       "自": {
@@ -17999,7 +17999,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "租": {
         "definitionMs": "Pajak sewa atau sewa; juga merujuk kepada sewa.",
-        "exampleMs": "Aku ingin menyewa mobil."
+        "exampleMs": "Saya ingin menyewa mobil."
       },
       "组": {
         "definitionMs": "Gruping, organisasi; juga kelompok atau kelompok hal.",
@@ -18023,10 +18023,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "保": {
         "definitionMs": "Perlindungan, pertahanan; juga menunjukkan pemeliharaan atau jaminan.",
-        "exampleMs": "Aku akan melindungimu."
+        "exampleMs": "Saya akan melindungimu."
       },
       "被": {
-        "definitionMs": "dermawan; juga digunakan sebagai tanda kalimat pasif untuk menunjukkan penerima tindakan.",
+        "definitionMs": "dermawan; juga digunakan sebagai tanda ayat pasif untuk menunjukkan penerima tindakan.",
         "exampleMs": "Ponselku diambil oleh kakakku."
       },
       "币": {
@@ -18038,7 +18038,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong tandai sekolah di peta."
       },
       "并": {
-        "definitionMs": "Dan pada saat yang sama, itu bisa menjadi tanda konsolidasi atau penguatan nada negatif.",
+        "definitionMs": "Dan pada saat yang sama, itu dapat menjadi tanda konsolidasi atau penguatan nada negatif.",
         "exampleMs": "Dua jalan tidak jauh."
       },
       "播": {
@@ -18047,10 +18047,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "补": {
         "definitionMs": "Fixing, suplemening; juga menunjukkan kesenjangan.",
-        "exampleMs": "Aku butuh gambar."
+        "exampleMs": "Saya butuh gambar."
       },
       "布": {
-        "definitionMs": "Kain kain; juga menunjukkan penyebaran, distribusi atau deklarasi.",
+        "definitionMs": "Kain tenun; juga menunjukkan penyebaran, distribusi atau deklarasi.",
         "exampleMs": "Ada kain di atas meja."
       },
       "步": {
@@ -18066,23 +18066,23 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kami pergi ke pegunungan untuk minum teh."
       },
       "彩": {
-        "definitionMs": "Warna, warna; bisa juga merujuk pada kepala atau hadiah.",
+        "definitionMs": "Warna, warna; dapat juga merujuk pada warna kepala atau hadiah.",
         "exampleMs": "Pelangi memiliki banyak warna."
       },
       "曾": {
         "definitionMs": "Telah, telah; menunjukkan pengalaman masa lalu.",
-        "exampleMs": "Dulu aku tinggal di sini."
+        "exampleMs": "Dulu saya tinggal di sini."
       },
       "察": {
-        "definitionMs": "Pengamatan, penelitian, penelaahan; diinformasikan dengan saksama.",
+        "definitionMs": "Pengamatan, penelitian, penelaahan; diberitahu dengan saksama.",
         "exampleMs": "Polisi sedang menyelidiki ini."
       },
       "产": {
-        "definitionMs": "Produksi, produksi; juga mengacu pada reproduksi atau produk.",
+        "definitionMs": "Produksi, generasi; juga, reproduksi atau produk.",
         "exampleMs": "Pabrik ini memproduksi mobil."
       },
       "厂": {
-        "definitionMs": "Tanaman tanaman dan tanaman; premis untuk produksi atau pengolahan.",
+        "definitionMs": "Tanaman (c) Tanaman, tanaman; premis untuk produksi atau pengolahan.",
         "exampleMs": "Dia bekerja di pabrik."
       },
       "朝": {
@@ -18091,7 +18091,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "吵": {
         "definitionMs": "Ini keras dan keras; itu juga argumen.",
-        "exampleMs": "Mereka tidak bertarung di perpustakaan."
+        "exampleMs": "Mereka tidak membuat keributan di perpustakaan."
       },
       "衬": {
         "definitionMs": "Dan liner, dan liner, dan juga berarti bahwa hal yang lebih menonjol.",
@@ -18110,16 +18110,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong diam."
       },
       "充": {
-        "definitionMs": "Diisi dan cukup; juga ditunjukkan untuk bertindak atau bertindak.",
+        "definitionMs": "Ini penuh dan cukup; itu juga berarti bertindak atau tampil.",
         "exampleMs": "Tolong isi botolnya dengan air."
       },
       "初": {
         "definitionMs": "Mula, mulai; juga menunjukkan awal atau awal.",
-        "exampleMs": "Ini pertama kalinya aku ke sini."
+        "exampleMs": "Ini pertama kalinya saya ke sini."
       },
       "除": {
         "definitionMs": "Hapus, hapus; juga digunakan sebagai ungkapan selain ... atau sebagai pengecualian matematika.",
-        "exampleMs": "Kecuali akhir pekan, aku bekerja setiap hari."
+        "exampleMs": "Kecuali akhir pekan, saya bekerja setiap hari."
       },
       "础": {
         "definitionMs": "Yayasan, yayasan; biasanya dalam kata kompleks.",
@@ -18142,8 +18142,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kakekku tinggal di sebuah desa kecil."
       },
       "存": {
-        "definitionMs": "Kewujudan, pelestarian; juga menunjukkan bahwa uang itu disimpan dalam rekening.",
-        "exampleMs": "Aku menaruh uangnya di bank."
+        "definitionMs": "Kewujudan, retensi; juga menunjukkan bahwa uang itu disimpan dalam rekening.",
+        "exampleMs": "Saya menaruh uangnya di bank."
       },
       "达": {
         "definitionMs": "Arrival, pencapaian; juga ekspresi prestasi atau kejelasan.",
@@ -18151,7 +18151,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "代": {
         "definitionMs": "Waktu, umur; juga menunjukkan penggantian atau representasi.",
-        "exampleMs": "Generasi kami menyukai ponsel."
+        "exampleMs": "Generasi kita menyukai ponsel."
       },
       "待": {
         "definitionMs": "Bacalah dài untuk menunggu atau mengobati; baca dāi untuk tinggal.",
@@ -18175,14 +18175,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "订": {
         "definitionMs": "Entri, buku; juga menunjukkan perjanjian atau urutan.",
-        "exampleMs": "Aku memesan dua tiket."
+        "exampleMs": "Saya memesan dua tiket."
       },
       "断": {
         "definitionMs": "Putus, putus; juga menandakan suspensi atau penilaian.",
         "exampleMs": "Tali ini patah."
       },
       "顿": {
-        "definitionMs": "Digantung, ditangguhkan; juga makan, dll.",
+        "definitionMs": "Ditangguhkan, ditangguhkan; juga makan, dll.",
         "exampleMs": "Kami makan bersama."
       },
       "烦": {
@@ -18191,11 +18191,11 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "反": {
         "definitionMs": "Sebaliknya, sebaliknya, ia juga menyatakan ketidakterlibatan atau tentangan.",
-        "exampleMs": "Tolong baca kalimat itu secara terbalik."
+        "exampleMs": "Tolong baca ayat itu secara terbalik."
       },
       "范": {
         "definitionMs": "Contoh, contoh; contoh atau standar yang patut dipelajari.",
-        "exampleMs": "Dia adalah contoh bagi kalian semua."
+        "exampleMs": "Dia contoh bagi kalian semua."
       },
       "防": {
         "definitionMs": "Kesiapan, perlindungan; langkah maju untuk menghindari bahaya atau masalah.",
@@ -18207,19 +18207,19 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "啡": {
         "definitionMs": "Transliterasi kata-kata asing terutama umum dalam \\\"kopi\\\".",
-        "exampleMs": "Aku minum kopi setiap pagi."
+        "exampleMs": "Saya minum kopi setiap pagi."
       },
       "费": {
         "definitionMs": "Biaya, biaya; juga biaya atau biaya.",
         "exampleMs": "Perjalanan itu tidak mahal."
       },
       "仅": {
-        "definitionMs": "Hanya, hanya; menunjukkan jumlah atau jangkauan terbatas.",
+        "definitionMs": "Hanya, hanya; jumlah atau jangkauan yang ditunjukkan terbatas.",
         "exampleMs": "Dia hanya butuh 10 menit."
       },
       "尽": {
         "definitionMs": "Baca j gon sering berarti coba; baca jn berarti habis atau mencapai batas.",
-        "exampleMs": "Aku akan melakukan yang terbaik untuk membantumu."
+        "exampleMs": "Saya akan melakukan yang terbaik untuk membantumu."
       },
       "紧": {
         "definitionMs": "Kedekatan, ketegangan; juga berarti waktu itu pendek atau ketat.",
@@ -18227,14 +18227,14 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "精": {
         "definitionMs": "Halus, baik; juga menunjukkan spiritual atau terampil.",
-        "exampleMs": "Ini akan membutuhkan persiapan yang cermat."
+        "exampleMs": "Hal ini perlu persiapan hati-hati."
       },
       "景": {
         "definitionMs": "View, view; juga merujuk pada pemandangan atau situasi.",
         "exampleMs": "Pemandangan di sini indah."
       },
       "警": {
-        "definitionMs": "Peringatan, pengingat; juga digunakan dalam istilah polisi dan polisi terkait.",
+        "definitionMs": "Peringatan, pengingat; juga digunakan dalam istilah yang berhubungan dengan polisi dan polisi.",
         "exampleMs": "Polisi membantu."
       },
       "境": {
@@ -18243,7 +18243,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "旧": {
         "definitionMs": "Lama, tua; juga digunakan atau tidak baru.",
-        "exampleMs": "Pakaian lama ini masih bisa dipakai."
+        "exampleMs": "Pakaian lama ini masih dapat dipakai."
       },
       "救": {
         "definitionMs": "Penyelamatan, penyelamatan; bantuan kepada orang yang dalam bahaya atau kesulitan.",
@@ -18255,7 +18255,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "剧": {
         "definitionMs": "Teater, drama; juga kuat atau signifikan.",
-        "exampleMs": "Aku suka menonton sejarah."
+        "exampleMs": "Saya suka menonton sejarah."
       },
       "据": {
         "definitionMs": "Asas, dasar; juga menunjukkan pendudukan atau ketergantungan.",
@@ -18263,15 +18263,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "决": {
         "definitionMs": "Keputusan, keputusan; juga indikasi pemecahan masalah atau pilihan.",
-        "exampleMs": "Aku memutuskan untuk pergi besok."
+        "exampleMs": "Saya memutuskan untuk pergi besok."
       },
       "绝": {
         "definitionMs": "Kekacauan, mutlak; juga menunjukkan ketiadaan total atau ekstrem.",
         "exampleMs": "Ini tidak boleh dilupakan."
       },
       "咖": {
-        "definitionMs": "Transliterasi yang digunakan terutama dalam kata asing biasa ditemukan dalam kari \\\"kopi\\\".",
-        "exampleMs": "Aku ingin secangkir kopi."
+        "definitionMs": "Transliterasi yang digunakan terutama untuk kata asing adalah umum dalam kasus \"koffee\" kari.",
+        "exampleMs": "Saya ingin secangkir kopi."
       },
       "恐": {
         "definitionMs": "Ketakutan, ketakutan; juga dapat menyatakan ketakutan atau spekulasi.",
@@ -18282,27 +18282,27 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Celana ini nyaman."
       },
       "况": {
-        "definitionMs": "Situasi, status; juga untuk ungkapan \\\"apapun\\\".",
+        "definitionMs": "Situasi, status; juga digunakan dalam ungkapan seperti \\\"apapun\\\".",
         "exampleMs": "Ini lebih baik dari yang kita duga."
       },
       "困": {
         "definitionMs": "Kelelahan, sulit; juga lelah dan ingin tidur.",
-        "exampleMs": "Aku mengantuk hari ini."
+        "exampleMs": "Saya mengantuk hari ini."
       },
       "浪": {
-        "definitionMs": "Gelombang, gelombang; mereka juga dapat dinyatakan sebagai bebas atau sewenang-wenang.",
+        "definitionMs": "Gelombang, gelombang; mereka juga dapat dinyatakan sebagai gelombang yang tidak terkekang atau sewenang-wenang.",
         "exampleMs": "Gelombang di pantai sangat besar."
       },
       "类": {
-        "definitionMs": "Type, kategori; menunjukkan sekelompok hal yang berbagi karakteristik bersama.",
+        "definitionMs": "Kategori, kategori; menunjukkan sekelompok hal dengan karakteristik umum.",
         "exampleMs": "Burung ini milik burung."
       },
       "李": {
         "definitionMs": "Plum, Plum; juga nama umum.",
-        "exampleMs": "Aku membeli beberapa plum."
+        "exampleMs": "Saya membeli beberapa plum."
       },
       "历": {
-        "definitionMs": "Pengalaman, sejarah; juga berarti kalender atau kalender.",
+        "definitionMs": "Pengalaman, sejarah; juga merujuk kepada kalender atau kalender.",
         "exampleMs": "Dia punya banyak pengalaman kerja."
       },
       "立": {
@@ -18322,7 +18322,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kedua perusahaan telah menjalin hubungan."
       },
       "烈": {
-        "definitionMs": "Kekuatan, kekerasan; ekspresi atau kekuatan.",
+        "definitionMs": "Ketabahan, kekerasan; dinyatakan atau berkuasa.",
         "exampleMs": "Sinar matahari hari ini kuat."
       },
       "领": {
@@ -18334,7 +18334,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Kita perlu cara lain."
       },
       "龙": {
-        "definitionMs": "Naga-naga zaman Tiongkok; juga digunakan untuk bentuk naga atau nama-nama terkait.",
+        "definitionMs": "Naga-naga naga dalam budaya Tionghoa; juga digunakan untuk bentuk naga atau nama-nama terkait naga.",
         "exampleMs": "Naga itu adalah simbol penting budaya Cina."
       },
       "录": {
@@ -18342,16 +18342,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong rekam suara ini."
       },
       "乱": {
-        "definitionMs": "Kekacauan, kekacauan; juga berarti arbitrarness atau pelanggaran hukum.",
+        "definitionMs": "Kekacauan, kekacauan; juga berarti arbitraris atau pelanggaran hukum.",
         "exampleMs": "Tolong jangan mengacaukan ruangan."
       },
       "落": {
-        "definitionMs": "Baca luò sering berarti jatuh dan mendarat; baca o dalam kata-kata yang tetap.",
+        "definitionMs": "Baca luò sering berarti jatuh dan mendarat; baca o sebagian tetap.",
         "exampleMs": "Daun perlahan-lahan jatuh."
       },
       "麻": {
-        "definitionMs": "Penyakit leprosi; juga menunjukkan mati rasa atau menyebabkan masalah.",
-        "exampleMs": "Aku tidak suka makanan pedas."
+        "definitionMs": "Penyakit leprosy; juga menunjukkan mati rasa atau menyebabkan masalah.",
+        "exampleMs": "Saya tidak suka makanan pedas."
       },
       "冒": {
         "definitionMs": "Andorna keluar, mengambil risiko; itu juga berarti melakukan sesuatu dengan beberapa kesulitan.",
@@ -18362,8 +18362,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Media meliput ini."
       },
       "每": {
-        "definitionMs": "Setiap kali; menunjukkan keanggotaan individu atau penuh.",
-        "exampleMs": "Aku belajar bahasa Cina setiap hari."
+        "definitionMs": "Setiap, setiap waktu; menunjukkan satu anggota atau semua.",
+        "exampleMs": "Saya belajar bahasa Cina setiap hari."
       },
       "美": {
         "definitionMs": "Indah, indah; memuaskan atau indah.",
@@ -18371,10 +18371,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "迷": {
         "definitionMs": "Hilang, hilang; bingung atau sangat menyukai sesuatu.",
-        "exampleMs": "Aku tersesat di kota ini."
+        "exampleMs": "Saya tersesat di kota ini."
       },
       "民": {
-        "definitionMs": "Penduduk, penduduk; penduduk biasa suatu negara atau wilayah.",
+        "definitionMs": "Orang-orang, orang-orang; penduduk biasa suatu negara atau wilayah.",
         "exampleMs": "Orang-orang membutuhkan kehidupan yang aman."
       },
       "命": {
@@ -18394,7 +18394,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong tunggu di dalam."
       },
       "念": {
-        "definitionMs": "Belajar, membaca dan membaca; juga mengatakan bahwa saya rindu atau ingat.",
+        "definitionMs": "Baca, baca; juga berarti ketinggalan atau hang.",
         "exampleMs": "Dia membaca puisi."
       },
       "娘": {
@@ -18410,8 +18410,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Hari ini hangat."
       },
       "拍": {
-        "definitionMs": "Shooting, shooting; juga menunjukkan hand-lapping atau fotografi.",
-        "exampleMs": "Aku ingin mengambil gambar."
+        "definitionMs": "Shoot, shooting; juga berarti slap atau foto.",
+        "exampleMs": "Saya ingin mengambil gambar."
       },
       "八月": {
         "definitionMs": "Bulan kedelapan tahun itu, biasanya musim panas.",
@@ -18419,7 +18419,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "帮忙": {
         "definitionMs": "Dia membantu orang lain melakukan sesuatu atau menyelesaikan masalah bersama.",
-        "exampleMs": "Bisa kau bantu aku memindahkan kotak ini?"
+        "exampleMs": "Dapat kau bantu saya memindahkan kotak ini?"
       },
       "帮助": {
         "definitionMs": "Bantuan, bantuan atau bantuan kepada orang lain.",
@@ -18427,15 +18427,15 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "书包": {
         "definitionMs": "Paket untuk buku dan perlengkapan sekolah.",
-        "exampleMs": "Aku punya tiga buku di tasku."
+        "exampleMs": "Saya punya tiga buku di tasku."
       },
       "包子": {
         "definitionMs": "Kulit kulit membungkus pai, dan kemudian menguapkan makanan.",
-        "exampleMs": "Aku punya dua roti untuk sarapan."
+        "exampleMs": "Saya punya dua roti untuk sarapan."
       },
       "准备": {
         "definitionMs": "Membuat pengaturan untuk apa yang harus dilakukan atau melakukan apa yang dibutuhkan.",
-        "exampleMs": "Aku mempersiapkan diri untuk ujian besok."
+        "exampleMs": "Saya mempersiapkan diri untuk ujian besok."
       },
       "设备": {
         "definitionMs": "Peralatan dan peralatan yang diperlukan untuk menyelesaikan pekerjaan atau kegiatan.",
@@ -18446,16 +18446,16 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Mari kita membandingkan dua metode pertama."
       },
       "比如": {
-        "definitionMs": "Mereka digunakan sebagai contoh dari apa yang disebutkan sebelumnya.",
-        "exampleMs": "Aku suka buah, seperti apel dan pisang."
+        "definitionMs": "Ini digunakan untuk memberikan contoh - contoh tentang apa yang disebutkan sebelumnya.",
+        "exampleMs": "Saya suka buah, seperti apel dan pisang."
       },
       "左边": {
-        "definitionMs": "Hadapi arah tertentu, sisi tangan kiri.",
+        "definitionMs": "Dalam arah tertentu, sisi tangan kiri.",
         "exampleMs": "Bank di sebelah kiri sekolah."
       },
       "旁边": {
         "definitionMs": "Dekat dengan seseorang atau sesuatu.",
-        "exampleMs": "Ada sebuah toko di samping rumahku."
+        "exampleMs": "Ada toko di samping rumahku."
       },
       "经常": {
         "definitionMs": "Ini berarti sesuatu terjadi banyak, atau itu terjadi lagi dan lagi menurut pola tertentu.",
@@ -18474,20 +18474,20 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Anak-anak terbang layang-layang di alun-alun."
       },
       "唱歌": {
-        "definitionMs": "Nyanyian lagu atau melodi dengan suara.",
+        "definitionMs": "Nyanyikan lagu atau melodi dengan suara.",
         "exampleMs": "Dia suka memasak dan bernyanyi."
       },
       "合唱": {
         "definitionMs": "Banyak orang menyanyikan lagu yang sama atau menyanyikan bagian yang berbeda.",
-        "exampleMs": "Siswa-siswa wiII menyanyikan lagu di pesta."
+        "exampleMs": "Para siswa akan menyanyikan lagu di pesta."
       },
       "一次": {
         "definitionMs": "Itu berarti sesuatu atau sesuatu terjadi sekali.",
-        "exampleMs": "Aku pergi ke perpustakaan kemarin."
+        "exampleMs": "Saya pergi ke perpustakaan kemarin."
       },
       "下次": {
         "definitionMs": "Berikutnya atau kesempatan berikutnya mulai sekarang.",
-        "exampleMs": "Lain kali kita bertemu, aku akan mengembalikan bukunya."
+        "exampleMs": "Lain kali saya melihatmu, saya akan mengembalikan bukunya."
       },
       "打电话": {
         "definitionMs": "Bicarakan atau berkomunikasi dengan orang lain lewat telepon.",
@@ -18502,7 +18502,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Semua orang setuju dengan rencana itu."
       },
       "大小": {
-        "definitionMs": "Ukuran atau ukuran objek mungkin juga menunjukkan derajat yang besar atau kecil.",
+        "definitionMs": "Ukuran atau ukuran objek mungkin juga menunjukkan tingkat yang besar atau kecil.",
         "exampleMs": "Dua kotak ini berbeda ukuran."
       },
       "地方": {
@@ -18519,10 +18519,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "兄弟": {
         "definitionMs": "Pria yang lahir dari orang tua yang sama mungkin juga secara luas disebut sebagai pasangan pria dekat.",
-        "exampleMs": "Saudara-saudara mereka menjalankan toko bersama-sama."
+        "exampleMs": "Saudara mereka menjalankan toko bersama-sama."
       },
       "第一": {
-        "definitionMs": ", atau menunjukkan peringkat tertinggi.",
+        "definitionMs": "Garis di atas atau menunjukkan peringkat tertinggi.",
         "exampleMs": "Dia yang pertama di kelas."
       },
       "第二": {
@@ -18531,7 +18531,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "一点": {
         "definitionMs": "Ini adalah angka atau derajat kecil, yang berarti angka kecil.",
-        "exampleMs": "Tolong beri aku waktu untuk memikirkannya."
+        "exampleMs": "Tolong beri saya waktu untuk memikirkannya."
       },
       "点心": {
         "definitionMs": "Ada sedikit kue atau makanan ringan selain makanan biasa.",
@@ -18542,7 +18542,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Anak-anak melihat banyak hewan di kebun binatang."
       },
       "活动": {
-        "definitionMs": "Apa yang sedang dilakukan untuk tujuan tertentu, atau diatur secara kolektif.",
+        "definitionMs": "Apa yang sedang dilakukan untuk tujuan tertentu, atau pengaturan kolektif yang terorganisasi.",
         "exampleMs": "Sekolah ini mengadakan kampanye minggu depan."
       },
       "首都": {
@@ -18551,7 +18551,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "饥饿": {
         "definitionMs": "Keadaan kebutuhan akan makanan dirasakan karena kekurangan makanan untuk waktu yang lama.",
-        "exampleMs": "Jam panjang tanpa makanan membuat orang lapar."
+        "exampleMs": "Makanan yang lama tidak ada dapat membuat orang lapar."
       },
       "儿子": {
         "definitionMs": "Anak laki-laki dari orang tua.",
@@ -18567,7 +18567,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "放心": {
         "definitionMs": "Jangan khawatir, merasa aman.",
-        "exampleMs": "Sesuatu telah tiba dengan selamat, kau bisa yakin."
+        "exampleMs": "Sesuatu telah tiba dengan selamat, Anda dapat yakin."
       },
       "飞机": {
         "definitionMs": "sarana transportasi yang mampu terbang oleh udara dan mengangkut penumpang atau kargo.",
@@ -18587,7 +18587,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "分钟": {
         "definitionMs": "Pada waktunya, satu menit sama dengan 60 detik.",
-        "exampleMs": "Aku menunggu sepuluh menit."
+        "exampleMs": "Saya menunggu sepuluh menit."
       },
       "部分": {
         "definitionMs": "Satu, satu atau beberapa unsur dari keseluruhan.",
@@ -18595,7 +18595,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "干净": {
         "definitionMs": "Tak ada debu, noda atau apapun yang tak kau butuhkan.",
-        "exampleMs": "Tolong jaga kelas tetap bersih."
+        "exampleMs": "Tolong jaga ruang kelas tetap bersih."
       },
       "干活": {
         "definitionMs": "Manual kerja atau pekerjaan yang sebenarnya.",
@@ -18603,34 +18603,34 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "高兴": {
         "definitionMs": "Senang, bahagia.",
-        "exampleMs": "Aku senang mendengar kabar baik."
+        "exampleMs": "Saya senang mendengar kabar baik."
       },
       "高山": {
         "definitionMs": "(yaitu) gunung-gunung yang tinggi dan gunung-gunung yang tinggi,",
         "exampleMs": "Mereka berencana untuk pergi hiking di musim panas."
       },
       "告诉": {
-        "definitionMs": "Kami akan memberitahu seseorang tentang berita, situasi atau ide.",
+        "definitionMs": "Saya akan memberitahu seseorang tentang berita, situasi atau ide.",
         "exampleMs": "Tolong katakan nomor teleponmu."
       },
       "公告": {
         "definitionMs": "Pemberitahuan resmi dan pesan ke publik.",
-        "exampleMs": "Sebuah pengumuman penting diposting di pintu masuk sekolah."
+        "exampleMs": "Pengumuman penting diumumkan di pintu masuk sekolah."
       },
       "歌曲": {
-        "definitionMs": "Kau bisa menyanyikan musik.",
-        "exampleMs": "Aku sudah sering mendengar lagu ini."
+        "definitionMs": "Kau dapat menyanyikan musik.",
+        "exampleMs": "Saya sudah sering mendengar lagu ini."
       },
       "图书馆": {
         "definitionMs": "Koleksi buku adalah tempat orang dapat membaca, meminjam atau belajar.",
-        "exampleMs": "Aku pergi ke perpustakaan setiap minggu untuk meminjam buku."
+        "exampleMs": "Saya pergi ke perpustakaan setiap minggu untuk meminjam buku."
       },
       "饭馆": {
-        "definitionMs": "Tempat di mana makanan disediakan dan pelanggan bisa makan.",
+        "definitionMs": "Tempat di mana makanan disediakan dan pelanggan dapat makan.",
         "exampleMs": "Kami makan siang di restoran terdekat."
       },
       "贵重": {
-        "definitionMs": "Ini bernilai tinggi, layak harta karun atau penjagaan hati-hati.",
+        "definitionMs": "Ini bernilai tinggi, layak untuk harta karun atau penjagaan hati-hati.",
         "exampleMs": "Paspor dan perhiasan adalah barang berharga."
       },
       "宝贵": {
@@ -18638,7 +18638,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Pengalaman ini sangat berharga bagi saya."
       },
       "国家": {
-        "definitionMs": "Sebuah entitas politik yang terdiri dari suatu wilayah, orang dan Pemerintah tertentu.",
+        "definitionMs": "Sebuah entitas politik yang membentuk suatu wilayah, orang dan Pemerintah tertentu.",
         "exampleMs": "Setiap negara memiliki hukum sendiri."
       },
       "外国": {
@@ -18651,10 +18651,3386 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "经过": {
         "definitionMs": "Berjalan atau berlalu dari suatu tempat dapat juga berarti proses pembangunan.",
-        "exampleMs": "Aku pergi ke kedai kopi setiap hari di tempat kerja."
+        "exampleMs": "Saya pergi ke kedai kopi setiap hari di tempat kerja."
+      },
+      "孩子": {
+        "definitionMs": "child",
+        "exampleMs": ""
+      },
+      "女孩": {
+        "definitionMs": "Gadis; lasss",
+        "exampleMs": ""
+      },
+      "汉语": {
+        "definitionMs": "Bahasa Tionghoa",
+        "exampleMs": ""
+      },
+      "汉字": {
+        "definitionMs": "Aksara Tionghoa",
+        "exampleMs": ""
+      },
+      "号码": {
+        "definitionMs": "nomor",
+        "exampleMs": ""
+      },
+      "问号": {
+        "definitionMs": "Tanda tanya (punct.); faktor yang tidak diketahui; masalah yang belum terpecahkan; interogasi",
+        "exampleMs": ""
+      },
+      "时候": {
+        "definitionMs": "waktu; panjang waktu; saat; periode",
+        "exampleMs": ""
+      },
+      "等候": {
+        "definitionMs": "menunggu, menunggu",
+        "exampleMs": ""
+      },
+      "说话": {
+        "definitionMs": "Untuk berbicara; untuk mengatakan; untuk berbicara; untuk gosip; untuk bercerita; berbicara; kata",
+        "exampleMs": ""
+      },
+      "电话": {
+        "definitionMs": "Telepon rumah sakit; panggilan telepon; nomor telepon",
+        "exampleMs": ""
+      },
+      "坏人": {
+        "definitionMs": "Orang jahat, penjahat",
+        "exampleMs": ""
+      },
+      "坏处": {
+        "definitionMs": "bahaya; masalah",
+        "exampleMs": ""
+      },
+      "欢迎": {
+        "definitionMs": "Selamat datang; selamat datang",
+        "exampleMs": ""
+      },
+      "喜欢": {
+        "definitionMs": "Suka suka; suka; senang; senang; senang; cenderung",
+        "exampleMs": ""
+      },
+      "机器": {
+        "definitionMs": "mesin",
+        "exampleMs": ""
+      },
+      "机会": {
+        "definitionMs": "kesempatan; kesempatan; kesempatan",
+        "exampleMs": ""
+      },
+      "几个": {
+        "definitionMs": "Beberapa; beberapa; berapa banyak",
+        "exampleMs": ""
+      },
+      "几乎": {
+        "definitionMs": "Hampir; hampir; praktis",
+        "exampleMs": ""
+      },
+      "记得": {
+        "definitionMs": "Untuk mengingat",
+        "exampleMs": ""
+      },
+      "日记": {
+        "definitionMs": "Diari diari diari",
+        "exampleMs": ""
+      },
+      "假期": {
+        "definitionMs": "Hari libur libur; liburan",
+        "exampleMs": ""
+      },
+      "真假": {
+        "definitionMs": "Asli atau palsu; benar atau salah",
+        "exampleMs": ""
+      },
+      "房间": {
+        "definitionMs": "Kamar",
+        "exampleMs": ""
+      },
+      "中间": {
+        "definitionMs": "Tengah; dalam; tengah; di dalam; di antara; di antara; selama; sementara itu",
+        "exampleMs": ""
+      },
+      "看见": {
+        "definitionMs": "Untuk melihat, untuk melihat",
+        "exampleMs": ""
+      },
+      "见面": {
+        "definitionMs": "Bertemu, bertemu satu sama lain",
+        "exampleMs": ""
+      },
+      "教室": {
+        "definitionMs": "Kelas kelas kelas",
+        "exampleMs": ""
+      },
+      "教师": {
+        "definitionMs": "Guru Guru",
+        "exampleMs": ""
+      },
+      "叫作": {
+        "definitionMs": "Panggilan untuk dipanggil",
+        "exampleMs": ""
+      },
+      "叫醒": {
+        "definitionMs": "terbangun untuk terbangun; untuk membangunkan sb up; untuk semangat",
+        "exampleMs": ""
+      },
+      "觉得": {
+        "definitionMs": "Untuk berpikir bahwa ...; untuk merasa bahwa ...; untuk merasa (tidak nyaman dll)",
+        "exampleMs": ""
+      },
+      "睡觉": {
+        "definitionMs": "Pergi tidur, tidur",
+        "exampleMs": ""
+      },
+      "介绍": {
+        "definitionMs": "untuk memperkenalkan (sb ke sb); untuk memberikan presentasi; untuk menyajikan (sb untuk pekerjaan dll); pengenalan",
+        "exampleMs": ""
+      },
+      "介入": {
+        "definitionMs": "untuk campur tangan; untuk terlibat",
+        "exampleMs": ""
+      },
+      "今天": {
+        "definitionMs": "hari ini; saat ini; sekarang",
+        "exampleMs": ""
+      },
+      "今年": {
+        "definitionMs": "Tahun ini",
+        "exampleMs": ""
+      },
+      "进来": {
+        "definitionMs": "Untuk datang",
+        "exampleMs": ""
+      },
+      "进入": {
+        "definitionMs": "Untuk masuk ke dalam",
+        "exampleMs": ""
+      },
+      "北京": {
+        "definitionMs": "munisipalitas Beijing, ibu kota Republik Rakyat Tiongkok",
+        "exampleMs": ""
+      },
+      "南京": {
+        "definitionMs": "Nanjing, ibu kota dinasti Ming (1368–1421) dan Republik Tiongkok (1927–1937 dan 1946–1949)",
+        "exampleMs": ""
+      },
+      "净水": {
+        "definitionMs": "Air yang bersih dari kotoran dan air yang suci,",
+        "exampleMs": ""
+      },
+      "九月": {
+        "definitionMs": "Tanggal 9 (tahun lunar)",
+        "exampleMs": ""
+      },
+      "就是": {
+        "definitionMs": "Tepat sekali; tepat; hanya; sederhana; adil; bahkan; bahkan jika",
+        "exampleMs": ""
+      },
+      "就要": {
+        "definitionMs": "Akan; akan; akan pergi ke",
+        "exampleMs": ""
+      },
+      "考试": {
+        "definitionMs": "Saya akan mengikuti ujian; ujian",
+        "exampleMs": ""
+      },
+      "考虑": {
+        "definitionMs": "mempertimbangkan; mempertimbangkan",
+        "exampleMs": ""
+      },
+      "口渴": {
+        "definitionMs": "dahaga",
+        "exampleMs": ""
+      },
+      "解渴": {
+        "definitionMs": "* Untuk memuaskan *",
+        "exampleMs": ""
+      },
+      "客人": {
+        "definitionMs": "pengunjung; tamu; pelanggan",
+        "exampleMs": ""
+      },
+      "客气": {
+        "definitionMs": "Sopan santun; sopan santun; formal; bersahaja",
+        "exampleMs": ""
+      },
+      "上课": {
+        "definitionMs": "Pergi ke kelas, ke kelas, untuk mengajar kelas",
+        "exampleMs": ""
+      },
+      "课本": {
+        "definitionMs": "Buku teks",
+        "exampleMs": ""
+      },
+      "一块": {
+        "definitionMs": "a potongan; a potongan; (fig.) (kol.) aspek; luas; dimensi ); (coll.) satu yuan; satu dolar; bersama-sama; di tempat yang sama; di perusahaan",
+        "exampleMs": ""
+      },
+      "方块": {
+        "definitionMs": "kiub kiub; blok; persegi; berlian ♦ (dalam permainan kartu)",
+        "exampleMs": ""
+      },
+      "老师": {
+        "definitionMs": "Guru Guru",
+        "exampleMs": ""
+      },
+      "老人": {
+        "definitionMs": "Pria tua atau wanita, orang tua; orang tua atau kakek atau nenek yang sudah tua",
+        "exampleMs": ""
+      },
+      "劳累": {
+        "definitionMs": "Kelelahan; lelah; usang; keras",
+        "exampleMs": ""
+      },
+      "冷水": {
+        "definitionMs": "Air dingin yang sejuk; air yang tidak bercampur",
+        "exampleMs": ""
+      },
+      "冷天": {
+        "definitionMs": "Hari yang dingin",
+        "exampleMs": ""
+      },
+      "六月": {
+        "definitionMs": "Juni; bulan keenam (tahun bulan)",
+        "exampleMs": ""
+      },
+      "楼上": {
+        "definitionMs": "Ke lantai atas; (Internet slang) poster sebelumnya dalam thread forum",
+        "exampleMs": ""
+      },
+      "大楼": {
+        "definitionMs": "Bangunan bangunan (yang relatif besar, bertingkat satu)",
+        "exampleMs": ""
+      },
+      "马车": {
+        "definitionMs": "Kereta kuda; kereta kuda; kereta kuda; kereta kuda",
+        "exampleMs": ""
+      },
+      "马上": {
+        "definitionMs": "Segera; segera; pada kuda (yaitu dengan kekuatan militer)",
+        "exampleMs": ""
+      },
+      "什么": {
+        "definitionMs": "Apa?",
+        "exampleMs": ""
+      },
+      "怎么": {
+        "definitionMs": "Kenapa?",
+        "exampleMs": ""
+      },
+      "妹妹": {
+        "definitionMs": "Adik adik; wanita muda",
+        "exampleMs": ""
+      },
+      "姐妹": {
+        "definitionMs": "kakak perempuan; saudara kandung; kakak perempuan (sekolah, kota dll)",
+        "exampleMs": ""
+      },
+      "名字": {
+        "definitionMs": "Nama orang (dari seseorang atau hal)",
+        "exampleMs": ""
+      },
+      "姓名": {
+        "definitionMs": "Nama keluarga dan nama pemberian; nama lengkap",
+        "exampleMs": ""
+      },
+      "拿走": {
+        "definitionMs": "♪ Untuk mengambil ♪",
+        "exampleMs": ""
+      },
+      "拿到": {
+        "definitionMs": "Untuk mendapatkan; untuk memperoleh",
+        "exampleMs": ""
+      },
+      "牛奶": {
+        "definitionMs": "Susu sapi",
+        "exampleMs": ""
+      },
+      "奶茶": {
+        "definitionMs": "Teh susu",
+        "exampleMs": ""
+      },
+      "男孩": {
+        "definitionMs": "Nak",
+        "exampleMs": ""
+      },
+      "男人": {
+        "definitionMs": "Pria; pria; pria",
+        "exampleMs": ""
+      },
+      "困难": {
+        "definitionMs": "Kesulitan; kesulitan; situasi yang sulit; situasi yang sulit",
+        "exampleMs": ""
+      },
+      "难题": {
+        "definitionMs": "Masalah yang sulit",
+        "exampleMs": ""
+      },
+      "大脑": {
+        "definitionMs": "Otak otak, otak",
+        "exampleMs": ""
+      },
+      "脑子": {
+        "definitionMs": "Otak otak otak; pikiran",
+        "exampleMs": ""
+      },
+      "旁听": {
+        "definitionMs": "Untuk duduk di atas (proceedings); untuk hadir di pertemuan sebagai pengamat; untuk audit (kelas)",
+        "exampleMs": ""
+      },
+      "跑步": {
+        "definitionMs": "Untuk berlari; untuk joging; (militer) untuk berbaris di ganda",
+        "exampleMs": ""
+      },
+      "朋友": {
+        "definitionMs": "Teman",
+        "exampleMs": ""
+      },
+      "亲朋": {
+        "definitionMs": "Kerabat dan teman",
+        "exampleMs": ""
+      },
+      "车票": {
+        "definitionMs": "Tiket untuk bus atau kereta api",
+        "exampleMs": ""
+      },
+      "门票": {
+        "definitionMs": "Tiket bioskop (untuk bioskop, bioskop dll)",
+        "exampleMs": ""
+      },
+      "七月": {
+        "definitionMs": "Juli Juli; bulan ketujuh (tahun bulan)",
+        "exampleMs": ""
+      },
+      "期间": {
+        "definitionMs": "Periode waktu; waktu; periode waktu; periode",
+        "exampleMs": ""
+      },
+      "日期": {
+        "definitionMs": "tanggal",
+        "exampleMs": ""
+      },
+      "天气": {
+        "definitionMs": "Cuaca cuaca",
+        "exampleMs": ""
+      },
+      "空气": {
+        "definitionMs": "udara; atmosfer",
+        "exampleMs": ""
+      },
+      "汽车": {
+        "definitionMs": "Mobil; mobil; bus",
+        "exampleMs": ""
+      },
+      "汽水": {
+        "definitionMs": "soda soda pop; minuman ringan berkarbonasi",
+        "exampleMs": ""
+      },
+      "足球": {
+        "definitionMs": "Sepak bola sepak bola sepak bola sepak bola; bola sepak bola",
+        "exampleMs": ""
+      },
+      "篮球": {
+        "definitionMs": "basket basket",
+        "exampleMs": ""
+      },
+      "热水": {
+        "definitionMs": "Air panas",
+        "exampleMs": ""
+      },
+      "热情": {
+        "definitionMs": "Keangkuhan; antusias; gairah; gairah; bersemangat; bersemangat",
+        "exampleMs": ""
+      },
+      "认识": {
+        "definitionMs": "Untuk mengetahui; mengenali; untuk akrab dengan; untuk berkenalan dengan sb; pengetahuan; pemahaman; kesadaran; kognisi",
+        "exampleMs": ""
+      },
+      "认为": {
+        "definitionMs": "percaya, berpikir, mempertimbangkan; merasa",
+        "exampleMs": ""
+      },
+      "商店": {
+        "definitionMs": "Toko kelontong; toko",
+        "exampleMs": ""
+      },
+      "商人": {
+        "definitionMs": "pedagang dagang; pengusaha",
+        "exampleMs": ""
+      },
+      "绍兴": {
+        "definitionMs": "Fixing",
+        "exampleMs": ""
+      },
+      "什锦": {
+        "definitionMs": "Makanan (makanan) yang diurutkan; campuran; berbagai macam",
+        "exampleMs": ""
+      },
+      "师傅": {
+        "definitionMs": "master kophin; pekerja yang cakap; bentuk alamat yang penuh respek bagi para tua",
+        "exampleMs": ""
+      },
+      "十月": {
+        "definitionMs": "Oktober Oktober; bulan kesepuluh (tahun bulan)",
+        "exampleMs": ""
+      },
+      "时间": {
+        "definitionMs": "Waktu jangka waktu (berdasarkan) , (jangka waktu) waktu; (titik dalam) waktu",
+        "exampleMs": ""
+      },
+      "小时": {
+        "definitionMs": "Jam",
+        "exampleMs": ""
+      },
+      "知识": {
+        "definitionMs": "Pengetahuan intelektual; intelektual",
+        "exampleMs": ""
+      },
+      "事情": {
+        "definitionMs": "Urusan bisnis; hal; hal; bisnis",
+        "exampleMs": ""
+      },
+      "事业": {
+        "definitionMs": "Usaha patungan; proyek; kegiatan; (kekayaan, politik atau revolusioner) sebab; lembaga yang didanai publik, perusahaan atau yayasan; karier; pendudukan",
+        "exampleMs": ""
+      },
+      "电视": {
+        "definitionMs": "televisi; TV",
+        "exampleMs": ""
+      },
+      "视力": {
+        "definitionMs": "Penglihatan mata; keakuitasan visual",
+        "exampleMs": ""
+      },
+      "四月": {
+        "definitionMs": "April; bulan keempat (tahun bulan)",
+        "exampleMs": ""
+      },
+      "送给": {
+        "definitionMs": "Untuk mengirim; untuk memberikan sebagai hadiah",
+        "exampleMs": ""
+      },
+      "送行": {
+        "definitionMs": "Untuk melihat seseorang pergi, untuk melemparkan seseorang pesta send-off",
+        "exampleMs": ""
+      },
+      "诉说": {
+        "definitionMs": "untuk menceritakan; untuk menceritakan; untuk menceritakan; (fig.) (hal) untuk berdiri sebagai bukti untuk (beberapa sejarah masa lalu)",
+        "exampleMs": ""
+      },
+      "太太": {
+        "definitionMs": "Nyonya; istri",
+        "exampleMs": ""
+      },
+      "身体": {
+        "definitionMs": "Tubuh; kesehatan seseorang",
+        "exampleMs": ""
+      },
+      "体重": {
+        "definitionMs": "berat badan badan badan",
+        "exampleMs": ""
+      },
+      "条件": {
+        "definitionMs": "Kesyaratan; keadaan; syarat; syarat; syarat; syarat; syarat; syarat; syarat; syarat;",
+        "exampleMs": ""
+      },
+      "同学": {
+        "definitionMs": "Belajar di sekolah yang sama; sesama siswa; teman sekelas",
+        "exampleMs": ""
+      },
+      "同时": {
+        "definitionMs": "Secara bersamaan,",
+        "exampleMs": ""
+      },
+      "图片": {
+        "definitionMs": "Gambar foto; foto",
+        "exampleMs": ""
+      },
+      "地图": {
+        "definitionMs": "map",
+        "exampleMs": ""
+      },
+      "玩具": {
+        "definitionMs": "Mainan; mainan",
+        "exampleMs": ""
+      },
+      "好玩": {
+        "definitionMs": "Lucu, menyenangkan; menarik",
+        "exampleMs": ""
+      },
+      "网络": {
+        "definitionMs": "Internet",
+        "exampleMs": ""
+      },
+      "上网": {
+        "definitionMs": "(dari dokumen dll) untuk diunggah ke Internet; (tennis, voli dll) untuk bergerak mendekati net",
+        "exampleMs": ""
+      },
+      "忘记": {
+        "definitionMs": "Melupakan",
+        "exampleMs": ""
+      },
+      "难忘": {
+        "definitionMs": "Tidak terlupakan",
+        "exampleMs": ""
+      },
+      "中文": {
+        "definitionMs": "Bahasa Tionghoa",
+        "exampleMs": ""
+      },
+      "文化": {
+        "definitionMs": "budaya tamadun; peradaban; budaya",
+        "exampleMs": ""
+      },
+      "五月": {
+        "definitionMs": "Mei; bulan kelima (tahun bulan)",
+        "exampleMs": ""
+      },
+      "中午": {
+        "definitionMs": "siang; tengah hari",
+        "exampleMs": ""
+      },
+      "下午": {
+        "definitionMs": "Sore hari; p.m",
+        "exampleMs": ""
+      },
+      "休息": {
+        "definitionMs": "Istirahatlah, istirahatlah",
+        "exampleMs": ""
+      },
+      "消息": {
+        "definitionMs": "berita; informasi; pesan",
+        "exampleMs": ""
+      },
+      "学习": {
+        "definitionMs": "Belajar, belajar",
+        "exampleMs": ""
+      },
+      "练习": {
+        "definitionMs": "Latihan untuk berlatih; latihan; latihan; latihan",
+        "exampleMs": ""
+      },
+      "洗手": {
+        "definitionMs": "Kecuci tangan seseorang, ke toilet",
+        "exampleMs": ""
+      },
+      "喜事": {
+        "definitionMs": "Acara bahagia; pernikahan",
+        "exampleMs": ""
+      },
+      "关系": {
+        "definitionMs": "Hubungan; hubungan; hubungan; hubungan; kepedulian; melibatkan; mempengaruhi; guanxi (hubungan pribadi)",
+        "exampleMs": ""
+      },
+      "先生": {
+        "definitionMs": "Guru pengajar; pria; tuan; tuan (Mr.); suami; (dialect) dokter",
+        "exampleMs": ""
+      },
+      "先后": {
+        "definitionMs": "Awal atau akhir; pertama dan terakhir; keutamaan; berturut-turut; satu demi satu",
+        "exampleMs": ""
+      },
+      "现在": {
+        "definitionMs": "Sekarang, sekarang; saat ini",
+        "exampleMs": ""
+      },
+      "发现": {
+        "definitionMs": "Menyadari; menyadari; menemukan; menemukan; mendeteksi; menemukan",
+        "exampleMs": ""
+      },
+      "笑话": {
+        "definitionMs": "lelucon; lelucon; tertawa; mengejek; konyol; tidak masuk akal",
+        "exampleMs": ""
+      },
+      "微笑": {
+        "definitionMs": "Senyum; senyum",
+        "exampleMs": ""
+      },
+      "一些": {
+        "definitionMs": "Beberapa; beberapa; sedikit; (mengikuti kata sifat) sedikit...er",
+        "exampleMs": ""
+      },
+      "这些": {
+        "definitionMs": "Ini",
+        "exampleMs": ""
+      },
+      "感谢": {
+        "definitionMs": "Terima kasih, bersyukur",
+        "exampleMs": ""
+      },
+      "新年": {
+        "definitionMs": "Tahun Baru",
+        "exampleMs": ""
+      },
+      "新闻": {
+        "definitionMs": "Berita",
+        "exampleMs": ""
+      },
+      "星星": {
+        "definitionMs": "Bintang di langit",
+        "exampleMs": ""
+      },
+      "星期": {
+        "definitionMs": "Minggu ke - 19 minggu; hari minggu; hari Minggu",
+        "exampleMs": ""
+      },
+      "行走": {
+        "definitionMs": "♪ untuk berjalan ♪",
+        "exampleMs": ""
+      },
+      "行业": {
+        "definitionMs": "perdagangan profesi; profesi; industri; bisnis",
+        "exampleMs": ""
+      },
+      "兴趣": {
+        "definitionMs": "Ketertarikan (ingin tahu tentang sth); minat (sesuatu di mana seseorang tertarik); hobi",
+        "exampleMs": ""
+      },
+      "休假": {
+        "definitionMs": "Pergi berlibur, berlibur, pergi",
+        "exampleMs": ""
+      },
+      "样子": {
+        "definitionMs": "Penampilan; sikap; pola; model",
+        "exampleMs": ""
+      },
+      "一样": {
+        "definitionMs": "Sama seperti; seperti; sama dengan; sama seperti; sama seperti",
+        "exampleMs": ""
+      },
+      "爷爷": {
+        "definitionMs": "Kakek, kakek, kakek",
+        "exampleMs": ""
+      },
+      "大爷": {
+        "definitionMs": "Sesungguhnya orang-orang yang sombong lagi sombong,",
+        "exampleMs": ""
+      },
+      "页面": {
+        "definitionMs": "page",
+        "exampleMs": ""
+      },
+      "页码": {
+        "definitionMs": "nomor halaman",
+        "exampleMs": ""
+      },
+      "电影": {
+        "definitionMs": "film; film",
+        "exampleMs": ""
+      },
+      "影子": {
+        "definitionMs": "Bayangan; pantulan; (fig.) petunjuk; indikasi; pengaruh",
+        "exampleMs": ""
+      },
+      "使用": {
+        "definitionMs": "digunakan; digunakan; digunakan; diterapkan; digunakan",
+        "exampleMs": ""
+      },
+      "有用": {
+        "definitionMs": "Kebergunaan fungsional",
+        "exampleMs": ""
+      },
+      "右边": {
+        "definitionMs": "Sisi kanan; kanan, ke kanan",
+        "exampleMs": ""
+      },
+      "左右": {
+        "definitionMs": "Kiri dan kanan; dekat; kira - kira; pelayan; mengendalikan; mempengaruhi",
+        "exampleMs": ""
+      },
+      "语言": {
+        "definitionMs": "Bahasa",
+        "exampleMs": ""
+      },
+      "元旦": {
+        "definitionMs": "Hari Tahun Baru",
+        "exampleMs": ""
+      },
+      "一元": {
+        "definitionMs": "(math.) variatif tunggal; univariat",
+        "exampleMs": ""
+      },
+      "远方": {
+        "definitionMs": "Kejauhan, lokasi yang jauh",
+        "exampleMs": ""
+      },
+      "远近": {
+        "definitionMs": "jarak jauh dan dekat; jarak",
+        "exampleMs": ""
+      },
+      "怎样": {
+        "definitionMs": "Apa jenis",
+        "exampleMs": ""
+      },
+      "找到": {
+        "definitionMs": "Untuk menemukan",
+        "exampleMs": ""
+      },
+      "着急": {
+        "definitionMs": "Kekhawatiran untuk khawatir, merasa cemas, merasakan perasaan mendesak, terburu-buru, Taiwan pr. [zhao1ji2]",
+        "exampleMs": ""
+      },
+      "真的": {
+        "definitionMs": "Sungguh, benar; sesungguhnya; benar; benar; benar; benar; (math.)",
+        "exampleMs": ""
+      },
+      "真正": {
+        "definitionMs": "Benar; benar; benar; memang",
+        "exampleMs": ""
+      },
+      "正在": {
+        "definitionMs": "Sedang dalam proses (dilakukan sth); untuk saat ini ...-ing",
+        "exampleMs": ""
+      },
+      "正常": {
+        "definitionMs": "biasa; biasa",
+        "exampleMs": ""
+      },
+      "知道": {
+        "definitionMs": "Untuk mengetahui; untuk menjadi sadar; juga pr. [zhi1dao5]",
+        "exampleMs": ""
+      },
+      "重要": {
+        "definitionMs": "Hal penting; signifikan; besar",
+        "exampleMs": ""
+      },
+      "重新": {
+        "definitionMs": "Sekali lagi, sekali lagi; re-",
+        "exampleMs": ""
+      },
+      "准确": {
+        "definitionMs": "tepat; tepat; tepat",
+        "exampleMs": ""
+      },
+      "桌子": {
+        "definitionMs": "Meja meja; meja",
+        "exampleMs": ""
+      },
+      "最好": {
+        "definitionMs": "Terbaik; memiliki lebih baik ...; akan lebih baik untuk ..",
+        "exampleMs": ""
+      },
+      "最多": {
+        "definitionMs": "paling banyak; maksimum; paling besar (hampir); maksimum",
+        "exampleMs": ""
+      },
+      "昨天": {
+        "definitionMs": "kemarin",
+        "exampleMs": ""
+      },
+      "昨晚": {
+        "definitionMs": "kemarin malam; semalam",
+        "exampleMs": ""
+      },
+      "工作": {
+        "definitionMs": "ke pekerjaan; (dari mesin) untuk beroperasi; pekerjaan; pekerjaan; tugas",
+        "exampleMs": ""
+      },
+      "作文": {
+        "definitionMs": "Penulisan esai; komposisi (Esay akademik)",
+        "exampleMs": ""
+      },
+      "做饭": {
+        "definitionMs": "Memasak dan memasak",
+        "exampleMs": ""
+      },
+      "做事": {
+        "definitionMs": "bekerja; menangani masalah; memiliki pekerjaan",
+        "exampleMs": ""
+      },
+      "一般": {
+        "definitionMs": "Sama saja; biasa; jadi-jadi; umum; umum; umum; secara umum",
+        "exampleMs": ""
+      },
+      "这般": {
+        "definitionMs": "Lewat sini.",
+        "exampleMs": ""
+      },
+      "黑板": {
+        "definitionMs": "Papan tulis",
+        "exampleMs": ""
+      },
+      "木板": {
+        "definitionMs": "slab; papan; papan",
+        "exampleMs": ""
+      },
+      "办法": {
+        "definitionMs": "Cara penanganan sth; berarti; ukuran; (praktik) solusi untuk suatu masalah",
+        "exampleMs": ""
+      },
+      "办公": {
+        "definitionMs": "untuk melakukan pekerjaan (pejabat)",
+        "exampleMs": ""
+      },
+      "吃饱": {
+        "definitionMs": "Makan satu isian",
+        "exampleMs": ""
+      },
+      "饱满": {
+        "definitionMs": "penuh; gemuk",
+        "exampleMs": ""
+      },
+      "报纸": {
+        "definitionMs": "surat kabar; newsprint",
+        "exampleMs": ""
+      },
+      "报告": {
+        "definitionMs": "Menyampaikan; melaporkan; memberitahukan; melaporkan; berbicara; berbicara; kuliah",
+        "exampleMs": ""
+      },
+      "必须": {
+        "definitionMs": "harus",
+        "exampleMs": ""
+      },
+      "必要": {
+        "definitionMs": "diperlukan; diperlukan; diperlukan",
+        "exampleMs": ""
+      },
+      "变化": {
+        "definitionMs": "(transitif) untuk berubah; untuk bervariasi; perubahan; variasi",
+        "exampleMs": ""
+      },
+      "变成": {
+        "definitionMs": "Berubah menjadi; berubah menjadi; menjadi",
+        "exampleMs": ""
+      },
+      "方便": {
+        "definitionMs": "Kemudahan; cocok; untuk memudahkan; untuk mempermudah segala sesuatu; memiliki uang luang; (Eufemisme) untuk meringankan diri",
+        "exampleMs": ""
+      },
+      "便宜": {
+        "definitionMs": "Tidak nyaman",
+        "exampleMs": ""
+      },
+      "一遍": {
+        "definitionMs": "Satu kali (semua jalan melalui); sekali melalui",
+        "exampleMs": ""
+      },
+      "遍地": {
+        "definitionMs": "Di mana-mana; di seluruh",
+        "exampleMs": ""
+      },
+      "表格": {
+        "definitionMs": "bentuk); tabel",
+        "exampleMs": ""
+      },
+      "手表": {
+        "definitionMs": "Arloji tangan",
+        "exampleMs": ""
+      },
+      "部门": {
+        "definitionMs": "departemen; cabang; bagian; pembagian",
+        "exampleMs": ""
+      },
+      "才能": {
+        "definitionMs": "Bakat; kemampuan; kapasitas",
+        "exampleMs": ""
+      },
+      "刚才": {
+        "definitionMs": "Hanya saja sekarang; beberapa saat yang lalu",
+        "exampleMs": ""
+      },
+      "参加": {
+        "definitionMs": "ambil bagian; bergabung",
+        "exampleMs": ""
+      },
+      "参观": {
+        "definitionMs": "Untuk mengunjungi (tempat, misalnya museum atau pabrik); untuk tur; untuk melihat-lihat",
+        "exampleMs": ""
+      },
+      "早餐": {
+        "definitionMs": "Sarapan sarapan",
+        "exampleMs": ""
+      },
+      "午餐": {
+        "definitionMs": "Makan siang; makan siang",
+        "exampleMs": ""
+      },
+      "楼层": {
+        "definitionMs": "lantai; lantai (bangunan)",
+        "exampleMs": ""
+      },
+      "一层": {
+        "definitionMs": "1 lapisan; 1 tingkat",
+        "exampleMs": ""
+      },
+      "查找": {
+        "definitionMs": "mencari; mencari ke atas",
+        "exampleMs": ""
+      },
+      "检查": {
+        "definitionMs": "pemeriksaan pemeriksaan; memeriksa; memeriksa",
+        "exampleMs": ""
+      },
+      "超过": {
+        "definitionMs": "(Yang melampaui batas) atau melampaui batas; lafal ayat ini berkedudukan menjadi Hal atau kata keterangan keadaan.",
+        "exampleMs": ""
+      },
+      "超市": {
+        "definitionMs": "supermarket",
+        "exampleMs": ""
+      },
+      "早晨": {
+        "definitionMs": "Pagi pagi pagi, juga pr. [zao3chen5]",
+        "exampleMs": ""
+      },
+      "清晨": {
+        "definitionMs": "Pagi-pagi sekali",
+        "exampleMs": ""
+      },
+      "称呼": {
+        "definitionMs": "Ke panggilan; ke alamat sebagai; bentuk alamat; appelation",
+        "exampleMs": ""
+      },
+      "名称": {
+        "definitionMs": "Nama (suatu hal); nama (sebuah organisasi)",
+        "exampleMs": ""
+      },
+      "成功": {
+        "definitionMs": "berhasil; berhasil; berhasil; berbuah",
+        "exampleMs": ""
+      },
+      "完成": {
+        "definitionMs": "Melengkapi; menyelesaikan",
+        "exampleMs": ""
+      },
+      "清楚": {
+        "definitionMs": "Jelas; jelas; untuk memahami secara menyeluruh, untuk menjadi jelas tentang",
+        "exampleMs": ""
+      },
+      "楚楚": {
+        "definitionMs": "rapi rapi; indah",
+        "exampleMs": ""
+      },
+      "到处": {
+        "definitionMs": "Di mana-mana",
+        "exampleMs": ""
+      },
+      "处理": {
+        "definitionMs": "untuk menangani; untuk menangani; untuk menghukum; untuk memperlakukan sth oleh proses khusus; untuk proses; untuk menjual dengan harga yang dikurangi",
+        "exampleMs": ""
+      },
+      "船票": {
+        "definitionMs": "Tiket kapal",
+        "exampleMs": ""
+      },
+      "船长": {
+        "definitionMs": "Nakhoda kapten kapal",
+        "exampleMs": ""
+      },
+      "吹风": {
+        "definitionMs": "Untuk membiarkan angin bertiup pada diri sendiri; untuk terkena angin; untuk udara keluar (sebuah ruangan); untuk meniup udara (misalnya untuk mengeringkan rambut seseorang); (fig.) untuk singkat sb informal; untuk bocor atau petunjuk pada informasi di depan rilis formal",
+        "exampleMs": ""
+      },
+      "吹牛": {
+        "definitionMs": "Untuk berbicara besar, untuk membual, untuk menembak mulut seseorang; (berbicara) untuk chatting idly",
+        "exampleMs": ""
+      },
+      "春天": {
+        "definitionMs": "musim semi (musim panas)",
+        "exampleMs": ""
+      },
+      "春节": {
+        "definitionMs": "Festival Musim Semi (Tahun Baru Cina)",
+        "exampleMs": ""
+      },
+      "词语": {
+        "definitionMs": "word (istilah umum termasuk monosilabel melalui ke frasa pendek); istilah (mis. istilah teknis); ungkapan",
+        "exampleMs": ""
+      },
+      "歌词": {
+        "definitionMs": "Lagu lirik; lirik",
+        "exampleMs": ""
+      },
+      "带来": {
+        "definitionMs": "Yang akan menghanguskan sampai ke kulit luarnya. Di sana terdapat sembilan belas malaikat yang akan menjaga dan menyiksa penghuninya.",
+        "exampleMs": ""
+      },
+      "皮带": {
+        "definitionMs": "Tali pengikat; ikat pinggang kulit",
+        "exampleMs": ""
+      },
+      "单独": {
+        "definitionMs": "Sendirian;sendirian;sendiri",
+        "exampleMs": ""
+      },
+      "名单": {
+        "definitionMs": "Daftar nama",
+        "exampleMs": ""
+      },
+      "但是": {
+        "definitionMs": "Namun,",
+        "exampleMs": ""
+      },
+      "不但": {
+        "definitionMs": "Tidak hanya (... tapi juga...)",
+        "exampleMs": ""
+      },
+      "倒下": {
+        "definitionMs": "Ke runtuh; jatuh ke atas",
+        "exampleMs": ""
+      },
+      "低头": {
+        "definitionMs": "Untuk menundukkan kepala; untuk mengalah; untuk menyerah",
+        "exampleMs": ""
+      },
+      "降低": {
+        "definitionMs": "untuk mengurangi; untuk menurunkan; untuk menurunkan",
+        "exampleMs": ""
+      },
+      "词典": {
+        "definitionMs": "Kamus Kamus",
+        "exampleMs": ""
+      },
+      "经典": {
+        "definitionMs": "klasik klasik; kitab suci; klasik; klasik (contoh, kasus dll); khas",
+        "exampleMs": ""
+      },
+      "掉下": {
+        "definitionMs": "jatuh ke bawah, jatuh",
+        "exampleMs": ""
+      },
+      "丢掉": {
+        "definitionMs": "kalah; membuang; membuang; membuang; membuang",
+        "exampleMs": ""
+      },
+      "决定": {
+        "definitionMs": "Kebijaksanaan untuk memutuskan; untuk menentukan; untuk membuat keputusan; keputusan (",
+        "exampleMs": ""
+      },
+      "一定": {
+        "definitionMs": "Tentu; pasti; pasti; tetap; diselesaikan; tertentu...; diberikan..",
+        "exampleMs": ""
+      },
+      "冬天": {
+        "definitionMs": "musim dingin",
+        "exampleMs": ""
+      },
+      "冬季": {
+        "definitionMs": "musim dingin",
+        "exampleMs": ""
+      },
+      "温度": {
+        "definitionMs": "Suhu",
+        "exampleMs": ""
+      },
+      "速度": {
+        "definitionMs": "Kecepatan kecepatan; kecepatan; kecepatan; (musik) tempo",
+        "exampleMs": ""
+      },
+      "短信": {
+        "definitionMs": "SMS",
+        "exampleMs": ""
+      },
+      "长短": {
+        "definitionMs": "Kerugian; kecelakaan; kecelakaan; kecelakaan; benar dan salah; baik dan buruk; kebaikan dan kerugian",
+        "exampleMs": ""
+      },
+      "段落": {
+        "definitionMs": "fase fasa; selang waktu; paragraf; (ditulis) bagian",
+        "exampleMs": ""
+      },
+      "阶段": {
+        "definitionMs": "Tahapan stan; bagian; fase; periode",
+        "exampleMs": ""
+      },
+      "队伍": {
+        "definitionMs": "bala tentara; tentara; pangkat; kontingen; kekuatan; staf; tim; tim; garis; prosesi; (dalam permainan video atau pengaturan fantasi dll) partai",
+        "exampleMs": ""
+      },
+      "队员": {
+        "definitionMs": "Anggota tim tim Tim Tim Tim X",
+        "exampleMs": ""
+      },
+      "而且": {
+        "definitionMs": "(bukan hanya...) tetapi juga; lebih banyak; sebagai tambahan; lebih lanjut",
+        "exampleMs": ""
+      },
+      "然而": {
+        "definitionMs": "Namun demikian, namun; belum",
+        "exampleMs": ""
+      },
+      "发短信": {
+        "definitionMs": "\\\"Ofgon\\\" untuk mengirim pesan teks",
+        "exampleMs": ""
+      },
+      "头发": {
+        "definitionMs": "Rambut (di kepala)",
+        "exampleMs": ""
+      },
+      "方法": {
+        "definitionMs": "Metode metode; cara; teknik; prosedur",
+        "exampleMs": ""
+      },
+      "法律": {
+        "definitionMs": "Hukum",
+        "exampleMs": ""
+      },
+      "份额": {
+        "definitionMs": "share; porsi",
+        "exampleMs": ""
+      },
+      "信封": {
+        "definitionMs": "Sampul Surat",
+        "exampleMs": ""
+      },
+      "封面": {
+        "definitionMs": "Kover (publikasi)",
+        "exampleMs": ""
+      },
+      "复习": {
+        "definitionMs": "revisi",
+        "exampleMs": ""
+      },
+      "回复": {
+        "definitionMs": "füch untuk pulih; untuk kembali; untuk kembali ke (sehat yang baik, kondisi normal dll)",
+        "exampleMs": ""
+      },
+      "应该": {
+        "definitionMs": "Seharusnya; harus; harus",
+        "exampleMs": ""
+      },
+      "该当": {
+        "definitionMs": "Seharusnya; layak",
+        "exampleMs": ""
+      },
+      "改变": {
+        "definitionMs": "berubah, berubah, berubah, berubah",
+        "exampleMs": ""
+      },
+      "改正": {
+        "definitionMs": "Dibenarkan; diubah; dibetulkan; dibetulkan",
+        "exampleMs": ""
+      },
+      "感觉": {
+        "definitionMs": "Perasaan, kesan; sensasi; untuk merasa; untuk melihat",
+        "exampleMs": ""
+      },
+      "刚刚": {
+        "definitionMs": "Baru-baru ini saja; hanya beberapa saat yang lalu",
+        "exampleMs": ""
+      },
+      "公共": {
+        "definitionMs": "masyarakat; umum; komunal",
+        "exampleMs": ""
+      },
+      "公园": {
+        "definitionMs": "Taman zak (untuk rekreasi umum)",
+        "exampleMs": ""
+      },
+      "卡片": {
+        "definitionMs": "Kartu",
+        "exampleMs": ""
+      },
+      "卡车": {
+        "definitionMs": "Truk Trak",
+        "exampleMs": ""
+      },
+      "健康": {
+        "definitionMs": "Kesehatan kesehatan; sehat",
+        "exampleMs": ""
+      },
+      "康复": {
+        "definitionMs": "Untuk memulihkan diri; untuk memulihkan diri (kesehatan); untuk membujuk",
+        "exampleMs": ""
+      },
+      "靠近": {
+        "definitionMs": "Semakin dekat, semakin mendekat",
+        "exampleMs": ""
+      },
+      "依靠": {
+        "definitionMs": "mengandalkan; bergantung pada",
+        "exampleMs": ""
+      },
+      "科学": {
+        "definitionMs": "Ilmu ilmiah; ilmu ilmiah; ilmiah; rasional",
+        "exampleMs": ""
+      },
+      "科目": {
+        "definitionMs": "mata pelajaran akademik akademis; bidang studi",
+        "exampleMs": ""
+      },
+      "可以": {
+        "definitionMs": "Dapat; dapat; dapat; dapat; dapat; dapat; diperbolehkan; tidak buruk; cukup baik",
+        "exampleMs": ""
+      },
+      "可爱": {
+        "definitionMs": "Comel manis; lucu; indah",
+        "exampleMs": ""
+      },
+      "克服": {
+        "definitionMs": "(mencoba) mengatasi (kekerasan dll); untuk menaklukkan; untuk bertahan dengan; untuk bertahan",
+        "exampleMs": ""
+      },
+      "克制": {
+        "definitionMs": "Mengekang; mengendalikan diri; mengendalikan diri",
+        "exampleMs": ""
+      },
+      "一刻": {
+        "definitionMs": "seperempat jam; 15 menit; satu saat; satu instan",
+        "exampleMs": ""
+      },
+      "空间": {
+        "definitionMs": "Ruang angkasa; ruang; (fig.) ruang lingkup; leeway; (astronomi) ruang luar angkasa; (fisika, matematika.) ruang",
+        "exampleMs": ""
+      },
+      "哭泣": {
+        "definitionMs": "Saya menangis",
+        "exampleMs": ""
+      },
+      "大哭": {
+        "definitionMs": "♪ Untuk menangis keras ♪",
+        "exampleMs": ""
+      },
+      "筷子": {
+        "definitionMs": "sumpit sumpit",
+        "exampleMs": ""
+      },
+      "拉开": {
+        "definitionMs": "untuk menarik terbuka; untuk menarik terpisah; untuk ruang keluar, untuk meningkatkan",
+        "exampleMs": ""
+      },
+      "拉手": {
+        "definitionMs": "Untuk berpegangan tangan, berjabat tangan",
+        "exampleMs": ""
+      },
+      "蓝色": {
+        "definitionMs": "biru (warna)",
+        "exampleMs": ""
+      },
+      "蓝天": {
+        "definitionMs": "♪ Langit biru ♪",
+        "exampleMs": ""
+      },
+      "篮子": {
+        "definitionMs": "Keranjang",
+        "exampleMs": ""
+      },
+      "快乐": {
+        "definitionMs": "berbahagia; bersukacita",
+        "exampleMs": ""
+      },
+      "音乐": {
+        "definitionMs": "Musik",
+        "exampleMs": ""
+      },
+      "离开": {
+        "definitionMs": "Ke berangkat, pergi",
+        "exampleMs": ""
+      },
+      "距离": {
+        "definitionMs": "jarak; pemisahan (dalam ruang atau waktu); menjadi... jauh dari; menjadi... dari...",
+        "exampleMs": ""
+      },
+      "礼物": {
+        "definitionMs": "Hadiah hadiah; hadir",
+        "exampleMs": ""
+      },
+      "礼貌": {
+        "definitionMs": "sopan santun; sopan santun; sopan santun; sopan santun; sopan santun",
+        "exampleMs": ""
+      },
+      "理解": {
+        "definitionMs": "Untuk memahami; untuk memahami",
+        "exampleMs": ""
+      },
+      "理由": {
+        "definitionMs": "Alasan alasan; alasan; pembenaran",
+        "exampleMs": ""
+      },
+      "利益": {
+        "definitionMs": "Manfaat keuntungan; (dalam sb's) kepentingan",
+        "exampleMs": ""
+      },
+      "利用": {
+        "definitionMs": "untuk memanfaatkan; untuk memanfaatkan; untuk memanfaatkan; untuk memanfaatkan; untuk memanfaatkan",
+        "exampleMs": ""
+      },
+      "例子": {
+        "definitionMs": "Kasus tasawuf; (misalnya; contoh",
+        "exampleMs": ""
+      },
+      "举例": {
+        "definitionMs": "Sifine untuk memberikan contoh",
+        "exampleMs": ""
+      },
+      "脸色": {
+        "definitionMs": "Kolekologi; lihat",
+        "exampleMs": ""
+      },
+      "洗脸": {
+        "definitionMs": "Kecuci muka",
+        "exampleMs": ""
+      },
+      "训练": {
+        "definitionMs": "Latihan untuk berlatih, latihan.",
+        "exampleMs": ""
+      },
+      "凉快": {
+        "definitionMs": "Mereka bersenang-senang dalam kesejukan; mereka mendinginkan diri; mereka mendinginkan diri; mereka bersenang-senang dalam kesejukan, mereka menampakkan diri untuk tidak ikut berperang.",
+        "exampleMs": ""
+      },
+      "凉水": {
+        "definitionMs": "(yaitu) air yang sejuk,",
+        "exampleMs": ""
+      },
+      "明亮": {
+        "definitionMs": "Terang; bersinar; berkilauan; menjadi jelas",
+        "exampleMs": ""
+      },
+      "亮光": {
+        "definitionMs": "Cahaya ufuk; pancaran cahaya; pancaran cahaya; cahaya dipantulkan dari suatu objek",
+        "exampleMs": ""
+      },
+      "车辆": {
+        "definitionMs": "kendaraan",
+        "exampleMs": ""
+      },
+      "数量": {
+        "definitionMs": "jumlah kuantiti; kuantitatif; (math.) kuantiti skalar",
+        "exampleMs": ""
+      },
+      "测量": {
+        "definitionMs": "survey ultah; untuk mengukur; untuk mengukur; untuk menentukan",
+        "exampleMs": ""
+      },
+      "留下": {
+        "definitionMs": "Untuk meninggalkan; untuk tinggal di belakang; untuk tetap; untuk menjaga, tidak membiarkan (sb) pergi",
+        "exampleMs": ""
+      },
+      "保留": {
+        "definitionMs": "untuk menjaga; untuk mempertahankan; untuk memiliki pemesanan (sekitar sth); untuk menahan (dari mengatakan sth); untuk menyisihkan untuk nanti",
+        "exampleMs": ""
+      },
+      "流水": {
+        "definitionMs": "(yaitu) air yang mengalir,",
+        "exampleMs": ""
+      },
+      "流动": {
+        "definitionMs": "(Yang beredar) beredar (dan yang berpindah-pindah) ke mana-mana yang lain.",
+        "exampleMs": ""
+      },
+      "旅行": {
+        "definitionMs": "Perjalanan; perjalanan; perjalanan",
+        "exampleMs": ""
+      },
+      "旅游": {
+        "definitionMs": "Perjalanan; perjalanan; pariwisata; perjalanan; wisata; wisata; perjalanan",
+        "exampleMs": ""
+      },
+      "绿色": {
+        "definitionMs": "hijau",
+        "exampleMs": ""
+      },
+      "绿叶": {
+        "definitionMs": "Daun hijau; (fig.) aktor memainkan peran pendukung",
+        "exampleMs": ""
+      },
+      "讨论": {
+        "definitionMs": "Untuk berdiskusi; untuk berbicara lebih",
+        "exampleMs": ""
+      },
+      "论文": {
+        "definitionMs": "Kertas olesan; layanan; tesis; untuk membahas makalah atau tesis (lama)",
+        "exampleMs": ""
+      },
+      "满足": {
+        "definitionMs": "untuk memuaskan; untuk memenuhi (keperluan); puas; puas",
+        "exampleMs": ""
+      },
+      "满意": {
+        "definitionMs": "Kepuasan; senang; kepuasan seseorang",
+        "exampleMs": ""
+      },
+      "月底": {
+        "definitionMs": "Akhir bulan",
+        "exampleMs": ""
+      },
+      "末尾": {
+        "definitionMs": "ujung gondok; ujung; ujung",
+        "exampleMs": ""
+      },
+      "目录": {
+        "definitionMs": "Tabel isi; katalog; (computing) direktori",
+        "exampleMs": ""
+      },
+      "目标": {
+        "definitionMs": "sasaran sasaran; tujuan; tujuan",
+        "exampleMs": ""
+      },
+      "弄清": {
+        "definitionMs": "Untuk menjelaskan; untuk sepenuhnya memahami",
+        "exampleMs": ""
+      },
+      "努力": {
+        "definitionMs": "Berupayalah berusaha; berusaha keras; berusaha keras; bekerja keras; teliti",
+        "exampleMs": ""
+      },
+      "爬山": {
+        "definitionMs": "Untuk pergi untuk mendaki (esp. di bukit atau gunung)",
+        "exampleMs": ""
+      },
+      "爬行": {
+        "definitionMs": "Untuk merangkak, untuk merayap",
+        "exampleMs": ""
+      },
+      "害怕": {
+        "definitionMs": "Takut, takut",
+        "exampleMs": ""
+      },
+      "怕生": {
+        "definitionMs": "Takut akan orang asing, takut pada orang asing (anak kecil)",
+        "exampleMs": ""
+      },
+      "排队": {
+        "definitionMs": "Untuk berbaris",
+        "exampleMs": ""
+      },
+      "排列": {
+        "definitionMs": "(math.) permutasi",
+        "exampleMs": ""
+      },
+      "碰到": {
+        "definitionMs": "Datang untuk menyeberang; untuk berlari ke dalam; untuk bertemu; untuk memukul",
+        "exampleMs": ""
+      },
+      "碰面": {
+        "definitionMs": "Untuk bertemu; untuk berlari ke (sb); untuk bersama-sama (dengan sb)",
+        "exampleMs": ""
+      },
+      "篇章": {
+        "definitionMs": "Pasal 23; bagian (dari karya tulis); bagian penulisan; (fig.) bab (dalam sejarah sth)",
+        "exampleMs": ""
+      },
+      "片段": {
+        "definitionMs": "Dari nuthfah (percakapan-percakapan); ekstrak (dari buku-buku lain); episode (dari dll).",
+        "exampleMs": ""
+      },
+      "漂流": {
+        "definitionMs": "¶ untuk mengapung di arus; untuk hanyut sepanjang atau sekitar; rakit",
+        "exampleMs": ""
+      },
+      "漂浮": {
+        "definitionMs": "Untuk melayang; melayang; untuk hanyut (juga ara, untuk memimpin kehidupan mengembara); untuk rove; pamer; dangkal",
+        "exampleMs": ""
+      },
+      "平安": {
+        "definitionMs": "Keamanan dan keamanan",
+        "exampleMs": ""
+      },
+      "水平": {
+        "definitionMs": "mendatar; tingkat; standar; tingkat (kemampuan, pengembangan dll)",
+        "exampleMs": ""
+      },
+      "瓶子": {
+        "definitionMs": "botol",
+        "exampleMs": ""
+      },
+      "普遍": {
+        "definitionMs": "universal; umum; meluas; umum",
+        "exampleMs": ""
+      },
+      "普通": {
+        "definitionMs": "Biasa; biasa; umum; rata-rata",
+        "exampleMs": ""
+      },
+      "其他": {
+        "definitionMs": "Lain-lain; (sth atau sb) lain; sisanya",
+        "exampleMs": ""
+      },
+      "其中": {
+        "definitionMs": "Di antara; di; termasuk di antaranya",
+        "exampleMs": ""
+      },
+      "骑车": {
+        "definitionMs": "(motorbike atau sepeda)",
+        "exampleMs": ""
+      },
+      "骑马": {
+        "definitionMs": "Untuk naik kuda",
+        "exampleMs": ""
+      },
+      "千米": {
+        "definitionMs": "Perancis",
+        "exampleMs": ""
+      },
+      "墙壁": {
+        "definitionMs": "dinding",
+        "exampleMs": ""
+      },
+      "并且": {
+        "definitionMs": "(Dan selain dari itu) selain dari itu (Kami tambah pula) di samping mereka.",
+        "exampleMs": ""
+      },
+      "腿脚": {
+        "definitionMs": "Kaki dan kaki; kesanggupan berjalan; langkah",
+        "exampleMs": ""
+      },
+      "完全": {
+        "definitionMs": "Pelengkap; lengkap; sepenuhnya; sepenuhnya",
+        "exampleMs": ""
+      },
+      "碗筷": {
+        "definitionMs": "mangkuk dan sumpit; peralatan meja",
+        "exampleMs": ""
+      },
+      "万一": {
+        "definitionMs": "Hanya untuk berjaga-jaga; jika kebetulan; kontingen",
+        "exampleMs": ""
+      },
+      "国王": {
+        "definitionMs": "Raja",
+        "exampleMs": ""
+      },
+      "王子": {
+        "definitionMs": "Pangeran pangeran; putra raja",
+        "exampleMs": ""
+      },
+      "往前": {
+        "definitionMs": "(in) masa lalu; maju; maju; di masa depan",
+        "exampleMs": ""
+      },
+      "往常": {
+        "definitionMs": "Biasa; adat",
+        "exampleMs": ""
+      },
+      "因为": {
+        "definitionMs": "(Karena) disebabkan (kemenangan),",
+        "exampleMs": ""
+      },
+      "为了": {
+        "definitionMs": "untuk tujuan; untuk tujuan; dalam rangka untuk",
+        "exampleMs": ""
+      },
+      "位置": {
+        "definitionMs": "position; lokasi; kursi",
+        "exampleMs": ""
+      },
+      "味道": {
+        "definitionMs": "Rasanya yang lezat rasanya, sedap rasanya, baunya yang sedap.",
+        "exampleMs": ""
+      },
+      "口味": {
+        "definitionMs": "selera seseorang; selera (dalam makanan); rasa",
+        "exampleMs": ""
+      },
+      "喂养": {
+        "definitionMs": "Untuk memberi makan (anak, hewan peliharaan dll); untuk menjaga; untuk membesarkan (hewan)",
+        "exampleMs": ""
+      },
+      "喂食": {
+        "definitionMs": "Ke makan",
+        "exampleMs": ""
+      },
+      "温暖": {
+        "definitionMs": "hangat",
+        "exampleMs": ""
+      },
+      "听闻": {
+        "definitionMs": "Untuk mendengarkan; untuk mendengar apa sb mengatakan; berita satu telah mendengar",
+        "exampleMs": ""
+      },
+      "任务": {
+        "definitionMs": "misi; tugas; tugas; tugas; tugas; peran",
+        "exampleMs": ""
+      },
+      "服务": {
+        "definitionMs": "Melayani; melayani",
+        "exampleMs": ""
+      },
+      "物品": {
+        "definitionMs": "Artikel artikel; barang",
+        "exampleMs": ""
+      },
+      "夏天": {
+        "definitionMs": "musim panas",
+        "exampleMs": ""
+      },
+      "夏季": {
+        "definitionMs": "musim panas",
+        "exampleMs": ""
+      },
+      "相同": {
+        "definitionMs": "identik identik; sama",
+        "exampleMs": ""
+      },
+      "相貌": {
+        "definitionMs": "Fitur wajah wajah wajah wajah; terlihat",
+        "exampleMs": ""
+      },
+      "响声": {
+        "definitionMs": "hingar",
+        "exampleMs": ""
+      },
+      "响亮": {
+        "definitionMs": "Suara yang keras dan jelas; resounding",
+        "exampleMs": ""
+      },
+      "方向": {
+        "definitionMs": "arah mata; orientasi",
+        "exampleMs": ""
+      },
+      "向前": {
+        "definitionMs": "Ke depan; ke depan",
+        "exampleMs": ""
+      },
+      "好像": {
+        "definitionMs": "Seolah-olah; tampak seperti",
+        "exampleMs": ""
+      },
+      "图像": {
+        "definitionMs": "gambar; gambar; grafis",
+        "exampleMs": ""
+      },
+      "信用": {
+        "definitionMs": "(yaitu) orang-orang yang berserah diri,",
+        "exampleMs": ""
+      },
+      "信心": {
+        "definitionMs": "Iman (dalam sb atau sth)",
+        "exampleMs": ""
+      },
+      "姓氏": {
+        "definitionMs": "Nama keluarga",
+        "exampleMs": ""
+      },
+      "胡须": {
+        "definitionMs": "Janggut",
+        "exampleMs": ""
+      },
+      "许多": {
+        "definitionMs": "Banyak; banyak; banyak",
+        "exampleMs": ""
+      },
+      "允许": {
+        "definitionMs": "untuk mengizinkan; untuk mengizinkan",
+        "exampleMs": ""
+      },
+      "选择": {
+        "definitionMs": "Pilih; pilih; pilih; pilih; pilih; alternatif",
+        "exampleMs": ""
+      },
+      "选手": {
+        "definitionMs": "atlet; kontestan",
+        "exampleMs": ""
+      },
+      "颜色": {
+        "definitionMs": "warna, wajah; penampilan; ekspresi wajah; pigmen; pewarna",
+        "exampleMs": ""
+      },
+      "颜料": {
+        "definitionMs": "cat cat cat; pewarna; pigmen",
+        "exampleMs": ""
+      },
+      "太阳": {
+        "definitionMs": "matahari; sinar matahari; sinar matahari; kuil (di sisi kepala manusia)",
+        "exampleMs": ""
+      },
+      "阳光": {
+        "definitionMs": "(Kepribadian) upbeat; energik; transparan (terbuka untuk pengawasan publik)",
+        "exampleMs": ""
+      },
+      "养成": {
+        "definitionMs": "Dikembang biakkan; dibesarkan; dibentuk (biasa); diperoleh",
+        "exampleMs": ""
+      },
+      "养育": {
+        "definitionMs": "untuk membesarkan; untuk membesarkan; untuk memelihara",
+        "exampleMs": ""
+      },
+      "作业": {
+        "definitionMs": "Tugas sekolah school; pekerjaan rumah; pekerjaan; tugas; operasi; ke operasi",
+        "exampleMs": ""
+      },
+      "夜晚": {
+        "definitionMs": "Malam",
+        "exampleMs": ""
+      },
+      "夜里": {
+        "definitionMs": "Pada malam hari,",
+        "exampleMs": ""
+      },
+      "适宜": {
+        "definitionMs": "sesuai; sesuai",
+        "exampleMs": ""
+      },
+      "不宜": {
+        "definitionMs": "(Tidaklah pantas) tidak layak (bagiku) tidak layak (dan tidak patut) tidak pantas (bagiku) tidak pantas (bagiku) untuk melakukannya.",
+        "exampleMs": ""
+      },
+      "已经": {
+        "definitionMs": "♪ Sudah",
+        "exampleMs": ""
+      },
+      "已知": {
+        "definitionMs": "(Untuk ilmu pengetahuan)",
+        "exampleMs": ""
+      },
+      "以后": {
+        "definitionMs": "setelah itu; kemudian; setelah itu; berikut; di kemudian hari; di masa depan",
+        "exampleMs": ""
+      },
+      "亿万": {
+        "definitionMs": "jutaan dan jutaan",
+        "exampleMs": ""
+      },
+      "意思": {
+        "definitionMs": "ide ihsan; opini; pendapat; makna; keinginan; keinginan; minat; kesenangan; tanda penghargaan, kasih sayang dll; memberi sebagai tanda kecil; melakukan sth sebagai isyarat niat baik dll",
+        "exampleMs": ""
+      },
+      "意见": {
+        "definitionMs": "Ide palsu; pendapat; saran; keberatan; keluhan",
+        "exampleMs": ""
+      },
+      "原因": {
+        "definitionMs": "penyebab; asal; akar penyebab; alasan",
+        "exampleMs": ""
+      },
+      "阴天": {
+        "definitionMs": "Hari awan awan; langit mendung",
+        "exampleMs": ""
+      },
+      "阴影": {
+        "definitionMs": "(lit. dan ara.) Bayangan",
+        "exampleMs": ""
+      },
+      "声音": {
+        "definitionMs": "suara; suara",
+        "exampleMs": ""
+      },
+      "银行": {
+        "definitionMs": "Bank",
+        "exampleMs": ""
+      },
+      "银色": {
+        "definitionMs": "Perak silver (warna)",
+        "exampleMs": ""
+      },
+      "印刷": {
+        "definitionMs": "cetakan",
+        "exampleMs": ""
+      },
+      "印章": {
+        "definitionMs": "Segel seal; signet; chop; cap",
+        "exampleMs": ""
+      },
+      "回应": {
+        "definitionMs": "tanggapan; tanggapan",
+        "exampleMs": ""
+      },
+      "英语": {
+        "definitionMs": "Bahasa Inggris",
+        "exampleMs": ""
+      },
+      "英雄": {
+        "definitionMs": "Hero",
+        "exampleMs": ""
+      },
+      "迎接": {
+        "definitionMs": "Selamat datang; untuk menyapa",
+        "exampleMs": ""
+      },
+      "永远": {
+        "definitionMs": "Kekekalan abadi; kekal",
+        "exampleMs": ""
+      },
+      "永久": {
+        "definitionMs": "Kekekalan; kekal; kekal; kekal;",
+        "exampleMs": ""
+      },
+      "由于": {
+        "definitionMs": "disebabkan oleh; sebagai hasil; berkat; owing untuk; sejak; karena",
+        "exampleMs": ""
+      },
+      "自由": {
+        "definitionMs": "Kebebasan, kebebasan; kebebasan; kebebasan; kebebasan tanpa batas",
+        "exampleMs": ""
+      },
+      "石油": {
+        "definitionMs": "Minyak bumi; minyak bumi",
+        "exampleMs": ""
+      },
+      "油画": {
+        "definitionMs": "Lukisan minyak",
+        "exampleMs": ""
+      },
+      "游泳": {
+        "definitionMs": "Renang renang; berenang",
+        "exampleMs": ""
+      },
+      "又一次": {
+        "definitionMs": "Sekali lagi; sekali lagi; sekali lagi",
+        "exampleMs": ""
+      },
+      "对于": {
+        "definitionMs": "mengenai mengenai; sejauh (sth) yang bersangkutan; sehubungan dengan",
+        "exampleMs": ""
+      },
+      "于是": {
+        "definitionMs": "BAHASANYA; sebagai hasilnya; akibatnya; dengan demikian; maka",
+        "exampleMs": ""
+      },
+      "教育": {
+        "definitionMs": "untuk mendidik; mengajar; pendidikan",
+        "exampleMs": ""
+      },
+      "体育": {
+        "definitionMs": "olahraga olahraga olahraga olahraga; pendidikan fisik",
+        "exampleMs": ""
+      },
+      "花园": {
+        "definitionMs": "Taman surga (untuk bunga-bunga, tanaman hias dll); (Tanahscaped) taman; halaman dengan tanaman hias",
+        "exampleMs": ""
+      },
+      "共同": {
+        "definitionMs": "Biasa; bersama; bersama; bersama; bersama; kerjasama",
+        "exampleMs": ""
+      },
+      "一共": {
+        "definitionMs": "total; sama sekali",
+        "exampleMs": ""
+      },
+      "小狗": {
+        "definitionMs": "Anak anjing",
+        "exampleMs": ""
+      },
+      "狗狗": {
+        "definitionMs": "Anjing; anjing",
+        "exampleMs": ""
+      },
+      "足够": {
+        "definitionMs": "Cukup, cukup",
+        "exampleMs": ""
+      },
+      "够用": {
+        "definitionMs": "Cukup memadai; cukup; cukup",
+        "exampleMs": ""
+      },
+      "故事": {
+        "definitionMs": "praktek lama",
+        "exampleMs": ""
+      },
+      "故意": {
+        "definitionMs": "sengaja, sengaja",
+        "exampleMs": ""
+      },
+      "照顾": {
+        "definitionMs": "Untuk mengurus; untuk menunjukkan pertimbangan; untuk menghadiri, untuk menjaga",
+        "exampleMs": ""
+      },
+      "顾客": {
+        "definitionMs": "pelanggan; klien",
+        "exampleMs": ""
+      },
+      "观看": {
+        "definitionMs": "untuk menonton; untuk melihat",
+        "exampleMs": ""
+      },
+      "观点": {
+        "definitionMs": "sudut pandang; sudut pandang; sudut pandang",
+        "exampleMs": ""
+      },
+      "习惯": {
+        "definitionMs": "Kebiasaan kebiasaan; kebiasaan; kebiasaan biasa; untuk digunakan",
+        "exampleMs": ""
+      },
+      "惯例": {
+        "definitionMs": "Konvensyeni; praktek biasa",
+        "exampleMs": ""
+      },
+      "广告": {
+        "definitionMs": "Iklan; iklan; iklan",
+        "exampleMs": ""
+      },
+      "海边": {
+        "definitionMs": "pesisir pantai pantai pantai; tepi laut; pantai pantai",
+        "exampleMs": ""
+      },
+      "海洋": {
+        "definitionMs": "samudera",
+        "exampleMs": ""
+      },
+      "喊叫": {
+        "definitionMs": "\\\"Menjerit\\\"",
+        "exampleMs": ""
+      },
+      "大喊": {
+        "definitionMs": "♪ Menjerit ♪",
+        "exampleMs": ""
+      },
+      "河水": {
+        "definitionMs": "Air sungai",
+        "exampleMs": ""
+      },
+      "河边": {
+        "definitionMs": "Sungai sungai sungai sungai",
+        "exampleMs": ""
+      },
+      "黑色": {
+        "definitionMs": "♪ hitam ♪",
+        "exampleMs": ""
+      },
+      "红色": {
+        "definitionMs": "red (warna); revolusioner",
+        "exampleMs": ""
+      },
+      "红茶": {
+        "definitionMs": "Teh hitam",
+        "exampleMs": ""
+      },
+      "忽然": {
+        "definitionMs": "Tiba-tiba, tiba-tiba",
+        "exampleMs": ""
+      },
+      "忽略": {
+        "definitionMs": "Jangan mengabaikan; mengabaikan; mengabaikan",
+        "exampleMs": ""
+      },
+      "湖水": {
+        "definitionMs": "Air danau",
+        "exampleMs": ""
+      },
+      "湖边": {
+        "definitionMs": "Lakeside",
+        "exampleMs": ""
+      },
+      "保护": {
+        "definitionMs": "melindungi; mempertahankan; melindungi; melindungi",
+        "exampleMs": ""
+      },
+      "护照": {
+        "definitionMs": "Paspor",
+        "exampleMs": ""
+      },
+      "划船": {
+        "definitionMs": "perahu kecil",
+        "exampleMs": ""
+      },
+      "计划": {
+        "definitionMs": "rencana; proyek; program; untuk merencanakan; untuk memetakan",
+        "exampleMs": ""
+      },
+      "画画": {
+        "definitionMs": "Melukis; melukis",
+        "exampleMs": ""
+      },
+      "图画": {
+        "definitionMs": "gambar; gambar",
+        "exampleMs": ""
+      },
+      "换钱": {
+        "definitionMs": "Untuk menukar uang, menjual",
+        "exampleMs": ""
+      },
+      "交换": {
+        "definitionMs": "bertukar, bertukar, bertukar, bertukar (telecom); komunitatif (math); bermusyawarah",
+        "exampleMs": ""
+      },
+      "黄色": {
+        "definitionMs": "kuning ultah; vulgar; lewd; pornografi",
+        "exampleMs": ""
+      },
+      "黄河": {
+        "definitionMs": "Sungai Kuning atau Huang He",
+        "exampleMs": ""
+      },
+      "生活": {
+        "definitionMs": "hidup; hidup; mata pencaharian",
+        "exampleMs": ""
+      },
+      "或者": {
+        "definitionMs": "atau, mungkin; mungkin; mungkin",
+        "exampleMs": ""
+      },
+      "或许": {
+        "definitionMs": "Mungkin; mungkin",
+        "exampleMs": ""
+      },
+      "年级": {
+        "definitionMs": "SD SD; tahun (di sekolah, perguruan tinggi dll)",
+        "exampleMs": ""
+      },
+      "高级": {
+        "definitionMs": "Tingkat tinggi; tingkat tinggi; maju; tinggi",
+        "exampleMs": ""
+      },
+      "急忙": {
+        "definitionMs": "♪",
+        "exampleMs": ""
+      },
+      "自己": {
+        "definitionMs": "Diri sendiri; (mendengus) sendiri",
+        "exampleMs": ""
+      },
+      "知己": {
+        "definitionMs": "Untuk mengenal diri sendiri; untuk menjadi intim atau dekat; teman akrab",
+        "exampleMs": ""
+      },
+      "计算": {
+        "definitionMs": "untuk menghitung; untuk menghitung; untuk mempertimbangkan; untuk memikirkan; untuk merencanakan; untuk merencanakan",
+        "exampleMs": ""
+      },
+      "国际": {
+        "definitionMs": "Internasional",
+        "exampleMs": ""
+      },
+      "实际": {
+        "definitionMs": "Reality; praktik; praktis; realistis; nyata; aktual",
+        "exampleMs": ""
+      },
+      "成绩": {
+        "definitionMs": "Pencapaian prestasi; catatan prestasi; nilai",
+        "exampleMs": ""
+      },
+      "业绩": {
+        "definitionMs": "Prestasi; pencapaian; (dalam penggunaan lebih baru) kinerja (dari sebuah bisnis, karyawan dll); hasil",
+        "exampleMs": ""
+      },
+      "加入": {
+        "definitionMs": "untuk menjadi anggota; untuk bergabung; untuk mencampur ke dalam; untuk berpartisipasi; untuk menambahkan",
+        "exampleMs": ""
+      },
+      "增加": {
+        "definitionMs": "meningkat, meningkat",
+        "exampleMs": ""
+      },
+      "检验": {
+        "definitionMs": "untuk memeriksa; memeriksa; untuk menguji",
+        "exampleMs": ""
+      },
+      "文件": {
+        "definitionMs": "Dokumen rumah; berkas",
+        "exampleMs": ""
+      },
+      "健身": {
+        "definitionMs": "olahraga; olahraga fisik",
+        "exampleMs": ""
+      },
+      "讲话": {
+        "definitionMs": "Mengucapkan pidato; berbicara; berbicara; ke alamat",
+        "exampleMs": ""
+      },
+      "讲解": {
+        "definitionMs": "Untuk menjelaskan",
+        "exampleMs": ""
+      },
+      "交朋友": {
+        "definitionMs": "Untuk membuat teman; (berbicara) untuk memulai hubungan dengan sb",
+        "exampleMs": ""
+      },
+      "交通": {
+        "definitionMs": "menjadi terhubung; lalu lintas; transportasi; komunikasi; penghubung",
+        "exampleMs": ""
+      },
+      "角落": {
+        "definitionMs": "(dari sebuah ruangan, halaman dll); (fig.) tempat terpencil; nook",
+        "exampleMs": ""
+      },
+      "角色": {
+        "definitionMs": "Peran ari; bagian (dalam drama atau film dll); juga pr. [jiao3se4]",
+        "exampleMs": ""
+      },
+      "饺子": {
+        "definitionMs": "Pembuangan sampah; panci-stiker",
+        "exampleMs": ""
+      },
+      "水饺": {
+        "definitionMs": "Kudu rebus (dibuat dengan membungkus kulit pasta di sekitar isian, seperti ravioli)",
+        "exampleMs": ""
+      },
+      "接受": {
+        "definitionMs": "untuk menerima (sebuah saran, hukuman, suap dll); untuk mendapatkan",
+        "exampleMs": ""
+      },
+      "街道": {
+        "definitionMs": "Jalanan; subdistrik; distrik pemukiman",
+        "exampleMs": ""
+      },
+      "节日": {
+        "definitionMs": "Hari libur; festival",
+        "exampleMs": ""
+      },
+      "季节": {
+        "definitionMs": "Waktu musim; periode",
+        "exampleMs": ""
+      },
+      "结果": {
+        "definitionMs": "Buah-buahan",
+        "exampleMs": ""
+      },
+      "结婚": {
+        "definitionMs": "menikah, menikah",
+        "exampleMs": ""
+      },
+      "借用": {
+        "definitionMs": "meminjam sth untuk penggunaan lain; untuk meminjam ide untuk penggunaan sendiri",
+        "exampleMs": ""
+      },
+      "公斤": {
+        "definitionMs": "kg (kg)",
+        "exampleMs": ""
+      },
+      "附近": {
+        "definitionMs": "Di dekatnya; tetangga; (di) sekitar (dari); lingkungan",
+        "exampleMs": ""
+      },
+      "近处": {
+        "definitionMs": "Di dekatnya",
+        "exampleMs": ""
+      },
+      "眼睛": {
+        "definitionMs": "mata mata",
+        "exampleMs": ""
+      },
+      "目不转睛": {
+        "definitionMs": "Dan tidak dapat mengalihkan pandangan seseorang (idioom); untuk menatap terus; untuk menatap",
+        "exampleMs": ""
+      },
+      "安静": {
+        "definitionMs": "Tenang tenang; damai; tenang",
+        "exampleMs": ""
+      },
+      "平静": {
+        "definitionMs": "Tenang tenang; tenang; tenang",
+        "exampleMs": ""
+      },
+      "长久": {
+        "definitionMs": "Keabadian lama; jangka panjang; bertahan lama; permanen; untuk waktu yang lama",
+        "exampleMs": ""
+      },
+      "啤酒": {
+        "definitionMs": "bir (bahasa Inggris)",
+        "exampleMs": ""
+      },
+      "酒馆": {
+        "definitionMs": "Kedai anggur; pub;",
+        "exampleMs": ""
+      },
+      "举手": {
+        "definitionMs": "Untuk mengangkat tangan, untuk mengangkat tangan seseorang (sebagai sinyal)",
+        "exampleMs": ""
+      },
+      "句子": {
+        "definitionMs": "Ayat morf",
+        "exampleMs": ""
+      },
+      "句号": {
+        "definitionMs": "Berhenti penuh; periode (punct.)",
+        "exampleMs": ""
+      },
+      "青色": {
+        "definitionMs": "Cyan; biru-hijau",
+        "exampleMs": ""
+      },
+      "青年": {
+        "definitionMs": "Muda muda muda; muda muda; muda",
+        "exampleMs": ""
+      },
+      "轻松": {
+        "definitionMs": "ringan; lembut; santai; tidak mudah upaya; tidak rumit; bersantai; untuk mengambil hal-hal yang kurang serius",
+        "exampleMs": ""
+      },
+      "轻轻": {
+        "definitionMs": "ringan ringan; lembut",
+        "exampleMs": ""
+      },
+      "清洁": {
+        "definitionMs": "bersih bersih; bersih",
+        "exampleMs": ""
+      },
+      "心情": {
+        "definitionMs": "Suasana hati yang tenang; pikiran yang dalam",
+        "exampleMs": ""
+      },
+      "感情": {
+        "definitionMs": "emosi; sentimen; kasih sayang; perasaan antara dua orang",
+        "exampleMs": ""
+      },
+      "晴天": {
+        "definitionMs": "Langit cerah; hari cerah",
+        "exampleMs": ""
+      },
+      "晴朗": {
+        "definitionMs": "{Y: i} cerah cerah dan berawan",
+        "exampleMs": ""
+      },
+      "秋天": {
+        "definitionMs": "Musim gugur",
+        "exampleMs": ""
+      },
+      "秋季": {
+        "definitionMs": "musim gugur; musim gugur",
+        "exampleMs": ""
+      },
+      "请求": {
+        "definitionMs": "diminta; diminta; diminta (",
+        "exampleMs": ""
+      },
+      "要求": {
+        "definitionMs": "Untuk meminta; untuk mensyaratkan; persyaratan; untuk mengajukan klaim; untuk meminta; untuk menuntut",
+        "exampleMs": ""
+      },
+      "取得": {
+        "definitionMs": "memperoleh; memperoleh; memperoleh",
+        "exampleMs": ""
+      },
+      "取出": {
+        "definitionMs": "Untuk mengambil; untuk mengekstrak; untuk menarik keluar",
+        "exampleMs": ""
+      },
+      "全部": {
+        "definitionMs": "Semua",
+        "exampleMs": ""
+      },
+      "确实": {
+        "definitionMs": "Sesungguhnya, benar-benar, dapat dipercaya; nyata; benar",
+        "exampleMs": ""
+      },
+      "正确": {
+        "definitionMs": "Benar; benar; benar",
+        "exampleMs": ""
+      },
+      "虽然": {
+        "definitionMs": "Meskipun, meskipun",
+        "exampleMs": ""
+      },
+      "自然": {
+        "definitionMs": "Sifat alami; alami; alami",
+        "exampleMs": ""
+      },
+      "让开": {
+        "definitionMs": "Pergi dari jalan, minggir",
+        "exampleMs": ""
+      },
+      "让步": {
+        "definitionMs": "(Linguistik) concessive",
+        "exampleMs": ""
+      },
+      "如果": {
+        "definitionMs": "Jika, dalam kasus, dalam hal bahwa",
+        "exampleMs": ""
+      },
+      "入口": {
+        "definitionMs": "Pintu masuk; untuk mengimpor",
+        "exampleMs": ""
+      },
+      "色彩": {
+        "definitionMs": "Tint; pewarnaan; pewarnaan; (fig.) rasa; karakter",
+        "exampleMs": ""
+      },
+      "声调": {
+        "definitionMs": "Nada nada; nada; nada (pada suku kata Cina)",
+        "exampleMs": ""
+      },
+      "省份": {
+        "definitionMs": "provinsi",
+        "exampleMs": ""
+      },
+      "省钱": {
+        "definitionMs": "Untuk menghemat uang",
+        "exampleMs": ""
+      },
+      "事实": {
+        "definitionMs": "Fakta",
+        "exampleMs": ""
+      },
+      "食物": {
+        "definitionMs": "Makanan",
+        "exampleMs": ""
+      },
+      "食品": {
+        "definitionMs": "foodstuff; makanan; persediaan",
+        "exampleMs": ""
+      },
+      "使劲": {
+        "definitionMs": "Untuk mengerahkan kekuatan semua orang",
+        "exampleMs": ""
+      },
+      "表示": {
+        "definitionMs": "(dari sb) untuk menyatakan; untuk menyatakan; untuk menunjukkan; (dari sth) untuk menunjukkan; untuk menandakan; untuk menunjukkan; ekspresi; manifestasi;",
+        "exampleMs": ""
+      },
+      "示范": {
+        "definitionMs": "untuk menunjukkan; untuk menunjukkan bagaimana melakukan sth; demonstrasi; contoh",
+        "exampleMs": ""
+      },
+      "市场": {
+        "definitionMs": "pasar pasar; pasar; pasar; pasar; (ekonomi) pasar",
+        "exampleMs": ""
+      },
+      "城市": {
+        "definitionMs": "kota; kota",
+        "exampleMs": ""
+      },
+      "适合": {
+        "definitionMs": "sesuai, sesuai",
+        "exampleMs": ""
+      },
+      "适应": {
+        "definitionMs": "beradaptasi; cocok; sesuai",
+        "exampleMs": ""
+      },
+      "室内": {
+        "definitionMs": "indoor",
+        "exampleMs": ""
+      },
+      "收到": {
+        "definitionMs": "Diterima",
+        "exampleMs": ""
+      },
+      "收拾": {
+        "definitionMs": "Untuk menempatkan dalam urutan; untuk merapikan; untuk berkemas; untuk memperbaiki; (coll.) untuk memilah sb keluar; untuk memperbaiki sb",
+        "exampleMs": ""
+      },
+      "受到": {
+        "definitionMs": "Untuk menerima (doa, pendidikan, hukuman dll); untuk di...ed (didoakan, dididik, dihukum dll)",
+        "exampleMs": ""
+      },
+      "舒服": {
+        "definitionMs": "nyaman; enak badan",
+        "exampleMs": ""
+      },
+      "舒适": {
+        "definitionMs": "¶ cozy; snug",
+        "exampleMs": ""
+      },
+      "熟悉": {
+        "definitionMs": "Untuk akrab dengan; untuk mengetahui dengan baik",
+        "exampleMs": ""
+      },
+      "熟人": {
+        "definitionMs": "kenalan; teman",
+        "exampleMs": ""
+      },
+      "数学": {
+        "definitionMs": "Matematika",
+        "exampleMs": ""
+      },
+      "顺利": {
+        "definitionMs": "Berjalan lancar; tanpa hambatan",
+        "exampleMs": ""
+      },
+      "顺序": {
+        "definitionMs": "urutan klakson; urutan",
+        "exampleMs": ""
+      },
+      "司机": {
+        "definitionMs": "Sopir; sopir",
+        "exampleMs": ""
+      },
+      "公司": {
+        "definitionMs": "Perusahaan perusahaan; perusahaan; perusahaan",
+        "exampleMs": ""
+      },
+      "思考": {
+        "definitionMs": "Untuk merenungkan; untuk merenungkan",
+        "exampleMs": ""
+      },
+      "思想": {
+        "definitionMs": "Berpikir; berpikir; ide; ideologi",
+        "exampleMs": ""
+      },
+      "打算": {
+        "definitionMs": "Ke rencana, untuk berniat, untuk menghitung, rencana, niat, perhitungan",
+        "exampleMs": ""
+      },
+      "虽说": {
+        "definitionMs": "Meskipun",
+        "exampleMs": ""
+      },
+      "随便": {
+        "definitionMs": "sebagai satu keinginan; sebagai salah satu sila; secara acak; lalai; kasual; ingin",
+        "exampleMs": ""
+      },
+      "随时": {
+        "definitionMs": "Ada kalanya; setiap saat; pada waktu yang tepat; kapanpun diperlukan",
+        "exampleMs": ""
+      },
+      "所以": {
+        "definitionMs": "Oleh karena itu; sebagai hasilnya; jadi; alasan mengapa",
+        "exampleMs": ""
+      },
+      "所有": {
+        "definitionMs": "Semua; memiliki; memiliki; memiliki; memiliki",
+        "exampleMs": ""
+      },
+      "态度": {
+        "definitionMs": "Cara yang sopan santun; sikap; pendekatan",
+        "exampleMs": ""
+      },
+      "状态": {
+        "definitionMs": "kondisi; negara; negara bagian",
+        "exampleMs": ""
+      },
+      "礼堂": {
+        "definitionMs": "Aula kebaktian; auditorium",
+        "exampleMs": ""
+      },
+      "课堂": {
+        "definitionMs": "Kelas kelas kelas kelas (; sesi kelas",
+        "exampleMs": ""
+      },
+      "讨厌": {
+        "definitionMs": "Kesukaan, membenci; mengganggu; merepotkan",
+        "exampleMs": ""
+      },
+      "一套": {
+        "definitionMs": "Pakaian; set; koleksi; dari jenis yang sama; barang-barang lama yang sama; set pola perilaku",
+        "exampleMs": ""
+      },
+      "套装": {
+        "definitionMs": "Pakaian atau pakaian pakaian (pakaian); set bahan koordinasi; kit",
+        "exampleMs": ""
+      },
+      "特别": {
+        "definitionMs": "Biasa biasa; istimewa; sangat; khususnya; khususnya; tegas; untuk tujuan tertentu; khususnya",
+        "exampleMs": ""
+      },
+      "特点": {
+        "definitionMs": "karakteristik khas; sifat; fitur",
+        "exampleMs": ""
+      },
+      "疼痛": {
+        "definitionMs": "Sakit hati; (bagian tubuh) sakit; sakit; sakit; sakit; (dari seseorang) sakit",
+        "exampleMs": ""
+      },
+      "心疼": {
+        "definitionMs": "Untuk mencintai tersayang; untuk merasa kasihan untuk sb; menyesal; dendam, untuk menjadi tertekan",
+        "exampleMs": ""
+      },
+      "提高": {
+        "definitionMs": "meningkat, meningkat, meningkatkan",
+        "exampleMs": ""
+      },
+      "提醒": {
+        "definitionMs": "Untuk mengingatkan; untuk menarik perhatian; untuk memperingatkan",
+        "exampleMs": ""
+      },
+      "题目": {
+        "definitionMs": "subjek mania; judul; topik; pertanyaan olahraga atau ujian (",
+        "exampleMs": ""
+      },
+      "问题": {
+        "definitionMs": "pertanyaan mania; masalah; isu; topik",
+        "exampleMs": ""
+      },
+      "铁路": {
+        "definitionMs": "rel kereta api; kereta api",
+        "exampleMs": ""
+      },
+      "家庭": {
+        "definitionMs": "keluarga keluarga; rumah tangga",
+        "exampleMs": ""
+      },
+      "庭院": {
+        "definitionMs": "Halaman",
+        "exampleMs": ""
+      },
+      "停车": {
+        "definitionMs": "(Mesin) berhenti bekerja;",
+        "exampleMs": ""
+      },
+      "停止": {
+        "definitionMs": "Berhenti, berhenti, berhenti, berhenti",
+        "exampleMs": ""
+      },
+      "挺好": {
+        "definitionMs": "Bagus sekali.",
+        "exampleMs": ""
+      },
+      "挺直": {
+        "definitionMs": "tegak lurus; tegak; untuk meluruskan (punggung seseorang dll); untuk memegang tegak",
+        "exampleMs": ""
+      },
+      "通知": {
+        "definitionMs": "notifikasi",
+        "exampleMs": ""
+      },
+      "推开": {
+        "definitionMs": "Tolak; tolak; tolak",
+        "exampleMs": ""
+      },
+      "推动": {
+        "definitionMs": "(misalnya untuk penerimaan rencana); untuk mempromosikan; untuk memberikan dorongan untuk",
+        "exampleMs": ""
+      },
+      "原来": {
+        "definitionMs": "Asli asli; lama; asli; sebelumnya; awalnya; jadi, sebenarnya, ternyata",
+        "exampleMs": ""
+      },
+      "愿意": {
+        "definitionMs": "Anda ingin; ingin; siap; bersedia (untuk melakukan sth)",
+        "exampleMs": ""
+      },
+      "心愿": {
+        "definitionMs": "Hasrat yang disukai; impian; keinginan; keinginan; aspirasi",
+        "exampleMs": ""
+      },
+      "越来越": {
+        "definitionMs": "Lebih banyak dan lebih",
+        "exampleMs": ""
+      },
+      "超越": {
+        "definitionMs": "Ke melampaui; melebihi; melampaui",
+        "exampleMs": ""
+      },
+      "运动": {
+        "definitionMs": "bergerak; gerak; gerak; gerak; gerak; gerak; gerak; gerak",
+        "exampleMs": ""
+      },
+      "运气": {
+        "definitionMs": "Keberuntungan (baik atau buruk)",
+        "exampleMs": ""
+      },
+      "咱们": {
+        "definitionMs": "Kami atau kami (termasuk pembicara dan orang yang diajak bicara); (dialek) saya atau saya; (dialek) kamu (juga pr. [za2 men5]",
+        "exampleMs": ""
+      },
+      "咱家": {
+        "definitionMs": "Saya; saya; saya; (sering digunakan dalam literatur bahasa sehari-hari awal)",
+        "exampleMs": ""
+      },
+      "肮脏": {
+        "definitionMs": "kotor; kotor; hina",
+        "exampleMs": ""
+      },
+      "内脏": {
+        "definitionMs": "Organ internal organ tubuh organ tubuh; viscera",
+        "exampleMs": ""
+      },
+      "洗澡": {
+        "definitionMs": "Untuk mandi; untuk mandi",
+        "exampleMs": ""
+      },
+      "澡堂": {
+        "definitionMs": "Mandi umum",
+        "exampleMs": ""
+      },
+      "占用": {
+        "definitionMs": "Kepemilikan",
+        "exampleMs": ""
+      },
+      "占卜": {
+        "definitionMs": "Untuk ilahi",
+        "exampleMs": ""
+      },
+      "照片": {
+        "definitionMs": "foto",
+        "exampleMs": ""
+      },
+      "读者": {
+        "definitionMs": "pembaca",
+        "exampleMs": ""
+      },
+      "作者": {
+        "definitionMs": "penulis; penulis",
+        "exampleMs": ""
+      },
+      "一直": {
+        "definitionMs": "lurus (dalam garis lurus); terus menerus; selalu; sepanjang jalan melalui",
+        "exampleMs": ""
+      },
+      "直接": {
+        "definitionMs": "Secara langsung; langsung",
+        "exampleMs": ""
+      },
+      "时钟": {
+        "definitionMs": "Fijiorgorgania. kgm",
+        "exampleMs": ""
+      },
+      "钟表": {
+        "definitionMs": "Fijiorgorgania. kgm",
+        "exampleMs": ""
+      },
+      "周末": {
+        "definitionMs": "Akhir pekan",
+        "exampleMs": ""
+      },
+      "每周": {
+        "definitionMs": "setiap minggu",
+        "exampleMs": ""
+      },
+      "主要": {
+        "definitionMs": "Utama egolia; kepala sekolah; utama; utama",
+        "exampleMs": ""
+      },
+      "主人": {
+        "definitionMs": "owner; host; master",
+        "exampleMs": ""
+      },
+      "助手": {
+        "definitionMs": "Pembantu; pembantu",
+        "exampleMs": ""
+      },
+      "安装": {
+        "definitionMs": "tidak dipasang; ke ereksi; ke perbaikan; ke mount; instalasi",
+        "exampleMs": ""
+      },
+      "服装": {
+        "definitionMs": "Pakaian; pakaian; pakaian; pakaian;",
+        "exampleMs": ""
+      },
+      "租车": {
+        "definitionMs": "sewa mobil, sewa mobil",
+        "exampleMs": ""
+      },
+      "房租": {
+        "definitionMs": "sewa sewa untuk kamar atau rumah",
+        "exampleMs": ""
+      },
+      "小组": {
+        "definitionMs": "Kumpulan",
+        "exampleMs": ""
+      },
+      "组成": {
+        "definitionMs": "untuk membentuk; untuk membentuk; untuk membentuk; komposisi; makeup",
+        "exampleMs": ""
+      },
+      "嘴巴": {
+        "definitionMs": "Mulutmu (; tampar muka",
+        "exampleMs": ""
+      },
+      "张嘴": {
+        "definitionMs": "Untuk membuka mulut seseorang (untuk berbicara, esp. untuk membuat permintaan); untuk menganga",
+        "exampleMs": ""
+      },
+      "座位": {
+        "definitionMs": "Kursi",
+        "exampleMs": ""
+      },
+      "按时": {
+        "definitionMs": "Tepat waktu; sebelum batas waktu; sesuai jadwal",
+        "exampleMs": ""
+      },
+      "按照": {
+        "definitionMs": "sesuai dengan; sesuai dengan; atas dasar",
+        "exampleMs": ""
+      },
+      "搬家": {
+        "definitionMs": "pindah ke rumah; pindah kembali; buang (sth)",
+        "exampleMs": ""
+      },
+      "搬运": {
+        "definitionMs": "untuk mengangkut; untuk membawa; (coll.) ke repost (isi, esp. dari platform lain)",
+        "exampleMs": ""
+      },
+      "保证": {
+        "definitionMs": "jaminan jaminan; jaminan; untuk menjamin; untuk menjaga; untuk janji",
+        "exampleMs": ""
+      },
+      "被子": {
+        "definitionMs": "Selimut; selimut",
+        "exampleMs": ""
+      },
+      "被动": {
+        "definitionMs": "pasif",
+        "exampleMs": ""
+      },
+      "货币": {
+        "definitionMs": "mata uang; mata uang; uang",
+        "exampleMs": ""
+      },
+      "硬币": {
+        "definitionMs": "Koin",
+        "exampleMs": ""
+      },
+      "标准": {
+        "definitionMs": "standard; norma; kriteria; (adjektif) standar; baik; benar; sesuai dengan standar",
+        "exampleMs": ""
+      },
+      "标记": {
+        "definitionMs": "Tandai; tandai; simbol; untuk tandai; (computing) token",
+        "exampleMs": ""
+      },
+      "合并": {
+        "definitionMs": "gabungkan; bergabung; ke konsolidasi",
+        "exampleMs": ""
+      },
+      "广播": {
+        "definitionMs": "broadcast; broadcast; to broadcast; (formal) to propagasi; to publicize",
+        "exampleMs": ""
+      },
+      "播放": {
+        "definitionMs": "Untuk siaran, untuk transmisi (dengan radio atau TV)",
+        "exampleMs": ""
+      },
+      "补充": {
+        "definitionMs": "Melengkapi; tambahan; suplemen",
+        "exampleMs": ""
+      },
+      "补习": {
+        "definitionMs": "Kau belajar di sekolah asrama atau dengan guru privat.",
+        "exampleMs": ""
+      },
+      "布料": {
+        "definitionMs": "Kain kain kain kain kain; bahan (untuk membuat pakaian, tirai dll)",
+        "exampleMs": ""
+      },
+      "宣布": {
+        "definitionMs": "Untuk mengumumkan; untuk menyatakan",
+        "exampleMs": ""
+      },
+      "步骤": {
+        "definitionMs": "Prosedur prosedur; langkah",
+        "exampleMs": ""
+      },
+      "材料": {
+        "definitionMs": "Bahan; data; (fig.) orang yang berpotensi untuk melakukan pekerjaan",
+        "exampleMs": ""
+      },
+      "木材": {
+        "definitionMs": "Kayu",
+        "exampleMs": ""
+      },
+      "采茶": {
+        "definitionMs": "Untuk memetik daun teh",
+        "exampleMs": ""
+      },
+      "采取": {
+        "definitionMs": "Untuk mengadopsi atau melaksanakan (pengukuran, kebijakan, tindakan); untuk mengambil",
+        "exampleMs": ""
+      },
+      "彩色": {
+        "definitionMs": "Warna warni; beraneka warna",
+        "exampleMs": ""
+      },
+      "彩虹": {
+        "definitionMs": "Pelangi",
+        "exampleMs": ""
+      },
+      "曾经": {
+        "definitionMs": "Sekali lagi; sudah; lama; sebelumnya; pernah; (tanda past tegang digunakan sebelum kata kerja atau klausa)",
+        "exampleMs": ""
+      },
+      "未曾": {
+        "definitionMs": "Belum pernah (atau belum); belum pernah",
+        "exampleMs": ""
+      },
+      "观察": {
+        "definitionMs": "untuk mengamati; untuk menonton; untuk survei",
+        "exampleMs": ""
+      },
+      "调查": {
+        "definitionMs": "Siasat penyidikan; penyidikan; penyelidikan; survei; survei; (peninjauan) jajak pendapat",
+        "exampleMs": ""
+      },
+      "生产": {
+        "definitionMs": "untuk menghasilkan; untuk memproduksi; untuk melahirkan seorang anak",
+        "exampleMs": ""
+      },
+      "产品": {
+        "definitionMs": "produk produk (manufaktur atau dikembangkan)",
+        "exampleMs": ""
+      },
+      "工厂": {
+        "definitionMs": "pabrik",
+        "exampleMs": ""
+      },
+      "厂房": {
+        "definitionMs": "Bangunan yang digunakan sebagai pabrik; pabrik (bangunan)",
+        "exampleMs": ""
+      },
+      "朝向": {
+        "definitionMs": "ke arah; ke muka, untuk membuka ke atas, untuk berbalik ke arah; orientasi; eksposur; Qibla (Islam)",
+        "exampleMs": ""
+      },
+      "朝阳": {
+        "definitionMs": "Matahari pagi; matahari terbit",
+        "exampleMs": ""
+      },
+      "吵架": {
+        "definitionMs": "Bertengkar; bertengkar",
+        "exampleMs": ""
+      },
+      "吵闹": {
+        "definitionMs": "Berisik; merdu; berteriak dan berteriak",
+        "exampleMs": ""
+      },
+      "衬衫": {
+        "definitionMs": "Kemeja palsu; blus",
+        "exampleMs": ""
+      },
+      "衬托": {
+        "definitionMs": "Kain kaki yang digunakan untuk menonjolkan diri; untuk melayani sebagai elemen latar belakang atau kontras",
+        "exampleMs": ""
+      },
+      "城墙": {
+        "definitionMs": "Kota dinding",
+        "exampleMs": ""
+      },
+      "过程": {
+        "definitionMs": "Tentu sajan peristiwa; proses",
+        "exampleMs": ""
+      },
+      "行程": {
+        "definitionMs": "Perjalanan wisata; rute perjalanan; jadwal; jarak perjalanan; tentu saja (dari sejarah); stroke (dari piston); (Tw) (computing) proses",
+        "exampleMs": ""
+      },
+      "保持": {
+        "definitionMs": "Untuk menjaga; untuk mempertahankan; untuk memegang; untuk melestarikan",
+        "exampleMs": ""
+      },
+      "支持": {
+        "definitionMs": "Untuk mendukung; mendukung; mendukung; mendukung; mendukung; mendukung; untuk berdiri",
+        "exampleMs": ""
+      },
+      "充满": {
+        "definitionMs": "Penuh penuh penuh; penuh dengan; sangat penuh; bertebaran",
+        "exampleMs": ""
+      },
+      "充足": {
+        "definitionMs": "Cukup memadai; cukup memadai; berlimpah",
+        "exampleMs": ""
+      },
+      "初次": {
+        "definitionMs": "Pekan untuk pertama kalinya; pertama (rapat, percobaan dll)",
+        "exampleMs": ""
+      },
+      "除了": {
+        "definitionMs": "selain dari itu,",
+        "exampleMs": ""
+      },
+      "删除": {
+        "definitionMs": "dibatalkan",
+        "exampleMs": ""
+      },
+      "基础": {
+        "definitionMs": "asas asas asas dasar; asas dasar; asas; asas",
+        "exampleMs": ""
+      },
+      "根基": {
+        "definitionMs": "asas asas asas",
+        "exampleMs": ""
+      },
+      "传递": {
+        "definitionMs": "(math.) transitive",
+        "exampleMs": ""
+      },
+      "传记": {
+        "definitionMs": "Biografi",
+        "exampleMs": ""
+      },
+      "创造": {
+        "definitionMs": "(Yang menciptakan) yang menciptakan (dan yang menciptakan) yang menciptakan (dan menyempurnakan) ciptaan-Nya (dan yang menciptakan) yang menciptakan (apa-apa yang ada) berupa makhluk-makhluk dan lain-lainnya.",
+        "exampleMs": ""
+      },
+      "创新": {
+        "definitionMs": "Untuk menghasilkan ide-ide baru; untuk membakar jejak baru; inovasi",
+        "exampleMs": ""
+      },
+      "此处": {
+        "definitionMs": "Tempat ini, di sini (literary)",
+        "exampleMs": ""
+      },
+      "因此": {
+        "definitionMs": "dengan demikian; akibatnya; sebagai hasilnya",
+        "exampleMs": ""
+      },
+      "村庄": {
+        "definitionMs": "desa mur; dusun",
+        "exampleMs": ""
+      },
+      "农村": {
+        "definitionMs": "daerah pedesaan; desa",
+        "exampleMs": ""
+      },
+      "保存": {
+        "definitionMs": "untuk menghemat; untuk memelihara; untuk menyimpan; untuk menyimpan; (mengacu) untuk menyimpan (berkas dll)",
+        "exampleMs": ""
+      },
+      "存款": {
+        "definitionMs": "tabungan bank; deposit bank",
+        "exampleMs": ""
+      },
+      "到达": {
+        "definitionMs": "Untuk mencapai; untuk tiba",
+        "exampleMs": ""
+      },
+      "达到": {
+        "definitionMs": "mencapai; mencapai; mencapai",
+        "exampleMs": ""
+      },
+      "时代": {
+        "definitionMs": "Majalah berita mingguan AS",
+        "exampleMs": ""
+      },
+      "代表": {
+        "definitionMs": "wakil; perwakilan; untuk mewakili; untuk berdiri untuk; atas nama; atas nama",
+        "exampleMs": ""
+      },
+      "等待": {
+        "definitionMs": "menunggu, menunggu",
+        "exampleMs": ""
+      },
+      "小刀": {
+        "definitionMs": "Pisau",
+        "exampleMs": ""
+      },
+      "刀子": {
+        "definitionMs": "Pisau",
+        "exampleMs": ""
+      },
+      "指导": {
+        "definitionMs": "Untuk membimbing, mengarahkan, untuk mengajar; pelatih; pelatih",
+        "exampleMs": ""
+      },
+      "引导": {
+        "definitionMs": "untuk membimbing; untuk memimpin (putaran); untuk melakukan; untuk boot; perkenalan; primer",
+        "exampleMs": ""
+      },
+      "底下": {
+        "definitionMs": "Lokasi di bawah sth; setelah itu",
+        "exampleMs": ""
+      },
+      "海底": {
+        "definitionMs": "dasar laut; dasar laut; dasar laut",
+        "exampleMs": ""
+      },
+      "调整": {
+        "definitionMs": "untuk menyesuaikan diri; untuk merevisi; untuk mengatur kembali",
+        "exampleMs": ""
+      },
+      "调动": {
+        "definitionMs": "Untuk memindahkan; untuk manuver (troops dll); gerakan personel; untuk memobilisasi, untuk membawa ke dalam bermain",
+        "exampleMs": ""
+      },
+      "订票": {
+        "definitionMs": "Untuk tiket buku; untuk tiket edisi",
+        "exampleMs": ""
+      },
+      "订购": {
+        "definitionMs": "Ke tempat perintah; ke langgan",
+        "exampleMs": ""
+      },
+      "断开": {
+        "definitionMs": "Mematikan (saklar listrik)",
+        "exampleMs": ""
+      },
+      "判断": {
+        "definitionMs": "Hakim untuk menghakimi; untuk menentukan; penilaian",
+        "exampleMs": ""
+      },
+      "停顿": {
+        "definitionMs": "Berhenti sejenak; berhenti; jeda (dalam pidato)",
+        "exampleMs": ""
+      },
+      "烦恼": {
+        "definitionMs": "Kekhawatiran menjadi khawatir, menjadi tertekan; khawatir",
+        "exampleMs": ""
+      },
+      "麻烦": {
+        "definitionMs": "Kesulitan; kesulitan; ketidaknyamanan; merepotkan; mengganggu; mengganggu; mengganggu sb; untuk menempatkan sb ke masalah",
+        "exampleMs": ""
+      },
+      "相反": {
+        "definitionMs": "sebaliknya; sebaliknya",
+        "exampleMs": ""
+      },
+      "反对": {
+        "definitionMs": "untuk menentang; untuk menjadi lawan; untuk objek ke",
+        "exampleMs": ""
+      },
+      "典范": {
+        "definitionMs": "contoh; contoh; paragon",
+        "exampleMs": ""
+      },
+      "规范": {
+        "definitionMs": "norm; standar; spesifikasi; regulasi; peraturan; dalam peraturan; untuk menetapkan peraturan; untuk mengatur; untuk menyatakan",
+        "exampleMs": ""
+      },
+      "防止": {
+        "definitionMs": "untuk mencegah; untuk berjaga-jaga; untuk mengambil tindakan pencegahan",
+        "exampleMs": ""
+      },
+      "预防": {
+        "definitionMs": "untuk mencegah; untuk mengambil tindakan pencegahan terhadap; untuk melindungi; untuk waspada terhadap; pencegahan; profilaksis",
+        "exampleMs": ""
+      },
+      "访问": {
+        "definitionMs": "Ke kunjungan; untuk mengunjungi (orang atau tempat); (berkomputasi) untuk mengunjungi (sebuah situs); untuk mengakses (sumber jaringan dll); (Tw) untuk mewawancarai (misalnya untuk laporan atau cerita fitur)",
+        "exampleMs": ""
+      },
+      "采访": {
+        "definitionMs": "Untuk wawancara, untuk mengumpulkan berita, untuk berburu dan mengumpulkan; untuk menutupi",
+        "exampleMs": ""
+      },
+      "咖啡": {
+        "definitionMs": "Kopi",
+        "exampleMs": ""
+      },
+      "咖啡馆": {
+        "definitionMs": "warung kopi",
+        "exampleMs": ""
+      },
+      "费用": {
+        "definitionMs": "biaya belanja; pengeluaran; biaya",
+        "exampleMs": ""
+      },
+      "花费": {
+        "definitionMs": "biaya; biaya; untuk menghabiskan (waktu atau uang); pengeluaran",
+        "exampleMs": ""
+      },
+      "仅仅": {
+        "definitionMs": "Hanya saja, hanya, hanya saja (ini dan tidak lebih)",
+        "exampleMs": ""
+      },
+      "不仅": {
+        "definitionMs": "Tidak hanya; tidak terbatas pada; (sebagai suatu hubungan korelatif) tidak hanya (..., tetapi juga...)",
+        "exampleMs": ""
+      },
+      "尽力": {
+        "definitionMs": "Untuk berjuang untuk seseorang yang paling sulit; untuk mengampuni tidak ada usaha",
+        "exampleMs": ""
+      },
+      "尽快": {
+        "definitionMs": "secepat mungkin; secepat mungkin",
+        "exampleMs": ""
+      },
+      "紧张": {
+        "definitionMs": "gugup; kunci naik; tegang; tegang; tegang; dalam pasokan singkat; langka",
+        "exampleMs": ""
+      },
+      "抓紧": {
+        "definitionMs": "(Niscaya Allah akan membinasakan mereka) lafal ayat ini merupakan jumlah Mu'taridhah atau ayat sisipan; berkedudukan menjadi Hal atau kata keterangan keadaan dari lafal yang tidak disebutkan, yakni Dia akan mengazab mereka (dengan azab yang keras) atau azab yang keras (lagi memelihara diri) artinya, Dia akan membinasakan mereka dengan cara membinasakan mereka.",
+        "exampleMs": ""
+      },
+      "精彩": {
+        "definitionMs": "Luar biasa; luar biasa; brilian",
+        "exampleMs": ""
+      },
+      "精神": {
+        "definitionMs": "Jiwa roh; pikiran; pikiran; kesadaran; pikiran; mental; psikologis; esensi; git",
+        "exampleMs": ""
+      },
+      "风景": {
+        "definitionMs": "pemandangan; lanskap",
+        "exampleMs": ""
+      },
+      "景色": {
+        "definitionMs": "pemandangan; pemandangan; pemandangan",
+        "exampleMs": ""
+      },
+      "警察": {
+        "definitionMs": "Polisi; polisi",
+        "exampleMs": ""
+      },
+      "警告": {
+        "definitionMs": "untuk memperingatkan; untuk menasihati",
+        "exampleMs": ""
+      },
+      "环境": {
+        "definitionMs": "PALIK; lingkungan; keadaan; lingkungan; ambigu",
+        "exampleMs": ""
+      },
+      "境界": {
+        "definitionMs": "batas provinsi; negara; wilayah",
+        "exampleMs": ""
+      },
+      "旧书": {
+        "definitionMs": "Buku bekas; buku lama; buku kuno",
+        "exampleMs": ""
+      },
+      "救援": {
+        "definitionMs": "untuk menyimpan; untuk mendukung; untuk membantu; untuk membantu",
+        "exampleMs": ""
+      },
+      "工具": {
+        "definitionMs": "alat; instrumen; utensil; sarana (untuk mencapai tujuan dll)",
+        "exampleMs": ""
+      },
+      "家具": {
+        "definitionMs": "perabot",
+        "exampleMs": ""
+      },
+      "电视剧": {
+        "definitionMs": "Serial TV seri TV; drama TV",
+        "exampleMs": ""
+      },
+      "戏剧": {
+        "definitionMs": "Drama; drama; teater; naskah drama",
+        "exampleMs": ""
+      },
+      "根据": {
+        "definitionMs": "Dasar; asas; asas",
+        "exampleMs": ""
+      },
+      "数据": {
+        "definitionMs": "Data",
+        "exampleMs": ""
+      },
+      "解决": {
+        "definitionMs": "untuk menyelesaikan; untuk menyelesaikan; untuk menyelesaikan (masalah); untuk menghilangkan; untuk menghapus (musuh, bandit dll)",
+        "exampleMs": ""
+      },
+      "绝对": {
+        "definitionMs": "mutlak mutlak; tanpa syarat",
+        "exampleMs": ""
+      },
+      "拒绝": {
+        "definitionMs": "menolak; menolak; menolak; menolak",
+        "exampleMs": ""
+      },
+      "咖喱": {
+        "definitionMs": "Kari",
+        "exampleMs": ""
+      },
+      "恐怕": {
+        "definitionMs": "Ketakutan; takut; saya takut bahwa...; mungkin; mungkin",
+        "exampleMs": ""
+      },
+      "恐惧": {
+        "definitionMs": "Takut takut; takut; takut; takut; takut",
+        "exampleMs": ""
+      },
+      "裤子": {
+        "definitionMs": "celana panjang; celana",
+        "exampleMs": ""
+      },
+      "短裤": {
+        "definitionMs": "Bercelana pendek; celana pendek",
+        "exampleMs": ""
+      },
+      "情况": {
+        "definitionMs": "Keadaan epsik; keadaan; situasi",
+        "exampleMs": ""
+      },
+      "何况": {
+        "definitionMs": "Apa lagi?",
+        "exampleMs": ""
+      },
+      "困倦": {
+        "definitionMs": "Kelelahan; letih",
+        "exampleMs": ""
+      },
+      "海浪": {
+        "definitionMs": "Gelombang laut",
+        "exampleMs": ""
+      },
+      "浪花": {
+        "definitionMs": "Semburan semburan; semburan laut; spindrift; ara. ♪ Terjadi dari kehidupan seseorang ♪",
+        "exampleMs": ""
+      },
+      "类型": {
+        "definitionMs": "jenis kind; jenis; kategori; (jenis pemrograman komputer)",
+        "exampleMs": ""
+      },
+      "人类": {
+        "definitionMs": "Manusia; manusia; manusia",
+        "exampleMs": ""
+      },
+      "李子": {
+        "definitionMs": "Plum",
+        "exampleMs": ""
+      },
+      "李树": {
+        "definitionMs": "Pohon plum",
+        "exampleMs": ""
+      },
+      "历史": {
+        "definitionMs": "sejarah",
+        "exampleMs": ""
+      },
+      "经历": {
+        "definitionMs": "pengalaman, pengalaman; pengalaman (",
+        "exampleMs": ""
+      },
+      "立刻": {
+        "definitionMs": "segera",
+        "exampleMs": ""
+      },
+      "站立": {
+        "definitionMs": "berdiri; berdiri; pada kaki seseorang",
+        "exampleMs": ""
+      },
+      "美丽": {
+        "definitionMs": "♪ Indah ♪",
+        "exampleMs": ""
+      },
+      "秀丽": {
+        "definitionMs": "Cantik sekali; cantik",
+        "exampleMs": ""
+      },
+      "连续": {
+        "definitionMs": "Berterusan; berturut-turut; seri; berturut-turut",
+        "exampleMs": ""
+      },
+      "连接": {
+        "definitionMs": "ke link; untuk bergabung; untuk menyambung",
+        "exampleMs": ""
+      },
+      "联系": {
+        "definitionMs": "ke kontak; untuk mendapatkan kontak; kontak; koneksi",
+        "exampleMs": ""
+      },
+      "联合": {
+        "definitionMs": "menggabungkan; bergabung; bersatu; aliansi",
+        "exampleMs": ""
+      },
+      "强烈": {
+        "definitionMs": "Kuat kuat; intens",
+        "exampleMs": ""
+      },
+      "热烈": {
+        "definitionMs": "antusias; semangat; hangat",
+        "exampleMs": ""
+      },
+      "领导": {
+        "definitionMs": "pemimpin; pemimpin; pemimpin",
+        "exampleMs": ""
+      },
+      "领带": {
+        "definitionMs": "dasi",
+        "exampleMs": ""
+      },
+      "另外": {
+        "definitionMs": "tambahan tambahan; sebagai tambahan; selain; terpisah; lain; lebih lanjut; lebih lanjut",
+        "exampleMs": ""
+      },
+      "龙年": {
+        "definitionMs": "Tahun Naga (mis. 2000, 2012, dll)",
+        "exampleMs": ""
+      },
+      "龙舟": {
+        "definitionMs": "Perahu naga, perahu kekaisaran",
+        "exampleMs": ""
+      },
+      "记录": {
+        "definitionMs": "Ke record; record (esp. akun tertulis); notaker; record (contoh dalam olahraga)",
+        "exampleMs": ""
+      },
+      "录音": {
+        "definitionMs": "[ Gambar di hlm.",
+        "exampleMs": ""
+      },
+      "混乱": {
+        "definitionMs": "bingung bingung; kacau; kacau",
+        "exampleMs": ""
+      },
+      "乱说": {
+        "definitionMs": "Untuk berbicara drivel; untuk membuat kata-kata tidak bertanggung jawab",
+        "exampleMs": ""
+      },
+      "落下": {
+        "definitionMs": "jatuh, jatuh, ke tanah (proyektil)",
+        "exampleMs": ""
+      },
+      "落后": {
+        "definitionMs": "(Langkah ke belakang, mundur ke belakang, mundur ke belakang)",
+        "exampleMs": ""
+      },
+      "麻木": {
+        "definitionMs": "apati",
+        "exampleMs": ""
+      },
+      "冒险": {
+        "definitionMs": "untuk mengambil risiko; untuk mengambil risiko; foray; petualangan",
+        "exampleMs": ""
+      },
+      "冒雨": {
+        "definitionMs": "berani berani hujan",
+        "exampleMs": ""
+      },
+      "媒体": {
+        "definitionMs": "Media, media berita",
+        "exampleMs": ""
+      },
+      "媒介": {
+        "definitionMs": "perantara; kendaraan; vektor; medium; media",
+        "exampleMs": ""
+      },
+      "每天": {
+        "definitionMs": "Setiap hari",
+        "exampleMs": ""
+      },
+      "每次": {
+        "definitionMs": "Setiap kali; setiap kali",
+        "exampleMs": ""
+      },
+      "美好": {
+        "definitionMs": "Indah nan indah; halus",
+        "exampleMs": ""
+      },
+      "迷路": {
+        "definitionMs": "Kehilangan jalan; hilang; labirin; labyrinthus vestibularis (telinga dalam)",
+        "exampleMs": ""
+      },
+      "着迷": {
+        "definitionMs": "♪ untuk terpesona; untuk menjadi terpikat ♪",
+        "exampleMs": ""
+      },
+      "人民": {
+        "definitionMs": "Orang-orang",
+        "exampleMs": ""
+      },
+      "民众": {
+        "definitionMs": "rakyat; rakyat jelata",
+        "exampleMs": ""
+      },
+      "生命": {
+        "definitionMs": "(Sebagai karakteristik makhluk hidup); makhluk hidup; makhluk (sebagai makhluk hidup);",
+        "exampleMs": ""
+      },
+      "命运": {
+        "definitionMs": "Nasib takdir; takdir",
+        "exampleMs": ""
+      },
+      "某人": {
+        "definitionMs": "Seseorang; orang tertentu; beberapa orang; saya (alamat diri setelah nama keluarga seseorang)",
+        "exampleMs": ""
+      },
+      "某些": {
+        "definitionMs": "Beberapa; tertentu (hal)",
+        "exampleMs": ""
+      },
+      "母亲": {
+        "definitionMs": "ibu",
+        "exampleMs": ""
+      },
+      "父母": {
+        "definitionMs": "Ayah dan ibu, ibu",
+        "exampleMs": ""
+      },
+      "内部": {
+        "definitionMs": "interior jarfus; dalam (bagian, bagian); internal",
+        "exampleMs": ""
+      },
+      "念书": {
+        "definitionMs": "Untuk membaca; untuk belajar; untuk bersekolah",
+        "exampleMs": ""
+      },
+      "想念": {
+        "definitionMs": "Merindukan; untuk mengingat dengan kerinduan; untuk lama untuk melihat lagi",
+        "exampleMs": ""
+      },
+      "新娘": {
+        "definitionMs": "Pengantin",
+        "exampleMs": ""
+      },
+      "姑娘": {
+        "definitionMs": "Gadis cantik; wanita muda; wanita muda; putri; bibi paternal (tua)",
+        "exampleMs": ""
+      },
+      "农民": {
+        "definitionMs": "petani; petani",
+        "exampleMs": ""
+      },
+      "农业": {
+        "definitionMs": "pertanian pertanian pertanian; pertanian",
+        "exampleMs": ""
+      },
+      "暖和": {
+        "definitionMs": "hangat; hangat dan hangat",
+        "exampleMs": ""
+      },
+      "拍照": {
+        "definitionMs": "Untuk mengambil gambar",
+        "exampleMs": ""
+      },
+      "拍手": {
+        "definitionMs": "♪ Untuk bertepuk tangan ♪",
+        "exampleMs": ""
       },
       "你好": {
-        "definitionMs": "Sambutan umum yang digunakan selama perhimpunan.",
+        "definitionMs": "Salam umum untuk pertemuan.",
         "exampleMs": "Halo! Senang bertemu denganmu."
       },
       "谢谢": {
@@ -18675,10 +22051,10 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "对不起": {
         "definitionMs": "Minta maaflah kepada orang lain atas kesalahan atau ketidaknyamanan mereka.",
-        "exampleMs": "Maaf aku terlambat."
+        "exampleMs": "Maaf saya terlambat."
       },
       "没关系": {
-        "definitionMs": "Minta maaf dan tak masalah.",
+        "definitionMs": "Maafkan saya dan saya tidak keberatan.",
         "exampleMs": "Tidak apa-apa, kita punya waktu."
       },
       "你好吗": {
@@ -18686,27 +22062,27 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Halo, lama tak bertemu. Apa kabar?"
       },
       "我叫": {
-        "definitionMs": "Awal dari ungkapan yang digunakan untuk memperkenalkan namanya.",
+        "definitionMs": "Awal dari ungkapan yang digunakan untuk memperkenalkan nama Anda.",
         "exampleMs": "Halo, namaku Ming."
       },
       "我不知道": {
-        "definitionMs": "Katanya tak ada informasi atau jawaban yang relevan.",
-        "exampleMs": "Aku tak tahu jawabannya."
+        "definitionMs": "Ia mengatakan bahwa ia tidak memiliki informasi atau jawaban yang relevan.",
+        "exampleMs": "Saya tak tahu jawabannya."
       },
       "我明白了": {
         "definitionMs": "Untuk mengatakan bahwa kita memahami apa yang baru saja dijelaskan.",
-        "exampleMs": "Terima kasih sudah menjelaskan, aku mengerti."
+        "exampleMs": "Terima kasih sudah menjelaskan, saya mengerti."
       },
       "等一下": {
         "definitionMs": "Sila tunggu ungkapan yang digunakan.",
-        "exampleMs": "Tunggu sebentar. Aku akan segera kembali."
+        "exampleMs": "Tunggu sebentar. Saya akan segera kembali."
       },
       "请再说一遍": {
         "definitionMs": "Bila ini tidak jelas, tolong ulangi.",
         "exampleMs": "Suaranya terlalu kecil, tolong ulangi."
       },
       "多少钱": {
-        "definitionMs": "Pertanyaan tentang harga barang atau jasa.",
+        "definitionMs": "Tanya pertanyaan umum tentang harga barang atau jasa.",
         "exampleMs": "Berapa harga baju ini?"
       },
       "在哪里": {
@@ -18715,18 +22091,18 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "可以帮我吗": {
         "definitionMs": "Mintalah bantuan dengan sopan.",
-        "exampleMs": "Aku tidak bisa memindahkan kotak ini. Kau bisa membantuku?"
+        "exampleMs": "Saya tidak dapat memindahkan kotak ini. Kau dapat membantuku?"
       },
       "我想要": {
-        "definitionMs": "Saya ingin membuat pernyataan tentang keinginan saya, atau meminta makanan, belanja.",
-        "exampleMs": "Aku ingin segelas air."
+        "definitionMs": "Dalam beberapa tahun terakhir, saya dapat mengungkapkan keinginan saya atau menawarkan makanan dan kebutuhan belanja.",
+        "exampleMs": "Saya ingin segelas air."
       },
       "没问题": {
         "definitionMs": "Tidak ada kesulitan dalam menyetujui, mampu melakukannya atau melakukannya.",
-        "exampleMs": "Aku akan memeriksa besok, tidak masalah."
+        "exampleMs": "Saya akan memeriksa besok, tidak masalah."
       },
       "慢慢来": {
-        "definitionMs": "Anjurkan orang lain agar tidak terburu - buru dan berjalan dengan langkah yang benar.",
+        "definitionMs": "Anjurkan orang lain melanjutkan dengan langkah yang benar.",
         "exampleMs": "Ambil waktumu. Jangan khawatir."
       },
       "祝你好运": {
@@ -18734,7 +22110,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Semoga berhasil dengan ujian besok!"
       },
       "一路平安": {
-        "definitionMs": "Aku berharap perjalanan yang aman dan aman.",
+        "definitionMs": "Saya berharap perjalanan yang aman dan aman.",
         "exampleMs": "Ayo pergi besok. Semoga perjalananmu aman."
       },
       "生日快乐": {
@@ -18742,8 +22118,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Selamat ulang tahun! Semoga kau bersenang-senang hari ini."
       },
       "加油": {
-        "definitionMs": "Yang lain dianjurkan untuk terus atau bertekun.",
-        "exampleMs": "Jangan khawatir, ayolah, kau bisa melakukannya."
+        "definitionMs": "Ada juga yang dianjurkan untuk terus berupaya atau bertekun.",
+        "exampleMs": "Jangan khawatir, ayolah, kau dapat melakukannya."
       },
       "很高兴认识你": {
         "definitionMs": "Senang bertemu denganmu dulu.",
