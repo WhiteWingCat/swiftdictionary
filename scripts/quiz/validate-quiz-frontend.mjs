@@ -112,6 +112,7 @@ if(!flashcards.includes("const reviewDetailCache=new Map()")||
    !flashcards.includes("const queue=[...languages]")||
    !flashcards.includes("requestIdleCallback(warmNext,{timeout:1200})")||
    !flashcards.includes("const item=record.item")||
+   !flashcards.includes("allowDictionaryFallback:false")||
    flashcards.includes('if(translationLanguage==="ms")malayGlossLookup();')){
   throw new Error("Weak Memory review must cache mode-filtered items, normalise only selected source records, and spread compact index warming across idle slices.");
 }
