@@ -124,8 +124,8 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   assert.equal(corrected.status,"model_assisted_malay_draft_pending_editorial_review");
   assert.equal(corrected.quiz.en.length,72);
   assert.equal(corrected.quiz.zh.length,48);
-  assert.equal(corrected.lessons.en,28);
-  assert.equal(corrected.lessons.zh,26);
+  assert.equal(corrected.lessons.en,36);
+  assert.equal(corrected.lessons.zh,32);
   assert.match(support.lessons.en["b-sentence"][0].q,/ayat penyata mudah/);
   assert.match(support.lessons.en["b-sentence"][3].options[1],/Terdapat tiga buah kerusi/);
   assert.match(support.lessons.zh["zh-b-pinyin-foundations"][0].q,/nada pertama/);
@@ -136,6 +136,8 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   assert.match(support.lessons.zh["zh-b-numbers-dates-time"][4].q,/susunan tarikh/);
   assert.match(support.lessons.en["b-verb-combinations"][11].q,/Pilih frasa/);
   assert.match(support.lessons.zh["zh-b-pronouns-basic-sentences"][5].q,/Ini buku saya/);
+  assert.match(support.lessons.en["b-countable-nouns"][3].q,/ungkapan yang semula jadi/);
+  assert.match(support.lessons.zh["zh-b-common-actions"][5].q,/memperoleh pengetahuan/);
   for(const id of corrected.quiz.en){
     const row=support.quiz.en[id];
     assert.ok(row,id+" missing from English Quiz Malay support");
