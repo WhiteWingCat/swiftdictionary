@@ -306,6 +306,13 @@
         {q:"Pilih ayat yang mengikut susunan subjek–kata kerja–objek yang lazim.",options:["Kanak-kanak itu menanam bunga.","Menanam kanak-kanak itu bunga.","Bunga kanak-kanak itu menanam."]},
         {q:"Pilih ayat yang betul.",options:["There is three chairs. (tidak gramatis: kata kerja tunggal dengan kata nama jamak)","Terdapat tiga buah kerusi. (there are)","There be three chairs. (bentuk kata kerja tidak tepat)"]},
         {q:"Pilih soalan yang betul.",options:["Does he works here? (kata kerja selepas does tidak boleh ditambah -s)","Adakah dia bekerja di sini? (Does he work here?)","Do he work here? (kata bantu tidak sepadan dengan he)"]}
+      ],
+      "b-present": [
+        {q:"Pilih ayat yang betul.",options:["Dia bermain tenis pada setiap hari Ahad. (She play — bentuk kata kerja tidak tepat)","Dia bermain tenis pada setiap hari Ahad. (She plays — bentuk yang betul)","Dia bermain tenis pada setiap hari Ahad. (She playing — struktur tidak lengkap)"]},
+        {q:"Abang saya ___ ke tempat kerja dengan menaiki kereta api setiap hari.",options:["travel: bentuk asas tanpa -s","travels: bentuk orang ketiga tunggal","is travel: struktur kata kerja tidak tepat"]},
+        {q:"Ayat manakah menyatakan fakta umum?",options:["Air mendidih pada suhu 100°C di paras laut (bentuk lampau).","Air mendidih pada suhu 100°C di paras laut (simple present).","Air sedang didih pada suhu 100°C di paras laut (struktur tidak tepat)."]},
+        {q:"Pilih ayat negatif yang betul.",options:["Mereka tidak suka kopi (doesn't tidak sepadan dengan they).","Mereka tidak suka kopi (don't + kata kerja asas).","Mereka tidak suka kopi (kata bantu digugurkan)."]},
+        {q:"Pilih kedudukan “usually” yang semula jadi dalam ayat.",options:["Dia minum biasanya teh.","Dia biasanya minum teh.","Biasanya dia minum biasanya teh."]}
       ]
     },
     zh: {
@@ -317,6 +324,15 @@
         {q:"Dalam “妈妈”, suku kata yang manakah biasanya disebut dengan nada neutral?",options:["Suku kata pertama, mā.","Suku kata kedua, ma.","Kedua-dua suku kata menggunakan nada pertama.","Kedua-dua suku kata menggunakan nada keempat."]},
         {q:"Apakah ejaan Pinyin bertulis yang standard bagi “你好”?",options:["nǐ hǎo (ejaan standard)","ní hǎo (sebutan perubahan nada)","nǐ hào (nada kedua salah)","nì hǎo (nada pertama salah)"]},
         {q:"Pernyataan manakah paling tepat tentang nada ketiga?",options:["Ia sentiasa menurun dahulu kemudian menaik sepenuhnya.","Apabila disebut bersendirian atau di hujung frasa, ia lazimnya menurun dahulu kemudian menaik.","Picnya sentiasa kekal tinggi dan rata.","Ia sentiasa menurun dengan cepat."]}
+      ],
+      "zh-b-greetings-introductions": [
+        {q:"Ungkapan manakah bermaksud “Selamat pagi”?",options:["Selamat pagi","Selamat tinggal","Selamat malam","Terima kasih"]},
+        {q:"Ungkapan manakah bermaksud “Terima kasih”?",options:["Terima kasih","Sama-sama","Maaf","Tumpang tanya"]},
+        {q:"Frasa manakah digunakan untuk memulakan soalan dengan sopan?",options:["Tumpang tanya","Selamat tinggal","Selamat malam","Sama-sama"]},
+        {q:"Apakah jawapan yang semula jadi kepada “谢谢”?",options:["Sama-sama","Terima kasih","Selamat pagi","Tumpang tanya"]},
+        {q:"Ungkapan manakah bermaksud “Selamat tinggal”?",options:["Selamat tinggal","Helo","Selamat pagi","Tumpang tanya"]},
+        {q:"Bagaimanakah penutur memperkenalkan namanya sebagai Li Ming?",options:["Nama saya Li Ming.","Siapa nama kamu?","Dia ialah Li Ming.","Saya mengenali Li Ming."]},
+        {q:"Ungkapan manakah menyatakan rasa gembira berkenalan dengan seseorang buat kali pertama?",options:["Gembira dapat berkenalan dengan anda.","Apa khabar?","Saya sihat.","Selamat tinggal."]}
       ]
     }
   };
