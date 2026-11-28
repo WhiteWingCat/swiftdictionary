@@ -208,7 +208,13 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   await openMockFlashcards(page);
   const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
   const reviewedExamples=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en.length);
+  const reviewedDefinitions=await page.evaluate(()=>{
+    const keys=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en;
+    const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.en;
+    return keys.every(key=>!!rows[key]?.definitionMs?.trim());
+  });
   expect(reviewedExamples).toBe(18);
+  expect(reviewedDefinitions).toBe(true);
   expect(stats.malayDictionaryEntryCount).toBe(650);
   expect(stats.malaySupportEnglishCount).toBe(73);
   expect(stats.malaySupportChineseCount).toBe(124);
