@@ -731,8 +731,11 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
 test("Weak Memory review renders large lists without repeated dictionary scans",async({page})=>{
   await openMockFlashcards(page);
   const seeded=await page.evaluate(async()=>{
-    const words=(window.englishWords||[]).filter(item=>item?.word).slice(0,80);
-    if(words.length<80)throw new Error("The English dictionary fixture must contain at least 80 words.");
+    const words=[
+      ...(window.SWIFT_ENGLISH_BASE_DICTIONARY||[]),
+      ...(window.SWIFT_ENGLISH_EXPANSION||[])
+    ].filter(item=>item?.word).slice(0,80);
+    if(words.length<80)throw new Error("The English dictionary fixtures must contain at least 80 words.");
     const now=new Date().toISOString();
     window.__swiftDictionaryMock.seedFlashcardData({
       reviewItems:words.map(item=>({
@@ -749,7 +752,7 @@ test("Weak Memory review renders large lists without repeated dictionary scans",
   await expect(page.locator(".flash-review-modal")).toBeVisible();
   await expect(page.locator(".flash-review-item")).toHaveCount(80,{timeout:10000});
   await page.locator(".flash-review-entry").last().click();
-  await expect(page.locator(".flash-review-detail")).toBeVisible();
+  await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
 });
 
 test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
