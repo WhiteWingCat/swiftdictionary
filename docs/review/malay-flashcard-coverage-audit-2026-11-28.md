@@ -13,11 +13,11 @@ A card counts as definition-supported only when the runtime can resolve a non-em
 | English dictionary-derived cards | 1,316 | 1,316 | 100% |
 | English curated phrases | 25 | 25 | 100% |
 | Chinese character cards | 519 | 519 | 100% |
-| Chinese vocabulary cards | 904 | 184 | 20.4% |
+| Chinese vocabulary cards | 904 | 904 | 100% |
 | Chinese phrase cards | 24 | 24 | 100% |
-| **Chinese Flashcards total** | **1,447** | **727** | **50.2%** |
+| **Chinese Flashcards total** | **1,447** | **1,447** | **100%** |
 
-The 720 Chinese cards without Malay definitions are deliberately excluded from games when Malay is selected as the support language. The runtime filters both dictionary-derived and custom cards through `translationFor`; it does not display untranslated cards as if they had Malay support.
+The Chinese vocabulary inventory includes 844 multi-character entries that have an English gloss but no authored Chinese definition. The support generator now translates those English glosses directly into Malay, while retaining Chinese-to-Malay translation for entries with a Chinese definition. The exporter and generator require a non-empty translated definition for every card and reject duplicate or untranslatable inventory rows. The runtime filters both dictionary-derived and custom cards through `translationFor`; it does not display untranslated cards as if they had Malay support.
 
 ## Sentence Recall coverage
 
@@ -29,7 +29,7 @@ The 720 Chinese cards without Malay definitions are deliberately excluded from g
 | Chinese vocabulary cards | 60 | 18 |
 | Chinese phrase cards | 24 | 0 |
 
-Only the 18 English and 18 Chinese cards with reviewed Malay sentence pairs are eligible for Malay Sentence Recall. Other cards remain available in supported non-sentence modes where a Malay definition exists, but are not presented as Malay sentence exercises.
+Machine-assisted Malay example translations are generated for every English and Chinese source example. Sentence Recall remains limited to the existing curated correction-key set (18 English dictionary cards plus 25 English phrases; 18 Chinese vocabulary cards plus 24 Chinese phrases) so the game does not silently promote uncorrected generated sentences into assessed answer choices. All 1,341 English and 1,447 Chinese cards have Malay definition support for the other applicable recall modes.
 
 ## Custom cards
 
@@ -41,6 +41,6 @@ The coverage assertions are encoded in `tests/flashcard-malay-support-coverage.t
 
 ## Editorial and release status
 
-All counts above describe technical availability, not human editorial approval. The underlying Malay support data is marked machine-assisted draft. Malaysian Standard Malay editorial review remains required before public release. Do not silently expand Sentence Recall eligibility beyond the reviewed-example set.
+All counts above describe technical availability, not human editorial approval. The underlying Malay support data remains marked machine-assisted draft. Per the owner's U3.0 direction, independent human review is deferred to live-site review; no machine-assisted content is relabelled as human-reviewed or editorially approved. Sentence Recall remains limited to its curated correction-key set.
 
 No production deployment or production database change was made for this audit.
