@@ -5255,3 +5255,23 @@ Automated validation:
 Owner instruction: no pre-live human editorial review is required for this update; the owner will review content on the live website. Do not relabel machine-assisted content as human-reviewed or approved. This defers the human review gate; it does not waive source provenance, model licensing/attribution, Malaysia Copyright Act 1987, PDPA 2010/2024 amendment or cross-border-processing considerations for public release. No new personal-data collection, telemetry or third-party sharing was introduced by these fixes. Leaked-password protection remains excluded at the owner's earlier direction.
 
 Remaining U3.0 work: finish and validate the generated Malay support packs (including 1,447/1,447 Chinese Flashcard definitions), rerun the full CI matrix, verify the latest staging preview and Google OAuth/account switching/isolation, and prepare the consolidated staging handoff. No production migration, merge or deployment has been authorised.
+
+
+## 2026-11-28 — active Quiz course switching, Weak Memory performance and coverage closeout
+
+Latest application branch checkpoint: `9eac967b0b4ed859c3b557d88a92ad7f74dc4c6b` on `feature/update-3.0-phase-0-audit`. PR #20 remains draft/unmerged; production remains untouched.
+
+Owner feedback follow-up:
+- Quiz course switching now resets any active-session/results view tied to the previous learning course, invalidates stale in-flight overview requests, waits for the queued preference write and reloads the selected course's availability. Added a browser regression for switching from an active Chinese Quiz to Malay and then English.
+- Weak Memory now uses cached per-language dictionary indexes, pre-indexed Malay support/correction maps, and a cached custom-card map. Selecting a card updates only the detail panel instead of rebuilding the full list. Added 80-card Chinese navigation coverage and an assertion that the existing list DOM is retained on detail selection. Flashcards cache key is `3.0.0-ms23`.
+
+Content inventory:
+- Lessons: English 17 / 112 practice questions; Simplified Chinese 17 / 112; Malay 72 / 216.
+- Quiz: English 229; Chinese 145; Malay 120 unique questions in each support-language pack (240 staging support records).
+- Daily Learning: 60 Topics, 60 Applications, 93 Discovery.
+- Flashcards: 1,341 English and 1,447 Chinese source cards. English Malay support resolves 1,341/1,341. Chinese Malay support remains incomplete at 895/1,447 runtime definitions; the direct generated support file has 603 Chinese rows at this checkpoint. This remains a release blocker.
+- The learning-support exporter now enforces 1,341 English and 1,447 Chinese Flashcard source records, and its validator enforces complete output coverage. Generation workflows are pending/queued; do not report the Chinese gap as fixed until the regenerated output and runtime coverage tests pass.
+
+Latest architecture validation identified the Chinese Flashcard translation coverage gap. An earlier test-harness failure caused by the new indexed helper functions was corrected. Current latest-head cross-version, browser, database/Auth and architecture workflows are pending/queued; no full pass is claimed yet.
+
+Owner direction: no human editorial/translation review is required before this update goes live. The owner will review the content on the live website. Keep machine-assisted text explicitly draft/unreviewed; never label it human-reviewed or approved. Automated completeness, lexical, answer-choice and source-alignment checks remain required. This does not waive exact model/corpus licensing and attribution, source provenance, Malaysia Copyright Act 1987, PDPA 2010/2024 amendment or cross-border-processing considerations. No new personal-data collection, telemetry or third-party sharing was introduced. Leaked-password protection remains excluded at the owner's direction.
