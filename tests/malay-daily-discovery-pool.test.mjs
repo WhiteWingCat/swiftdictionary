@@ -27,5 +27,5 @@ test("Malay Daily Discovery slug normalisation preserves ordinary letters and re
  const missing=approved.filter(id=>!dictionarySlugs.has(id));
  assert.equal(approved.length,93);
  assert.equal(new Set(approved).size,93);
- assert.deepEqual(missing,[]);
+ assert.equal(missing.length,0,`Missing approved Malay Discovery words: ${Array.from(missing).join(', ')}`);
 });
