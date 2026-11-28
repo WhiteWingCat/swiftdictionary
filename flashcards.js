@@ -950,7 +950,7 @@
       : '<p class="flash-muted">'+uiText("Select an answer to review its meaning and example.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
   }
   function openReviewPrompt(){
-    state.reviewMode="word";state.reviewSelected=null;state.reviewNotice="";renderReviewPrompt();
+    state.reviewMode="word";state.reviewSelected=null;state.reviewListLimit=40;state.reviewNotice="";renderReviewPrompt();
   }
   function renderReviewPrompt(){
     const overlay=overlayRoot;if(!overlay)return;
