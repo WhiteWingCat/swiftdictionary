@@ -55,6 +55,11 @@ async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",
   await expect(page.locator("#flashSetupTitle")).toBeVisible();
   await page.locator("#flashDifficulty").selectOption(difficulty);
   await page.locator("#flashGameCollection").selectOption(cardSet);
+  // Course and support-language changes are persisted asynchronously. The mock
+  // RPC reads the stored preferences, so wait for the same queue as the app.
+  await page.evaluate(async()=>{
+    if(typeof preferenceWriteQueue!=="undefined")await preferenceWriteQueue;
+  });
   await page.locator('[data-action="begin-game"]').click();
   try {
     await expect(page.locator(".flash-game")).toBeVisible();
