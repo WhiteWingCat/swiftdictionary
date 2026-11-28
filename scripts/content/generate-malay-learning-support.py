@@ -104,6 +104,24 @@ def normalise_malay(value):
     if re.search(r"\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna)\b",text,flags=re.IGNORECASE):
         raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
     return clean(text)
+MALAY_CONNECTOR_FALLBACKS = {
+    "thereupon":"kemudian","thereafter":"selepas itu","whereupon":"lalu",
+    "hereupon":"dengan itu","thus":"dengan itu","therefore":"oleh itu",
+    "moreover":"tambahan pula","furthermore":"selain itu",
+    "nevertheless":"walau bagaimanapun","nonetheless":"walau bagaimanapun",
+    "otherwise":"jika tidak","indeed":"sememangnya","subsequently":"seterusnya",
+    "accordingly":"sehubungan itu","consequently":"akibatnya","ultimately":"akhirnya",
+    "regardless":"tanpa mengira","meanwhile":"sementara itu","thereby":"dengan itu",
+    "as a result":"akibatnya","in addition":"selain itu","in conclusion":"kesimpulannya",
+    "finally":"akhir sekali","however":"walau bagaimanapun","whereas":"manakala",
+    "although":"walaupun","unless":"melainkan","either":"sama ada","as well":"juga",
+    "at least":"sekurang-kurangnya","even so":"walaupun begitu","for instance":"contohnya",
+    "for example":"contohnya","such as":"seperti","rather than":"berbanding",
+    "on the other hand":"sebaliknya","on the contrary":"sebaliknya",
+    "even though":"walaupun","because of":"disebabkan oleh","due to":"disebabkan oleh",
+    "according to":"menurut","as soon as":"sebaik sahaja","as long as":"selagi"
+}
+
 def main():
     data=json.loads(INPUT.read_text(encoding="utf-8"))
     argostranslate.package.update_package_index()
@@ -121,8 +139,9 @@ def main():
         if source_key in source_cache:
             return source_cache[source_key]
         intermediate=clean(zh_en.translate(value)) if source=="zh" else value
+        fallback=MALAY_CONNECTOR_FALLBACKS.get(intermediate.casefold())
         if intermediate not in english_to_malay_cache:
-            english_to_malay_cache[intermediate]=normalise_malay(en_ms.translate(intermediate))
+            english_to_malay_cache[intermediate]=normalise_malay(fallback or en_ms.translate(intermediate))
         result=english_to_malay_cache[intermediate]
         if not result:
             raise RuntimeError("Empty Malay translation for "+intermediate[:80])
