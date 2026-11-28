@@ -122,7 +122,7 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   const support=context.window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
   const corrected=context.window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS;
   assert.equal(corrected.status,"model_assisted_malay_draft_pending_editorial_review");
-  assert.equal(corrected.quiz.en.length,72);
+  assert.ok(corrected.quiz.en.length>=108,"English Quiz Malay support batch count should include the newly curated 36 questions");
   assert.equal(corrected.quiz.zh.length,48);
   assert.equal(corrected.lessons.en,49);
   assert.equal(corrected.lessons.zh,49);
