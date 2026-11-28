@@ -39,7 +39,7 @@ def normalise_malay(value):
       (r"\bkantor\b","pejabat"),(r"\bkalimat\b","ayat"),
       (r"\bbis\b","bas"),(r"\b(?:nggak|enggak)\b","tidak"),
       (r"\bbanget\b","sangat"),(r"\bapotek\b","farmasi"),
-      (r"\bbahasan\b","huraian")
+      (r"\bbahasan\b","undefined") , (r"\bANA\b", "sebarang")
     ]
     for pattern,replacement in replacements:
         text=re.sub(pattern,lambda match:replacement.capitalize() if match.group(0)[:1].isupper() else replacement,text,flags=re.IGNORECASE)
