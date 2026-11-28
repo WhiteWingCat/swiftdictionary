@@ -72,7 +72,7 @@ jobs:
               # on the branch while retaining this run's Dictionary translation file.
               git checkout --theirs data/languages/malay-learning-support-translations.js
               git add data/languages/malay-learning-support-translations.js
-              GIT_EDITOR=true git rebase --continue
+              GIT_EDITOR=true git rebase --continue || git rebase --skip
             fi
             git push origin HEAD:feature/update-3.0-phase-0-audit
           fi
