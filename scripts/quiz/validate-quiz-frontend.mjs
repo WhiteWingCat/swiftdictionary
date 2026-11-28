@@ -100,6 +100,12 @@ if(!courseSwitchHandler.includes("await preferenceWriteQueue")||
    courseSwitchHandler.includes("await quizSyncCoursePreferences()")){
   throw new Error("Quiz course switching must refresh the selected course after its queued preference write settles, without re-reading and potentially restoring a stale preference.");
 }
+if(!courseSwitchHandler.includes('from("user_preferences")')||
+   !courseSwitchHandler.includes('saved.data?.learning_language!==requestedCourse')||
+   !courseSwitchHandler.includes("quizPageState.availability=null")||
+   !courseSwitchHandler.includes("quizPageState.history=[]")){
+  throw new Error("Quiz course switching must verify the persisted language preference and clear stale course-scoped overview data before refreshing.");
+}
 if(!flashcards.includes("const reviewDetailCache=new Map()")||
    !flashcards.includes('requestIdleCallback(warm,{timeout:100})')||
    !flashcards.includes('if(translationLanguage==="ms")malayGlossLookup()')){
