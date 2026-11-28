@@ -750,15 +750,21 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
   }
   expect(outcome).toMatch(/Not quite|再试一次|Time expired|答题时间已结束/);
 
-  // Advance Playwright's fake clock instead of replacing Date.now manually.
-  // This lets the interval, phase transitions and delayed persistence callback
-  // run in their normal order while keeping the test independent of wall time.
-  await page.clock.runFor(61000);
+  // Move the game clock past its 60-second deadline, then advance the
+  // scheduled timeout and delayed persistence callbacks separately.
+  await page.evaluate(()=>{
+    window.__swiftOriginalDateNow=Date.now;
+    Date.now=()=>window.__swiftOriginalDateNow()+60000;
+  });
+  await page.clock.runFor(100);
   await expect(page.locator(".flash-times-up-backdrop")).toBeVisible();
-  // The timeout overlay appears first; result persistence is intentionally
-  // delayed by two seconds so the player can see the end-of-game state.
   await page.clock.runFor(2500);
+  await page.clock.runFor(100);
   await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:10000});
+  await page.evaluate(()=>{
+    Date.now=window.__swiftOriginalDateNow;
+    delete window.__swiftOriginalDateNow;
+  });
   await page.locator('[data-action="close-result"]').click();
 
   await expect(page.locator('[data-action="open-review"]')).not.toContainText("(0)");
