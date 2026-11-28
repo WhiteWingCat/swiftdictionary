@@ -5202,3 +5202,11 @@ The Flashcards Chromium browser suite passed **37/37 tests** on `489435a`, inclu
 The app's Flashcard and mock-testing script URLs were bumped to `3.0.0-ms20` and `2.8.0-r3` to avoid stale cached scripts. Two static checks still expected the previous Flashcard version; both were corrected. Latest application recovery head: `3904f69abd13b2a2898354cc4449a3c1b9b32398`. Fresh CI and Pages deployment for this head are required before final matrix acceptance.
 
 See [the Nov 28 regression/staging archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md) and [Update 3.0 development plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
+
+## 2026-11-28 — latest U3.0 recovery head and CI
+
+Latest application head: `fc94da1598433d0890afb05a8c7738b7d93055b5`. Pages preview: [https://0007ac35.swiftdictionary.pages.dev](https://0007ac35.swiftdictionary.pages.dev); branch alias: [https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev).
+
+On preceding head `3904f69`, Flashcards browser tests passed 37/37, U2.3 SQL/Auth/browser passed, U2.6 ACL passed, U2.7 Chinese passed, U2.9 English passed, U3.0 architecture passed, and the Quiz DB migration/SQL and authenticated Quiz RPC steps passed. The Flashcard partial-review SQL test then gained an explicit cross-account denial assertion; latest head `fc94da1` is rerunning the relevant matrix. U3.0 architecture, U2.6 ACL, U2.7 Chinese, U2.9 English and Cloudflare routing are already green on `fc94da1`; Flashcards, U2.3 and Quiz DB/Auth remain in progress.
+
+Staging migration `swiftdictionary_update_3_0_partial_legacy_flashcard_review` is applied and verified. The two historical Malay games now show partial review of 5 and 4 known missed cards; full snapshot sessions remain fully reviewable. Production remains untouched.
