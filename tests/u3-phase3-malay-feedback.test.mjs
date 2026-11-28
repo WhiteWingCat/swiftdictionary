@@ -51,3 +51,13 @@ test("learning help copy reflects the three active learning courses",()=>{
  assert.doesNotMatch(index,/Not yet\. The current approved Quiz content supports the English learning course only/);
  assert.doesNotMatch(index,/current Lessons library contains English learning content only/);
 });
+
+test("Learning guidance is available in English, Chinese and Malaysian Malay for all learning pages",()=>{
+ assert.match(index,/const chineseIntroCopy=\{[\s\S]*?lessons:\{title:"欢迎使用课程学习"/);
+ assert.match(index,/const malayIntroCopy=\{[\s\S]*?lessons:\{title:"Selamat Datang ke Pelajaran"/);
+ assert.match(index,/quiz:\{title:"Selamat Datang ke Kuiz"/);
+ assert.match(index,/flashcards:\{title:"Selamat Datang ke Kad Imbas"/);
+ assert.match(index,/translationLanguage==="ms"&&malayIntroCopy\[page\]/);
+ assert.match(index,/translationLanguage==="zh"\?"常见问题":translationLanguage==="ms"\?"Soalan lazim"/);
+ assert.doesNotMatch(index,/"Which learning courses are available\?","Flashcards supports/);
+});
