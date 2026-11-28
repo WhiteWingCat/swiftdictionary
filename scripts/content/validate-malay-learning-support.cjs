@@ -11,8 +11,9 @@ if(!output||output.status!=="machine_assisted_draft"||output.targetLanguage!=="m
 if(output.humanReviewStatus!=="pending"||output.modelLicensingStatus!=="pending_verification")throw new Error("Malay support translations must retain explicit human-review and model-license release gates.");
 let lessonQuestions=0,quizQuestions=0,flashcardEntries=0;
 const indonesianOnlyTerms=/\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna|jawaban|keripik|keriput|hukuman\s+mana|enak\s+sekali|apa\s+dia|di\s+hari|semua\s+kata(?!\s+(?:nama|kerja|ganda))|mural\s+a)\b/i;
+const languageQualityFlags=[];
 function assertMalayDraftQuality(value,path){
- if(typeof value==="string"&&indonesianOnlyTerms.test(value))throw new Error("Indonesian-only wording remains in Malay draft at "+path+": "+value);
+ if(typeof value==="string"&&indonesianOnlyTerms.test(value))languageQualityFlags.push({path,value});
  if(Array.isArray(value))value.forEach((item,index)=>assertMalayDraftQuality(item,path+"["+index+"]"));
  else if(value&&typeof value==="object")Object.entries(value).forEach(([key,item])=>assertMalayDraftQuality(item,path+"."+key));
 }
@@ -69,4 +70,5 @@ for(const [code,questions] of Object.entries(output.quiz||{})){
   }
  }
 }
+if(languageQualityFlags.length)throw new Error("Indonesian-only wording remains in Malay draft ("+languageQualityFlags.length+" flags): "+JSON.stringify(languageQualityFlags.slice(0,100)));
 console.log(JSON.stringify({lessonPracticeQuestions:lessonQuestions,quizQuestions,flashcardEntries,status:"PASS"}));
