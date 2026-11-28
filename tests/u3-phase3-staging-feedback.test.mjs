@@ -96,6 +96,6 @@ test("Flashcards derive Malay support from authored dictionary translations and 
  assert.match(js,/exampleMs:row\.exampleMs\|\|word\.exampleMs/);
   assert.match(js,/exampleMsReviewed/);
   assert.match(js,/exampleMsReviewed&&w\.exampleMs&&cueFor/);
- assert.match(js,/mode==="sentence"&&state\.game\?\.translationLanguage==="ms"/);
+ assert.match(js,/const activeTranslationLanguage=state\.game\?\.translationLanguage\|\|\(typeof translationLanguage!==\"undefined\"\?translationLanguage:\"en\"\);\\s*const translationHint=mode==="sentence"&&activeTranslationLanguage==="ms"/);
  assert.match(js,/Terjemahan Bahasa Melayu:/);
 });
