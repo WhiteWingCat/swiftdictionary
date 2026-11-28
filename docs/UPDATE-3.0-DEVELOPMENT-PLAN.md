@@ -6,6 +6,18 @@
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
 **Primary objective:** Introduce Malay as a complete learning language while modernising the existing English and Simplified Chinese implementation to a consistent, language-independent U3.0 platform.
 
+## Owner-priority feedback checkpoint — 2026-11-28
+
+The owner's latest staging feedback takes priority over all other remaining U3.0 work:
+
+1. **Quiz course switching:** changing the learning course while Quiz is open must refresh the correct course, including Chinese and Malay, and must not retain a session or result view belonging to the previous course. The implementation on application head `9eac967b0b4ed859c3b557d88a92ad7f74dc4c6b` refreshes all registered Quiz-capable courses, waits for the queued preference write, invalidates stale requests and clears course-bound session/results. Browser regressions cover English → Chinese → Malay → English and a Chinese active session → Malay overview → English overview. The expanded active-session regression still requires a passing latest-head CI result before this item is closed.
+
+2. **Weak Memory review latency/lag:** avoid rebuilding/scanning the full dictionary and translation datasets per card, and avoid rerendering the entire review list when only the selected card/detail changes. The implementation uses reusable per-language dictionary indexes, pre-indexed support translations/correction keys, cached custom-card lookup and detail-only updates. The 80-card English/Chinese review browser regressions and DOM-preservation checks are required acceptance evidence; the earlier 80-card browser regression passed, and the latest expanded suite must pass on the current head.
+
+**Execution order:** finish and verify these two owner-reported issues first. Do not move on to translation closeout or other polish until their current-head browser regressions and relevant CI checks pass. Once closed, continue the remaining work in this plan: finish the 1,447-row Chinese Flashcard Malay support generation and runtime coverage (the previous runtime checkpoint was 895/1,447), rerun the full cross-version CI matrix, verify staging Pages and Google OAuth/account isolation, and complete the consolidated staging handoff.
+
+**Editorial/release constraints:** the owner explicitly waived pre-live human editorial review for this update; conduct that review on the live website instead. This does not make machine-assisted text approved: keep all such content marked draft/unreviewed. Leaked-password protection remains excluded by the owner's explicit instruction. Do not merge PR #20, deploy to production, or mutate production data without explicit release approval. Legal, source-provenance, licensing and Malaysia PDPA/Copyright Act checks remain public-release requirements.
+
 ## 1. Release scope
 
 U3.0 is a multilingual-platform and Malay-expansion release, not a Malay-only add-on. Its delivered platform must support three active learning languages:
