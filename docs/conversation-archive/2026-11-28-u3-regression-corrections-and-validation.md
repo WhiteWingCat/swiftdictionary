@@ -57,3 +57,16 @@ The Quiz regression then advanced past `quiz-beginner-010` and exposed another c
 ## Recovery point
 
 Continue from application branch `feature/update-3.0-phase-0-audit` at `87734182da7cfc55008bea658dc8b5212001ae3e`. First inspect the new U3.0 architecture run and latest Flashcards/Quiz jobs. Do not claim U3.0 completion from static tests or staging preview availability alone.
+
+## Flashcard per-card review browser failure and test repair
+
+The 2.5 Flashcards static job passed on `8773418`, and its Chromium suite passed 35/36 tests. The remaining test, “Completed Flashcard games save per-card snapshots and missed answers for review”, timed out after 30 seconds. The same test also caused the U2.3 browser matrix to fail; its PostgreSQL migration/allowance tests and local Auth compatibility passed, and the U2.7 PostgreSQL/static/browser matrix passed.
+
+Inspection of the test found a race: it clicked the next phase action without waiting for the previous answer feedback/phase transition. When the feedback had not rendered yet, the action button was hidden and Playwright waited for it until the entire test timed out. The test was rewritten to:
+- use a 60-second per-test timeout;
+- wait explicitly for “Pick your answers”, “Correct!/Not quite”, “Next” and “Memorise the card” at each transition;
+- require an actual incorrect answer before completion;
+- advance the fake clock through the challenge deadline and the separate two-second persistence callback;
+- then verify Weak Memory, game review snapshots and the saved incorrect result.
+
+This is a test-synchronisation repair; it does not weaken the review assertions or alter the runtime/SQL persistence contract. Latest application test commit is now `72c63d8e948294876e64371353f864b0861440d9`. GitHub created new pull-request workflow runs for this commit but marked them `action_required` with no jobs started. The prior app-head workflow `8773418` had the architecture suite green and Pages deployment successful; the per-card review browser result remains unverified until the new run is approved/executed. The pending Quiz DB run on `8773418` also still needs to finish its local Auth/RPC integration job.
