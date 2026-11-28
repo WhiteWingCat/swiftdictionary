@@ -997,9 +997,32 @@
     else if(overlayRoot.querySelector("#flashSetupTitle")){render();openSetupPrompt(state.mode);}
     else render();
   });
+  const malayAuditEnglishCards=words("en");
+  const malayAuditChineseCards=words("zh");
+  const auditCoverage=(items,kind)=>items.filter(card=>(kind==="dictionary"?card.cardKind!=="phrases":card.cardKind==="phrases")&&Boolean(card.definitionMs)).length;
   const timerApi={
     config:timing,
-    contentStats:{englishCuratedPhraseCount:curatedEnglishPhrases.length,malayDictionaryEntryCount:(window.SWIFT_MALAY_DICTIONARY||[]).length,malaySupportEnglishCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.en||{}).length,malaySupportChineseCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.zh||{}).length,malayGeneratedEnglishFlashcardCount:Object.keys(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.en||{}).length,malayGeneratedChineseFlashcardCount:Object.keys(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.zh||{}).length,malayGeneratedEnglishExampleCount:Object.values(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.en||{}).filter(row=>row.exampleMs).length,malayGeneratedChineseExampleCount:Object.values(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.zh||{}).filter(row=>row.exampleMs).length},
+    contentStats:{
+      englishCuratedPhraseCount:curatedEnglishPhrases.length,
+      malayDictionaryEntryCount:(window.SWIFT_MALAY_DICTIONARY||[]).length,
+      malaySupportEnglishCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.en||{}).length,
+      malaySupportChineseCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.zh||{}).length,
+      malayGeneratedEnglishFlashcardCount:Object.keys(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.en||{}).length,
+      malayGeneratedChineseFlashcardCount:Object.keys(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.zh||{}).length,
+      malayGeneratedEnglishExampleCount:Object.values(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.en||{}).filter(row=>row.exampleMs).length,
+      malayGeneratedChineseExampleCount:Object.values(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.zh||{}).filter(row=>row.exampleMs).length,
+      malayEnglishDictionaryCardCount:malayAuditEnglishCards.filter(card=>card.cardKind!=="phrases").length,
+      malayEnglishDictionarySupportedCount:auditCoverage(malayAuditEnglishCards,"dictionary"),
+      malayEnglishPhraseCardCount:malayAuditEnglishCards.filter(card=>card.cardKind==="phrases").length,
+      malayEnglishPhraseSupportedCount:auditCoverage(malayAuditEnglishCards,"phrases"),
+      malayChineseDictionaryCardCount:malayAuditChineseCards.filter(card=>card.cardKind!=="phrases").length,
+      malayChineseDictionarySupportedCount:auditCoverage(malayAuditChineseCards,"dictionary"),
+      malayChinesePhraseCardCount:malayAuditChineseCards.filter(card=>card.cardKind==="phrases").length,
+      malayChinesePhraseSupportedCount:auditCoverage(malayAuditChineseCards,"phrases"),
+      malayEnglishReviewedSentenceCardCount:malayAuditEnglishCards.filter(card=>card.exampleMsReviewed&&card.exampleMs&&card.examples?.length).length,
+      malayChineseReviewedSentenceCardCount:malayAuditChineseCards.filter(card=>card.exampleMsReviewed&&card.exampleMs&&card.examples?.length).length,
+      customCardMalaySupportPolicy:"Custom cards require a user-supplied Malay translation; cards without one are excluded from Malay-support games."
+    },
     reductionStep:REDUCTION_STEP,
     next(memory,answer,difficulty,mode="word"){
       const t=timingFor(mode,difficulty);
