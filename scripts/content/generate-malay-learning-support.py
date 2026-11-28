@@ -35,7 +35,7 @@ def clean(value):
 def normalise_malay(value):
     text=clean(value)
     replacements=[
-      (r"\baku\b","saya"),(r"\bbisa\b","dapat"),
+      (r"\baku\b","saya"),(r"\bbisa\b(?!\s+(?:ular|racun|sengat|beracun))","dapat"),
       (r"\bkantor\b","pejabat"),(r"\bkalimat\b","ayat"),
       (r"\bbis\b","bas"),(r"\b(?:nggak|enggak)\b","tidak"),
       (r"\bbanget\b","sangat"),(r"\bapotek\b","farmasi"),
