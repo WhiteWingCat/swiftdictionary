@@ -65,9 +65,9 @@
       if(!entry?.word)continue;
       const glosses=[entry.definitionEn,...(entry.senses||[]).map(s=>s.definitionEn)].filter(Boolean);
       for(const gloss of glosses){
-        const parts=String(gloss).toLowerCase().split(/[;,/]|\\s+or\\s+|\\s+and\\s+/);
+        const parts=String(gloss).toLowerCase().split(/[;,/]|\s+or\s+|\s+and\s+/);
         for(const part of parts){
-          const phrase=part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,"");
+          const phrase=part.trim().replace(/^(to|be|the|a|an)\s+/,"").replace(/[.!?]+$/,"");
           if(phrase.length>=2&&phrase.length<=48&&!map.has(phrase))map.set(phrase,entry.word);
         }
       }
@@ -89,7 +89,7 @@
     if(generatedSense)return generatedSense;
     if(generatedEntry?.headwordMs)return generatedEntry.headwordMs;
     const gloss=String(language==="en"?word.word:(word.translationEn||word.definition||"")).toLowerCase();
-    const candidates=[gloss,...gloss.split(/[;,/]|\\s+or\\s+|\\s+and\\s+/).map(part=>part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,""))];
+    const candidates=[gloss,...gloss.split(/[;,/]|\s+or\s+|\s+and\s+/).map(part=>part.trim().replace(/^(to|be|the|a|an)\s+/,"").replace(/[.!?]+$/,""))];
     const lookup=malayGlossLookup();
     for(const candidate of candidates){
       const match=lookup.get(candidate);
