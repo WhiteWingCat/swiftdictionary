@@ -42,11 +42,18 @@ function build(code, records, manual) {
         manualTranslation: String(manualText || "").trim()
       };
     });
+    const manualEntry = manual?.[code]?.[entry.word];
+    const headwordSource = code === "zh" && entry.definition
+      ? String(entry.definition).trim()
+      : String(entry.word).trim();
+    const headwordSourceLanguage = code === "zh" && entry.definition ? "en" : code;
     return {
       id: entryId(entry, code),
       word: entry.word,
       sourceLanguage: code,
-      headwordManual: "",
+      headwordSource,
+      headwordSourceLanguage,
+      headwordManual: String(manualEntry?.headword || "").trim(),
       senses
     };
   });
