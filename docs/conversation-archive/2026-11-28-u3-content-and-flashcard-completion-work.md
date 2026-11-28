@@ -42,3 +42,12 @@
 
 ## Commits and test checkpoint
 Application commits include the Quiz content batches, Lesson corrections, Flashcard example/runtime changes, coverage metrics and browser-test updates. See the feature branch history for exact commits.
+
+
+## Daily Learning staging feedback — root cause and remediation
+
+The owner had also reported object-coercion text (`[object Object]`) in some Daily Activity questions and sessions rejected as not present in the approved learning catalogue. Inspection of the current runtime found that the Daily Discovery schedule is catalog-gated by exact content IDs and rotation order. The Malay runtime pool is now rebuilt from the 93 dictionary-derived IDs in the active staging catalogue, in exact `rotation_order` 1–93 order. The 93 IDs were compared directly with the staging `private.learning_content_catalog`; the ordered arrays match exactly (no missing or extra IDs). The old mismatched Malay discovery IDs are no longer used by the runtime pool. The Malay manifest now reports the actual 60/60/93 catalogue counts and declares the dictionary source dependency.
+
+Added a SQL regression that asserts the exact 93 Malay Daily Discovery catalogue IDs and rotation order after the U3.0 Malay staging baseline is applied. Added browser regression coverage that opens Malay Daily Discovery and checks the selected base content ID is in the approved runtime pool. The Daily Learning localized-text resolver now supports nested language maps and additional prompt/question/option/explanation keys; added a browser test with object-shaped prompts/options to prevent accidental `[object Object]` rendering.
+
+These fixes are implemented on the application branch. Latest CI for the new tests is queued/pending at this archive checkpoint; they are not declared passed until the relevant workflows complete.
