@@ -1453,3 +1453,19 @@ The staging partial-review migration is already applied and live-verified. No pr
 Supabase security advisor reports 10 INFO findings for private-schema tables with RLS enabled but no policies. This matches the intended private-schema model: tables are not exposed for direct API reads, direct SELECT remains denied to anon/authenticated, and authenticated users access their own records through SECURITY DEFINER RPCs with `auth.uid()` ownership checks. No broad RLS policy or table grant was added. See [Supabase's RLS-enabled/no-policy linter note](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy).
 
 The advisor also reports leaked-password protection disabled; this is explicitly excluded from active scope at the owner's direction. Do not attempt to enable it or change plan/billing. Latest `fc94da1` CI has U3.0 architecture, Cloudflare routing, U2.6 ACL, U2.7 Chinese and U2.9 English green; Flashcards browser, U2.3 and Quiz DB/Auth remain in progress.
+
+## Final automated validation checkpoint — 2026-11-28
+
+**Latest application head:** `fc94da1598433d0890afb05a8c7738b7d93055b5`. **Latest staging preview:** [https://0007ac35.swiftdictionary.pages.dev](https://0007ac35.swiftdictionary.pages.dev). Branch preview: [https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev).
+
+Latest-head automated checks passed for U3.0 architecture, U2.9 English QA, U2.7 Chinese Dictionary, U2.6 ACL, U2.3 allowance/dashboard + Auth + browser, U2.5 Flashcards static/content + Chromium (**37/37**), Quiz DB foundation and one complete local Supabase Auth/RPC integration run. The Quiz integration included the new partial-review migration and SQL ownership test, authenticated Quiz RPCs, signed-out Flashcards/Preferences, Lesson allowance notification, Chinese course/pinyin tests and local security advisors. Cloudflare Pages and build routing are green.
+
+The only failed check is the legacy Cloudflare Workers Builds integration for `swiftdictionary-testing`; current product hosting is Cloudflare Pages and its staging deployment is green. Do not delete or reconfigure the old Worker integration without separate approval. A duplicate local Auth integration run for the same head was still executing after the successful full run.
+
+### Flashcard limitation status
+
+The two historical Malay games now return clearly labelled partial review (5 and 4 recoverable known missed cards). Their original prompts, option ordering, selected answers and correct answers were never stored and cannot be reconstructed; the UI does not invent them. Full-snapshot games remain fully reviewable. Staging migration applied and verified; account isolation and least-privilege checks pass.
+
+### Remaining release gates
+
+The remaining work is owner/release acceptance, not a known failing application regression: manually test the latest staging preview on desktop and mobile; verify deployed Google OAuth redirect and account switching/isolation; obtain human Malaysian Standard Malay and independent translation review; complete model/corpus licence and attribution review; and finish Malaysia Copyright Act 1987 plus PDPA 2010/2024-amendment/cross-border processing review. PR #20 remains draft/unmerged; production remains untouched. Leaked-password protection remains excluded at the owner's explicit direction.
