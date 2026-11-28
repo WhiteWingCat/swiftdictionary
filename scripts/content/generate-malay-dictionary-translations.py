@@ -112,6 +112,9 @@ def normalise_malay(value):
     if re.search(r"\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna)\b",text,flags=re.IGNORECASE):
         raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
     return clean(text)
+class EmptyTranslationError(RuntimeError):
+    pass
+
 def main():
     data = json.loads(INPUT.read_text(encoding="utf-8"))
     argostranslate.package.update_package_index()
@@ -128,7 +131,7 @@ def main():
             text = clean(zh_en.translate(text))
         result = normalise_malay(en_ms.translate(text))
         if not result:
-            raise RuntimeError("Argos returned an empty Malay translation")
+            raise EmptyTranslationError("Argos returned an empty Malay translation")
         return result
 
     result = {
@@ -157,11 +160,28 @@ def main():
                     "sourceLanguage": sense["sourceLanguage"]
                 })
                 totals[language_key]["senses"] += 1
-            headword_source = entry["word"]
-            headword_ms = translate(headword_source, language_key)
+            headword_source = entry.get("headwordSource") or entry["word"]
+            headword_source_language = entry.get("headwordSourceLanguage") or language_key
+            headword_manual = clean(entry.get("headwordManual") or "")
+            if headword_manual:
+                headword_ms = normalise_malay(headword_manual)
+                headword_method = "manual_override"
+            else:
+                try:
+                    headword_ms = translate(headword_source, headword_source_language)
+                    headword_method = "source_headword_or_gloss"
+                except EmptyTranslationError:
+                    # Some isolated Chinese characters have no standalone Argos
+                    # zh→en result. Use the already translated first sense as a
+                    # transparent Malay gloss fallback instead of emitting blank.
+                    if not senses or not senses[0].get("definitionMs"):
+                        raise
+                    headword_ms = senses[0]["definitionMs"]
+                    headword_method = "first_sense_gloss_fallback"
             result["languages"][language_key][entry["word"]] = {
                 "entryId": entry["id"],
                 "headwordMs": headword_ms,
+                "headwordTranslationMethod": headword_method,
                 "translationStatus": "machine_assisted_draft",
                 "senses": senses
             }
