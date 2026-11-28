@@ -730,6 +730,8 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
 
 test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
   await openMockFlashcards(page);
+  // Keep the fixed mock-control widget from intercepting the game-review button.
+  await page.locator("#swiftMockPanel").evaluate(node=>node.hidden=true);
   // Use deterministic completed-session fixtures here. Separate browser tests
   // exercise live answer/timer transitions; this test focuses on the review
   // persistence contract and rendered per-card details without relying on
@@ -781,6 +783,8 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
 
 test("Legacy Flashcard games show recoverable missed cards as a partial review",async({page})=>{
   await openMockFlashcards(page);
+  // Keep the fixed mock-control widget from intercepting the game-review button.
+  await page.locator("#swiftMockPanel").evaluate(node=>node.hidden=true);
   const started=new Date(Date.now()-5*60000).toISOString();
   const completed=new Date(Date.now()-4*60000).toISOString();
   await page.evaluate(({started,completed})=>{
