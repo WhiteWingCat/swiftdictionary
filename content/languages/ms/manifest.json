@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "languageCode": "ms",
+  "name": "Malay",
+  "nativeName": "Bahasa Melayu",
+  "locale": "ms-MY",
+  "script": "Latn",
+  "status": "active",
+  "contentVersion": "u3-ms-flashcards-0.1.0",
+  "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
+  "capabilities": {
+    "dictionary": true,
+    "lessons": true,
+    "dailyLearning": true,
+    "quiz": true,
+    "flashcards": true,
+    "gridMode": "word",
+    "pronunciation": "optional; only populate when reviewed",
+    "morphology": "malay-affixation"
+  },
+  "packages": {
+    "dictionary": {
+      "status": "draft",
+      "files": [
+        "data/languages/malay-dictionary.js"
+      ],
+      "contentVersion": "u3-ms-dict-0.8.0",
+      "knownHeadwordCount": 650,
+      "knownSenseCount": 672,
+      "initialBatch": "01–08",
+      "editorialStatus": "draft",
+      "provenancePolicy": "item-level original-authored; rights review pending"
+    },
+    "lessons": {
+      "status": "draft",
+      "files": [
+        "data/malay-lessons.js",
+        "data/malay-lessons-expansion-02.js",
+        "data/malay-lessons-expansion-03.js",
+        "data/malay-lessons-expansion-04.js",
+        "data/malay-lessons-expansion-05.js"
+      ],
+      "contentVersion": "u3-ms-lessons-0.5.0",
+      "lessonCounts": {
+        "beginner": 15,
+        "intermediate": 15,
+        "advanced": 15
+      },
+      "editorialStatus": "draft",
+      "totalLessons": 45,
+      "expansionBatches": 5
+    },
+    "dailyLearning": {
+      "status": "draft",
+      "files": [
+        "data/malay-daily-learning.js"
+      ],
+      "sourceDependencies": ["dictionary"],
+      "runtimeDiscoveryPool": "93 dictionary-derived items with IDs aligned to approved catalogue rotation_order 1–93",
+      "contentVersion": "u3-ms-daily-0.4.0",
+      "catalogueCounts": {
+        "dailyTopic": 60,
+        "dailyApplication": 60,
+        "dailyDiscovery": 93,
+        "dailyRevision": "adaptive"
+      },
+      "editorialStatus": "draft"
+    },
+    "quiz": {
+      "status": "staging-release",
+      "files": [
+        "content/quiz/questions.ms-en.draft.json",
+        "content/quiz/questions.ms-zh.draft.json",
+        "content/quiz/curriculum-map.ms.json"
+      ],
+      "contentVersion": "u3-ms-quiz-0.4.0",
+      "questionCounts": {
+        "beginner": 36,
+        "intermediate": 36,
+        "advanced": 48
+      },
+      "totalQuestionsPerSupportLanguage": 120,
+      "editorialStatus": "automated-check-passed; independent human review deferred",
+      "translationStatus": "machine_assisted_draft",
+      "releaseGate": "Owner-authorized staging-only release after automated accuracy and structure checks; human linguistic review is deferred; production release remains disabled pending separate approval.",
+      "batch02": {
+        "questionsPerSupportLanguage": 36,
+        "questionsPerDifficulty": 12
+      },
+      "batch03": {
+        "questionsPerSupportLanguage": 36,
+        "distribution": {
+          "beginner": 10,
+          "intermediate": 10,
+          "advanced": 16
+        }
+      },
+      "batch04": {
+        "questionsPerSupportLanguage": 36,
+        "distribution": {
+          "beginner": 10,
+          "intermediate": 10,
+          "advanced": 16
+        }
+      },
+      "stagingRelease": {
+        "questionCountPerSupportLanguage": 120,
+        "totalQuestions": 240,
+        "approvedInStaging": true,
+        "productionApproved": false,
+        "humanReview": "deferred"
+      }
+    },
+    "flashcards": {
+      "status": "staging-ready",
+      "files": [
+        "data/languages/malay-dictionary.js"
+      ],
+      "contentVersion": "u3-ms-flashcards-0.1.0",
+      "cardSource": "dictionary-derived",
+      "sourceEntryCount": 650,
+      "recallModes": [
+        "word",
+        "definition",
+        "mixed",
+        "sentence"
+      ],
+      "editorialStatus": "dictionary content remains draft pending human linguistic review"
+    }
+  },
+  "translationTargets": [
+    "en",
+    "zh"
+  ],
+  "contentPolicy": [
+    "Record authorship/source and licence for every imported or adapted content set.",
+    "Do not use machine translation output as approved content without human linguistic review.",
+    "Do not activate this package until all U3.0 content and application QA gates pass.",
+    "Malay Dictionary batch 01 is independently authored; DBP/PRPM/Kamus Dewan text has not been copied. Human linguistic and rights review remains pending.",
+    "Malay Dictionary batches 01–03 contain original-authored draft entries; all definitions, examples and support translations require human linguistic review before approval.",
+    "Malay Dictionary batch 04 adds 54 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
+    "Malay Dictionary batch 05 adds 49 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
+    "Malay Dictionary batch 06 adds 110 additional unique draft headwords across family, education, food, qualities, grammar, home, public services and everyday actions; all content remains subject to human review.",
+    "Malay Dictionary batch 07 adds 110 additional unique draft headwords across agriculture, household tools and materials, clothing, public facilities, transport infrastructure, environmental care, personal qualities, communication and learning vocabulary; all content remains subject to human linguistic, translation and rights review.",
+    "Malay Dictionary batch 08 adds 204 new unique draft headwords, bringing the catalogue to 650 unique headwords and 672 contextual senses; all definitions, examples and English/Simplified Chinese support translations remain subject to human review.",
+    "Malay Lessons expansion batch 05 adds nine original-authored draft lessons; Malay content and EN/ZH support remain subject to staging review."
+  ],
+  "legalReview": {
+    "malaysiaPDPA": "required before public launch",
+    "internationalPrivacy": "required for global audience",
+    "crossBorderTransfers": "review production Tokyo and staging Singapore data flows"
+  },
+  "notes": [
+    "Malay is selectable only in the isolated U3.0 feature/staging build; do not enable it in production before owner review and release gates.",
+    "Phase 3 initial content pack contains 9 draft lessons and draft Daily Learning content; owner linguistic/translation review is scheduled during staging review.",
+    "Malay Lessons expansion batch 04 adds nine original-authored draft lessons (three per difficulty); all Malay content and EN/ZH support translations remain subject to staging review.",
+    "Malay Quiz draft batch 01 adds 12 independently authored questions per support-language pair (4 per difficulty); content remains draft and the Quiz capability stays disabled until the secure backend and approved inventory are complete.",
+    "Malay Quiz draft batch 03 adds 36 original questions per support-language pair (10 Beginner, 10 Intermediate, 16 Advanced), bringing each pair to 84 questions: 26 Beginner, 26 Intermediate and 32 Advanced. All remain draft; Quiz capability stays disabled until the preferred bank target and review gates are met.",
+    "Malay Quiz draft batch 04 adds 36 original questions per support-language pair (10 Beginner, 10 Intermediate, 16 Advanced), bringing each pair to the preferred inventory target of 36 Beginner, 36 Intermediate and 48 Advanced (120 total). All remain draft; Quiz capability stays disabled pending linguistic approval and staging acceptance.",
+    "Malay Quiz is enabled in the isolated U3.0 staging build only. Its 240 questions passed automated structural, language-field, curriculum-link, unique-option and answer-key consistency checks after targeted corrections. Independent human Malay/translation review is deferred for staging feedback; production remains disabled.",
+    "Malay Flashcards use the 650-entry Malay Dictionary as a source bank; each card includes existing English and Simplified Chinese support definitions. The feature is enabled in staging only."
+  ]
+}

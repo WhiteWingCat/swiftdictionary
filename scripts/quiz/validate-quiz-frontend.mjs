@@ -90,6 +90,32 @@ const learningPageFeatures = [
 for (const feature of learningPageFeatures) {
   if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
 }
+const courseSwitchStart=appScript.indexOf('window.addEventListener("swiftdictionary:course-changed",async(event)=>');
+const courseSwitchEnd=appScript.indexOf("// Resolve the requested route immediately",courseSwitchStart);
+const courseSwitchHandler=courseSwitchStart>=0&&courseSwitchEnd>courseSwitchStart
+  ?appScript.slice(courseSwitchStart,courseSwitchEnd):"";
+if(!courseSwitchHandler.includes("await preferenceWriteQueue")||
+   !courseSwitchHandler.includes("coursePreferenceSelectionVersion!==requestedSelectionVersion")||
+   !courseSwitchHandler.includes("await quizLoadHome()")||
+   courseSwitchHandler.includes("await quizSyncCoursePreferences()")){
+  throw new Error("Quiz course switching must refresh the selected course after its queued preference write settles, without re-reading and potentially restoring a stale preference.");
+}
+if(!courseSwitchHandler.includes('from("user_preferences")')||
+   !courseSwitchHandler.includes('saved.data?.learning_language!==requestedCourse')||
+   !courseSwitchHandler.includes('saved.data?.translation_language!==translationLanguage')||
+   !courseSwitchHandler.includes("quizPageState.availability=null")||
+   !courseSwitchHandler.includes("quizPageState.history=[]")){
+  throw new Error("Quiz course switching must verify the persisted language preference and clear stale course-scoped overview data before refreshing.");
+}
+if(!flashcards.includes("const reviewDetailCache=new Map()")||
+   !flashcards.includes("function reviewItemsForMode(mode)")||
+   !flashcards.includes("const queue=[...languages]")||
+   !flashcards.includes("requestIdleCallback(warmNext,{timeout:1200})")||
+   !flashcards.includes("const item=record.item")||
+   !flashcards.includes("allowDictionaryFallback:false")||
+   flashcards.includes('if(translationLanguage==="ms")malayGlossLookup();')){
+  throw new Error("Weak Memory review must cache mode-filtered items, normalise only selected source records, and spread compact index warming across idle slices.");
+}
 for (const page of ["lessons", "quiz", "flashcards"]) {
   if (!html.includes('data-learning-help="' + page + '"')) throw new Error("Missing contextual help control: " + page);
 }
@@ -100,9 +126,10 @@ if (!html.includes('id="preferenceRefreshToast"') || !appScript.includes("showPr
     !appScript.includes("showPreferenceRefreshToast(\"translation\")")) {
   throw new Error("Course and translation selectors must show a transient page-refresh confirmation.");
 }
-if (!appScript.includes("p_learning_language:requestedCourse") || !appScript.includes("p_translation_language:requestedTranslation") ||
+if (!appScript.includes("p_learning_language:requestedCourse") || !appScript.includes("p_translation_language:serverTranslation") ||
+    !appScript.includes('const serverTranslation=requestedTranslation==="ms"?"en":requestedTranslation;') ||
     !appScript.includes("setTimeout(()=>resolve(false),1500)")) {
-  throw new Error("Quiz start must use the current selector values and must not block indefinitely on preference synchronization.");
+  throw new Error("Quiz start must use the current selector values, map local Malay support to the server's supported question-bank pair, and must not block indefinitely on preference synchronization.");
 }
 if (!appScript.includes("function quizApplyPageTranslation") || !appScript.includes("知识测验") ||
     !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("quizPageState.sessionView&&quizPageState.session?.session_id") || !appScript.includes("if(quizPageState.result)")) {
@@ -155,9 +182,10 @@ if (!mockTesting.includes("questions.zh-en.draft.json") || !mockTesting.includes
 if (appScript.includes('if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.")')) {
   throw new Error("Chinese Quiz must be accessible when Chinese is the selected learning course.");
 }
-if (!appScript.includes('function quizTranslationVisible(code){return code === "zh" || code === "en";}') ||
-    !appScript.includes('showTranslation&&!chineseTranslationQuestion')) {
-  throw new Error("Quiz must display the selected translation in either learning-language direction without duplicating translation prompts.");
+if (!appScript.includes('function quizTranslationVisible(code){return code === "zh" || code === "en" || code === "ms";}') ||
+    !appScript.includes('showTranslation&&(effectiveTranslation==="ms"||!chineseTranslationQuestion)') ||
+    !appScript.includes('quizMalayOption(q,option,s.learning_language_code)')) {
+  throw new Error("Quiz must display the selected English, Chinese or Malay support translation without duplicating translation prompts.");
 }
 if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
   throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");

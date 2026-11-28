@@ -1,0 +1,26 @@
+{
+  "currentVersion": "3.0.0",
+  "title": "SwiftDictionary Update 3.0.0",
+  "releasedAt": "2026-11-28",
+  "intro": "A major expansion bringing Malaysian Standard Malay into SwiftDictionary, alongside broader learning and review improvements.",
+  "sections": {
+    "added": [
+      "Malaysian Standard Malay is now available as a learning and translation course, with a dedicated dictionary and expanded lesson catalogue.",
+      "Malay learning support has been added across lessons, Quiz, Daily Learning and Flashcards.",
+      "Daily Learning now includes expanded Topic, Application and Discovery content, plus adaptive Daily Revision.",
+      "Malay Quiz content and Malay Flashcard support have been added.",
+      "Flashcard review history now preserves per-card results so incorrect cards can be revisited."
+    ],
+    "changed": [
+      "Course and translation-language selection now supports English, Simplified Chinese and Malay across the learning experience.",
+      "Dictionary and learning content now use a shared multi-language content structure.",
+      "Weak Memory review now loads lightweight language-specific indexes and fetches translation details only when needed."
+    ],
+    "fixed": [
+      "Fixed Quiz not consistently refreshing when switching between English, Chinese and Malay courses.",
+      "Reduced lag when opening and navigating Weak Memory review lists.",
+      "Improved Flashcard review persistence and handling of older completed games."
+    ],
+    "removed": []
+  }
+}

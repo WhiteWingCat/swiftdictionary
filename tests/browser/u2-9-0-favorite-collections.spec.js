@@ -9,6 +9,7 @@ async function installCollectionsFixture(page) {
         { id: 101, user_id: "test-user-a", word: "hello", course: "en" },
         { id: 102, user_id: "test-user-a", word: "你", course: "zh" },
         { id: 103, user_id: "test-user-a", word: "bioavailability", course: "en" },
+        { id: 104, user_id: "test-user-a", word: "ada", course: "ms" },
         { id: 201, user_id: "test-user-b", word: "secret", course: "en" }
       ]
     };
@@ -137,6 +138,9 @@ async function installCollectionsFixture(page) {
   await page.goto("about:blank");
   await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255);padding:22px;border:1px solid transparent}.word-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.word-card{min-height:58px}.favorite-word-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}@media(max-width:650px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}}</style></head><body><main id="profilePage"><section class="profile-card"><details><summary><h2>Favorite words</h2></summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details></section></main></body></html>`);
   await page.evaluate(() => window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; }));
+  // The isolated fixture must load the same language registry/adapters as the real app.
+  await page.addScriptTag({ path: require("path").resolve(__dirname, "../../js/core/language-registry.js") });
+  await page.addScriptTag({ path: require("path").resolve(__dirname, "../../js/languages/adapters.js") });
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
 }
@@ -198,7 +202,6 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("button", { name: "Create folder" }).click();
   await expect(page.getByRole("alert")).toHaveText("You already have a collection with that name.");
   await page.getByRole("button", { name: "Cancel" }).click();
-
   await panel.getByRole("button", { name: "＋ New folder" }).click();
   await page.locator("#fcCollectionName").fill("Work");
   await page.getByRole("button", { name: "Create folder" }).click();
@@ -331,7 +334,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("dialog").getByRole("button", { name: "Remove" }).click();
   await expect(panel.getByText("No collections yet.")).toBeVisible();
   const remainingSavedWords = await page.evaluate(() => window.__collectionsTestDB.saved_words.map(row => row.id).sort((a,b) => a-b));
-  expect(remainingSavedWords).toEqual([102,103,201]);
+  expect(remainingSavedWords).toEqual([102,103,104,201]);
 
   const styles = await panel.evaluate(node => {
     const primary = node.querySelector(".fc-primary");
@@ -397,8 +400,7 @@ test("Your Collections remain account-isolated and replace private Realtime chan
   const channels = await page.evaluate(() => window.__collectionsTestChannels.map(channel => ({ name: channel.name, removed: channel.removed })));
   expect(channels).toEqual([
     { name: "favorite-collections:test-user-a", removed: true },
-    { name: "favorite-collections:test-user-b", removed: false }
-  ]);
+    { name: "favorite-collections:test-user-b", removed: false }  ]);
 
   await page.evaluate(() => {
     window.currentUser = null;
@@ -412,6 +414,42 @@ test("Your Collections remain account-isolated and replace private Realtime chan
   ]);
 });
 
+
+
+test("Your Collections can add and open Malay saved words", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Malay practice");
+  await page.getByRole("button", { name: "Create folder" }).click();
+
+  const folder = panel.locator(".fc-folder-card").filter({ hasText: "Malay practice" });
+  await folder.getByRole("button", { name: "More options for Malay practice" }).click();
+  await panel.getByRole("menuitem", { name: "Add words" }).click();
+  const dialog = page.getByRole("dialog", { name: "Add words to Malay practice" });
+  await expect(dialog).toContainText("Malay");
+  await dialog.getByLabel(/ada/).check();
+  await dialog.getByRole("button", { name: "Add selected" }).click();
+
+  const openMalayWord = folder.getByRole("button", { name: "Open saved word ada" });
+  await expect(openMalayWord).toBeVisible();
+  await openMalayWord.click();
+  const opened = await page.evaluate(() => ({
+    word: window.__openedCollectionWord?.word,
+    course: window.__openedCollectionWord?.course
+  }));
+  expect(opened).toEqual({ word: "ada", course: "ms" });
+});
+
+test("Dashboard exposes Malay favourites and Malay translation preference options", async ({ page }) => {
+  await page.route("https://*.supabase.co/**", route => route.abort());
+  await page.goto("/");
+  await expect(page.locator("#favoriteMalayGrid")).toHaveCount(1);
+  await expect(page.locator('#translationSelect option[value="ms"]')).toHaveCount(1);
+  await expect(page.locator('#preferenceTranslation option[value="ms"]')).toHaveCount(1);
+  await expect(page.locator('#translationSelect option[value="ms"]')).toBeEnabled();
+  await expect(page.locator('#preferenceTranslation option[value="ms"]')).toBeEnabled();
+});
 
 test("Dictionary detail panel shows Add to collection only for a saved word", async ({ page }) => {
   await page.route("https://*.supabase.co/**", route => route.abort());
@@ -597,8 +635,7 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
     columns: getComputedStyle(grid).gridTemplateColumns,
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
     gridWidth: grid.getBoundingClientRect().width
-  }));
-  await page.setViewportSize({ width: 390, height: 844 });
+  }));  await page.setViewportSize({ width: 390, height: 844 });
   const before = await favoriteGrid.evaluate(grid => ({
     columns: getComputedStyle(grid).gridTemplateColumns,
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,

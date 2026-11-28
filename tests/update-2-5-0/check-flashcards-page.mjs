@@ -3,6 +3,8 @@ import vm from "node:vm";
 
 const html=fs.readFileSync("index.html","utf8");
 const flashcards=fs.readFileSync("flashcards.js","utf8");
+const englishDictionary=fs.readFileSync("data/languages/english-dictionary.js","utf8");
+const englishLessons=fs.readFileSync("data/languages/english-lessons.js","utf8");
 if(!flashcards.includes("function blankAllOccurrences(")||!flashcards.includes("blankAllOccurrences(sentence,target.word,chinese)"))throw new Error("Sentence Recall must blank every occurrence of the target.");
 const mock=fs.readFileSync("mock-testing.js","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql","utf8");
@@ -11,6 +13,10 @@ const deletionMigration=fs.readFileSync("supabase/migrations/20261118100736_flas
 const durationMigration=fs.readFileSync("supabase/migrations/20261119094011_swiftdictionary_update_2_5_0_flashcards_60_120_second_challenges.sql","utf8");
 const reviewIndexMigration=fs.readFileSync("supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql","utf8");
 const dismissalMigration=fs.readFileSync("supabase/migrations/20261124120000_swiftdictionary_update_2_8_0_flashcard_review_item_dismissal.sql","utf8");
+const reviewRepairMigration=fs.readFileSync("supabase/migrations/20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair.sql","utf8");
+const evaluationMigration=fs.readFileSync("supabase/migrations/20261127210000_swiftdictionary_update_3_0_flashcard_snapshot_evaluation_hardening.sql","utf8");
+const reviewRepairTest=fs.readFileSync("supabase/tests/flashcard_review_persistence_repair.sql","utf8");
+const quizDbWorkflow=fs.readFileSync(".github/workflows/quiz-db-foundation.yml","utf8");
 
 let inlineCount=0;
 for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
@@ -61,8 +67,27 @@ for(const [needle,label] of [
 ])if(!flashcards.includes(needle))throw new Error("Missing "+label+".");
 if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="complete_my_flashcard_game"'))throw new Error("Mock User Flashcard game RPC support is missing.");
 if(!flashcards.includes('learningLanguage:data.learning_language_code||course')||!flashcards.includes('translation_language_code'))throw new Error("Flashcard sessions do not preserve their language pair.");
+if(!flashcards.includes('if(language==="ms")')||!flashcards.includes("window.SWIFT_MALAY_DICTIONARY"))throw new Error("Malay dictionary-derived Flashcard content is missing.");
+if(!flashcards.includes('if(learning==="ms")')||!flashcards.includes("definitionMs"))throw new Error("Flashcard support-language routing is missing Malay.");
+if(!html.includes('data/languages/malay-flashcard-translations.js?v=3.0.0-ms3'))throw new Error("Malay Flashcard translation pack is not loaded before the runtime.");
+if(!flashcards.includes("SWIFT_FLASHCARD_MALAY_SUPPORT")||!flashcards.includes("addMalayFlashcardSupport"))throw new Error("Explicit Malay Flashcard support glosses are not applied.");
+if(!flashcards.includes('all=all.filter(word=>Boolean(translationFor(word)))'))throw new Error("Flashcard deck must exclude entries without Malay support text.");
+if(!flashcards.includes("Malay support translations are available for"))throw new Error("Flashcard home page must show Malay support coverage.");
+if(!flashcards.includes("Malay translations are not available for this Flashcard set yet."))throw new Error("Flashcard must not start with an unavailable Malay support translation.");
+if(!flashcards.includes("translation_ms:card.definitionMs||card.translationMs||\"\""))throw new Error("Malay Flashcard review snapshots are missing the selected-language translation.");
+const malayRuntime=fs.readFileSync("supabase/migrations/20261127160000_swiftdictionary_update_3_0_malay_flashcards_runtime.sql","utf8");
+if(!malayRuntime.includes("flashcard_sessions_learning_language_code_check")||!malayRuntime.includes("flashcard_sessions_translation_language_code_check")||!malayRuntime.includes("flashcard_cards_language_code_check"))throw new Error("Malay Flashcard server-side language constraints are missing.");
+if(!malayRuntime.includes("v_learning not in ('en','zh','ms')")||!malayRuntime.includes("v_translation not in ('en','zh','ms')"))throw new Error("Malay Flashcard server-side session language validation is missing.");
+if(!malayRuntime.includes("values(v_user,p_mode,p_difficulty,p_duration_seconds,v_learning,v_translation)"))throw new Error("Malay Flashcard sessions do not snapshot the authenticated language pair.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
-if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=2.8.0-r4'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
+if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms31'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
+if(!flashcards.includes("reviewListLimit:40")||!flashcards.includes("visibleItems=items.slice(0,Math.max(40,state.reviewListLimit||40))")||!flashcards.includes('data-action="review-load-more"')||!flashcards.includes('state.reviewListLimit=Math.max(40,state.reviewListLimit||40)+40'))throw new Error("Weak Memory must render in bounded batches and preserve responsiveness for large review histories.");
+if(!flashcards.includes("function reviewItemsForMode(mode)")||!flashcards.includes("reviewItemsByModeCache.get(mode)||[]"))throw new Error("Weak Memory must reuse mode-indexed review items instead of rescanning the full history on every interaction.");
+if(!flashcards.includes("allowDictionaryFallback:false")||!flashcards.includes("reviewItemsForMode(state.reviewMode).find"))throw new Error("Weak Memory detail rendering must avoid synchronous Malay gloss fallback scans and reuse the cached mode list.");
+if(!flashcards.includes("cardKind?{item,cardKind}:item")||!flashcards.includes("const item=record.item")||!flashcards.includes("const item=record;"))throw new Error("Weak Memory dictionary indexes must retain source records and normalise only the selected card.");
+if(!flashcards.includes("const queue=[...languages]")||!flashcards.includes("window.requestIdleCallback(warmNext,{timeout:1200})")||flashcards.includes('if(translationLanguage==="ms")malayGlossLookup();'))throw new Error("Weak Memory index warming must be spread across idle slices without eagerly building the Malay gloss fallback.");
+if(!html.includes('window.addEventListener("swiftdictionary:course-changed",async(event)=>')||!html.includes("event.detail?.learningLanguage")||html.includes('document.getElementById("courseSelect").addEventListener("change",async()=>{'))throw new Error("Quiz course refresh must consume the global course-changed event after the preference write is queued.");
+
 if(!html.includes('id="dashboardTabFavourites"')||!html.includes('id="dashboardTabProgress"')||!html.includes('id="dashboardTabHistory"')||!html.includes('id="dashboardTabAnalytics"'))throw new Error("The four Dashboard tabs are incomplete.");
 if(!html.includes('get_my_lesson_practice_attempts')||!html.includes('practiceRetries')||!html.includes('data-dashboard-flashcard-review-game'))throw new Error("Practice Insights or Daily History review integration is missing.");
 for(const [needle,label] of [
@@ -83,13 +108,20 @@ if(!durationMigration.includes("duration_seconds in (60,120)")||!durationMigrati
 if(!reviewIndexMigration.includes("flashcard_review_items_last_session_idx")||!reviewIndexMigration.includes("last_session_id"))throw new Error("Flashcards review-session foreign-key index is missing.");
 if(!flashcards.includes('data-action="phase-action"')||!flashcards.includes('uiText("Answer now","立即作答")')||!flashcards.includes('uiText("Next","下一题")'))throw new Error("Early-answer and next-round controls are missing.");
 if(!flashcards.includes("function questionKey(card)")||!flashcards.includes("usedQuestionKeys.has(questionKey(item))")||!flashcards.includes("seenCards.has(key)"))throw new Error("Flash Recall must deduplicate normalized question prompts across card types and modes.");
-for(const id of ["b-greetings-polite-expressions","b-places-getting-around"])if(!html.includes('id:"'+id+'"'))throw new Error("Missing permanent lesson for expanded Flash Recall vocabulary: "+id);
-for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care","station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!html.includes('"word": "'+word+'"'))throw new Error("Missing expanded lesson-linked Flash Recall vocabulary: "+word);
-for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-greetings-polite-expressions"').test(html))throw new Error("Missing greetings lesson link for "+word);
-for(const word of ["station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-places-getting-around"').test(html))throw new Error("Missing places lesson link for "+word);
-if(!html.includes("60-second or 120-second challenge")||!html.includes("Mixed Recall combines word, definition and sentence prompts"))throw new Error("Flashcards introduction still contains outdated challenge or mode information.");
+for(const id of ["b-greetings-polite-expressions","b-places-getting-around"])if(!englishLessons.includes('id:"'+id+'"'))throw new Error("Missing permanent lesson for expanded Flash Recall vocabulary: "+id);
+for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care","station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!englishDictionary.includes('"word": "'+word+'"'))throw new Error("Missing expanded lesson-linked Flash Recall vocabulary: "+word);
+for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-greetings-polite-expressions"').test(englishDictionary))throw new Error("Missing greetings lesson link for "+word);
+for(const word of ["station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-places-getting-around"').test(englishDictionary))throw new Error("Missing places lesson link for "+word);
+if(!html.includes("course-specific card banks and supported recall modes")||!html.includes("Which recall modes are available?"))throw new Error("Flashcards introduction must describe course-specific card banks and supported recall modes.");
 if(!html.includes('translationLanguage==="zh"&&chineseIntroCopy[page]'))throw new Error("Simplified Chinese Quiz/Flashcards introductions are missing.");
 if(!flashcards.includes("dismiss_my_flashcard_review_item")||!flashcards.includes('data-action="dismiss-review-item"')||!mock.includes("seedFlashcardData"))throw new Error("Weak-memory items need account-scoped manual dismissal in the client and mock adapter.");
 if(!dismissalMigration.includes("private.dismiss_my_flashcard_review_item_impl")||!dismissalMigration.includes("security definer")||!dismissalMigration.includes("security invoker")||!dismissalMigration.includes("grant execute on function public.dismiss_my_flashcard_review_item"))throw new Error("Weak-memory dismissal RPC must use least-privilege authenticated grants.");
+if(!reviewRepairMigration.includes("insert into private.flashcard_session_items")||!reviewRepairMigration.includes("insert into private.flashcard_review_items")||!reviewRepairMigration.includes("v_snapshot := v_item->'snapshot'")||!reviewRepairMigration.includes("grant execute on function private.complete_my_flashcard_game_impl(uuid,jsonb) to authenticated"))throw new Error("Flashcard completion must persist per-card review snapshots and weak-memory misses using authenticated server-side logic.");
+if(!evaluationMigration.includes("v_ok := v_selected_index = v_correct_index")||!evaluationMigration.includes("correct answer does not match its saved option")||!evaluationMigration.includes("v_mode <> v_session.mode"))throw new Error("Snapshot-backed Flashcard correctness must be recomputed and validated on the server.");
+for(const migration of ["20261127160000_swiftdictionary_update_3_0_malay_flashcards_runtime.sql","20261127170000_swiftdictionary_update_3_0_flashcard_support_language_snapshot.sql","20261127180000_swiftdictionary_update_3_0_flashcard_support_language_payload.sql","20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair.sql","20261127210000_swiftdictionary_update_3_0_flashcard_snapshot_evaluation_hardening.sql"])if(!quizDbWorkflow.includes(migration))throw new Error("Local Supabase integration must apply the complete U3.0 Flashcards migration chain: "+migration);
+if(!reviewRepairTest.includes("translation_language_code'<>'ms'"))throw new Error("Flashcard review SQL regression must verify the Malay support language is preserved in a game session.");
+if(!reviewRepairTest.includes("public.get_my_flashcard_game_review")||!reviewRepairTest.includes("Review weak memory")&&!reviewRepairTest.includes("v_data->'review_items'")||!reviewRepairTest.includes('"correct":true,"unanswered":false'))throw new Error("Flashcard review repair SQL regression must cover saved game review and incorrect-answer queue recovery.");
+if(!flashcards.includes("function learningCourseLabel(code)")||!flashcards.includes("learningCourseLabel(g.learning_language_code||\"en\")"))throw new Error("Recent Flashcard games must identify the learning course.");
+if(flashcards.includes("completed before per-card review snapshots were introduced"))throw new Error("Do not incorrectly label a game as pre-review when its snapshot is simply missing.");
 if(!flashcards.includes(".flash-home > .flash-section:not(.learning-auth-card)")||!flashcards.includes("flash-review-tab[data-value=translation]{background:#bd762e"))throw new Error("Flashcards panels or Translation Recall review styling are missing.");
 console.log("Flashcards page checks passed; syntax-checked "+inlineCount+" inline application script(s).");

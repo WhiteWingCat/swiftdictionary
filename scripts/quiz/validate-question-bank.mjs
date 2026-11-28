@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { normaliseComparableText, validateLanguagePair, validateQuestionEnvelope } from "../content/validation-core.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -24,7 +25,7 @@ const translationCounts = { beginner: 0, intermediate: 0, advanced: 0 };
 const definitionCounts = { beginner: 0, intermediate: 0, advanced: 0 };
 const knowledgeCounts = { beginner: 0, intermediate: 0, advanced: 0 };
 const topics = { beginner: new Set(), intermediate: new Set(), advanced: new Set() };
-const normalizeOption = value => String(value ?? "").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu, "");
+const normalizeOption = value => normaliseComparableText(value, "en");
 
 function requireText(value, label, max = 2000) {
   if (typeof value !== "string" || !value.trim() || value.length > max) {
@@ -33,14 +34,13 @@ function requireText(value, label, max = 2000) {
 }
 if (raw.schema_version !== 1) fail.push("Unsupported schema_version");
 if (raw.status !== "draft") fail.push("Source pack must remain draft until approved");
-if (raw.learning_language_code !== "en" || raw.translation_language_code !== "zh") {
-  fail.push("This batch must be English learning with Simplified Chinese translation");
-}
+fail.push(...validateLanguagePair(raw, "en", "zh"));
 if (!Array.isArray(questions) || questions.length === 0) fail.push("questions must be a non-empty array");
 
 for (const [index, q] of questions.entries()) {
   const at = "questions[" + index + "]";
   requireText(q.question_id, at + ".question_id", 120);
+  fail.push(...validateQuestionEnvelope(q, { path: at }));
   if (seenIds.has(q.question_id)) fail.push(at + " duplicates question_id " + q.question_id);
   seenIds.add(q.question_id);
   const source = lessons[q.source_lesson_id];

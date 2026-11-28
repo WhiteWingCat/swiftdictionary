@@ -63,3 +63,18 @@ The minimum and target checks are per selected difficulty. Because question IDs 
 3. Run `node scripts/quiz/validate-chinese-question-bank.mjs --emit-sql` only to produce a draft-only import. The exporter writes `status='draft'` and never approves content.
 4. Complete independent Simplified Chinese/English linguistic review, answer-key verification, distractor review, Pinyin review, and mode-overlap review before owner release approval.
 5. Do not apply the Chinese Quiz import or mark any question approved in staging or production until the separate release gate is satisfied.
+
+
+## Malay-learning Quiz — Update 3.0 draft batches
+
+- Learning course: Malaysian Standard Malay (`ms`).
+- Support-language packs: Malay→English and Malay→Simplified Chinese.
+- Current inventory after batch 04: **120 questions per support-language pack** (240 draft records total): 36 Beginner, 36 Intermediate and 48 Advanced per pack.
+- Batch 01 added 12 questions (4 per difficulty). Each subsequent batch contains **36 new questions per support-language pack**: 10 Beginner, 10 Intermediate and 16 Advanced. Batches 03 and 04 add 72 questions per support-language pack in total.
+- Every question is independently authored, linked to an active Malay permanent lesson and a curriculum objective, and has four unique Malay answer choices plus distinct support-language text.
+- The source JSON packs remain editorially draft, but all 240 questions are explicitly marked `release_approved: true` for the owner-authorized **staging-only** release after automated accuracy/structure checks. Independent human linguistic review is deferred for staging feedback; this is not production approval.
+- `node scripts/quiz/validate-malay-question-bank.mjs` validates both support-language packs and the curriculum map. `--emit-sql` exports draft-only inserts; `--emit-sql --approve-for-release` exports the owner-authorized 240-question staging release with `status='approved'` and `approved_at`. Never apply the staging release SQL to production.
+- The secure Malay runtime is implemented in `20261127130000_swiftdictionary_update_3_0_malay_quiz_runtime.sql`. It reuses private Quiz session/question snapshots, answer redaction, server-side scoring, the existing start-based allowance trigger, active-session guard and local-day no-repeat ledger. It supports English and Simplified Chinese support snapshots. Selecting Malay as its own translation displays Malay-only text while the runtime uses an English support snapshot internally.
+- The local Supabase integration suite tests Beginner (10), Intermediate (15) and Advanced (20) sessions for both support languages, same-language Malay display, answer-key privacy, server-side evaluation, completed review, cross-account isolation, allowance charging and no-repeat behavior.
+- Availability requires approved questions meeting at least 30 Beginner; 24 Intermediate + 16 Beginner; 32 Advanced + 8 Intermediate + 8 Beginner, with at least three topics per required level and enough unseen questions for a complete session. The current draft inventory reaches the preferred capacity targets: 36 Beginner, 36 Intermediate and 48 Advanced.
+- The isolated U3.0 staging build enables `capabilities.quiz: true` after the secure runtime migration and automated content checks. The source pack remains editorially draft; this is a staging-only owner-authorized release. Production remains disabled pending separate approval.

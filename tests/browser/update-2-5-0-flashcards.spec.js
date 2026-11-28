@@ -47,7 +47,7 @@ async function openMockFlashcards(page) {
   await page.locator("#translationSelect").selectOption("en");
 }
 
-async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60) {
+async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60,waitForPreferences=true) {
   // Duration controls live beside the mode heading, outside the setup dialog.
   await page.locator('[data-action="set-duration"][data-value="'+duration+'"]').click();
   await expect(page.locator('[data-action="set-duration"][data-value="'+duration+'"]')).toHaveAttribute("aria-pressed","true");
@@ -55,8 +55,29 @@ async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",
   await expect(page.locator("#flashSetupTitle")).toBeVisible();
   await page.locator("#flashDifficulty").selectOption(difficulty);
   await page.locator("#flashGameCollection").selectOption(cardSet);
+  // The mock RPC reads stored preferences. Poll the mock's read-only test
+  // surface so this works even when a test has installed a frozen page clock.
+  if(waitForPreferences){
+    const learningLanguage=await page.locator("#courseSelect").inputValue();
+    const translationLanguage=await page.locator("#translationSelect").inputValue();
+    await expect.poll(async()=>page.evaluate(()=>{
+      const userId=window.__swiftDictionaryMock.activeUser();
+      return window.__swiftDictionaryMock.getPreferences().find(row=>row.user_id===userId)?.learning_language;
+    })).toBe(learningLanguage);
+    await expect.poll(async()=>page.evaluate(()=>{
+      const userId=window.__swiftDictionaryMock.activeUser();
+      return window.__swiftDictionaryMock.getPreferences().find(row=>row.user_id===userId)?.translation_language;
+    })).toBe(translationLanguage);
+  }
   await page.locator('[data-action="begin-game"]').click();
-  await expect(page.locator(".flash-game")).toBeVisible();
+  try {
+    await expect(page.locator(".flash-game")).toBeVisible();
+  } catch (error) {
+    const notice = await page.locator("#flashNotice").innerText().catch(() => "");
+    const setupTitle = await page.locator("#flashSetupTitle").innerText().catch(() => "");
+    throw new Error("Flashcard game failed to start for mode " + mode +
+      ". Notice: " + notice + ". Setup: " + setupTitle + ". Original: " + error.message);
+  }
 }
 
 test("Mode-specific schedules use fixed 0.2 second reductions and respect caps",async({page})=>{
@@ -189,7 +210,130 @@ test("Chinese permanent lesson Daily History review uses the Chinese lesson cata
 test("English Flashcards include the curated multiword expression bank",async({page})=>{
   await openMockFlashcards(page);
   const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  console.log("[Malay Flashcard coverage audit]",JSON.stringify(stats));
   expect(stats.englishCuratedPhraseCount).toBe(25);
+});
+
+test("Malay Flashcard course and support-language content are loaded",async({page})=>{
+  await openMockFlashcards(page);
+  const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  const reviewedExamples=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en.length);
+  const reviewedDefinitions=await page.evaluate(()=>{
+    const keys=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en;
+    const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.en;
+    return keys.every(key=>!!rows[key]?.definitionMs?.trim());
+  });
+  expect(reviewedExamples).toBe(43);
+  const reviewedChineseExamples=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.zh.length);
+  expect(reviewedChineseExamples).toBe(42);
+  expect(reviewedDefinitions).toBe(true);
+  expect(stats.malayDictionaryEntryCount).toBe(650);
+  expect(stats.malaySupportEnglishCount).toBe(73);
+  expect(stats.malaySupportChineseCount).toBe(124);
+  expect(stats.malayGeneratedEnglishFlashcardCount).toBeGreaterThan(0);
+  expect(stats.malayGeneratedChineseFlashcardCount).toBeGreaterThan(0);
+  expect(stats.malayGeneratedEnglishExampleCount).toBeGreaterThan(0);
+  expect(stats.malayGeneratedChineseExampleCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishDictionaryCardCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishDictionarySupportedCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishPhraseCardCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishPhraseSupportedCount).toBeGreaterThan(0);
+  expect(stats.malayChineseDictionaryCardCount).toBeGreaterThan(0);
+  expect(stats.malayChineseDictionarySupportedCount).toBeGreaterThan(0);
+  expect(stats.malayChinesePhraseCardCount).toBeGreaterThan(0);
+  expect(stats.malayChinesePhraseSupportedCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishReviewedSentenceCardCount).toBe(43);
+  expect(stats.malayChineseReviewedSentenceCardCount).toBe(42);
+  expect(stats.malayEnglishSentenceCardCount).toBeGreaterThanOrEqual(stats.malayEnglishSentenceSupportedCount);
+  expect(stats.malayEnglishSentenceSupportedCount).toBe(43);
+  expect(stats.malayChineseSentenceCardCount).toBeGreaterThanOrEqual(stats.malayChineseSentenceSupportedCount);
+  expect(stats.malayChineseSentenceSupportedCount).toBe(42);
+  expect(stats.customCardMalaySupportPolicy).toMatch(/user-supplied Malay translation/);
+  await page.locator("#courseSelect").selectOption("ms");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
+  await expect(page.locator("#translationSelect")).toHaveValue("en");
+  await expect(page.locator("#translationSelect option[value='ms']")).toBeDisabled();
+});
+test("Malay Lesson practice support covers all approved questions in both courses",async({page})=>{
+  await openMockFlashcards(page);
+  const coverage=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.lessonCoverage);
+  expect(coverage.en).toHaveLength(17);
+  expect(coverage.zh).toHaveLength(17);
+  expect(coverage.en.reduce((sum,item)=>sum+item.questionCount,0)).toBe(112);
+  expect(coverage.zh.reduce((sum,item)=>sum+item.questionCount,0)).toBe(112);
+  expect(coverage.en.every(item=>item.questionCount>0)).toBe(true);
+  expect(coverage.zh.every(item=>item.questionCount>0)).toBe(true);
+});
+
+test("Custom Flashcards report Malay coverage only when a Malay translation is supplied",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#translationSelect").selectOption("ms");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.translation_language)).toBe("ms");
+  const created=await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const collection=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"Malay support audit"});
+    if(collection.error)return {error:collection.error.message};
+    const supported=await client.rpc("save_my_flashcard_card",{
+      p_action:"create",p_card_id:null,p_collection_id:collection.data.id,p_card_type:"custom",
+      p_dictionary_word:null,p_front_text:"Good morning",p_back_text:"A greeting used in the morning.",
+      p_example_text:"Good morning, everyone.",p_translation_text:"Selamat pagi.",p_position:0
+    });
+    if(supported.error)return {error:supported.error.message};
+    return {collectionId:collection.data.id,supportedId:supported.data.id};
+  });
+  expect(created.error).toBeUndefined();
+  await page.locator("#translationSelect").selectOption("en");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.translation_language)).toBe("en");
+  const unsupported=await page.evaluate(async(collectionId)=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const result=await client.rpc("save_my_flashcard_card",{
+      p_action:"create",p_card_id:null,p_collection_id:collectionId,p_card_type:"custom",
+      p_dictionary_word:null,p_front_text:"Good evening",p_back_text:"A greeting used in the evening.",
+      p_example_text:"Good evening, everyone.",p_translation_text:"A greeting used in the evening.",p_position:1
+    });
+    return result.error?{error:result.error.message}:{id:result.data.id};
+  },created.collectionId);
+  expect(unsupported.error).toBeUndefined();
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  await expect.poll(()=>page.evaluate(()=>({
+    total:window.SwiftDictionaryFlashcards.contentStats.customCardCount,
+    supported:window.SwiftDictionaryFlashcards.contentStats.customCardMalaySupportedCount,
+    unsupported:window.SwiftDictionaryFlashcards.contentStats.customCardMalayUnsupportedCount
+  }))).toEqual({total:2,supported:1,unsupported:1});
+});
+
+test("English Sentence Recall shows its Malay example translation",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("en");
+  await page.locator("#translationSelect").selectOption("ms");
+  await beginRecall(page,"sentence","beginner","all");
+  await expect(page.locator(".flash-translation-hint")).toBeVisible();
+  await expect(page.locator(".flash-translation-hint")).toContainText("Terjemahan Bahasa Melayu:");
+  await expect(page.locator(".flash-translation-hint")).not.toContainText("[object Object]");
+  const translation=await page.locator(".flash-translation-hint").innerText();
+  const sentence=translation.replace("Terjemahan Bahasa Melayu:","").trim();
+  expect(sentence).not.toBe("");
+  const curatedExamples=await page.evaluate(()=>{
+    const keys=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en;
+    const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.en;
+    return keys.map(key=>rows[key]?.exampleMs).filter(Boolean);
+  });
+  expect(curatedExamples).toContain(sentence);
+});
+test("Chinese Sentence Recall shows its curated Malay example translation",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("ms");
+  await beginRecall(page,"sentence","beginner","all");
+  await expect(page.locator(".flash-translation-hint")).toBeVisible();
+  await expect(page.locator(".flash-translation-hint")).toContainText("Terjemahan Bahasa Melayu:");
+  const sentence=(await page.locator(".flash-translation-hint").innerText()).replace("Terjemahan Bahasa Melayu:","").trim();
+  const curated=await page.evaluate(()=>{
+    const keys=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.zh;
+    const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.zh;
+    return keys.map(key=>rows[key]?.exampleMs).filter(Boolean);
+  });
+  expect(curated).toContain(sentence);
 });
 
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
@@ -235,7 +379,7 @@ test("Word Recall hides answers during memory, reveals answer phase, and shows t
 test("Answer now skips memory and Next immediately begins another unique round",async({page})=>{
   await page.clock.install();
   await openMockFlashcards(page);
-  await beginRecall(page,"word","beginner","all",60);
+  await beginRecall(page,"word","beginner","all",60,false);
   const action=page.locator("#flashPhaseAction");
   await expect(action).toBeVisible();
   await expect(action).toHaveText("Answer now");
@@ -569,6 +713,7 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
   const recentGames=page.locator("#flashcardsPage .flash-home > .flash-section").last();
   await expect(recentGames).toContainText("Recent games");
   await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
+  await expect(recentGames.locator(".flash-card-row").first()).toContainText("Simplified Chinese course");
   await page.locator('[data-action="open-review"]').click();
   const translationTab=page.locator('.flash-review-tab[data-value="translation"]');
   await expect(translationTab).toHaveCSS("background-color","rgb(189, 118, 46)");
@@ -582,6 +727,185 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
   await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
 });
 
+
+test("Weak Memory translation lookups are indexed once across repeated detail renders",async({page})=>{
+  await openMockFlashcards(page);
+  const seeded=await page.evaluate(async()=>{
+    const words=(window.SWIFT_CHINESE_FLASHCARDS?.characters||[]).slice(0,80);
+    if(words.length<80)throw new Error("The Chinese Flashcard fixtures must contain at least 80 characters.");
+    const now=new Date().toISOString();
+    window.__swiftDictionaryMock.seedFlashcardData({
+      reviewItems:words.map(item=>({card_key:"dict:zh:"+String(item.word),mode:"word",incorrect_count:1,last_incorrect_at:now})),
+      history:[]
+    });
+    await window.SwiftDictionaryFlashcards.refreshDashboardData();
+    return words.length;
+  });
+  expect(seeded).toBe(80);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator('[data-action="open-review"]').click();
+  await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await expect(page.locator(".flash-review-item")).toHaveCount(40);
+  await page.locator('[data-action="review-load-more"]').click();
+  await expect(page.locator(".flash-review-item")).toHaveCount(80);
+  await page.locator(".flash-review-entry").first().click();
+  await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+  await page.locator('[data-action="review-tab"][data-value="translation"]').click();
+  await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await page.locator('[data-action="review-tab"][data-value="word"]').click();
+  await page.locator(".flash-review-list").evaluate(node=>node.dataset.preserveDuringDetailUpdate="true");
+  await page.locator(".flash-review-entry").last().click();
+  await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+  await expect(page.locator(".flash-review-list")).toHaveAttribute("data-preserve-during-detail-update","true");
+});
+
+test("Weak Memory review renders large lists without repeated dictionary scans",async({page})=>{
+  await openMockFlashcards(page);
+  const seeded=await page.evaluate(async()=>{
+    const words=[
+      ...(window.SWIFT_ENGLISH_BASE_DICTIONARY||[]),
+      ...(window.SWIFT_ENGLISH_EXPANSION||[])
+    ].filter(item=>item?.word).slice(0,80);
+    if(words.length<80)throw new Error("The English dictionary fixtures must contain at least 80 words.");
+    const now=new Date().toISOString();
+    window.__swiftDictionaryMock.seedFlashcardData({
+      reviewItems:words.map(item=>({
+        card_key:"dict:"+String(item.word).toLocaleLowerCase("en"),
+        mode:"word",incorrect_count:1,last_incorrect_at:now
+      })),
+      history:[]
+    });
+    await window.SwiftDictionaryFlashcards.refreshDashboardData();
+    return words.length;
+  });
+  expect(seeded).toBe(80);
+  await page.locator('[data-action="open-review"]').click();
+  await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await expect(page.locator(".flash-review-item")).toHaveCount(40,{timeout:10000});
+  await page.locator('[data-action="review-load-more"]').click();
+  await expect(page.locator(".flash-review-item")).toHaveCount(80,{timeout:10000});
+  await page.locator(".flash-review-entry").last().click();
+  await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+});
+
+test("Weak Memory review indexes large Chinese and Malay card banks without blocking detail lookup",async({page})=>{
+  await openMockFlashcards(page);
+  for(const language of ["zh","ms"]){
+    await page.locator("#courseSelect").selectOption(language);
+    await expect(page.locator("#courseSelect")).toHaveValue(language);
+    const seeded=await page.evaluate(async(language)=>{
+      const source=language==="zh"
+        ? [...(window.SWIFT_CHINESE_FLASHCARDS?.characters||[]),...(window.SWIFT_CHINESE_FLASHCARDS?.vocabulary||[]),...(window.SWIFT_CHINESE_FLASHCARDS?.phrases||[])]
+        : (window.SWIFT_MALAY_DICTIONARY||[]).filter(item=>item?.word&&item?.definition);
+      const words=source.filter(item=>item?.word).slice(0,80);
+      if(words.length<80)throw new Error("The "+language+" review fixtures must contain at least 80 cards.");
+      const now=new Date().toISOString();
+      window.__swiftDictionaryMock.seedFlashcardData({
+        reviewItems:words.map(item=>({
+          card_key:"dict:"+language+":"+String(item.word).trim().toLocaleLowerCase("en"),
+          mode:"word",incorrect_count:1,last_incorrect_at:now
+        })),
+        history:[]
+      });
+      await window.SwiftDictionaryFlashcards.refreshDashboardData();
+      return words.length;
+    },language);
+    expect(seeded).toBe(80);
+    await page.locator('[data-action="open-review"]').click();
+    await expect(page.locator(".flash-review-modal")).toBeVisible();
+    await expect(page.locator(".flash-review-item")).toHaveCount(40,{timeout:10000});
+    await page.locator('[data-action="review-load-more"]').click();
+    await expect(page.locator(".flash-review-item")).toHaveCount(80,{timeout:10000});
+    await page.locator(".flash-review-entry").last().click();
+    await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+    await page.locator('[data-action="close-overlay"]').first().click();
+  }
+});
+
+test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
+  await openMockFlashcards(page);
+  // Keep the fixed mock-control widget from intercepting the game-review button.
+  await page.locator("#swiftMockPanel").evaluate(node=>node.hidden=true);
+  // Use deterministic completed-session fixtures here. Separate browser tests
+  // exercise live answer/timer transitions; this test focuses on the review
+  // persistence contract and rendered per-card details without relying on
+  // random distractor order or a long real-time game loop.
+  const completed=await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner",p_duration_seconds:60});
+    if(started.error)throw new Error(started.error.message);
+    const snapshot=(word,options,selected,correct)=>({
+      recall_mode:"word",prompt:"Choose the correct meaning of "+word+".",
+      card:{word,definition:"A saved review definition.",course:"en"},
+      options:options.map(text=>({text})),
+      selected_option_index:selected,correct_option_index:correct,
+      selected_answer:options[selected],correct_answer:options[correct]
+    });
+    const results=[
+      {card_key:"dict:hello",mode:"word",correct:true,unanswered:false,
+       snapshot:snapshot("hello",["a greeting","a farewell","an apology","a request"],0,0)},
+      {card_key:"dict:goodbye",mode:"word",correct:false,unanswered:false,
+       snapshot:snapshot("goodbye",["a greeting","a farewell","an apology","a request"],0,1)}
+    ];
+    const saved=await client.rpc("complete_my_flashcard_game",{p_session_id:started.data.session_id,p_results:results});
+    if(saved.error)throw new Error(saved.error.message);
+    const review=await client.rpc("get_my_flashcard_game_review",{p_session_id:started.data.session_id});
+    if(review.error)throw new Error(review.error.message);
+    return {sessionId:started.data.session_id,result:saved.data,review:review.data};
+  });
+  expect(completed.result.words_seen).toBe(2);
+  expect(completed.result.incorrect_count).toBe(1);
+  expect(completed.review.review_available).toBe(true);
+  expect(completed.review.items).toHaveLength(2);
+  expect(completed.review.items[1].is_correct).toBe(false);
+  expect(completed.review.items[1].selected_answer).toBe("a greeting");
+  expect(completed.review.items[1].correct_answer).toBe("a farewell");
+
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  await page.locator('[data-action="open-review"]').click();
+  await expect(page.locator(".flash-review-item").first()).toBeVisible();
+  await expect(page.locator(".flash-review-list")).toContainText("goodbye");
+  await page.locator('[data-action="close-overlay"]').last().click();
+
+  await page.locator('[data-action="review-game"]').first().click();
+  await expect(page.locator(".flash-game-review-modal .flash-review-card")).toHaveCount(2);
+  const incorrect=page.locator(".flash-game-review-modal .flash-review-card").filter({hasText:"goodbye"});
+  await expect(incorrect).toContainText("Incorrect");
+  await expect(incorrect).toContainText("a greeting");
+  await expect(incorrect).toContainText("a farewell");
+});
+
+test("Legacy Flashcard games show recoverable missed cards as a partial review",async({page})=>{
+  await openMockFlashcards(page);
+  // Keep the fixed mock-control widget from intercepting the game-review button.
+  await page.locator("#swiftMockPanel").evaluate(node=>node.hidden=true);
+  const started=new Date(Date.now()-5*60000).toISOString();
+  const completed=new Date(Date.now()-4*60000).toISOString();
+  await page.evaluate(({started,completed})=>{
+    window.__swiftDictionaryMock.seedFlashcardData({
+      history:[{id:"legacy-malay-session",mode:"word",difficulty:"beginner",status:"completed",
+        words_seen:10,correct_count:5,incorrect_count:5,unanswered_count:0,
+        started_at:started,completed_at:completed,duration_seconds:60,
+        learning_language_code:"ms",translation_language_code:"en"}],
+      reviewItems:[
+        {card_key:"dict:ms:awan",mode:"word",incorrect_count:1,last_incorrect_at:completed,last_session_id:"legacy-malay-session"},
+        {card_key:"dict:ms:berita",mode:"word",incorrect_count:1,last_incorrect_at:completed,last_session_id:"legacy-malay-session"}
+      ]
+    });
+  },{started,completed});
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  const recent=page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).last();
+  await expect(recent).toContainText("Malay course");
+  await recent.locator('[data-action="review-game"]').click();
+  const modal=page.locator(".flash-game-review-modal");
+  await expect(modal).toBeVisible();
+  await expect(modal).toContainText("Partial review only");
+  await expect(modal).toContainText("awan");
+  await expect(modal).toContainText("berita");
+  await expect(modal).toContainText("the list may be incomplete");
+  await expect(modal).not.toContainText("Correct answer");
+  await expect(modal).not.toContainText("Your answer");
+});
 test("Recent games paginate ten at a time and game review has a top close control",async({page})=>{
   await openMockFlashcards(page);
   await page.evaluate(()=>{
@@ -590,12 +914,17 @@ test("Recent games paginate ten at a time and game review has a top close contro
       started_at:new Date(Date.now()-index*60000).toISOString(),
       completed_at:new Date(Date.now()-index*60000).toISOString(),
       words_seen:10,correct_count:7,incorrect_count:3,unanswered_count:0,
+      learning_language_code:["en","zh","ms"][index%3],translation_language_code:"en",
       review_available:true,review_items:[]
     }));
     window.__swiftDictionaryMock.seedFlashcardData({history});
   });
   await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
   await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
+  const firstPageGames=await page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row").allTextContents();
+  expect(firstPageGames.some(text=>text.includes("English course"))).toBe(true);
+  expect(firstPageGames.some(text=>text.includes("Simplified Chinese course"))).toBe(true);
+  expect(firstPageGames.some(text=>text.includes("Malay course"))).toBe(true);
   await expect(page.locator('[data-action="history-next"]')).toBeVisible();
   await page.locator('[data-action="history-next"]').click();
   await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);

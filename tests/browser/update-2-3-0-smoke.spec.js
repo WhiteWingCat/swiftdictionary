@@ -555,6 +555,46 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.allowanceUsage.find(row => row.activity_type === "daily_topic").used_count)).toBe(1);
 });
 
+test("Daily Application renders nested localized question and option objects as text, not object coercions", async ({ page }) => {
+  await installDailyLearningMock(page,"daily-object-question-user","free","en","ms");
+  await page.goto("/");
+  await page.evaluate(() => {
+    const packageContent=window.SWIFT_CONTENT_PACKAGES?.get("en")?.dailyLearning;
+    const applications=packageContent?.applications || window.SWIFT_DAILY_LEARNING_CONTENT?.en?.applications || [];
+    for (const application of applications) {
+      for (const question of application.questions || []) {
+        question.q={
+          en:"Object prompt for " + application.id + ": what is the safest next step?",
+          ms:"Apakah langkah seterusnya yang paling selamat?",
+          zh:"接下来最安全的步骤是什么？"
+        };
+        question.options=(question.options||[]).map((option,index)=>{
+          const en=typeof option==="string"?option:(typeof option.en==="string"?option.en:typeof option.text==="string"?option.text:typeof option.text?.en==="string"?option.text.en:typeof option.value==="string"?option.value:"Option "+(index+1));
+          return {
+            en,
+            ms:"Pilihan Bahasa Melayu " + (index+1),
+            zh:"中文选项 " + (index+1),
+            text:{
+              en,
+              ms:"Pilihan Bahasa Melayu " + (index+1),
+              zh:"中文选项 " + (index+1)
+            }
+          };
+        });
+      }
+    }
+  });
+  await page.locator('[data-page="lessons"]').click();
+  await page.locator('[data-daily-tab="daily_application"]').click();
+  await page.locator('#dailyActivityGrid [data-start-daily="daily_application"]').click();
+  const questions=page.locator("#dailyActivityReader #dailyQuestions");
+  await expect(questions.locator(".daily-question").first()).toBeVisible();
+  const rendered=await questions.innerText();
+  expect(rendered).toContain("Object prompt for");
+  expect(rendered).toContain("Pilihan Bahasa Melayu");
+  expect(rendered).not.toContain("[object Object]");
+});
+
 test("signed-in Daily Application submits only aggregate first-try results", async ({ page }) => {
   await installDailyLearningMock(page, "daily-user-b");
   await page.goto("/");
@@ -714,7 +754,7 @@ window.__SWIFT_TEST_INITIAL_USER = ${JSON.stringify(initialUser)};`
   }));
 }
 
-async function installDailyLearningMock(page, userId = "daily-user-a", plan = "free") {
+async function installDailyLearningMock(page, userId = "daily-user-a", plan = "free", learningLanguage = "en", translationLanguage = "zh") {
   await page.unroute("**/supabase-config.js");
   await page.route("**/supabase-config.js", route => route.fulfill({
     status: 200,
@@ -746,8 +786,8 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
           user_preferences: [{
             user_id: ${JSON.stringify(userId)},
             timezone: "Asia/Kuala_Lumpur",
-            learning_language: "en",
-            translation_language: "zh",
+            learning_language: ${JSON.stringify(learningLanguage)},
+            translation_language: ${JSON.stringify(translationLanguage)},
             daily_topic_enabled: true,
             daily_application_enabled: true,
             daily_discovery_enabled: true,
@@ -1105,6 +1145,27 @@ test("Daily Discovery shows one Free entry and three identical Premium entries g
   await freePage.close();
   await premiumPageA.close();
   await premiumPageB.close();
+});
+
+test("Malay Daily Discovery uses only the 93 approved dictionary-derived catalogue IDs", async ({ page }) => {
+  await installDailyLearningMock(page,"daily-discovery-malay-user","free","ms","en");
+  await page.goto("/");
+  const pool=await page.evaluate(()=>window.SWIFT_DAILY_LEARNING_CONTENT.ms.discovery.map(item=>({id:item.id,word:item.word})));
+  expect(pool).toHaveLength(93);
+  expect(new Set(pool.map(item=>item.id)).size).toBe(93);
+  expect(pool.every(item=>item.id.startsWith("ms-discovery-dict-"))).toBeTruthy();
+  const dictionaryWords=await page.evaluate(()=>window.SWIFT_MALAY_DICTIONARY.map(item=>item.word));
+  expect(pool.every(item=>dictionaryWords.includes(item.word))).toBeTruthy();
+  await page.locator('[data-page="lessons"]').click();
+  await page.locator('[data-daily-tab="daily_discovery"]').click();
+  await page.locator('#dailyActivityGrid [data-start-daily="daily_discovery"]').click();
+  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  const start=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.find(call=>call.name==="start_daily_activity_session"));
+  const approvedId=start.args.p_content_id.split(":")[0];
+  expect(pool.map(item=>item.id)).toContain(approvedId);
+  expect(start.args.p_topic_id).toBeNull();
+  expect(start.args.p_difficulty).toBeNull();
+  expect(start.args.p_source).toBe("daily");
 });
 
 test("Daily Discovery uses dictionary layout and the approved global catalogue metadata", async ({ page }) => {

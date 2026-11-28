@@ -47,12 +47,12 @@ select
   'en',
   true
 from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
-cross join generate_series(1,5) n
+cross join generate_series(1,8) n
 on conflict (activity_type,content_id,language_code)
 do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=true;
 
 -- Synthetic bank: 3-session target capacity for all three difficulties,
--- with five distinct topics and five approved lesson mappings.
+-- with eight distinct topics and eight approved lesson mappings.
 insert into private.quiz_question_bank(
   question_id,revision,learning_language_code,translation_language_code,
   source_lesson_id,topic_id,difficulty,learning_objective_id,prompt_learning,prompt_translation,
@@ -60,8 +60,8 @@ insert into private.quiz_question_bank(
 )
 select
   prefix||'-'||n,1,'en','zh',
-  prefix||'-lesson-'||(((n-1)%5)+1),
-  'topic-'||(((n-1)%5)+1),
+  prefix||'-lesson-'||(((n-1)%8)+1),
+  'topic-'||(((n-1)%8)+1),
   difficulty,
   'synthetic-objective-'||prefix,
   'Select the correct answer for '||prefix||' question '||n||'.',
@@ -90,7 +90,7 @@ insert into private.quiz_question_bank(
 )
 select
   prefix||'-definition-'||n,1,'en','zh',
-  prefix||'-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),difficulty,
+  prefix||'-lesson-'||(((n-1)%8)+1),'topic-'||(((n-1)%8)+1),difficulty,
   'word_definition','en','synthetic-objective-'||prefix,
   'Which meaning best matches definition item '||n||' for '||prefix||'?',
   'Which meaning best matches definition item '||n||' for '||prefix||'?',
@@ -110,7 +110,7 @@ insert into private.quiz_question_bank(
 )
 select
   'b-zh-knowledge-'||n,1,'en','zh',
-  'b-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),'beginner',
+  'b-lesson-'||(((n-1)%8)+1),'topic-'||(((n-1)%8)+1),'beginner',
   'knowledge','en','synthetic-objective-b',
   'Chinese bank knowledge item '||n,
   '中文题库知识题'||n,
@@ -141,7 +141,7 @@ insert into private.quiz_question_bank(
 )
 select
   'b-zh-translation-'||n,1,'en','zh',
-  'b-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),'beginner',
+  'b-lesson-'||(((n-1)%8)+1),'topic-'||(((n-1)%8)+1),'beginner',
   'chinese_translation','zh','synthetic-objective-b',
   'Choose the most accurate Simplified Chinese translation for sentence '||n||'.',
   '请选择第'||n||'句最准确的简体中文翻译。',

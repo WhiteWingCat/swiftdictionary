@@ -10,6 +10,7 @@ on:
       - feature/update-2-7-0-chinese-dictionary-lessons
       - feature/update-2-8-0-chinese-quiz-flashcards
       - feature/u2-9-0-collections-feedback
+      - feature/update-3.0-phase-0-audit
   pull_request:
     branches:
       - main
@@ -20,7 +21,7 @@ permissions:
 
 concurrency:
   group: quiz-db-foundation-${{ github.ref }}-${{ github.event_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   quiz-local-supabase:
@@ -192,6 +193,31 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125105244_swiftdictionary_update_2_9_0_english_lesson_expansion.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_9_0_english_lesson_catalog.sql"
 
+      - name: Apply U3.0 Malay course staging baseline for Quiz integration tests
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/phase3_malay_enablement.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_catalog_fixture.sql"
+
+      - name: Apply U3.0 secure Malay Quiz runtime migration
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127130000_swiftdictionary_update_3_0_malay_quiz_runtime.sql"
+
+      - name: Apply and verify U3.0 Flashcard review persistence and evaluation repair
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127160000_swiftdictionary_update_3_0_malay_flashcards_runtime.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127170000_swiftdictionary_update_3_0_flashcard_support_language_snapshot.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127180000_swiftdictionary_update_3_0_flashcard_support_language_payload.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127210000_swiftdictionary_update_3_0_flashcard_snapshot_evaluation_hardening.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261128133000_swiftdictionary_update_3_0_partial_legacy_flashcard_review.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcard_review_persistence_repair.sql"
+
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
@@ -205,8 +231,9 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_rpc_test_observers.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_authenticated_rpcs.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_chinese_runtime_u2_8_0.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_runtime_u3_0.sql"
 
-      - name: Validate and import draft Quiz content in local Supabase
+      - name: Validate and import Quiz content, including the owner-authorized Malay staging release
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
           eval "$(supabase status --output env)"
@@ -215,6 +242,11 @@ jobs:
           node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs" --emit-sql > "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs"
+          grep -q "STAGING-ONLY" "$GITHUB_WORKSPACE/supabase/migrations/20261127140000_swiftdictionary_update_3_0_malay_quiz_content_release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127140000_swiftdictionary_update_3_0_malay_quiz_content_release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_release_import_assertions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_release_runtime_u3_0.sql"
 
       - name: Validate owner-authorized 199-question release export and migration
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -232,11 +264,38 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank"
 
+      - name: Apply and verify the approved 93-word Malay Daily Discovery catalogue
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127150000_swiftdictionary_update_3_0_malay_daily_discovery_catalogue_sync.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/malay_daily_discovery_catalog.sql"
+
+      - name: Validate Malay Daily Discovery runtime slug and dictionary pool
+        run: node --test tests/malay-daily-discovery-pool.test.mjs
+
       - name: Seed disposable synthetic approved Quiz content
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/quiz/quiz-browser-runtime-fixture.sql"
+
+      - name: Verify authenticated preferences access after all prerequisite migrations
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          # The browser bootstrap reads the learner's own timezone and course preferences.
+          # Keep the owner-scoped RLS policies from staging/bootstrap.sql, and explicitly
+          # restore only the authenticated table privileges required by that read/write path.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 <<'SQL'
+          grant usage on schema public to authenticated;
+          grant select, insert, update on public.user_preferences to authenticated;
+          select 1 / case
+            when has_table_privilege('authenticated','public.user_preferences','SELECT')
+             and has_table_privilege('authenticated','public.user_preferences','UPDATE')
+             and exists (select 1 from pg_policies where schemaname='public' and tablename='user_preferences' and policyname='Users can read their own preferences')
+            then 1 else 0 end;
+          SQL
 
       - name: Run authenticated Chromium Quiz runtime tests against local Supabase
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -251,6 +310,8 @@ jobs:
         run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually|Recent games paginate ten at a time|Quiz history paginates ten sessions|Chinese Sentence Recall blanks every repeated character and keeps choices hidden"
       - name: Run permanent Lessons allowance notification regression
         run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes|Daily Learning resets completed content and allowance automatically at local midnight"
+      - name: Run Chinese Dictionary pinyin, category and course-switching regressions
+        run: npx playwright test tests/browser/update-2-7-0-chinese-filters.spec.js --config=playwright.config.js --workers=1 --retries=0
 
       - name: Run Supabase security advisors against the local Quiz schema
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase

@@ -5,7 +5,13 @@ on:
     branches:
       - feature/update-2-9-0-english-dictionary-collections
       - feature/u2-9-0-collections-feedback
+      - feature/update-3.0-phase-0-audit
     paths:
+      - "js/core/**"
+      - "js/languages/**"
+      - "data/languages/**"
+      - "content/languages/**"
+      - "tests/u3-phase2-malay-dictionary.test.mjs"
       - "index.html"
       - "data/english-expansion*"
       - "data/english-baseline-categories.js"
@@ -44,6 +50,11 @@ on:
     branches:
       - main
     paths:
+      - "js/core/**"
+      - "js/languages/**"
+      - "data/languages/**"
+      - "content/languages/**"
+      - "tests/u3-phase2-malay-dictionary.test.mjs"
       - "favorite-collections.js"
       - "account-deletion.js"
       - "supabase-config.js"

@@ -1,0 +1,75 @@
+name: Generate U3.0 Malay Dictionary translation drafts
+
+on:
+  push:
+    branches:
+      - feature/update-3.0-phase-0-audit
+    paths:
+      - "data/languages/english-dictionary.js"
+      - "data/english-expansion.js"
+      - "data/languages/chinese-dictionary.js"
+      - "data/languages/malay-dictionary-manual-overrides.js"
+      - "data/chinese-characters.js"
+      - "scripts/content/generate-malay-dictionary-translations.py"
+      - "scripts/content/validate-malay-dictionary-translations.cjs"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "data/languages/english-dictionary.js"
+      - "data/english-expansion.js"
+      - "data/languages/chinese-dictionary.js"
+      - "data/languages/malay-dictionary-manual-overrides.js"
+      - "data/chinese-characters.js"
+      - "scripts/content/generate-malay-dictionary-translations.py"
+      - "scripts/content/validate-malay-dictionary-translations.cjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: u3-malay-learning-support-translations
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Generate and validate English/Chinese Dictionary Malay translations
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/update-3.0-phase-0-audit
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Export exact source inventory and manual overrides
+        run: node scripts/content/export-malay-translation-input.cjs
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install offline Argos Translate engine
+        run: python -m pip install --upgrade argostranslate
+      - name: Generate Malay translations locally
+        run: python scripts/content/generate-malay-dictionary-translations.py
+      - name: Validate complete translation coverage
+        run: |
+          node --check data/languages/malay-dictionary-translations.js
+          node scripts/content/validate-malay-dictionary-translations.cjs
+      - name: Commit generated draft translations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/languages/malay-dictionary-translations.js
+          if git diff --cached --quiet; then
+            echo "No translation output changes."
+          else
+            git commit -m "Generate complete Malay Dictionary translation drafts"
+            git fetch origin feature/update-3.0-phase-0-audit
+            git rebase origin/feature/update-3.0-phase-0-audit
+            git push origin HEAD:feature/update-3.0-phase-0-audit
+          fi

@@ -4,6 +4,10 @@ import vm from "node:vm";
 const html=fs.readFileSync("index.html","utf8");
 const css=fs.readFileSync("lessons-ui.css","utf8");
 const daily=fs.readFileSync("daily-learning.js","utf8");
+const englishLessonsSource=fs.readFileSync("data/languages/english-lessons.js","utf8");
+const englishLessonsContext={window:{}};
+vm.runInNewContext(englishLessonsSource,englishLessonsContext,{filename:"data/languages/english-lessons.js"});
+const englishLessons=englishLessonsContext.window.SWIFT_ENGLISH_LESSONS;
 const workflow=fs.readFileSync(".github/workflows/update-2-7-0-chinese-dictionary.yml","utf8");
 const build=fs.readFileSync("build.sh","utf8");
 const startAllowanceMigration=fs.readFileSync("supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql","utf8");
@@ -41,7 +45,7 @@ console.log("U2.7.0 Lessons UI structure, expandable content, practice layout, d
 
 assert(!html.includes('daily-learning-heading-mark" aria-hidden="true">✧'));
 assert(!html.includes('permanent-lessons-mark" aria-hidden="true">✦'));
-assert(daily.includes("chineseDailyLearning.applications") && daily.includes("chineseDailyLearning.topics") && daily.includes("chineseDailyLearning.discovery"));
+assert(daily.includes("const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING") && daily.includes("const dailyContentFor = language =>") && daily.includes("if (language === \"zh\") return chineseDailyLearning") && daily.includes("const dailyTopicPool = () => dailyContentFor(snapshot.learningLanguage).topics") && daily.includes("const dailyApplicationPool = () => dailyContentFor(snapshot.learningLanguage).applications") && daily.includes("const dailyDiscoveryPool = () => dailyContentFor(snapshot.learningLanguage).discovery"), "Chinese Daily Learning must be selected through the U3.0 language-owned content package.");
 assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQuestionOption(option)"));
 assert(daily.includes("window.requestAnimationFrame(() =>"));
 assert(!css.includes("@keyframes dailyDrawerIn") && !css.includes("@keyframes dailyDrawerOut"), "The drawer should use one transition-based motion system.");
@@ -51,15 +55,15 @@ const drawerMotionBlock=css.slice(drawerMotionStart);
 const normalDrawerRule=drawerMotionBlock.match(/#dailyActivityReader \.daily-activity-modal \{([\s\S]*?)\n\}/)?.[1] || "";
 assert(normalDrawerRule.includes("opacity:1;") && !normalDrawerRule.includes("opacity:.55;"), "Normal-motion drawer should slide without fading the panel itself.");
 assert(html.includes('id="dailyLearningAllowanceNote"'));
-assert(daily.includes("Each activity has one daily allowance shared between English and Simplified Chinese."));
-assert(daily.includes("每种活动在英语和简体中文课程之间共用每日额度。"));
+assert(daily.includes("Each activity has one daily allowance shared across English, Simplified Chinese and Malay."));
+assert(daily.includes("每种活动在英语、简体中文和马来语课程之间共用每日额度。"));
 assert(daily.includes('if(!cards.length && scheduled[0]) {') && daily.includes('const replayRow=historicalReplayRows.find(row=>row.content_id===scheduled[0].id)') && daily.includes('cards.push(replayRow?renderCard(scheduled[0],0,true,replayRow):renderCard(scheduled[0],0,false))'), "Daily Discovery must keep a scheduled item visible when the shared allowance was spent in another course.");
 assert(css.includes("animation:none !important"));
 assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
 assert(!html.includes("permanent-lessons-mark") && !html.includes("daily-learning-heading-mark"));
 assert(css.includes("#dailyActivityReader.daily-activity-backdrop.open{opacity:1}"));
-assert(html.includes('translationLanguage==="en"') && html.includes('class="lesson-english-line"'));
+assert(html.includes('translationLanguage==="en"') && html.includes("lesson-english-line") && css.includes(".lesson-english-line"));
 console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, translation visibility, decorative marks and drawer transitions.");
 
 
@@ -84,7 +88,10 @@ assert(css.includes("font-weight:800 !important"));
 assert(!css.includes(".lesson-focus-subject {") && !css.includes(".lesson-focus-verb {") && !css.includes(".lesson-focus-object {"));
 
 assert(html.includes('swiftdictionary:course-changed'));
-for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
+for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging']) {
+  const lesson=Object.values(englishLessons||{}).flat().find(item=>item.id===id);
+  assert(lesson && lesson.breakdown && Array.isArray(lesson.breakdown.sentence) && lesson.breakdown.sentence.length>=2,"Expected contextual English sentence breakdown: "+id);
+}
 
 assert(html.includes("pinyinForSenseExample(example,item.word,sense.part)"),"Polyphonic sense examples must use their selected reading for pinyin.");
 const chineseLessonsWithBreakdown=Object.values(chineseLessons).flat().filter(lesson=>lesson.breakdown);

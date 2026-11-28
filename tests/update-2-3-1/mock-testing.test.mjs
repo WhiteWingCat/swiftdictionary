@@ -197,8 +197,7 @@ test("Flashcard Mock User supports private collections, custom cards, mastery an
   const card=await client.rpc("save_my_flashcard_card",{
     p_action:"create",p_card_id:null,p_collection_id:collectionId,p_card_type:"custom",
     p_dictionary_word:null,p_front_text:"What is a collocation?",p_back_text:"Words that commonly occur together.",
-    p_example_text:"make a decision",p_translation_text:"常见搭配",p_position:0
-  });
+    p_example_text:"make a decision",p_translation_text:"常见搭配",p_position:0  });
   assert.equal(card.error,null);
   let data=await client.rpc("get_my_flashcard_data");
   assert.equal(data.data.collections.length,1);
@@ -397,7 +396,6 @@ test("Free users cannot start a new daily activity after one completion but can 
   const usage=await client.rpc("get_my_learning_allowance_usage");
   assert.equal(usage.data.find(row=>row.activity_type==="daily_application").used_count,1);
 });
-
 test("daily activity RPCs simulate completion and allowance use without cloud access",async()=>{
   const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
   const client=env.window.supabase.createClient();
@@ -597,8 +595,7 @@ test("Flash Recall validates distinct choices before creating a server session a
   const start=flashcardsSource.indexOf("  async function startGame(){");
   const end=flashcardsSource.indexOf("\n  function finishGame()",start);
   assert.ok(start>=0&&end>start,"Flashcards must expose a startGame flow");
-  const source=flashcardsSource.slice(start,end);
-  assert.ok(source.indexOf("makeRound(deck)")<source.indexOf('rpc("start_my_flashcard_game"'),
+  const source=flashcardsSource.slice(start,end);  assert.ok(source.indexOf("makeRound(deck)")<source.indexOf('rpc("start_my_flashcard_game"'),
     "The selected mode must have four distinct choices before a server session is created");
   assert.match(source,/state\.round=null;state\.phase="idle";state\.phaseEnds=0/,
     "A new game must not inherit the previous game's round or phase");
@@ -672,8 +669,14 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
 test("Flashcards supports Chinese-course banks and resets collection selection after deletion",()=>{
   assert.match(flashcardsSource,/function words\(language=state\.game\?\.learningLanguage\|\|course\)/,
     "Flashcards must select its dictionary bank from the active learning language");
-  assert.match(flashcardsSource,/if\(language==="zh"\).*SWIFT_CHINESE_FLASHCARDS/s,
-    "Chinese-course users must receive Chinese character, vocabulary and phrase cards");
+  assert.ok(flashcardsSource.includes("if(isChineseLanguage(language))"),
+    "Chinese Flashcards must be selected through the registered language adapter");
+  assert.ok(flashcardsSource.includes("const bank=window.SWIFT_CHINESE_FLASHCARDS||{};"),
+    "Chinese-course users must resolve the Chinese Flashcards bank");
+  for(const cardType of ["characters","vocabulary","phrases"]){
+    assert.ok(flashcardsSource.includes('map(bank.'+cardType+',"'+cardType+'")'),
+      "Chinese-course users must receive "+cardType+" cards");
+  }
   const handler=flashcardsSource.slice(flashcardsSource.indexOf('if(action==="delete-collection")'),flashcardsSource.indexOf('if(action==="remove-card")'));
   assert.ok(handler.indexOf('state.collectionId="all"')<handler.indexOf('await collectionAction("delete"'),
     "Deleting the selected collection must reset selection before the reload/render");

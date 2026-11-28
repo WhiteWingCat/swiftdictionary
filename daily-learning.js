@@ -385,9 +385,85 @@
   const esc = value => escapeHTML(String(value ?? ""));
   const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING || {topics:[],applications:[],discovery:[]};
   const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";
-  const dailyTopicPool = () => isChineseLearningCourse() ? chineseDailyLearning.topics : dailyTopics;
-  const dailyApplicationPool = () => isChineseLearningCourse() ? chineseDailyLearning.applications : dailyApplications;
-  const dailyDiscoveryPool = () => isChineseLearningCourse() ? chineseDailyLearning.discovery : dailyDiscoveryVocabulary;
+  const isMalayLearningCourse = () => snapshot.learningLanguage === "ms";
+  const dailyContentFor = language => {
+    const packageContent=window.SWIFT_CONTENT_PACKAGES?.get(language)?.dailyLearning;
+    if(packageContent){
+      const unwrap=items=>(items||[]).map(item=>item.legacySource||item);
+      return {topics:unwrap(packageContent.topics),applications:unwrap(packageContent.applications),discovery:unwrap(packageContent.discovery),revision:packageContent.revision};
+    }
+    if (language === "zh") return chineseDailyLearning;
+    if (language === "en") return { topics:dailyTopics, applications:dailyApplications, discovery:dailyDiscoveryVocabulary };
+    throw new Error("Daily Learning content is not available for language: " + language);
+  };
+  const MALAY_DAILY_DISCOVERY_APPROVED_WORDS = ["ada", "air", "ajar", "anak", "baik", "baca", "bahasa", "bantu", "besar", "boleh", "buku", "datang", "dengan", "kawan", "makan", "minum", "pergi", "rumah", "sekolah", "saya", "tidur", "tolong", "terima-kasih", "untuk", "pejabat", "pekerja", "majikan", "pekerjaan", "wang", "murah", "mahal", "bayaran", "jual", "kedai", "pasar", "pasar-raya", "resit", "bil", "bank", "akaun", "tunai", "pelanggan", "perkhidmatan", "hospital", "klinik", "ubat", "doktor", "jururawat", "polis", "balai-polis", "bomba", "pejabat-pos", "perpustakaan", "universiti", "kolej", "peperiksaan", "soalan", "jawapan", "latihan", "komputer", "telefon", "internet", "surat", "e-mel", "mesyuarat", "cuti", "ribut", "banjir", "kemalangan", "kecemasan", "selamat", "bahaya", "peluang", "tujuan", "sebab", "akibat", "berjaya", "gagal", "kereta", "motosikal", "basikal", "teksi", "tren", "stesen", "lapangan-terbang", "pesawat", "tiket", "perjalanan", "peta", "hotel", "jiran", "kampung", "taman"];
+  const malayDailyDiscoverySlug = value => String(value || "")
+    .normalize("NFKD").replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  const buildMalayDailyDiscoveryPool = () => {
+    const dictionary = window.SWIFT_MALAY_DICTIONARY || [];
+    const bySlug = new Map(dictionary.map(entry => [malayDailyDiscoverySlug(entry.word), entry]));
+    return MALAY_DAILY_DISCOVERY_APPROVED_WORDS.map(slug => {
+      const entry = bySlug.get(slug);
+      if (!entry) return null;
+      return {
+        ...entry,
+        id: "ms-discovery-dict-" + slug,
+        title: entry.word,
+        word: entry.word,
+        definition: entry.definition,
+        en: entry.definitionEn,
+        zh: entry.definitionZh,
+        definitionEn: entry.definitionEn,
+        definitionZh: entry.definitionZh,
+        examples: Array.isArray(entry.examples) ? entry.examples : [],
+        related: Array.isArray(entry.related) ? entry.related : [],
+        topicId: null,
+        difficulty: null
+      };
+    }).filter(Boolean);
+  };
+  if (window.SWIFT_MALAY_DAILY_LEARNING) {
+    window.SWIFT_MALAY_DAILY_LEARNING.discovery = buildMalayDailyDiscoveryPool();
+  }
+  const dailyTopicPool = () => dailyContentFor(snapshot.learningLanguage).topics || [];
+  const dailyApplicationPool = () => dailyContentFor(snapshot.learningLanguage).applications || [];
+  const dailyDiscoveryPool = () => dailyContentFor(snapshot.learningLanguage).discovery || [];
+  window.SWIFT_DAILY_LEARNING_CONTENT = {
+    en:{topics:dailyTopics,applications:dailyApplications,discovery:dailyDiscoveryVocabulary},
+    zh:chineseDailyLearning,
+    ms:window.SWIFT_MALAY_DAILY_LEARNING || {topics:[],applications:[],discovery:[]}
+  };
+  // The legacy app loads large language dictionaries and content packages as
+  // separate scripts. Rebuild Malay Discovery once the complete package
+  // bootstrap has run so a partially available dictionary can never freeze a
+  // truncated 70-word pool into the browser runtime.
+  const refreshMalayDailyDiscoveryPackage = () => {
+    const malayContent=window.SWIFT_MALAY_DAILY_LEARNING;
+    if(!malayContent)return;
+    const discovery=buildMalayDailyDiscoveryPool();
+    malayContent.discovery=discovery;
+    if(window.SWIFT_DAILY_LEARNING_CONTENT?.ms){
+      window.SWIFT_DAILY_LEARNING_CONTENT.ms.discovery=discovery;
+    }
+    const currentPackage=window.SWIFT_CONTENT_PACKAGES?.get("ms");
+    const legacySource=window.SWIFT_LEGACY_CONTENT_DATA?.ms;
+    if(!currentPackage||!legacySource)return;
+    legacySource.dailyLearning=malayContent;
+    window.SWIFT_CONTENT_PACKAGES.createPackage({
+      languageCode:"ms",
+      contentVersion:currentPackage.contentVersion,
+      content:{
+        dictionary:{entries:legacySource.dictionary||[]},
+        lessons:{permanent:legacySource.lessons||[],translations:legacySource.lessonTranslations||{}},
+        dailyLearning:malayContent,
+        quiz:{source:legacySource.quizSource||null},
+        flashcards:{source:legacySource.flashcards?.source||legacySource.flashcardSource||null,cards:legacySource.flashcards?.cards||[]}
+      },
+      metadata:currentPackage.metadata
+    });
+  };
+  window.addEventListener("swiftdictionary:content-packages-ready",refreshMalayDailyDiscoveryPackage,{once:true});
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
   function clearDailyResetTimer() {
@@ -431,22 +507,87 @@
     "application-modals-02":"用情态动词表达确定性","application-inversion-02":"识别主语与助动词倒装","application-idioms-02":"理解常见表达","application-academic-02":"使用谨慎的学术表达","application-precise-02":"选择准确的表达动词"
   };
   const dailyUi = (english, chinese) => translationLanguage === "zh" ? chinese : english;
+  function dailyLocalizedText(value, language=snapshot.learningLanguage, fallback="") {
+    const safeFallback=typeof fallback==="string"||typeof fallback==="number"?String(fallback):"";
+    if (value === null || value === undefined) return safeFallback;
+    if (typeof value === "string" || typeof value === "number") return String(value);
+    if (Array.isArray(value)) return value.map(item=>dailyLocalizedText(item,language,"")).filter(Boolean).join(" ");
+    if (typeof value === "object") {
+      const order=language==="ms"?["ms","malay","translation","learning","en","zh"]
+        :language==="zh"?["zh","zh-CN","zh-Hans","chinese","translation","learning","en","ms"]
+        :["en","english","translation","learning","ms","zh"];
+      for (const code of order) {
+        if (value[code] !== undefined && value[code] !== null && value[code] !== value) {
+          const resolved=dailyLocalizedText(value[code],language,"");
+          if(resolved.trim())return resolved;
+        }
+      }
+      for (const key of ["text","value","label","content","title","body","definition","description","prompt","question","sentence","meaning","answer"]) {
+        if(value[key]!==undefined&&value[key]!==null&&value[key]!==value){
+          const resolved=dailyLocalizedText(value[key],language,"");
+          if(resolved.trim())return resolved;
+        }
+      }
+    }
+    return safeFallback;
+  }
+  function dailySupportText(value, language=translationLanguage) {
+    return dailyLocalizedText(value,language,"");
+  }
+  function dailyDisplaySupport(value, primary) {
+    const support=dailyLocalizedText(value,translationLanguage,"");
+    return support&&support!==primary&&translationLanguage!==snapshot.learningLanguage?support:"";
+  }
   function dailyTitle(item) {
-    if (translationLanguage === "zh") return item.titleZh || dailyChineseTitles[item.id] || item.title;
-    return isChineseLearningCourse() && item.titleEn ? item.titleEn : item.title;
+    const primary=dailyLocalizedText(item.title,snapshot.learningLanguage,item.id||"");
+    const candidate=translationLanguage==="ms"?(item.titleMs||item.title)
+      :translationLanguage==="zh"?(item.titleZh||dailyChineseTitles[item.id]||item.title)
+      :(isChineseLearningCourse()&&item.titleEn?item.titleEn:item.title);
+    return dailyLocalizedText(candidate,translationLanguage,primary);
   }
   function selectedTranslation(item) {
-    if (isChineseLearningCourse()) return translationLanguage === "en" && item.en ? '<p class="daily-translation"><strong>English support:</strong> ' + esc(item.en) + '</p>' : "";
-    if (translationLanguage === "zh" && item.zh) return '<p class="daily-translation"><strong>中文说明：</strong>' + esc(item.zh) + '</p>';
-    return "";
+    const candidate=translationLanguage==="ms"?(item.bodyMs||item.ms||item.body)
+      :translationLanguage==="zh"?(item.zh||item.bodyZh||item.body)
+      :(item.en||item.bodyEn||item.body);
+    const primary=dailyLocalizedText(item.body,snapshot.learningLanguage,"");
+    const support=dailyLocalizedText(candidate,translationLanguage,"");
+    if (!support || support===primary || translationLanguage===snapshot.learningLanguage) return "";
+    const label=translationLanguage==="ms"?"Bahasa Melayu":translationLanguage==="zh"?"中文说明：":"English support:";
+    return '<p class="daily-translation"><strong>'+esc(label)+'</strong> '+esc(support)+'</p>';
   }
   function dailyQuestionPrompt(question) {
-    if (!isChineseLearningCourse()) return esc(question.q || "");
-    return '<span class="daily-chinese-line">' + esc(question.q || "") + '</span>' + (question.qPinyin ? '<span class="daily-pinyin-line">' + esc(question.qPinyin) + '</span>' : "") + (translationLanguage === "en" && question.qEn ? '<span class="daily-translation-line">' + esc(question.qEn) + '</span>' : "");
+    const source=question?.q??question?.prompt??question?.question??question?.stem??question?.title??"";
+    const primary=dailyLocalizedText(source,snapshot.learningLanguage,question?.qMs||question?.qEn||question?.qZh||"");
+    const candidate=translationLanguage==="ms"?(question?.qMs||dailySupportText(source,"ms"))
+      :translationLanguage==="zh"?(question?.qZh||dailySupportText(source,"zh"))
+      :(question?.qEn||dailySupportText(source,"en"));
+    const support=dailyLocalizedText(candidate,translationLanguage,"");
+    const pinyin=isChineseLearningCourse()&&question?.qPinyin?'<span class="daily-pinyin-line">'+esc(question.qPinyin)+'</span>':"";
+    const translated=support&&support!==primary&&translationLanguage!==snapshot.learningLanguage
+      ?'<span class="daily-translation-line">'+esc(support)+'</span>':"";
+    return (isChineseLearningCourse()?'<span class="daily-chinese-line">'+esc(primary)+'</span>':esc(primary))+pinyin+translated;
   }
   function dailyQuestionOption(option) {
-    if (!isChineseLearningCourse() || !option || typeof option !== "object") return esc(option);
-    return '<span class="daily-chinese-line">' + esc(option.zh || "") + '</span>' + (option.pinyin ? '<span class="daily-pinyin-line">' + esc(option.pinyin) + '</span>' : "") + (translationLanguage === "en" && option.en ? '<span class="daily-translation-line">' + esc(option.en) + '</span>' : "");
+    const primary=dailyLocalizedText(option,snapshot.learningLanguage,option&&typeof option==="object"?dailyLocalizedText(option.text,snapshot.learningLanguage,""):"");
+    const candidate=translationLanguage==="ms"?(option?.ms||dailySupportText(option,"ms"))
+      :translationLanguage==="zh"?(option?.zh||dailySupportText(option,"zh"))
+      :(option?.en||dailySupportText(option,"en"));
+    const support=dailyLocalizedText(candidate,translationLanguage,"");
+    const pinyin=isChineseLearningCourse()&&option&&typeof option==="object"&&option.pinyin
+      ?'<span class="daily-pinyin-line">'+esc(option.pinyin)+'</span>':"";
+    const translated=support&&support!==primary&&translationLanguage!==snapshot.learningLanguage
+      ?'<span class="daily-translation-line">'+esc(support)+'</span>':"";
+    return (isChineseLearningCourse()?'<span class="daily-chinese-line">'+esc(primary)+'</span>':esc(primary))+pinyin+translated;
+  }
+  function dailyQuestionExplanation(question) {
+    const source=question?.explanation??question?.explanationLearning??question?.explanation_learning??question?.rationale??question?.feedback??"";
+    const primary=dailyLocalizedText(source,snapshot.learningLanguage,"");
+    const candidate=translationLanguage==="ms"?(question?.explanationMs||question?.explanation_ms||dailySupportText(source,"ms"))
+      :translationLanguage==="zh"?(question?.zh||question?.explanationZh||dailySupportText(source,"zh"))
+      :(question?.explanationEn||question?.explanation_en||dailySupportText(source,"en"));
+    const support=dailyLocalizedText(candidate,translationLanguage,"");
+    return support&&support!==primary&&translationLanguage!==snapshot.learningLanguage
+      ?[primary,support].filter(Boolean).join(" "):primary;
   }
   function renderDailyStaticLabels() {
     const zh = translationLanguage === "zh";
@@ -454,7 +595,7 @@
       dailyLearningEyebrow: zh ? "每日练习" : "DAILY PRACTICE",
       dailyLearningHeading: zh ? "每日学习" : "Daily Learning",
       dailyLearningIntro: zh ? "通过个性化活动和全球共享的每日词汇，建立持续学习的习惯。" : "Build consistency with personalised activities and a shared daily dictionary word for everyone.",
-      dailyLearningAllowanceNote: zh ? "每种活动在英语和简体中文课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared between English and Simplified Chinese. Completing an activity in either course uses that activity’s allowance in both courses. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
+      dailyLearningAllowanceNote: zh ? "每种活动在英语、简体中文和马来语课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared across English, Simplified Chinese and Malay. Completing an activity in any course uses that activity’s shared allowance. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
       dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities",
       dailyPreferencesHeading: zh ? "我的每日活动" : "My daily activities"
     };
@@ -477,8 +618,8 @@
     const timezone = snapshot.timezone || "UTC";
     const plan = snapshot.plan === "premium" ? "Premium" : "Free";
     status.textContent = dailyUi(
-      "Your daily activities reset at midnight (" + timezone + "). Plan: " + plan + ". Learning course: " + (snapshot.learningLanguage === "zh" ? "Simplified Chinese" : "English") + ".",
-      "每日活动于午夜重置（" + timezone + "）。方案：" + plan + "。学习课程：" + (snapshot.learningLanguage === "zh" ? "简体中文" : "英语") + "。"
+      "Your daily activities reset at midnight (" + timezone + "). Plan: " + plan + ". Learning course: " + (snapshot.learningLanguage === "zh" ? "Simplified Chinese" : snapshot.learningLanguage === "ms" ? "Malay" : "English") + ".",
+      "每日活动于午夜重置（" + timezone + "）。方案：" + plan + "。学习课程：" + (snapshot.learningLanguage === "zh" ? "简体中文" : snapshot.learningLanguage === "ms" ? "马来语" : "英语") + "。"
     );
     if (snapshot.timezoneChangePending) status.textContent += dailyUi(
       " Your preferred timezone (" + snapshot.preferredTimezone + ") will take effect after this allowance day ends.",
@@ -492,6 +633,14 @@
 
   function makeRevisionContent(topicId, contentId, reason) {
     const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
+    if (isMalayLearningCourse()) {
+      const applications = dailyApplicationPool();
+      const source = applications.find(item => item.id === String(contentId || "").split(":")[2] && item.topicId === topicId)
+        || applications.find(item => item.topicId === topicId) || applications[0];
+      if (!source) return null;
+      return {...source,id:contentId,title:"Ulang kaji: "+source.title,titleEn:"Review: "+(source.titleEn || source.title),titleZh:"复习："+(source.titleZh || source.title),
+        body:reason || source.body,questions:(source.questions || []).map(question=>({...question,options:(question.options || []).slice()}))};
+    }
     if (chineseCourse) {
       const applications = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
       const sourceId = String(contentId || "").split(":")[2] || null;
@@ -549,7 +698,7 @@
       .map(row => row.topic_id).filter(Boolean));
     const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
     const applicationPool = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
-    const topics = chineseCourse
+    const topics = (chineseCourse || isMalayLearningCourse())
       ? [...new Set(applicationPool.map(item => item.topicId).filter(Boolean))]
       : [...new Set([...dailyApplications.map(item => item.topicId),
         "sentence-basics","verb-tenses","nouns-and-articles","everyday-vocabulary",
@@ -615,7 +764,7 @@
     return [0,1,2].map(slot => {
       const word = pool[(firstIndex + slot) % poolSize], examples=Array.isArray(word.examples)?word.examples:[];
       return {...word,id:word.id+":"+globalDay,title:word.word||word.title,example:examples[0],examples:examples.slice(1),
-        zh:word.definitionZh,scheduleVersion:DAILY_DISCOVERY_SCHEDULE_VERSION,scheduleSlot:slot+1};
+        en:word.definitionEn||word.en,zh:word.definitionZh||word.zh,scheduleVersion:DAILY_DISCOVERY_SCHEDULE_VERSION,scheduleSlot:slot+1};
     });
   }
 
@@ -844,10 +993,14 @@
       const disabledReason = !currentUser || !supabaseClient ? dailyUi("Sign in to start and sync this activity.","登录后即可开始活动并同步进度。") : allowanceUnavailable ? dailyUi("Your allowance could not be checked. Please refresh before starting this activity.","无法确认活动额度，请刷新页面后再试。") : "";
       const disabled = !!disabledReason || (exhausted && !alreadyCompleted);
       const indexAttribute = discoveryIndex === null ? "" : ' data-discovery-index="' + discoveryIndex + '"';
-      const heading = type === "daily_discovery" ? content.word : dailyTitle(content);
-      const subheading = type === "daily_discovery" ? '<p class="muted-note">' + esc(content.phonetic || "") + " · " + esc(content.part || "") + "</p>" : "";
-      const reason = type === "daily_revision" ? '<p class="daily-activity-meta"><span class="daily-activity-tag">' + esc(translationLanguage === "zh" ? "根据你的学习记录选择" : content.body) + "</span></p>" : "";
-      const preview = type === "daily_discovery" ? '<p class="daily-card-preview">' + esc(isChineseLearningCourse() ? (content.definitionZh || content.definition || meta.descriptionZh) : (content.definition || meta.description)) + "</p>" + (isChineseLearningCourse() && translationLanguage === "en" && content.definition ? '<p class="daily-translation-line daily-card-translation">' + esc(content.definition) + "</p>" : "") : '<p class="daily-card-preview">' + esc(content.body || content.description || (isChineseLearningCourse() ? meta.descriptionZh : meta.description)) + "</p>" + (isChineseLearningCourse() && translationLanguage === "en" && content.en ? '<p class="daily-translation-line daily-card-translation">' + esc(content.en) + "</p>" : "");
+      const heading = type === "daily_discovery" ? dailyLocalizedText(content.word||content.title,snapshot.learningLanguage,content.id||"") : dailyTitle(content);
+      const subheading = type === "daily_discovery" ? '<p class="muted-note">' + esc(dailyLocalizedText(content.phonetic,snapshot.learningLanguage,"")) + " · " + esc(dailyLocalizedText(content.part,snapshot.learningLanguage,"")) + "</p>" : "";
+      const reasonText=dailyLocalizedText(content.body,snapshot.learningLanguage,"");
+      const reason = type === "daily_revision" ? '<p class="daily-activity-meta"><span class="daily-activity-tag">' + esc(translationLanguage === "zh" ? "根据你的学习记录选择" : reasonText) + "</span></p>" : "";
+      const discoveryDefinition=dailyLocalizedText(translationLanguage==="ms"?(content.definitionMs||content.definition):translationLanguage==="zh"?(content.definitionZh||content.definition):(content.definitionEn||content.definition),translationLanguage,meta.description);
+      const discoverySupport=dailyDisplaySupport(content.definitionMs||content.definition,discoveryDefinition);
+      const primaryPreview=dailyLocalizedText(content.body||content.description,snapshot.learningLanguage,isChineseLearningCourse()?meta.descriptionZh:meta.description);
+      const preview = type === "daily_discovery" ? '<p class="daily-card-preview">' + esc(discoveryDefinition) + "</p>" + (discoverySupport ? '<p class="daily-translation-line daily-card-translation">' + esc(discoverySupport) + "</p>" : "") : '<p class="daily-card-preview">' + esc(primaryPreview) + "</p>" + selectedTranslation(content);
       return '<article class="daily-activity-card" data-activity-card="' + type + '"' + (discoveryIndex === null ? "" : ' data-discovery-card="' + (discoveryIndex+1) + '"') + ">"
         + '<div class="daily-activity-card-copy"><div class="daily-activity-meta"><span class="daily-activity-tag">' + esc(statusLabel) + "</span>"
         + (discoveryIndex === null ? "" : '<span class="daily-activity-tag">' + esc(dailyUi("Discovery " + (discoveryIndex+1) + " of " + limit,"每日发现 " + (discoveryIndex+1) + " / " + limit)) + "</span>")
@@ -983,12 +1136,16 @@
     const closeButton = '<button type="button" class="icon-button" data-daily-close aria-label="' + esc(dailyUi("Close activity","关闭活动")) + '">×</button>';
     let html = "";
     if (isDiscovery) {
-      const examples = [content.example,...(content.examples || [])].filter(Boolean);
-      html = '<div class="modal-head"><div><h2 class="modal-word">' + esc(content.word || content.title) + '</h2><div class="modal-pronunciation">' + esc(content.phonetic || "") + '</div><span class="part">' + esc(dailyUi(content.part || "Vocabulary",content.part === "adjective" ? "形容词" : content.part === "noun" ? "名词" : content.part === "verb" ? "动词" : "词汇")) + '</span></div>' + closeButton + '</div>'
+      const examples = [content.example,...(content.examples || [])].map(value=>dailyLocalizedText(value,snapshot.learningLanguage,"")).filter(Boolean);
+      const discoveryWord=dailyLocalizedText(content.word||content.title,snapshot.learningLanguage,content.id||"");
+      const discoveryDefinition=dailyLocalizedText(translationLanguage==="ms"?(content.definitionMs||content.definition):translationLanguage==="zh"?(content.definitionZh||content.definition):(content.definitionEn||content.definition),translationLanguage,"");
+      const discoveryExampleSupport=dailyLocalizedText(translationLanguage==="ms"?content.exampleMs:translationLanguage==="zh"?content.exampleZh:content.exampleEn,translationLanguage,"");
+      const discoveryTip=dailyLocalizedText(translationLanguage==="zh"&&content.tipZh?content.tipZh:translationLanguage==="ms"&&content.tipMs?content.tipMs:content.tip,snapshot.learningLanguage,"");
+      html = '<div class="modal-head"><div><h2 class="modal-word">' + esc(discoveryWord) + '</h2><div class="modal-pronunciation">' + esc(dailyLocalizedText(content.phonetic,snapshot.learningLanguage,"")) + '</div><span class="part">' + esc(dailyUi(dailyLocalizedText(content.part,snapshot.learningLanguage,"Vocabulary"),dailyLocalizedText(content.partZh,"zh","词汇"))) + '</span></div>' + closeButton + '</div>'
         + '<div class="modal-content">'
-        + '<section class="detail-section"><h3>' + esc(dailyUi("Definition","释义")) + '</h3><p class="definition">' + esc(isChineseLearningCourse() ? (content.definitionZh || content.definition || "") : (translationLanguage === "zh" && content.definitionZh ? content.definitionZh : content.definition || "")) + '</p>' + (isChineseLearningCourse() && translationLanguage === "en" && content.definition ? '<p class="daily-translation-line">' + esc(content.definition) + '</p>' : '') + '</section>'
-        + '<section class="detail-section"><h3>' + esc(dailyUi("Examples","例句")) + '</h3><ul class="example-list">' + examples.map(example=>'<li>' + esc(example) + '</li>').join("") + '</ul>' + (isChineseLearningCourse() && translationLanguage === "en" && content.exampleEn ? '<p class="daily-translation-line">' + esc(content.exampleEn) + '</p>' : '') + '</section>'
-        + (content.tip ? '<section class="detail-section"><h3>' + esc(dailyUi("Usage note","用法提示")) + '</h3><p class="tip">' + esc(translationLanguage === "zh" && content.tipZh ? content.tipZh : content.tip) + '</p></section>' : "")
+        + '<section class="detail-section"><h3>' + esc(dailyUi("Definition","释义")) + '</h3><p class="definition">' + esc(discoveryDefinition) + '</p>' + (discoveryExampleSupport ? '<p class="daily-translation-line">' + esc(discoveryExampleSupport) + '</p>' : '') + '</section>'
+        + '<section class="detail-section"><h3>' + esc(dailyUi("Examples","例句")) + '</h3><ul class="example-list">' + examples.map(example=>'<li>' + esc(example) + '</li>').join("") + '</ul></section>'
+        + (discoveryTip ? '<section class="detail-section"><h3>' + esc(dailyUi("Usage note","用法提示")) + '</h3><p class="tip">' + esc(discoveryTip) + '</p></section>' : "")
         + '<p class="daily-discovery-frequency-note">' + esc(dailyUi("A less-common word to recognise and understand. Frequency classification is curated, not a live conversational-corpus ranking.","认识并理解一个较少见的词汇。目前词频分类由编辑整理，并非实时口语语料库排名。")) + '</p>'
         + '<p class="muted-note">' + esc(completed ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : dailyUi("In progress · no allowance used until completion","进行中 · 完成后才会扣除次数")) + '</p>';
     } else {
@@ -997,20 +1154,22 @@
         + '<div class="daily-activity-meta"><span class="daily-activity-tag">' + esc(dailyUi(activityMeta[activityType].title,activityMeta[activityType].titleZh)) + '</span>'
         + (completed ? '<span class="daily-activity-tag">' + esc(dailyUi("Completed · replay is free","已完成 · 可免费重温")) + '</span>' : '<span class="daily-activity-tag">' + esc(dailyUi("In progress · no allowance used yet","进行中 · 尚未扣除次数")) + '</span>')
         + '</div><h2>' + esc(dailyTitle(content)) + '</h2>';
-      if (content.body) html += '<p>' + esc(content.body) + '</p>';
-      if (isChineseLearningCourse() && content.bodyPinyin) html += '<p class="daily-pinyin-line">' + esc(content.bodyPinyin) + '</p>';
+      const bodyText=dailyLocalizedText(content.body,snapshot.learningLanguage,dailyLocalizedText(content.description,snapshot.learningLanguage,""));
+      if (bodyText) html += '<p>' + esc(bodyText) + '</p>';
+      if (isChineseLearningCourse() && content.bodyPinyin) html += '<p class="daily-pinyin-line">' + esc(dailyLocalizedText(content.bodyPinyin,"zh","")) + '</p>';
       html += selectedTranslation(content);
       const examples = [
-        ...(content.example ? String(content.example).split(/\s+\/\s+/) : []),
+        ...(content.example ? [content.example] : []),
         ...(Array.isArray(content.examples) ? content.examples : [])
-      ].filter(example => typeof example === "string" && example.trim());
+      ].map(example=>dailyLocalizedText(example,snapshot.learningLanguage,"")).filter(Boolean);
       if (examples.length) {
         html += '<section class="daily-reader-example daily-examples-box"><strong>' + esc(dailyUi("Examples","例句")) + '</strong><ul>' + examples.map(example=>'<li>' + esc(example) + '</li>').join("") + '</ul>';
         if (isChineseLearningCourse() && content.examplePinyin) html += '<p class="daily-pinyin-line">' + esc(content.examplePinyin) + '</p>';
         if (isChineseLearningCourse() && translationLanguage === "en" && content.exampleEn) html += '<p class="daily-translation-line">' + esc(content.exampleEn) + '</p>';
         html += '</section>';
       }
-      if (content.tip) html += '<div class="daily-reader-example"><strong>' + esc(dailyUi("Usage note","用法提示")) + '</strong><p>' + esc(content.tip) + '</p></div>';
+      const tipText=dailyLocalizedText(translationLanguage==="ms"?(content.tipMs||content.tip):translationLanguage==="zh"?(content.tipZh||content.tip):(content.tipEn||content.tip),translationLanguage,"");
+      if (tipText) html += '<div class="daily-reader-example"><strong>' + esc(dailyUi("Usage note","用法提示")) + '</strong><p>' + esc(tipText) + '</p></div>';
       if (isQuiz) {
         html += '<p class="daily-practice-instruction">' + esc(isChineseLearningCourse() ? dailyUi("Read the Chinese prompt and choose the correct answer. Pinyin is provided to support pronunciation.","阅读中文题目并选择正确答案。题目提供拼音辅助发音。") : dailyUi("Read each English sentence and choose the correct answer. The English wording is kept as the learning context.","请阅读每个英语句子并选择正确答案。英语题目和选项会保留，以便学习英语语境。")) + '</p><div id="dailyQuestions">';
         content.questions.forEach((question,index) => {
@@ -1064,8 +1223,9 @@
           const feedback=byId("daily-feedback-"+index);
           if(feedback) {
             const question=existingState.content.questions[index];
-            const explanation=question.explanation || "";
-            const zhExplanation=translationLanguage === "zh" && question.zh ? " 中文说明：" + question.zh : "";
+            const explanation=dailyQuestionExplanation(question);
+            const zhExplanationText=dailyLocalizedText(question.zh,"zh","");
+            const zhExplanation=translationLanguage === "zh" && zhExplanationText ? " 中文说明：" + zhExplanationText : "";
             feedback.textContent=dailyUi(passed?"Correct. ":"Not quite. Try again. ",passed?"正确。":"还不正确，请再试一次。")+explanation+zhExplanation;
           }
         }
@@ -1143,8 +1303,9 @@
       }
       passed[i] = correct;
       const question = content.questions[i];
-      const explanation = isChineseLearningCourse() ? (translationLanguage === "en" ? (question.explanationEn || question.explanation || "") : (question.explanation || "")) : (translationLanguage === "zh" && question.zh ? question.zh : question.explanation || "");
-      const translatedExplanation = !isChineseLearningCourse() && translationLanguage === "zh" && question.zh ? " 中文说明：" + question.zh : "";
+      const explanation = dailyQuestionExplanation(question);
+      const translatedExplanationText=dailyLocalizedText(question.zh,"zh","");
+      const translatedExplanation = !isChineseLearningCourse() && translationLanguage === "zh" && translatedExplanationText ? " 中文说明：" + translatedExplanationText : "";
       if (correct) feedback.textContent = dailyUi("Correct. ","正确。") + explanation + translatedExplanation;
       else {
         allCorrect = false;
@@ -1460,7 +1621,8 @@
       const activityType=String(row.activity_type||"");
       if (!activityMeta[activityType]) throw new Error("This daily activity type is not supported for review.");
       const previousCourse=course;
-      const languageCode=row.language_code==="zh"?"zh":"en";
+      const languageCode=window.SWIFT_LANGUAGE_REGISTRY?.get(row.language_code)?.status==="active"?row.language_code:null;
+      if(!languageCode)throw new Error("This activity belongs to a language that is not currently active.");
       course=languageCode;
       try {
         const session={

@@ -1,0 +1,85 @@
+name: Generate U3.0 Malay learning-support translations
+
+on:
+  push:
+    branches:
+      - feature/update-3.0-phase-0-audit
+    paths:
+      - "data/languages/english-lessons.js"
+      - "data/chinese-lessons.js"
+      - "data/chinese-flashcards.js"
+      - "flashcards.js"
+      - "content/quiz/questions.en-zh.draft.json"
+      - "content/quiz/questions.zh-en.draft.json"
+      - "scripts/content/export-malay-learning-support-input.cjs"
+      - "scripts/content/generate-malay-learning-support.py"
+      - "scripts/content/validate-malay-learning-support.cjs"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "data/languages/english-lessons.js"
+      - "data/chinese-lessons.js"
+      - "data/chinese-flashcards.js"
+      - "flashcards.js"
+      - "content/quiz/questions.en-zh.draft.json"
+      - "content/quiz/questions.zh-en.draft.json"
+      - "scripts/content/export-malay-learning-support-input.cjs"
+      - "scripts/content/generate-malay-learning-support.py"
+      - "scripts/content/validate-malay-learning-support.cjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: u3-malay-learning-support-v2
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Generate and validate Malay lesson, Quiz and Flashcard support
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/update-3.0-phase-0-audit
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Export lesson, Quiz and Flashcard source inventory
+        run: node scripts/content/export-malay-learning-support-input.cjs
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install offline Argos Translate engine
+        run: python -m pip install --upgrade argostranslate
+      - name: Generate Malay support translations
+        run: python scripts/content/generate-malay-learning-support.py
+      - name: Validate complete support coverage
+        run: |
+          node --check data/languages/malay-learning-support-translations.js
+          node scripts/content/validate-malay-learning-support.cjs
+      - name: Commit generated staging drafts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/languages/malay-learning-support-translations.js
+          if git diff --cached --quiet; then
+            echo "No Malay learning-support output changes."
+          else
+            git commit -m "Generate Malay lesson, Quiz and Flashcard support drafts"
+            git fetch origin feature/update-3.0-phase-0-audit
+            if ! git rebase origin/feature/update-3.0-phase-0-audit; then
+              # If the dictionary workflow commits the same support asset first,
+              # preserve the already-committed complete support inventory and avoid overwriting it.
+              git checkout --theirs data/languages/malay-learning-support-translations.js
+              git add data/languages/malay-learning-support-translations.js
+              GIT_EDITOR=true git rebase --continue || git rebase --skip
+            fi
+            git push origin HEAD:feature/update-3.0-phase-0-audit
+          fi

@@ -23,7 +23,8 @@ function extractArray(source, marker){
  throw new Error("Could not find array end for "+marker);
 }
 const app=fs.readFileSync(path.join(root,"index.html"),"utf8");
-const baseline=extractArray(app,"const englishWords = [");
+const baselineSource=fs.readFileSync(path.join(data,"languages","english-dictionary.js"),"utf8");
+const baseline=extractArray(baselineSource,"window.SWIFT_ENGLISH_BASE_DICTIONARY = ");
 const categoryPath=path.join(data,"english-baseline-categories.js");
 if(!fs.existsSync(categoryPath))throw new Error("Missing data/english-baseline-categories.js");
 const categorySource=fs.readFileSync(categoryPath,"utf8");

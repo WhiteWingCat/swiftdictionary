@@ -545,7 +545,13 @@
       const front=String(args.p_front_text||"").trim(),back=String(args.p_back_text||"").trim(),type=args.p_card_type;
       if(!front||front.length>500||!back||back.length>2000||!["dictionary","custom"].includes(type))return {data:null,error:error("Invalid Flashcard content.","22023")};
       if(type==="dictionary"&&(rows.some(row=>row.collection_id===collection.id&&row.card_type==="dictionary"&&String(row.dictionary_word).toLowerCase()===String(args.p_dictionary_word).toLowerCase()&&row.id!==card?.id)))return {data:null,error:error("This dictionary word is already in the collection.","23505")};
-      const values={user_id:user.id,collection_id:collection.id,card_type:type,language_code:"en",dictionary_word:type==="dictionary"?args.p_dictionary_word:null,front_text:front,back_text:back,example_text:args.p_example_text||null,translation_text:args.p_translation_text||null,position:Number(args.p_position)||0,updated_at:now()};
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const values={user_id:user.id,collection_id:collection.id,card_type:type,
+        language_code:preference.learning_language||"en",
+        translation_language_code:preference.translation_language||"zh",
+        dictionary_word:type==="dictionary"?args.p_dictionary_word:null,
+        front_text:front,back_text:back,example_text:args.p_example_text||null,
+        translation_text:args.p_translation_text||null,position:Number(args.p_position)||0,updated_at:now()};
       if(action==="create"){Object.assign(values,{id:"mock-flash-card-"+(++sequence),created_at:now()});rows.push(values);persist(db);return {data:clone(values),error:null};}
       if(!card)return {data:null,error:error("Card not found.","P0002")};
       Object.assign(card,values);persist(db);return {data:clone(card),error:null};
@@ -557,7 +563,7 @@
       const translationLanguage=userPreference.translation_language||"zh";
       const allowedModes=learningLanguage==="zh"?["word","definition","translation","sentence"]:["word","definition","mixed","sentence"];
       if(!["beginner","intermediate","advanced"].includes(difficulty)||![60,120].includes(duration)
-        ||!["en","zh"].includes(learningLanguage)||!["en","zh"].includes(translationLanguage)||!allowedModes.includes(mode)){
+        ||!["en","zh","ms"].includes(learningLanguage)||!["en","zh","ms"].includes(translationLanguage)||!allowedModes.includes(mode)){
         return {data:null,error:error("Invalid Flashcard language, mode, difficulty or challenge duration.","22023")};
       }
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
@@ -611,7 +617,20 @@
     if (name==="get_my_flashcard_game_review") {
       const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id&&row.status==="completed");
       if(!session)return {data:null,error:error("Flashcard game not found.")};
-      const items=Array.isArray(session.review_items)?session.review_items:[];
+      let items=Array.isArray(session.review_items)?session.review_items:[];
+      let reviewStatus=items.length?"full":"unavailable";
+      if(!items.length){
+        items=(tables.flashcard_review_items||[])
+          .filter(row=>row.user_id===user.id&&row.last_session_id===session.id)
+          .sort((left,right)=>String(left.last_incorrect_at||"").localeCompare(String(right.last_incorrect_at||""))||String(left.card_key).localeCompare(String(right.card_key)))
+          .map((row,index)=>{
+            const cardKey=String(row.card_key||"");
+            const word=cardKey.replace(/^dict:(?:en|zh|ms):/,"");
+            return {position:index+1,card_key:cardKey,mode:row.mode,recall_mode:row.mode,
+              incorrect_count:row.incorrect_count,card:{word,course:session.learning_language_code||"en"}};
+          });
+        if(items.length)reviewStatus="partial";
+      }
       return {data:{
         session_id:session.id,mode:session.mode,difficulty:session.difficulty,
         learning_language_code:session.learning_language_code||"en",
@@ -619,7 +638,8 @@
         duration_seconds:session.duration_seconds,started_at:session.started_at,
         completed_at:session.completed_at,words_seen:session.words_seen,
         correct_count:session.correct_count,incorrect_count:session.incorrect_count,
-        unanswered_count:session.unanswered_count,review_available:items.length>0,items
+        unanswered_count:session.unanswered_count,review_available:items.length>0,
+        review_status:reviewStatus,items
       },error:null};
     }
     if (name==="abandon_my_flashcard_game") {
@@ -740,6 +760,7 @@
     selectionGeneration,
     seedFlashcardData,
     seedQuizHistory,
+    getPreferences:()=>clone(state().tables.user_preferences||[]),
     getClient:()=>client
   });
 

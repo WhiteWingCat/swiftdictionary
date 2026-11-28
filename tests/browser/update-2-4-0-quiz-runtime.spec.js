@@ -104,10 +104,6 @@ async function updateLearningPreference(userId, learningLanguage, translationLan
 
 async function openQuiz(page, session) {
   await installLocalSupabaseConfig(page);
-  const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
-  await page.addInitScript(({ key, value }) => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, { key: storageKey, value: session });
   const browserDiagnostics = [];
   page.__quizNativeDialogCount = 0;
   page.on("console", message => {
@@ -115,8 +111,31 @@ async function openQuiz(page, session) {
   });
   page.on("pageerror", error => browserDiagnostics.push("pageerror: " + error.message));
   page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
-  page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
+  page.on("request", request => {
+    if (request.url().includes("/rest/v1/user_preferences")) {
+      const headers=request.headers();
+      browserDiagnostics.push("user_preferences request auth=" + (headers.authorization ? "present" : "missing") +
+        " apikey=" + (headers.apikey ? "present" : "missing"));
+    }
+  });
+  page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else{try{await dialog.accept();}catch(error){if(!/already handled/i.test(error.message||""))throw error;}} });
   await page.goto("/#quiz");
+  // Start each authenticated browser scenario from a clean same-origin state.
+  // The about:blank document has an opaque origin and does not expose localStorage.
+  await page.evaluate(()=>localStorage.clear());
+  // Ask the installed Supabase JS client for its actual storage key instead of
+  // guessing from the local URL hostname (which differs across local runtimes).
+  const storageKey = await page.evaluate(({ url, key }) => {
+    if (!window.supabase?.createClient) throw new Error("Supabase JS client library did not load.");
+    const probe = window.supabase.createClient(url, key);
+    return probe.auth.storageKey;
+  }, { url: apiUrl, key: anonKey });
+  if (!storageKey) throw new Error("Supabase JS did not expose its session storage key.");
+  await page.evaluate(({ key, value }) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, { key: storageKey, value: session });
+  await page.reload();
+  await expect.poll(() => page.evaluate(key => localStorage.getItem(key) !== null, storageKey)).toBe(true);
   const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
     headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
     data: {}
@@ -147,7 +166,7 @@ async function openQuiz(page, session) {
       accountStatus: document.querySelector("#accountStatus")?.textContent,
       quizStatus: document.querySelector("#quizStatus")?.textContent,
       configLoaded: !!window.SWIFT_SUPABASE_CONFIG,
-      authStorageKeys: Object.keys(localStorage).filter(key => key.includes("auth-token"))
+      authStorageKeys: Object.keys(localStorage).filter(key => key.includes("auth-token")), localStorageKeys: Object.keys(localStorage), sessionStorageKeys: Object.keys(sessionStorage)
     }));
     throw new Error("Authenticated Quiz did not initialize. Browser diagnostics: " +
       JSON.stringify(diagnostics) + "; browser errors: " + browserDiagnostics.join(" | ") +
@@ -280,6 +299,12 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await selectTranslationAndWaitForSave(page,"zh");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
+  await selectTranslationAndWaitForSave(page,"ms");
+  const expectedMalayPractice=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.lessons.en[ls.active.id][0].q);
+  expect(expectedMalayPractice).toBeTruthy();
+  await expect(page.locator(".lesson-question-title").first()).toContainText(expectedMalayPractice);
+  await selectTranslationAndWaitForSave(page,"zh");
+  await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
 
   // Ensure the authenticated preference has settled in the disposable DB before
   // the Quiz page snapshots its language pair. The selector change above is
@@ -336,8 +361,11 @@ test("Free user can switch translation in an open permanent lesson and complete 
   // The learner can change an answer before submission.
   await page.locator('[data-quiz-option="b"]').click();
   await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.saving)).toBe(false);
+  await expect.poll(()=>page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.selected_option_id)).toBe("b");
   await page.locator('[data-quiz-option="a"]').click();
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.saving)).toBe(false);
   await expect.poll(()=>page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.selected_option_id)).toBe("a");
   await page.locator("#quizNext").click();
   const nextPosition=targetPosition+1;
@@ -498,6 +526,9 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
 
 test("learning introductions are independent per page and help controls reopen them", async ({ page }) => {
   await openQuiz(page, freeSession);
+  // This test asserts the English introduction copy; the disposable account
+  // is initially configured with Chinese as its translation language.
+  await selectTranslationAndWaitForSave(page,"en");
   await page.goto("/#lessons");
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Lessons");
@@ -674,17 +705,74 @@ test("Translation changes on the Quiz overview do not auto-open an unfinished se
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
 });
-test("Learning course selector enables Chinese Quiz and shows a short refresh confirmation", async ({ page }) => {
-  await openQuiz(page, freeSession);
+test("Changing course during an active Quiz switches to the selected course overview",async({page})=>{
+  await openQuiz(page,freeSession);
   await selectCourse(page,"zh");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("zh");
+  await startQuiz(page,"beginner");
+  await expect(page.locator("#quizSession")).toBeVisible();
+
+  await selectCourse(page,"ms");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("ms");
+  await expect(page.locator("#quizSession")).toBeHidden();
+  await expect(page.locator("#quizResults")).toBeHidden();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("日常马来语词汇");
+
+  await selectCourse(page,"en");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("en");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("基础词汇");
+  await expect(page.locator("#quizHome")).toBeVisible();
+});
+
+test("Quiz overview refreshes its question bank for every supported learning course", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await selectCourseAndWaitForSave(page,"zh");
   // The learning course is Chinese, while the selected interface/translation language remains English.
   await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("zh");
+  await expect.poll(()=>page.evaluate(async()=>{const {data}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();return data?.learning_language;})).toBe("zh");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("建立汉字");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
-  await selectCourse(page,"en");
+
+  await selectCourseAndWaitForSave(page,"ms");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("ms");
+  await expect.poll(()=>page.evaluate(async()=>{const {data}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();return data?.learning_language;})).toBe("ms");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("日常马来语词汇");
+  await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
+
+  const quizRequestsBeforeEnglish=await page.evaluate(()=>quizHomeRequestId);
+  await selectCourseAndWaitForSave(page,"en");
+  await expect.poll(()=>page.evaluate(()=>quizHomeRequestId)).toBeGreaterThan(quizRequestsBeforeEnglish);
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("en");
+  await expect.poll(()=>page.evaluate(async()=>{const {data}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();return data?.learning_language;})).toBe("en");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("基础词汇");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+});
+
+test("Quiz course switching remains consistent across repeated English, Chinese and Malay changes",async({page})=>{
+  test.setTimeout(120000);
+  await openQuiz(page,freeSession);
+  const sequence=["zh","ms","en","ms","zh","en"];
+  for(const language of sequence){
+    const previousRequest=await page.evaluate(()=>quizHomeRequestId);
+    await selectCourseAndWaitForSave(page,language);
+    await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code),{timeout:20000}).toBe(language);
+    await expect.poll(()=>page.evaluate(()=>quizHomeRequestId),{timeout:20000}).toBeGreaterThan(previousRequest);
+    await expect(page.locator("#quizHome")).toBeVisible();
+    await expect(page.locator("#quizSession")).toBeHidden();
+    await expect(page.locator("#quizResults")).toBeHidden();
+    const expected=language==="zh"?"建立汉字":language==="ms"?"日常马来语词汇":"基础词汇";
+    await expect(page.locator("#quizDifficultyGrid")).toContainText(expected);
+    await expect.poll(()=>page.evaluate(async()=>{
+      const {data,error}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();
+      if(error)throw error;
+      return data?.learning_language;
+    })).toBe(language);
+  }
 });
 
 test("Chinese Quiz choices do not reveal answers through English translations or Pinyin",async({page})=>{
@@ -1095,6 +1183,60 @@ test("Quiz start allowance warning uses the centered website dialog and cancella
   await expect(page.locator("#quizAllowanceText")).toContainText("0 / 1");
 });
 
+test("English and Chinese Quiz render complete Malay support for prompts, options and explanations",async({page})=>{
+  for(const learningLanguage of ["en","zh"]){
+    const user=await createRuntimeUser(learningLanguage+"-quiz-malay-support","free");
+    const session=await signIn(user.email,user.password);
+    await updateLearningPreference(user.id,learningLanguage,"ms");
+    await openQuiz(page,session);
+    await expect(page.locator("#courseSelect")).toHaveValue(learningLanguage);
+    await expect(page.locator("#translationSelect")).toHaveValue("ms");
+    await startQuiz(page,"beginner");
+    await expect(page.locator("#quizSession")).toBeVisible();
+    // The local Auth suite deliberately seeds synthetic b-runtime/i-runtime
+    // question IDs. Give those test-only questions explicit Malay fixture rows;
+    // the production approved-bank coverage is independently checked by the
+    // Malay Quiz source-inventory tests.
+    await page.evaluate(()=>{
+      const snapshot=quizPageState.session;
+      const support=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.quiz[snapshot.learning_language_code]||
+        (window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.quiz[snapshot.learning_language_code]={});
+      for(const question of snapshot.questions){
+        const options={};
+        for(const option of question.options||[]){
+          const text="Pilihan ujian "+String(option.id||"");
+          options[option.id]={learning:text,translation:text};
+        }
+        support[question.question_id]={
+          promptLearning:"Soalan ujian "+String(question.question_id),
+          explanationLearning:"Penerangan ujian "+String(question.question_id),
+          options
+        };
+      }
+      quizRenderSession();
+    });
+    await expect(page.locator("#quizTranslationNotice")).toBeVisible();
+    const coverage=await page.evaluate(()=>{
+      const snapshot=quizPageState.session;
+      const rows=snapshot.questions.map(question=>quizMalayQuestion(question,snapshot.learning_language_code));
+      const reviewMarkup=quizBuildResultMarkup(snapshot);
+      return {
+        effective:quizEffectiveTranslationCode(snapshot),
+        count:snapshot.questions.length,
+        complete:rows.every((row,index)=>row?.promptLearning?.trim()&&row?.explanationLearning?.trim()&&snapshot.questions[index].options.every(option=>{
+          const translated=quizMalayOption(snapshot.questions[index],option,snapshot.learning_language_code);
+          return typeof translated==="string"&&translated.trim();
+        })),
+        explanationInReview:rows.some(row=>row?.explanationLearning&&reviewMarkup.includes(quizEscape(row.explanationLearning)))
+      };
+    });
+    expect(coverage).toMatchObject({effective:"ms",count:10,complete:true,explanationInReview:true});
+    await expect(page.locator("#quizTranslationNotice")).toContainText("Bahasa Melayu");
+    await expect(page.locator("#quizQuestionArea .quiz-option-copy small")).toHaveCount(4);
+    await page.locator("#quizAbandon").click();
+    await expect(page.locator("#quizHome")).toBeVisible();
+  }
+});
 test("Chinese Quiz shows English translations for knowledge prompts when English is selected", async ({ page }) => {
   const user=await createRuntimeUser("chinese-quiz-english-prompt-support","free");
   const session=await signIn(user.email,user.password);
@@ -1150,7 +1292,7 @@ test("Dashboard allowance progress is presented as actionable tasks and Daily Hi
   await expect(tasks.nth(6)).toContainText("Play 3 Flashcard games today.");
   await expect(tasks.nth(6)).toContainText("0/3");
   await page.locator('[data-dashboard-tab="history"]').click();
-  await expect(page.locator("#dashboardDailyHistory .dashboard-history-group")).toHaveCount(3);
+  await expect(page.locator("#dashboardDailyHistory .dashboard-history-group")).toHaveCount(4);
   const historyColumns=await page.locator("#dashboardDailyHistory").evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(" ").filter(Boolean).length);
   expect(historyColumns).toBe(1);
 });

@@ -1,0 +1,246 @@
+# PR-triggered U3.0 translation generation checkpoint — 2026-11-28
+# U3.0 Malay lexical normalisation revision: 2026-11-28
+import json
+import os
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+
+import argostranslate.package
+import argostranslate.translate
+
+INPUT = Path("tmp/u3-malay-dictionary-translation-input.json")
+OUTPUT = Path("data/languages/malay-dictionary-translations.js")
+
+def install_pair(source_code, target_code):
+    available = argostranslate.package.get_available_packages()
+    package = next((item for item in available if item.from_code == source_code and item.to_code == target_code), None)
+    if package is None:
+        raise RuntimeError(f"Argos model not found: {source_code}->{target_code}")
+    installed = argostranslate.translate.get_installed_languages()
+    if any(lang.code == source_code for lang in installed) and any(lang.code == target_code for lang in installed):
+        # Still verify that this exact direction is installed below.
+        pass
+    existing = next((item for item in installed if item.code == source_code), None)
+    if existing:
+        try:
+            existing.get_translation(next(lang for lang in installed if lang.code == target_code))
+            return
+        except Exception:
+            pass
+    package_path = package.download()
+    argostranslate.package.install_from_path(package_path)
+
+def get_translation(source_code, target_code):
+    installed = argostranslate.translate.get_installed_languages()
+    source = next((lang for lang in installed if lang.code == source_code), None)
+    target = next((lang for lang in installed if lang.code == target_code), None)
+    if source is None or target is None:
+        raise RuntimeError(f"Missing installed Argos language: {source_code}->{target_code}")
+    return source.get_translation(target)
+
+def clean(text):
+    return " ".join(str(text or "").replace("\u0000", "").split()).strip()
+
+def normalise_malay(value):
+    text=clean(value)
+    # Convert common Indonesian lexical forms and pronoun constructions to
+    # Malaysian Standard Malay before the strict residual-term check.
+    text=re.sub(r"\b(dengan|untuk|kepada|daripada|dari|pada|bersama|milik)mu\b",
+                lambda match:match.group(1)+" anda",text,flags=re.IGNORECASE)
+    text=text.replace("♪","")
+    text=re.sub(r"\b(\w+)(?:\s+\1)+\b",r"\1",text,flags=re.IGNORECASE)
+    replacements=[
+      (r"\bkakakku\b","kakak saya"),
+      (r"\bpertanyaan\b","soalan"),
+      (r"\bkursi\b","kerusi"),
+      (r"\bkebijakan\b","dasar"),
+      (r"\bmenaruh\b","meletakkan"),
+      (r"\bfilm\b","filem"),
+      (r"\bdimana\b","di mana"),
+      (r"\bsaja\b","sahaja"),
+      (r"\bmengirimkan\b","menghantar"),
+      (r"\bmengirim\b","menghantar"),
+      (r"\bmendapatkan\b","mendapat"),
+      (r"\bmeskipun\b","walaupun"),
+      (r"\bterjadi\b","berlaku"),
+      (r"\bsaat\b","ketika"),
+      (r"\bberbicara\b","bercakap"),
+      (r"\bmengerti\b","memahami"),
+      (r"\bjadwal\b","jadual"),
+      (r"\bdosing\b","dos"),
+      (r"\bekonomis\b","menjimatkan"),
+      (r"\bmemyakinkan\b","meyakinkan"),
+      (r"\bwourna\b","perjalanan"),
+      (r"\baku\b","saya"),
+      (r"\bkamu\b|\bkau\b","anda"),
+      (r"\bkhawatir\b","risau"),
+      (r"\b(?:halo)\b","helo"),
+      (r"\bayolah\b","ayuh"),
+      (r"\bayo\b","mari"),
+      (r"\bteman\b","rakan"),
+      (r"\bketemu\b","bertemu"),
+      (r"\bkarena\b","kerana"),
+      (r"\bbahwa\b","bahawa"),
+      (r"\bberbeda\b","berbeza"),
+      (r"\bcoba\b","cuba"),
+      (r"\bkapan\b","bila"),
+      (r"\bsilakan\b","sila"),
+      (r"\baktivitas\b","aktiviti"),
+      (r"\bkualitas\b","kualiti"),
+      (r"\buniversitas\b","universiti"),
+      (r"\bberpikir\b","berfikir"),
+      (r"\bpikirkan\b","fikirkan"),
+      (r"\bpikir\b","fikir"),
+      (r"\bngomong\b","bercakap"),
+      (r"\bmembutuhkan\b","memerlukan"),
+      (r"\bbutuh\b","perlu"),
+      (r"\bkalian\b","anda semua"),
+      (r"\bdulu\b","dahulu"),
+      (r"\bbisa\b(?!\s+(?:ular|racun|sengat|beracun))","dapat"),
+      (r"\bkantor\b","pejabat"),
+      (r"\bkalimat\b","ayat"),
+      (r"\bbis\b","bas"),
+      (r"\b(?:nggak|enggak)\b","tidak"),
+      (r"\bbanget\b","sangat"),
+      (r"\bapotek\b","farmasi"),
+      (r"\bbahasan\b","huraian"),
+      (r"\bkeriput apel\b","epal yang rangup"),
+      (r"\bkeripik\b","kerepek"),
+      (r"\bkeriput\b","rangup"),
+      (r"\bjawaban\b","jawapan"),
+      (r"\bHukuman mana\b","Ayat manakah"),
+      (r"\benak sekali\b","sangat sedap"),
+      (r"\bapa dia\b","adakah dia"),
+      (r"\bdi hari\b","pada hari"),
+      (r"\bsemua kata dimulai\b","semua perkataan bermula"),
+      (r"\bsemua kata\b","semua perkataan"),
+      (r"\bMural a\b","sebuah mural"),
+      (r"\bANA\b","sebarang")
+    ]
+    for pattern,replacement in replacements:
+        text=re.sub(pattern,lambda match:replacement.capitalize() if match.group(0)[:1].isupper() else replacement,text,flags=re.IGNORECASE)
+    if re.search(r"\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna|jawaban|keripik|keriput|hukuman\s+mana|enak\s+sekali|apa\s+dia|di\s+hari|semua\s+kata|mural\s+a)\b",text,flags=re.IGNORECASE):
+        raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
+    return clean(text)
+MALAY_CONNECTOR_FALLBACKS = {
+    "thereupon":"kemudian","thereafter":"selepas itu","whereupon":"lalu",
+    "hereupon":"dengan itu","thus":"dengan itu","therefore":"oleh itu",
+    "moreover":"tambahan pula","furthermore":"selain itu",
+    "nevertheless":"walau bagaimanapun","nonetheless":"walau bagaimanapun",
+    "otherwise":"jika tidak","indeed":"sememangnya","subsequently":"seterusnya",
+    "accordingly":"sehubungan itu","consequently":"akibatnya","ultimately":"akhirnya",
+    "regardless":"tanpa mengira","meanwhile":"sementara itu","thereby":"dengan itu",
+    "as a result":"akibatnya","in addition":"selain itu","in conclusion":"kesimpulannya",
+    "finally":"akhir sekali","however":"walau bagaimanapun","whereas":"manakala",
+    "although":"walaupun","unless":"melainkan","either":"sama ada","as well":"juga",
+    "at least":"sekurang-kurangnya","even so":"walaupun begitu","for instance":"contohnya",
+    "for example":"contohnya","such as":"seperti","rather than":"berbanding",
+    "on the other hand":"sebaliknya","on the contrary":"sebaliknya",
+    "even though":"walaupun","because of":"disebabkan oleh","due to":"disebabkan oleh",
+    "according to":"menurut","as soon as":"sebaik sahaja","as long as":"selagi"
+}
+
+class EmptyTranslationError(RuntimeError):
+    pass
+
+def main():
+    data = json.loads(INPUT.read_text(encoding="utf-8"))
+    malay_glosses = data.get("malayGlosses", {})
+    argostranslate.package.update_package_index()
+    install_pair("en", "ms")
+    install_pair("zh", "en")
+    en_ms = get_translation("en", "ms")
+    zh_en = get_translation("zh", "en")
+
+    def translate(text, source):
+        text = clean(text)
+        if not text:
+            raise RuntimeError("Refusing to create an empty translation")
+        if source == "zh":
+            source_text = text
+            text = clean(zh_en.translate(source_text))
+            if not text or re.search(r"[\u3400-\u9fff]", text):
+                # Isolated Chinese headwords/definitions are sometimes echoed
+                # unchanged by zh→en. Prefer an exact authored Malay glossary
+                # entry; if none exists, fail rather than invent a translation.
+                gloss = clean(malay_glosses.get("zh", {}).get(source_text, ""))
+                if gloss:
+                    return normalise_malay(gloss)
+                raise EmptyTranslationError("Chinese source has no English intermediate or Malay glossary fallback: " + source_text[:80])
+        fallback = MALAY_CONNECTOR_FALLBACKS.get(text.casefold())
+        result = normalise_malay(fallback or en_ms.translate(text))
+        if not result:
+            raise EmptyTranslationError("Argos returned an empty Malay translation")
+        return result
+
+    result = {
+        "schemaVersion": 1,
+        "targetLanguage": "ms",
+        "engine": "Argos Translate (offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9)",
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "status": "machine_assisted_draft",
+        "reviewerId": None,
+        "provenance": "Generated locally in GitHub Actions from SwiftDictionary's original-authored Dictionary definitions. No DBP/PRPM/Kamus Dewan text or third-party dictionary entries were imported. Human Malaysian Standard Malay review is pending.",
+        "languages": {"en": {}, "zh": {}}
+    }
+
+    totals = {"en": {"entries": 0, "senses": 0, "manual": 0}, "zh": {"entries": 0, "senses": 0, "manual": 0}}
+    for language_key, records in (("en", data["english"]), ("zh", data["chinese"])):
+        for entry in records:
+            senses = []
+            for sense in entry["senses"]:
+                text = sense.get("manualTranslation") or translate(sense["sourceText"], sense["sourceLanguage"])
+                if sense.get("manualTranslation"):
+                    totals[language_key]["manual"] += 1
+                senses.append({
+                    "id": sense["id"],
+                    "definitionMs": text,
+                    "translationStatus": "machine_assisted_draft",
+                    "sourceLanguage": sense["sourceLanguage"]
+                })
+                totals[language_key]["senses"] += 1
+            headword_source = entry.get("headwordSource") or entry["word"]
+            headword_source_language = entry.get("headwordSourceLanguage") or language_key
+            headword_manual = clean(entry.get("headwordManual") or "")
+            if headword_manual:
+                headword_ms = normalise_malay(headword_manual)
+                headword_method = "manual_override"
+            else:
+                try:
+                    headword_ms = translate(headword_source, headword_source_language)
+                    headword_method = "source_headword_or_gloss"
+                except EmptyTranslationError:
+                    # Some isolated Chinese characters have no standalone Argos
+                    # zh→en result. Use the already translated first sense as a
+                    # transparent Malay gloss fallback instead of emitting blank.
+                    if not senses or not senses[0].get("definitionMs"):
+                        raise
+                    headword_ms = senses[0]["definitionMs"]
+                    headword_method = "first_sense_gloss_fallback"
+            result["languages"][language_key][entry["word"]] = {
+                "entryId": entry["id"],
+                "headwordMs": headword_ms,
+                "headwordTranslationMethod": headword_method,
+                "translationStatus": "machine_assisted_draft",
+                "senses": senses
+            }
+            totals[language_key]["entries"] += 1
+
+    expected = {"en": (1316, 1931), "zh": (725, 825)}
+    for key, (entries, senses) in expected.items():
+        if totals[key]["entries"] != entries or totals[key]["senses"] != senses:
+            raise RuntimeError(f"Coverage mismatch for {key}: {totals[key]}")
+        for word, entry in result["languages"][key].items():
+            if not entry["headwordMs"] or len(entry["senses"]) == 0:
+                raise RuntimeError(f"Incomplete translation for {key}/{word}")
+            if any(not item["definitionMs"] for item in entry["senses"]):
+                raise RuntimeError(f"Missing sense translation for {key}/{word}")
+
+    js = "/* Generated Malay target-language Dictionary translations. Machine-assisted drafts; human review pending. */\n"
+    js += "window.SWIFT_DICTIONARY_MS_TRANSLATIONS = " + json.dumps(result, ensure_ascii=False, indent=2) + ";\n"
+    OUTPUT.write_text(js, encoding="utf-8")
+    print(json.dumps({"coverage": totals, "output_bytes": OUTPUT.stat().st_size, "status": result["status"]}, ensure_ascii=False))
+
+if __name__ == "__main__":
+    main()

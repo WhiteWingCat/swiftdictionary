@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { normaliseComparableText, validateLanguagePair, validateQuestionEnvelope } from "../content/validation-core.mjs";
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.zh-en.draft.json"),"utf8"));
@@ -14,14 +15,16 @@ const counts={beginner:0,intermediate:0,advanced:0};
 const translationCounts={beginner:0,intermediate:0,advanced:0};
 const topics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
 const translationTopics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
-const norm=s=>String(s??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
+const norm=s=>normaliseComparableText(s,"zh");
 const isPinyinText=s=>/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(String(s||"").trim());
 let pinyinGuides=0,pinyinGuidesOmitted=0;
-if(pack.schema_version!==1||pack.status!=="draft"||pack.learning_language_code!=="zh"||pack.translation_language_code!=="en")errors.push("Pack metadata must remain a Chinese-learning, Chinese-focused draft.");
+if(pack.schema_version!==1||pack.status!=="draft")errors.push("Pack metadata must remain a schema v1 draft.");
+errors.push(...validateLanguagePair(pack,"zh","en"));
 if(!Array.isArray(pack.questions))errors.push("questions must be an array.");
 for(const [i,q] of (pack.questions||[]).entries()){
  const at="questions["+i+"]";
  if(!q.question_id||ids.has(q.question_id))errors.push(at+" has a missing or duplicate question_id");ids.add(q.question_id);
+ errors.push(...validateQuestionEnvelope(q,{path:at}));
  const lesson=map.lessons?.[q.source_lesson_id];
  if(lesson)sourceLessonIds.add(q.source_lesson_id);
  if(!lesson)errors.push(at+" has no approved Chinese lesson mapping");
