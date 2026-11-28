@@ -1395,6 +1395,7 @@
     [/\bapa dia\b/gi,"adakah dia"],[/\bdi hari\b/gi,"pada hari"],
     [/\bhukuman mana\b/gi,"ayat manakah"],[/\bmural a\b/gi,"sebuah mural"],
     [/\bsemua kata(?!\s+(?:nama|kerja|ganda|adjektif))\b/gi,"semua perkataan"],
+    [/\bkebijakan\b/gi,"dasar"],[/\bbahasan\b/gi,"perbincangan"],
     [/\bmemyakinkan\b/gi,"meyakinkan"],[/\bwourna\b/gi,"perjalanan"],
     [/\bdosing\b/gi,"dos"],[/\bberarti\b/gi,"bererti"]
   ];
