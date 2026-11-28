@@ -93,8 +93,8 @@ test("English and Chinese Flashcard Malay definitions contain no obvious Indones
 });
 
 test("Malay support generator falls back to curated glosses for isolated Chinese tokens", () => {
-  const exporter = read("scripts/content/export-malay-learning-support-input.cjs");
-  const generator = read("scripts/content/generate-malay-learning-support.py");
+  const exporter = fs.readFileSync("scripts/content/export-malay-learning-support-input.cjs","utf8");
+  const generator = fs.readFileSync("scripts/content/generate-malay-learning-support.py","utf8");
   assert.ok(exporter.includes("window.SWIFT_FLASHCARD_MALAY_SUPPORT"));
   assert.ok(generator.includes('malay_glosses.get("zh",{}).get(value,"")'));
   assert.ok(generator.includes('re.search(r"[\\u3400-\\u9fff]"'));
