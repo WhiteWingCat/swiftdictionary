@@ -547,7 +547,10 @@
       Object.entries(row.options).forEach(([optionId, value]) => {
         if (en[id].options?.[optionId]) {
           en[id].options[optionId].learning = value.learning;
-          if (value.translation) en[id].options[optionId].translation = value.translation;
+          // The legacy generated translation field contains Indonesian/malformed
+          // text. Reuse the curated Malay option unless a specific Malay variant
+          // was supplied, so no stale generated language leaks into the UI.
+          en[id].options[optionId].translation = value.translation || value.learning;
         }
       });
     }
