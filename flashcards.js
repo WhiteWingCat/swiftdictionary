@@ -854,19 +854,30 @@
     const data=state.reviewSession;if(!data)return;
     const items=Array.isArray(data.items)?data.items:[];
     const title=uiText("Flashcard game review","闪卡游戏复习");
-    const legacy=!data.review_available||!items.length;
-    const content=legacy
-      ?'<p class="flash-muted">'+uiText("Per-card answer details were not saved for this game, so its summary is available but the original cards and answers cannot be reconstructed. New games will include full per-card review details.","这场游戏没有保存逐卡作答详情，因此只能查看成绩摘要，无法还原当时的卡片和答案。新游戏会保存完整的逐卡复习记录。")+'</p>'
-      :items.map(item=>{
-        const card=item.card||{},status=item.unanswered?uiText("Unanswered","未作答"):item.is_correct?uiText("Correct","正确"):uiText("Incorrect","错误");
+    const status=data.review_status||((data.review_available&&items.length)?"full":"unavailable");
+    let content="";
+    if(status==="partial"){
+      content='<p class="flash-muted">'+uiText(
+        "Partial review only: this older game did not save its original prompts, answer choices or selected/correct answers. The cards below are the missed cards that can still be linked to this game; the list may be incomplete.",
+        "仅提供部分复习：这场较早的游戏没有保存原始题目、选项、作答答案或正确答案。以下仅列出仍可关联到本场游戏的错题，列表可能不完整。"
+      )+'</p>'+items.map(item=>{
+        const card=item.card||{};
+        return '<article class="flash-review-card"><div class="flash-review-card-head"><strong>#'+item.position+' · '+escapeHtml(modeLabel(item.recall_mode||item.mode||data.mode))+'</strong><span>'+uiText("Incorrect","错误")+'</span></div><h3>'+escapeHtml(card.word||item.card_key||"")+'</h3><p>'+uiText("Recorded as missed in this game.","记录为本场游戏中的错题。")+'</p></article>';
+      }).join("");
+    }else if(status==="unavailable"||!items.length){
+      content='<p class="flash-muted">'+uiText("Per-card answer details were not saved for this game, so its summary is available but the original cards and answers cannot be reconstructed.","这场游戏没有保存逐卡作答详情，因此只能查看成绩摘要，无法还原当时的卡片和答案。")+'</p>';
+    }else{
+      content=items.map(item=>{
+        const card=item.card||{},resultStatus=item.unanswered?uiText("Unanswered","未作答"):item.is_correct?uiText("Correct","正确"):uiText("Incorrect","错误");
         const options=(item.options||[]).map((option,i)=>{
           const text=option.text||option.word||"";
           const cls=i===item.correct_option_index?"is-correct":i===item.selected_option_index&&!item.is_correct?"is-wrong":"";
           return '<li class="'+cls+'">'+escapeHtml(text)+(i===item.selected_option_index?' <small>· '+uiText("Your answer","你的答案")+'</small>':"")+(i===item.correct_option_index?' <small>· '+uiText("Correct answer","正确答案")+'</small>':"")+'</li>';
         }).join("");
         const translation=data.translation_language_code==="ms"?card.translation_ms:data.translation_language_code==="zh"?card.translation_zh:card.translation_en;
-        return '<article class="flash-review-card"><div class="flash-review-card-head"><strong>#'+item.position+' · '+escapeHtml(modeLabel(item.recall_mode))+'</strong><span>'+status+'</span></div><h3>'+escapeHtml(card.word||"")+'</h3>'+(card.pinyin?'<p>'+escapeHtml(card.pinyin)+'</p>':"")+'<p>'+escapeHtml(item.prompt||"")+'</p>'+(translation?'<p class="flash-muted">'+escapeHtml(translation)+'</p>':"")+'<ol>'+options+'</ol>'+(card.example?'<p><em>'+escapeHtml(card.example)+'</em></p>':"")+'</article>';
+        return '<article class="flash-review-card"><div class="flash-review-card-head"><strong>#'+item.position+' · '+escapeHtml(modeLabel(item.recall_mode))+'</strong><span>'+resultStatus+'</span></div><h3>'+escapeHtml(card.word||"")+'</h3>'+(card.pinyin?'<p>'+escapeHtml(card.pinyin)+'</p>':"")+'<p>'+escapeHtml(item.prompt||"")+'</p>'+(translation?'<p class="flash-muted">'+escapeHtml(translation)+'</p>':"")+'<ol>'+options+'</ol>'+(card.example?'<p><em>'+escapeHtml(card.example)+'</em></p>':"")+'</article>';
       }).join("");
+    }
     overlayRoot.innerHTML='<div class="flash-modal-backdrop"><section class="flash-modal flash-game-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashGameReviewTitle"><div class="flash-modal-heading"><h2 id="flashGameReviewTitle">'+title+'</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div><p class="flash-muted">'+escapeHtml(difficultyLabel(data.difficulty))+' · '+escapeHtml(modeLabel(data.mode))+' · '+Number(data.correct_count||0)+'/'+Number(data.words_seen||0)+' '+uiText("correct","答对")+'</p>'+content+'<div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay">'+uiText("Close","关闭")+'</button></div></section></div>';
   }
   async function loadData(){
