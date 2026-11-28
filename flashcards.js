@@ -478,7 +478,14 @@
       return "";
     };
     const supportsMode=(w,mode)=>{
-      if(!chinese)return true;
+      if(!chinese){
+        const language=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
+        // Malay Sentence Recall must only select cards that have a sentence-level
+        // Malay translation. A headword/definition translation is not a substitute
+        // for translating the example sentence shown to the learner.
+        if(mode==="sentence"&&language==="ms")return !!(w.exampleMs&&cueFor(w,mode));
+        return true;
+      }
       if(mode==="definition"){
         if(Array.isArray(w.availableModes)&&!w.availableModes.includes("definition"))return false;
         const cue=cueFor(w,mode);
