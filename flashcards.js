@@ -88,14 +88,16 @@
       if(language==="zh"){
         const bank=window.SWIFT_CHINESE_FLASHCARDS||{};
         source=[...(bank.characters||[]),...(bank.vocabulary||[]),...(bank.phrases||[])].map(item=>({
-          ...item,course:"zh",definition:item.translationEn||"",
+          ...item,course:"zh",cardKind:kind,definition:item.translationEn||"",
           definitionZh:item.definitionCueZh||item.definitionZh||"",
           examples:(item.sentenceExampleZh||item.exampleZh)?[item.sentenceExampleZh||item.exampleZh]:[],
           phonetic:item.pinyin||""
         }));
       }else if(language==="ms"){
         source=(window.SWIFT_MALAY_DICTIONARY||[]).filter(item=>item?.word&&item?.definition)
-          .map(item=>({...item,course:"ms",definition:item.definition,examples:Array.isArray(item.examples)?item.examples:[]}));
+          .map(item=>({...item,course:"ms",cardKind:String(item.part||"").toLowerCase().includes("frasa")?"phrases":"vocabulary",
+            definition:item.definition,definitionEn:item.definitionEn||"",definitionZh:item.definitionZh||"",
+            examples:Array.isArray(item.examples)?item.examples:[],translationEn:item.definitionEn||"",translationZh:item.definitionZh||""}));
       }else if(language==="en"){
         const dictionary=(window.englishWords||(typeof englishWords!=="undefined"?englishWords:[]))
           .filter(item=>item&&item.course==="en"&&item.word);
