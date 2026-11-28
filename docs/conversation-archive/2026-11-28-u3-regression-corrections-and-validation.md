@@ -148,3 +148,11 @@ The 6e0 cache-bust commit exposed one additional stale test expectation: `tests/
 The preceding `489435a` Flashcards Chromium suite completed successfully with **37/37 tests passing**, including both the full snapshot review and legacy partial-review browser tests. Its Flashcards static/content job also passed. The 2.3.x allowance/dashboard, Auth compatibility and browser suite passed on that same head. The Quiz DB/Auth integration on `489435a` passed the SQL migration/test stage (including the partial legacy review migration) and authenticated Quiz RPC tests; its remaining browser/security advisor steps were still running at the time of this update.
 
 The `6e0e25a` run then failed only because the page-integration static test still expected the old cache version; the assertion was corrected in `3904f69`. Await the fresh run before marking the latest head green.
+
+## Account-isolation verification and regression
+
+Added a SQL regression asserting that a different authenticated user cannot retrieve a legacy partial review through the public RPC (the function returns the same not-found result used for an unknown session). Ran the equivalent read-only check against staging; cross-account access was denied. The existing checks also confirm no direct private-table SELECT for anon/authenticated and authenticated-only execution of the owner-scoped RPC.
+
+Latest application head is `fc94da1598433d0890afb05a8c7738b7d93055b5`; full CI is queued/in progress. The previous `3904f69` head had U3.0 architecture and U2.9 English QA green; its U2.6 ACL run was in progress. The `489435a` head had 37/37 Flashcards browser tests, U2.3 SQL/Auth/browser and the Quiz DB migration/authenticated RPC stages green. The cache-version assertion correction and cross-account SQL regression are included in the newest reruns.
+
+**Malaysia privacy check:** this recovery exposes only the user's own already-recorded weak-memory card keys through the authenticated RPC; it does not introduce new personal-data collection, third-party sharing or direct table access. The owner-scoped function and least-privilege grants remain intact. PDPA 2010 and 2024 amendment/cross-border review remain release-level checks; this additive recovery does not itself approve public release.
