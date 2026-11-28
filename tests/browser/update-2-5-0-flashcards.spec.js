@@ -813,6 +813,8 @@ test("Weak Memory review indexes large Chinese and Malay card banks without bloc
     expect(seeded).toBe(80);
     await page.locator('[data-action="open-review"]').click();
     await expect(page.locator(".flash-review-modal")).toBeVisible();
+    await expect(page.locator(".flash-review-item")).toHaveCount(40,{timeout:10000});
+    await page.locator('[data-action="review-load-more"]').click();
     await expect(page.locator(".flash-review-item")).toHaveCount(80,{timeout:10000});
     await page.locator(".flash-review-entry").last().click();
     await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
