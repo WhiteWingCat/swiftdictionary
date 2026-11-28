@@ -5166,3 +5166,17 @@ Read-only staging inspection (PostgreSQL 17, project `ivatvkfrtifgfheeaelj`) con
 Private table privilege checks remain appropriately restrictive: neither anon nor authenticated can directly SELECT private snapshots or review rows; anon cannot execute the public game-review RPC and authenticated can. Do not broaden grants or bypass RLS.
 
 See [the 2026-11-28 regression and staging review archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md) and [the latest U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md). Remaining gates: latest-head CI, Flashcards browser review, Quiz DB/Auth, full cross-version matrix, staging OAuth/account isolation and owner manual acceptance, plus human Malay editorial, rights/licensing and Malaysia privacy/legal review. Production remains untouched; PR #20 remains unmerged; leaked-password protection remains excluded at the owner's direction.
+
+## 2026-11-28 — historical Flashcard partial-review recovery implementation
+
+Two completed Malay sessions from Nov 27 lack per-card snapshots. Read-only staging data shows 5 and 4 weak-memory entries respectively still linked to those session IDs. These entries identify known missed cards, but not necessarily every missed card; they do not preserve original prompts, option order, selected answers or correct answers.
+
+A partial-review implementation has been added to the staging feature branch:
+- frontend supports full, partial and unavailable review states, with explicit warning and no invented answer details;
+- additive private-schema RPC migration `20261128133000_swiftdictionary_update_3_0_partial_legacy_flashcard_review.sql` returns full snapshots when present, otherwise only linked weak-memory cards as partial;
+- SQL, mock and browser regression coverage added;
+- local Supabase CI workflow wired to apply the migration and run the regression.
+
+Application commits: `6e092cf`, `253f7b7`, `61f7802`, `90cc375`, `63e20e2`, `b0a177b`. Latest CI for `b0a177b` is queued/in progress; the migration has not yet been applied to staging. Do not mark this fix complete until SQL/Auth and browser checks pass, then apply it to staging and verify the two known sessions return partial review while full-snapshot sessions remain unchanged. Keep private table access restricted; no direct grants were added. Production remains untouched.
+
+See the [Nov 28 regression and staging review archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md) and [Update 3.0 development plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
