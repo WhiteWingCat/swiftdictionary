@@ -158,6 +158,8 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   assert.match(support.quiz.en["quiz-advanced-036"].promptLearning,/kenaikan pangkat/);
   assert.match(support.quiz.en["quiz-beginner-001"].promptLearning,/melakukan kesilapan/);
   assert.match(support.quiz.en["quiz-intermediate-006"].explanationLearning,/memikul tanggungjawab/);
+  assert.match(support.quiz.en["quiz-intermediate-007"].promptLearning,/Penurunan jualan/);
+  assert.match(support.quiz.en["quiz-advanced-042"].explanationLearning,/mempengaruhi/);
   for(const id of corrected.quiz.zh){
     const row=support.quiz.zh[id];
     assert.ok(row,id+" missing from Chinese Quiz Malay support");
