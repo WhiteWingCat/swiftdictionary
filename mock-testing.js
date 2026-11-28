@@ -740,6 +740,7 @@
     selectionGeneration,
     seedFlashcardData,
     seedQuizHistory,
+    getPreferences:()=>clone(state().tables.user_preferences||[]),
     getClient:()=>client
   });
 
