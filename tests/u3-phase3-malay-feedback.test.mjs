@@ -19,7 +19,9 @@ test("Malay target selection is no longer coupled to Dictionary translation cove
  assert.match(index,/const available=activeLearningCode!=="ms"/);
  assert.doesNotMatch(index,/translationLanguage=requestedLanguage==="ms" && !malayDictionaryTargetReady/);
  assert.doesNotMatch(index,/if\(translation==="ms" && !malayDictionaryTargetReady\)/);
- assert.match(index,/Malay support translations for English and Chinese Quiz questions are not available yet/);
+ assert.match(index,/const quizMalaySupport=window\.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS\?\.quiz\|\|\{\}/);
+ assert.match(index,/function quizMalayQuestion\(q,learningCode\)/);
+ assert.doesNotMatch(index,/Malay support translations for English and Chinese Quiz questions are not available yet/);
 });
 
 test("Malay Discovery catalogue sync preserves the 93 active scheduled entries",()=>{
