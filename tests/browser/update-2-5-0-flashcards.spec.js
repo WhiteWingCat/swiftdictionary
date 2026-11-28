@@ -745,6 +745,8 @@ test("Weak Memory translation lookups are indexed once across repeated detail re
   await page.locator("#courseSelect").selectOption("zh");
   await page.locator('[data-action="open-review"]').click();
   await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await expect(page.locator(".flash-review-item")).toHaveCount(40);
+  await page.locator('[data-action="review-load-more"]').click();
   await expect(page.locator(".flash-review-item")).toHaveCount(80);
   await page.locator(".flash-review-entry").first().click();
   await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
@@ -779,6 +781,8 @@ test("Weak Memory review renders large lists without repeated dictionary scans",
   expect(seeded).toBe(80);
   await page.locator('[data-action="open-review"]').click();
   await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await expect(page.locator(".flash-review-item")).toHaveCount(40,{timeout:10000});
+  await page.locator('[data-action="review-load-more"]').click();
   await expect(page.locator(".flash-review-item")).toHaveCount(80,{timeout:10000});
   await page.locator(".flash-review-entry").last().click();
   await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
