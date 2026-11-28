@@ -55,11 +55,13 @@
       "files": [
         "data/malay-daily-learning.js"
       ],
-      "contentVersion": "u3-ms-daily-0.1.0",
+      "sourceDependencies": ["dictionary"],
+      "runtimeDiscoveryPool": "93 dictionary-derived items with IDs aligned to approved catalogue rotation_order 1–93",
+      "contentVersion": "u3-ms-daily-0.4.0",
       "catalogueCounts": {
-        "dailyTopic": 3,
-        "dailyApplication": 3,
-        "dailyDiscovery": 8,
+        "dailyTopic": 60,
+        "dailyApplication": 60,
+        "dailyDiscovery": 93,
         "dailyRevision": "adaptive"
       },
       "editorialStatus": "draft"
