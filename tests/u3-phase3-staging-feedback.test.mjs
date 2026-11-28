@@ -69,7 +69,7 @@ test("English and Chinese Lessons retain their learning-language text and show M
 });
 test("Malay lesson practice and English/Chinese Quiz support packs are wired into the reader and answer review",()=>{
  const html=read("index.html");
- assert.match(html,/<script src="data\/languages\/malay-learning-support-translations\.js\?v=3\.0\.0-ms3"><\/script>/);
+ assert.match(html,/<script src="data\/languages\/malay-learning-support-translations\.js\?v=3\.0\.0-ms4"><\/script>/);
  assert.match(html,/quizTranslationVisible\(code\)\{return code === "zh" \|\| code === "en" \|\| code === "ms";\}/);
  assert.match(html,/quizMalayQuestion\(q,learningCode\)/);
  assert.match(html,/quizMalayOption\(q,option,learningCode\)/);
