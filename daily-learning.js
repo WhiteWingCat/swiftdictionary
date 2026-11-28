@@ -396,6 +396,35 @@
     if (language === "en") return { topics:dailyTopics, applications:dailyApplications, discovery:dailyDiscoveryVocabulary };
     throw new Error("Daily Learning content is not available for language: " + language);
   };
+  const MALAY_DAILY_DISCOVERY_APPROVED_WORDS = ["ada", "air", "ajar", "anak", "baik", "baca", "bahasa", "bantu", "besar", "boleh", "buku", "datang", "dengan", "kawan", "makan", "minum", "pergi", "rumah", "sekolah", "saya", "tidur", "tolong", "terima-kasih", "untuk", "pejabat", "pekerja", "majikan", "pekerjaan", "wang", "murah", "mahal", "bayaran", "jual", "kedai", "pasar", "pasar-raya", "resit", "bil", "bank", "akaun", "tunai", "pelanggan", "perkhidmatan", "hospital", "klinik", "ubat", "doktor", "jururawat", "polis", "balai-polis", "bomba", "pejabat-pos", "perpustakaan", "universiti", "kolej", "peperiksaan", "soalan", "jawapan", "latihan", "komputer", "telefon", "internet", "surat", "e-mel", "mesyuarat", "cuti", "ribut", "banjir", "kemalangan", "kecemasan", "selamat", "bahaya", "peluang", "tujuan", "sebab", "akibat", "berjaya", "gagal", "kereta", "motosikal", "basikal", "teksi", "tren", "stesen", "lapangan-terbang", "pesawat", "tiket", "perjalanan", "peta", "hotel", "jiran", "kampung", "taman"];
+  const malayDailyDiscoverySlug = value => String(value || "")
+    .normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"")
+    .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  const buildMalayDailyDiscoveryPool = () => {
+    const dictionary = window.SWIFT_MALAY_DICTIONARY || [];
+    const bySlug = new Map(dictionary.map(entry => [malayDailyDiscoverySlug(entry.word), entry]));
+    return MALAY_DAILY_DISCOVERY_APPROVED_WORDS.map(slug => {
+      const entry = bySlug.get(slug);
+      if (!entry) return null;
+      return {
+        ...entry,
+        id: "ms-discovery-dict-" + slug,
+        title: entry.word,
+        word: entry.word,
+        definition: entry.definition,
+        en: entry.definitionEn,
+        zh: entry.definitionZh,
+        definitionEn: entry.definitionEn,
+        definitionZh: entry.definitionZh,
+        examples: Array.isArray(entry.examples) ? entry.examples : [],
+        related: Array.isArray(entry.related) ? entry.related : [],
+        topicId: null
+      };
+    }).filter(Boolean);
+  };
+  if (window.SWIFT_MALAY_DAILY_LEARNING) {
+    window.SWIFT_MALAY_DAILY_LEARNING.discovery = buildMalayDailyDiscoveryPool();
+  }
   const dailyTopicPool = () => dailyContentFor(snapshot.learningLanguage).topics || [];
   const dailyApplicationPool = () => dailyContentFor(snapshot.learningLanguage).applications || [];
   const dailyDiscoveryPool = () => dailyContentFor(snapshot.learningLanguage).discovery || [];
@@ -702,7 +731,7 @@
     return [0,1,2].map(slot => {
       const word = pool[(firstIndex + slot) % poolSize], examples=Array.isArray(word.examples)?word.examples:[];
       return {...word,id:word.id+":"+globalDay,title:word.word||word.title,example:examples[0],examples:examples.slice(1),
-        zh:word.definitionZh,scheduleVersion:DAILY_DISCOVERY_SCHEDULE_VERSION,scheduleSlot:slot+1};
+        en:word.definitionEn||word.en,zh:word.definitionZh||word.zh,scheduleVersion:DAILY_DISCOVERY_SCHEDULE_VERSION,scheduleSlot:slot+1};
     });
   }
 
