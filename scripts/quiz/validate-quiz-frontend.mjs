@@ -90,7 +90,7 @@ const learningPageFeatures = [
 for (const feature of learningPageFeatures) {
   if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
 }
-const courseSwitchStart=appScript.indexOf('document.getElementById("courseSelect").addEventListener("change",async');
+const courseSwitchStart=appScript.indexOf('window.addEventListener("swiftdictionary:course-changed",async(event)=>');
 const courseSwitchEnd=appScript.indexOf("// Resolve the requested route immediately",courseSwitchStart);
 const courseSwitchHandler=courseSwitchStart>=0&&courseSwitchEnd>courseSwitchStart
   ?appScript.slice(courseSwitchStart,courseSwitchEnd):"";
@@ -108,9 +108,12 @@ if(!courseSwitchHandler.includes('from("user_preferences")')||
   throw new Error("Quiz course switching must verify the persisted language preference and clear stale course-scoped overview data before refreshing.");
 }
 if(!flashcards.includes("const reviewDetailCache=new Map()")||
-   !flashcards.includes('requestIdleCallback(warm,{timeout:100})')||
-   !flashcards.includes('if(translationLanguage==="ms")malayGlossLookup()')){
-  throw new Error("Weak Memory review must prewarm cross-course lookup/translation data and cache opened review details.");
+   !flashcards.includes("function reviewItemsForMode(mode)")||
+   !flashcards.includes("const queue=[...languages]")||
+   !flashcards.includes("requestIdleCallback(warmNext,{timeout:1200})")||
+   !flashcards.includes("const item=record.item")||
+   flashcards.includes('if(translationLanguage==="ms")malayGlossLookup();')){
+  throw new Error("Weak Memory review must cache mode-filtered items, normalise only selected source records, and spread compact index warming across idle slices.");
 }
 for (const page of ["lessons", "quiz", "flashcards"]) {
   if (!html.includes('data-learning-help="' + page + '"')) throw new Error("Missing contextual help control: " + page);
