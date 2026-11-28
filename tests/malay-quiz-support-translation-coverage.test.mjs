@@ -11,6 +11,14 @@ function loadMalaySupport(){
  return context.window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 }
 
+function loadLessonCatalogues(){
+ const context={window:{}};
+ vm.createContext(context);
+ vm.runInContext(fs.readFileSync("data/languages/english-lessons.js","utf8"),context);
+ vm.runInContext(fs.readFileSync("data/chinese-lessons.js","utf8"),context);
+ return context.window;
+}
+
 const indonesianOnlyTerms=/\b(?:aku|bisa|kantor|nggak|enggak|banget|apotek|kalimat|bis|bahasan|wournia|ana)\b/i;
 const flashcardDefinitionTerms=/\b(?:aku|bisa(?!\s+(?:ular|racun|sengat|beracun))|kantor|nggak|enggak|banget|apotek|kalimat|bis|bahasan|wournia|ana)\b/i;
 
@@ -62,27 +70,34 @@ test("Every Chinese Quiz question has a complete Malay support-language mapping"
  }
 });
 
-test("English and Chinese lesson practice prompts and options are corrected into Malaysian Malay",()=>{
+test("English and Chinese lesson practice prompts and options are corrected into Malaysian Malay and source-aligned",()=>{
  const support=loadMalaySupport();
+ const catalogues=loadLessonCatalogues();
  for(const language of ["en","zh"]){
   const lessons=support.lessons[language]||{};
+  const sourceCatalogue=language==="en"?catalogues.SWIFT_ENGLISH_LESSONS:catalogues.SWIFT_CHINESE_LESSONS;
+  const sourceById=new Map(Object.values(sourceCatalogue||{}).flat().map(lesson=>[lesson.id,lesson]));
   const rows=Object.values(lessons).flat();
   assert.equal(rows.length,112,language+" lesson practice translation count");
   for(const [lessonId,questions] of Object.entries(lessons)){
+   const sourceLesson=sourceById.get(lessonId);
+   assert.ok(sourceLesson,language+":"+lessonId+" source lesson is missing");
+   const sourceQuestions=sourceLesson.practices||(sourceLesson.practice?[sourceLesson.practice]:[]);
+   assert.equal(questions.length,sourceQuestions.length,language+":"+lessonId+" practice row count must match source");
    for(const [index,question] of questions.entries()){
     assert.ok(question.q?.trim(),language+":"+lessonId+" question "+index+" missing Malay prompt");
-    assert.ok(Array.isArray(question.options)&&question.options.length>=3,language+":"+lessonId+" question "+index+" missing options");
-    const normalizedOptions=question.options.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\p{L}\p{N}]+/gu," ").trim());
+    assert.ok(Array.isArray(question.options),language+":"+lessonId+" question "+index+" missing options");
+    assert.equal(question.options.length,sourceQuestions[index].options.length,language+":"+lessonId+" question "+index+" option count must match source");
+    const normalizedOptions=question.options.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\\p{L}\\p{N}]+/gu," ").trim());
     assert.equal(new Set(normalizedOptions).size,normalizedOptions.length,language+":"+lessonId+" question "+index+" has duplicate Malay answer choices");
     for(const field of [question.q,...question.options]){
      assert.ok(field?.trim(),language+":"+lessonId+" question "+index+" has empty Malay text");
-     assert.doesNotMatch(field,indonesianOnlyTerms,language+":"+lessonId+" question "+index+" contains an Indonesian-only lexical form");
+     assert.doesNotMatch(field,indonesianOnlyTerms,language+":"+lessonId+" contains an Indonesian-only lexical form");
     }
    }
   }
  }
 });
-
 
 test("English and Chinese Flashcard Malay definitions contain no obvious Indonesian-only forms",()=>{
  const support=loadMalaySupport();
