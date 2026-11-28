@@ -4038,10 +4038,10 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       else renderLessons();
       if(typeof initialiseDailyLearning==="function"&&currentUser)initialiseDailyLearning();
     });
-    document.getElementById("courseSelect").addEventListener("change",async()=>{
+    window.addEventListener("swiftdictionary:course-changed",async(event)=>{
       const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
       const quizWasActive=!quizEl("quizPage").hidden||location.hash==="#quiz";
-      const requestedCourse=quizEl("courseSelect").value||course;
+      const requestedCourse=event.detail?.learningLanguage||quizEl("courseSelect").value||course;
       const quizCourseSwitchRequest=++quizCourseSwitchRequestId;
       ls.topic="all";
       if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
