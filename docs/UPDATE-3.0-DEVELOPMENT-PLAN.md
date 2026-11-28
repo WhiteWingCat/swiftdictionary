@@ -1433,3 +1433,9 @@ Live RPC verification:
 The exact prompts, options, selected answers and correct answers from the two historical Malay sessions remain unrecoverable and are not fabricated. The UI labels these as partial and warns that the list may be incomplete.
 
 Latest preview: [https://8edf4cb7.swiftdictionary.pages.dev](https://8edf4cb7.swiftdictionary.pages.dev) for application head `489435a`. U3.0 architecture passed on `489435a`; U2.3 SQL, local Auth and browser suite passed on `489435a`. U2.6 ACL, U2.7 Chinese Dictionary and U2.9 English QA passed on `b0a177b`. Flashcards Chromium and Quiz DB/Auth integration on `489435a` remain in progress. Do not declare the overall matrix complete until they finish and the remaining checks pass.
+
+### Flashcard browser acceptance and cache assertion follow-up
+
+On application head `489435a`, the Flashcards Chromium suite passed **37/37**, including deterministic full per-card review and the new partial legacy review. The Flashcards static/content checks passed. The U2.3 allowance/dashboard, Auth compatibility and browser suite passed on the same head. The Quiz DB workflow passed the SQL migration/test stage (including the new partial-review migration) and authenticated Quiz RPC tests; remaining browser/security advisor steps were still in progress at that checkpoint.
+
+A subsequent cache-bust to `flashcards.js?v=3.0.0-ms20` and `mock-testing.js?v=2.8.0-r3` correctly invalidated cached scripts, but two static tests still expected the previous `ms19` version. Updated both assertions (`tests/update-2-6-0/account-deletion-static.test.mjs` and `tests/update-2-5-0/check-flashcards-page.mjs`). Latest application head is `3904f69`; rerun the full latest-head matrix before acceptance.
