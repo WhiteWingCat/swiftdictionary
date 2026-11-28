@@ -97,11 +97,22 @@ def normalise_malay(value):
       (r"\bbanget\b","sangat"),
       (r"\bapotek\b","farmasi"),
       (r"\bbahasan\b","huraian"),
+      (r"\bkeriput apel\b","epal yang rangup"),
+      (r"\bkeripik\b","kerepek"),
+      (r"\bkeriput\b","rangup"),
+      (r"\bjawaban\b","jawapan"),
+      (r"\bHukuman mana\b","Ayat manakah"),
+      (r"\benak sekali\b","sangat sedap"),
+      (r"\bapa dia\b","adakah dia"),
+      (r"\bdi hari\b","pada hari"),
+      (r"\bsemua kata dimulai\b","semua perkataan bermula"),
+      (r"\bsemua kata\b","semua perkataan"),
+      (r"\bMural a\b","sebuah mural"),
       (r"\bANA\b","sebarang")
     ]
     for pattern,replacement in replacements:
         text=re.sub(pattern,lambda match:replacement.capitalize() if match.group(0)[:1].isupper() else replacement,text,flags=re.IGNORECASE)
-    if re.search(r"\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna)\b",text,flags=re.IGNORECASE):
+    if re.search(r"\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna|jawaban|keripik|keriput|hukuman\s+mana|enak\s+sekali|apa\s+dia|di\s+hari|semua\s+kata|mural\s+a)\b",text,flags=re.IGNORECASE):
         raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
     return clean(text)
 MALAY_CONNECTOR_FALLBACKS = {

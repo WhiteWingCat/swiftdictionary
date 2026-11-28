@@ -11,7 +11,7 @@ for (const [language, count] of Object.entries(expected)) {
   const senses = words.reduce((n, word) => n + (entries[word].senses || []).length, 0);
   const missingHeadwords = words.filter(word => !entries[word].headwordMs);
   const missingSenses = words.flatMap(word => (entries[word].senses || []).filter(sense => !sense.definitionMs));
-  const indonesianOnlyTerms = /\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|bisa(?!\s+(?:ular|racun|sengat|beracun))|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna)\b/i;
+  const indonesianOnlyTerms = /\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|bisa(?!\s+(?:ular|racun|sengat|beracun))|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna|jawaban|keripik|keriput|hukuman\s+mana|enak\s+sekali|apa\s+dia|di\s+hari|semua\s+kata|mural\s+a)\b/i;
   const languageQualityFlags = words.flatMap(word => [
     entries[word].headwordMs,
     ...(entries[word].senses || []).map(sense => sense.definitionMs)

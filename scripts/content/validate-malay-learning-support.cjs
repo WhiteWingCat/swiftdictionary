@@ -10,7 +10,7 @@ const output=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 if(!output||output.status!=="machine_assisted_draft"||output.targetLanguage!=="ms")throw new Error("Malay learning-support output metadata is invalid");
 if(output.humanReviewStatus!=="pending"||output.modelLicensingStatus!=="pending_verification")throw new Error("Malay support translations must retain explicit human-review and model-license release gates.");
 let lessonQuestions=0,quizQuestions=0,flashcardEntries=0;
-const indonesianOnlyTerms=/\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna)\b/i;
+const indonesianOnlyTerms=/\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana|kakakku|pertanyaan|kursi|kebijakan|menaruh|film|dimana|saja|mengirimkan|mengirim|meskipun|terjadi|saat|berbicara|mengerti|jadwal|dosing|ekonomis|memyakinkan|wourna|jawaban|keripik|keriput|hukuman\s+mana|enak\s+sekali|apa\s+dia|di\s+hari|semua\s+kata|mural\s+a)\b/i;
 function assertMalayDraftQuality(value,path){
  if(typeof value==="string"&&indonesianOnlyTerms.test(value))throw new Error("Indonesian-only wording remains in Malay draft at "+path+": "+value);
  if(Array.isArray(value))value.forEach((item,index)=>assertMalayDraftQuality(item,path+"["+index+"]"));
