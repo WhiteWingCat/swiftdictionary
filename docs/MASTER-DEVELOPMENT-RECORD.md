@@ -5415,3 +5415,37 @@ Latest known application commit: `efd4e185ff642f66bacbfeeb7aa7c11701adc1dc`.
 - Owner's live-site review will replace a pre-release human editorial-review gate. It is not a machine-verification substitute; the automated linguistic/completeness checks remain release gates.
 - Keep the Malaysia Copyright Act 1987, PDPA 2010/2024 amendment, cross-border processing, corpus/model licensing and attribution review in the release checklist. These UI/performance changes add no new personal-data collection or third-party sharing.
 - Leaked-password protection remains excluded by the owner's explicit instruction.
+
+
+## 2026-11-28 — course-switch and Weak Memory polishing checkpoint
+
+Latest application branch commit at this checkpoint: `d5c2c01992df17d60047c5c9e5f393f873966a1b`.
+
+### User feedback resolved in staging code
+
+1. **Quiz course switch:** the course-change flow now waits for the preference write, verifies both persisted `learning_language` and `translation_language`, repairs a missed upsert once, invalidates stale Quiz overview/history state, and refreshes only if the user/course selection version still matches. The request guard prevents late responses from replacing the newly selected course.
+2. **Weak Memory lag:** the list now renders an initial 40 items and appends another 40 on request; the list resets to 40 on open/tab change, retains scroll position while appending, and keeps the existing indexed lookup/detail cache.
+
+Cache version: Flashcards runtime `3.0.0-ms29`.
+
+### Automated results
+
+Passed on the staging feature branch:
+- U3.0 Phase 1 architecture/content/translation regression (95 tests).
+- Cloudflare build-routing and JavaScript syntax guard.
+- U2.3.x Dashboard/allowance browser suite (102 tests).
+- U2.5.0 Flashcards browser suite (40 tests), including large English, Chinese and Malay Weak Memory list tests and batch expansion.
+- U2.6.0 ACL drift regression.
+- U2.7.0 Chinese dictionary checks.
+- U2.9.0 English QA.
+- Quiz database foundation and authenticated local Supabase integration (25 Quiz browser tests plus signed-out Flashcards/Preferences, Daily Learning and Chinese Dictionary regressions). The 25 Quiz tests include active-session course switching, repeated en/zh/ms switching, question-bank refresh for every supported course, and complete Malay support rendering for English/Chinese Quiz.
+
+The earlier Quiz test-harness dialog error was fixed by making the native-dialog helper tolerate a dialog already handled by the browser/test environment. The subsequent authenticated Quiz run passed.
+
+### Remaining automated content completion
+
+- The existing Malay Dictionary generation attempt produced all 1,316 English entries / 1,931 senses and 725 Chinese entries / 825 senses, but its validator rejected two Chinese glosses because the wording used `kamu` and `pertanyaan`. Curated overrides for `你` and `呢` were refined to use `awak`-neutral wording and `soal`, and a new full generation/validation run is queued/running.
+- The Malay learning-support generator is running against the full inventory. It must validate 112 English and 112 Chinese Lesson practice translations, 199 English and 145 Chinese Quiz support rows, and all 1,341 English plus 1,447 Chinese Flashcard support definitions/examples. The prior Flashcard output still had 552 Chinese vocabulary definitions missing; do not mark translation completeness closed until the generator and its validator pass and the regenerated file is committed.
+- The owner waived pre-release human editorial review; the owner will review content on the live website. Generated content remains accurately marked machine-assisted draft, not human-approved.
+
+No production deployment or production database change was made. Leaked-password protection remains excluded by explicit owner instruction.
