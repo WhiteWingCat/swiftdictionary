@@ -707,17 +707,17 @@ test("Quiz overview refreshes its question bank for every supported learning cou
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
   await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("zh");
-  await expect(page.locator("#quizDifficultyGrid")).toContainText("Chinese characters");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("建立汉字");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 
   await selectCourse(page,"ms");
   await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("ms");
-  await expect(page.locator("#quizDifficultyGrid")).toContainText("everyday Malay vocabulary");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("日常马来语词汇");
   await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
 
   await selectCourse(page,"en");
   await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("en");
-  await expect(page.locator("#quizDifficultyGrid")).toContainText("essential vocabulary");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("基础词汇");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 });
