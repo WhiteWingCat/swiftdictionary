@@ -39,7 +39,30 @@ def normalise_malay(value):
     # Malaysian Standard Malay before the strict residual-term check.
     text=re.sub(r"\b(dengan|untuk|kepada|daripada|dari|pada|bersama|milik)mu\b",
                 lambda match:match.group(1)+" anda",text,flags=re.IGNORECASE)
+    text=text.replace("♪","")
+    text=re.sub(r"\b(\w+)(?:\s+\1)+\b",r"\1",text,flags=re.IGNORECASE)
     replacements=[
+      (r"\bkakakku\b","kakak saya"),
+      (r"\bpertanyaan\b","soalan"),
+      (r"\bkursi\b","kerusi"),
+      (r"\bkebijakan\b","dasar"),
+      (r"\bmenaruh\b","meletakkan"),
+      (r"\bfilm\b","filem"),
+      (r"\bdimana\b","di mana"),
+      (r"\bsaja\b","sahaja"),
+      (r"\bmengirimkan\b","menghantar"),
+      (r"\bmengirim\b","menghantar"),
+      (r"\bmendapatkan\b","mendapat"),
+      (r"\bmeskipun\b","walaupun"),
+      (r"\bterjadi\b","berlaku"),
+      (r"\bsaat\b","ketika"),
+      (r"\bberbicara\b","bercakap"),
+      (r"\bmengerti\b","memahami"),
+      (r"\bjadwal\b","jadual"),
+      (r"\bdosing\b","dos"),
+      (r"\bekonomis\b","menjimatkan"),
+      (r"\bmemyakinkan\b","meyakinkan"),
+      (r"\bwourna\b","perjalanan"),
       (r"\baku\b","saya"),
       (r"\bkamu\b|\bkau\b","anda"),
       (r"\bkhawatir\b","risau"),
