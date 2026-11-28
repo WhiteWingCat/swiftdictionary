@@ -254,6 +254,17 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   await expect(page.locator("#translationSelect")).toHaveValue("en");
   await expect(page.locator("#translationSelect option[value='ms']")).toBeDisabled();
 });
+test("Malay Lesson practice support covers all approved questions in both courses",async({page})=>{
+  await openMockFlashcards(page);
+  const coverage=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.lessonCoverage);
+  expect(coverage.en).toHaveLength(17);
+  expect(coverage.zh).toHaveLength(17);
+  expect(coverage.en.reduce((sum,item)=>sum+item.questionCount,0)).toBe(112);
+  expect(coverage.zh.reduce((sum,item)=>sum+item.questionCount,0)).toBe(112);
+  expect(coverage.en.every(item=>item.questionCount>0)).toBe(true);
+  expect(coverage.zh.every(item=>item.questionCount>0)).toBe(true);
+});
+
 test("Custom Flashcards report Malay coverage only when a Malay translation is supplied",async({page})=>{
   await openMockFlashcards(page);
   await page.locator("#translationSelect").selectOption("ms");
