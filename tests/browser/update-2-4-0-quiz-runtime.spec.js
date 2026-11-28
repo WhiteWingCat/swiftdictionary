@@ -118,7 +118,7 @@ async function openQuiz(page, session) {
         " apikey=" + (headers.apikey ? "present" : "missing"));
     }
   });
-  page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
+  page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else{try{await dialog.accept();}catch(error){if(!/already handled/i.test(error.message||""))throw error;}} });
   await page.goto("/#quiz");
   // Start each authenticated browser scenario from a clean same-origin state.
   // The about:blank document has an opaque origin and does not expose localStorage.
