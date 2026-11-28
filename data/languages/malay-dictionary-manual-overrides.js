@@ -1,3 +1,4 @@
+/* U3.0 Malay translation generation revision: complete flashcard inventory and Malaysian Malay lexical normalisation. */
 /* Hand-authored starter and reviewed-in-context draft overrides for SwiftDictionary U3.0 Malay target-language Dictionary translations.
  * Entries remain machine-assisted drafts pending competent human review.
  * Keys are exact source headwords; array order follows source sense order.
