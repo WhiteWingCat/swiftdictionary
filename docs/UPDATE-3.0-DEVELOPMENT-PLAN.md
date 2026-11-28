@@ -1798,3 +1798,18 @@ Human pre-release editorial review remains waived by owner instruction; the owne
 **Skipped for now (environment-gated):** latest-head GitHub Actions execution (all `action_required`, no jobs); live Pages preview verification (preview host inaccessible to this session); authenticated Google OAuth/account-isolation verification on the live preview.
 
 **Not a production release:** PR #20 stays draft/unmerged. No public release should be described as completed until the owner verifies the live staging experience and separately authorises release. Legal/provenance/licensing checks (including Argos model licence/attribution, copyright/source rights, Malaysia PDPA and cross-border handling) remain release gates.
+
+
+### Versioned What's New release prompt (2026-11-28)
+
+**Implemented on the U3.0 feature branch; awaiting final merge/release validation.**
+
+- Added a versioned release-notes manifest at `data/release-notes.json` and a reusable dialog in `release-notes.js`.
+- The dialog groups release highlights into **Added**, **Changed**, **Fixed** and **Removed**. Empty categories remain visible with a clear “nothing removed” message.
+- The current U3.0 release notes are labelled `3.0.0`; future main-branch releases should update the manifest version and categories alongside each release.
+- The prompt is automatically shown once per release version. Closing/dismissing it records that version as seen.
+- Clicking the SwiftDictionary brand/title in the top-left reopens the latest release notes at any time.
+- Guest dismissal is stored locally and signed-in dismissal is account-scoped. The existing `learning_page_introduction_preferences` table is reused so signed-in dismissal can sync across devices.
+- Added migration `20261128190000_swiftdictionary_update_3_0_release_note_preferences.sql` to allow semver release keys in the existing preference table, plus a SQL constraint regression test. The UI gracefully falls back to device-local storage if the migration is not yet applied.
+- Static JavaScript syntax validation passed. The latest feature-branch Pages build and browser behaviour for this new dialog still need confirmation after the latest commits; do not represent them as verified until that check is complete.
+- Privacy/legal check: this stores only a release-version dismissal marker and timestamp against the already-authenticated account ID, using the existing owner-scoped preference table and RLS. No new profile fields, analytics, or third-party tracking were introduced. Existing Malaysia PDPA/cross-border and general legal release checks remain unchanged.
