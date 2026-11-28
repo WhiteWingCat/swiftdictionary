@@ -21,7 +21,7 @@ permissions:
 
 concurrency:
   group: quiz-db-foundation-${{ github.ref }}-${{ github.event_name }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   quiz-local-supabase:
