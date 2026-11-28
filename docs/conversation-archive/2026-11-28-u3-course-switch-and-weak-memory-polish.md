@@ -31,3 +31,8 @@ The current application-branch file `data/languages/malay-dictionary-translation
 
 No new personal-data collection, third-party sharing or user-data purpose was introduced by these UI/performance fixes. Existing Malaysia Copyright Act 1987, PDPA 2010/2024 amendment, cross-border processing, and model/corpus licence/attribution checks remain release considerations. Leaked-password protection remains excluded by the owner's earlier instruction. Production merge/deployment remains unauthorised.
 
+
+
+## Correction to Dictionary overlay fetch — 2026-11-28
+
+The prior checkpoint described `data/languages/malay-dictionary-translations.js` as empty because the GitHub file-fetch response returned zero text characters. That was an invalid inference: the returned blob SHA was non-empty, and the connector did not expose the large generated file's contents. The claim that the file was empty is withdrawn. The U3.0 Phase 1 automated regression run passed the Dictionary translation overlay and Malay Flashcard coverage tests, including the test that English and Chinese overlays are complete across headwords and senses. The dedicated Dictionary translation-generation workflow remains separately pending/in progress and must complete its own exact inventory/lexical validator before its result is recorded. Use the test and workflow outcomes, not the zero-length fetch response, to assess coverage.
