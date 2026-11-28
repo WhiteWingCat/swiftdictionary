@@ -9,6 +9,12 @@ const output=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 if(!output||output.status!=="machine_assisted_draft"||output.targetLanguage!=="ms")throw new Error("Malay learning-support output metadata is invalid");
 if(output.humanReviewStatus!=="pending"||output.modelLicensingStatus!=="pending_verification")throw new Error("Malay support translations must retain explicit human-review and model-license release gates.");
 let lessonQuestions=0,quizQuestions=0,flashcardEntries=0;
+const indonesianOnlyTerms=/\\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana)\\b/i;
+function assertMalayDraftQuality(value,path){
+ if(typeof value==="string"&&indonesianOnlyTerms.test(value))throw new Error("Indonesian-only wording remains in Malay draft at "+path+": "+value);
+ if(Array.isArray(value))value.forEach((item,index)=>assertMalayDraftQuality(item,path+"["+index+"]"));
+ else if(value&&typeof value==="object")Object.entries(value).forEach(([key,item])=>assertMalayDraftQuality(item,path+"."+key));
+}
 for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.SWIFT_CHINESE_LESSONS]]){
   for(const difficulty of ["beginner","intermediate","advanced"]){
     for(const lesson of catalogue[difficulty]||[]){
@@ -41,4 +47,7 @@ for(const [code,items] of Object.entries(input.flashcards||{})){
     flashcardEntries++;
   }
 }
+assertMalayDraftQuality(output.lessons,"lessons");
+assertMalayDraftQuality(output.quiz,"quiz");
+assertMalayDraftQuality(output.flashcards,"flashcards");
 console.log(JSON.stringify({lessonPracticeQuestions:lessonQuestions,quizQuestions,flashcardEntries,status:"PASS"}));
