@@ -3995,20 +3995,37 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
     });
     document.getElementById("courseSelect").addEventListener("change",async()=>{
       const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
+      const quizWasActive=!quizEl("quizPage").hidden||location.hash==="#quiz";
+      const requestedCourse=course;
       ls.topic="all";
       if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
       applyLearningCourseAvailability();
-      // Quiz availability is course-scoped. Refresh it for every registered
-      // learning language, not only English; wait for the queued preference
-      // write so the server reads the same course the selector now displays.
-      if(location.hash==="#quiz"&&currentUser){
-        const requestedCourse=course;
-        try{
-          if(preferenceWriteQueue)await preferenceWriteQueue;
-          if(course===requestedCourse&&window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz")){
+      // A course switch changes the Quiz catalogue, not just its labels.
+      // Drop any session/result snapshot tied to the previous course so it
+      // cannot keep rendering after the global selector has changed.
+      if(quizWasActive){
+        quizHomeRequestId++;
+        quizPageState.session=null;
+        quizPageState.sessionView=false;
+        quizPageState.result=null;
+        document.body.classList.remove("quiz-focused");
+        quizEl("quizSession").hidden=true;
+        quizEl("quizResults").hidden=true;
+        quizApplyPageTranslation();
+        if(currentUser){
+          quizEl("quizHome").hidden=false;
+          quizStatus(quizT("Refreshing Quiz for the selected course…","正在刷新所选课程的测验…"));
+          try{
+            // The course selector writes through a serial preference queue.
+            // Wait for the selected course to reach Supabase before calling
+            // course-scoped availability/history/session RPCs.
+            if(preferenceWriteQueue)await preferenceWriteQueue;
+            if(course!==requestedCourse||!window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz"))return;
             await quizLoadHome();
+          }catch(error){
+            if(course===requestedCourse)quizStatus("Could not refresh Quiz for the selected course: "+(error.message||""),true);
           }
-        }catch(error){quizStatus("Could not refresh Quiz for the selected course: "+(error.message||""),true);}
+        }
         return;
       }
       try{await initialiseLessons();}catch(error){el("lessonStatus").textContent=error.message||"Could not refresh lesson progress.";}
