@@ -20,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: u3-malay-learning-support-translations
+  group: u3-malay-learning-support-v2
   cancel-in-progress: false
 
 jobs:
