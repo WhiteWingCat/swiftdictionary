@@ -1154,7 +1154,7 @@ test("Malay Daily Discovery uses only the 93 approved dictionary-derived catalog
   expect(pool).toHaveLength(93);
   expect(new Set(pool.map(item=>item.id)).size).toBe(93);
   expect(pool.every(item=>item.id.startsWith("ms-discovery-dict-"))).toBeTruthy();
-  const dictionaryWords=await page.evaluate(()=>new Set(window.SWIFT_MALAY_DICTIONARY.map(item=>item.word)));
+  const dictionaryWords=await page.evaluate(()=>window.SWIFT_MALAY_DICTIONARY.map(item=>item.word));
   expect(pool.every(item=>dictionaryWords.includes(item.word))).toBeTruthy();
   await page.locator('[data-page="lessons"]').click();
   await page.locator('[data-daily-tab="daily_discovery"]').click();
