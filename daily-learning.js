@@ -482,15 +482,17 @@
     if (typeof value === "string" || typeof value === "number") return String(value);
     if (Array.isArray(value)) return value.map(item=>dailyLocalizedText(item,language,"")).filter(Boolean).join(" ");
     if (typeof value === "object") {
-      const order=language==="ms"?["ms","en","zh"]:language==="zh"?["zh","en","ms"]:["en","ms","zh"];
+      const order=language==="ms"?["ms","malay","translation","learning","en","zh"]
+        :language==="zh"?["zh","zh-CN","zh-Hans","chinese","translation","learning","en","ms"]
+        :["en","english","translation","learning","ms","zh"];
       for (const code of order) {
-        if (value[code] !== undefined && value[code] !== null) {
+        if (value[code] !== undefined && value[code] !== null && value[code] !== value) {
           const resolved=dailyLocalizedText(value[code],language,"");
           if(resolved.trim())return resolved;
         }
       }
-      for (const key of ["text","value","label","content","title","body","definition","description"]) {
-        if(value[key]!==undefined&&value[key]!==null){
+      for (const key of ["text","value","label","content","title","body","definition","description","prompt","question","sentence","meaning","answer"]) {
+        if(value[key]!==undefined&&value[key]!==null&&value[key]!==value){
           const resolved=dailyLocalizedText(value[key],language,"");
           if(resolved.trim())return resolved;
         }
