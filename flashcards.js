@@ -710,6 +710,11 @@
     const startButton=$("#flashcardsApp [data-action='start-game']");
     if(startButton)startButton.disabled=true;
     try{
+      // Resolve queued course/translation preference writes before building the
+      // deck. Otherwise a rapid language switch can create a session in the new
+      // language while the deck and Malay eligibility checks still use the old
+      // in-memory preference values.
+      if(typeof preferenceWriteQueue!=="undefined")await preferenceWriteQueue;
       const deck=gameDeck();
       if(course!=="ms"&&translationLanguage==="ms"&&!deck.some(word=>translationFor(word)))throw new Error("Malay translations are not available for this Flashcard set yet.");
       if(deck.length<4)throw new Error("Add at least four dictionary words or cards before starting a four-choice game.");
@@ -721,7 +726,6 @@
       if(!makeRound(deck))throw new Error("This card set has no unused questions available. Choose another card set and try again.");
       state.usedQuestionKeys.clear();
       state.round=null;state.phase="idle";state.phaseEnds=0;state.ending=false;
-      if(typeof preferenceWriteQueue!=="undefined")await preferenceWriteQueue;
       const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty,p_duration_seconds:state.duration});
       if(error)throw error;
       state.game={id:data.session_id,startedAt:Date.now(),learningLanguage:data.learning_language_code||course,translationLanguage:data.translation_language_code||translationLanguage,durationSeconds:Number(data.duration_seconds)||state.duration};
@@ -773,7 +777,12 @@
     const game=state.game;state.game=null;state.finishing=true;render();
     try{
       const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});if(error)throw error;
-      state.lastResult=data;state.finishing=false;await loadData();await notifyFlashcardAllowanceExhausted();showResultPrompt();
+      state.lastResult=data;state.finishing=false;await loadData();
+      // The completed result/review must not depend on the optional allowance
+      // reset-time lookup. A slow preferences read previously blocked the
+      // result modal and made a successfully completed game appear to hang.
+      showResultPrompt();
+      void notifyFlashcardAllowanceExhausted().catch(()=>{});
     }catch(error){state.notice="The game result could not be saved: "+error.message;try{await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:game.id});}catch(_){}state.finishing=false;await loadData();}
   }
   function showResultPrompt(){
