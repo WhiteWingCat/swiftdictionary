@@ -587,7 +587,7 @@
     const elapsed=Math.max(0,duration-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,duration-elapsed),round=state.round;
     const activeModeLabel=modeLabel(state.mode),activeDifficulty=difficultyLabel(state.difficulty);
     const activeTranslationLanguage=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
-    const translationHint=round?.mode==="sentence"&&round.translationHint?'<p class="flash-translation-hint"><span>'+ (activeTranslationLanguage==="ms"?"Terjemahan Bahasa Melayu:":"中文释义：") +'</span>'+escapeHtml(round.translationHint)+'</p>':"";
+    const translationHint=round?.mode==="sentence"&&round.translationHint?'<p id="flashTranslationHint" class="flash-translation-hint"><span>'+ (activeTranslationLanguage==="ms"?"Terjemahan Bahasa Melayu:":"中文释义：") +'</span>'+escapeHtml(round.translationHint)+'</p>':"";
     mount.innerHTML=`<section class="flash-game">
       <div class="flash-game-top"><span class="flash-pill">${activeModeLabel} · ${activeDifficulty}</span><strong id="flashGameClock" class="flash-game-clock">${Math.ceil(remain)}s</strong></div>
       
@@ -613,9 +613,27 @@
     if(ag)ag.style.width=(state.phase==="answer"?ratio*100:0)+"%";
     if(remain<=0){finishGame();return;}state.gameTimer=setTimeout(tickGame,80);
   }
+  function updateTranslationHint(){
+    const activeLanguage=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
+    const text=state.round?.mode==="sentence"&&activeLanguage==="ms"?String(state.round.translationHint||"").trim():"";
+    let hint=$("#flashTranslationHint");
+    if(!text){hint?.remove();return;}
+    if(!hint){
+      const memory=$("#flashMemory");
+      if(!memory)return;
+      hint=document.createElement("p");
+      hint.id="flashTranslationHint";
+      hint.className="flash-translation-hint";
+      memory.insertAdjacentElement("afterend",hint);
+    }
+    const label=document.createElement("span");
+    label.textContent="Terjemahan Bahasa Melayu:";
+    hint.replaceChildren(label,document.createTextNode(text));
+  }
   function showMemory(){
     if(!state.game)return;if(Date.now()-state.game.startedAt>=(state.game.durationSeconds||state.duration||60)*1000){finishGame();return;}
-    try{state.round=makeRound(state.deck);}catch(e){state.notice=e.message;finishGame();return;}
+    try{state.round=makeRound(state.deck);}catch(e){state.notice=e.message;updateTranslationHint();finishGame();return;}
+    updateTranslationHint();
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
     if(!state.round){
       state.phase="exhausted";state.phaseStartedAt=Date.now();state.phaseDuration=1;
