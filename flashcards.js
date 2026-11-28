@@ -576,7 +576,8 @@
     for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
     const options=chosen.map(optionValue),correctIndex=options.findIndex(v=>normalize(v)===normalize(correct));
     if(correctIndex<0)return null;
-    const translationHint=mode==="sentence"&&state.game?.translationLanguage==="ms"?(target.exampleMs||""):"";
+    const activeTranslationLanguage=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
+    const translationHint=mode==="sentence"&&activeTranslationLanguage==="ms"?(target.exampleMs||""):"";
     return {target,mode,memory,prompt,correct,options,optionCards:chosen,correctIndex,translationHint};
   }
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
@@ -585,7 +586,8 @@
     const duration=state.game.durationSeconds||state.duration||60;
     const elapsed=Math.max(0,duration-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,duration-elapsed),round=state.round;
     const activeModeLabel=modeLabel(state.mode),activeDifficulty=difficultyLabel(state.difficulty);
-    const translationHint=round?.mode==="sentence"&&round.translationHint?'<p class="flash-translation-hint"><span>'+ (state.game.translationLanguage==="ms"?"Terjemahan Bahasa Melayu:":"中文释义：") +'</span>'+escapeHtml(round.translationHint)+'</p>':"";
+    const activeTranslationLanguage=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
+    const translationHint=round?.mode==="sentence"&&round.translationHint?'<p class="flash-translation-hint"><span>'+ (activeTranslationLanguage==="ms"?"Terjemahan Bahasa Melayu:":"中文释义：") +'</span>'+escapeHtml(round.translationHint)+'</p>':"";
     mount.innerHTML=`<section class="flash-game">
       <div class="flash-game-top"><span class="flash-pill">${activeModeLabel} · ${activeDifficulty}</span><strong id="flashGameClock" class="flash-game-clock">${Math.ceil(remain)}s</strong></div>
       
@@ -1030,8 +1032,15 @@
       malayChineseDictionarySupportedCount:auditCoverage(malayAuditChineseCards,"dictionary"),
       malayChinesePhraseCardCount:malayAuditChineseCards.filter(card=>card.cardKind==="phrases").length,
       malayChinesePhraseSupportedCount:auditCoverage(malayAuditChineseCards,"phrases"),
+      malayEnglishSentenceCardCount:malayAuditEnglishCards.filter(card=>card.examples?.length).length,
+      malayEnglishSentenceSupportedCount:malayAuditEnglishCards.filter(card=>card.exampleMsReviewed&&card.exampleMs&&card.examples?.length).length,
+      malayChineseSentenceCardCount:malayAuditChineseCards.filter(card=>card.examples?.length).length,
+      malayChineseSentenceSupportedCount:malayAuditChineseCards.filter(card=>card.exampleMsReviewed&&card.exampleMs&&card.examples?.length).length,
       malayEnglishReviewedSentenceCardCount:malayAuditEnglishCards.filter(card=>card.exampleMsReviewed&&card.exampleMs&&card.examples?.length).length,
       malayChineseReviewedSentenceCardCount:malayAuditChineseCards.filter(card=>card.exampleMsReviewed&&card.exampleMs&&card.examples?.length).length,
+      get customCardCount(){return (state.data.cards||[]).filter(card=>card.card_type==="custom").length;},
+      get customCardMalaySupportedCount(){return (state.data.cards||[]).filter(card=>card.card_type==="custom"&&card.translation_language_code==="ms"&&String(card.translation_text||"").trim()).length;},
+      get customCardMalayUnsupportedCount(){return (state.data.cards||[]).filter(card=>card.card_type==="custom"&&(card.translation_language_code!=="ms"||!String(card.translation_text||"").trim())).length;},
       customCardMalaySupportPolicy:"Custom cards require a user-supplied Malay translation; cards without one are excluded from Malay-support games."
     },
     reductionStep:REDUCTION_STEP,
