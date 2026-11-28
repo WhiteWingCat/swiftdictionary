@@ -1255,3 +1255,57 @@ Read-only staging checks confirm 93 active Malay Daily Discovery catalogue rows 
 At the latest CI checkpoint, U3.0 architecture, Cloudflare routing, English dictionary QA, U2.7 PostgreSQL and U2.3 PostgreSQL migration/allowance checks passed. Flashcard static checks passed. The U2.3 Chromium and Flashcard Chromium suites were still running; the Quiz database rerun including the rotation-slot repair and the new unit-test workflows were queued/pending. The newest workflow head is `c081f7f`; do not declare the full regression matrix green until those runs finish and the per-card review test passes.
 
 **Active completion gates:** finish the current CI matrix; resolve any remaining Flashcard per-card review or authenticated Quiz/RPC failures; verify OAuth redirect and cross-account isolation; complete staging preview and owner desktop/mobile acceptance; complete human Malaysian Standard Malay editorial review, source/model licence and attribution verification, and Malaysia Copyright Act/PDPA/cross-border review before public release. Production remains untouched and PR #20 remains unmerged. Leaked-password protection is deferred at the owner's direction and is not an active U3.0 gate.
+
+---
+
+## 2026-11-28 continuation status — latest verified checkpoint
+
+**Application branch/head:** `feature/update-3.0-phase-0-audit` at `0c7ae64d5f78ad287e54a254cafdd3156b90d90f` (verified from the live branch ref).  
+**Staging:** Supabase project `ivatvkfrtifgfheeaelj`; production project and production hosting remain untouched.  
+**PR:** [#20](https://github.com/WhiteWingCat/swiftdictionary/pull/20) remains open, draft, and unmerged. Keep it staging-only; do not merge or deploy production without separate explicit owner approval.  
+**Preview:** [https://8ada6c1d.swiftdictionary.pages.dev](https://8ada6c1d.swiftdictionary.pages.dev) is the commit-specific Cloudflare Pages preview for `0c7ae64`; the branch alias is [https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev). Cloudflare Pages reports successful deployment for this head.
+
+### Owner-directed scope change
+
+The owner explicitly instructed that Supabase leaked-password protection be dropped from the active work. It is **not an active U3.0 completion gate**. Do not attempt a plan upgrade, billing change, Auth setting workaround, database workaround or client-side substitute. Revisit only if password-based authentication is introduced or the owner asks again. Continue validating the enabled Google OAuth flow and actual account/data security boundaries.
+
+### Completed implementation since the earlier continuation checkpoint
+
+- Curated Malay support text was expanded to all 199 approved English and 145 approved Chinese Quiz question records, retaining source question and option identities. The records are model-assisted drafts and still require human Malaysian Standard Malay review.
+- Curated Malay support corrections were added for all 112 English and 112 Chinese permanent Lesson practice questions; prompt and option semantics must remain aligned to the source questions. Editorial review remains pending.
+- Daily Discovery now resolves the exact 93 active Malay catalogue IDs and rotation order; runtime, SQL and browser regression coverage were added for catalogue alignment and structured prompt rendering.
+- Flashcard runtime now derives Malay support from dictionary translations, curated glosses and explicit reviewed sentence pairs; unsupported custom cards remain excluded rather than shown with missing translations. The detailed audit is in [the 2026-11-28 Malay Flashcard coverage audit](review/malay-flashcard-coverage-audit-2026-11-28.md).
+- First-round Malay Sentence Recall hint rendering and delayed game-completion test timing were corrected. These changes still require the latest browser workflow to pass.
+
+### Latest automated validation snapshot for `0c7ae64`
+
+| Workflow/check | Latest result | Interpretation |
+|---|---|---|
+| Cloudflare Pages deployment | Passed | Commit-specific staging preview deployed |
+| Cloudflare build-routing guard | Passed | Preview/production routing guard passed |
+| U2.9 English Dictionary QA | Passed | Existing English dictionary QA passed |
+| U2.6 ACL drift regression | Passed | ACL regression passed |
+| U3.0 architecture/content parity | Failed | 84/87 tests passed; three assertions need correction or implementation work (details below) |
+| U2.7 Chinese Dictionary | Queued | Not yet accepted |
+| U2.5 Flashcards | Pending | Not yet accepted |
+| U2.3 allowance/Dashboard | Queued | Not yet accepted |
+| Quiz database foundation | Pending | Not yet accepted |
+| Legacy Cloudflare Workers Builds check | Failed | Retired Worker path; not the Pages deployment path and not an active release gate |
+
+The three U3.0 architecture/content failures at this head are:
+1. Flashcard Chinese Malay definition coverage test expects 727, but the current runtime helper returns 895. Reconcile the actual card inventory/fallback behaviour with the audit and update the audit/test only after a deterministic source-level recount. Do not assume either number is correct without that recount.
+2. English Quiz item `quiz-beginner-010` includes `Aku tidak tahu.`, flagged by the Malaysian Malay quality check as an Indonesian-only lexical form. Replace with appropriate Malaysian Standard Malay (for example, context-checked `Saya tidak tahu.`) and review related generated/curated strings for similar contamination.
+3. English lesson `i-perfect`, question 4, is missing Malay option corrections. Complete the correction while preserving the original option IDs, answer mapping and meaning.
+
+### Active completion checklist — continue in this order
+
+1. Fix the three exact U3.0 regression failures above. Re-run the architecture/content suite on the resulting commit.
+2. Inspect the latest U2.5 Flashcards and Quiz DB workflow results. Fix any failing Malay Sentence Recall/per-card review, session persistence, authenticated Quiz or fixture/permission failures without broadening RLS or grants.
+3. Complete a source-driven Flashcard coverage recount for English dictionary cards, Chinese character/vocabulary/phrase cards, reviewed sentence pairs and custom-card eligibility. Keep separate counts for Malay definitions, examples and genuinely reviewed Malay sentence translations; exclude unsupported cards rather than inventing text.
+4. Re-run the full U3.0/U2.3/U2.5/U2.6/U2.7/U2.9 and Quiz integration matrix on one exact latest feature head. Do not infer a green matrix from earlier commits or partial jobs.
+5. Verify staging Google OAuth redirect and authenticated account switching/isolation on the current preview hostname. Verify the real Cloudflare Pages deployment is serving the current branch head. Manual owner desktop/mobile acceptance remains distinct from mocked Chromium CI.
+6. Review private-schema function grants and RPC boundaries; preserve RLS, `auth.uid()` ownership checks and service-role secrecy. Do not add broad table policies to suppress informational advisor findings.
+7. Keep machine-assisted Malay translations and generated dictionary content explicitly draft until competent human Malaysian Standard Malay and independent translation review is recorded. Complete model artefact/corpus licence and attribution checks, Malaysia Copyright Act 1987 review, PDPA 2010/2024-amendment and cross-border processing review before public activation.
+8. Update this plan, the Master Development Record, archive index and a dated conversation archive after each meaningful development session. Keep documentation commits on `docs/master-development-record`; keep application changes on the feature branch. No production migration, merge or deployment without explicit approval.
+
+**Release status:** U3.0 remains an isolated staging implementation, not a completed production release. Phase 3 preview availability does not close Phases 4–7 or the translation, editorial, security, OAuth, cross-version and release gates.
