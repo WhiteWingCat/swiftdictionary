@@ -873,6 +873,30 @@
     library:{definitionMs:"Perpustakaan; tempat buku dan bahan bacaan disimpan untuk digunakan atau dipinjam.",exampleMs:"Saya meminjam dua buah buku dari perpustakaan.",exampleEn:"I borrowed two books from the library."},
     hospital:{definitionMs:"Hospital; institusi perubatan tempat pesakit menerima pemeriksaan dan rawatan.",exampleMs:"Datuknya sedang menerima rawatan di hospital.",exampleEn:"His grandfather is receiving treatment at the hospital."}
   };
+  const flashcardExampleCorrectionsZh = {
+    "八月":{exampleMs:"Kami akan melancong ke Beijing pada bulan Ogos."},
+    "帮忙":{exampleMs:"Bolehkah anda membantu mengangkat kotak ini?"},
+    "帮助":{exampleMs:"Terima kasih kerana membantu saya menyiapkan kerja sekolah."},
+    "书包":{exampleMs:"Ada tiga buah buku di dalam beg sekolah saya."},
+    "包子":{exampleMs:"Saya makan dua biji pau untuk sarapan."},
+    "准备":{exampleMs:"Saya sedang membuat persediaan untuk peperiksaan esok."},
+    "设备":{exampleMs:"Bilik darjah ini mempunyai peralatan pengajaran yang baharu."},
+    "比较":{exampleMs:"Mari kita bandingkan dua kaedah ini dahulu."},
+    "比如":{exampleMs:"Saya suka buah-buahan seperti epal dan pisang."},
+    "左边":{exampleMs:"Bank itu terletak di sebelah kiri sekolah."},
+    "旁边":{exampleMs:"Ada sebuah kedai serbaneka di sebelah rumah saya."},
+    "经常":{exampleMs:"Dia sering menaiki MRT ke tempat kerja."},
+    "常见":{exampleMs:"Burung jenis ini biasa ditemui di taman."},
+    "机场":{exampleMs:"Kami tiba di lapangan terbang dua jam lebih awal."},
+    "广场":{exampleMs:"Kanak-kanak bermain layang-layang di dataran."},
+    "唱歌":{exampleMs:"Dia suka menyanyi sambil memasak."},
+    "合唱":{exampleMs:"Para pelajar akan menyanyikan sebuah lagu secara berkumpulan di majlis itu."},
+    "一次":{exampleMs:"Semalam saya pergi ke perpustakaan sekali."}
+  };
+  for (const [word, correction] of Object.entries(flashcardExampleCorrectionsZh)) {
+    const target = pack.flashcards?.zh?.[word];
+    if (target) target.exampleMs = correction.exampleMs;
+  }
   for (const [word, correction] of Object.entries(flashcardExampleCorrections)) {
     const target = pack.flashcards?.en?.[word];
     if (target) {
@@ -887,7 +911,7 @@
       en: Object.values(lessonCorrections.en).reduce((sum, rows) => sum + rows.length, 0),
       zh: Object.values(lessonCorrections.zh).reduce((sum, rows) => sum + rows.length, 0)
     },
-    flashcards: { en: Object.keys(flashcardExampleCorrections), zh: [] },
+    flashcards: { en: Object.keys(flashcardExampleCorrections), zh: Object.keys(flashcardExampleCorrectionsZh) },
     status: "model_assisted_malay_draft_pending_editorial_review"
   };
 })();
