@@ -604,8 +604,7 @@
         {q:"Soalan manakah bertanya tentang pengalaman hidup?",options:["Pernahkah anda melawat Jepun tahun lepas? (masa lampau khusus)","Pernahkah anda melawat Jepun? (pengalaman hidup)","Pernahkah anda melawat Jepun semalam? (bentuk kata kerja tidak tepat)"]},
         {q:"Pilih bentuk present perfect continuous.",options:["has studied: telah belajar","has been studying: telah / sedang belajar secara berterusan","had study: bentuk kata kerja tidak tepat"]},
         {q:"Tindakan manakah berlaku dahulu: filem bermula atau kami tiba?",options:["Filem itu telah pun bermula terlebih dahulu.","Kami tiba terlebih dahulu."]}
-      ]
-
+      ],
       "i-phrasal": [
         {q:"Apakah maksud “give up” dalam ayat “Dia enggan berputus asa”?",options:["Terus mencuba","Berhenti mencuba","Memberikan sesuatu kepada orang lain"]},
         {q:"Dalam ayat “Mesyuarat itu ditangguhkan hingga hari Jumaat”, apakah maksud “put off”?",options:["Membatalkan secara kekal","Menangguhkan","Memulakan lebih awal"]},
@@ -814,8 +813,7 @@
         {q:"Kata penggolong manakah digunakan secara sopan untuk merujuk kepada seseorang?",options:["位 (wèi): penggolong sopan untuk orang","条 (tiáo): benda panjang","本 (běn): buku","杯 (bēi): cawan atau gelas"]},
         {q:"Frasa manakah bermaksud “seorang”?",options:["一个人: seorang","一张人: penggolong tidak tepat","一杯人: penggolong tidak tepat","一本人: penggolong tidak tepat"]},
         {q:"Apabila menyebut nombor dua sebelum kata penggolong, nombor manakah lazim digunakan?",options:["两 (liǎng): dua sebelum kata penggolong","二 (èr): dua dalam kiraan dan nombor","十 (shí): sepuluh","几 (jǐ): berapa; beberapa"]}
-      ]
-
+      ],
       "zh-a-idioms-proverbs": [
         {q:"Ungkapan manakah bermaksud merosakkan sesuatu dengan menambah butiran yang tidak perlu?",options:["画蛇添足 — melakukan sesuatu secara berlebihan sehingga merosakkan hasil","亡羊补牢 — membaiki keadaan selepas masalah berlaku","一举两得 — mencapai dua tujuan melalui satu tindakan","入乡随俗 — mengikut adat setempat"]},
         {q:"Simpulan bahasa manakah bermaksud mengambil tindakan pembetulan selepas masalah berlaku?",options:["亡羊补牢 — membaiki keadaan selepas masalah berlaku","画蛇添足 — menambah sesuatu yang tidak perlu","一举两得 — mendapat dua manfaat melalui satu tindakan","守株待兔 — menunggu nasib baik tanpa berusaha"]},
