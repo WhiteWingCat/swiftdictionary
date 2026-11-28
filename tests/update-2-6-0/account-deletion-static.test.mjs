@@ -147,7 +147,7 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
 
 test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="data/chinese-flashcards.js?v=2.8.0-draft3"></script>'));
-  assert.ok(index.includes('<script src="flashcards.js?v=3.0.0-ms27"></script>'));
+  assert.ok(index.includes('<script src="flashcards.js?v=3.0.0-ms28"></script>'));
   assert.ok(index.includes('<script src="data/languages/malay-learning-support-translations.js?v=3.0.0-ms3"></script>'));
   assert.ok(index.includes('<script src="data/languages/malay-learning-support-overrides.js?v=3.0.0-ms3"></script>'));
   assert.ok(index.includes('<script src="data/languages/malay-dictionary-manual-overrides.js?v=3.0.0-ms2"></script>'));
