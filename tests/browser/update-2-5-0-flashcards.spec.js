@@ -750,14 +750,12 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
   }
   expect(outcome).toMatch(/Not quite|再试一次|Time expired|答题时间已结束/);
 
-  await page.evaluate(()=>{
-    window.__swiftOriginalDateNow=Date.now;
-    Date.now=()=>window.__swiftOriginalDateNow()+60000;
-  });
-  await page.clock.runFor(100);
+  // Advance Playwright's fake clock instead of replacing Date.now manually.
+  // This lets the interval, phase transitions and delayed persistence callback
+  // run in their normal order while keeping the test independent of wall time.
+  await page.clock.runFor(62000);
   await expect(page.locator(".flash-times-up-backdrop")).toBeVisible();
-  await page.clock.runFor(2000);
-  await expect(page.locator("#flashResultTitle")).toBeVisible();
+  await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:10000});
   await page.locator('[data-action="close-result"]').click();
 
   await expect(page.locator('[data-action="open-review"]')).not.toContainText("(0)");
@@ -768,10 +766,6 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
   await page.locator('[data-action="review-game"]').first().click();
   await expect(page.locator(".flash-game-review-modal .flash-review-card").first()).toBeVisible();
   await expect(page.locator(".flash-game-review-modal")).toContainText("Incorrect");
-  await page.evaluate(()=>{
-    Date.now=window.__swiftOriginalDateNow;
-    delete window.__swiftOriginalDateNow;
-  });
 });
 
 test("Recent games paginate ten at a time and game review has a top close control",async({page})=>{
