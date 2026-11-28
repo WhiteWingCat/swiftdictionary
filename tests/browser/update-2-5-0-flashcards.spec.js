@@ -729,42 +729,40 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
 
 
 test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
+  test.setTimeout(60000);
   await openMockFlashcards(page);
-  // Install the fake clock after app startup so initial scripts and mock auth
-  // can finish their normal boot sequence before the game timer is controlled.
+  // Install the fake clock after app startup so auth/preferences finish booting.
   await page.clock.install();
   await beginRecall(page,"word","beginner","all",60);
 
-  // Answer until at least one miss is recorded; the first option is intentionally
-  // arbitrary, so the test checks the feedback rather than assuming an answer key.
+  // Enter the answer phase explicitly, then wait for each transition. The old
+  // test clicked the next phase button before feedback had rendered; under a
+  // loaded CI runner that could leave the button hidden and consume the entire
+  // test timeout while Playwright waited for it to become actionable.
   await page.locator('[data-action="phase-action"]').click();
+  await expect(page.locator("#flashPhaseLabel")).toHaveText("Pick your answers");
   let outcome="";
-  for(let attempt=0;attempt<12;attempt++){
-    if(attempt>0){
-      await page.locator('[data-action="phase-action"]').click(); // feedback -> next memory card
-      await page.locator('[data-action="phase-action"]').click(); // memory -> answer phase
-    }
+  for(let attempt=0;attempt<20;attempt++){
+    await expect(page.locator("#flashOptions .flash-option")).toHaveCount(4);
     await page.locator("#flashOptions .flash-option").first().click();
+    await expect(page.locator("#flashPhaseLabel")).toHaveText(/Correct!|Not quite/);
     outcome=await page.locator("#flashPhaseLabel").innerText();
-    if(/Not quite|再试一次|Time expired|答题时间已结束/.test(outcome))break;
+    if(/Not quite/.test(outcome))break;
+    if(attempt<19){
+      await expect(page.locator('[data-action="phase-action"]')).toHaveText("Next");
+      await page.locator('[data-action="phase-action"]').click();
+      await expect(page.locator("#flashPhaseLabel")).toHaveText("Memorise the card");
+      await page.locator('[data-action="phase-action"]').click();
+      await expect(page.locator("#flashPhaseLabel")).toHaveText("Pick your answers");
+    }
   }
-  expect(outcome).toMatch(/Not quite|再试一次|Time expired|答题时间已结束/);
+  expect(outcome).toMatch(/Not quite/);
 
-  // Move the game clock past its 60-second deadline, then advance the
-  // scheduled timeout and delayed persistence callbacks separately.
-  await page.evaluate(()=>{
-    window.__swiftOriginalDateNow=Date.now;
-    Date.now=()=>window.__swiftOriginalDateNow()+60000;
-  });
-  await page.clock.runFor(100);
+  // Advance the fake game clock through the deadline and delayed persistence.
+  await page.clock.fastForward(61000);
   await expect(page.locator(".flash-times-up-backdrop")).toBeVisible();
-  await page.clock.runFor(2500);
-  await page.clock.runFor(100);
+  await page.clock.fastForward(2500);
   await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:10000});
-  await page.evaluate(()=>{
-    Date.now=window.__swiftOriginalDateNow;
-    delete window.__swiftOriginalDateNow;
-  });
   await page.locator('[data-action="close-result"]').click();
 
   await expect(page.locator('[data-action="open-review"]')).not.toContainText("(0)");
