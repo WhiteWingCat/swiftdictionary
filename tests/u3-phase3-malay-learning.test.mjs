@@ -124,8 +124,8 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   assert.equal(corrected.status,"model_assisted_malay_draft_pending_editorial_review");
   assert.ok(corrected.quiz.en.length>=199,"English Quiz Malay support batch count should include the newly curated 36 questions");
   assert.ok(corrected.quiz.zh.length>=145,"Chinese Quiz Malay support batch count should include the newly curated 36 questions");
-  assert.equal(corrected.lessons.en,49);
-  assert.equal(corrected.lessons.zh,49);
+  assert.equal(corrected.lessons.en,112);
+  assert.equal(corrected.lessons.zh,112);
   assert.match(support.lessons.en["b-sentence"][0].q,/ayat penyata mudah/);
   assert.match(support.lessons.en["b-sentence"][3].options[1],/Terdapat tiga buah kerusi/);
   assert.match(support.lessons.zh["zh-b-pinyin-foundations"][0].q,/nada pertama/);
