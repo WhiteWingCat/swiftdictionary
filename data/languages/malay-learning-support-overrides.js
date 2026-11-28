@@ -545,7 +545,10 @@
       en[id].promptLearning = row.promptLearning;
       en[id].explanationLearning = row.explanationLearning;
       Object.entries(row.options).forEach(([optionId, value]) => {
-        if (en[id].options?.[optionId]) en[id].options[optionId].learning = value.learning;
+        if (en[id].options?.[optionId]) {
+          en[id].options[optionId].learning = value.learning;
+          if (value.translation) en[id].options[optionId].translation = value.translation;
+        }
       });
     }
   });
