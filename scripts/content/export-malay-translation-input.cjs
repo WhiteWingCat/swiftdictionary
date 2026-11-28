@@ -7,7 +7,8 @@ for (const file of [
   "data/english-expansion.js",
   "data/languages/chinese-dictionary.js",
   "data/chinese-characters.js",
-  "data/languages/malay-dictionary-manual-overrides.js"
+  "data/languages/malay-dictionary-manual-overrides.js",
+  "data/languages/malay-flashcard-translations.js"
 ]) require(path.resolve(file));
 
 function stableSlug(value, code) {
@@ -75,8 +76,13 @@ const payload = {
   source: "SwiftDictionary original-authored Dictionary definitions",
   targetLanguage: "ms",
   english: build("en", en, manual),
-  chinese: build("zh", zh, manual)
+  chinese: build("zh", zh, manual),
+  malayGlosses: {
+    en: window.SWIFT_FLASHCARD_MALAY_SUPPORT?.en || {},
+    zh: window.SWIFT_FLASHCARD_MALAY_SUPPORT?.zh || {}
+  }
 };
+if (!payload.malayGlosses.zh["马"]) throw new Error("Malay Chinese-character fallback gloss for 马 is missing.");
 const counts = payload => ({
   entries: payload.length,
   senses: payload.reduce((n, entry) => n + entry.senses.length, 0),
