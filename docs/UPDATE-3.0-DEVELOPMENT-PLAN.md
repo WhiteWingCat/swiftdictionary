@@ -1819,3 +1819,6 @@ Human pre-release editorial review remains waived by owner instruction; the owne
 
 
 **Malay content QA follow-up (2026-11-28):** The latest architecture/content workflow exposed 17 Indonesian-influenced phrases in generated Malay learning-support drafts. These were corrected with explicit Malay flashcard overrides; the validator's false-positive pattern was also narrowed so standard Malaysian terminology `kata adjektif` is not misclassified. A fresh run was queued against the updated feature branch, but its result is not yet available. This correction does not constitute human editorial review.
+
+
+**Test correction follow-up:** A subsequent architecture run exposed a malformed Unicode-property regex in the Malay lesson translation coverage test, causing distinct options to normalise incorrectly. The test regex now uses the intended Unicode letter/number class; the underlying b-sentence Malay options were confirmed distinct after the committed overrides. The new architecture run for feature head `235720f404859ab7b4458035d06fab7034f17a12` was queued at the time of this note. The code preview was successfully built for `959b1a8`; the later `235720f` commit only corrects the test.
