@@ -335,6 +335,16 @@
         {q:"Perkataan manakah bermaksud “berguna untuk sesuatu tujuan”?",options:["useful: berguna","quiet: sunyi","boring: membosankan"]},
         {q:"Pilih frasa yang semula jadi: “Please ___ attention to the road.”",options:["pay attention: berikan perhatian","make attention: membuat perhatian","do attention: melakukan perhatian"]},
         {q:"Frasa manakah bermaksud menunaikan apa yang telah dijanjikan?",options:["keep a promise: menepati janji","take a break: berehat seketika","make a mistake: melakukan kesilapan"]}
+      ],
+      "b-countable-nouns": [
+        {q:"Pilih frasa yang betul.",options:["an advice: kata sandang dan kata nama tidak sepadan","some advice: sejumlah nasihat","many advice: many tidak digunakan dengan kata nama tidak boleh bilang"]},
+        {q:"Berapa ___ buah buku yang anda pinjam?",options:["much: untuk kata nama tidak boleh bilang","many: untuk kata nama boleh bilang","any of: bukan bentuk soalan kuantiti yang sesuai"]},
+        {q:"Kami belum mempunyai ___ maklumat tentang acara itu.",options:["many: untuk kata nama boleh bilang","a few: untuk kata nama boleh bilang","much: untuk kata nama tidak boleh bilang"]},
+        {q:"Pilih ungkapan yang semula jadi.",options:["two pieces of advice: dua nasihat","two advices: bentuk jamak tidak standard","two advice: bentuk tidak standard"]},
+        {q:"Pilih frasa yang betul.",options:["three equipments: bentuk jamak tidak standard","three pieces of equipment: tiga unit peralatan","three equipment: bentuk tidak standard"]},
+        {q:"Ayat manakah menggunakan bahasa Inggeris standard?",options:["We bought new furnitures. (furnitures tidak standard)","Kami membeli perabot baharu. (some new furniture)","We bought many furniture. (many tidak digunakan dengan furniture)"]},
+        {q:"Pilih bentuk jamak yang betul: seorang kanak-kanak, dua ___.",options:["childs: bentuk jamak tidak sekata yang salah","children: bentuk jamak yang betul","childes: bentuk jamak yang salah"]},
+        {q:"Pilih frasa yang semula jadi.",options:["two breads: bentuk jamak tidak tepat dalam konteks ini","two slices of bread: dua keping roti","two slice bread: struktur frasa tidak tepat"]}
       ]
     },
     zh: {
@@ -371,6 +381,14 @@
         {q:"Ayat manakah bermaksud “Saya seorang pelajar”?",options:["Saya seorang pelajar.","Saya sangat pelajar. (tidak gramatis)","Adakah pelajar itu saya?","Saya mempunyai pelajar."]},
         {q:"Dalam ayat “我是学生”, perkataan manakah menghubungkan seseorang dengan identitinya?",options:["ialah; merupakan","berada di; di","mempunyai","pergi"]},
         {q:"Ayat manakah bermaksud “Ini buku saya”?",options:["Ini buku saya.","Saya buku ini. (susunan tidak gramatis)","Ini ialah buku saya. (susunan tidak tepat)","Buku saya ini. (susunan tidak tepat)"]}
+      ],
+      "zh-b-common-actions": [
+        {q:"Kata kerja manakah merujuk kepada perbuatan memasukkan makanan ke dalam mulut ketika makan?",options:["makan","minum","melihat","mendengar"]},
+        {q:"Apabila dahaga, kata kerja manakah digunakan untuk meminum air atau minuman lain?",options:["minum","makan","pergi","datang"]},
+        {q:"Kata kerja manakah bermaksud bergerak dari lokasi semasa ke tempat lain?",options:["pergi","datang","melihat","berkata"]},
+        {q:"Ayat manakah bermaksud penutur sedang minum air?",options:["Saya minum air.","Saya makan air.","Saya melihat air.","Saya pergi air."]},
+        {q:"Apabila digunakan bersama “书” (buku), kata kerja manakah bermaksud membaca?",options:["melihat; membaca","minum","datang","membuat"]},
+        {q:"Kata kerja manakah merujuk kepada kegiatan memperoleh pengetahuan atau melatih kemahiran?",options:["belajar","berehat","bekerja","tidur"]}
       ]
     }
   };
