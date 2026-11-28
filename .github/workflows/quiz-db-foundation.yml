@@ -279,15 +279,11 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 <<'SQL'
           grant usage on schema public to authenticated;
           grant select, insert, update on public.user_preferences to authenticated;
-          do $ begin
-            if not has_table_privilege('authenticated','public.user_preferences','SELECT')
-               or not has_table_privilege('authenticated','public.user_preferences','UPDATE') then
-              raise exception 'Authenticated user_preferences privileges are missing';
-            end if;
-            if not exists (select 1 from pg_policies where schemaname='public' and tablename='user_preferences' and policyname='Users can read their own preferences') then
-              raise exception 'Owner-scoped user_preferences read policy is missing';
-            end if;
-          end $;
+          select 1 / case
+            when has_table_privilege('authenticated','public.user_preferences','SELECT')
+             and has_table_privilege('authenticated','public.user_preferences','UPDATE')
+             and exists (select 1 from pg_policies where schemaname='public' and tablename='user_preferences' and policyname='Users can read their own preferences')
+            then 1 else 0 end;
           SQL
 
       - name: Run authenticated Chromium Quiz runtime tests against local Supabase
