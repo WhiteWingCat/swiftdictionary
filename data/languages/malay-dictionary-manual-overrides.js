@@ -1,3 +1,4 @@
+/* U3.0 Malay Standard Malay normalisation regeneration trigger — 2026-11-28. */
 /* Generator trigger: rebuild Dictionary translations with the corrected English definition source. */
 /* Malay generator QA: preserve the Malaysian Malay sense of bisa as venom and normalise malformed ANA tokens. */
 /* U3.0 Malay translation generation revision: complete flashcard inventory and Malaysian Malay lexical normalisation. */
