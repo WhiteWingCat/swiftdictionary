@@ -1705,3 +1705,33 @@ The earlier Quiz test-harness dialog error was fixed by making the native-dialog
 - The owner waived pre-release human editorial review; the owner will review content on the live website. Generated content remains accurately marked machine-assisted draft, not human-approved.
 
 No production deployment or production database change was made. Leaked-password protection remains excluded by explicit owner instruction.
+
+
+## 2026-11-28 — follow-up polish: Quiz course switching and Weak Memory latency
+
+Owner instruction: pre-release human linguistic/editorial review is waived; the owner will review content on the live website. Continue automated completeness, source-alignment, lexical, answer-choice, structural and runtime validation. Do not describe machine-assisted content as human-reviewed or approved.
+
+### Application changes on `feature/update-3.0-phase-0-audit`
+
+- Quiz course refresh now consumes the shared `swiftdictionary:course-changed` event emitted after the global selector updates the selected learning language and queues the preference write. This removes the duplicate Quiz-specific DOM `change` handler ordering dependency. The refresh retains the preference persistence verification, clears stale course-scoped availability/history/session/result state, and keeps request/account/course-version guards against stale responses.
+- Weak Memory source indexes now retain original dictionary source records and normalise only the selected record, instead of cloning all Chinese/Malay card records during index construction.
+- Weak Memory review items are grouped and cached by recall mode. The detail lookup reuses the cached mode list, and the custom-card lookup map is obtained once per list render.
+- Language indexes are warmed one per idle slice. The idle path no longer eagerly constructs the full Malay gloss fallback map.
+- Malay Weak Memory detail enrichment now disables the expensive dictionary-gloss fallback scan on the click path. It uses already-present card translations, curated support and generated support rows; missing support remains visible to automated coverage validation rather than triggering a blocking whole-dictionary scan.
+- Flashcards runtime cache version advanced to `3.0.0-ms31`.
+
+### Regression and validation status
+
+- Added/updated assertions in `tests/u3-phase3-malay-feedback.test.mjs`, `tests/update-2-5-0/check-flashcards-page.mjs`, `tests/update-2-6-0/account-deletion-static.test.mjs`, and `scripts/quiz/validate-quiz-frontend.mjs`.
+- U3.0 architecture regression passed on the intermediate commit `b9169ec5ca4b014fba2a95c1d197fa8553a71f21` after correcting stale test assumptions. The latest head after the additional ms31 Weak Memory refinement has a new architecture run queued; do not treat that latest run as passed until it completes.
+- Cloudflare build-routing guard passed on the preceding validation head. Latest-head routing, Flashcards browser, Quiz DB/Auth, ACL, allowance/Dashboard, Chinese and English checks are queued or running.
+- The first Quiz DB static validation after changing the handler exposed a stale validator that still searched for the old DOM change listener and eager Weak Memory preload. The validator has been updated to assert the shared event path and chunked/lazy review behaviour; latest-head Quiz DB/Auth validation is pending.
+- A previous ACL workflow failure was caused by an outdated account-deletion cache-version assertion (`ms29` versus `ms30`) and a subsequent cleanup-path error, not by an ACL policy regression. The assertion has since been advanced to `ms31`; latest ACL regression remains pending.
+
+### Multilingual content and release boundary
+
+- Existing content inventory and translation counts remain as recorded above; the current generated support translation output and correction layer must pass the latest-head generation/coverage/lexical validators before being called complete.
+- The dedicated Malay Dictionary overlay generator and Malay learning-support generator are running/queued on the latest branch. Do not infer missing Dictionary translations from a zero-length file-fetch response where the blob SHA is non-empty; use the workflow's output and exact coverage validator.
+- Human review is waived before launch, but automated coverage, lexical, source-alignment and answer-quality checks remain mandatory.
+- These UI/performance changes add no personal-data fields, tracking, third-party sharing or new processing purposes. Existing Malaysia Copyright Act 1987, PDPA 2010/2024 amendment, cross-border processing, source provenance, model/corpus licensing and attribution remain public-release considerations.
+- PR #20 remains draft/unmerged. Production hosting and database remain untouched. Leaked-password protection remains excluded by the owner's explicit instruction.
