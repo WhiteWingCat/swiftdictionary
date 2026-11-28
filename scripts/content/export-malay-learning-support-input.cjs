@@ -10,6 +10,7 @@ require(path.resolve("data/languages/english-dictionary.js"));
 require(path.resolve("data/english-expansion.js"));
 require(path.resolve("data/chinese-lessons.js"));
 require(path.resolve("data/chinese-flashcards.js"));
+require(path.resolve("data/languages/malay-flashcard-translations.js"));
 const flashcardsSource=fs.readFileSync(path.resolve("flashcards.js"),"utf8");
 const phraseMatch=flashcardsSource.match(/const curatedEnglishPhrases\s*=\s*(\[[\s\S]*?\]);\s*const state/);
 if(!phraseMatch)throw new Error("Could not extract the curated English Flashcard phrase bank");
@@ -68,7 +69,12 @@ for(const [code,file] of [["en","content/quiz/questions.en-zh.draft.json"],["zh"
     options:(q.options||[]).map(o=>({id:o.id,learning:o.learning_text,translation:o.translation_text}))
   }));
 }
-const payload={schemaVersion:1,targetLanguage:"ms",source:"Original SwiftDictionary lesson, Quiz and Flashcard content",lessons,quiz,flashcards};
+const malayGlosses={
+  en:window.SWIFT_FLASHCARD_MALAY_SUPPORT?.en||{},
+  zh:window.SWIFT_FLASHCARD_MALAY_SUPPORT?.zh||{}
+};
+if(!malayGlosses.zh["马"])throw new Error("Malay Chinese-character fallback gloss for 马 is missing.");
+const payload={schemaVersion:1,targetLanguage:"ms",source:"Original SwiftDictionary lesson, Quiz and Flashcard content",lessons,quiz,flashcards,malayGlosses};
 for(const code of ["en","zh"]){
   if(!lessons[code].length)throw new Error("No "+code+" lesson inventory");
   if(!quiz[code].length)throw new Error("No "+code+" Quiz inventory");
