@@ -92,7 +92,7 @@ test("English and Chinese lesson practice prompts and options are corrected into
     assert.ok(question.q?.trim(),language+":"+lessonId+" question "+index+" missing Malay prompt");
     assert.ok(Array.isArray(question.options),language+":"+lessonId+" question "+index+" missing options");
     assert.equal(question.options.length,sourceQuestions[index].options.length,language+":"+lessonId+" question "+index+" option count must match source");
-    const normalizedOptions=question.options.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\\p{L}\\p{N}]+/gu," ").trim());
+    const normalizedOptions=question.options.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[\p{L}\p{N}]+/gu," ").trim());
     assert.equal(new Set(normalizedOptions).size,normalizedOptions.length,language+":"+lessonId+" question "+index+" has duplicate Malay answer choices");
     for(const field of [question.q,...question.options]){
      assert.ok(field?.trim(),language+":"+lessonId+" question "+index+" has empty Malay text");
