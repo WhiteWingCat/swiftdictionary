@@ -1473,6 +1473,8 @@ The remaining work is owner/release acceptance, not a known failing application 
 
 ## 2026-11-28 — Quiz course switching, Weak Memory performance and multilingual polish
 
+See [the detailed Quiz course-switch and Weak Memory polish archive](conversation-archive/2026-11-28-u3-quiz-course-switch-and-weak-memory-polish.md).
+
 Owner feedback from the latest staging preview:
 1. Changing the learning course while on Quiz refreshed only when switching to English.
 2. Weak Memory review had noticeable latency/lag.
