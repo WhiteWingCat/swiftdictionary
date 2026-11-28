@@ -202,6 +202,8 @@ test("English Flashcards include the curated multiword expression bank",async({p
 test("Malay Flashcard course and support-language content are loaded",async({page})=>{
   await openMockFlashcards(page);
   const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  const reviewedExamples=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en.length);
+  expect(reviewedExamples).toBe(18);
   expect(stats.malayDictionaryEntryCount).toBe(650);
   expect(stats.malaySupportEnglishCount).toBe(73);
   expect(stats.malaySupportChineseCount).toBe(124);
@@ -223,7 +225,14 @@ test("English Sentence Recall shows its Malay example translation",async({page})
   await expect(page.locator(".flash-translation-hint")).toContainText("Terjemahan Bahasa Melayu:");
   await expect(page.locator(".flash-translation-hint")).not.toContainText("[object Object]");
   const translation=await page.locator(".flash-translation-hint").innerText();
-  expect(translation.replace("Terjemahan Bahasa Melayu:","").trim()).not.toBe("");
+  const sentence=translation.replace("Terjemahan Bahasa Melayu:","").trim();
+  expect(sentence).not.toBe("");
+  const curatedExamples=await page.evaluate(()=>{
+    const keys=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.en;
+    const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.en;
+    return keys.map(key=>rows[key]?.exampleMs).filter(Boolean);
+  });
+  expect(curatedExamples).toContain(sentence);
 });
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
