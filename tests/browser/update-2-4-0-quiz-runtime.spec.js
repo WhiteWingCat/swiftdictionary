@@ -104,10 +104,6 @@ async function updateLearningPreference(userId, learningLanguage, translationLan
 
 async function openQuiz(page, session) {
   await installLocalSupabaseConfig(page);
-  const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
-  await page.addInitScript(({ key, value }) => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, { key: storageKey, value: session });
   const browserDiagnostics = [];
   page.__quizNativeDialogCount = 0;
   page.on("console", message => {
@@ -117,6 +113,19 @@ async function openQuiz(page, session) {
   page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
   page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
   await page.goto("/#quiz");
+  // Ask the installed Supabase JS client for its actual storage key instead of
+  // guessing from the local URL hostname (which differs across local runtimes).
+  const storageKey = await page.evaluate(({ url, key }) => {
+    if (!window.supabase?.createClient) throw new Error("Supabase JS client library did not load.");
+    const probe = window.supabase.createClient(url, key);
+    return probe.auth.storageKey;
+  }, { url: apiUrl, key: anonKey });
+  if (!storageKey) throw new Error("Supabase JS did not expose its session storage key.");
+  await page.evaluate(({ key, value }) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, { key: storageKey, value: session });
+  await page.reload();
+  await expect.poll(() => page.evaluate(key => localStorage.getItem(key) !== null, storageKey)).toBe(true);
   const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
     headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
     data: {}
