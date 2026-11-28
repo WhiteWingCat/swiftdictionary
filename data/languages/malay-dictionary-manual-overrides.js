@@ -1,3 +1,4 @@
+/* Generator trigger: rebuild Dictionary and Flashcard support after English definition export fix. */
 /* Malay generator QA: preserve the Malaysian Malay sense of bisa as venom and normalise malformed ANA tokens. */
 /* U3.0 Malay translation generation revision: complete flashcard inventory and Malaysian Malay lexical normalisation. */
 /* Hand-authored starter and reviewed-in-context draft overrides for SwiftDictionary U3.0 Malay target-language Dictionary translations.
