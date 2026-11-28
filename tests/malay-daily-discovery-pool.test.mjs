@@ -29,3 +29,15 @@ test("Malay Daily Discovery slug normalisation preserves ordinary letters and re
  assert.equal(new Set(approved).size,93);
  assert.equal(missing.length,0,`Missing approved Malay Discovery words: ${Array.from(missing).join(', ')}`);
 });
+
+test("Daily Discovery rotation order is unique per language, not globally",()=>{
+ const base=fs.readFileSync("supabase/migrations/20261114082311_swiftdictionary_update_2_3_0_learning_content_catalog.sql","utf8");
+ const sync=fs.readFileSync("supabase/migrations/20261127150000_swiftdictionary_update_3_0_malay_daily_discovery_catalogue_sync.sql","utf8");
+ const repair=fs.readFileSync("supabase/migrations/20261128100000_swiftdictionary_update_3_0_language_scoped_discovery_rotation.sql","utf8");
+ for(const [name,sql] of [["baseline",base],["Malay sync",sync],["staging repair",repair]]){
+  assert.match(sql,/on private\.learning_content_catalog\s*\(language_code\s*,\s*rotation_order\)/i,name+" must scope the unique rotation index by language");
+ }
+ assert.doesNotMatch(base,/on private\.learning_content_catalog\s*\(rotation_order\)/i);
+ assert.match(sync,/drop index if exists private\.learning_content_catalog_discovery_order_idx/i);
+ assert.match(repair,/drop index if exists private\.learning_content_catalog_discovery_order_idx/i);
+});
