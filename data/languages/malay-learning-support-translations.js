@@ -7,7 +7,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
   "humanReviewStatus": "pending",
   "modelLicensingStatus": "pending_verification",
   "modelLicensingNote": "Verify the exact Argos model-package and upstream corpus licences and preserve required attribution before public redistribution.",
-  "generatedAt": "2026-11-28T05:48:57.340912+00:00",
+  "generatedAt": "2026-11-28T06:03:07.657986+00:00",
   "engine": "Argos Translate offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9",
   "provenance": "Machine-assisted drafts generated from original SwiftDictionary lesson, Quiz and Flashcard text. Human Malaysian Standard Malay review is pending.",
   "lessons": {
