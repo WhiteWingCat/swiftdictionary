@@ -576,6 +576,13 @@
       });
     }
   });
+  // The two prompt/explanation fields are equivalent-language variants of
+  // the same item. Keep their Malay rendering identical even for generated
+  // rows without an individual editorial correction.
+  for(const row of Object.values(en)){
+    if(row.promptLearning)row.promptTranslation=row.promptLearning;
+    if(row.explanationLearning)row.explanationTranslation=row.explanationLearning;
+  }
   const zh = pack.quiz?.zh;
   const zhRows = {
 
@@ -885,6 +892,11 @@
     "zh-en-i-grammar-particles-02":{promptLearning:"Ayat manakah menunjukkan penutur menonton filem pada hari sebelumnya?",explanationLearning:"Partikel “了” selepas kata kerja “看” menandakan perbuatan menonton itu telah berlaku atau selesai.",options:{o1:{learning:"Saya menonton filem semalam.",translation:"Saya menonton filem semalam."},o2:{learning:"Ayat janggal: soalan tentang pengalaman menonton filem semalam.",translation:"Ayat janggal: soalan tentang pengalaman menonton filem semalam."},o3:{learning:"Susunan tidak semula jadi: objek diletakkan sebelum masa dan kata kerja.",translation:"Susunan tidak semula jadi: objek diletakkan sebelum masa dan kata kerja."},o4:{learning:"Susunan tidak semula jadi: kata kerja diletakkan selepas partikel yang salah.",translation:"Susunan tidak semula jadi: kata kerja diletakkan selepas partikel yang salah."}}},
     "zh-en-i-grammar-particles-04":{promptLearning:"Ayat manakah menunjukkan pintu berada dalam keadaan terbuka secara berterusan?",explanationLearning:"Partikel “着” selepas “开” menekankan keadaan pintu yang masih terbuka, bukan sekadar perbuatan membukanya.",options:{o1:{learning:"Pintu itu terbuka.",translation:"Pintu itu terbuka."},o2:{learning:"Pintu itu telah dibuka.",translation:"Pintu itu telah dibuka."},o3:{learning:"Pintu itu sedang dibuka.",translation:"Pintu itu sedang dibuka."},o4:{learning:"Pintu itu pernah dibuka sebelum ini.",translation:"Pintu itu pernah dibuka sebelum ini."}}}
   });
+  // Keep the paired support fields aligned for every Chinese-course item.
+  for(const row of Object.values(zh||{})){
+    if(row.promptLearning)row.promptTranslation=row.promptLearning;
+    if(row.explanationLearning)row.explanationTranslation=row.explanationLearning;
+  }
   Object.entries(zhRows).forEach(([id,row])=>{
     if(!zh) return;
     const target=zh[id]||(zh[id]={options:{}});
