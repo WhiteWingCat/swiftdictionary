@@ -151,7 +151,7 @@ def main():
         if source_key in source_cache:
             return source_cache[source_key]
         intermediate=clean(zh_en.translate(value)) if source=="zh" else value
-        if source=="zh" and re.search(r"[\\u3400-\\u9fff]",intermediate):
+        if source=="zh" and re.search(r"[\u3400-\u9fff]",intermediate):
             # Argos occasionally echoes isolated Chinese characters unchanged.
             # Use the exact authored Malay gloss where available; never pass a
             # Chinese token through the English→Malay model as if it were English.
