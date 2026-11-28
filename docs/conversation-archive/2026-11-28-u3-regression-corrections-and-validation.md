@@ -183,3 +183,35 @@ A duplicate Quiz Auth integration run for the same head was still executing afte
 The new partial-review SQL ownership test passed in the successful local Supabase integration run. The staging migration is applied and verified; two historical Malay games return partial review with 5 and 4 known missed cards, while full-snapshot sessions still return full review. Private table grants/RLS remain unchanged.
 
 **Remaining owner/release gates (not CI defects):** manually test the current staging preview on desktop and mobile, verify Google OAuth redirect and account switching/isolation against the deployed preview, obtain competent human Malaysian Standard Malay/independent translation review, complete model/corpus licence and attribution review, and finish Malaysia Copyright Act 1987 and PDPA 2010/2024-amendment/cross-border processing review. PR #20 remains draft/unmerged. Production hosting/database remain untouched. Leaked-password protection remains excluded by the owner's explicit instruction.
+
+
+## Latest staging feedback and polish checkpoint — 2026-11-28 (evening)
+
+Latest application change set: `12a4b58715b060702a14045f535c228387b7f3fd` (feature branch `feature/update-3.0-phase-0-audit`). This is a staging-only change set; PR #20 remains draft/unmerged and production remains untouched.
+
+### Feedback fixes
+
+1. **Quiz course-switch preference race:** the Dictionary course-change handler previously started `syncCurrentCourseFromCloud({mergeLocal:false})` immediately after queuing the user's preference upsert. The cloud read could therefore race the write and restore the previous learning course before the Quiz handler refreshed. The cloud sync now runs only after `preferenceWriteQueue` settles, and only if the same account and requested course are still active. The Quiz handler continues to wait for the preference queue and rejects stale course/request responses. The authenticated browser regression now waits for each preference write and verifies both Quiz availability and the persisted `user_preferences.learning_language` for English → Chinese → Malay → English.
+2. **Weak Memory review latency:** the review list previously resolved each dictionary card through the full game-deck path, which also built the translation-enriched Flashcard inventory before the list could render. The review index now builds lightweight per-language records directly from each language's source bank; list labels are taken from stable card keys, and Malay support enrichment is performed only for the single card whose detail panel is opened. Existing 80-card Chinese/English review tests remain in the browser suite. Flashcards script cache key is now `3.0.0-ms25`.
+
+### Automated validation and correction
+
+- The first architecture run on the feedback work failed one stale static assertion in `tests/u3-phase3-malay-feedback.test.mjs`: it expected an obsolete “Malay support translations ... not available yet” warning that had already been removed when Quiz support moved to the translation registry. Updated the test to assert the registry wiring and absence of the obsolete warning. This was a test expectation correction, not a relaxation of content or security checks.
+- The authenticated Quiz browser regression now explicitly checks persisted course preferences after every switch. The latest workflow batch for application head `12a4b587` has been queued/in progress; no overall pass is claimed until the new U3.0 architecture, Quiz DB/Auth, Flashcards browser and cross-version workflows complete.
+- The previous architecture run's other 88/89 tests passed; the single failure was the stale assertion above.
+
+### Translation/content status — still a required automated gate
+
+- Lessons remain English 17 / 112 practice questions; Simplified Chinese 17 / 112; Malay 72 / 216.
+- Quiz source inventory is English 229, Simplified Chinese 145, and Malay 120 unique questions in each of its English- and Chinese-support packs (240 staging support records).
+- Daily Learning remains 60 Topics, 60 Applications and 93 Discovery entries.
+- English Flashcard Malay support remains 1,341/1,341.
+- Chinese Flashcard Malay support remains incomplete: 895/1,447 runtime definitions and 603 direct generated support rows at the latest content checkpoint. The exporter/validator require all 1,447 source cards and complete output. Do not report this as complete until the generated file is committed and runtime coverage/lexical tests pass.
+- Dictionary translation output and broader support translation generation remain pending validation. Automated lexical, distinct-answer, duplicate and missing-string checks remain required.
+- Sentence Recall remains restricted to the 85 curated Malay sentence pairs.
+
+### Owner review instruction and release boundaries
+
+The owner has explicitly instructed that human linguistic/editorial/translation review is skipped before this update and will be conducted on the live website. Do not block this update on human review, and do not describe machine-assisted content as human-reviewed or approved. Automated structural, coverage, lexical and answer-quality checks remain mandatory. This instruction does not waive source provenance, exact model/corpus licensing and attribution, Malaysia Copyright Act 1987, PDPA 2010/2024 amendment or cross-border processing requirements before public release.
+
+No production migration, database mutation, merge or production deployment is authorised. Leaked-password protection remains excluded by prior owner instruction.
