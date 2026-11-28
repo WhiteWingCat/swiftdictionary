@@ -104,8 +104,8 @@
   function closeNotes() { const node=document.getElementById("swiftReleaseBackdrop"); if(node)node.hidden=true; document.body.style.overflow=""; opened=false; }
   async function markSeenAndClose() {
     const userId = activeUserId || currentUserId(); saveLocal(userId); seen = true;
-    if (userId) await saveCloud(userId);
     closeNotes();
+    if (userId) void saveCloud(userId);
   }
   async function refreshForAccount() {
     const token = ++syncToken; const userId = currentUserId(); activeUserId = userId;
