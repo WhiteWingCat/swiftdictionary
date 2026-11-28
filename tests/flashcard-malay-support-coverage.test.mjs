@@ -23,7 +23,7 @@ test("Malay support exporter includes source definitions for every English and C
  
 test("Flashcard decks exclude untranslated words when Malay is the selected support language",()=>{
  const flashcards=fs.readFileSync("flashcards.js","utf8");
- assert.match(flashcards,/function addMalayFlashcardSupport\(items,language\)/);
+ assert.match(flashcards,/function addMalayFlashcardSupport\(items,language,\{allowDictionaryFallback=true\}\)/);
  assert.match(flashcards,/SWIFT_FLASHCARD_MALAY_SUPPORT/);
  assert.match(flashcards,/SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS\?\.flashcards/);
  assert.match(flashcards,/row\.definitionMs\|\|dictionaryDerivedMalaySupport/);
