@@ -52,7 +52,10 @@ for(const kind of ["characters","vocabulary","phrases"]){
   }
 }
 const expectedChineseFlashcards=["characters","vocabulary","phrases"].reduce((sum,kind)=>sum+(window.SWIFT_CHINESE_FLASHCARDS?.[kind]||[]).length,0);
-if(flashcards.zh.length!==expectedChineseFlashcards)throw new Error("Chinese Flashcard support inventory is incomplete.");
+if(flashcards.en.length!==1341)throw new Error("English Flashcard support inventory must contain exactly 1,341 unique cards; found "+flashcards.en.length+".");
+if(expectedChineseFlashcards!==1447||flashcards.zh.length!==1447||flashcards.zh.length!==expectedChineseFlashcards){
+  throw new Error("Chinese Flashcard support inventory must contain all 1,447 source cards; found "+flashcards.zh.length+" of "+expectedChineseFlashcards+".");
+}
 for(const [code,file] of [["en","content/quiz/questions.en-zh.draft.json"],["zh","content/quiz/questions.zh-en.draft.json"]]){
   const pack=JSON.parse(fs.readFileSync(file,"utf8"));
   quiz[code]=(pack.questions||[]).map(q=>({
