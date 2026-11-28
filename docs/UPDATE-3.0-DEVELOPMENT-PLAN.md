@@ -1639,3 +1639,35 @@ No new personal-data collection, third-party sharing or user-data purpose was in
 ## Correction to Dictionary overlay fetch — 2026-11-28
 
 The prior checkpoint described `data/languages/malay-dictionary-translations.js` as empty because the GitHub file-fetch response returned zero text characters. That was an invalid inference: the returned blob SHA was non-empty, and the connector did not expose the large generated file's contents. The claim that the file was empty is withdrawn. The U3.0 Phase 1 automated regression run passed the Dictionary translation overlay and Malay Flashcard coverage tests, including the test that English and Chinese overlays are complete across headwords and senses. The dedicated Dictionary translation-generation workflow remains separately pending/in progress and must complete its own exact inventory/lexical validator before its result is recorded. Use the test and workflow outcomes, not the zero-length fetch response, to assess coverage.
+
+
+## 2026-11-28 — latest staging feedback and polishing follow-up
+
+Owner instruction: skip any human-required linguistic/editorial review for U3.0 before launch; the owner will review the content on the live website. Continue to require automated coverage, source-alignment, lexical, distinct-answer, structural, and runtime checks. Do not label machine-assisted content as human-approved.
+
+### Latest implementation changes
+
+Application branch: `feature/update-3.0-phase-0-audit`.
+
+- **Quiz course switching:** the Quiz switch handler now waits for the serialized preference write, verifies the persisted `user_preferences.learning_language`, repairs a missed preference upsert once, and only then reloads course-scoped Quiz availability/history. It clears the previous course's session/result/overview state before refresh and retains request/user/course-version guards so stale responses cannot overwrite a newer selection.
+- **Weak Memory responsiveness:** the review list now renders the first 40 matching items and offers incremental batches of 40. The existing cross-language dictionary indexes, Malay fallback lookup, and selected-detail cache remain in place. The visible list scroll position is retained when another batch is appended. Opening the review resets the batch size.
+- Flashcards runtime cache key: `3.0.0-ms29`.
+- Added static regression assertions for persisted Quiz preference verification, stale overview clearing, bounded Weak Memory list rendering, and pagination. Updated cache-version assertions to `ms29`.
+
+### Validation status at this checkpoint
+
+Latest known application commit: `efd4e185ff642f66bacbfeeb7aa7c11701adc1dc`.
+
+- U3.0 Phase 1 architecture regression: passed.
+- Cloudflare build-routing guard: passed after the `ms29` test expectations were updated.
+- U2.3 allowance/Dashboard browser regression, U2.6 ACL drift regression, U2.7 Chinese checks, U2.9 English QA, Quiz database foundation, and Flashcards checks: queued or in progress at this checkpoint. Do not report the full matrix as passed until each latest-head run completes.
+- A previous run failed only because the account-deletion static test still expected the previous Flashcards asset version `ms28`; the assertion has been advanced to `ms29`. The ACL workflow's cleanup error followed its test failure and was not evidence of an ACL policy regression.
+- The source code and static test changes are committed to the staging feature branch. Production remains untouched; PR #20 remains draft/unmerged.
+
+### Remaining release checks
+
+- Finish the latest-head automated regression matrix, including the 80-card Flashcards browser test and the Quiz authenticated course-switch path.
+- Confirm the latest staging Pages deployment contains the `ms29` runtime and verify Google OAuth/account isolation on that preview.
+- Owner's live-site review will replace a pre-release human editorial-review gate. It is not a machine-verification substitute; the automated linguistic/completeness checks remain release gates.
+- Keep the Malaysia Copyright Act 1987, PDPA 2010/2024 amendment, cross-border processing, corpus/model licensing and attribution review in the release checklist. These UI/performance changes add no new personal-data collection or third-party sharing.
+- Leaked-password protection remains excluded by the owner's explicit instruction.
