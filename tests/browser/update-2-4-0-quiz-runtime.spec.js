@@ -120,6 +120,9 @@ async function openQuiz(page, session) {
   });
   page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
   await page.goto("/#quiz");
+  // Start each authenticated browser scenario from a clean same-origin state.
+  // The about:blank document has an opaque origin and does not expose localStorage.
+  await page.evaluate(()=>localStorage.clear());
   // Ask the installed Supabase JS client for its actual storage key instead of
   // guessing from the local URL hostname (which differs across local runtimes).
   const storageKey = await page.evaluate(({ url, key }) => {
@@ -523,6 +526,9 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
 
 test("learning introductions are independent per page and help controls reopen them", async ({ page }) => {
   await openQuiz(page, freeSession);
+  // This test asserts the English introduction copy; the disposable account
+  // is initially configured with Chinese as its translation language.
+  await selectTranslationAndWaitForSave(page,"en");
   await page.goto("/#lessons");
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Lessons");
@@ -1182,7 +1188,6 @@ test("English and Chinese Quiz render complete Malay support for prompts, option
     const user=await createRuntimeUser(learningLanguage+"-quiz-malay-support","free");
     const session=await signIn(user.email,user.password);
     await updateLearningPreference(user.id,learningLanguage,"ms");
-    await page.evaluate(()=>localStorage.clear());
     await openQuiz(page,session);
     await expect(page.locator("#courseSelect")).toHaveValue(learningLanguage);
     await expect(page.locator("#translationSelect")).toHaveValue("ms");
