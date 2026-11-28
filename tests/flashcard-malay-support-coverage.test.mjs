@@ -26,7 +26,7 @@ test("Flashcard decks exclude untranslated words when Malay is the selected supp
  // Chinese cards may have curated sentence examples while their original
  // availableModes metadata lists only word/translation. The runtime must
  // explicitly allow Sentence Recall only for reviewed Malay sentence pairs.
- assert.match(flashcards,/mode===\"sentence\"[\\s\\S]{0,260}exampleMsReviewed&&w\.exampleMs&&cueFor\(w,mode\)/);
+ assert.match(flashcards,/mode===\"sentence\"[\s\S]{0,260}exampleMsReviewed&&w\.exampleMs&&cueFor\(w,mode\)/);
  assert.match(flashcards,/all=all\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
  assert.match(flashcards,/customCards=customCards\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
  assert.match(flashcards,/malaySupportEnglishCount/);
