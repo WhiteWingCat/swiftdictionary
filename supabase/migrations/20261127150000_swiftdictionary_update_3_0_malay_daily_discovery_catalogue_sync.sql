@@ -2,6 +2,13 @@
 -- Stale rows are deactivated, not deleted; the current pool is upserted with stable rotation order.
 begin;
 
+-- Discovery rotations are language-scoped. The original U2.3 index keyed only
+-- rotation_order, which made a second language collide with the English pool.
+drop index if exists private.learning_content_catalog_discovery_order_idx;
+create unique index learning_content_catalog_discovery_order_idx
+  on private.learning_content_catalog(language_code,rotation_order)
+  where activity_type='daily_discovery' and is_active;
+
 update private.learning_content_catalog
 set is_active=false,rotation_order=null,updated_at=pg_catalog.now()
 where language_code='ms' and activity_type='daily_discovery';
