@@ -779,6 +779,35 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
   await expect(incorrect).toContainText("a farewell");
 });
 
+test("Legacy Flashcard games show recoverable missed cards as a partial review",async({page})=>{
+  await openMockFlashcards(page);
+  const started=new Date(Date.now()-5*60000).toISOString();
+  const completed=new Date(Date.now()-4*60000).toISOString();
+  await page.evaluate(({started,completed})=>{
+    window.__swiftDictionaryMock.seedFlashcardData({
+      history:[{id:"legacy-malay-session",mode:"word",difficulty:"beginner",status:"completed",
+        words_seen:10,correct_count:5,incorrect_count:5,unanswered_count:0,
+        started_at:started,completed_at:completed,duration_seconds:60,
+        learning_language_code:"ms",translation_language_code:"en"}],
+      reviewItems:[
+        {card_key:"dict:ms:awan",mode:"word",incorrect_count:1,last_incorrect_at:completed,last_session_id:"legacy-malay-session"},
+        {card_key:"dict:ms:berita",mode:"word",incorrect_count:1,last_incorrect_at:completed,last_session_id:"legacy-malay-session"}
+      ]
+    });
+  },{started,completed});
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  const recent=page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).last();
+  await expect(recent).toContainText("Malay course");
+  await recent.locator('[data-action="review-game"]').click();
+  const modal=page.locator(".flash-game-review-modal");
+  await expect(modal).toBeVisible();
+  await expect(modal).toContainText("Partial review only");
+  await expect(modal).toContainText("awan");
+  await expect(modal).toContainText("berita");
+  await expect(modal).toContainText("the list may be incomplete");
+  await expect(modal).not.toContainText("Correct answer");
+  await expect(modal).not.toContainText("Your answer");
+});
 test("Recent games paginate ten at a time and game review has a top close control",async({page})=>{
   await openMockFlashcards(page);
   await page.evaluate(()=>{
