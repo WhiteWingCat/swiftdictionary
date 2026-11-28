@@ -605,8 +605,106 @@
         {q:"Pilih bentuk present perfect continuous.",options:["has studied: telah belajar","has been studying: telah / sedang belajar secara berterusan","had study: bentuk kata kerja tidak tepat"]},
         {q:"Tindakan manakah berlaku dahulu: filem bermula atau kami tiba?",options:["Filem itu telah pun bermula terlebih dahulu.","Kami tiba terlebih dahulu."]}
       ]
+
+      "i-phrasal": [
+        {q:"Apakah maksud “give up” dalam ayat “Dia enggan berputus asa”?",options:["Terus mencuba","Berhenti mencuba","Memberikan sesuatu kepada orang lain"]},
+        {q:"Dalam ayat “Mesyuarat itu ditangguhkan hingga hari Jumaat”, apakah maksud “put off”?",options:["Membatalkan secara kekal","Menangguhkan","Memulakan lebih awal"]},
+        {q:"Pilih ayat yang betul dengan objek kata ganti nama.",options:["Please turn off it. (susunan tidak tepat)","Please turn it off. (Matikannya.)","Please it turn off. (susunan tidak gramatis)"]},
+        {q:"Apakah maksud kata kerja frasa “look after”?",options:["Menjaga atau memelihara","Terserempak secara tidak sengaja","Menangguhkan"]},
+        {q:"Jika kamu “run into” seorang rakan lama, apakah yang berlaku?",options:["Kamu bertemu dengannya secara tidak sengaja","Kamu menjaga rakan itu","Kamu menangguhkan pertemuan"]},
+        {q:"Kata kerja tunggal manakah paling hampir maksudnya dengan “put off”?",options:["menangguhkan","menemui","meneruskan"]}
+      ],
+      "i-collocations": [
+        {q:"Pilih kolokasi yang semula jadi dalam bahasa Inggeris.",options:["do a decision (tidak tepat)","make a decision (membuat keputusan)","build a decision (tidak tepat)"]},
+        {q:"Pilih gabungan perkataan yang semula jadi.",options:["strong rain (tidak lazim)","heavy rain (hujan lebat)","powerful rain (tidak lazim)"]},
+        {q:"Lengkapkan frasa: “Saya membuat ___ apabila menyalin nombor yang salah.”",options:["a mistake (kesilapan)","a decision (keputusan)","an effort (usaha)"]},
+        {q:"Pilih kolokasi yang semula jadi.",options:["do a decision (tidak tepat)","make a decision (membuat keputusan)","take a decisioning (tidak tepat)"]},
+        {q:"Lengkapkan frasa: “take ___ for your actions”.",options:["responsibility (tanggungjawab)","decision (keputusan)","progress (kemajuan)"]},
+        {q:"Pilih kolokasi yang semula jadi.",options:["strong rain (tidak lazim)","heavy rain (hujan lebat)","tall rain (tidak tepat)"]},
+        {q:"Frasa manakah bermaksud menyiapkan kerja sebelum atau pada tarikh yang ditetapkan?",options:["meet a deadline (memenuhi tarikh akhir)","raise a deadline (menaikkan tarikh akhir)","pose a deadline (mengemukakan tarikh akhir)"]}
+      ],
+      "i-word-families": [
+        {q:"Perkataan manakah bermaksud “tidak pasti”?",options:["certainly (sudah tentu)","uncertain (tidak pasti)","certainty (kepastian)"]},
+        {q:"Perkataan manakah kata nama dalam keluarga kata “decide”?",options:["decisive (kata adjektif)","decide (kata kerja)","decision (kata nama: keputusan)"]},
+        {q:"Pilih kata adjektif yang dibentuk dengan betul dan bermaksud “penuh perhatian” atau “berhati-hati”.",options:["careful (berhati-hati)","carement (bukan perkataan standard)","carely (bukan perkataan standard)"]},
+        {q:"Lengkapkan ayat: “Arahan itu ___, jadi tiada sesiapa tahu apa yang perlu dilakukan.”",options:["clarity (kejelasan, kata nama)","clarify (menjelaskan, kata kerja)","unclear (tidak jelas, kata adjektif)"]},
+        {q:"Pilih bentuk yang betul: “Peraturan baharu itu mungkin ___ semua orang.”",options:["affect (mempengaruhi, kata kerja)","effect (kesan, lazimnya kata nama)","effective (berkesan, kata adjektif)"]},
+        {q:"Perkataan manakah menerangkan penjelasan yang memberikan alasan kukuh untuk mempercayai sesuatu?",options:["convincing (meyakinkan)","convincedly (bentuk tidak standard)","convince (memujuk atau meyakinkan, kata kerja)"]},
+        {q:"Pilih bentuk kata nama bagi “accurate”.",options:["accurate (tepat, kata adjektif)","accuracy (ketepatan, kata nama)","accurately (dengan tepat, kata keterangan)"]},
+        {q:"Kata adjektif manakah berasal daripada “rely”?",options:["reliance (kebergantungan, kata nama)","reliable (boleh dipercayai)","relying (sedang bergantung, bentuk -ing)"]}
+      ],
+      "i-conditionals": [
+        {q:"Lengkapkan ayat bersyarat masa hadapan yang realistik: “Jika dia ___ awal, kita sempat minum kopi.”",options:["arrives (tiba)","will arrive (akan tiba)","would arrive (akan tiba dalam situasi andaian)"]},
+        {q:"Pilih ayat bersyarat jenis kedua.",options:["Jika saya nampak dia, saya akan memberitahunya.","Jika saya nampak dia, saya tentu akan memberitahunya (andaian).","Jika saya telah nampak dia, saya tentu sudah memberitahunya."]},
+        {q:"Lengkapkan ayat: “Jika kita mempunyai dapur yang lebih besar, kita ___ lebih kerap.”",options:["cook (memasak)","will cook (akan memasak)","would cook (akan memasak dalam situasi andaian)"]},
+        {q:"Ayat manakah menerangkan hasil masa hadapan yang berkemungkinan berlaku?",options:["Jika cuaca bertambah baik, kita akan pergi mendaki.","Jika saya lebih tinggi, saya akan bermain bola keranjang.","Jika dia telah menelefon, saya tentu sudah menjawab."]},
+        {q:"Apakah maksud “unless you hurry”?",options:["Jika kamu tidak bergegas","Walaupun kamu bergegas","Oleh sebab kamu telah bergegas"]},
+        {q:"Frasa manakah bermaksud hasilnya tetap sama walaupun sesuatu keadaan berlaku?",options:["even if (walaupun atau sekalipun)","only if (hanya jika)","as soon as (sebaik sahaja)"]},
+        {q:"Ayat manakah menyatakan fakta umum?",options:["Jika ais dipanaskan, ais akan mencair.","Jika ais dipanaskan (andaian), ais akan mencair.","Jika ais telah dipanaskan, ais tentu telah mencair."]},
+        {q:"Lengkapkan ayat bersyarat jenis ketiga: “Jika kami bertolak lebih awal, kami ___ tren itu.”",options:["would catch (akan menaiki)","would have caught (tentu telah sempat menaiki)","will catch (akan menaiki)"]}
+      ],
+      "a-inversion": [
+        {q:"Lengkapkan ayat: “Never ___ such a result.”",options:["we have seen (susunan biasa)","have we seen (inversi yang betul selepas “Never”)","we saw have (susunan tidak gramatis)"]},
+        {q:"Pilih inversi yang betul selepas “Rarely”.",options:["Rarely we witness such care. (susunan tidak tepat)","Rarely do we witness such care. (inversi yang betul)","Rarely witness we such care. (susunan tidak gramatis)"]},
+        {q:"Lengkapkan ayat: “Not only ___ the proposal, but she also improved it.”",options:["she approved (susunan biasa)","did she approve (inversi yang betul)","approved she (susunan tidak gramatis)"]},
+        {q:"Pilih ayat yang menggunakan inversi dengan betul.",options:["Not until the end we understood. (susunan tidak tepat)","Not until the end did we understand. (inversi yang betul)","Not until did we understood the end. (struktur tidak gramatis)"]},
+        {q:"Lengkapkan inversi bersyarat jenis ketiga: “Had I known, I ___ earlier.”",options:["would leave (akan pergi)","would have left (tentu telah pergi)","will leave (akan pergi)"]}
+      ],
+      "a-idioms": [
+        {q:"Dalam perbincangan di tempat kerja, apakah maksud ungkapan “on the same page”?",options:["Membaca halaman dokumen yang sama","Mempunyai pemahaman atau persetujuan yang sama","Bekerja di jabatan yang berbeza"]},
+        {q:"Jika seseorang “breaks the ice” dalam mesyuarat, apakah yang dilakukannya?",options:["Membuat orang berasa lebih selesa dan memulakan perbualan","Menamatkan mesyuarat secara tiba-tiba","Tidak bersetuju dengan setiap cadangan"]}
+      ],
     },
     zh: {
+      "zh-i-grammar-particles": [
+              {q:"Dalam “我的书” (buku saya), partikel manakah biasanya menandakan pemilikan?",options:["的 — partikel pemilikan atau penerang","了 — partikel tindakan selesai atau perubahan keadaan","过 — partikel pengalaman","着 — partikel keadaan berterusan"]},
+              {q:"Ayat manakah bermaksud “Saya menonton filem semalam”?",options:["我昨天看了电影 — Saya menonton filem semalam.","我昨天看过电影吗 — Pernahkah saya menonton filem semalam?","我电影昨天看着 — Susunan kata tidak tepat.","我昨天电影了看 — Susunan kata tidak tepat."]},
+              {q:"Dalam “我去过北京” (Saya pernah ke Beijing), partikel manakah menunjukkan pengalaman yang pernah dialami?",options:["过 — partikel pengalaman","的 — partikel pemilikan","着 — partikel keadaan berterusan","吗 — partikel soalan ya atau tidak"]},
+              {q:"Ayat manakah menggambarkan pintu yang kekal dalam keadaan terbuka?",options:["门开着 — Pintu berada dalam keadaan terbuka.","门开了书 — Susunan kata tidak gramatis.","门的开 — Ungkapan tidak semula jadi.","门开过着 — Gabungan partikel tidak tepat."]},
+              {q:"Dalam “我们走吧” (Mari kita pergi), partikel manakah boleh menandakan cadangan?",options:["吧 — partikel cadangan","的 — partikel pemilikan","过 — partikel pengalaman","着 — partikel keadaan berterusan"]},
+              {q:"Ayat manakah bermaksud “Bagaimana pula dengan kamu?”",options:["你呢？ — Bagaimana pula dengan kamu?","你吗？ — Kamu? (bentuk soalan ya atau tidak)","你的？ — Milik kamu?","你了？ — Bentuk tidak semula jadi tanpa konteks."]},
+              {q:"Ayat manakah menggunakan “得” untuk menerangkan cara seseorang berlari?",options:["他跑得很快 — Dia berlari dengan sangat pantas.","他得跑很快 — Dia perlu berlari dengan pantas.","他跑的很快 — Penggunaan partikel tidak standard bagi pelengkap darjah.","他很跑快 — Struktur ayat tidak tepat."]}
+            ],
+            "zh-i-time-expressions": [
+              {q:"Dalam “我明天去学校” (Saya pergi ke sekolah esok), di manakah “明天” biasanya diletakkan?",options:["Sebelum kata kerja utama","Selepas perkataan sekolah","Di antara kata kerja dengan tempat","Hanya pada hujung ayat"]},
+              {q:"Ungkapan manakah bermaksud “setiap hari”?",options:["每天 — setiap hari","昨天 — semalam","明年 — tahun depan","刚才 — sebentar tadi"]},
+              {q:"Ungkapan manakah bermaksud “sudah”?",options:["已经 — sudah","还没 — masih belum","以后 — selepas ini","以前 — dahulu atau sebelum ini"]},
+              {q:"Ungkapan manakah bermaksud “masih belum”?",options:["还没 — masih belum","已经 — sudah","每天 — setiap hari","马上 — serta-merta"]},
+              {q:"Ayat manakah bermaksud “Saya bangun pada pukul tujuh setiap pagi”?",options:["我每天早上七点起床 — Saya bangun pada pukul tujuh setiap pagi.","我起床每天七点早上 — Susunan ayat tidak tepat.","我七点每天起床早上 — Susunan ayat tidak tepat.","我每天起床早上七点吗 — Adakah saya bangun pada pukul tujuh setiap pagi?"]},
+              {q:"Perkataan manakah bermaksud “petang”?",options:["下午 — petang","早上 — pagi","晚上 — malam","中午 — tengah hari"]},
+              {q:"Ayat manakah bermaksud “Saya masih belum makan malam”?",options:["我还没吃晚饭 — Saya masih belum makan malam.","我已经吃晚饭 — Saya sudah makan malam.","我每天吃晚饭 — Saya makan malam setiap hari.","我明天吃晚饭 — Saya akan makan malam esok."]}
+            ],
+            "zh-i-comparisons": [
+              {q:"Pola ayat manakah bermaksud “A lebih ... daripada B”?",options:["A比B + kata adjektif","A跟B一样 + kata adjektif — A sama ... dengan B","A没有B + kata nama — A tidak mempunyai B","A在B + kata adjektif — A berada di B"]},
+              {q:"Ayat manakah bermaksud “Saya lebih tinggi daripadanya”?",options:["我比他高 — Saya lebih tinggi daripadanya.","我跟他一样高 — Saya sama tinggi dengannya.","我没有他高 — Saya tidak setinggi dirinya.","他比我高 — Dia lebih tinggi daripada saya."]},
+              {q:"Perkataan manakah lazim digunakan untuk menunjukkan darjah tertinggi?",options:["最 — paling","比 — berbanding atau lebih ... daripada","跟 — dengan atau seperti","没有 — tiada atau tidak mempunyai"]},
+              {q:"Frasa manakah bermaksud “sama besar”?",options:["一样大 — sama besar","更大 — lebih besar","最大 — paling besar","不大 — tidak besar"]},
+              {q:"Ayat manakah bermaksud “Hari ini lebih sejuk daripada semalam”?",options:["今天比昨天冷 — Hari ini lebih sejuk daripada semalam.","昨天比今天冷 — Semalam lebih sejuk daripada hari ini.","今天跟昨天一样冷 — Hari ini sama sejuk dengan semalam.","今天没有昨天冷 — Hari ini tidak sesejuk semalam."]},
+              {q:"Pola ayat manakah bermaksud “A tidak se... B”?",options:["A没有B那么 + kata adjektif","A比B + kata adjektif","A跟B一样 + kata adjektif","A最 + kata adjektif"]},
+              {q:"Perkataan manakah menguatkan perbandingan dengan maksud “lebih”?",options:["更 — lebih","最 — paling","跟 — dengan atau seperti","一样 — sama"]}
+            ],
+            "zh-i-sentence-expansion": [
+              {q:"Pasangan kata hubung manakah menghubungkan sebab dengan akibat?",options:["因为……所以…… — kerana…… maka……","虽然……但是…… — walaupun…… namun……","一边……一边…… — sambil…… sambil……","先……然后…… — mula-mula…… kemudian……"]},
+              {q:"Pasangan kata hubung manakah menunjukkan pertentangan atau konsesi?",options:["虽然……但是…… — walaupun…… namun……","因为……所以…… — kerana…… maka……","如果……就…… — jika…… maka……","不但……而且…… — bukan sahaja…… malah……"]},
+              {q:"Pasangan kata hubung manakah menunjukkan syarat dan hasilnya?",options:["如果……就…… — jika…… maka……","虽然……但是…… — walaupun…… namun……","先……然后…… — mula-mula…… kemudian……","一边……一边…… — sambil…… sambil……"]},
+              {q:"Pasangan kata hubung manakah menunjukkan dua tindakan yang berlaku serentak?",options:["一边……一边…… — sambil…… sambil……","先……然后…… — mula-mula…… kemudian……","因为……所以…… — kerana…… maka……","如果……就…… — jika…… maka……"]},
+              {q:"Ayat manakah bermaksud “Walaupun dia letih, dia tetap meneruskan pelajaran”?",options:["虽然很累，但是她继续学习 — Walaupun dia letih, dia tetap meneruskan pelajaran.","因为很累，所以她继续学习 — Oleh sebab dia letih, dia meneruskan pelajaran.","如果很累，就她继续学习 — Jika dia letih, dia meneruskan pelajaran (susunan tidak tepat).","她先很累，然后学习 — Dia letih dahulu, kemudian belajar."]},
+              {q:"Pasangan kata hubung manakah menambah satu lagi perkara yang lebih lanjut?",options:["不但……而且…… — bukan sahaja…… malah……","虽然……但是…… — walaupun…… namun……","如果……就…… — jika…… maka……","因为……所以…… — kerana…… maka……"]}
+            ],
+            "zh-a-complex-sentences": [
+              {q:"Ayat manakah menggunakan struktur “把” untuk menerangkan cara sesuatu objek dikenakan tindakan?",options:["请把门关上 — Sila tutup pintu itu.","门在这里 — Pintu itu berada di sini.","我看见门 — Saya nampak pintu itu.","门很大 — Pintu itu besar."]},
+              {q:"Apakah fungsi utama “被” dalam ayat pasif?",options:["Menandakan ayat pasif, iaitu subjek menerima tindakan.","Menandakan pemilikan.","Membentuk soalan ya atau tidak.","Menandakan perbandingan."]},
+              {q:"Pola ayat manakah bermaksud “hanya jika ... barulah ...”?",options:["只有……才…… — hanya jika…… barulah……","无论……都…… — walau apa pun…… tetap……","既然……就…… — memandangkan…… maka……","虽然……但是…… — walaupun…… namun……"]},
+              {q:"Pola ayat manakah bermaksud “hasilnya tetap sama tanpa mengira keadaannya”?",options:["无论……都…… — walau apa pun…… tetap……","只有……才…… — hanya jika…… barulah……","因为……所以…… — kerana…… maka……","不但……而且…… — bukan sahaja…… malah……"]},
+              {q:"Ayat manakah bermaksud “Telefon bimbit saya telah diambil oleh adik lelaki saya”?",options:["我的手机被弟弟拿走了 — Telefon bimbit saya telah diambil oleh adik lelaki saya.","我把弟弟拿走了 — Saya membawa adik lelaki saya pergi.","弟弟把手机看见了 — Adik lelaki saya ternampak telefon itu.","手机在弟弟旁边 — Telefon itu berada di sebelah adik lelaki saya."]},
+              {q:"Pola ayat manakah menggunakan fakta yang telah diketahui sebagai alasan untuk membuat kesimpulan?",options:["既然……就…… — memandangkan…… maka……","一边……一边…… — sambil…… sambil……","先……然后…… — mula-mula…… kemudian……","越……越…… — semakin…… semakin……"]},
+              {q:"Ayat manakah merupakan penggunaan struktur “把” yang semula jadi dan betul?",options:["我把作业写完了 — Saya telah menyiapkan kerja sekolah.","我把很高兴 — Saya sangat gembira (struktur tidak tepat).","我把是学生 — Saya seorang pelajar (struktur tidak tepat).","我把昨天 — Saya semalam (struktur tidak lengkap)."]}
+            ],
+            "zh-a-connectors": [
+              {q:"Kata hubung manakah digunakan untuk memperkenalkan hasil atau kesimpulan?",options:["因此 — oleh itu","然而 — namun begitu","此外 — selain itu","反而 — sebaliknya; bertentangan dengan jangkaan"]},
+              {q:"Kata hubung manakah bermaksud “namun begitu”?",options:["然而 — namun begitu","因此 — oleh itu","总之 — kesimpulannya","于是 — lalu; maka"]}
+            ],
+      
       "zh-b-pinyin-foundations": [
         {q:"Suku kata yang manakah menggunakan nada pertama?",options:["ibu (mā)","rami; kebas (má)","kuda (mǎ)","memarahi (mà)"]},
         {q:"Aksara Cina manakah disebut mǎ dengan nada ketiga?",options:["ibu (mā)","rami; kebas (má)","kuda (mǎ)","memarahi (mà)"]},
