@@ -1685,7 +1685,19 @@
       chineseCategoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
       render();
       window.dispatchEvent(new CustomEvent("swiftdictionary:course-changed",{detail:{learningLanguage:course}}));
-      if(currentUser)syncCurrentCourseFromCloud({mergeLocal:false});
+      // Do not race a user-initiated language change with the cloud preference
+      // read. The old implementation started this read immediately, so it
+      // could restore the previous course before the queued upsert completed.
+      // Re-sync course-scoped saved words only after the new preference is
+      // persisted, and ignore a response if the account/course changed again.
+      if(currentUser){
+        const preferenceUserId=currentUser.id;
+        const requestedCourse=course;
+        preferenceWriteQueue.then(()=>{
+          if(currentUser?.id!==preferenceUserId||course!==requestedCourse)return;
+          return syncCurrentCourseFromCloud({mergeLocal:false});
+        }).catch(error=>console.warn("Could not refresh saved words after course change:",error));
+      }
       showPreferenceRefreshToast("course");
     });
     function refreshTranslationViews(nextLanguage) {
