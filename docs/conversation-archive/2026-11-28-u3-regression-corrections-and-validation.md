@@ -245,3 +245,16 @@ The target-language Dictionary translation output `data/languages/malay-dictiona
 - The 80-card browser checks, authenticated Quiz course preference persistence test, Flashcards, ACL, Pages routing and Quiz DB/Auth suites must all pass on the final head.
 - Owner instruction: skip human linguistic/editorial review before live launch; the owner will review on the live website. Automated coverage, lexical, distinct-option, source-alignment and runtime checks remain required. Do not describe the draft as human-approved.
 - Production migration/deployment/merge remain unauthorised. Leaked-password protection remains excluded by prior instruction. Licensing, provenance, Malaysia Copyright Act 1987 and PDPA 2010/2024/cross-border processing remain public-release compliance considerations.
+
+
+## Translation workflow execution checkpoint — 2026-11-28
+
+Latest application head: `b72e0e27239d94d0f1154a9432d6121695a253ee` on the staging feature branch. PR #20 remains draft against `main`.
+
+- The Flashcards cache-version assertion in `tests/update-2-5-0/check-flashcards-page.mjs` was corrected from `3.0.0-ms24` to `3.0.0-ms25`. The 80-card Weak Memory browser regression remains in the Flashcards browser suite.
+- Both offline translation workflows now include a `pull_request` trigger for the staging PR's relevant source/generator paths, in addition to `push` and manual dispatch. This ensures the Argos generation jobs can run from the PR update and commit validated draft output back to the feature branch.
+- Latest PR-triggered runs: U3.0 architecture regression passed; Cloudflare build-routing guard passed. Flashcards, Quiz DB/Auth, ACL, Chinese, English and allowance/browser suites were queued or in progress at the checkpoint.
+- The two new translation workflow runs (`Generate U3.0 Malay Dictionary translation drafts` and `Generate U3.0 Malay learning-support translations`) were created but still pending runner allocation. The learning-support output already present on the branch had 1,341 English and 1,447 Chinese Flashcard definitions, 229 English and 145 Chinese Quiz support rows, and 112 practice translations per English/Chinese lesson course; post-override direct audit found zero missing support strings or duplicate option sets.
+- The Malay Dictionary target-language output file remains empty until the dictionary generation job completes. Manual overrides currently cover 505 English and 429 Chinese headwords; do not mark the 1,316/725 headword and 2,756-sense target as complete until the generated file exists and its validator passes.
+
+Owner instruction remains: skip human editorial/translation review before live launch; the owner will review on the live website. Automated completeness, lexical, answer-choice and source-alignment checks remain required. Production merge/deployment remains unauthorised; leaked-password protection remains excluded.
