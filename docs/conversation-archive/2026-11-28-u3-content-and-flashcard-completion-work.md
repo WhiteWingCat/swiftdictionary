@@ -51,3 +51,48 @@ The owner had also reported object-coercion text (`[object Object]`) in some Dai
 Added a SQL regression that asserts the exact 93 Malay Daily Discovery catalogue IDs and rotation order after the U3.0 Malay staging baseline is applied. Added browser regression coverage that opens Malay Daily Discovery and checks the selected base content ID is in the approved runtime pool. The Daily Learning localized-text resolver now supports nested language maps and additional prompt/question/option/explanation keys; added a browser test with object-shaped prompts/options to prevent accidental `[object Object]` rendering.
 
 These fixes are implemented on the application branch. Latest CI for the new tests is queued/pending at this archive checkpoint; they are not declared passed until the relevant workflows complete.
+
+
+## 2026-11-28 — exact Flashcard coverage audit
+
+The exact `addMalayFlashcardSupport` helper from `flashcards.js` was evaluated against the full source catalogues and Malay translation sources. The resulting counts are now enforced by `tests/flashcard-malay-support-coverage.test.mjs` and documented in [the detailed coverage audit](../review/malay-flashcard-coverage-audit-2026-11-28.md).
+
+| Card group | Total | Malay definitions | Sentence source examples | Reviewed Malay sentence pairs |
+|---|---:|---:|---:|---:|
+| English dictionary | 1,316 | 1,316 | 1,316 | 18 |
+| English curated phrases | 25 | 25 | 25 | 0 |
+| Chinese characters | 519 | 519 | 519 | 0 |
+| Chinese vocabulary | 904 | 184 | 60 | 18 |
+| Chinese phrases | 24 | 24 | 24 | 0 |
+
+Chinese Flashcard definition coverage is 727/1,447 (50.2%). The remaining 720 Chinese cards without Malay definitions are excluded when Malay is selected. Sentence Recall is restricted to the 18 reviewed English and 18 reviewed Chinese Malay sentence pairs; source-language examples alone do not count as Malay translations. Custom cards are included only when their stored support-language code matches Malay and the user supplied translation text. This completes the coverage audit, not full Chinese vocabulary translation coverage or human editorial approval.
+
+## 2026-11-28 — implementation fixes and verified root causes
+
+- **Sentence hint rendering:** `flashcards.js` initially rendered the game shell before the first round existed, so the Malay sentence hint was absent from the first DOM render. Added `updateTranslationHint()` after `makeRound()` in `showMemory()`; the hint is inserted/updated after the first round is created.
+- **Completed-game review test clock:** the game timer ticks recursively every 80 ms and schedules result persistence 2 seconds after timeout. Advancing only 62 seconds could reach the timeout overlay but stop before the delayed save callback (which can occur just over 62 seconds). The browser test now advances 63 seconds on Playwright's fake clock. This is a test-timing correction; the browser run must still confirm the review list and per-game snapshots.
+- **Daily Discovery runtime pool:** the slug regex in `daily-learning.js` contained double-escaped Unicode markers. JavaScript interpreted the character class as ordinary characters and stripped the letter `u` from words such as `bantu`, reducing the 93-entry pool to 70. Corrected the regex to the combining-mark range `[\\u0300-\\u036f]` and added `tests/malay-daily-discovery-pool.test.mjs` to check the exact helper against all 93 dictionary-derived IDs.
+- **Daily Discovery migration order:** the Quiz CI workflow tested the 93-row catalogue before applying migration `20261127150000`. The migration is now applied before its SQL assertion. The first CI attempt then exposed a unique-index collision: the migration cleared rotation slots only for stale IDs, leaving existing current IDs temporarily occupying old slots while they were being reordered. It now clears all Malay Daily Discovery rotation slots in the transaction before upserting the ordered 93 rows.
+- **Post-bootstrap refresh:** `daily-learning.js` also rebuilds the Malay pool after `swiftdictionary:content-packages-ready` and refreshes the registered Malay package, preventing early partial data from persisting.
+
+The live staging database was checked read-only: it has exactly 93 active Malay Daily Discovery rows, 93 distinct rotation orders from 1 through 93, and no topic/difficulty metadata. The ordered database IDs were compared with the runtime approved ID list: all 93 match exactly.
+
+The staging private schema currently contains 14 tables; the direct table-SELECT grant audit found zero selectable by `anon`, zero by `authenticated`, and zero by `service_role`. This is consistent with the server-mediated RPC boundary; do not add broad table policies to silence informational advisor findings.
+
+## Latest application commits and CI checkpoint
+
+Implementation commits on `feature/update-3.0-phase-0-audit` include:
+- `8857144` — initial deterministic Flashcard fake-clock test adjustment (superseded by the 63-second adjustment)
+- `e3548ae` — first-round Malay sentence hint rendering fix
+- `f6046e6` — post-content-bootstrap Malay Discovery refresh
+- `9d9ff9f` — apply the Discovery catalogue migration before its SQL assertion
+- `511bced` — clear all previous Malay Discovery rotation slots before reseeding
+- `2efc175` — fix the double-escaped Malay Discovery slug regex
+- `0bb8720` — advance the completed-game review test clock to 63 seconds
+- `8c4f0c5`, `f41c092`, `3c8a65e` — add exact Flashcard category and coverage assertions
+- `f267137` — add the 93-word Malay Discovery slug/pool unit regression
+- `296439a`, `c081f7f` — run the Flashcard and Daily Discovery audit tests in their CI workflows
+
+At the latest checkpoint, the U3.0 architecture, Cloudflare routing, English dictionary QA, and U2.7 PostgreSQL checks passed. U2.3 PostgreSQL migration/allowance checks passed; its Chromium browser suite was still running. Flashcard static checks passed; its Chromium suite was still running. The Quiz database run before the rotation-slot fix failed on the unique index; a rerun including the fix was queued/pending. The newest CI run at head `c081f7f` had been triggered but had not completed. Do not call the regression matrix green until the newest run finishes and the Flashcard review assertions pass.
+
+No production deployment or production database change was made. Staging preview, OAuth redirect/account-isolation acceptance, human Malaysian Standard Malay editorial review, model licence/attribution verification, and Malaysia Copyright Act/PDPA/cross-border review remain open before public release.
