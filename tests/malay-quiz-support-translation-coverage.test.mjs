@@ -12,6 +12,7 @@ function loadMalaySupport(){
 }
 
 const indonesianOnlyTerms=/\b(?:aku|bisa|kantor|nggak|enggak|banget|apotek|kalimat|bis|bahasan|wournia|ana)\b/i;
+const flashcardDefinitionTerms=/\b(?:aku|bisa(?!\s+(?:ular|racun|sengat|beracun))|kantor|nggak|enggak|banget|apotek|kalimat|bis|bahasan|wournia|ana)\b/i;
 
 test("Every approved English Quiz question has a complete Malay prompt, explanation and option set",()=>{
  const support=loadMalaySupport();
@@ -87,6 +88,6 @@ test("Chinese Flashcard Malay definitions contain no obvious Indonesian-only for
  const support=loadMalaySupport();
  for(const [word,row] of Object.entries(support.flashcards?.zh||{})){
   assert.ok(row.definitionMs?.trim(),"zh:"+word+" missing Malay definition");
-  assert.doesNotMatch(row.definitionMs,indonesianOnlyTerms,"zh:"+word+" definition contains an Indonesian-only lexical form");
+  assert.doesNotMatch(row.definitionMs,flashcardDefinitionTerms,"zh:"+word+" definition contains an Indonesian-only lexical form");
  }
 });
