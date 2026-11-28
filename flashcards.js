@@ -92,6 +92,12 @@
     }
     return reviewWordIndexCache.get(language);
   }
+  function warmWeakMemoryReviewIndex(language=course){
+    if(reviewWordIndexCache.has(language))return;
+    const warm=()=>{if(reviewWordIndexCache.has(language))return;try{reviewWordIndex(language);}catch(error){console.warn("Weak Memory review index could not be preloaded:",error);}};
+    if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warm,{timeout:1500});
+    else window.setTimeout(warm,0);
+  }
   function malayGlossLookup(){
     if(malayGlossLookupCache)return malayGlossLookupCache;
     const map=new Map();
@@ -951,7 +957,7 @@
     const {data,error}=await supabaseClient.rpc("get_my_flashcard_data");
     state.loading=false;
     if(error){state.notice="Flashcards could not load: "+error.message;render();return;}
-    state.data=data||{collections:[],cards:[],mastery:[],history:[],review_items:[]};state.ready=true;render();
+    state.data=data||{collections:[],cards:[],mastery:[],history:[],review_items:[]};state.ready=true;render();warmWeakMemoryReviewIndex(course);
   }
   async function collectionAction(action,id,name){
     const {data,error}=await supabaseClient.rpc("save_my_flashcard_collection",{p_action:action,p_collection_id:id||null,p_name:name||null});
@@ -1090,6 +1096,7 @@
   window.__swiftFlashcardsAuthHydration=Promise.resolve();
   window.addEventListener("swiftdictionary:content-packages-ready",()=>{
     reviewWordIndexCache.clear();
+    warmWeakMemoryReviewIndex(course);
     reviewCustomCardsReference=null;
     reviewCustomCardIndexCache.clear();
     flashcardSupportLookupCache.clear();
@@ -1110,6 +1117,9 @@
   document.querySelectorAll('[data-page="flashcards"]').forEach(button=>button.addEventListener("click",()=>{if(currentUser&&!state.ready)loadData();else render();}));
   window.addEventListener("hashchange",()=>{if(location.hash==="#flashcards"&&currentUser)loadData();});
   window.addEventListener("swiftdictionary:course-changed",()=>{
+    // Prepare the newly selected course's lookup index during idle time so
+    // opening Weak Memory does not pay the first-build cost on the click path.
+    warmWeakMemoryReviewIndex(course);
     // Keep an active challenge bound to the language pair frozen at start.
     if(state.game)return;
     // Keep the third mode slot course-exclusive: Mixed (English) or Translation (Chinese), never both.
