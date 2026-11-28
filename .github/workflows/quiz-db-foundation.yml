@@ -270,6 +270,9 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127150000_swiftdictionary_update_3_0_malay_daily_discovery_catalogue_sync.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/malay_daily_discovery_catalog.sql"
 
+      - name: Validate Malay Daily Discovery runtime slug and dictionary pool
+        run: node --test tests/malay-daily-discovery-pool.test.mjs
+
       - name: Seed disposable synthetic approved Quiz content
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
