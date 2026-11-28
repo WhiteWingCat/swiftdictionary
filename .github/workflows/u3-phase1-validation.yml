@@ -56,6 +56,11 @@ jobs:
           node --check js/core/dictionary-translation-overlay.js
           node --check scripts/content/export-malay-translation-input.cjs
           node --check scripts/content/validate-malay-dictionary-translations.cjs
+          node --check scripts/content/validate-malay-learning-support.cjs
+          node scripts/content/export-malay-translation-input.cjs
+          node scripts/content/validate-malay-dictionary-translations.cjs
+          node scripts/content/export-malay-learning-support-input.cjs
+          node scripts/content/validate-malay-learning-support.cjs
           bash tests/cloudflare-build-routing.sh
           node --check js/languages/adapters.js
           node --check data/languages/malay-dictionary.js
