@@ -5194,3 +5194,11 @@ A separate full-snapshot session continues to return full review with 7 saved ca
 Post-migration privilege checks confirm private snapshot/review tables remain unreadable directly to anon/authenticated; anon cannot execute the public review RPC and authenticated can. No direct grants or RLS relaxations were introduced. Production remains untouched.
 
 Latest preview `https://8edf4cb7.swiftdictionary.pages.dev` corresponds to `489435a`. U3.0 architecture and U2.3 SQL/Auth/browser suite passed on `489435a`; U2.6 ACL, U2.7 Chinese Dictionary and U2.9 English QA passed on preceding `b0a177b`. Flashcards Chromium and Quiz DB/Auth integration for `489435a` are still in progress. Full cross-version acceptance and manual owner desktop/mobile/OAuth testing remain open.
+
+## 2026-11-28 — Flashcard browser suite and cache-busting follow-up
+
+The Flashcards Chromium browser suite passed **37/37 tests** on `489435a`, including full per-card review and partial review for the two historical Malay sessions. Flashcard static/content checks passed. U2.3 allowance/dashboard SQL, local Auth and browser suite passed on that head. Quiz DB integration passed the partial-review migration/SQL stage and authenticated Quiz RPC tests; the remaining browser/security-advisor steps were still in progress.
+
+The app's Flashcard and mock-testing script URLs were bumped to `3.0.0-ms20` and `2.8.0-r3` to avoid stale cached scripts. Two static checks still expected the previous Flashcard version; both were corrected. Latest application recovery head: `3904f69abd13b2a2898354cc4449a3c1b9b32398`. Fresh CI and Pages deployment for this head are required before final matrix acceptance.
+
+See [the Nov 28 regression/staging archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md) and [Update 3.0 development plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
