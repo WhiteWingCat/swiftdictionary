@@ -617,7 +617,20 @@
     if (name==="get_my_flashcard_game_review") {
       const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id&&row.status==="completed");
       if(!session)return {data:null,error:error("Flashcard game not found.")};
-      const items=Array.isArray(session.review_items)?session.review_items:[];
+      let items=Array.isArray(session.review_items)?session.review_items:[];
+      let reviewStatus=items.length?"full":"unavailable";
+      if(!items.length){
+        items=(tables.flashcard_review_items||[])
+          .filter(row=>row.user_id===user.id&&row.last_session_id===session.id)
+          .sort((left,right)=>String(left.last_incorrect_at||"").localeCompare(String(right.last_incorrect_at||""))||String(left.card_key).localeCompare(String(right.card_key)))
+          .map((row,index)=>{
+            const cardKey=String(row.card_key||"");
+            const word=cardKey.replace(/^dict:(?:en|zh|ms):/,"");
+            return {position:index+1,card_key:cardKey,mode:row.mode,recall_mode:row.mode,
+              incorrect_count:row.incorrect_count,card:{word,course:session.learning_language_code||"en"}};
+          });
+        if(items.length)reviewStatus="partial";
+      }
       return {data:{
         session_id:session.id,mode:session.mode,difficulty:session.difficulty,
         learning_language_code:session.learning_language_code||"en",
@@ -625,7 +638,8 @@
         duration_seconds:session.duration_seconds,started_at:session.started_at,
         completed_at:session.completed_at,words_seen:session.words_seen,
         correct_count:session.correct_count,incorrect_count:session.incorrect_count,
-        unanswered_count:session.unanswered_count,review_available:items.length>0,items
+        unanswered_count:session.unanswered_count,review_available:items.length>0,
+        review_status:reviewStatus,items
       },error:null};
     }
     if (name==="abandon_my_flashcard_game") {
