@@ -1816,3 +1816,6 @@ Human pre-release editorial review remains waived by owner instruction; the owne
 
 
 **Implementation refinement / latest-head update:** The dialog now loads its copy directly from `data/release-notes.json`, so future releases only need a new manifest version and updated category lists; the reusable UI script remains unchanged. Latest feature-branch head after this refinement: `97e032146ff2f27c5ea5f5eff1a9920781a579e0`. Static checks confirmed valid JavaScript syntax, valid JSON, all four categories, title-click reopening, per-version local dismissal, the cloud-sync path, script inclusion in `index.html`, and presence of the release-key migration/test. GitHub Actions and Cloudflare preview deployment for this latest head were still running at the time of this record update; interactive visual/browser verification remains unconfirmed.
+
+
+**Malay content QA follow-up (2026-11-28):** The latest architecture/content workflow exposed 17 Indonesian-influenced phrases in generated Malay learning-support drafts. These were corrected with explicit Malay flashcard overrides; the validator's false-positive pattern was also narrowed so standard Malaysian terminology `kata adjektif` is not misclassified. A fresh run was queued against the updated feature branch, but its result is not yet available. This correction does not constitute human editorial review.
