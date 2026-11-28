@@ -35,15 +35,15 @@ def clean(value):
 def normalise_malay(value):
     text=clean(value)
     replacements=[
-      (r"\\baku\\b","saya"),(r"\\bbisa\\b","dapat"),
-      (r"\\bkantor\\b","pejabat"),(r"\\bkalimat\\b","ayat"),
-      (r"\\bbis\\b","bas"),(r"\\b(?:nggak|enggak)\\b","tidak"),
-      (r"\\bbanget\\b","sangat"),(r"\\bapotek\\b","farmasi"),
-      (r"\\bbahasan\\b","huraian")
+      (r"\baku\b","saya"),(r"\bbisa\b","dapat"),
+      (r"\bkantor\b","pejabat"),(r"\bkalimat\b","ayat"),
+      (r"\bbis\b","bas"),(r"\b(?:nggak|enggak)\b","tidak"),
+      (r"\bbanget\b","sangat"),(r"\bapotek\b","farmasi"),
+      (r"\bbahasan\b","huraian")
     ]
     for pattern,replacement in replacements:
         text=re.sub(pattern,lambda match:replacement.capitalize() if match.group(0)[:1].isupper() else replacement,text,flags=re.IGNORECASE)
-    if re.search(r"\\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\\b",text,flags=re.IGNORECASE):
+    if re.search(r"\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\b",text,flags=re.IGNORECASE):
         raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
     return clean(text)
 
