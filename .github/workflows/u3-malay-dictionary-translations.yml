@@ -10,6 +10,9 @@ on:
       - "data/languages/chinese-dictionary.js"
       - "data/languages/malay-dictionary-manual-overrides.js"
       - "data/chinese-characters.js"
+      - "scripts/content/export-malay-learning-support-input.cjs"
+      - "scripts/content/generate-malay-learning-support.py"
+      - "scripts/content/validate-malay-learning-support.cjs"
   workflow_dispatch:
 
 permissions:
