@@ -3824,12 +3824,12 @@ async function completeLesson(x){
         ["Which learning courses are available?","Quiz supports English, Simplified Chinese and Malaysian Standard Malay. Your learning-course selection determines the question bank; your translation preference controls available support text."]
       ]},
       flashcards:{title:"Welcome to Flashcards",intro:"Flashcards offers course-specific card banks and supported recall modes. Choose a mode, select a 60- or 120-second challenge, and set your difficulty and card range. Memory and answer windows adapt to the selected mode, and you can move on as soon as you are ready.",faqs:[
-        ["What are the four Flash Recall modes?","Word Recall asks you to choose a word's meaning. Definition Recall asks you to identify the matching word. Mixed Recall combines word, definition and sentence prompts. Sentence Recall asks you to complete a sentence."],
+        ["Which recall modes are available?","Available modes depend on the selected learning course. The setup screen only shows the modes supported by that course."],
         ["How do the timers work?","Memory and answer durations depend on the selected mode and difficulty. Both windows shorten by 0.2 seconds after each round until they reach their mode-specific minimums. Select Answer now to skip the remaining memory time, or Next to begin another round after answering."],
         ["How long is a challenge?","Choose either a 60-second or 120-second challenge before starting. The challenge ends when its overall timer reaches zero, then your results are saved and shown for review."],
         ["How do I choose the vocabulary?","Choose a card range in the setup prompt, such as all available words, common words, parts of speech, everyday phrases or subject terms. A question is not repeated within the same challenge."],
         ["What is Weak Memory?","Questions answered incorrectly or left unanswered are recorded for review. You can revisit these items from the Weak Memory section on the Flashcards page."],
-        "Which learning courses are available?","Flashcards supports English, Simplified Chinese and Malaysian Standard Malay. Each course uses its own card bank and available recall modes; your translation preference supplies supported meanings and prompts."
+        ["Which learning courses are available?","Flashcards supports English, Simplified Chinese and Malaysian Standard Malay. Each course uses its own card bank and available recall modes; your translation preference supplies supported meanings and prompts."]
       ]}
     };
     let learningIntroCurrentPage = null;
@@ -3837,6 +3837,12 @@ async function completeLesson(x){
     function learningIntroStorageKey(userId){return "swiftdictionary-learning-intro-dismissals:"+ (userId||"guest");}
     function learningIntroRender(page){
       const chineseIntroCopy={
+        lessons:{title:"欢迎使用课程学习",intro:"课程通过引导式讲解、示例和简短练习，帮助你提升所选学习语言的能力。你可以选择难度，按自己的节奏学习，并继续未完成的课程。",faqs:[
+          ["需要一次完成一节课程吗？","不需要。未完成的课程可以稍后继续，没有计时器或时间压力。"],
+          ["如何保存学习进度？","登录后，已完成的课程和受支持的练习进度会保存到你的账户。"],
+          ["可以更改翻译语言吗？","可以。翻译语言偏好与学习课程是分开的。"],
+          ["目前有哪些学习课程？","英语、简体中文和马来语都有各自的课程库和独立进度。请使用页面顶部的学习课程选择器。"]
+        ]},
         quiz:{title:"欢迎使用测验",intro:"测验会提供初级、中级和高级的多主题问题。答题没有计时限制，提交前可以更改答案；结果会显示分数和正确率，不设及格或不及格。",faqs:[
           ["可以暂停并继续未完成的测验吗？","可以。未完成的测验和已保存的答案会保留，直到你完成测验或主动放弃。"],
           ["提交前可以更改答案吗？","可以。提交测验前，你可以返回题目并更改答案。"],
@@ -3844,8 +3850,8 @@ async function completeLesson(x){
           ["为什么正在进行的测验不会立即切换翻译语言？","测验开始时会固定当次使用的语言设置；新的翻译偏好会应用于之后开始的测验。"],
           ["目前支持哪些学习课程？","测验支持英语、简体中文和马来语。学习课程决定题库；翻译语言决定可用的辅助释义。"]
         ]},
-        flashcards:{title:"欢迎使用闪卡",intro:"闪卡提供四选一的限时回忆挑战，使用英语词汇进行练习。你可以选择单词、释义、混合或句子回忆模式，设置 60 秒或 120 秒挑战，并选择难度和词汇范围。记忆与答题时间会根据模式调整；准备好时可以提前作答或直接进入下一题。",faqs:[
-          ["四种 Flash Recall 模式有什么区别？","单词回忆要求你选择单词释义；释义回忆要求你找出对应的英文单词；混合回忆结合单词、释义和句子题目；句子回忆要求你选择合适的单词完成句子。"],
+        flashcards:{title:"欢迎使用闪卡",intro:"闪卡提供按学习课程划分的卡片库和受支持的回忆模式。你可以选择模式、60 秒或 120 秒挑战、难度和卡片范围。记忆与答题时间会根据所选模式调整。",faqs:[
+          ["目前有哪些回忆模式？","可用模式取决于所选学习课程。设置页面只会显示该课程支持的回忆模式。"],
           ["计时规则是什么？","记忆时间和答题时间会根据模式与难度调整。每完成一轮，两段时间都会缩短 0.2 秒，直到达到该模式的最低时间。点击“立即作答”可以跳过剩余记忆时间；答题后点击“下一题”可以提前开始下一轮。"],
           ["挑战持续多久？","开始前可以选择 60 秒或 120 秒。总计时结束后，系统会保存成绩并显示结果供你查看。"],
           ["如何选择练习词汇？","在开始设置中选择词汇范围，例如全部可用词汇、常用词、词性、日常短语或学科术语。同一场挑战中不会重复出现同一道题。"],
@@ -3853,10 +3859,36 @@ async function completeLesson(x){
           ["闪卡支持哪些学习课程？","闪卡支持英语、简体中文和马来语。每种课程都有独立的卡片内容和适用的回忆模式；翻译语言用于显示可用的辅助释义和提示。"]
         ]}
       };
-      const data=translationLanguage==="zh"&&chineseIntroCopy[page]?chineseIntroCopy[page]:learningIntroCopy[page];if(!data)return;
+      const malayIntroCopy={
+        lessons:{title:"Selamat Datang ke Pelajaran",intro:"Pelajaran membantu anda membina kemahiran dalam kursus pembelajaran pilihan melalui penerangan berpandu, contoh dan latihan ringkas. Pilih tahap kesukaran, belajar mengikut rentak sendiri dan sambung semula pelajaran yang belum selesai.",faqs:[
+          ["Adakah saya perlu menamatkan pelajaran dalam satu sesi?","Tidak. Pelajaran yang belum selesai boleh disambung semula. Tiada pemasa atau tekanan masa."],
+          ["Bagaimanakah kemajuan disimpan?","Pelajaran yang diselesaikan dan kemajuan latihan yang disokong akan disimpan ke akaun anda apabila anda log masuk."],
+          ["Bolehkah saya menukar bahasa terjemahan?","Ya. Pilihan bahasa terjemahan adalah berasingan daripada kursus pembelajaran."],
+          ["Apakah kursus pembelajaran yang tersedia?","Bahasa Inggeris, Bahasa Cina Ringkas dan Bahasa Melayu mempunyai perpustakaan pelajaran serta rekod kemajuan masing-masing. Pilih kursus di bahagian atas halaman."]
+        ]},
+        quiz:{title:"Selamat Datang ke Kuiz",intro:"Kuiz menyediakan soalan daripada pelbagai topik pada tahap Permulaan, Pertengahan dan Lanjutan. Sesi tidak mempunyai had masa, jawapan boleh diubah sebelum dihantar dan keputusan memaparkan skor serta peratus ketepatan tanpa status lulus atau gagal.",faqs:[
+          ["Bolehkah saya menjeda dan menyambung semula?","Boleh. Sesi yang belum selesai dan jawapan yang telah disimpan kekal tersedia sehingga anda melengkapkan atau meninggalkan sesi itu secara jelas."],
+          ["Bolehkah saya menukar jawapan?","Boleh. Anda boleh kembali ke soalan dan menukar jawapan sebelum menghantar Kuiz."],
+          ["Bagaimanakah kuota harian berfungsi?","Akaun percuma mendapat satu Kuiz yang diselesaikan sehari; akaun Premium mendapat tiga. Hanya Kuiz yang berjaya diselesaikan menggunakan kuota."],
+          ["Mengapakah terjemahan Kuiz yang sedang berlangsung tidak berubah?","Pasangan bahasa ditetapkan apabila sesi bermula. Perubahan pilihan bahasa digunakan untuk sesi Kuiz yang seterusnya."],
+          ["Apakah kursus pembelajaran yang tersedia?","Kuiz menyokong Bahasa Inggeris, Bahasa Cina Ringkas dan Bahasa Melayu. Kursus pembelajaran menentukan bank soalan, manakala bahasa terjemahan menentukan teks bantuan yang tersedia."]
+        ]},
+        flashcards:{title:"Selamat Datang ke Kad Imbas",intro:"Kad Imbas menyediakan bank kad khusus bagi setiap kursus dan mod imbas kembali yang disokong. Pilih mod, cabaran 60 atau 120 saat, tahap kesukaran dan julat kad. Tempoh mengingat dan menjawab disesuaikan dengan mod yang dipilih.",faqs:[
+          ["Apakah mod imbas kembali yang tersedia?","Mod yang tersedia bergantung pada kursus pembelajaran yang dipilih. Halaman persediaan hanya memaparkan mod yang disokong oleh kursus tersebut."],
+          ["Bagaimanakah pemasa berfungsi?","Tempoh mengingat dan menjawab bergantung pada mod serta tahap kesukaran. Kedua-duanya berkurang sebanyak 0.2 saat selepas setiap pusingan sehingga mencapai had minimum mod tersebut."],
+          ["Berapa lamakah satu cabaran?","Anda boleh memilih cabaran 60 saat atau 120 saat sebelum bermula. Apabila pemasa tamat, keputusan disimpan dan dipaparkan untuk semakan."],
+          ["Bagaimanakah saya memilih kosa kata?","Pilih julat kad dalam tetapan, seperti semua perkataan yang tersedia, perkataan lazim, frasa harian atau istilah mengikut bidang. Kad yang sama tidak diulang dalam satu cabaran."],
+          ["Apakah itu Weak Memory?","Soalan yang dijawab salah atau tidak dijawab akan direkodkan untuk semakan. Anda boleh menyemaknya semula melalui bahagian Weak Memory pada halaman Kad Imbas."],
+          ["Apakah kursus pembelajaran yang tersedia?","Kad Imbas menyokong Bahasa Inggeris, Bahasa Cina Ringkas dan Bahasa Melayu. Setiap kursus mempunyai bank kad serta mod imbas kembali tersendiri; bahasa terjemahan memaparkan maksud dan petunjuk sokongan yang tersedia."]
+        ]}
+      };
+      const data=translationLanguage==="zh"&&chineseIntroCopy[page]?chineseIntroCopy[page]
+        :translationLanguage==="ms"&&malayIntroCopy[page]?malayIntroCopy[page]
+        :learningIntroCopy[page];if(!data)return;
       learningIntroCurrentPage=page;
       quizEl("learningIntroTitle").textContent=data.title;
-      quizEl("learningIntroContent").innerHTML='<p>'+escapeHTML(data.intro)+'</p><h3>Frequently asked questions</h3>'+data.faqs.map(([q,a])=>'<h3>'+escapeHTML(q)+'</h3><p>'+escapeHTML(a)+'</p>').join("");
+      const faqHeading=translationLanguage==="zh"?"常见问题":translationLanguage==="ms"?"Soalan lazim":"Frequently asked questions";
+      quizEl("learningIntroContent").innerHTML='<p>'+escapeHTML(data.intro)+'</p><h3>'+faqHeading+'</h3>'+data.faqs.map(([q,a])=>'<h3>'+escapeHTML(q)+'</h3><p>'+escapeHTML(a)+'</p>').join("");
       quizEl("learningIntroBackdrop").hidden=false;
       quizEl("learningIntroClose").focus();
     }
