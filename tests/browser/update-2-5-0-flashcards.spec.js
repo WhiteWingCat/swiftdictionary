@@ -641,8 +641,10 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
 
 
 test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
-  await page.clock.install();
   await openMockFlashcards(page);
+  // Install the fake clock after app startup so initial scripts and mock auth
+  // can finish their normal boot sequence before the game timer is controlled.
+  await page.clock.install();
   await beginRecall(page,"word","beginner","all",60);
 
   // Answer until at least one miss is recorded; the first option is intentionally
