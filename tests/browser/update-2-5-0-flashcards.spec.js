@@ -753,8 +753,11 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
   // Advance Playwright's fake clock instead of replacing Date.now manually.
   // This lets the interval, phase transitions and delayed persistence callback
   // run in their normal order while keeping the test independent of wall time.
-  await page.clock.runFor(63000);
+  await page.clock.runFor(61000);
   await expect(page.locator(".flash-times-up-backdrop")).toBeVisible();
+  // The timeout overlay appears first; result persistence is intentionally
+  // delayed by two seconds so the player can see the end-of-game state.
+  await page.clock.runFor(2500);
   await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:10000});
   await page.locator('[data-action="close-result"]').click();
 
