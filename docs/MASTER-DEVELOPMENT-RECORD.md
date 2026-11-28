@@ -5077,3 +5077,16 @@ The long-running Quiz database and Flashcards regression workflows previously us
 
 
 The latest feature-branch content audit confirms complete Quiz translation override coverage: 199/199 English question IDs and 145/145 Chinese question IDs are present, matching the 199 English and 145 Chinese staged banks. The architecture test now iterates every override, checks prompt and explanation presence, all four option IDs and non-empty translations, and rejects duplicate English Malay option translations. This closes the Quiz translation-coverage checklist in code, pending the latest CI pass and qualified Malaysian Standard Malay editorial review. Lesson practice coverage remains 49/112 English and 49/112 Chinese (63 each outstanding). Flashcard coverage remains partially curated: 18 English dictionary cards have Malay definitions and sentence examples; phrase/Chinese/custom-card coverage still needs the full audit and the browser regression suite must pass.
+
+
+## 2026-11-28 — Quiz, Lesson and Flashcard completion work
+
+On `feature/update-3.0-phase-0-audit`, Malay support translations were added for all currently approved staging Quiz questions: 199 English and 145 Chinese. The overrides preserve question and option IDs and update only support-language text. The content regression validates prompts, explanations and four distinct non-empty option translations. These are model-assisted drafts pending human Malaysian Standard Malay review.
+
+Curated Malay corrections now cover all 112 English and 112 Chinese permanent Lesson practice questions, including prompts and answer choices. The regression requires exactly 112 per course.
+
+Flashcard changes add source-English example fallback for reviewed English Sentence Recall cards, 18 curated Malay sentence examples for Chinese cards, and reviewed-example eligibility for both courses. Runtime coverage metrics now distinguish English/Chinese dictionary cards, phrase cards, reviewed sentence cards and the custom-card policy. Custom cards are eligible in Malay-support games only when the user supplied a Malay translation; otherwise they are excluded. The generated support corpus currently has 1,341 English rows (25 standalone Malay definitions, 1,341 Malay example translations) and 603 Chinese rows (603 Malay definitions and 603 Malay example translations). Only 18 examples per course are explicitly curated/reviewed; generated examples must not be represented as human-reviewed. The standalone gloss maps contain 73 English and 124 Chinese entries, and the curated English phrase pool contains 25 items.
+
+The U3.0 Phase 1 architecture/content regression passed on the latest application head at this checkpoint. Flashcard browser tests, Quiz database foundation/authenticated Chromium tests, and full cross-version regression still require inspection after the latest changes. The earlier `user_preferences` permission failure remains under investigation; do not weaken RLS or broaden grants to bypass it. OAuth redirect/account-isolation checks, private-schema grants/RPC review, staging preview verification and owner desktop/mobile acceptance remain outstanding. Leaked-password protection remains deferred per the owner's explicit decision.
+
+See [the 2026-11-28 content and Flashcard work archive](conversation-archive/2026-11-28-u3-content-and-flashcard-completion-work.md).
