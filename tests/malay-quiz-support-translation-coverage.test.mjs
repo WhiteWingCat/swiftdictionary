@@ -32,6 +32,8 @@ test("Every approved English Quiz question has a complete Malay prompt, explanat
   assert.ok(row,question.question_id+" missing Malay support");
   assert.ok(row.promptLearning?.trim(),question.question_id+" missing Malay prompt");
   assert.ok(row.explanationLearning?.trim(),question.question_id+" missing Malay explanation");
+  assert.equal(row.promptTranslation,row.promptLearning,question.question_id+" paired prompt fields must use the same Malay meaning");
+  assert.equal(row.explanationTranslation,row.explanationLearning,question.question_id+" paired explanation fields must use the same Malay meaning");
   const optionIds=question.options.map(option=>option.id).sort();
   assert.deepEqual(Object.keys(row.options||{}).sort(),optionIds,question.question_id+" option IDs must remain unchanged");
   const displayedOptions=question.question_type==="chinese_translation"
@@ -57,6 +59,8 @@ test("Every Chinese Quiz question has a complete Malay support-language mapping"
   assert.ok(row,question.question_id+" missing Malay support");
   assert.ok(row.promptLearning?.trim(),question.question_id+" missing Malay prompt");
   assert.ok(row.explanationLearning?.trim(),question.question_id+" missing Malay explanation");
+  assert.equal(row.promptTranslation,row.promptLearning,question.question_id+" paired prompt fields must use the same Malay meaning");
+  assert.equal(row.explanationTranslation,row.explanationLearning,question.question_id+" paired explanation fields must use the same Malay meaning");
   const optionIds=question.options.map(option=>option.id).sort();
   assert.deepEqual(Object.keys(row.options||{}).sort(),optionIds,question.question_id+" option IDs must remain unchanged");
   const displayedOptions=question.question_type==="chinese_translation"
