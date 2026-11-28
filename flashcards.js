@@ -846,7 +846,8 @@
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
     const selected=items.find(item=>item.card_key===state.reviewSelected);
-    const resolve=key=>{const languageMatch=key.match(/^dict:([a-z]{2,3}):/);if(languageMatch){const code=languageMatch[1];return reviewWordIndex(code).get(key.slice(languageMatch[0].length).toLocaleLowerCase("en"))||null;}if(key.startsWith("dict:"))return reviewWordIndex("en").get(key.slice(5).toLocaleLowerCase("en"))||null;const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
+    const customCardIndex=new Map(state.data.cards.map(card=>[cardKey(card),card]));
+    const resolve=key=>{const languageMatch=key.match(/^dict:([a-z]{2,3}):/);if(languageMatch){const code=languageMatch[1];return reviewWordIndex(code).get(key.slice(languageMatch[0].length).toLocaleLowerCase("en"))||null;}if(key.startsWith("dict:"))return reviewWordIndex("en").get(key.slice(5).toLocaleLowerCase("en"))||null;const card=customCardIndex.get(key);return card?mapCustomCard(card):null;};
     const card=selected?resolve(selected.card_key):null;
     const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`:'<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
     const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
