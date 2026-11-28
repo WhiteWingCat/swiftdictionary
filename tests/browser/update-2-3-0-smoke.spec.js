@@ -569,7 +569,7 @@ test("Daily Application renders nested localized question and option objects as 
           zh:"接下来最安全的步骤是什么？"
         };
         question.options=(question.options||[]).map((option,index)=>{
-          const en=typeof option==="string"?option:(option.en||option.text||option.value||"");
+          const en=typeof option==="string"?option:(typeof option.en==="string"?option.en:typeof option.text==="string"?option.text:typeof option.text?.en==="string"?option.text.en:typeof option.value==="string"?option.value:"Option "+(index+1));
           return {
             en,
             ms:"Pilihan Bahasa Melayu " + (index+1),
