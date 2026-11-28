@@ -1,3 +1,4 @@
+/* U3.0 export revision: carry English source definitions and regenerate complete Malay support packs. */
 // Build a deterministic inventory of every authored English/Chinese lesson,
 // Quiz and Flashcard text that requires a Malay support translation.
 const fs=require("node:fs");
