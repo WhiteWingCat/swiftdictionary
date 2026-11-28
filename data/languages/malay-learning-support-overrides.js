@@ -686,30 +686,31 @@
     }
   }
   const flashcardExampleCorrections = {
-    book:{definitionMs:"Buku; bahan bacaan yang mengandungi halaman bertulis atau bercetak.",exampleMs:"Saya meminjam sebuah buku dari perpustakaan."},
-    work:{definitionMs:"Kerja; tugas atau kegiatan yang dilakukan untuk mencapai sesuatu hasil.",exampleMs:"Saya bekerja di sebuah kedai kecil."},
-    go:{definitionMs:"Pergi; bergerak atau menuju ke sesuatu tempat.",exampleMs:"Saya pergi ke tempat kerja dengan bas."},
-    eat:{definitionMs:"Makan; mengambil makanan melalui mulut.",exampleMs:"Kami makan malam pada pukul tujuh."},
-    drink:{definitionMs:"Minum; menelan air atau minuman.",exampleMs:"Sila minum lebih banyak air."},
-    make:{definitionMs:"Membuat; menghasilkan, membina atau mencipta sesuatu.",exampleMs:"Dia membuat kad hari jadi."},
-    take:{definitionMs:"Mengambil; memegang, membawa atau menerima sesuatu.",exampleMs:"Sila bawa beg ini ke tingkat atas."},
-    learn:{definitionMs:"Belajar; memperoleh pengetahuan atau kemahiran melalui pengajaran atau pengalaman.",exampleMs:"Saya mahu belajar bahasa Inggeris."},
-    buy:{definitionMs:"Membeli; memperoleh sesuatu dengan membayar wang.",exampleMs:"Saya perlu membeli roti."},
-    sell:{definitionMs:"Menjual; memberikan barang atau perkhidmatan sebagai pertukaran untuk bayaran.",exampleMs:"Mereka menjual buah-buahan segar di pasar."},
-    pay:{definitionMs:"Membayar; memberikan wang sebagai bayaran untuk sesuatu.",exampleMs:"Saya akan membayar makan tengah hari hari ini."},
-    send:{definitionMs:"Menghantar; mengirim sesuatu kepada seseorang atau ke sesuatu tempat.",exampleMs:"Sila hantarkan alamat itu kepada saya."},
-    clean:{definitionMs:"Membersihkan; menghilangkan kotoran atau menjadikan sesuatu bersih.",exampleMs:"Sila bersihkan meja itu."},
-    speak:{definitionMs:"Bercakap; menggunakan suara untuk menyampaikan kata-kata atau idea.",exampleMs:"Dia bercakap dengan jelas semasa mesyuarat."},
-    station:{definitionMs:"Stesen; tempat pengangkutan berhenti untuk penumpang naik atau turun.",exampleMs:"Kita akan berjumpa di luar stesen kereta api."},
-    market:{definitionMs:"Pasar; tempat orang menjual dan membeli barangan.",exampleMs:"Ibu membeli sayur-sayuran segar di pasar."},
-    library:{definitionMs:"Perpustakaan; tempat buku dan bahan bacaan disimpan untuk digunakan atau dipinjam.",exampleMs:"Saya meminjam dua buah buku dari perpustakaan."},
-    hospital:{definitionMs:"Hospital; institusi perubatan tempat pesakit menerima pemeriksaan dan rawatan.",exampleMs:"Datuknya sedang menerima rawatan di hospital."}
+    book:{definitionMs:"Buku; bahan bacaan yang mengandungi halaman bertulis atau bercetak.",exampleMs:"Saya meminjam sebuah buku dari perpustakaan.",exampleEn:"I borrowed a book from the library."},
+    work:{definitionMs:"Kerja; tugas atau kegiatan yang dilakukan untuk mencapai sesuatu hasil.",exampleMs:"Saya bekerja di sebuah kedai kecil.",exampleEn:"I work at a small shop."},
+    go:{definitionMs:"Pergi; bergerak atau menuju ke sesuatu tempat.",exampleMs:"Saya pergi ke tempat kerja dengan bas.",exampleEn:"I take the bus to work."},
+    eat:{definitionMs:"Makan; mengambil makanan melalui mulut.",exampleMs:"Kami makan malam pada pukul tujuh.",exampleEn:"We eat dinner at seven."},
+    drink:{definitionMs:"Minum; menelan air atau minuman.",exampleMs:"Sila minum lebih banyak air.",exampleEn:"Please drink more water."},
+    make:{definitionMs:"Membuat; menghasilkan, membina atau mencipta sesuatu.",exampleMs:"Dia membuat kad hari jadi.",exampleEn:"She is making a birthday card."},
+    take:{definitionMs:"Mengambil; memegang, membawa atau menerima sesuatu.",exampleMs:"Sila bawa beg ini ke tingkat atas.",exampleEn:"Please take this bag upstairs."},
+    learn:{definitionMs:"Belajar; memperoleh pengetahuan atau kemahiran melalui pengajaran atau pengalaman.",exampleMs:"Saya mahu belajar bahasa Inggeris.",exampleEn:"I want to learn English."},
+    buy:{definitionMs:"Membeli; memperoleh sesuatu dengan membayar wang.",exampleMs:"Saya perlu membeli roti.",exampleEn:"I need to buy some bread."},
+    sell:{definitionMs:"Menjual; memberikan barang atau perkhidmatan sebagai pertukaran untuk bayaran.",exampleMs:"Mereka menjual buah-buahan segar di pasar.",exampleEn:"They sell fresh fruit at the market."},
+    pay:{definitionMs:"Membayar; memberikan wang sebagai bayaran untuk sesuatu.",exampleMs:"Saya akan membayar makan tengah hari hari ini.",exampleEn:"I will pay for lunch today."},
+    send:{definitionMs:"Menghantar; mengirim sesuatu kepada seseorang atau ke sesuatu tempat.",exampleMs:"Sila hantarkan alamat itu kepada saya.",exampleEn:"Please send me the address."},
+    clean:{definitionMs:"Membersihkan; menghilangkan kotoran atau menjadikan sesuatu bersih.",exampleMs:"Sila bersihkan meja itu.",exampleEn:"Please clean the table."},
+    speak:{definitionMs:"Bercakap; menggunakan suara untuk menyampaikan kata-kata atau idea.",exampleMs:"Dia bercakap dengan jelas semasa mesyuarat.",exampleEn:"She speaks clearly during meetings."},
+    station:{definitionMs:"Stesen; tempat pengangkutan berhenti untuk penumpang naik atau turun.",exampleMs:"Kita akan berjumpa di luar stesen kereta api.",exampleEn:"We will meet outside the train station."},
+    market:{definitionMs:"Pasar; tempat orang menjual dan membeli barangan.",exampleMs:"Ibu membeli sayur-sayuran segar di pasar.",exampleEn:"Mother buys fresh vegetables at the market."},
+    library:{definitionMs:"Perpustakaan; tempat buku dan bahan bacaan disimpan untuk digunakan atau dipinjam.",exampleMs:"Saya meminjam dua buah buku dari perpustakaan.",exampleEn:"I borrowed two books from the library."},
+    hospital:{definitionMs:"Hospital; institusi perubatan tempat pesakit menerima pemeriksaan dan rawatan.",exampleMs:"Datuknya sedang menerima rawatan di hospital.",exampleEn:"His grandfather is receiving treatment at the hospital."}
   };
   for (const [word, correction] of Object.entries(flashcardExampleCorrections)) {
     const target = pack.flashcards?.en?.[word];
     if (target) {
       target.definitionMs = correction.definitionMs;
       target.exampleMs = correction.exampleMs;
+      target.exampleEn = correction.exampleEn;
     }
   }
   window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS = {
