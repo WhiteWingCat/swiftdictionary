@@ -29,3 +29,25 @@ test("Malay Discovery catalogue sync preserves the 93 active scheduled entries",
  assert.match(migration,/rotation_order/);
  assert.match(migration,/set is_active=false,rotation_order=null/);
 });
+
+test("Chinese Weak Memory lookup indexes each source bank with a valid card kind",()=>{
+ const flashcards=fs.readFileSync("flashcards.js","utf8");
+ assert.match(flashcards,/mapChineseReviewItems\(bank\.characters,"characters"\)/);
+ assert.match(flashcards,/mapChineseReviewItems\(bank\.vocabulary,"vocabulary"\)/);
+ assert.match(flashcards,/mapChineseReviewItems\(bank\.phrases,"phrases"\)/);
+ assert.doesNotMatch(flashcards,/cardKind:kind,definition:item\.translationEn/);
+});
+
+test("Quiz course switching waits for the persisted selection and ignores stale switches",()=>{
+ assert.match(index,/const requestedCourse=quizEl\("courseSelect"\)\.value\|\|course/);
+ assert.match(index,/quizCourseSwitchRequest!==quizCourseSwitchRequestId/);
+ assert.match(index,/await quizSyncCoursePreferences\(\)/);
+ assert.match(index,/supports\(requestedCourse,"quiz"\)/);
+});
+
+test("learning help copy reflects the three active learning courses",()=>{
+ assert.match(index,/Quiz supports English, Simplified Chinese and Malaysian Standard Malay/);
+ assert.match(index,/Flashcards supports English, Simplified Chinese and Malaysian Standard Malay/);
+ assert.doesNotMatch(index,/Not yet\. The current approved Quiz content supports the English learning course only/);
+ assert.doesNotMatch(index,/current Lessons library contains English learning content only/);
+});
