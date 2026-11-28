@@ -33,7 +33,7 @@ create index if not exists learning_content_catalog_topic_idx
   where is_active;
 
 create unique index if not exists learning_content_catalog_discovery_order_idx
-  on private.learning_content_catalog(rotation_order)
+  on private.learning_content_catalog(language_code, rotation_order)
   where activity_type = 'daily_discovery' and is_active;
 
 alter table private.learning_content_catalog enable row level security;
