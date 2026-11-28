@@ -11,9 +11,14 @@ for (const [language, count] of Object.entries(expected)) {
   const senses = words.reduce((n, word) => n + (entries[word].senses || []).length, 0);
   const missingHeadwords = words.filter(word => !entries[word].headwordMs);
   const missingSenses = words.flatMap(word => (entries[word].senses || []).filter(sense => !sense.definitionMs));
-  if (words.length !== count.entries || senses !== count.senses || missingHeadwords.length || missingSenses.length) {
-    throw new Error(language + " translation coverage mismatch: " + JSON.stringify({ entries: words.length, senses, missingHeadwords: missingHeadwords.length, missingSenses: missingSenses.length }));
+  const indonesianOnlyTerms = /\\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\\b/i;
+  const languageQualityFlags = words.flatMap(word => [
+    entries[word].headwordMs,
+    ...(entries[word].senses || []).map(sense => sense.definitionMs)
+  ].filter(value => indonesianOnlyTerms.test(String(value || ""))).map(value => ({ word, value })));
+  if (words.length !== count.entries || senses !== count.senses || missingHeadwords.length || missingSenses.length || languageQualityFlags.length) {
+    throw new Error(language + " translation coverage/quality mismatch: " + JSON.stringify({ entries: words.length, senses, missingHeadwords: missingHeadwords.length, missingSenses: missingSenses.length, languageQualityFlags: languageQualityFlags.slice(0, 12) }));
   }
-  report[language] = { entries: words.length, senses, missingHeadwords: 0, missingSenses: 0 };
+  report[language] = { entries: words.length, senses, missingHeadwords: 0, missingSenses: 0, languageQualityFlags: 0 };
 }
 console.log(JSON.stringify({ status: data.status, engine: data.engine, coverage: report, bytes: fs.statSync("data/languages/malay-dictionary-translations.js").size }));
