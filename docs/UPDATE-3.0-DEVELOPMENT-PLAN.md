@@ -1747,3 +1747,38 @@ Owner instruction: pre-release human linguistic/editorial review is waived; the 
 - Human review is waived before launch, but automated coverage, lexical, source-alignment and answer-quality checks remain mandatory.
 - These UI/performance changes add no personal-data fields, tracking, third-party sharing or new processing purposes. Existing Malaysia Copyright Act 1987, PDPA 2010/2024 amendment, cross-border processing, source provenance, model/corpus licensing and attribution remain public-release considerations.
 - PR #20 remains draft/unmerged. Production hosting and database remain untouched. Leaked-password protection remains excluded by the owner's explicit instruction.
+
+## 2026-11-28 — latest branch content-generation checkpoint
+
+Application feature branch: `feature/update-3.0-phase-0-audit`  
+Latest observed application commit: `eb1f3e90a8560aa96098502f7c12dd3faf235227` (`Generate complete Malay Dictionary translation drafts`).  
+PR #20 remains draft and unmerged; production remains untouched.
+
+### Generated assets now committed
+
+- `data/languages/malay-dictionary-translations.js` is now present in the branch tree (1,355,473 bytes; blob `82067b0cfd8f57dfa4bb6a9798777453a2225e1e`). This supersedes earlier checkpoints that described the Dictionary overlay as empty or still awaiting generation. The intended inventory remains 1,316 English headwords / 1,931 senses and 725 Chinese headwords / 825 senses.
+- `data/languages/malay-learning-support-translations.js` is present (949,203 bytes; blob `b9349f942d443a3afc13779117811662039d6666`).
+- `data/languages/malay-flashcard-translations.js` is present (4,715 bytes; blob `b57ab52e64818bc0ce86e12bc3b7142e70c89adf`).
+- Curated correction/override files are also committed. All machine-assisted content must retain its draft and pending-review metadata; no human review is claimed.
+
+### Owner feedback and latest implementation checkpoint
+
+- Quiz course switching now waits for the global course-change event and persisted preference, clears course-scoped stale session/result state, and guards against late account/course responses.
+- Weak Memory uses indexed source records, cached recall-mode grouping and selected-card detail enrichment; the review list renders in batches of 40 and preserves scroll position while appending.
+- The plan's previous checkpoint records passing focused authenticated Quiz, Flashcards, U3.0 architecture, routing, ACL and legacy regression suites on an earlier head. The latest content-generation commits are newer and must not inherit those pass claims automatically.
+
+### Latest-head validation gate
+
+At the latest observed head `eb1f3e90a8560aa96098502f7c12dd3faf235227`, GitHub Actions created the expected architecture, allowance/dashboard, Flashcards, Quiz DB, ACL, Chinese/English QA, routing and two Malay translation-generation workflow runs. All ten latest-head runs currently report `action_required`, not a test pass or a test failure. No latest-head job logs are available until GitHub permits those runs to execute. The user previously approved an Actions prompt; do not assume they have not approved it or repeatedly ask them to approve. Recheck GitHub's actual run state before requesting any further action.
+
+Do not mark the full latest-head matrix green until the current head's runs complete. Priority is to execute:
+1. Malay Dictionary overlay validator: exact 1,316 / 1,931 English and 725 / 825 Chinese coverage, with zero missing headwords/senses and zero configured lexical flags.
+2. Malay learning-support validator: complete Lessons, Quiz and Flashcard support inventory, non-duplicate options, source alignment and zero configured Malay lexical flags.
+3. Authenticated Quiz course-switch regression and 80-card Weak Memory/Flashcards browser regressions.
+4. Full cross-version matrix, latest staging Pages deployment and Google OAuth/account-isolation checks.
+
+The generated Dictionary output is committed, but a committed asset and its byte size are not substitutes for running its validator on this exact head. Likewise, do not treat the existence of the support output as a successful validation.
+
+### Release/legal boundary
+
+Human pre-release editorial review remains waived by owner instruction; the owner will review content on the live website. Machine-assisted text must remain identified as draft. Provenance, Argos/model licensing and attribution, source-data rights, Malaysia Copyright Act 1987, PDPA 2010 and its 2024 amendments, and cross-border processing remain release checks. These checks are not satisfied merely by passing code tests. Leaked-password protection remains excluded. No PR merge, production deployment or production database mutation is authorised.
