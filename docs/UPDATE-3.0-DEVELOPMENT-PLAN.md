@@ -1399,3 +1399,17 @@ Read-only access checks show no direct `anon` or `authenticated` SELECT privileg
 5. Keep human Malaysian Standard Malay editorial/translation review, licensing/attribution, Malaysia Copyright Act and PDPA/cross-border processing gates open.
 
 Leaked-password protection remains explicitly excluded by the owner. Production remains untouched and PR #20 remains unmerged.
+
+## 2026-11-28 — historical Flashcard review recovery
+
+The staging audit identified two completed Malay sessions (Nov 27, 10:58 and 11:04 UTC) without per-card snapshots. Their summary totals remain intact and their weak-memory table retains 5 and 4 missed cards linked to the respective session. Exact original prompts, choices, selected answers and correct answers are irrecoverable; no reconstruction should be fabricated.
+
+Implemented a clearly labelled **partial review** fallback:
+- full snapshot sessions continue to show exact per-card details;
+- legacy sessions with linked weak-memory rows show only those known missed cards, with an explicit warning that the list may be incomplete and that original question/options/answers were not stored;
+- snapshotless sessions without linked weak-memory rows retain the unavailable state;
+- the authenticated review RPC performs this fallback within the private schema and does not expose private tables directly.
+
+Added migration `20261128133000_swiftdictionary_update_3_0_partial_legacy_flashcard_review.sql`, SQL regression coverage, mock-adapter behaviour, browser coverage and CI wiring. The migration is **not yet applied to staging**. Application changes after `75a9d4b` are commits `6e092cf`, `253f7b7`, `61f7802`, `90cc375`, `63e20e2` and `b0a177b`. Latest checks for `b0a177b` are queued/in progress; await green SQL/Auth, browser and architecture results before applying the migration to the staging project. Production remains untouched.
+
+Next: complete latest CI, then apply the additive migration to staging only, verify the two known legacy sessions return partial review while full-snapshot sessions remain unchanged, verify new games continue saving full snapshots, and repeat the private privilege/RLS check. Complete the full cross-version and OAuth/account-isolation matrix afterward.
