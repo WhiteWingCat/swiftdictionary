@@ -26,7 +26,7 @@ The Chinese vocabulary inventory includes 844 multi-character entries that have 
 | English dictionary-derived cards | 1,316 | 18 |
 | English curated phrases | 25 | 25 |
 | Chinese character cards | 519 | 0 |
-| Chinese vocabulary cards | 60 | 18 |
+| Chinese vocabulary cards | 904 | 18 |
 | Chinese phrase cards | 24 | 24 |
 
 The generation workflow will produce machine-assisted Malay example translations for every English and Chinese source example. Sentence Recall remains limited to the existing curated correction-key set (18 English dictionary cards plus 25 English phrases; 18 Chinese vocabulary cards plus 24 Chinese phrases, 85 pairs total) so the game does not silently promote uncorrected generated sentences into assessed answer choices. English definition coverage is complete at 1,341/1,341; Chinese definition coverage remains 895/1,447 until generation completes.
