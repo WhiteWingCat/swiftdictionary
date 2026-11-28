@@ -244,12 +244,53 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   expect(stats.malayChinesePhraseSupportedCount).toBeGreaterThan(0);
   expect(stats.malayEnglishReviewedSentenceCardCount).toBe(18);
   expect(stats.malayChineseReviewedSentenceCardCount).toBe(18);
+  expect(stats.malayEnglishSentenceCardCount).toBeGreaterThanOrEqual(stats.malayEnglishSentenceSupportedCount);
+  expect(stats.malayEnglishSentenceSupportedCount).toBe(18);
+  expect(stats.malayChineseSentenceCardCount).toBeGreaterThanOrEqual(stats.malayChineseSentenceSupportedCount);
+  expect(stats.malayChineseSentenceSupportedCount).toBe(18);
   expect(stats.customCardMalaySupportPolicy).toMatch(/user-supplied Malay translation/);
   await page.locator("#courseSelect").selectOption("ms");
   await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
   await expect(page.locator("#translationSelect")).toHaveValue("en");
   await expect(page.locator("#translationSelect option[value='ms']")).toBeDisabled();
 });
+test("Custom Flashcards report Malay coverage only when a Malay translation is supplied",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#translationSelect").selectOption("ms");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.translation_language)).toBe("ms");
+  const created=await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const collection=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"Malay support audit"});
+    if(collection.error)return {error:collection.error.message};
+    const supported=await client.rpc("save_my_flashcard_card",{
+      p_action:"create",p_card_id:null,p_collection_id:collection.data.id,p_card_type:"custom",
+      p_dictionary_word:null,p_front_text:"Good morning",p_back_text:"A greeting used in the morning.",
+      p_example_text:"Good morning, everyone.",p_translation_text:"Selamat pagi.",p_position:0
+    });
+    if(supported.error)return {error:supported.error.message};
+    return {collectionId:collection.data.id,supportedId:supported.data.id};
+  });
+  expect(created.error).toBeUndefined();
+  await page.locator("#translationSelect").selectOption("en");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.translation_language)).toBe("en");
+  const unsupported=await page.evaluate(async(collectionId)=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const result=await client.rpc("save_my_flashcard_card",{
+      p_action:"create",p_card_id:null,p_collection_id:collectionId,p_card_type:"custom",
+      p_dictionary_word:null,p_front_text:"Good evening",p_back_text:"A greeting used in the evening.",
+      p_example_text:"Good evening, everyone.",p_translation_text:"A greeting used in the evening.",p_position:1
+    });
+    return result.error?{error:result.error.message}:{id:result.data.id};
+  },created.collectionId);
+  expect(unsupported.error).toBeUndefined();
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  await expect.poll(()=>page.evaluate(()=>({
+    total:window.SwiftDictionaryFlashcards.contentStats.customCardCount,
+    supported:window.SwiftDictionaryFlashcards.contentStats.customCardMalaySupportedCount,
+    unsupported:window.SwiftDictionaryFlashcards.contentStats.customCardMalayUnsupportedCount
+  }))).toEqual({total:2,supported:1,unsupported:1});
+});
+
 test("English Sentence Recall shows its Malay example translation",async({page})=>{
   await openMockFlashcards(page);
   await page.locator("#courseSelect").selectOption("en");
