@@ -5180,3 +5180,17 @@ A partial-review implementation has been added to the staging feature branch:
 Application commits: `6e092cf`, `253f7b7`, `61f7802`, `90cc375`, `63e20e2`, `b0a177b`. Latest CI for `b0a177b` is queued/in progress; the migration has not yet been applied to staging. Do not mark this fix complete until SQL/Auth and browser checks pass, then apply it to staging and verify the two known sessions return partial review while full-snapshot sessions remain unchanged. Keep private table access restricted; no direct grants were added. Production remains untouched.
 
 See the [Nov 28 regression and staging review archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md) and [Update 3.0 development plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
+
+## 2026-11-28 — staging partial-review recovery deployed
+
+Applied the additive `swiftdictionary_update_3_0_partial_legacy_flashcard_review` migration to the U3.0 staging Supabase project only, after its SQL migration/regression step passed in the local Supabase workflow.
+
+Live RPC verification confirms the two historical Nov 27 Malay games now return partial review:
+- Word Recall: 5 linked missed cards (awan, berita, berkarat, mentega, tiket masuk).
+- Mixed Recall: 4 linked missed cards (kekal, lintasan, muara, penyangkut).
+
+A separate full-snapshot session continues to return full review with 7 saved cards. The old sessions do not contain exact original prompts, options, selected answers or correct answers; these are not fabricated. The UI explains that only known missed cards are shown and that the list may be incomplete.
+
+Post-migration privilege checks confirm private snapshot/review tables remain unreadable directly to anon/authenticated; anon cannot execute the public review RPC and authenticated can. No direct grants or RLS relaxations were introduced. Production remains untouched.
+
+Latest preview `https://8edf4cb7.swiftdictionary.pages.dev` corresponds to `489435a`. U3.0 architecture and U2.3 SQL/Auth/browser suite passed on `489435a`; U2.6 ACL, U2.7 Chinese Dictionary and U2.9 English QA passed on preceding `b0a177b`. Flashcards Chromium and Quiz DB/Auth integration for `489435a` are still in progress. Full cross-version acceptance and manual owner desktop/mobile/OAuth testing remain open.
