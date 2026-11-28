@@ -1782,3 +1782,19 @@ The generated Dictionary output is committed, but a committed asset and its byte
 ### Release/legal boundary
 
 Human pre-release editorial review remains waived by owner instruction; the owner will review content on the live website. Machine-assisted text must remain identified as draft. Provenance, Argos/model licensing and attribution, source-data rights, Malaysia Copyright Act 1987, PDPA 2010 and its 2024 amendments, and cross-border processing remain release checks. These checks are not satisfied merely by passing code tests. Leaked-password protection remains excluded. No PR merge, production deployment or production database mutation is authorised.
+
+## 2026-11-28 — forward-progress checkpoint (latest observed head)
+
+- Latest application branch head has advanced automatically to `e78fc9e9e078983d08e5c3c4d126a46534635055` via the GitHub Actions bot's commit `Generate complete Malay Dictionary translation drafts`. PR #20 remains open and draft.
+- The PR description has been corrected to remove stale statements that the Dictionary translation output was empty. It now records the generated 1,355,473-byte Dictionary translation asset, its expected inventory (1,316 English / 1,931 senses; 725 Chinese / 825 senses), the learning-support output, current owner-feedback implementation, and exact CI status.
+- GitHub Actions for the latest head are completed with conclusion `action_required` across all ten expected workflows; each run has no jobs. This is an execution gate, not a source-code failure. Per owner's explicit instruction, do not spend further time repeatedly probing this gate. Mark these automated checks skipped/unverified for now and continue independent work; do not claim they passed.
+- The staging Pages alias is recorded in PR #20 as `https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev`, but this session's web fetch could not access the preview host. Live staging/OAuth/account-isolation therefore remains unverified here; the owner can perform the final visual/authenticated pass on the staging alias.
+- No PR merge, production deploy or production database mutation has been performed. Human editorial review remains waived by owner instruction, with generated language content clearly marked as machine-assisted draft. Leaked-password protection remains excluded.
+
+### Remaining closeout classification
+
+**Implemented / committed:** Quiz course switching and Weak Memory performance changes; English/Chinese/Malay lesson/Quiz support assets; English and Chinese Flashcard Malay support coverage assets; Malay Dictionary translation draft asset; corresponding correction overrides; updated PR description and development record.
+
+**Skipped for now (environment-gated):** latest-head GitHub Actions execution (all `action_required`, no jobs); live Pages preview verification (preview host inaccessible to this session); authenticated Google OAuth/account-isolation verification on the live preview.
+
+**Not a production release:** PR #20 stays draft/unmerged. No public release should be described as completed until the owner verifies the live staging experience and separately authorises release. Legal/provenance/licensing checks (including Argos model licence/attribution, copyright/source rights, Malaysia PDPA and cross-border handling) remain release gates.
