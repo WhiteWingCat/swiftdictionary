@@ -751,8 +751,10 @@ test("Weak Memory translation lookups are indexed once across repeated detail re
   await page.locator('[data-action="review-tab"][data-value="translation"]').click();
   await expect(page.locator(".flash-review-modal")).toBeVisible();
   await page.locator('[data-action="review-tab"][data-value="word"]').click();
+  await page.locator(".flash-review-list").evaluate(node=>node.dataset.preserveDuringDetailUpdate="true");
   await page.locator(".flash-review-entry").last().click();
   await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+  await expect(page.locator(".flash-review-list")).toHaveAttribute("data-preserve-during-detail-update","true");
 });
 
 test("Weak Memory review renders large lists without repeated dictionary scans",async({page})=>{
