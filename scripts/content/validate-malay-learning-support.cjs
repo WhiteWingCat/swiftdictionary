@@ -30,6 +30,8 @@ for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.
   }
 }
 const input=JSON.parse(fs.readFileSync(path.resolve("tmp/u3-malay-learning-support-input.json"),"utf8"));
+if(input.flashcards?.en?.length!==1341||input.flashcards?.zh?.length!==1447)throw new Error("Flashcard translation source inventory is incomplete.");
+if(Object.keys(output.flashcards?.en||{}).length!==1341||Object.keys(output.flashcards?.zh||{}).length!==1447)throw new Error("Generated Malay Flashcard support must cover 1,341 English and 1,447 Chinese cards.");
 for(const [code,items] of Object.entries(input.flashcards||{})){
   for(const item of items){
     const row=output.flashcards?.[code]?.[item.word];
