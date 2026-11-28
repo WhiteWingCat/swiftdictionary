@@ -5224,3 +5224,32 @@ Historical Malay Flashcard sessions now expose partial review of 5 and 4 recover
 Remaining owner/release acceptance: manual desktop/mobile preview testing, deployed Google OAuth redirect/account switching/isolation, human Malaysian Standard Malay and independent translation review, corpus/model licensing and attribution, Malaysia Copyright Act and PDPA/cross-border review. PR #20 remains draft/unmerged and production remains untouched. Leaked-password protection is excluded by the owner's instruction.
 
 See [the latest U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md) and [the Nov 28 validation archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md).
+
+
+## 2026-11-28 — latest staging feedback and U3.0 multilingual polish
+
+Latest application checkpoint at time of this record: `c090948b4fcff9ec76aed04ca20a5211ca11532b` on `feature/update-3.0-phase-0-audit`; PR #20 remains draft/unmerged and production remains untouched.
+
+The owner tested the latest staging preview and reported that Quiz course switching refreshed only when switching to English, and Weak Memory review felt slow. Implemented:
+- Quiz course changes now refresh availability and the overview for every supported learning course (English, Simplified Chinese and Malay), after the queued preference write completes.
+- Quiz availability requests now carry a monotonically increasing request ID and selected-course snapshot. Stale responses from prior courses or superseded requests are ignored.
+- Weak Memory review now builds and caches one dictionary index per language instead of repeatedly rebuilding/scanning the full word bank for every review row and detail.
+- Added an 80-card Weak Memory browser regression and an English → Chinese → Malay → English Quiz switching regression.
+
+Content/translation polish:
+- Added release-scope checks for distinct Quiz and lesson answer choices, Malaysian Malay wording, Indonesian-only forms and Chinese Flashcard Malay definitions.
+- Corrected one duplicate Chinese Quiz Malay answer and additional Indonesian-contaminated Chinese Flashcard glosses.
+- Updated the Chinese Flashcard support exporter to include the full 1,447-card source inventory. For the 844 multi-character vocabulary entries without authored Chinese definitions, it uses their authored English gloss as the translation source. Duplicate/untranslatable rows fail generation.
+- Added common Indonesian-to-Malaysian-Malay normalisation to the offline Dictionary and learning-support generators, with a lexical quality validator. Contextual “bisa” meaning venom is preserved.
+- Current checked-in support output is not yet complete: Chinese Flashcard Malay definitions resolve for 895/1,447 cards (61.9%). The 1,447-card output is still pending generation. English Flashcard Malay definitions remain 1,341/1,341.
+- The current audit is recorded in `review/malay-flashcard-coverage-audit-2026-11-28.md`; it distinguishes the current 895/1,447 output from the 1,447/1,447 target. Sentence Recall remains restricted to 85 curated Malay sentence pairs; generated examples are not automatically promoted into assessed answer choices.
+
+Automated validation:
+- The 80-card Weak Memory browser regression passed.
+- U3.0 architecture tests pass for released Quiz/lesson distinct-option checks and current Chinese Flashcard lexical corrections. The latest architecture run remains red only because the checked-in support output still resolves 895 rather than the required 1,447 Chinese definitions.
+- Current GitHub Actions translation-generation runs are active/queued: learning-support generation and Dictionary+learning-support generation. Their outputs must be committed and validated before claiming translation coverage complete.
+- The latest Quiz course-switch browser regression and full cross-version matrix remain pending. Current-head Cloudflare Pages preview and OAuth/account-isolation checks also remain to be verified.
+
+Owner instruction: no pre-live human editorial review is required for this update; the owner will review content on the live website. Do not relabel machine-assisted content as human-reviewed or approved. This defers the human review gate; it does not waive source provenance, model licensing/attribution, Malaysia Copyright Act 1987, PDPA 2010/2024 amendment or cross-border-processing considerations for public release. No new personal-data collection, telemetry or third-party sharing was introduced by these fixes. Leaked-password protection remains excluded at the owner's earlier direction.
+
+Remaining U3.0 work: finish and validate the generated Malay support packs (including 1,447/1,447 Chinese Flashcard definitions), rerun the full CI matrix, verify the latest staging preview and Google OAuth/account switching/isolation, and prepare the consolidated staging handoff. No production migration, merge or deployment has been authorised.
