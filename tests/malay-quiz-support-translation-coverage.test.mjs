@@ -49,3 +49,22 @@ test("Every Chinese Quiz question has a complete Malay support-language mapping"
   }
  }
 });
+
+test("English and Chinese lesson practice prompts and options are corrected into Malaysian Malay",()=>{
+ const support=loadMalaySupport();
+ for(const language of ["en","zh"]){
+  const lessons=support.lessons[language]||{};
+  const rows=Object.values(lessons).flat();
+  assert.equal(rows.length,112,language+" lesson practice translation count");
+  for(const [lessonId,questions] of Object.entries(lessons)){
+   for(const [index,question] of questions.entries()){
+    assert.ok(question.q?.trim(),language+":"+lessonId+" question "+index+" missing Malay prompt");
+    assert.ok(Array.isArray(question.options)&&question.options.length>=3,language+":"+lessonId+" question "+index+" missing options");
+    for(const field of [question.q,...question.options]){
+     assert.ok(field?.trim(),language+":"+lessonId+" question "+index+" has empty Malay text");
+     assert.doesNotMatch(field,indonesianOnlyTerms,language+":"+lessonId+" question "+index+" contains an Indonesian-only lexical form");
+    }
+   }
+  }
+ }
+});
