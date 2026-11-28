@@ -12,6 +12,17 @@ on:
       - "data/chinese-characters.js"
       - "scripts/content/generate-malay-dictionary-translations.py"
       - "scripts/content/validate-malay-dictionary-translations.cjs"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "data/languages/english-dictionary.js"
+      - "data/english-expansion.js"
+      - "data/languages/chinese-dictionary.js"
+      - "data/languages/malay-dictionary-manual-overrides.js"
+      - "data/chinese-characters.js"
+      - "scripts/content/generate-malay-dictionary-translations.py"
+      - "scripts/content/validate-malay-dictionary-translations.cjs"
   workflow_dispatch:
 
 permissions:
