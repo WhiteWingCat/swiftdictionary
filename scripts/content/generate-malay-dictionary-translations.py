@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -39,6 +40,25 @@ def get_translation(source_code, target_code):
 def clean(text):
     return " ".join(str(text or "").replace("\u0000", "").split()).strip()
 
+def normalise_malay(text):
+    value = clean(text)
+    replacements = [
+        (r"\\baku\\b", "saya"),
+        (r"\\bbisa\\b", "dapat"),
+        (r"\\bkantor\\b", "pejabat"),
+        (r"\\bkalimat\\b", "ayat"),
+        (r"\\bbis\\b", "bas"),
+        (r"\\b(?:nggak|enggak)\\b", "tidak"),
+        (r"\\bbanget\\b", "sangat"),
+        (r"\\bapotek\\b", "farmasi"),
+        (r"\\bbahasan\\b", "huraian")
+    ]
+    for pattern, replacement in replacements:
+        value = re.sub(pattern, lambda match: replacement.capitalize() if match.group(0)[:1].isupper() else replacement, value, flags=re.IGNORECASE)
+    if re.search(r"\\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\\b", value, flags=re.IGNORECASE):
+        raise RuntimeError("Indonesian-only wording remains after Malay normalisation: " + value)
+    return clean(value)
+
 def main():
     data = json.loads(INPUT.read_text(encoding="utf-8"))
     argostranslate.package.update_package_index()
@@ -53,7 +73,7 @@ def main():
             raise RuntimeError("Refusing to create an empty translation")
         if source == "zh":
             text = clean(zh_en.translate(text))
-        result = clean(en_ms.translate(text))
+        result = normalise_malay(en_ms.translate(text))
         if not result:
             raise RuntimeError("Argos returned an empty Malay translation")
         return result
