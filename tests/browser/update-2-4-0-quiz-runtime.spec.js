@@ -738,6 +738,7 @@ test("Quiz overview refreshes its question bank for every supported learning cou
   const quizRequestsBeforeEnglish=await page.evaluate(()=>quizHomeRequestId);
   await selectCourse(page,"en");
   await expect.poll(()=>page.evaluate(()=>quizHomeRequestId)).toBeGreaterThan(quizRequestsBeforeEnglish);
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("en");
   await expect(page.locator("#quizDifficultyGrid")).toContainText("基础词汇");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
