@@ -1236,6 +1236,10 @@
       en: Object.values(lessonCorrections.en).reduce((sum, rows) => sum + rows.length, 0),
       zh: Object.values(lessonCorrections.zh).reduce((sum, rows) => sum + rows.length, 0)
     },
+    lessonCoverage: {
+      en: Object.entries(lessonCorrections.en).map(([lessonId, rows]) => ({ lessonId, questionCount: rows.length })),
+      zh: Object.entries(lessonCorrections.zh).map(([lessonId, rows]) => ({ lessonId, questionCount: rows.length }))
+    },
     flashcards: { en: Object.keys(flashcardExampleCorrections), zh: Object.keys(flashcardExampleCorrectionsZh) },
     status: "model_assisted_malay_draft_pending_editorial_review"
   };
