@@ -1232,3 +1232,26 @@ These fixes are implemented on the application branch. Latest CI for the new tes
 
 
 See [the Daily Learning catalogue and object-rendering regression archive](conversation-archive/2026-11-28-u3-content-and-flashcard-completion-work.md).
+
+
+## 2026-11-28 — latest U3.0 implementation checkpoint
+
+The content audit is now quantified and the implementation branch contains fixes for the current regressions:
+
+- Quiz Malay support overrides cover all 199 approved English question records and all 145 Chinese question-bank records (including the 133 approved Chinese records requested for release).
+- Lesson Malay practice corrections cover all 112 English and all 112 Chinese practice questions.
+- Dictionary Malay translation overlay coverage is 1,316/1,316 English entries (1,931 senses) and 725/725 Chinese entries (825 senses).
+- The Flashcard coverage audit is complete. English dictionary definitions are 1,316/1,316; English phrases 25/25; Chinese characters 519/519; Chinese phrases 24/24; Chinese vocabulary 184/904. Unsupported Chinese Flashcards (720 cards) are excluded from Malay-support games. Sentence Recall is restricted to 18 reviewed Malay sentence pairs in each course. Custom cards require a user-supplied translation matching the selected support language. See [the detailed Flashcard coverage audit](review/malay-flashcard-coverage-audit-2026-11-28.md).
+
+Root causes corrected on the application branch:
+- Malay Sentence Recall's first-round hint was omitted because the game shell rendered before the round was created; the hint is now updated after `makeRound()`.
+- The Daily Discovery slug regex was double-escaped and removed ordinary letters (for example, `u` in `bantu`); it now preserves the 93 approved dictionary IDs, with a dedicated unit regression.
+- The Quiz CI workflow now applies the 93-row catalogue migration before its SQL assertion. The migration clears all previous Malay Discovery rotation slots before reseeding to avoid the unique rotation-order index collision.
+- The completed-game browser test now advances the fake clock 63 seconds to cover the 80 ms game-timer tick plus the delayed 2-second persistence callback.
+- The post-bootstrap content event rebuilds and refreshes the Malay Discovery package to prevent a partial pool from persisting.
+
+Read-only staging checks confirm 93 active Malay Daily Discovery catalogue rows with 93 distinct rotation orders from 1 through 93, and the ordered IDs match the runtime list exactly. The staging private schema has 14 tables and the direct table-SELECT privilege audit found zero tables selectable by anon, authenticated or service_role. No broad grants or policies were added.
+
+At the latest CI checkpoint, U3.0 architecture, Cloudflare routing, English dictionary QA, U2.7 PostgreSQL and U2.3 PostgreSQL migration/allowance checks passed. Flashcard static checks passed. The U2.3 Chromium and Flashcard Chromium suites were still running; the Quiz database rerun including the rotation-slot repair and the new unit-test workflows were queued/pending. The newest workflow head is `c081f7f`; do not declare the full regression matrix green until those runs finish and the per-card review test passes.
+
+**Active completion gates:** finish the current CI matrix; resolve any remaining Flashcard per-card review or authenticated Quiz/RPC failures; verify OAuth redirect and cross-account isolation; complete staging preview and owner desktop/mobile acceptance; complete human Malaysian Standard Malay editorial review, source/model licence and attribution verification, and Malaysia Copyright Act/PDPA/cross-border review before public release. Production remains untouched and PR #20 remains unmerged. Leaked-password protection is deferred at the owner's direction and is not an active U3.0 gate.
