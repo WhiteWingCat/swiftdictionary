@@ -652,7 +652,41 @@
       ],
       "a-idioms": [
         {q:"Dalam perbincangan di tempat kerja, apakah maksud ungkapan “on the same page”?",options:["Membaca halaman dokumen yang sama","Mempunyai pemahaman atau persetujuan yang sama","Bekerja di jabatan yang berbeza"]},
-        {q:"Jika seseorang “breaks the ice” dalam mesyuarat, apakah yang dilakukannya?",options:["Membuat orang berasa lebih selesa dan memulakan perbualan","Menamatkan mesyuarat secara tiba-tiba","Tidak bersetuju dengan setiap cadangan"]}
+        {q:"Jika seseorang “breaks the ice” dalam mesyuarat, apakah yang dilakukannya?",options:["Membuat orang berasa lebih selesa dan memulakan perbualan","Menamatkan mesyuarat secara tiba-tiba","Tidak bersetuju dengan setiap cadangan"]},
+        {q:"Apakah maksud ungkapan “hit the nail on the head”?",options:["Melakukan kesilapan kecil","Menerangkan atau mengenal pasti sesuatu dengan tepat","Mengelak daripada menjawab soalan"]},
+        {q:"Apakah maksud “scratch the surface”?",options:["Hanya meneliti bahagian luaran atau permukaan sesuatu perkara","Memahami setiap butiran sepenuhnya","Membuat keputusan yang berani"]},
+        {q:"Jika seseorang “takes the plunge”, apakah yang dilakukannya?",options:["Mengambil langkah yang berani","Mengelak daripada membuat keputusan","Menamatkan perbualan"]},
+        {q:"Apakah yang patut dielakkan sebelum mendengar kedua-dua pihak?",options:["Membuat kesimpulan terburu-buru","Mencairkan suasana","Memulakan sesuatu proses"]},
+        {q:"Jika seseorang “is on the fence”, apakah maksudnya?",options:["Dia masih belum membuat keputusan.","Dia sedang sakit.","Dia telah memulakan projek."]},
+        {q:"Apakah maksud “cut corners”?",options:["Mengurangkan mutu atau mengambil jalan pintas untuk menjimatkan masa atau wang","Membuat penambahbaikan dengan teliti","Kembali ke titik permulaan"]}
+      ],
+
+      "a-hedging": [
+        {q:"Frasa manakah menunjukkan tafsiran yang berhati-hati dan tidak terlalu pasti?",options:["This proves beyond all doubt… (Ini membuktikan tanpa sebarang keraguan…)","The findings may indicate… (Dapatan ini mungkin menunjukkan…)","It is certainly impossible… (Perkara ini sememangnya mustahil…)"]},
+        {q:"Saiz sampel itu kecil, jadi hasilnya ___ ditafsirkan dengan berhati-hati.",options:["may (mungkin)","definitely must (semestinya mesti)","cannot possibly (sama sekali tidak mungkin)"]},
+        {q:"Ungkapan manakah menyampaikan dakwaan dengan batasan yang wajar?",options:["Rawatan itu sentiasa menyebabkan peningkatan.","Rawatan itu kelihatan mempunyai kaitan dengan peningkatan.","Rawatan itu membuktikan setiap kes."]},
+        {q:"Perkataan manakah bermaksud sementara atau belum dimuktamadkan?",options:["tentative (sementara atau belum muktamad)","permanent (kekal)","certain (pasti)"]},
+        {q:"Perkataan manakah bermaksud menghasilkan kesan atau hasil yang dimaksudkan?",options:["effective (berkesan)","incidental (sampingan atau tidak disengajakan)","reluctant (keberatan)"]},
+        {q:"Hubungan sebab-akibat menghubungkan dua perkara yang manakah?",options:["sebab dan akibat","ejaan dan bunyi yang serupa","dua peristiwa yang tidak berkaitan"]}
+      ],
+      "a-near-synonyms": [
+        {q:"Seorang penutur menyampaikan idea secara tidak langsung tanpa menyatakannya dengan jelas. Kata kerja manakah menerangkan tindakan penutur itu?",options:["infer (membuat kesimpulan daripada bukti)","imply (membayangkan atau memberi petunjuk secara tidak langsung)","assume (mengandaikan)"]},
+        {q:"Seorang pembaca membuat kesimpulan berdasarkan bukti. Kata kerja manakah menerangkan tindakan pembaca itu?",options:["imply (membayangkan secara tidak langsung)","infer (membuat kesimpulan berdasarkan bukti)","announce (mengumumkan)"]},
+        {q:"Pilih frasa semula jadi untuk kereta yang menggunakan sedikit bahan api.",options:["an economic car (kereta berkaitan ekonomi)","an economical car (kereta yang menjimatkan)","an economy car (istilah kategori kereta)"]},
+        {q:"Dasar itu berkaitan dengan pekerjaan negara dan inflasi. Kata adjektif manakah paling tepat?",options:["economical policy (dasar yang menjimatkan)","economic policy (dasar ekonomi)","economy policy (gabungan tidak standard)"]},
+        {q:"Perkataan manakah bermaksud jujur dan berterus terang?",options:["candid (terus terang dan jujur)","tactful (bijaksana dan berhemah)","reluctant (keberatan)"]},
+        {q:"Perkataan manakah bermaksud tidak rela atau teragak-agak untuk melakukan sesuatu?",options:["reluctant (keberatan atau teragak-agak)","incidental (sampingan)","precise (tepat)"]},
+        {q:"Apakah maksud “disclose”?",options:["Mendedahkan atau menyampaikan maklumat","Menyembunyikan maklumat","Menangguhkan keputusan"]},
+        {q:"Perkataan manakah bermaksud “bakal berlaku tidak lama lagi”?",options:["eminent (terkemuka)","imminent (bakal berlaku)","historic (bersejarah)"]},
+        {q:"Perkataan manakah bermaksud berhati-hati dan bijaksana, khususnya ketika mengendalikan maklumat peribadi?",options:["discreet (berhemah dan berhati-hati)","discrete (berasingan)","credible (boleh dipercayai)"]},
+        {q:"Perkataan manakah bermaksud mengubah sesuatu supaya sesuai dengan keadaan baharu?",options:["adopt (menerima pakai)","adapt (menyesuaikan)","assure (meyakinkan)"]}
+      ],
+      "a-mixed-conditionals": [
+        {q:"Lengkapkan syarat lampau yang mempunyai hasil pada masa kini: “Jika saya menerima tawaran itu, saya ___ di London sekarang.”",options:["would live (akan tinggal sekarang)","would have lived (tentu telah tinggal pada masa lampau)","will live (akan tinggal pada masa hadapan)"]},
+        {q:"Ayat manakah merupakan ayat bersyarat campuran?",options:["Jika saya bertolak lebih awal, saya tentu sempat menaiki tren itu.","Jika saya bertolak sekarang, saya akan sempat menaiki tren itu.","Jika dia lebih teratur, dia tentu tidak terlepas tarikh akhir itu."]},
+        {q:"Lengkapkan ayat: “Jika dia mengambil ubat itu, dia ___ lebih sihat sekarang.”",options:["would feel (akan berasa sekarang)","would have felt (tentu telah berasa pada masa lampau)","will feel (akan berasa pada masa hadapan)"]},
+        {q:"Dalam ayat “Jika dia lebih sabar, dia tentu telah mengendalikan panggilan itu dengan lebih baik”, bilakah syarat itu terpakai?",options:["Hanya pada masa lampau","Sebagai ciri umum atau keadaan masa kini","Hanya pada masa hadapan"]},
+        {q:"Ayat manakah menggabungkan syarat songsang dengan hasil pada masa kini?",options:["Had the data been checked, the error would not now be affecting the results. (Jika data itu telah diperiksa, kesilapan tersebut tentu tidak sedang menjejaskan hasil sekarang.)","If the data is checked, the error disappeared yesterday. (Jika data diperiksa, kesilapan itu hilang semalam.)","Had the data checked, the error would not now affect. (Struktur tidak gramatis.)"]}
       ],
     },
     zh: {
@@ -703,7 +737,14 @@
             "zh-a-connectors": [
               {q:"Kata hubung manakah digunakan untuk memperkenalkan hasil atau kesimpulan?",options:["因此 — oleh itu","然而 — namun begitu","此外 — selain itu","反而 — sebaliknya; bertentangan dengan jangkaan"]},
               {q:"Kata hubung manakah bermaksud “namun begitu”?",options:["然而 — namun begitu","因此 — oleh itu","总之 — kesimpulannya","于是 — lalu; maka"]}
-            ],
+            ,
+
+        {q:"Kata hubung manakah menambah maklumat dengan maksud “selain itu”?",options:["此外 — selain itu","反而 — sebaliknya","因此 — oleh itu","尽管 — walaupun"]},
+        {q:"Perkataan manakah merumuskan perbincangan dengan maksud “ringkasnya”?",options:["总之 — ringkasnya; kesimpulannya","于是 — lalu; selepas itu","然而 — namun begitu","尤其 — terutamanya"]},
+        {q:"Kata hubung manakah menunjukkan hasil yang bertentangan dengan jangkaan?",options:["反而 — sebaliknya; malah","此外 — selain itu","因此 — oleh itu","总之 — ringkasnya"]},
+        {q:"Ayat manakah menggunakan “然而” untuk menunjukkan pertentangan secara semula jadi?",options:["天气很冷，然而他还是出门了 — Cuaca sangat sejuk, namun dia tetap keluar.","天气很冷，因此他还是出门了 — Cuaca sangat sejuk, oleh itu dia tetap keluar.","天气很冷，总之他还是出门了 — Cuaca sangat sejuk, ringkasnya dia tetap keluar.","天气很冷，此外他还是出门了 — Cuaca sangat sejuk, selain itu dia tetap keluar."]},
+        {q:"Kata hubung manakah memperkenalkan tindakan yang berlaku selepas sesuatu keadaan, dengan maksud “lalu” atau “maka”?",options:["于是 — lalu; maka","尽管 — walaupun","然而 — namun begitu","尤其 — terutamanya"]}
+],
       
       "zh-b-pinyin-foundations": [
         {q:"Suku kata yang manakah menggunakan nada pertama?",options:["ibu (mā)","rami; kebas (má)","kuda (mǎ)","memarahi (mà)"]},
@@ -752,7 +793,11 @@
         {q:"Ke manakah seseorang biasanya pergi untuk mendapatkan diagnosis dan rawatan apabila sakit atau cedera?",options:["hospital","sekolah","taman","restoran"]},
         {q:"Apakah nama tempat penumpang menunggu kereta api atau pengangkutan awam?",options:["stesen","sekolah","hospital","rumah"]},
         {q:"Ayat manakah digunakan untuk bertanya lokasi stesen MRT?",options:["Di manakah stesen MRT?","Apakah stesen MRT?","Saya pergi ke stesen MRT.","Stesen MRT itu besar."]}
-      ],
+      ,
+
+        {q:"Perkataan manakah bermaksud “sebelah kiri”?",options:["左边 — sebelah kiri","右边 — sebelah kanan","里面 — bahagian dalam","外面 — bahagian luar"]},
+        {q:"Perkataan manakah bermaksud “sebelah kanan”?",options:["右边 — sebelah kanan","左边 — sebelah kiri","前面 — bahagian hadapan","后面 — bahagian belakang"]}
+],
       "zh-b-questions-negation": [
         {q:"Partikel manakah lazimnya digunakan untuk membentuk soalan ya atau tidak?",options:["吗: partikel soalan ya atau tidak","的: partikel pemilikan atau penerang","了: partikel aspek atau perubahan keadaan","呢: partikel soalan atau kesinambungan"]},
         {q:"Perkataan manakah bermaksud “apa”?",options:["apa","siapa","di mana","bila"]},
@@ -770,6 +815,33 @@
         {q:"Frasa manakah bermaksud “seorang”?",options:["一个人: seorang","一张人: penggolong tidak tepat","一杯人: penggolong tidak tepat","一本人: penggolong tidak tepat"]},
         {q:"Apabila menyebut nombor dua sebelum kata penggolong, nombor manakah lazim digunakan?",options:["两 (liǎng): dua sebelum kata penggolong","二 (èr): dua dalam kiraan dan nombor","十 (shí): sepuluh","几 (jǐ): berapa; beberapa"]}
       ]
+
+      "zh-a-idioms-proverbs": [
+        {q:"Ungkapan manakah bermaksud merosakkan sesuatu dengan menambah butiran yang tidak perlu?",options:["画蛇添足 — melakukan sesuatu secara berlebihan sehingga merosakkan hasil","亡羊补牢 — membaiki keadaan selepas masalah berlaku","一举两得 — mencapai dua tujuan melalui satu tindakan","入乡随俗 — mengikut adat setempat"]},
+        {q:"Simpulan bahasa manakah bermaksud mengambil tindakan pembetulan selepas masalah berlaku?",options:["亡羊补牢 — membaiki keadaan selepas masalah berlaku","画蛇添足 — menambah sesuatu yang tidak perlu","一举两得 — mendapat dua manfaat melalui satu tindakan","守株待兔 — menunggu nasib baik tanpa berusaha"]},
+        {q:"Ungkapan manakah bermaksud “mencapai dua perkara dengan satu tindakan”?",options:["一举两得 — mendapat dua manfaat melalui satu tindakan","入乡随俗 — mengikut adat setempat","画蛇添足 — melakukan sesuatu secara berlebihan","亡羊补牢 — membetulkan masalah selepas berlaku"]},
+        {q:"Peribahasa manakah menekankan hubungan antara usaha dengan hasil?",options:["一分耕耘，一分收获 — usaha yang dilakukan membawa hasil","画蛇添足 — melakukan sesuatu secara berlebihan","一举两得 — mendapat dua manfaat","入乡随俗 — mengikut adat setempat"]},
+        {q:"Apakah perbezaan utama antara 成语 (simpulan bahasa) dengan 谚语 (peribahasa)?",options:["Simpulan bahasa ialah ungkapan tetap; peribahasa menyampaikan kebijaksanaan atau pengajaran masyarakat.","Kedua-duanya serupa sepenuhnya.","Semua simpulan bahasa ialah slanga moden.","Semua peribahasa terdiri daripada empat aksara sahaja."]},
+        {q:"Ungkapan manakah menasihati seseorang supaya mengikut adat setempat?",options:["入乡随俗 — apabila berada di tempat orang, ikut adat setempat","亡羊补牢 — membetulkan masalah selepas berlaku","画蛇添足 — melakukan sesuatu secara berlebihan","一举两得 — mendapat dua manfaat melalui satu tindakan"]},
+        {q:"Ungkapan manakah paling sesuai untuk menggambarkan seseorang yang menambah fungsi tidak perlu pada reka bentuk yang sudah baik?",options:["画蛇添足 — menambah sesuatu yang tidak perlu sehingga merosakkan hasil","一分耕耘，一分收获 — usaha membawa hasil","入乡随俗 — mengikut adat setempat","亡羊补牢 — membetulkan masalah selepas berlaku"]}
+      ],
+      "zh-a-nuanced-vocabulary": [
+        {q:"Perkataan manakah sering menunjukkan bahawa sesuatu berlaku lebih lewat daripada yang dijangka?",options:["才 — hanya pada waktu itu; tidak sehingga ketika itu","就 — sudah; kemudian; tidak lama lagi","最 — paling","更 — lebih"]},
+        {q:"Perkataan manakah menekankan bahawa sesuatu hasil akhirnya dicapai selepas melalui proses yang panjang?",options:["终于 — akhirnya","马上 — serta-merta","尤其 — terutamanya","可能 — mungkin"]},
+        {q:"Perkataan manakah bermaksud mengetahui fakta atau memahami keadaan sesuatu perkara?",options:["了解 — mengetahui atau mengenali sesuatu keadaan","理解 — memahami maksud atau penaakulan","发明 — mencipta","发现 — menemui"]},
+        {q:"Kata kerja manakah bermaksud mencipta sesuatu yang baharu, seperti sebuah peranti?",options:["发明 — mencipta atau mereka cipta","发现 — menemui","了解 — mengetahui atau mengenali","适合 — sesuai"]},
+        {q:"Ungkapan manakah bermaksud “Buku ini sesuai untuk pemula”?",options:["这本书适合初学者 — Buku ini sesuai untuk pemula.","这本书发现初学者 — Buku ini menemui pemula (tidak gramatis).","这本书发明初学者 — Buku ini mencipta pemula (tidak gramatis).","这本书终于初学者 — Buku ini akhirnya pemula (tidak gramatis)."]},
+        {q:"Perkataan manakah menonjolkan seseorang atau sesuatu yang sangat khusus?",options:["尤其 — terutamanya","甚至 — malah; bahkan","才 — hanya pada waktu itu","总算 — akhirnya setelah melalui proses"]},
+        {q:"Perkataan manakah boleh memperkenalkan contoh yang melampau atau mengejutkan, dengan maksud “malah”?",options:["甚至 — malah; bahkan","尤其 — terutamanya","了解 — mengetahui atau mengenali","合适 — sesuai"]}
+      ],
+      "zh-a-natural-expression-literature": [
+        {q:"Ungkapan manakah secara semula jadi digunakan untuk membalas permohonan maaf?",options:["没关系 — tidak mengapa; tiada masalah","不客气 — sama-sama","辛苦了 — terima kasih atas usaha atau penat lelah","再见 — selamat tinggal"]},
+        {q:"Ungkapan manakah boleh digunakan untuk menghargai usaha seseorang?",options:["辛苦了 — terima kasih atas usaha atau penat lelah","没关系 — tidak mengapa","请问 — boleh saya bertanya","晚安 — selamat malam"]},
+        {q:"Puisi manakah mengandungi baris “床前明月光，疑是地上霜”?",options:["静夜思 — Renungan Malam Sunyi","春晓 — Fajar Musim Bunga","登鹳雀楼 — Mendaki Menara Bangau","悯农 — Simpati kepada Petani"]},
+        {q:"Siapakah yang menulis puisi Dinasti Tang “静夜思”?",options:["李白 — Li Bai","杜甫 — Du Fu","白居易 — Bai Juyi","王维 — Wang Wei"]},
+        {q:"Apakah dua perkara yang dibandingkan dalam dua baris pembukaan puisi “静夜思”?",options:["Cahaya bulan dan fros","Hujan dan salji","Sungai dan gunung","Bunga dan burung"]},
+        {q:"Ungkapan klasik manakah daripada “荀子·劝学” yang menekankan kepentingan kemajuan secara beransur-ansur?",options:["不积跬步，无以至千里 — Tanpa mengumpul langkah kecil, seseorang tidak akan sampai ke destinasi yang jauh.","画蛇添足 — melakukan sesuatu secara berlebihan","入乡随俗 — mengikut adat setempat","一举两得 — mencapai dua tujuan melalui satu tindakan"]}
+      ],
     }
   };
   for (const [language, lessons] of Object.entries(lessonCorrections)) {
