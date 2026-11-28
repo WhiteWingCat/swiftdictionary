@@ -3,7 +3,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
   "schemaVersion": 1,
   "targetLanguage": "ms",
   "engine": "Argos Translate (offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9)",
-  "generatedAt": "2026-11-27T12:05:14.707654+00:00",
+  "generatedAt": "2026-11-28T09:53:00.962238+00:00",
   "status": "machine_assisted_draft",
   "reviewerId": null,
   "provenance": "Generated locally in GitHub Actions from SwiftDictionary's original-authored Dictionary definitions. No DBP/PRPM/Kamus Dewan text or third-party dictionary entries were imported. Human Malaysian Standard Malay review is pending.",
@@ -585,7 +585,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "apologise": {
         "entryId": "legacy.en.dictionary.apologise.verb",
-        "headwordMs": "Aku minta maaf.",
+        "headwordMs": "Saya minta maaf.",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -598,7 +598,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "apologize": {
         "entryId": "legacy.en.dictionary.apologize.verb",
-        "headwordMs": "Maafkan aku.",
+        "headwordMs": "Maafkan saya.",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -2758,7 +2758,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "deserve": {
         "entryId": "legacy.en.dictionary.deserve.verb",
-        "headwordMs": "Aku pantas mendapatkannya.",
+        "headwordMs": "Saya pantas mendapatkannya.",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -7319,7 +7319,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "realise": {
         "entryId": "legacy.en.dictionary.realise.verb",
-        "headwordMs": "Aku sadar",
+        "headwordMs": "Saya sadar",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -10313,7 +10313,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "sorry": {
         "entryId": "legacy.en.dictionary.sorry.adjective-interjection",
-        "headwordMs": "Maafkan aku.",
+        "headwordMs": "Maafkan saya.",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -11210,7 +11210,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.en.dictionary.drink.verb-noun.sense.2",
-            "definitionMs": "Cairan yang bisa diminum orang.",
+            "definitionMs": "Cairan yang dapat diminum orang.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -12546,7 +12546,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.en.dictionary.library.noun.sense.1",
-            "definitionMs": "Tempat dimana orang bisa membaca, meminjam, atau mempelajari buku dan bahan lainnya.",
+            "definitionMs": "Tempat dimana orang dapat membaca, meminjam, atau mempelajari buku dan bahan lainnya.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -13362,7 +13362,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.en.dictionary.budget.noun-verb-adjective.sense.2",
-            "definitionMs": "Untuk merencanakan berapa banyak uang yang bisa dihabiskan dan memastikan pengeluaran tetap dalam batas itu.",
+            "definitionMs": "Untuk merencanakan berapa banyak uang yang dapat dihabiskan dan memastikan pengeluaran tetap dalam batas itu.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           },
@@ -13437,7 +13437,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.en.dictionary.contact.noun-verb.sense.2",
-            "definitionMs": "Anda tahu siapa yang bisa memberikan informasi, bantuan, atau perkenalan.",
+            "definitionMs": "Anda tahu siapa yang dapat memberikan informasi, bantuan, atau perkenalan.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           },
@@ -14195,7 +14195,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.en.dictionary.capital.noun.sense.3",
-            "definitionMs": "Huruf besar digunakan pada awal kalimat atau dalam nama yang tepat.",
+            "definitionMs": "Huruf besar digunakan pada awal ayat atau dalam nama yang tepat.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -14361,7 +14361,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.en.dictionary.baby.noun.sense.1",
-            "definitionMs": "Anak yang masih sangat kecil, terutama yang belum bisa berjalan atau berbicara.",
+            "definitionMs": "Anak yang masih sangat kecil, terutama yang belum dapat berjalan atau berbicara.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           },
@@ -15440,7 +15440,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.en.dictionary.warn.verb.sense.1",
-            "definitionMs": "Untuk memberitahu seseorang tentang kemungkinan bahaya atau masalah sehingga mereka bisa berhati-hati.",
+            "definitionMs": "Untuk memberitahu seseorang tentang kemungkinan bahaya atau masalah sehingga mereka dapat berhati-hati.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -16941,7 +16941,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.en.dictionary.question.noun-verb.sense.1",
-            "definitionMs": "Kalimat atau permintaan permintaan untuk informasi",
+            "definitionMs": "Ayat atau permintaan permintaan untuk informasi",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           },
@@ -16955,7 +16955,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "office": {
         "entryId": "legacy.en.dictionary.office.noun",
-        "headwordMs": "Kantor",
+        "headwordMs": "Pejabat",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -17195,7 +17195,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "sentence": {
         "entryId": "legacy.en.dictionary.sentence.noun",
-        "headwordMs": "Kalimat morf",
+        "headwordMs": "Ayat morf",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -17375,7 +17375,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "pharmacy": {
         "entryId": "legacy.en.dictionary.pharmacy.noun",
-        "headwordMs": "apotek",
+        "headwordMs": "farmasi",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -17600,12 +17600,12 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "police station": {
         "entryId": "legacy.en.dictionary.police-station.noun",
-        "headwordMs": "Kantor polisi",
+        "headwordMs": "Pejabat polisi",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
             "id": "legacy.en.dictionary.police-station.noun.sense.1",
-            "definitionMs": "Kantor lokal atau gedung tempat petugas polisi bekerja dan anggota masyarakat dapat melaporkan insiden.",
+            "definitionMs": "Pejabat lokal atau gedung tempat petugas polisi bekerja dan anggota masyarakat dapat melaporkan insiden.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -17613,7 +17613,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "post office": {
         "entryId": "legacy.en.dictionary.post-office.noun",
-        "headwordMs": "Kantor pos",
+        "headwordMs": "Pejabat pos",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -17735,7 +17735,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.en.dictionary.workplace.noun.sense.1",
-            "definitionMs": "Tempat dimana seseorang bekerja, seperti kantor, toko, pabrik atau lokasi lain.",
+            "definitionMs": "Tempat dimana seseorang bekerja, seperti pejabat, toko, pabrik atau lokasi lain.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -17748,7 +17748,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.en.dictionary.zoo.noun.sense.1",
-            "definitionMs": "Tempat dimana hewan liar dipelihara agar orang bisa melihat dan mempelajarinya.",
+            "definitionMs": "Tempat dimana hewan liar dipelihara agar orang dapat melihat dan mempelajarinya.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -18708,7 +18708,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "important": {
         "entryId": "legacy.en.dictionary.important.adjective",
-        "headwordMs": "KANTOR penting",
+        "headwordMs": "Pejabat penting",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -18758,7 +18758,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.en.dictionary.loud.adjective-adverb.sense.2",
-            "definitionMs": "Dengan cara yang bisa didengar dengan jelas.",
+            "definitionMs": "Dengan cara yang dapat didengar dengan jelas.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -19147,7 +19147,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.en.dictionary.kayak.noun-verb.sense.2",
-            "definitionMs": "Aku akan pergi dengan air di kayak menggunakan dayung.",
+            "definitionMs": "Saya akan pergi dengan air di kayak menggunakan dayung.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "en"
           }
@@ -21668,12 +21668,12 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "我": {
         "entryId": "legacy.zh.dictionary.6211.entry",
-        "headwordMs": "Aku...",
+        "headwordMs": "Saya...",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
             "id": "legacy.zh.dictionary.6211.entry.sense.1",
-            "definitionMs": "Kata ganti nama diri pertama: saya atau aku.",
+            "definitionMs": "Kata ganti nama diri pertama yang merujuk kepada diri sendiri; bentuk formal yang lazim ialah saya.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -22335,7 +22335,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "吗": {
         "entryId": "legacy.zh.dictionary.5417.entry",
-        "headwordMs": "Maafkan aku.",
+        "headwordMs": "Maafkan saya.",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -24504,7 +24504,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "累": {
         "entryId": "legacy.zh.dictionary.7d2f.entry",
-        "headwordMs": "Aku lelah.",
+        "headwordMs": "Saya lelah.",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -27400,7 +27400,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.54cd.entry.sense.1",
-            "definitionMs": "Suara, gema, suara, cincin, juga bisa keras.",
+            "definitionMs": "Suara, gema, suara, cincin, juga dapat keras.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -28004,7 +28004,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.7ea2.entry.sense.1",
-            "definitionMs": "red; bisa juga populer, merah atau sukses.",
+            "definitionMs": "red; dapat juga populer, merah atau sukses.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -28503,7 +28503,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.53e5.entry.sense.1",
-            "definitionMs": "Kalimat, pernyataan; ayat atau ayat.",
+            "definitionMs": "Ayat, pernyataan; ayat atau ayat.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -28555,7 +28555,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.60c5.entry.sense.1",
-            "definitionMs": "Emosi emosional, emosi, emosi, dan juga bisa menunjukkan situasi atau situasi.",
+            "definitionMs": "Emosi emosional, emosi, emosi, dan juga dapat menunjukkan situasi atau situasi.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -28589,7 +28589,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "求": {
         "entryId": "legacy.zh.dictionary.6c42.entry",
-        "headwordMs": "Aku mohon",
+        "headwordMs": "Saya mohon",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -28659,7 +28659,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.8ba9.entry.sense.1",
-            "definitionMs": "Kompromi, memungkinkan; membuat seseorang melakukan sesuatu; juga dapat digunakan dalam kalimat pasif.",
+            "definitionMs": "Kompromi, memungkinkan; membuat seseorang melakukan sesuatu; juga dapat digunakan dalam ayat pasif.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -28833,7 +28833,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.5ba4.entry.sense.1",
-            "definitionMs": "Kamar - kamar, ruang dalam ruangan; bisa juga memaksudkan tempat kerja atau keluarga.",
+            "definitionMs": "Kamar - kamar, ruang dalam ruangan; dapat juga memaksudkan tempat kerja atau keluarga.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -29137,7 +29137,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.5ead.entry.sense.1",
-            "definitionMs": "Halaman, halaman; bisa juga berarti pelataran atau balai.",
+            "definitionMs": "Halaman, halaman; dapat juga berarti pelataran atau balai.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -29216,7 +29216,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       },
       "愿": {
         "entryId": "legacy.zh.dictionary.613f.entry",
-        "headwordMs": "Boleh aku?",
+        "headwordMs": "Boleh saya?",
         "translationStatus": "machine_assisted_draft",
         "senses": [
           {
@@ -29532,7 +29532,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.88ab.entry.sense.1",
-            "definitionMs": "dermawan; juga digunakan sebagai tanda kalimat pasif untuk menunjukkan penerima tindakan.",
+            "definitionMs": "dermawan; juga digunakan sebagai tanda ayat pasif untuk menunjukkan penerima tindakan.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -29571,7 +29571,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.5e76.entry.sense.1",
-            "definitionMs": "Dan pada saat yang sama, itu bisa menjadi tanda konsolidasi atau penguatan nada negatif.",
+            "definitionMs": "Dan pada saat yang sama, itu dapat menjadi tanda konsolidasi atau penguatan nada negatif.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -29662,7 +29662,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "id": "legacy.zh.dictionary.5f69.entry.sense.1",
-            "definitionMs": "Warna, warna; bisa juga merujuk pada warna kepala atau hadiah.",
+            "definitionMs": "Warna, warna; dapat juga merujuk pada warna kepala atau hadiah.",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
@@ -29681,7 +29681,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
           },
           {
             "id": "legacy.zh.dictionary.66fe.entry.sense.2",
-            "definitionMs": "Nama keluarga bisa juga digunakan atas nama kerabat seperti \\\"cucu\\\".",
+            "definitionMs": "Nama keluarga dapat juga digunakan atas nama kerabat seperti \\\"cucu\\\".",
             "translationStatus": "machine_assisted_draft",
             "sourceLanguage": "zh"
           }
