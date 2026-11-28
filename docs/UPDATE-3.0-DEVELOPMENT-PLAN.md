@@ -1413,3 +1413,9 @@ Implemented a clearly labelled **partial review** fallback:
 Added migration `20261128133000_swiftdictionary_update_3_0_partial_legacy_flashcard_review.sql`, SQL regression coverage, mock-adapter behaviour, browser coverage and CI wiring. The migration is **not yet applied to staging**. Application changes after `75a9d4b` are commits `6e092cf`, `253f7b7`, `61f7802`, `90cc375`, `63e20e2` and `b0a177b`. Latest checks for `b0a177b` are queued/in progress; await green SQL/Auth, browser and architecture results before applying the migration to the staging project. Production remains untouched.
 
 Next: complete latest CI, then apply the additive migration to staging only, verify the two known legacy sessions return partial review while full-snapshot sessions remain unchanged, verify new games continue saving full snapshots, and repeat the private privilege/RLS check. Complete the full cross-version and OAuth/account-isolation matrix afterward.
+
+### Latest test correction — 2026-11-28
+
+The per-card review browser test's next failure was traced to the fixed mock-control overlay intercepting the click on the “Review game” button. The test now hides `#swiftMockPanel` before clicking game-review controls in both full and partial review tests. This follows an existing pattern already used by the Quiz pagination browser test; no runtime behaviour is being masked.
+
+Latest application head: `489435a51f19b7481671d1f0a708effaff00f28f`. U3.0 architecture regression passed on this head. U2.6 ACL, U2.7 Chinese dictionary and U2.9 English QA passed on preceding `b0a177b`; latest `489435a` runs are queued/in progress. The new partial-review SQL migration is included in the Quiz DB workflow and must pass its local Supabase migration regression before staging application. The migration has not yet been applied to staging.
