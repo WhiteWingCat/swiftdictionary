@@ -38,10 +38,21 @@ for(const item of [...englishDictionaryExamples,...englishPhrases.map(item=>({wo
 const flashcards={en:[...englishFlashcards.values()],zh:[]};
 for(const kind of ["characters","vocabulary","phrases"]){
   for(const item of window.SWIFT_CHINESE_FLASHCARDS?.[kind]||[]){
-    const definition=item.definitionCueZh||item.definitionZh||"";
-    if(item.word&&definition)flashcards.zh.push({word:item.word,definition,example:item.sentenceExampleZh||item.exampleZh||""});
+    // Some multi-character vocabulary records have a usable English gloss
+    // but no Chinese definition. Translate that gloss directly rather than
+    // silently omitting the card from Malay support coverage.
+    const chineseDefinition=item.definitionCueZh||item.definitionZh||"";
+    const englishGloss=item.translationEn||"";
+    const definition=chineseDefinition||englishGloss;
+    if(!item.word||!definition)throw new Error("Chinese Flashcard has no translatable definition: "+(item.word||item.id||"unknown"));
+    flashcards.zh.push({
+      word:item.word,definition,definitionSource:chineseDefinition?"zh":"en",
+      example:item.sentenceExampleZh||item.exampleZh||""
+    });
   }
 }
+const expectedChineseFlashcards=["characters","vocabulary","phrases"].reduce((sum,kind)=>sum+(window.SWIFT_CHINESE_FLASHCARDS?.[kind]||[]).length,0);
+if(flashcards.zh.length!==expectedChineseFlashcards)throw new Error("Chinese Flashcard support inventory is incomplete.");
 for(const [code,file] of [["en","content/quiz/questions.en-zh.draft.json"],["zh","content/quiz/questions.zh-en.draft.json"]]){
   const pack=JSON.parse(fs.readFileSync(file,"utf8"));
   quiz[code]=(pack.questions||[]).map(q=>({
