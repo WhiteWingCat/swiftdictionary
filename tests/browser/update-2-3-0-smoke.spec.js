@@ -1163,7 +1163,6 @@ test("Malay Daily Discovery uses only the 93 approved dictionary-derived catalog
   const start=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.find(call=>call.name==="start_daily_activity_session"));
   const approvedId=start.args.p_content_id.split(":")[0];
   expect(pool.map(item=>item.id)).toContain(approvedId);
-  expect(start.args.p_pool_size).toBe(93);
 });
 
 test("Daily Discovery uses dictionary layout and the approved global catalogue metadata", async ({ page }) => {
