@@ -111,11 +111,16 @@
       const wordKey=String(word.word||"").trim();
       const row=generated[wordKey]||generated[wordKey.toLocaleLowerCase("en")]||
         Object.entries(generated).find(([key])=>key.toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))?.[1]||{};
+      const exampleMsReviewed=(window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.[language]||[])
+        .some(key=>String(key).toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"));
+      const examples=exampleMsReviewed&&row.exampleEn
+        ? [row.exampleEn]
+        : (Array.isArray(word.examples)&&word.examples.length?word.examples:(row.exampleEn?[row.exampleEn]:[]));
       return {...word,
         definitionMs:word.definitionMs||support[word.word]||row.definitionMs||dictionaryDerivedMalaySupport(word,language),
         exampleMs:row.exampleMs||word.exampleMs||"",
-        examples:(Array.isArray(word.examples)&&word.examples.length?word.examples:(row.exampleEn?[row.exampleEn]:[])),
-        exampleMsReviewed:(window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.[language]||[]).some(key=>String(key).toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))
+        examples,
+        exampleMsReviewed
       };
     });
   }
