@@ -1371,3 +1371,31 @@ GitHub marked the new PR workflow runs for `72c63d8` as `action_required` with n
 5. Complete human Malaysian Standard Malay editorial and independent translation review, licence/attribution, Malaysia Copyright Act, PDPA/cross-border processing and final security gates.
 
 Leaked-password protection remains explicitly excluded by the owner. No production migration, merge or deployment is authorised.
+
+## 2026-11-28 — deterministic Flashcard review test and staging audit
+
+**Latest application head:** `75a9d4b5f450452943294a6d9abea6750a4c1734` on the staging feature branch. Latest CI and Pages deployment for this head are queued/in progress; no result is accepted yet.
+
+The preceding `72c63d8` attempt still timed out on the per-card review test despite explicit waits. Instead of masking the timeout with a larger limit, the test now uses deterministic RPC-completed session fixtures containing one correct and one incorrect result with full four-option snapshots. It verifies the RPC payload, weak-memory list, completed-game review modal, incorrect status, selected answer and correct answer. Existing browser tests continue to cover live timers/answer transitions; SQL tests cover the real completion RPC and snapshot persistence. This isolates the review UI contract without relying on random distractor order or an extended wall-clock loop.
+
+### Staging evidence: historical review issue confirmed
+
+Read-only inspection of the connected staging project `ivatvkfrtifgfheeaelj` (PostgreSQL 17) found:
+- 8 completed Flashcard sessions;
+- 66 per-card snapshots across 6 sessions;
+- 34 weak-memory rows, matching 34 mastery rows whose latest result is incorrect;
+- 0 incorrect mastery rows missing a weak-memory row.
+
+The two Malay sessions completed on 2026-11-27 at 10:58 and 11:04 UTC have no per-card snapshots. The six earlier Chinese sessions have snapshots. This confirms the reported issue is historical data loss in those two completed Malay games, not just a stale browser message. The weak-memory items are present, but exact per-card prompts, option ordering, selected answers and correct answers cannot be reconstructed from session summary/mastery aggregates. Do not invent those details. Keep the game summary accessible and explain that the per-card review data was not stored for those historical games; new games must support full per-card review.
+
+Read-only access checks show no direct `anon` or `authenticated` SELECT privilege on private snapshot/review tables; anon cannot execute the public game-review RPC, while authenticated can. Preserve this boundary and the existing owner-scoped RPC.
+
+### Current next gates
+
+1. Run latest U3.0 architecture, Flashcards static and deterministic browser test on `75a9d4b`.
+2. Finish U2.3 Chromium, U2.7 Chromium, U2.6 ACL, U2.9, Quiz DB/Auth and Cloudflare Pages checks on the same head.
+3. Inspect Quiz local Auth/RPC integration; resolve any test-fixture permission issue without broadening grants/RLS.
+4. Verify latest Pages preview, Google OAuth redirect and cross-account isolation; manual desktop/mobile acceptance remains owner-side.
+5. Keep human Malaysian Standard Malay editorial/translation review, licensing/attribution, Malaysia Copyright Act and PDPA/cross-border processing gates open.
+
+Leaked-password protection remains explicitly excluded by the owner. Production remains untouched and PR #20 remains unmerged.
