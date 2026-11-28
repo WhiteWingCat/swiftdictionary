@@ -14,6 +14,13 @@ test("Curated Malay Flashcard glosses provide a non-empty fallback vocabulary se
  assert.ok(Object.values(pack.zh).every(value=>typeof value==="string"&&value.length>0));
 });
 
+test("Malay support exporter includes source definitions for every English and Chinese Flashcard",()=>{
+ const exporter=fs.readFileSync("scripts/content/export-malay-learning-support-input.cjs","utf8");
+ assert.match(exporter,/definition:item\.definition\|\|item\.definitionEn/);
+ assert.match(exporter,/definitionSource:chineseDefinition\?"zh":"en"/);
+ assert.match(exporter,/expectedChineseFlashcards/);
+});
+ 
 test("Flashcard decks exclude untranslated words when Malay is the selected support language",()=>{
  const flashcards=fs.readFileSync("flashcards.js","utf8");
  assert.match(flashcards,/function addMalayFlashcardSupport\(items,language\)/);
