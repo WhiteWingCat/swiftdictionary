@@ -1339,3 +1339,35 @@ Cloudflare routing and U2.9 English QA passed on the preceding `108422e` head; U
 5. Keep the owner-required Malaysian Standard Malay and independent translation editorial review, model/corpus licensing, Malaysia Copyright Act, PDPA/cross-border review and manual desktop/mobile staging acceptance as open release gates.
 
 Leaked-password protection remains explicitly excluded from active work at the owner's direction. Revisit only if password-based authentication is introduced or the owner requests it. No production migration, merge or deployment is authorised by this continuation.
+
+## 2026-11-28 latest Flashcards review checkpoint
+
+**Latest application head:** `72c63d8e948294876e64371353f864b0861440d9` on `feature/update-3.0-phase-0-audit`. This latest commit changes the browser regression test only; application runtime is unchanged from `8773418`.
+
+### Evidence now available
+
+- U3.0 architecture/content suite: **passed** on `8773418` after the Flashcard recount, Quiz option translation fallback and Lesson option corrections.
+- Cloudflare Pages: **deployed successfully** for `8773418` at [https://954a4c12.swiftdictionary.pages.dev](https://954a4c12.swiftdictionary.pages.dev). The branch alias remains [https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev). This is the latest verified preview; the `72c63d8` test-only commit does not change app files.
+- U2.9 English QA: passed on `8773418`.
+- U2.7 Chinese dictionary: passed on `8773418`.
+- U2.6 ACL migration regression: passed on `8773418`.
+- U2.3 PostgreSQL allowance/migration tests and local Auth compatibility: passed on `8773418`; its Chromium browser suite failed only on the same Flashcard per-card review test timeout.
+- U2.5 Flashcards static/content job: passed on `8773418`; Chromium browser suite: 35/36 passed, with the per-card review end-to-end test timing out.
+- Quiz DB foundation SQL job: passed on `8773418`; its local Auth/RPC integration job was still running at the last check.
+- The Cloudflare legacy Workers build check still fails on a retired Worker deployment path; the current Pages build/deployment is the relevant staging host and passes.
+
+### Per-card review timeout diagnosis and correction
+
+The failing Playwright test clicked the phase-action control without waiting for the previous answer feedback to render. Under CI load the control could still be hidden, so Playwright waited until the 30-second test timeout. Rewrote the test with explicit phase-state waits, a 60-second test timeout, an actual incorrect-answer requirement and separate fake-clock advancement through the challenge deadline and delayed save callback. The new test commit is `72c63d8`.
+
+GitHub marked the new PR workflow runs for `72c63d8` as `action_required` with no jobs started. Therefore the updated browser test has not yet been executed; the earlier 35/36 result must not be reported as fixed. The outstanding gate is to approve/execute the latest PR workflows and inspect the result. If the rewritten test still fails, use its exact failure location to fix runtime or test synchronization; do not suppress the review assertions.
+
+### Next gates
+
+1. Obtain execution/approval for the latest `72c63d8` PR checks, then verify the rewritten per-card review browser test.
+2. Finish the in-progress Quiz DB local Auth/RPC integration and any latest Quiz browser tests.
+3. Re-run the full cross-version matrix on the same latest feature head after browser-test correction.
+4. Verify Google OAuth redirect, authenticated account switching/isolation, current Pages preview, and owner desktop/mobile staging acceptance.
+5. Complete human Malaysian Standard Malay editorial and independent translation review, licence/attribution, Malaysia Copyright Act, PDPA/cross-border processing and final security gates.
+
+Leaked-password protection remains explicitly excluded by the owner. No production migration, merge or deployment is authorised.
