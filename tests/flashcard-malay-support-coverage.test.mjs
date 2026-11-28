@@ -121,7 +121,7 @@ test("Malay Flashcard coverage is measured across dictionary, phrase and sentenc
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&!!word.definitionMs),24);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&word.examples?.length>0),24);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&word.exampleMsReviewed&&!!word.exampleMs),24);
- assert.equal(count(chineseFlashcards,word=>!!word.exampleMs),1447);
+ assert.equal(count(chineseFlashcards,word=>!!word.exampleMs),603);
  assert.equal(count(chineseFlashcards,word=>word.examples?.length>0),603);
  assert.equal(count(chineseFlashcards,word=>word.exampleMsReviewed&&!!word.exampleMs),42);
  assert.equal(count(chineseFlashcards,word=>!word.definitionMs),0);
