@@ -32,3 +32,75 @@ test("Flashcard decks exclude untranslated words when Malay is the selected supp
  assert.match(flashcards,/malaySupportEnglishCount/);
  assert.match(flashcards,/malaySupportChineseCount/);
 });
+
+
+test("Malay Flashcard coverage is measured across dictionary, phrase and sentence card banks",()=>{
+ const context={window:{}};
+ vm.createContext(context);
+ const load=path=>vm.runInContext(fs.readFileSync(path,"utf8"),context);
+ for(const path of [
+  "data/languages/english-dictionary.js",
+  "data/english-expansion.js",
+  "data/languages/chinese-dictionary.js",
+  "data/chinese-characters.js",
+  "data/chinese-flashcards.js",
+  "data/languages/malay-dictionary.js",
+  "data/languages/malay-dictionary-manual-overrides.js",
+  "data/languages/malay-dictionary-translations.js",
+  "data/languages/malay-learning-support-translations.js",
+  "data/languages/malay-learning-support-overrides.js",
+  "data/languages/malay-flashcard-translations.js",
+  "js/core/dictionary-translation-overlay.js"
+ ]) load(path);
+
+ const english=[
+  ...(context.window.SWIFT_ENGLISH_BASE_DICTIONARY||[]),
+  ...(context.window.SWIFT_ENGLISH_EXPANSION||[])
+ ].filter(word=>word&&word.course==="en"&&word.word&&word.definition);
+ const chinese=[...new Map([
+  ...(context.window.SWIFT_CHINESE_BASE_DICTIONARY||[]),
+  ...(context.window.SWIFT_CHINESE_WORDS||[])
+ ].filter(word=>word&&word.word).map(word=>[String(word.word),word])).values()];
+ const englishOverlay=context.window.SWIFT_DICTIONARY_TRANSLATION_OVERLAY.apply(english,"en");
+ const chineseOverlay=context.window.SWIFT_DICTIONARY_TRANSLATION_OVERLAY.apply(chinese,"zh");
+ assert.equal(englishOverlay.complete,true);
+ assert.equal(chineseOverlay.complete,true);
+
+ const flashcards=fs.readFileSync("flashcards.js","utf8");
+ const helperStart=flashcards.indexOf("function malayGlossLookup()");
+ const helperEnd=flashcards.indexOf("function words(",helperStart);
+ assert.ok(helperStart>=0&&helperEnd>helperStart,"Malay Flashcard support helper block must exist");
+ vm.runInContext(
+  "let malayGlossLookupCache=null; "+flashcards.slice(helperStart,helperEnd)+"; window.__addMalayFlashcardSupport=addMalayFlashcardSupport;",
+  context
+ );
+ const add=context.window.__addMalayFlashcardSupport;
+ const englishDictionary=add(english,"en");
+ const phraseMatch=flashcards.match(/const curatedEnglishPhrases = (\\[[\\s\\S]*?\\n  \\]);/);
+ assert.ok(phraseMatch,"Curated English phrase bank must be available");
+ vm.runInContext("window.__curatedEnglishPhrases = "+phraseMatch[1]+";",context);
+ const existing=new Set(english.map(word=>String(word.word).trim().toLowerCase()));
+ const englishPhrases=add(context.window.__curatedEnglishPhrases.filter(word=>!existing.has(word.word.toLowerCase())),"en");
+ const bank=context.window.SWIFT_CHINESE_FLASHCARDS||{};
+ const chineseCards=[
+  ...(bank.characters||[]).map(word=>({...word,course:"zh",cardKind:"characters",definition:word.translationEn||"",examples:(word.sentenceExampleZh||word.exampleZh)?[word.sentenceExampleZh||word.exampleZh]:[],phonetic:word.pinyin||""})),
+  ...(bank.vocabulary||[]).map(word=>({...word,course:"zh",cardKind:"vocabulary",definition:word.translationEn||"",examples:(word.sentenceExampleZh||word.exampleZh)?[word.sentenceExampleZh||word.exampleZh]:[],phonetic:word.pinyin||""})),
+  ...(bank.phrases||[]).map(word=>({...word,course:"zh",cardKind:"phrases",definition:word.translationEn||"",examples:(word.sentenceExampleZh||word.exampleZh)?[word.sentenceExampleZh||word.exampleZh]:[],phonetic:word.pinyin||""}))
+ ].filter(word=>word.word);
+ const chineseFlashcards=add(chineseCards,"zh");
+ const count=(items,predicate)=>items.filter(predicate).length;
+
+ assert.equal(englishDictionary.length,1316);
+ assert.equal(count(englishDictionary,word=>!!word.definitionMs),1316);
+ assert.equal(englishPhrases.length,25);
+ assert.equal(count(englishPhrases,word=>!!word.definitionMs),25);
+ assert.equal(count(englishDictionary,word=>word.exampleMsReviewed&&!!word.exampleMs),18);
+
+ assert.equal(chineseFlashcards.length,1447);
+ assert.equal(count(chineseFlashcards,word=>!!word.definitionMs),727);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"),24);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&!!word.definitionMs),24);
+ assert.equal(count(chineseFlashcards,word=>word.examples?.length>0),603);
+ assert.equal(count(chineseFlashcards,word=>word.exampleMsReviewed&&!!word.exampleMs),18);
+ assert.equal(count(chineseFlashcards,word=>!word.definitionMs),720);
+});
