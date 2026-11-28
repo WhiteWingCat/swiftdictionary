@@ -1410,6 +1410,34 @@
   for(const section of ["lessons","quiz","flashcards","malayGlosses"]){
     if(pack[section])pack[section]=normaliseMalaySupport(pack[section]);
   }
+
+  // Correct a small set of remaining Indonesian-influenced machine drafts.
+  const preciseFlashcardCorrections = {
+    en: {
+      "remind": {exampleMs:"Tolong ingatkan saya untuk menghantar e-mel."},
+      "bill": {definitionMs:"Penyata yang menunjukkan jumlah wang yang perlu dibayar; rang undang-undang yang dicadangkan; wang kertas; atau bil yang dihantar kepada seseorang untuk pembayaran."},
+      "throw": {definitionMs:"Membaling sesuatu ke udara menggunakan tangan; atau perbuatan membaling."},
+      "post office": {definitionMs:"Tempat orang menghantar surat dan bungkusan serta mendapatkan perkhidmatan pos.",exampleMs:"Saya pergi ke pejabat pos untuk menghantar bungkusan."},
+      "cable": {definitionMs:"Wayar tebal atau sekumpulan wayar yang digunakan untuk mengalirkan elektrik atau data; atau menghantar mesej melalui kabel."},
+      "email": {definitionMs:"Mesej yang dihantar secara elektronik melalui Internet, atau tindakan menghantar mesej sedemikian kepada seseorang."},
+      "text message": {definitionMs:"Mesej bertulis ringkas yang dihantar daripada satu telefon bimbit atau peranti digital kepada peranti lain; atau tindakan menghantar mesej tersebut."},
+      "upload": {definitionMs:"Memuat naik fail atau data daripada peranti ke perkhidmatan dalam talian atau komputer lain; atau proses atau fail yang dimuat naik."},
+      "video": {definitionMs:"Rakaman imej bergerak, biasanya dengan bunyi; atau tindakan merakam atau menghantar imej secara elektronik."},
+      "wireless": {definitionMs:"Keadaan menggunakan isyarat radio dan bukannya wayar fizikal untuk menghantar maklumat atau kuasa; atau sambungan atau peranti tanpa wayar."}
+    },
+    zh: {
+      "发": {definitionMs:"Bermaksud menghantar, mengeluarkan, berlaku atau berkembang; juga bermaksud rambut apabila disebut sebagai fà."},
+      "使": {definitionMs:"Membuat atau menyebabkan sesuatu berlaku; menggunakan; atau menyuruh seseorang melakukan sesuatu."},
+      "送给": {definitionMs:"Memberikan sesuatu kepada seseorang sebagai hadiah; menghadiahkan."},
+      "发短信": {definitionMs:"Menghantar mesej teks."}
+    }
+  };
+  for(const [code,rows] of Object.entries(preciseFlashcardCorrections)){
+    for(const [word,fields] of Object.entries(rows)){
+      const target=pack.flashcards?.[code]?.[word];
+      if(target)Object.assign(target,fields);
+    }
+  }
   window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS = {
     quiz: { en: Object.keys(rows), zh: Object.keys(zhRows) },
     lessons: {
