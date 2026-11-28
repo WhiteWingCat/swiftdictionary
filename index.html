@@ -3618,7 +3618,6 @@ async function completeLesson(x){
       const requestedCourse=courseSelector.value||course||"en";
       const requestedTranslation=translationSelector.value||translationLanguage||"en";
       const requestedUserId=currentUser?.id||null;
-      if(requestedTranslation==="ms"&&requestedCourse!=="ms"){quizStatus("Malay support translations for English and Chinese Quiz questions are not available yet. Choose English or Simplified Chinese for this Quiz.",true);return;}
       const warning=requestedTranslation==="zh"?"开始这场测验会立即使用一次每日测验额度。即使之后放弃测验，此额度也不会退还。要继续吗？":"Starting this Quiz will use one daily Quiz allowance immediately. The allowance will not be refunded if you later abandon the session. Continue?";
       if(typeof window.showLearningAllowanceConfirmation!=="function"){quizStatus(quizT("The confirmation dialog could not be loaded. Please refresh before starting the Quiz.","确认对话框无法加载，请刷新页面后再开始测验。"),true);return;}
       const confirmed=await window.showLearningAllowanceConfirmation(warning,{confirmLabel:requestedTranslation==="zh"?"开始测验":"Start Quiz",cancelLabel:requestedTranslation==="zh"?"取消":"Cancel"});
