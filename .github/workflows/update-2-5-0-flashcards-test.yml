@@ -31,6 +31,8 @@ jobs:
         run: |
           node --check mock-testing.js
           node --check flashcards.js
+      - name: Audit Malay Flashcard definition and Sentence Recall coverage
+        run: node --test tests/flashcard-malay-support-coverage.test.mjs
       - name: Check Flashcards page integration and inline application syntax
         run: node tests/update-2-5-0/check-flashcards-page.mjs
       - name: Run mock account, allowance, collection and timer regression tests
