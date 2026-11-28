@@ -223,9 +223,9 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
     const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.en;
     return keys.every(key=>!!rows[key]?.definitionMs?.trim());
   });
-  expect(reviewedExamples).toBe(18);
+  expect(reviewedExamples).toBe(43);
   const reviewedChineseExamples=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.zh.length);
-  expect(reviewedChineseExamples).toBe(18);
+  expect(reviewedChineseExamples).toBe(42);
   expect(reviewedDefinitions).toBe(true);
   expect(stats.malayDictionaryEntryCount).toBe(650);
   expect(stats.malaySupportEnglishCount).toBe(73);
@@ -242,12 +242,12 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   expect(stats.malayChineseDictionarySupportedCount).toBeGreaterThan(0);
   expect(stats.malayChinesePhraseCardCount).toBeGreaterThan(0);
   expect(stats.malayChinesePhraseSupportedCount).toBeGreaterThan(0);
-  expect(stats.malayEnglishReviewedSentenceCardCount).toBe(18);
-  expect(stats.malayChineseReviewedSentenceCardCount).toBe(18);
+  expect(stats.malayEnglishReviewedSentenceCardCount).toBe(43);
+  expect(stats.malayChineseReviewedSentenceCardCount).toBe(42);
   expect(stats.malayEnglishSentenceCardCount).toBeGreaterThanOrEqual(stats.malayEnglishSentenceSupportedCount);
-  expect(stats.malayEnglishSentenceSupportedCount).toBe(18);
+  expect(stats.malayEnglishSentenceSupportedCount).toBe(43);
   expect(stats.malayChineseSentenceCardCount).toBeGreaterThanOrEqual(stats.malayChineseSentenceSupportedCount);
-  expect(stats.malayChineseSentenceSupportedCount).toBe(18);
+  expect(stats.malayChineseSentenceSupportedCount).toBe(42);
   expect(stats.customCardMalaySupportPolicy).toMatch(/user-supplied Malay translation/);
   await page.locator("#courseSelect").selectOption("ms");
   await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
