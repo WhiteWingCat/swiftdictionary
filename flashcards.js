@@ -113,7 +113,9 @@
         Object.entries(generated).find(([key])=>key.toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))?.[1]||{};
       return {...word,
         definitionMs:word.definitionMs||support[word.word]||row.definitionMs||dictionaryDerivedMalaySupport(word,language),
-        exampleMs:word.exampleMs||row.exampleMs||""
+        exampleMs:row.exampleMs||word.exampleMs||"",
+        exampleMsReviewed:language==="en"&&
+          (window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.en||[]).includes(wordKey.toLowerCase())
       };
     });
   }
@@ -483,7 +485,7 @@
         // Malay Sentence Recall must only select cards that have a sentence-level
         // Malay translation. A headword/definition translation is not a substitute
         // for translating the example sentence shown to the learner.
-        if(mode==="sentence"&&language==="ms")return !!(w.exampleMs&&cueFor(w,mode));
+        if(mode==="sentence"&&language==="ms")return !!(w.exampleMsReviewed&&w.exampleMs&&cueFor(w,mode));
         return true;
       }
       if(mode==="definition"){
