@@ -1,4 +1,4 @@
--- U3.0 staging repair: align Malay Daily Discovery catalogue IDs with the live 93-word derived pool.
+-- SwiftDictionary U3.0 production rollout: align Malay Daily Discovery IDs with the approved 93-word derived pool.
 -- Stale rows are deactivated, not deleted; the current pool is upserted with stable rotation order.
 begin;
 

@@ -1,6 +1,21 @@
 const { test, expect } = require("@playwright/test");
 
 test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+  const dismissReleaseNotes = () => {
+    const backdrop = document.getElementById("swiftReleaseBackdrop");
+    if (backdrop && !backdrop.hidden) {
+      backdrop.querySelector(".swift-release-done, .swift-release-close")?.click();
+    }
+  };
+  const observer = new MutationObserver(dismissReleaseNotes);
+  const start = () => {
+    observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
+    dismissReleaseNotes();
+  };
+  if (document.documentElement) start();
+  else document.addEventListener("DOMContentLoaded", start, { once: true });
+});
   await page.route("**/supabase-config.js", route => route.fulfill({
     status: 200,
     contentType: "application/javascript",

@@ -9,5 +9,5 @@ alter table public.learning_page_introduction_preferences
   add constraint learning_page_introduction_preferences_page_key_check
   check (
     page_key in ('lessons', 'quiz', 'flashcards')
-    or page_key ~ '^release:[0-9]+\\.[0-9]+\\.[0-9]+$'
+    or page_key ~ '^release:[0-9]+\.[0-9]+\.[0-9]+$'
   );

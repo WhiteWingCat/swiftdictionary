@@ -1,5 +1,5 @@
 -- SwiftDictionary U3.0 — enable the Malay Flashcard learning course and Malay translation snapshots.
--- Additive, owner-authorised staging migration. Production is not targeted by this task.
+-- Additive production rollout migration; preserves existing English and Chinese Flashcard data.
 begin;
 
 alter table private.flashcard_cards

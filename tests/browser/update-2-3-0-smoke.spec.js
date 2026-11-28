@@ -12,6 +12,14 @@ async function autoDismissLearningIntro(page) {
         const backdrop = document.getElementById("learningIntroBackdrop");
         const dismiss = document.getElementById("learningIntroDismiss");
         if (backdrop && !backdrop.hidden && dismiss) dismiss.click();
+
+        // U3.0 release notes are intentionally shown once per version. These
+        // legacy browser suites are not testing that dialog, so dismiss it
+        // before it can block the page controls under test.
+        const releaseBackdrop = document.getElementById("swiftReleaseBackdrop");
+        if (releaseBackdrop && !releaseBackdrop.hidden) {
+          releaseBackdrop.querySelector(".swift-release-done, .swift-release-close")?.click();
+        }
       };
       const observer = new MutationObserver(dismissGuide);
       observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });

@@ -1,6 +1,6 @@
--- SwiftDictionary Update 3.0 — owner-authorized Malay Quiz STAGING-ONLY content release.
--- Source question packs remain editorially draft; independent human linguistic review is deferred.
--- Do not apply this migration to production.
+-- SwiftDictionary Update 3.0 — owner-authorized Malay Quiz production content release.
+-- Imports 240 release-gated Malay questions (120 each for English and Chinese support languages).
+-- Questions are machine-validated; independent human Malaysian Malay linguistic review remains deferred.
 begin;
 insert into private.quiz_question_bank(
  question_id,revision,learning_language_code,translation_language_code,
