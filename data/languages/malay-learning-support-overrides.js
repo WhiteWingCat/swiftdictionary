@@ -429,12 +429,37 @@
       });
     }
   }
+  const flashcardExampleCorrections = {
+    book:["Saya meminjam sebuah buku dari perpustakaan.","Kita perlu menempah meja untuk makan malam."],
+    work:["Saya bekerja di sebuah kedai kecil.","Telefon itu tidak berfungsi."],
+    go:["Saya pergi ke tempat kerja dengan bas.","Lampu itu terpadam pada waktu malam."],
+    eat:["Kami makan malam pada pukul tujuh.","Kanak-kanak itu sedang makan epal."],
+    drink:["Sila minum lebih banyak air.","Mahukah anda minuman sejuk?"],
+    make:["Dia membuat kad hari jadi.","Lagu itu membuat saya gembira."],
+    take:["Sila bawa beg ini ke tingkat atas.","Perjalanan berjalan kaki ke sana mengambil masa sepuluh minit."],
+    learn:["Saya mahu belajar bahasa Inggeris.","Kami mendapat tahu berita itu pagi tadi."],
+    buy:["Saya perlu membeli roti.","Dia membeli buku nota baharu untuk kelas."],
+    sell:["Mereka menjual buah-buahan segar di pasar.","Kedai itu menjual buku dan alat tulis."],
+    pay:["Saya akan membayar makan tengah hari hari ini.","Anda boleh membayar menggunakan kad di kaunter."],
+    send:["Sila hantarkan alamat itu kepada saya.","Saya menghantar bungkusan itu semalam."],
+    clean:["Sila bersihkan meja itu.","Saya membersihkan kasut saya."],
+    speak:["Dia bercakap dengan jelas semasa mesyuarat.","Sila bercakap dengan lebih perlahan."],
+    station:["Kita akan berjumpa di luar stesen kereta api.","Stesen itu sesak dengan penumpang pada waktu puncak pagi."],
+    market:["Ibu membeli sayur-sayuran segar di pasar.","Pasar hujung minggu itu menjual hasil kraftangan selain makanan segar."],
+    library:["Saya meminjam dua buah buku dari perpustakaan.","Pelajar sering menggunakan perpustakaan apabila memerlukan tempat yang tenang untuk belajar."],
+    hospital:["Datuknya sedang menerima rawatan di hospital.","Hospital baharu itu mempunyai pintu masuk khas untuk pesakit kecemasan."]
+  };
+  for (const [word, examples] of Object.entries(flashcardExampleCorrections)) {
+    const target = pack.flashcards?.en?.[word];
+    if (target) target.exampleMs = examples[0];
+  }
   window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS = {
     quiz: { en: Object.keys(rows), zh: Object.keys(zhRows) },
     lessons: {
       en: Object.values(lessonCorrections.en).reduce((sum, rows) => sum + rows.length, 0),
       zh: Object.values(lessonCorrections.zh).reduce((sum, rows) => sum + rows.length, 0)
     },
+    flashcards: { en: Object.keys(flashcardExampleCorrections), zh: [] },
     status: "model_assisted_malay_draft_pending_editorial_review"
   };
 })();
