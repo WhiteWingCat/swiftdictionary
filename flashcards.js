@@ -87,12 +87,17 @@
       let source=[];
       if(language==="zh"){
         const bank=window.SWIFT_CHINESE_FLASHCARDS||{};
-        source=[...(bank.characters||[]),...(bank.vocabulary||[]),...(bank.phrases||[])].map(item=>({
-          ...item,course:"zh",cardKind:kind,definition:item.translationEn||"",
+        const mapChineseReviewItems=(items,cardKind)=>(items||[]).map(item=>({
+          ...item,course:"zh",cardKind,definition:item.translationEn||"",
           definitionZh:item.definitionCueZh||item.definitionZh||"",
           examples:(item.sentenceExampleZh||item.exampleZh)?[item.sentenceExampleZh||item.exampleZh]:[],
           phonetic:item.pinyin||""
         }));
+        source=[
+          ...mapChineseReviewItems(bank.characters,"characters"),
+          ...mapChineseReviewItems(bank.vocabulary,"vocabulary"),
+          ...mapChineseReviewItems(bank.phrases,"phrases")
+        ];
       }else if(language==="ms"){
         source=(window.SWIFT_MALAY_DICTIONARY||[]).filter(item=>item?.word&&item?.definition)
           .map(item=>({...item,course:"ms",cardKind:String(item.part||"").toLowerCase().includes("frasa")?"phrases":"vocabulary",
