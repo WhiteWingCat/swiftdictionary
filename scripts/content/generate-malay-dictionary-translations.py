@@ -146,6 +146,7 @@ class EmptyTranslationError(RuntimeError):
 
 def main():
     data = json.loads(INPUT.read_text(encoding="utf-8"))
+    malay_glosses = data.get("malayGlosses", {})
     argostranslate.package.update_package_index()
     install_pair("en", "ms")
     install_pair("zh", "en")
@@ -157,7 +158,16 @@ def main():
         if not text:
             raise RuntimeError("Refusing to create an empty translation")
         if source == "zh":
-            text = clean(zh_en.translate(text))
+            source_text = text
+            text = clean(zh_en.translate(source_text))
+            if not text or re.search(r"[\\u3400-\\u9fff]", text):
+                # Isolated Chinese headwords/definitions are sometimes echoed
+                # unchanged by zh→en. Prefer an exact authored Malay glossary
+                # entry; if none exists, fail rather than invent a translation.
+                gloss = clean(malay_glosses.get("zh", {}).get(source_text, ""))
+                if gloss:
+                    return normalise_malay(gloss)
+                raise EmptyTranslationError("Chinese source has no English intermediate or Malay glossary fallback: " + source_text[:80])
         fallback = MALAY_CONNECTOR_FALLBACKS.get(text.casefold())
         result = normalise_malay(fallback or en_ms.translate(text))
         if not result:
