@@ -1868,7 +1868,7 @@ window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES = {
       "Memahami maksud atau perkara yang diterangkan."
     ],
     "我": [
-      "Kata ganti nama diri pertama: saya atau aku."
+      "Kata ganti nama diri pertama yang merujuk kepada diri sendiri; bentuk formal yang lazim ialah saya."
     ],
     "手": [
       "Tangan; juga merujuk kepada seseorang yang mahir dalam sesuatu bidang."
