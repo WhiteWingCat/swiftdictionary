@@ -101,20 +101,21 @@ test("Malay Flashcard coverage is measured across dictionary, phrase and sentenc
  assert.equal(count(englishPhrases,word=>word.exampleMsReviewed&&!!word.exampleMs),25);
 
  assert.equal(chineseFlashcards.length,1447);
- assert.equal(count(chineseFlashcards,word=>!!word.definitionMs),895);
+ assert.equal(count(chineseFlashcards,word=>!!word.definitionMs),1447);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"),519);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"&&!!word.definitionMs),519);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"&&word.examples?.length>0),519);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"&&word.exampleMsReviewed&&!!word.exampleMs),0);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"),904);
- assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&!!word.definitionMs),352);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&!!word.definitionMs),904);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&word.examples?.length>0),60);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&word.exampleMsReviewed&&!!word.exampleMs),18);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"),24);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&!!word.definitionMs),24);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&word.examples?.length>0),24);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&word.exampleMsReviewed&&!!word.exampleMs),24);
+ assert.equal(count(chineseFlashcards,word=>!!word.exampleMs),1447);
  assert.equal(count(chineseFlashcards,word=>word.examples?.length>0),603);
  assert.equal(count(chineseFlashcards,word=>word.exampleMsReviewed&&!!word.exampleMs),42);
- assert.equal(count(chineseFlashcards,word=>!word.definitionMs),552);
+ assert.equal(count(chineseFlashcards,word=>!word.definitionMs),0);
 });
