@@ -58,6 +58,21 @@
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
   let malayGlossLookupCache=null;
+  // Weak Memory can contain many rows. Build each language's dictionary
+  // lookup once and reuse it while rendering/selecting review details instead
+  // of rebuilding and translating the full dictionary for every row.
+  const reviewWordIndexCache=new Map();
+  function reviewWordIndex(language){
+    if(!reviewWordIndexCache.has(language)){
+      const index=new Map();
+      for(const item of words(language)){
+        const key=String(item.word||"").trim().toLocaleLowerCase("en");
+        if(key&&!index.has(key))index.set(key,item);
+      }
+      reviewWordIndexCache.set(language,index);
+    }
+    return reviewWordIndexCache.get(language);
+  }
   function malayGlossLookup(){
     if(malayGlossLookupCache)return malayGlossLookupCache;
     const map=new Map();
@@ -831,7 +846,7 @@
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
     const selected=items.find(item=>item.card_key===state.reviewSelected);
-    const resolve=key=>{const languageMatch=key.match(/^dict:([a-z]{2,3}):/);if(languageMatch){const code=languageMatch[1];return words(code).find(w=>w.word.toLowerCase()===key.slice(languageMatch[0].length));}if(key.startsWith("dict:"))return words("en").find(w=>w.word.toLowerCase()===key.slice(5));const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
+    const resolve=key=>{const languageMatch=key.match(/^dict:([a-z]{2,3}):/);if(languageMatch){const code=languageMatch[1];return reviewWordIndex(code).get(key.slice(languageMatch[0].length).toLocaleLowerCase("en"))||null;}if(key.startsWith("dict:"))return reviewWordIndex("en").get(key.slice(5).toLocaleLowerCase("en"))||null;const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
     const card=selected?resolve(selected.card_key):null;
     const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`:'<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
     const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
@@ -1019,6 +1034,7 @@
   attachForms();
   document.getElementById("flashDifficulty")?.addEventListener("change",e=>state.difficulty=e.target.value);
   window.__swiftFlashcardsAuthHydration=Promise.resolve();
+  window.addEventListener("swiftdictionary:content-packages-ready",()=>reviewWordIndexCache.clear());
   window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();state.ready=false;state.loading=false;state.finishing=false;if(currentUser){window.__swiftFlashcardsAuthHydration=loadData();}else{state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};window.__swiftFlashcardsAuthHydration=Promise.resolve();}render();});
   if(typeof supabaseClient!=="undefined"&&supabaseClient?.auth?.onAuthStateChange){
     supabaseClient.auth.onAuthStateChange((event,session)=>{
