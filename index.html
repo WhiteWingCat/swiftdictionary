@@ -3441,6 +3441,7 @@ async function completeLesson(x){
       if(animate)quizAnimateScreen(home);
     }
     function quizRenderAvailability(data){
+      data=data&&typeof data==="object"?{...data,learning_language_code:data.learning_language_code||course}:data;
       quizPageState.availability=data;
       const a=data.allowance||{};
       quizEl("quizAllowanceText").textContent=quizT((a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining",(a.remaining_count??0)+" / "+(a.daily_limit??0)+" 今日剩余");
