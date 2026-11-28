@@ -357,6 +357,13 @@
         {q:"Tempat manakah menyediakan rawatan perubatan?",options:["Muzium","Hospital","Pasar"]},
         {q:"Di manakah penumpang biasanya menaiki kereta api?",options:["Di platform","Di pintu masuk muzium","Di pasar"]},
         {q:"Perkataan manakah bermaksud tempat untuk keluar dari sesebuah bangunan?",options:["Pintu masuk","Sudut","Pintu keluar"]}
+      ],
+      "i-perfect": [
+        {q:"Ayat manakah menggunakan ungkapan masa lampau yang telah selesai dengan betul?",options:["Saya telah menyiapkannya malam tadi. (present perfect tidak digunakan dengan masa lampau yang telah selesai)","Saya menyiapkannya malam tadi. (past simple)","Saya telah menyiapkannya malam tadi. (has tidak sepadan dengan I)"]},
+        {q:"Dia ___ laporannya, jadi dia boleh berehat sekarang.",options:["has finished: telah menyiapkan (present perfect)","had finish: bentuk past participle tidak tepat","finishes yesterday: kala dan penanda masa tidak sepadan"]},
+        {q:"Soalan manakah bertanya tentang pengalaman hidup?",options:["Pernahkah anda melawat Jepun tahun lepas? (masa lampau khusus)","Pernahkah anda melawat Jepun? (pengalaman hidup)","Pernahkah anda melawat Jepun semalam? (bentuk kata kerja tidak tepat)"]},
+        {q:"Pilih bentuk present perfect continuous.",options:["has studied: telah belajar","has been studying: telah / sedang belajar secara berterusan","had study: bentuk kata kerja tidak tepat"]},
+        {q:"Tindakan manakah berlaku dahulu: filem bermula atau kami tiba?",options:["Filem itu telah pun bermula terlebih dahulu.","Kami tiba terlebih dahulu."]}
       ]
     },
     zh: {
@@ -415,6 +422,15 @@
         {q:"Perkataan manakah lazim digunakan untuk menafikan pernyataan umum seperti “Saya tidak menyukainya”?",options:["不: tidak; bukan","吗: partikel soalan","的: partikel pemilikan","在: di; berada di"]},
         {q:"Ungkapan manakah boleh bermaksud “tidak mempunyai”?",options:["没有: tidak mempunyai","不是: bukan; tidak ialah","不要: tidak mahu; jangan","不会: tidak boleh; tidak akan"]},
         {q:"Ayat manakah bermaksud “Adakah kamu seorang pelajar?”",options:["Adakah kamu seorang pelajar?","Kamu pelajar jenis apa. (bukan soalan ya atau tidak)","Kamu tidak mempunyai pelajar.","Siapakah pelajar itu."]}
+      ],
+      "zh-i-measure-words": [
+        {q:"Kata penggolong manakah lazim digunakan untuk buku?",options:["本 (běn): untuk buku","张 (zhāng): untuk benda leper","杯 (bēi): untuk cawan atau gelas","条 (tiáo): untuk benda panjang"]},
+        {q:"Frasa manakah bermaksud “dua buah buku”?",options:["两本书: dua buah buku","两个书: penggolong tidak tepat untuk buku","两杯书: dua gelas buku","两张书: dua helaian buku"]},
+        {q:"Kata penggolong manakah sesuai untuk segelas air?",options:["杯 (bēi): cawan atau gelas","本 (běn): buku","位 (wèi): orang, bentuk sopan","条 (tiáo): benda panjang"]},
+        {q:"Kata penggolong manakah lazim digunakan untuk sekeping kertas?",options:["张 (zhāng): benda leper","本 (běn): buku","只 (zhī): haiwan atau sesetengah objek tunggal","杯 (bēi): cawan atau gelas"]},
+        {q:"Kata penggolong manakah digunakan secara sopan untuk merujuk kepada seseorang?",options:["位 (wèi): penggolong sopan untuk orang","条 (tiáo): benda panjang","本 (běn): buku","杯 (bēi): cawan atau gelas"]},
+        {q:"Frasa manakah bermaksud “seorang”?",options:["一个人: seorang","一张人: penggolong tidak tepat","一杯人: penggolong tidak tepat","一本人: penggolong tidak tepat"]},
+        {q:"Apabila menyebut nombor dua sebelum kata penggolong, nombor manakah lazim digunakan?",options:["两 (liǎng): dua sebelum kata penggolong","二 (èr): dua dalam kiraan dan nombor","十 (shí): sepuluh","几 (jǐ): berapa; beberapa"]}
       ]
     }
   };
