@@ -1064,9 +1064,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Frasa mana yang menunjukkan \\\"senang bertemu denganmu\\\"?",
+          "q": "Frasa mana yang menunjukkan \\\"senang bertemu dengan anda\\\"?",
           "options": [
-            "Senang bertemu denganmu.",
+            "Senang bertemu dengan anda.",
             "Apa kabar?",
             "Saya baik-baik sahaja.",
             "Bye."
@@ -1400,7 +1400,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Frasa frasa mana yang menunjukkan \\\"satu orang\\\"?",
+          "q": "Frasa mana yang menunjukkan \\\"satu orang\\\"?",
           "options": [
             "Sendirian.",
             "Satu orang.",
@@ -1465,7 +1465,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
           ]
         },
         {
-          "q": "Ayat mana yang berarti \"Bagaimana denganmu\"?",
+          "q": "Ayat mana yang berarti \"Bagaimana dengan anda\"?",
           "options": [
             "Anda?",
             "Anda?",
@@ -7802,12 +7802,12 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       "zh-en-b-greetings-introductions-07": {
         "promptLearning": "Ketika pertama kali bertemu, anda bilang anda senang saling mengenal. Apa yang biasanya anda katakan?",
         "promptTranslation": "Frasa yang mana yang menyatakan senang bertemu dengan seseorang untuk pertama kalinya?",
-        "explanationLearning": "Senang bertemu denganmu. Senang bertemu denganmu.",
+        "explanationLearning": "Senang bertemu dengan anda. Senang bertemu dengan anda.",
         "explanationTranslation": "很高兴认识你 digunakan sewaktu bertemu dengan seseorang untuk pertama kalinya untuk mengatakan bahawa Anda senang bertemu mereka.",
         "options": {
           "o1": {
-            "learning": "Senang bertemu denganmu.",
-            "translation": "Senang bertemu denganmu"
+            "learning": "Senang bertemu dengan anda.",
+            "translation": "Senang bertemu dengan anda"
           },
           "o2": {
             "learning": "Apa kabar?",
@@ -8839,7 +8839,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "options": {
           "o1": {
             "learning": "Anda?",
-            "translation": "Bagaimana denganmu?"
+            "translation": "Bagaimana dengan anda?"
           },
           "o2": {
             "learning": "Anda?",
@@ -10584,9 +10584,9 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         }
       },
       "zh-en-b-greetings-translation-01": {
-        "promptLearning": "\"Saya diminta untuk bertemu denganmu.\"",
+        "promptLearning": "\"Saya diminta untuk bertemu dengan anda.\"",
         "promptTranslation": "Ia memilih yang paling alami yang setara dengan Cina.",
-        "explanationLearning": "Senang bertemu denganmu. Senang bertemu denganmu.",
+        "explanationLearning": "Senang bertemu dengan anda. Senang bertemu dengan anda.",
         "explanationTranslation": "很高兴认识你 adalah ungkapan alami yang digunakan sewaktu bertemu dengan seseorang untuk pertama kalinya.",
         "options": {
           "o1": {
@@ -11577,7 +11577,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "convenient": {
         "definitionMs": "Mudah atau cocok untuk situasi tertentu.",
-        "exampleMs": "Apa jam 3 sore cocok untukmu?"
+        "exampleMs": "Apa jam 3 sore cocok untuk anda?"
       },
       "cooperate": {
         "definitionMs": "Untuk bekerja sama menuju tujuan bersama.",
@@ -13741,7 +13741,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "hello": {
         "definitionMs": "Salam yang digunakan sewaktu bertemu atau bercakap dengan seseorang. Kata benda dapat mengacu pada tindakan atau bunyi salam seseorang.",
-        "exampleMs": "Helo! Senang bertemu denganmu."
+        "exampleMs": "Helo! Senang bertemu dengan anda."
       },
       "goodbye": {
         "definitionMs": "Kata yang digunakan ketika meninggalkan seseorang atau mengakhiri percakapan; sebagai kata benda, tindakan berpisah.",
@@ -13948,7 +13948,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Tolong kirimkan alamatnya."
       },
       "bring": {
-        "definitionMs": "Untuk membawa seseorang atau sesuatu bersamamu ke suatu tempat",
+        "definitionMs": "Untuk membawa seseorang atau sesuatu bersama anda ke suatu tempat",
         "exampleMs": "Tolong bawa buku catatanmu besok."
       },
       "show": {
@@ -14161,7 +14161,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "take care": {
         "definitionMs": "Ungkapan ramah yang digunakan ketika mengucapkan selamat tinggal dan mengucapkan selamat tinggal kepada seseorang dengan baik.",
-        "exampleMs": "Jaga dirimu, dan saya berharap bertemu denganmu lagi segera."
+        "exampleMs": "Jaga dirimu, dan saya berharap bertemu dengan anda lagi segera."
       },
       "station": {
         "definitionMs": "Tempat di mana kereta api atau bus secara teratur berhenti untuk penumpang.",
@@ -17355,7 +17355,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "为": {
         "definitionMs": "Be, be, do; membaca wèi untuk, kerana atau untuk seseorang.",
-        "exampleMs": "Saya punya hadiah untukmu."
+        "exampleMs": "Saya punya hadiah untuk anda."
       },
       "位": {
         "definitionMs": "Lokasi, lokasi; juga humanistik, sopan atau hormat.",
@@ -18195,7 +18195,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "范": {
         "definitionMs": "Contoh, contoh; contoh atau standar yang patut dipelajari.",
-        "exampleMs": "Dia adalah contoh bagi anda semua semua."
+        "exampleMs": "Dia adalah contoh bagi anda semua."
       },
       "防": {
         "definitionMs": "Kesiapan, perlindungan; langkah maju untuk menghindari bahaya atau masalah.",
@@ -22031,7 +22031,7 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
       },
       "你好": {
         "definitionMs": "Sambutan umum yang digunakan selama perhimpunan.",
-        "exampleMs": "Helo! Senang bertemu denganmu."
+        "exampleMs": "Helo! Senang bertemu dengan anda."
       },
       "谢谢": {
         "definitionMs": "Terima kasih atas bantuanmu atau kebaikanmu.",
@@ -22122,8 +22122,8 @@ window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = {
         "exampleMs": "Jangan risau, ayuh, anda dapat melakukannya."
       },
       "很高兴认识你": {
-        "definitionMs": "Senang bertemu denganmu dahulu.",
-        "exampleMs": "Helo, senang bertemu denganmu."
+        "definitionMs": "Senang bertemu dengan anda dahulu.",
+        "exampleMs": "Helo, senang bertemu dengan anda."
       }
     }
   }
