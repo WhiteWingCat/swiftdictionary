@@ -104,12 +104,20 @@ def main():
             counts["quiz_questions"]+=1
             counts["quiz_strings"]+=4+2*len(q["options"])
     for code,items in data.get("flashcards",{}).items():
+        seen_words=set()
         for item in items:
-            definition=translate(item.get("definition",""),code) if item.get("definition") else ""
+            word=item["word"]
+            if word in seen_words:
+                raise RuntimeError("Duplicate Flashcard support inventory row: "+code+"/"+word)
+            seen_words.add(word)
+            definition_source=item.get("definitionSource",code)
+            if definition_source not in ("en","zh"):
+                raise RuntimeError("Invalid Flashcard definition source: "+code+"/"+word)
+            definition=translate(item.get("definition",""),definition_source) if item.get("definition") else ""
             example=translate(item.get("example",""),code) if item.get("example") else ""
-            if not definition and not example:
-                raise RuntimeError("Flashcard inventory row has no translated content: "+code+"/"+item["word"])
-            output["flashcards"][code][item["word"]]={"definitionMs":definition,"exampleMs":example}
+            if not definition:
+                raise RuntimeError("Flashcard inventory row has no translated definition: "+code+"/"+word)
+            output["flashcards"][code][word]={"definitionMs":definition,"exampleMs":example}
             counts["flashcards"]+=1
             counts["flashcard_strings"]+=1+(1 if example else 0)
     js="/* Generated Malay learning-support translations. Machine-assisted drafts; human review pending. */\n"
