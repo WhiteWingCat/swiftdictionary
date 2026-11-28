@@ -434,6 +434,36 @@
     zh:chineseDailyLearning,
     ms:window.SWIFT_MALAY_DAILY_LEARNING || {topics:[],applications:[],discovery:[]}
   };
+  // The legacy app loads large language dictionaries and content packages as
+  // separate scripts. Rebuild Malay Discovery once the complete package
+  // bootstrap has run so a partially available dictionary can never freeze a
+  // truncated 70-word pool into the browser runtime.
+  const refreshMalayDailyDiscoveryPackage = () => {
+    const malayContent=window.SWIFT_MALAY_DAILY_LEARNING;
+    if(!malayContent)return;
+    const discovery=buildMalayDailyDiscoveryPool();
+    malayContent.discovery=discovery;
+    if(window.SWIFT_DAILY_LEARNING_CONTENT?.ms){
+      window.SWIFT_DAILY_LEARNING_CONTENT.ms.discovery=discovery;
+    }
+    const currentPackage=window.SWIFT_CONTENT_PACKAGES?.get("ms");
+    const legacySource=window.SWIFT_LEGACY_CONTENT_DATA?.ms;
+    if(!currentPackage||!legacySource)return;
+    legacySource.dailyLearning=malayContent;
+    window.SWIFT_CONTENT_PACKAGES.createPackage({
+      languageCode:"ms",
+      contentVersion:currentPackage.contentVersion,
+      content:{
+        dictionary:{entries:legacySource.dictionary||[]},
+        lessons:{permanent:legacySource.lessons||[],translations:legacySource.lessonTranslations||{}},
+        dailyLearning:malayContent,
+        quiz:{source:legacySource.quizSource||null},
+        flashcards:{source:legacySource.flashcards?.source||legacySource.flashcardSource||null,cards:legacySource.flashcards?.cards||[]}
+      },
+      metadata:currentPackage.metadata
+    });
+  };
+  window.addEventListener("swiftdictionary:content-packages-ready",refreshMalayDailyDiscoveryPackage,{once:true});
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
   function clearDailyResetTimer() {
