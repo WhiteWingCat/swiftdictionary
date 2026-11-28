@@ -1447,3 +1447,9 @@ Latest application head: `fc94da1598433d0890afb05a8c7738b7d93055b5`. The current
 On preceding head `3904f69`, the full Flashcards suite passed 37/37, U2.3 allowance/dashboard + Auth + browser passed, U2.6 ACL passed, U2.7 Chinese passed, U2.9 English passed, U3.0 architecture passed and Quiz DB migration/SQL + authenticated Quiz RPC passed its completed steps. A cross-account denial assertion was then added to the Flashcard partial-review SQL test; the current `fc94da1` rerun is in progress to validate that additional test. Current head already has U3.0 architecture, U2.6 ACL, U2.7 Chinese, U2.9 English and Cloudflare routing green; Flashcards Chromium, U2.3, Quiz DB/Auth and remaining checks are still in progress.
 
 The staging partial-review migration is already applied and live-verified. No production database or hosting changes have been made.
+
+### Security advisor review after staging migration
+
+Supabase security advisor reports 10 INFO findings for private-schema tables with RLS enabled but no policies. This matches the intended private-schema model: tables are not exposed for direct API reads, direct SELECT remains denied to anon/authenticated, and authenticated users access their own records through SECURITY DEFINER RPCs with `auth.uid()` ownership checks. No broad RLS policy or table grant was added. See [Supabase's RLS-enabled/no-policy linter note](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy).
+
+The advisor also reports leaked-password protection disabled; this is explicitly excluded from active scope at the owner's direction. Do not attempt to enable it or change plan/billing. Latest `fc94da1` CI has U3.0 architecture, Cloudflare routing, U2.6 ACL, U2.7 Chinese and U2.9 English green; Flashcards browser, U2.3 and Quiz DB/Auth remain in progress.
