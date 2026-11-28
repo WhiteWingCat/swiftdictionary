@@ -89,59 +89,51 @@
       :language==="en"?[englishSource,curatedEnglishPhrases]:[];
     const cached=reviewWordIndexCache.get(language);
     if(cached&&cached.sourceRefs.length===sourceRefs.length&&sourceRefs.every((source,index)=>source===cached.sourceRefs[index]))return cached.index;
-    {
-      const index=new Map();
-      let source=[];
-      if(language==="zh"){
-        const mapChineseReviewItems=(items,cardKind)=>(items||[]).map(item=>({
-          ...item,course:"zh",cardKind,definition:item.translationEn||"",
-          definitionZh:item.definitionCueZh||item.definitionZh||"",
-          examples:(item.sentenceExampleZh||item.exampleZh)?[item.sentenceExampleZh||item.exampleZh]:[],
-          phonetic:item.pinyin||""
-        }));
-        source=[
-          ...mapChineseReviewItems(bank.characters,"characters"),
-          ...mapChineseReviewItems(bank.vocabulary,"vocabulary"),
-          ...mapChineseReviewItems(bank.phrases,"phrases")
-        ];
-      }else if(language==="ms"){
-        source=(window.SWIFT_MALAY_DICTIONARY||[]).filter(item=>item?.word&&item?.definition)
-          .map(item=>({...item,course:"ms",cardKind:String(item.part||"").toLowerCase().includes("frasa")?"phrases":"vocabulary",
-            definition:item.definition,definitionEn:item.definitionEn||"",definitionZh:item.definitionZh||"",
-            examples:Array.isArray(item.examples)?item.examples:[],translationEn:item.definitionEn||"",translationZh:item.definitionZh||""}));
-      }else if(language==="en"){
-        const dictionary=englishSource.filter(item=>item&&item.course==="en"&&item.word);
-        const seen=new Set(dictionary.map(item=>String(item.word).trim().toLocaleLowerCase("en")));
-        source=[...dictionary,...curatedEnglishPhrases.filter(item=>!seen.has(item.word.toLocaleLowerCase("en")))];
+    const index=new Map();
+    // Index original source records instead of cloning the full dictionary into
+    // translated game-card objects. Only the selected record is normalised.
+    const add=(items,cardKind=null)=>{
+      for(const item of items||[]){
+        if(!item?.word)continue;
+        const key=String(item.word).trim().toLocaleLowerCase("en");
+        if(key&&!index.has(key))index.set(key,cardKind?{item,cardKind}:item);
       }
-      // The review list only needs stable card identity and its display label.
-      // Avoid building the fully translated game deck before the first item appears.
-      for(const item of source){
-        const key=String(item.word||"").trim().toLocaleLowerCase("en");
-        if(key&&!index.has(key))index.set(key,item);
-      }
-      reviewWordIndexCache.set(language,{sourceRefs,index});
-      return index;
+    };
+    if(language==="zh"){
+      add(bank.characters,"characters");
+      add(bank.vocabulary,"vocabulary");
+      add(bank.phrases,"phrases");
+    }else if(language==="ms"){
+      add((window.SWIFT_MALAY_DICTIONARY||[]).filter(item=>item?.definition));
+    }else if(language==="en"){
+      add((englishSource||[]).filter(item=>item?.course==="en"));
+      const seen=new Set(index.keys());
+      add((curatedEnglishPhrases||[]).filter(item=>!seen.has(String(item.word||"").trim().toLocaleLowerCase("en"))));
     }
+    reviewWordIndexCache.set(language,{sourceRefs,index});
+    return index;
   }
   function warmWeakMemoryReviewIndex(language=course){
-    // Weak Memory can contain cards from courses other than the currently
-    // selected one. Warm each referenced language before the learner opens a
-    // detail row, and prepare the Malay gloss fallback when Malay is selected.
+    // Build one compact identity index per idle slice. Avoid a single large
+    // clone/enrichment pass over every course, which can stall mobile browsers.
     const languages=new Set([language,course]);
     for(const item of state.data.review_items||[]){
       const match=String(item.card_key||"").match(/^dict:([a-z]{2,3}):/);
       languages.add(match?match[1]:(String(item.card_key||"").startsWith("dict:")?"en":null));
     }
     languages.delete(null);
-    const warm=()=>{
-      try{
-        for(const code of languages)reviewWordIndex(code);
-        if(translationLanguage==="ms")malayGlossLookup();
-      }catch(error){console.warn("Weak Memory review data could not be preloaded:",error);}
+    const queue=[...languages];
+    const warmNext=()=>{
+      const code=queue.shift();
+      if(code){
+        try{reviewWordIndex(code);}catch(error){console.warn("Weak Memory review index could not be preloaded:",error);}
+      }
+      if(!queue.length)return;
+      if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warmNext,{timeout:1200});
+      else window.setTimeout(warmNext,24);
     };
-    if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warm,{timeout:100});
-    else window.setTimeout(warm,0);
+    if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warmNext,{timeout:500});
+    else window.setTimeout(warmNext,24);
   }
   function malayGlossLookup(){
     if(malayGlossLookupCache)return malayGlossLookupCache;
@@ -922,13 +914,42 @@
     const languageMatch=String(key||"").match(/^dict:([a-z]{2,3}):/);
     if(languageMatch){
       const language=languageMatch[1];
-      return reviewWordIndex(language).get(String(key).slice(languageMatch[0].length).toLocaleLowerCase("en"))||null;
+      const record=reviewWordIndex(language).get(String(key).slice(languageMatch[0].length).toLocaleLowerCase("en"));
+      if(!record)return null;
+      if(language==="zh"){
+        const item=record.item;
+        return {...item,course:"zh",cardKind:record.cardKind,definition:item.translationEn||"",
+          definitionZh:item.definitionCueZh||item.definitionZh||"",
+          examples:(item.sentenceExampleZh||item.exampleZh)?[item.sentenceExampleZh||item.exampleZh]:[],
+          phonetic:item.pinyin||""};
+      }
+      if(language==="ms"){
+        const item=record;
+        return {...item,course:"ms",cardKind:String(item.part||"").toLowerCase().includes("frasa")?"phrases":"vocabulary",
+          definition:item.definition,definitionEn:item.definitionEn||"",definitionZh:item.definitionZh||"",
+          examples:Array.isArray(item.examples)?item.examples:[],translationEn:item.definitionEn||"",translationZh:item.definitionZh||""};
+      }
+      return record;
     }
     if(String(key||"").startsWith("dict:")){
       return reviewWordIndex("en").get(String(key).slice(5).toLocaleLowerCase("en"))||null;
     }
     const card=reviewCustomCardIndex().get(key);
     return card?mapCustomCard(card):null;
+  }
+  let reviewItemsSource=null;
+  let reviewItemsByModeCache=new Map();
+  function reviewItemsForMode(mode){
+    const source=state.data.review_items||[];
+    if(source!==reviewItemsSource){
+      reviewItemsSource=source;
+      reviewItemsByModeCache=new Map();
+      for(const item of source){
+        if(!reviewItemsByModeCache.has(item.mode))reviewItemsByModeCache.set(item.mode,[]);
+        reviewItemsByModeCache.get(item.mode).push(item);
+      }
+    }
+    return reviewItemsByModeCache.get(mode)||[];
   }
   const reviewDetailCache=new Map();
   function renderReviewDetail(){
@@ -957,14 +978,21 @@
     const labels=(adapterFor(course)?.flashcardModes||[]).includes("translation")?{word:uiText("Word","汉字"),definition:uiText("Definition","释义"),translation:uiText("Translation","翻译"),sentence:uiText("Sentence","句子")}:{word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
     const previousListScroll=overlay.querySelector(".flash-review-list")?.scrollTop||0;
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
-    const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
+    const items=reviewItemsForMode(state.reviewMode);
     const visibleItems=items.slice(0,Math.max(40,state.reviewListLimit||40));
     const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
     const removeLabel=uiText("Remove from weak-memory review","从薄弱记忆列表中移除");
     const more=visibleItems.length<items.length
       ?'<button type="button" class="flash-secondary flash-review-load-more" data-action="review-load-more">'+uiText("Show more","显示更多")+' ('+visibleItems.length+'/'+items.length+')</button>'
       :"";
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?visibleItems.map(item=>{const key=String(item.card_key||"");const dictionaryKey=key.match(/^dict:(?:[a-z]{2,3}:)?/);const label=dictionaryKey?key.slice(dictionaryKey[0].length):(reviewCustomCardIndex().get(key)?.front_text||key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}" aria-pressed="${item.card_key===state.reviewSelected}">${escapeHtml(label)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join("")+more:'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail"></div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
+    const customIndex=visibleItems.some(item=>!String(item.card_key||"").startsWith("dict:"))?reviewCustomCardIndex():null;
+    const listMarkup=visibleItems.map(item=>{
+      const key=String(item.card_key||"");
+      const dictionaryKey=key.match(/^dict:(?:[a-z]{2,3}:)?/);
+      const label=dictionaryKey?key.slice(dictionaryKey[0].length):(customIndex?.get(key)?.front_text||key);
+      return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}" aria-pressed="${item.card_key===state.reviewSelected}">${escapeHtml(label)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;
+    }).join("");
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?listMarkup+more:'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail"></div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
     const list=overlay.querySelector(".flash-review-list"),detailPanel=overlay.querySelector("#flashReviewDetail");
     if(list)list.scrollTop=previousListScroll;
     if(detailPanel)detailPanel.scrollTop=previousDetailScroll;
