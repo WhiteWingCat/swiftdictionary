@@ -27,6 +27,18 @@ begin
     raise exception 'Authenticated user grants are missing from owner-scoped learning tables';
   end if;
 
+  if not has_table_privilege('authenticated','public.user_preferences','SELECT')
+     or not has_table_privilege('authenticated','public.user_preferences','INSERT')
+     or not has_table_privilege('authenticated','public.user_preferences','UPDATE') then
+    raise exception 'Authenticated course preference grants are missing from user_preferences';
+  end if;
+
+  if has_table_privilege('anon','public.user_preferences','SELECT')
+     or has_table_privilege('anon','public.user_preferences','INSERT')
+     or has_table_privilege('anon','public.user_preferences','UPDATE') then
+    raise exception 'Anonymous access must not be granted to account-scoped user_preferences';
+  end if;
+
   if not has_function_privilege('authenticated','public.start_my_quiz(text)','EXECUTE')
      or not has_function_privilege('authenticated','public.get_my_quiz_availability()','EXECUTE')
      or has_function_privilege('anon','public.start_my_quiz(text)','EXECUTE')
