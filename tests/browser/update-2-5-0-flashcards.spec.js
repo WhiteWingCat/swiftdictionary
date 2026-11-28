@@ -210,6 +210,7 @@ test("Chinese permanent lesson Daily History review uses the Chinese lesson cata
 test("English Flashcards include the curated multiword expression bank",async({page})=>{
   await openMockFlashcards(page);
   const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  console.log("[Malay Flashcard coverage audit]",JSON.stringify(stats));
   expect(stats.englishCuratedPhraseCount).toBe(25);
 });
 
