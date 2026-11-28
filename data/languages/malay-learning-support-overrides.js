@@ -527,14 +527,16 @@
     "zh-en-b-places-getting-around-04":{promptLearning:"Ayat manakah digunakan untuk bertanya lokasi stesen MRT?",explanationLearning:"“地铁站在哪里？” menggunakan pola “tempat + 在哪里” untuk bertanya lokasi sesuatu tempat.",options:{o1:{learning:"Di manakah stesen MRT?"},o2:{learning:"Apakah stesen MRT?"},o3:{learning:"Saya pergi ke stesen MRT."},o4:{learning:"Stesen MRT itu besar."}}}
   });
   Object.entries(zhRows).forEach(([id,row])=>{
-    if(zh?.[id]){
-      zh[id].promptLearning=row.promptLearning;
-      zh[id].explanationLearning=row.explanationLearning;
-      Object.entries(row.options).forEach(([optionId,value])=>{
-        if(zh[id].options?.[optionId]) zh[id].options[optionId][zh[id].options[optionId].translation!==undefined&&zh[id].options[optionId].learning===undefined?"translation":"learning"]=value.learning??value.translation;
-        if(value.translation&&zh[id].options?.[optionId]) zh[id].options[optionId].translation=value.translation;
-      });
-    }
+    if(!zh) return;
+    const target=zh[id]||(zh[id]={options:{}});
+    target.options=target.options||{};
+    target.promptLearning=row.promptLearning;
+    target.explanationLearning=row.explanationLearning;
+    Object.entries(row.options||{}).forEach(([optionId,value])=>{
+      const option=target.options[optionId]||(target.options[optionId]={});
+      option.learning=value.learning??value.translation??"";
+      if(value.translation) option.translation=value.translation;
+    });
   });
   const lessonCorrections = {
     en: {
