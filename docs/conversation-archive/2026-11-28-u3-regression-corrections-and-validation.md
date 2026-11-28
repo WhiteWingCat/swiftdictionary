@@ -70,3 +70,28 @@ Inspection of the test found a race: it clicked the next phase action without wa
 - then verify Weak Memory, game review snapshots and the saved incorrect result.
 
 This is a test-synchronisation repair; it does not weaken the review assertions or alter the runtime/SQL persistence contract. Latest application test commit is now `72c63d8e948294876e64371353f864b0861440d9`. GitHub created new pull-request workflow runs for this commit but marked them `action_required` with no jobs started. The prior app-head workflow `8773418` had the architecture suite green and Pages deployment successful; the per-card review browser result remains unverified until the new run is approved/executed. The pending Quiz DB run on `8773418` also still needs to finish its local Auth/RPC integration job.
+
+## Deterministic per-card review test update — 2026-11-28
+
+The explicit-wait version at `72c63d8` still timed out, so I did not keep increasing the timeout or treat that as solved. The browser test was redesigned to isolate the review contract deterministically:
+- start a mock Flashcard session through the same RPC interface;
+- complete it with one correct and one incorrect result, each containing a complete four-option snapshot;
+- verify the RPC returns the correct totals and the review RPC returns the selected and correct answers;
+- refresh the page's authenticated mock data and verify the weak-memory list includes the missed card;
+- open the completed game from Recent games and verify both per-card cards, incorrect status, selected answer and correct answer.
+
+Live timer/phase transitions remain covered by the other existing Flashcard browser tests; SQL integration separately validates the real database completion RPC and snapshot persistence. This avoids random answer ordering and a long wall-clock loop in the specific UI rendering/persistence test without weakening the review assertions.
+
+Latest application head is now `75a9d4b5f450452943294a6d9abea6750a4c1734`. Its U3.0 architecture, Flashcards static, Flashcards Chromium, U2.3, U2.7, U2.6, U2.9, Quiz DB/Auth and Cloudflare Pages checks have been queued or are in progress; none is accepted until completed. The previous `72c63d8` U3.0 architecture suite passed, but U2.5 and U2.3 browser suites still failed on the old timeout test. The latest Cloudflare Pages deployment for `75a9d4b` is also still in progress at this checkpoint.
+
+### Read-only staging data/security evidence
+
+On the staging Supabase project `ivatvkfrtifgfheeaelj` (PostgreSQL 17), current schema/migration inventory includes the Flashcard session snapshot, completion repair and snapshot-hardening migrations. Read-only counts:
+- 8 completed sessions;
+- 66 per-card snapshots across 6 sessions;
+- 34 weak-memory rows and 34 mastery rows whose last result is incorrect;
+- 0 mastery rows with last incorrect but no weak-memory entry.
+
+All 8 sessions are dated Nov 23–27, 2026; the two Malay sessions on Nov 27 (10:58 and 11:04 UTC) have no per-card snapshots, while the six earlier Chinese sessions have snapshots. Therefore the observed Malay session review issue is real historical data loss in those two completed sessions, not merely a test-only message. The migration's snapshot repair improves future games but cannot reconstruct exact prompts, option ordering, selected answer or correct answer for those already-completed Malay games from summary/mastery counts alone. Do not fabricate per-card review content. The game summary should remain available with an accurate explanation that per-card details were not stored; weak-memory cards from the two sessions are present in the review list.
+
+Read-only privilege checks confirm anon and authenticated have no direct SELECT on private snapshot/review tables; anon cannot execute the public game-review RPC, while authenticated can. Do not add direct table grants or weaken RLS to fix UI issues.
