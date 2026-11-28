@@ -562,7 +562,9 @@
   Object.entries(rows).forEach(([id, row]) => {
     if (en[id]) {
       en[id].promptLearning = row.promptLearning;
+      en[id].promptTranslation = row.promptTranslation || row.promptLearning;
       en[id].explanationLearning = row.explanationLearning;
+      en[id].explanationTranslation = row.explanationTranslation || row.explanationLearning;
       Object.entries(row.options).forEach(([optionId, value]) => {
         if (en[id].options?.[optionId]) {
           en[id].options[optionId].learning = value.learning;
@@ -888,7 +890,9 @@
     const target=zh[id]||(zh[id]={options:{}});
     target.options=target.options||{};
     target.promptLearning=row.promptLearning;
+    target.promptTranslation=row.promptTranslation||row.promptLearning;
     target.explanationLearning=row.explanationLearning;
+    target.explanationTranslation=row.explanationTranslation||row.explanationLearning;
     Object.entries(row.options||{}).forEach(([optionId,value])=>{
       const option=target.options[optionId]||(target.options[optionId]={});
       option.learning=value.learning??value.translation??"";
