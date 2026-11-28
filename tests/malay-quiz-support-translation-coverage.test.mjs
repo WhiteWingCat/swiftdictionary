@@ -91,3 +91,11 @@ test("English and Chinese Flashcard Malay definitions contain no obvious Indones
   assert.doesNotMatch(row.definitionMs,flashcardDefinitionTerms,lang+":"+word+" definition contains an Indonesian-only lexical form");
  }
 });
+
+test("Malay support generator falls back to curated glosses for isolated Chinese tokens", () => {
+  const exporter = read("scripts/content/export-malay-learning-support-input.cjs");
+  const generator = read("scripts/content/generate-malay-learning-support.py");
+  assert.ok(exporter.includes("window.SWIFT_FLASHCARD_MALAY_SUPPORT"));
+  assert.ok(generator.includes('malay_glosses.get("zh",{}).get(value,"")'));
+  assert.ok(generator.includes('re.search(r"[\\u3400-\\u9fff]"'));
+});
