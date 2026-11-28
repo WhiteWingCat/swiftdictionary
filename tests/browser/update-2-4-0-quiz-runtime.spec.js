@@ -1152,26 +1152,39 @@ test("Quiz start allowance warning uses the centered website dialog and cancella
   await expect(page.locator("#quizAllowanceText")).toContainText("0 / 1");
 });
 
-test("English and Chinese Quiz fail closed while Malay support packs are incomplete",async({page})=>{
-  const enUser=await createRuntimeUser("english-quiz-malay-unavailable","free");
-  const enSession=await signIn(enUser.email,enUser.password);
-  await updateLearningPreference(enUser.id,"en","ms");
-  await openQuiz(page,enSession);
-  await expect(page.locator("#translationSelect")).toHaveValue("ms");
-  await page.locator('[data-quiz-start="beginner"]').click();
-  await expect(page.locator("#quizStatus")).toContainText("Malay support translations for English and Chinese Quiz questions are not available yet");
-  await expect(page.locator("#quizSession")).toBeHidden();
-
-  const zhUser=await createRuntimeUser("chinese-quiz-malay-unavailable","free");
-  const zhSession=await signIn(zhUser.email,zhUser.password);
-  await updateLearningPreference(zhUser.id,"zh","ms");
-  await page.evaluate(()=>localStorage.clear());
-  await openQuiz(page,zhSession);
-  await expect(page.locator("#courseSelect")).toHaveValue("zh");
-  await expect(page.locator("#translationSelect")).toHaveValue("ms");
-  await page.locator('[data-quiz-start="beginner"]').click();
-  await expect(page.locator("#quizStatus")).toContainText("Malay support translations for English and Chinese Quiz questions are not available yet");
-  await expect(page.locator("#quizSession")).toBeHidden();
+test("English and Chinese Quiz render complete Malay support for prompts, options and explanations",async({page})=>{
+  for(const learningLanguage of ["en","zh"]){
+    const user=await createRuntimeUser(learningLanguage+"-quiz-malay-support","free");
+    const session=await signIn(user.email,user.password);
+    await updateLearningPreference(user.id,learningLanguage,"ms");
+    await page.evaluate(()=>localStorage.clear());
+    await openQuiz(page,session);
+    await expect(page.locator("#courseSelect")).toHaveValue(learningLanguage);
+    await expect(page.locator("#translationSelect")).toHaveValue("ms");
+    await startQuiz(page,"beginner");
+    await expect(page.locator("#quizSession")).toBeVisible();
+    await expect(page.locator("#quizTranslationNotice")).toBeVisible();
+    await expect(page.locator("#quizTranslationNotice")).toContainText("Bahasa Melayu");
+    const coverage=await page.evaluate(()=>{
+      const snapshot=quizPageState.session;
+      const rows=snapshot.questions.map(question=>quizMalayQuestion(question,snapshot.learning_language_code));
+      const reviewMarkup=quizBuildResultMarkup(snapshot);
+      return {
+        effective:quizEffectiveTranslationCode(snapshot),
+        count:snapshot.questions.length,
+        complete:rows.every((row,index)=>row?.promptLearning?.trim()&&row?.explanationLearning?.trim()&&snapshot.questions[index].options.every(option=>{
+          const translated=quizMalayOption(snapshot.questions[index],option,snapshot.learning_language_code);
+          return typeof translated==="string"&&translated.trim();
+        })),
+        explanationInReview:rows.some(row=>row?.explanationLearning&&reviewMarkup.includes(quizEscape(row.explanationLearning)))
+      };
+    });
+    expect(coverage).toMatchObject({effective:"ms",count:10,complete:true,explanationInReview:true});
+    await expect(page.locator("#quizQuestionArea .quiz-option-copy small")).toHaveCount(4);
+    page.once("dialog",dialog=>dialog.accept());
+    await page.locator("#quizAbandon").click();
+    await expect(page.locator("#quizHome")).toBeVisible();
+  }
 });
 test("Chinese Quiz shows English translations for knowledge prompts when English is selected", async ({ page }) => {
   const user=await createRuntimeUser("chinese-quiz-english-prompt-support","free");
