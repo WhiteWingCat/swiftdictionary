@@ -418,7 +418,8 @@
         definitionZh: entry.definitionZh,
         examples: Array.isArray(entry.examples) ? entry.examples : [],
         related: Array.isArray(entry.related) ? entry.related : [],
-        topicId: null
+        topicId: null,
+        difficulty: null
       };
     }).filter(Boolean);
   };
