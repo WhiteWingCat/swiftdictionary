@@ -52,7 +52,7 @@
   ];
   const state = {
     ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,roundRecorded:false,usedQuestionKeys:new Set(),reviewSession:null,data:{collections:[],cards:[],mastery:[],history:[]},
-    collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,historyPage:0,
+    collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,reviewListLimit:40,lastResult:null,historyPage:0,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
@@ -958,9 +958,13 @@
     const previousListScroll=overlay.querySelector(".flash-review-list")?.scrollTop||0;
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
+    const visibleItems=items.slice(0,Math.max(40,state.reviewListLimit||40));
     const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
     const removeLabel=uiText("Remove from weak-memory review","从薄弱记忆列表中移除");
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const key=String(item.card_key||"");const dictionaryKey=key.match(/^dict:(?:[a-z]{2,3}:)?/);const label=dictionaryKey?key.slice(dictionaryKey[0].length):(reviewCustomCardIndex().get(key)?.front_text||key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}" aria-pressed="${item.card_key===state.reviewSelected}">${escapeHtml(label)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail"></div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
+    const more=visibleItems.length<items.length
+      ?'<button type="button" class="flash-secondary flash-review-load-more" data-action="review-load-more">'+uiText("Show more","显示更多")+' ('+visibleItems.length+'/'+items.length+')</button>'
+      :"";
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?visibleItems.map(item=>{const key=String(item.card_key||"");const dictionaryKey=key.match(/^dict:(?:[a-z]{2,3}:)?/);const label=dictionaryKey?key.slice(dictionaryKey[0].length):(reviewCustomCardIndex().get(key)?.front_text||key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}" aria-pressed="${item.card_key===state.reviewSelected}">${escapeHtml(label)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join("")+more:'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail"></div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
     const list=overlay.querySelector(".flash-review-list"),detailPanel=overlay.querySelector("#flashReviewDetail");
     if(list)list.scrollTop=previousListScroll;
     if(detailPanel)detailPanel.scrollTop=previousDetailScroll;
@@ -1047,7 +1051,16 @@
       if(action==="review-game"){await openGameReview(value);return;}
       if(action==="history-next"){if((state.historyPage+1)*10<state.data.history.length){state.historyPage++;render();}return;}
       if(action==="history-prev"){state.historyPage=Math.max(0,state.historyPage-1);render();return;}
-      if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
+      if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;state.reviewListLimit=40;renderReviewPrompt();return;}
+       if(action==="review-load-more"){
+         const list=overlayRoot.querySelector(".flash-review-list");
+         const previousScroll=list?.scrollTop||0;
+         state.reviewListLimit=Math.max(40,state.reviewListLimit||40)+40;
+         renderReviewPrompt();
+         const nextList=overlayRoot.querySelector(".flash-review-list");
+         if(nextList)nextList.scrollTop=previousScroll;
+         return;
+       }
       if(action==="review-detail"){
         state.reviewSelected=value;
         overlayRoot.querySelectorAll(".flash-review-entry").forEach(entry=>entry.setAttribute("aria-pressed",String(entry.dataset.value===value)));
