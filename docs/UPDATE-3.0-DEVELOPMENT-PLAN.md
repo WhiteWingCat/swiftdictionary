@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** U3.0 remains a staging-only preview on PR #20; production is untouched and the PR remains draft/unmerged. Latest application head at this checkpoint: `c090948b4fcff9ec76aed04ca20a5211ca11532b`. English Lessons: 17 lessons / 112 practice questions; Simplified Chinese Lessons: 17 / 112; Malay Lessons: 72 / 216. Quiz support: 199 approved English and 145 approved Chinese questions with Malay support; Malay Quiz: 120 unique questions represented in 240 support-language staging records. Daily Learning: 60 Topics, 60 Applications and 93 Discovery items. Flashcard source inventory: 1,341 English cards and 1,447 Chinese cards; English Malay definitions are complete (1,341/1,341), while Chinese Malay definition support remains 895/1,447 (61.9%) until the running translation-generation workflows commit the updated 1,447-card pack. The export/generator now includes all Chinese cards, using the English gloss when a card has no authored Chinese definition. The two new staging feedback fixes are implemented: Quiz overview refreshes for every supported learning course and discards stale responses; Weak Memory review caches per-language dictionary indexes instead of rebuilding the full word bank per row. Automated language checks now cover released Quiz/lesson options, Indonesian-only wording, duplicate choices and Flashcard glosses. The large-list Weak Memory browser regression passed; the current U3.0 architecture run is blocked only by the not-yet-regenerated Chinese Flashcard pack. Owner direction: skip pre-live human editorial review for this update and perform that review on the live website; machine-assisted text remains marked draft/unreviewed, not editorially approved. Google OAuth/account isolation and latest Pages preview still need current-head verification. PR #20 remains draft/unmerged; production remains untouched. See the latest Nov 28 regression/content checkpoint in the Master Development Record.
+**Status (2026-11-28, latest polish checkpoint):** U3.0 remains staging-only on draft PR #20; production is untouched. Latest application branch head: `9eac967b0b4ed859c3b557d88a92ad7f74dc4c6b`. Lessons inventory: English 17 lessons / 112 practice questions; Simplified Chinese 17 / 112; Malay 72 / 216. Quiz source inventory: English 229, Simplified Chinese 145, Malay 120 unique questions in each of the English- and Chinese-support packs (240 support records). Daily Learning: 60 Topics, 60 Applications and 93 Discovery items. Flashcard source inventory: 1,341 English and 1,447 Chinese cards. English Malay support resolves 1,341/1,341; Chinese Malay support is currently incomplete at 895/1,447 in runtime, while the checked-in direct support output contains 603 Chinese rows. The exporter and validator now enforce the full 1,447-card inventory; generation is pending and coverage must not be called complete until it produces and validates all 1,447 rows. Latest polish addresses course changes during an active Quiz and removes repeated full-list rendering and quadratic translation lookups from Weak Memory review. New browser regressions cover active-session course changes and repeated 80-card Chinese/English Weak Memory review. Latest full CI is still running/queued; no overall pass is claimed. Owner instruction: skip pre-live human editorial review for this update; review will occur on the live website. Machine-assisted content remains explicitly draft/unreviewed. Legal, provenance, rights/licensing and privacy checks remain separate public-release requirements. PR #20 remains draft/unmerged; production remains untouched.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -168,7 +168,7 @@ Phases are sequential. Each phase has its own implementation and validation chec
 ### Phase 7 — Full U3.0 QA, release readiness and rollout
 
 - Run full automated data/schema validation, PostgreSQL/Supabase migration and security tests, browser/integration tests, accessibility/reduced-motion tests, responsive tests and cross-version regression.
-- Manually review linguistic/educational quality for Malay and sample/review migrated English and Chinese content. Report machine-assisted checks and human linguistic review separately.
+- Run automated linguistic/educational quality checks for Malay and migrated English/Chinese content, including completeness, distinct options, duplicate detection, locale-specific wording and source alignment. Per owner instruction, do not require pre-live human editorial review; the owner will review content on the live website. Keep machine-assisted content explicitly draft/unreviewed until actual review evidence is recorded.
 - Test Google sign-in, sign-out, account switching, account-isolated saved words, cross-device sync, collections, preferences, course/support-language changes, progress, history deletion and shared allowances.
 - Verify no regressions to Chinese pinyin/search/stroke order, English multi-sense dictionary, lessons, Quiz, Flashcards, Dashboard and Your Collections.
 - Prepare release notes, data provenance/licensing notices, migration runbook, rollback/recovery notes and final consolidated deliverable only after the complete task/phase is validated.
@@ -192,7 +192,7 @@ Phases are sequential. Each phase has its own implementation and validation chec
 - Each language's curriculum is independently authored for its own grammar and learning progression. Translation supports comprehension; it does not dictate curriculum.
 - Maintain stable IDs, context, learning objectives, terminology notes and provenance from authoring time.
 - Structural validators detect missing fields, duplicate IDs, duplicate content, invalid references, inconsistent POS/senses, invalid distractors, answer-key mismatch, missing translations and stale revisions.
-- Automated and machine-assisted checks are not equivalent to professional linguistic approval. Record native/competent human review and unresolved editorial limitations.
+- Automated and machine-assisted checks are not equivalent to professional linguistic approval. For this update, human editorial review is deferred until the live website by owner instruction; record the draft status and all automated checks honestly.
 
 ## 6. Legal, privacy, licensing and accessibility planning
 
@@ -1506,3 +1506,28 @@ Review and release handling:
 - Leaked-password protection remains excluded by the owner's earlier instruction.
 
 Remaining work: complete the running translation generation, verify 1,341/1,341 English and 1,447/1,447 Chinese Flashcard Malay definitions plus all language-quality tests, rerun the complete cross-version CI matrix, verify current Pages preview and OAuth/account isolation, then prepare the consolidated U3.0 staging handoff. Production remains untouched and PR #20 remains draft/unmerged.
+
+
+## 2026-11-28 — owner decision and latest multilingual polish override
+
+This checkpoint supersedes older plan passages that scheduled human editorial review during staging or made it a pre-live U3.0 gate. The owner explicitly directed that **no human editorial or translation review is required before this update goes live**; the owner will perform that review on the live website. Do not mark machine-assisted content reviewed/approved, and do not invent reviewer metadata. Automated checks remain mandatory.
+
+Application work on `feature/update-3.0-phase-0-audit`:
+- Quiz course switching now clears any session/result view tied to the previously selected learning course, invalidates older in-flight overview requests, waits for the serial preference write, and reloads the selected course's availability/overview. This closes the active-session path where a stale course snapshot could remain visible.
+- Weak Memory now builds normalized Malay support and reviewed-example lookup maps once, reuses per-language dictionary indexes, and updates only the selected-card detail panel rather than rebuilding the entire review list for every click.
+- Added browser coverage for changing course while a Quiz session is active, plus 80-card Chinese Weak Memory navigation and list-DOM preservation.
+- Flashcards script cache key is `3.0.0-ms23`.
+
+Content checkpoint:
+- Current Quiz source files contain 229 English, 145 Chinese and 120 Malay questions per support-language pack. Malay Lessons remain 72 lessons / 216 practice questions; English and Chinese each have 112 Malay practice translations.
+- English Flashcard Malay support resolves 1,341/1,341.
+- Chinese Flashcard Malay support is still a blocker: 895/1,447 runtime definitions, and 603 direct generated support rows at the latest checked output. The source exporter now hard-fails unless it exports 1,341 English and 1,447 Chinese cards; the generator validator hard-fails unless the output contains all 1,341/1,447 rows. The generation workflow is pending. Do not waive this coverage requirement or claim it is complete.
+- Automated lexical checks continue to reject known Indonesian-only wording, duplicate options and missing support strings. They are automated safeguards, not a guarantee of human-level semantic review.
+
+Validation at this checkpoint:
+- The first architecture run exposed the stale 895/1,447 Chinese Flashcard coverage output; that failure is a genuine content gap, not a runtime-only display issue.
+- A separate architecture run initially exposed a test-harness omission after lookup caching was introduced; the harness was corrected to load the new indexed helpers.
+- Latest cross-version, Quiz DB/Auth, Flashcards browser and architecture workflows are pending/queued or awaiting rerun on the latest head. No overall CI pass is claimed.
+- No production migration, deployment or PR merge is authorised by this work. Leaked-password protection remains excluded by prior owner instruction.
+
+Public-release considerations remain separate: exact model/corpus licences and attribution, item-level provenance/rights, Malaysia Copyright Act 1987, PDPA 2010 as amended in 2024 and cross-border processing still require resolution. No new personal-data collection, telemetry or third-party sharing was added.
