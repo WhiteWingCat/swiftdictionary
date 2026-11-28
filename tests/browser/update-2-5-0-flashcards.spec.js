@@ -47,7 +47,7 @@ async function openMockFlashcards(page) {
   await page.locator("#translationSelect").selectOption("en");
 }
 
-async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60) {
+async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60,waitForPreferences=true) {
   // Duration controls live beside the mode heading, outside the setup dialog.
   await page.locator('[data-action="set-duration"][data-value="'+duration+'"]').click();
   await expect(page.locator('[data-action="set-duration"][data-value="'+duration+'"]')).toHaveAttribute("aria-pressed","true");
@@ -55,11 +55,14 @@ async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",
   await expect(page.locator("#flashSetupTitle")).toBeVisible();
   await page.locator("#flashDifficulty").selectOption(difficulty);
   await page.locator("#flashGameCollection").selectOption(cardSet);
-  // Course and support-language changes are persisted asynchronously. The mock
-  // RPC reads the stored preferences, so wait for the same queue as the app.
-  await page.evaluate(async()=>{
-    if(typeof preferenceWriteQueue!=="undefined")await preferenceWriteQueue;
-  });
+  // The mock RPC reads stored preferences. Poll the mock's read-only test
+  // surface so this works even when a test has installed a frozen page clock.
+  if(waitForPreferences){
+    const learningLanguage=await page.locator("#courseSelect").inputValue();
+    const translationLanguage=await page.locator("#translationSelect").inputValue();
+    await expect.poll(async()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.learning_language)).toBe(learningLanguage);
+    await expect.poll(async()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.translation_language)).toBe(translationLanguage);
+  }
   await page.locator('[data-action="begin-game"]').click();
   try {
     await expect(page.locator(".flash-game")).toBeVisible();
@@ -288,7 +291,7 @@ test("Word Recall hides answers during memory, reveals answer phase, and shows t
 test("Answer now skips memory and Next immediately begins another unique round",async({page})=>{
   await page.clock.install();
   await openMockFlashcards(page);
-  await beginRecall(page,"word","beginner","all",60);
+  await beginRecall(page,"word","beginner","all",60,false);
   const action=page.locator("#flashPhaseAction");
   await expect(action).toBeVisible();
   await expect(action).toHaveText("Answer now");
