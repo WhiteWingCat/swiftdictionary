@@ -1,4 +1,5 @@
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 import argostranslate.package
@@ -31,6 +32,21 @@ def translator(source,target):
 def clean(value):
     return " ".join(str(value or "").replace("\\u0000","").split()).strip()
 
+def normalise_malay(value):
+    text=clean(value)
+    replacements=[
+      (r"\\baku\\b","saya"),(r"\\bbisa\\b","dapat"),
+      (r"\\bkantor\\b","pejabat"),(r"\\bkalimat\\b","ayat"),
+      (r"\\bbis\\b","bas"),(r"\\b(?:nggak|enggak)\\b","tidak"),
+      (r"\\bbanget\\b","sangat"),(r"\\bapotek\\b","farmasi"),
+      (r"\\bbahasan\\b","huraian")
+    ]
+    for pattern,replacement in replacements:
+        text=re.sub(pattern,lambda match:replacement.capitalize() if match.group(0)[:1].isupper() else replacement,text,flags=re.IGNORECASE)
+    if re.search(r"\\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\\b",text,flags=re.IGNORECASE):
+        raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
+    return clean(text)
+
 def main():
     data=json.loads(INPUT.read_text(encoding="utf-8"))
     argostranslate.package.update_package_index()
@@ -49,7 +65,7 @@ def main():
             return source_cache[source_key]
         intermediate=clean(zh_en.translate(value)) if source=="zh" else value
         if intermediate not in english_to_malay_cache:
-            english_to_malay_cache[intermediate]=clean(en_ms.translate(intermediate))
+            english_to_malay_cache[intermediate]=normalise_malay(en_ms.translate(intermediate))
         result=english_to_malay_cache[intermediate]
         if not result:
             raise RuntimeError("Empty Malay translation for "+intermediate[:80])
