@@ -345,6 +345,12 @@
         {q:"Ayat manakah menggunakan bahasa Inggeris standard?",options:["We bought new furnitures. (furnitures tidak standard)","Kami membeli perabot baharu. (some new furniture)","We bought many furniture. (many tidak digunakan dengan furniture)"]},
         {q:"Pilih bentuk jamak yang betul: seorang kanak-kanak, dua ___.",options:["childs: bentuk jamak tidak sekata yang salah","children: bentuk jamak yang betul","childes: bentuk jamak yang salah"]},
         {q:"Pilih frasa yang semula jadi.",options:["two breads: bentuk jamak tidak tepat dalam konteks ini","two slices of bread: dua keping roti","two slice bread: struktur frasa tidak tepat"]}
+      ],
+      "b-greetings-polite-expressions": [
+        {q:"Anda bertemu guru pada pukul 9 pagi. Ucapan manakah paling sesuai?",options:["Selamat petang (good evening)","Selamat pagi (good morning)","Jaga diri (take care)"]},
+        {q:"Ungkapan manakah digunakan untuk menarik perhatian orang yang tidak dikenali dengan sopan sebelum bertanya?",options:["Maaf, tumpang tanya (excuse me)","Terima kasih (thanks)","Selamat malam (good night)"]},
+        {q:"Seseorang membantu anda membawa buku. Apakah yang boleh anda ucapkan?",options:["Pintu keluar (exit)","Terima kasih (thanks)","Selamat petang (good evening)"]},
+        {q:"Ungkapan manakah merupakan cara mesra untuk mengucapkan selamat tinggal sambil mendoakan kesejahteraan seseorang?",options:["Selamat tengah hari (good afternoon)","Maaf, tumpang tanya (excuse me)","Jaga diri (take care)"]}
       ]
     },
     zh: {
@@ -389,6 +395,12 @@
         {q:"Ayat manakah bermaksud penutur sedang minum air?",options:["Saya minum air.","Saya makan air.","Saya melihat air.","Saya pergi air."]},
         {q:"Apabila digunakan bersama “书” (buku), kata kerja manakah bermaksud membaca?",options:["melihat; membaca","minum","datang","membuat"]},
         {q:"Kata kerja manakah merujuk kepada kegiatan memperoleh pengetahuan atau melatih kemahiran?",options:["belajar","berehat","bekerja","tidur"]}
+      ],
+      "zh-b-places-getting-around": [
+        {q:"Apakah nama tempat utama yang dikunjungi pelajar untuk menghadiri kelas, membaca dan menyiapkan tugasan?",options:["sekolah","hospital","kedai","stesen"]},
+        {q:"Ke manakah seseorang biasanya pergi untuk mendapatkan diagnosis dan rawatan apabila sakit atau cedera?",options:["hospital","sekolah","taman","restoran"]},
+        {q:"Apakah nama tempat penumpang menunggu kereta api atau pengangkutan awam?",options:["stesen","sekolah","hospital","rumah"]},
+        {q:"Ayat manakah digunakan untuk bertanya lokasi stesen MRT?",options:["Di manakah stesen MRT?","Apakah stesen MRT?","Saya pergi ke stesen MRT.","Stesen MRT itu besar."]}
       ]
     }
   };
