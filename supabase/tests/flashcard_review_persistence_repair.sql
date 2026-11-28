@@ -141,4 +141,19 @@ begin
 end
 $partial$;
 
+-- A different authenticated account must not be able to retrieve the legacy
+-- session's partial review through the public RPC.
+do $ownership$
+declare v_review jsonb;
+begin
+  perform set_config('request.jwt.claim.sub','a2500000-0000-4000-8000-000000000004',true);
+  begin
+    v_review:=public.get_my_flashcard_game_review('a2500000-0000-4000-8000-000000000003');
+    raise exception 'A different account unexpectedly read another user Flashcard review';
+  exception when sqlstate 'P0002' then
+    null;
+  end;
+end
+$ownership$;
+
 rollback;
