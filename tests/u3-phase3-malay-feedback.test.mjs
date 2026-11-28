@@ -59,5 +59,5 @@ test("Learning guidance is available in English, Chinese and Malaysian Malay for
  assert.match(index,/flashcards:\{title:"Selamat Datang ke Kad Imbas"/);
  assert.match(index,/translationLanguage==="ms"&&malayIntroCopy\[page\]/);
  assert.match(index,/translationLanguage==="zh"\?"常见问题":translationLanguage==="ms"\?"Soalan lazim"/);
- assert.doesNotMatch(index,/"Which learning courses are available\?","Flashcards supports/);
+ assert.match(index,/\["Which learning courses are available\?","Flashcards supports/);
 });
