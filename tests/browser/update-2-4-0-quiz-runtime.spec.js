@@ -747,6 +747,28 @@ test("Quiz overview refreshes its question bank for every supported learning cou
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 });
 
+test("Quiz course switching remains consistent across repeated English, Chinese and Malay changes",async({page})=>{
+  test.setTimeout(120000);
+  await openQuiz(page,freeSession);
+  const sequence=["zh","ms","en","ms","zh","en"];
+  for(const language of sequence){
+    const previousRequest=await page.evaluate(()=>quizHomeRequestId);
+    await selectCourseAndWaitForSave(page,language);
+    await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code),{timeout:20000}).toBe(language);
+    await expect.poll(()=>page.evaluate(()=>quizHomeRequestId),{timeout:20000}).toBeGreaterThan(previousRequest);
+    await expect(page.locator("#quizHome")).toBeVisible();
+    await expect(page.locator("#quizSession")).toBeHidden();
+    await expect(page.locator("#quizResults")).toBeHidden();
+    const expected=language==="zh"?"建立汉字":language==="ms"?"日常马来语词汇":"基础词汇";
+    await expect(page.locator("#quizDifficultyGrid")).toContainText(expected);
+    await expect.poll(()=>page.evaluate(async()=>{
+      const {data,error}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();
+      if(error)throw error;
+      return data?.learning_language;
+    })).toBe(language);
+  }
+});
+
 test("Chinese Quiz choices do not reveal answers through English translations or Pinyin",async({page})=>{
   await openQuiz(page,freeSession);
   await selectCourse(page,"zh");
