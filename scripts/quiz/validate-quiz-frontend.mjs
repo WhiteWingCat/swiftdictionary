@@ -90,6 +90,21 @@ const learningPageFeatures = [
 for (const feature of learningPageFeatures) {
   if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
 }
+const courseSwitchStart=appScript.indexOf('document.getElementById("courseSelect").addEventListener("change",async');
+const courseSwitchEnd=appScript.indexOf("// Resolve the requested route immediately",courseSwitchStart);
+const courseSwitchHandler=courseSwitchStart>=0&&courseSwitchEnd>courseSwitchStart
+  ?appScript.slice(courseSwitchStart,courseSwitchEnd):"";
+if(!courseSwitchHandler.includes("await preferenceWriteQueue")||
+   !courseSwitchHandler.includes("coursePreferenceSelectionVersion!==requestedSelectionVersion")||
+   !courseSwitchHandler.includes("await quizLoadHome()")||
+   courseSwitchHandler.includes("await quizSyncCoursePreferences()")){
+  throw new Error("Quiz course switching must refresh the selected course after its queued preference write settles, without re-reading and potentially restoring a stale preference.");
+}
+if(!flashcards.includes("const reviewDetailCache=new Map()")||
+   !flashcards.includes('requestIdleCallback(warm,{timeout:100})')||
+   !flashcards.includes('if(translationLanguage==="ms")malayGlossLookup()')){
+  throw new Error("Weak Memory review must prewarm cross-course lookup/translation data and cache opened review details.");
+}
 for (const page of ["lessons", "quiz", "flashcards"]) {
   if (!html.includes('data-learning-help="' + page + '"')) throw new Error("Missing contextual help control: " + page);
 }
