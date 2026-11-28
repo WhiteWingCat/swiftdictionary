@@ -10,7 +10,7 @@ The application source was inspected: the current SwiftDictionary sign-in UI use
 
 A fresh staging Security Advisor run at 2026-11-28 04:47 UTC still reports exactly one `auth_leaked_password_protection` WARN. It also reports ten INFO findings for RLS-enabled tables in the non-exposed `private` schema without policies; these are server-mediated tables and must be reviewed through grants/RPC boundaries, not fixed by adding broad policies. No Auth config, database schema, production, or deployment changes were made.
 
-**Resolution gate:** owner must upgrade the SwiftDictionary Indie Supabase organisation to Pro (a paid billing decision requiring the owner's action/approval), then enable **Authentication → Sign In / Providers → Email → Prevent use of leaked passwords**, save, and rerun the Security Advisor. Once the project is Pro and the setting is accessible, verify `password_hibp_enabled = true` via the Auth configuration or a safe test rejection, without exposing tokens or password material. Until then, this is an explicitly documented provider-plan blocker, not a completed fix. Current app authentication is Google OAuth-only, so this setting does not affect its sign-in flow today, but remains a required platform hardening gate if password authentication is introduced or before the requested full security sign-off.
+**Original proposed resolution (superseded):** upgrade the SwiftDictionary Indie organisation to Pro and enable **Authentication → Sign In / Providers → Email → Prevent use of leaked passwords**. The owner subsequently decided not to pursue this setting and explicitly instructed that U3.0 work continue without it. The setting remains unchanged and is no longer an active completion gate. Revisit only if password-based authentication is introduced or the owner later requests it. Current app authentication is Google OAuth-only; continue validating the security boundaries of that enabled flow.
 
 ## Evidence
 - Supabase organisation: `SwiftDictionary Indie` / `nnwaeapbmlgmmxbmkumb`, tier `tier_free`.
@@ -21,3 +21,8 @@ A fresh staging Security Advisor run at 2026-11-28 04:47 UTC still reports exact
 
 ## Decision
 No database workaround, client-side pseudo-protection, unauthorised billing change or claim of successful remediation. Await owner-approved organisation upgrade to Pro, then enable the setting and verify the advisor clears.
+
+
+## Owner decision — 2026-11-28
+
+Leaked-password protection is deferred. Remove it from the active U3.0 completion checklist. No upgrade, billing change, Auth configuration change, database workaround, or client-side substitute was made. Continue with the remaining content, Flashcard, regression, OAuth, and security work.
