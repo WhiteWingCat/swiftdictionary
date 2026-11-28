@@ -5,6 +5,7 @@ require(path.resolve("data/languages/english-lessons.js"));
 require(path.resolve("data/chinese-lessons.js"));
 require(path.resolve("data/chinese-flashcards.js"));
 require(path.resolve("data/languages/malay-learning-support-translations.js"));
+require(path.resolve("data/languages/malay-learning-support-overrides.js"));
 const output=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 if(!output||output.status!=="machine_assisted_draft"||output.targetLanguage!=="ms")throw new Error("Malay learning-support output metadata is invalid");
 if(output.humanReviewStatus!=="pending"||output.modelLicensingStatus!=="pending_verification")throw new Error("Malay support translations must retain explicit human-review and model-license release gates.");
@@ -50,4 +51,21 @@ for(const [code,items] of Object.entries(input.flashcards||{})){
 assertMalayDraftQuality(output.lessons,"lessons");
 assertMalayDraftQuality(output.quiz,"quiz");
 assertMalayDraftQuality(output.flashcards,"flashcards");
+for(const [code,lessons] of Object.entries(output.lessons||{})){
+ for(const [lessonId,rows] of Object.entries(lessons||{})){
+  for(let index=0;index<rows.length;index++){
+   const options=rows[index].options||[];
+   if(new Set(options).size!==options.length)throw new Error("Duplicate Malay lesson options: "+code+"/"+lessonId+"/"+index);
+  }
+ }
+}
+for(const [code,questions] of Object.entries(output.quiz||{})){
+ for(const [questionId,question] of Object.entries(questions||{})){
+  const options=Object.values(question.options||{});
+  for(const field of ["learning","translation"]){
+   const values=options.map(option=>String(option[field]||"").trim());
+   if(values.some(value=>!value)||new Set(values).size!==values.length)throw new Error("Missing or duplicate Malay Quiz "+field+" options: "+code+"/"+questionId);
+  }
+ }
+}
 console.log(JSON.stringify({lessonPracticeQuestions:lessonQuestions,quizQuestions,flashcardEntries,status:"PASS"}));
