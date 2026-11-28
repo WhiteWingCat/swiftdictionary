@@ -94,12 +94,25 @@ test("Malay Flashcard coverage is measured across dictionary, phrase and sentenc
  assert.equal(count(englishDictionary,word=>!!word.definitionMs),1316);
  assert.equal(englishPhrases.length,25);
  assert.equal(count(englishPhrases,word=>!!word.definitionMs),25);
+ assert.equal(count(englishDictionary,word=>word.examples?.length>0),1316);
  assert.equal(count(englishDictionary,word=>word.exampleMsReviewed&&!!word.exampleMs),18);
+ assert.equal(count(englishPhrases,word=>word.examples?.length>0),25);
+ assert.equal(count(englishPhrases,word=>word.exampleMsReviewed&&!!word.exampleMs),0);
 
  assert.equal(chineseFlashcards.length,1447);
  assert.equal(count(chineseFlashcards,word=>!!word.definitionMs),727);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"),519);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"&&!!word.definitionMs),519);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"&&word.examples?.length>0),519);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="characters"&&word.exampleMsReviewed&&!!word.exampleMs),0);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"),904);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&!!word.definitionMs),184);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&word.examples?.length>0),60);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="vocabulary"&&word.exampleMsReviewed&&!!word.exampleMs),18);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"),24);
  assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&!!word.definitionMs),24);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&word.examples?.length>0),24);
+ assert.equal(count(chineseFlashcards,word=>word.cardKind==="phrases"&&word.exampleMsReviewed&&!!word.exampleMs),0);
  assert.equal(count(chineseFlashcards,word=>word.examples?.length>0),603);
  assert.equal(count(chineseFlashcards,word=>word.exampleMsReviewed&&!!word.exampleMs),18);
  assert.equal(count(chineseFlashcards,word=>!word.definitionMs),720);
