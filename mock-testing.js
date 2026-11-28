@@ -557,7 +557,8 @@
       const translationLanguage=userPreference.translation_language||"zh";
       const allowedModes=learningLanguage==="zh"?["word","definition","translation","sentence"]:["word","definition","mixed","sentence"];
       if(!["beginner","intermediate","advanced"].includes(difficulty)||![60,120].includes(duration)
-        ||!["en","zh"].includes(learningLanguage)||!["en","zh"].includes(translationLanguage)||!allowedModes.includes(mode)){
+        ||!["en","zh","ms"].includes(learningLanguage)||!["en","zh","ms"].includes(translationLanguage)
+        ||learningLanguage===translationLanguage||!allowedModes.includes(mode)){
         return {data:null,error:error("Invalid Flashcard language, mode, difficulty or challenge duration.","22023")};
       }
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
