@@ -29,7 +29,7 @@ for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS||{}],["zh",win
 const quiz={};
 const englishDictionaryExamples=[...(window.SWIFT_ENGLISH_BASE_DICTIONARY||[]),...(window.SWIFT_ENGLISH_EXPANSION||[])]
   .filter(item=>item&&item.word&&Array.isArray(item.examples)&&item.examples[0])
-  .map(item=>({word:item.word,definition:"",example:item.examples[0]}));
+  .map(item=>({word:item.word,definition:item.definition||item.definitionEn||"",example:item.examples[0]}));
 const englishFlashcards=new Map();
 for(const item of [...englishDictionaryExamples,...englishPhrases.map(item=>({word:item.word,definition:item.definition,example:(item.examples||[])[0]||""}))]){
   const previous=englishFlashcards.get(item.word);
