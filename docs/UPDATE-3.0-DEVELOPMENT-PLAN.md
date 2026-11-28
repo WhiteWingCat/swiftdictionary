@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved U3.0 staging preview is available. The latest application branch is feature/update-3.0-phase-0-audit, currently at 0d9f847a928a5b10c26668868f8606595be2b834. The staging Supabase project ivatvkfrtifgfheeaelj is healthy; all U3.0 staging migrations through 20261127190000 are applied. Malay course content includes 72 permanent lessons, 60 Daily Topics, 60 Daily Applications, 93 Daily Discovery entries, 240 approved staging Quiz questions (120 each for Malay→English and Malay→Simplified Chinese) and 650 Malay Dictionary Flashcard entries. Complete machine-assisted Dictionary translation coverage is available for 1,316 English headwords / 1,931 senses and 725 Chinese headwords / 825 senses (2,041 headwords / 2,756 senses); content remains draft pending human Malaysian Standard Malay review. Dashboard Malay favourites, Malay Collections lookup, Daily History labels and Flashcards course-switch mode preservation are implemented. Flashcards now uses the full generated Dictionary Malay corpus as a fallback, with cache-busting version ms13; the static Flashcards job and Cloudflare routing guard pass on the latest change, while Chromium and the remaining cross-version workflows are still queued/running. Remaining content gaps: Malay target-language prompts/options for English/Chinese lesson practice and English/Chinese Quiz banks. Staging Google OAuth and latest Cloudflare publication are not independently verified. PR #20 remains draft/unmerged; production remains untouched. Preview: [stable branch preview](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev). See the [latest staging handoff](conversation-archive/2026-11-27-u3-staging-preview-handoff.md).
+**Status:** U3.0 remains a staging-only preview on PR #20; production is untouched and the PR remains draft/unmerged. Latest application head at this checkpoint: `c090948b4fcff9ec76aed04ca20a5211ca11532b`. English Lessons: 17 lessons / 112 practice questions; Simplified Chinese Lessons: 17 / 112; Malay Lessons: 72 / 216. Quiz support: 199 approved English and 145 approved Chinese questions with Malay support; Malay Quiz: 120 unique questions represented in 240 support-language staging records. Daily Learning: 60 Topics, 60 Applications and 93 Discovery items. Flashcard source inventory: 1,341 English cards and 1,447 Chinese cards; English Malay definitions are complete (1,341/1,341), while Chinese Malay definition support remains 895/1,447 (61.9%) until the running translation-generation workflows commit the updated 1,447-card pack. The export/generator now includes all Chinese cards, using the English gloss when a card has no authored Chinese definition. The two new staging feedback fixes are implemented: Quiz overview refreshes for every supported learning course and discards stale responses; Weak Memory review caches per-language dictionary indexes instead of rebuilding the full word bank per row. Automated language checks now cover released Quiz/lesson options, Indonesian-only wording, duplicate choices and Flashcard glosses. The large-list Weak Memory browser regression passed; the current U3.0 architecture run is blocked only by the not-yet-regenerated Chinese Flashcard pack. Owner direction: skip pre-live human editorial review for this update and perform that review on the live website; machine-assisted text remains marked draft/unreviewed, not editorially approved. Google OAuth/account isolation and latest Pages preview still need current-head verification. PR #20 remains draft/unmerged; production remains untouched. See the latest Nov 28 regression/content checkpoint in the Master Development Record.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -1469,3 +1469,38 @@ The two historical Malay games now return clearly labelled partial review (5 and
 ### Remaining release gates
 
 The remaining work is owner/release acceptance, not a known failing application regression: manually test the latest staging preview on desktop and mobile; verify deployed Google OAuth redirect and account switching/isolation; obtain human Malaysian Standard Malay and independent translation review; complete model/corpus licence and attribution review; and finish Malaysia Copyright Act 1987 plus PDPA 2010/2024-amendment/cross-border processing review. PR #20 remains draft/unmerged; production remains untouched. Leaked-password protection remains excluded at the owner's explicit direction.
+
+
+## 2026-11-28 — Quiz course switching, Weak Memory performance and multilingual polish
+
+Owner feedback from the latest staging preview:
+1. Changing the learning course while on Quiz refreshed only when switching to English.
+2. Weak Memory review had noticeable latency/lag.
+
+Application fixes on `feature/update-3.0-phase-0-audit`:
+- Quiz course-change handling now refreshes availability and the course-specific overview for every registered course that supports Quiz (English, Simplified Chinese and Malay). It waits for the queued preference write before requesting availability.
+- Added a monotonically increasing Quiz home-request ID and course snapshot guard. Responses from a previous course or superseded request are ignored, preventing stale results after rapid course switching.
+- Weak Memory review now builds a dictionary lookup index once per language and reuses it for every review row and detail view. The cache is invalidated when content packages are refreshed.
+- Added browser regression coverage for English → Chinese → Malay → English Quiz switching, and an 80-card Weak Memory review list with per-card detail navigation.
+
+Automated content polish:
+- Added distinct-option and Malaysian Malay lexical checks for released English/Chinese Quiz questions and English/Chinese lesson practice translations.
+- Added Indonesian-wording checks for Malay lesson reader translations and Chinese Flashcard definitions.
+- Corrected the duplicate Chinese Quiz support option and remaining Indonesian-contaminated Chinese Flashcard glosses found by the new checks.
+- Updated the Flashcard source exporter to include all 1,447 Chinese cards. For the 844 multi-character vocabulary items without a Chinese definition, it uses the authored English gloss as the source for Malay support translation. Duplicate or untranslatable source rows fail generation.
+- Added common Indonesian-to-Malaysian-Malay normalisation and a quality validator to the offline translation generators. Contextual Malay use of “bisa” meaning venom is preserved.
+- The current generated support file still contains 603 direct Chinese Flashcard rows; the runtime currently resolves 895/1,447 definitions through all existing sources. Two GitHub Actions translation-generation workflows are running/queued to produce the complete 1,447-card support pack and Dictionary translation output. Do not mark translation coverage complete until the generated files are committed and all coverage/quality tests pass.
+
+Validation checkpoint:
+- The 80-card Weak Memory browser regression passed.
+- Quiz course-switch browser regression is added; the latest run is still pending.
+- U3.0 architecture tests pass for the new Quiz/lesson distinct-option checks, Indonesian wording checks and Flashcard gloss quality checks; the remaining failure is the expected 895-versus-1,447 Chinese Flashcard coverage gap pending generation.
+- Cloudflare Pages routing and ACL checks passed on the preceding head; current-head deployment and cross-version browser/database checks are still pending.
+- No production database changes, production deployment or PR merge occurred.
+
+Review and release handling:
+- Per owner instruction, no pre-live human editorial review is required for this update; review is deferred to the live website. This does not relabel machine-assisted translations as reviewed or approved.
+- No new personal-data collection, telemetry or third-party sharing was introduced by these fixes. Malaysia PDPA 2010/2024, Copyright Act 1987, source provenance and model licensing/attribution remain compliance considerations for public release.
+- Leaked-password protection remains excluded by the owner's earlier instruction.
+
+Remaining work: complete the running translation generation, verify 1,341/1,341 English and 1,447/1,447 Chinese Flashcard Malay definitions plus all language-quality tests, rerun the complete cross-version CI matrix, verify current Pages preview and OAuth/account isolation, then prepare the consolidated U3.0 staging handoff. Production remains untouched and PR #20 remains draft/unmerged.
