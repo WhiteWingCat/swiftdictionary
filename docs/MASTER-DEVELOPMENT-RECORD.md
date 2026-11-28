@@ -5071,3 +5071,6 @@ The authenticated Quiz browser test's localStorage setup was found to guess the 
 
 
 The feature branch also received a 36-question Chinese Quiz Malay correction batch (`5bb34ccf`, including the remaining beginner places/questions-negation IDs and other approved question IDs). The regression assertion now requires at least 108 English and 84 Chinese corrected Quiz entries (including 36 pre-existing English and 12 pre-existing Chinese corrections). This continuation has added 72 English and 72 Chinese corrections against the outstanding workload, leaving 91 English and 61 Chinese approved Quiz questions to correct.
+
+
+The long-running Quiz database and Flashcards regression workflows previously used `cancel-in-progress: true`, which repeatedly cancelled browser jobs during the rapid feature-branch commit sequence. Both workflows now queue newer runs rather than cancelling an in-progress validation run. This allows the authenticated Quiz and 36-test Flashcards Chromium suites to finish and produce actionable results.
