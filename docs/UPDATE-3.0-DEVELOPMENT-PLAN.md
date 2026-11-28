@@ -1309,3 +1309,33 @@ The three U3.0 architecture/content failures at this head are:
 8. Update this plan, the Master Development Record, archive index and a dated conversation archive after each meaningful development session. Keep documentation commits on `docs/master-development-record`; keep application changes on the feature branch. No production migration, merge or deployment without explicit approval.
 
 **Release status:** U3.0 remains an isolated staging implementation, not a completed production release. Phase 3 preview availability does not close Phases 4–7 or the translation, editorial, security, OAuth, cross-version and release gates.
+
+## 2026-11-28 follow-up — correction results and latest recovery point
+
+This section supersedes the earlier `0c7ae64` checkpoint above.
+
+**Application branch/head:** `feature/update-3.0-phase-0-audit` at `87734182da7cfc55008bea658dc8b5212001ae3e`.  
+**Staging preview:** the known commit-specific URL `https://8ada6c1d.swiftdictionary.pages.dev` is for the older `0c7ae64` head; do not treat it as the latest build until a new Pages deployment is verified.  
+**Production:** untouched. **PR #20:** draft/unmerged.
+
+### Corrections applied
+
+- Reconciled the exact Flashcard runtime helper with the source inventory: Chinese Malay definition coverage is 895/1,447 (61.9%), comprising 519/519 characters, 352/904 vocabulary and 24/24 phrases; 552 cards remain unsupported and are excluded. The Flashcard coverage regression and detailed audit now assert these values.
+- Corrected the Flashcard audit's reviewed phrase sentence counts: 25 English phrase cards and 24 Chinese phrase cards have reviewed Malay sentence pairs. This is technical correction-key eligibility, not blanket human editorial approval.
+- Fixed a root cause in Malay Quiz overrides: curated option translations were not being copied into the legacy `translation` property, allowing Indonesian generated text to remain. Curated Malay is now applied to both option fields, with the curated Malay text as fallback when no separate translation is supplied.
+- Added the missing third distractor to the fifth English `i-perfect` Lesson practice question.
+- The Quiz regression exposed a second Indonesian legacy string in `quiz-beginner-017` before the shared override fallback was corrected. The latest architecture workflow on `8773418` must verify the full bank after this root-cause fix.
+
+### Current CI state at this documentation update
+
+Cloudflare routing and U2.9 English QA passed on the preceding `108422e` head; U2.6 ACL passed on that same head. The architecture run on `598433b` failed only because another legacy Quiz option translation remained; the shared fallback was then corrected in `8773418`. The newest U3.0 architecture, Flashcards Chromium, Quiz DB/Auth, U2.3, U2.7 and remaining cross-version runs were queued or running and must be inspected before acceptance. Do not declare the matrix green from earlier commits.
+
+### Immediate next actions
+
+1. Inspect the U3.0 architecture workflow for `8773418` and fix any remaining content or implementation failure without weakening quality checks.
+2. Finish Flashcards browser verification: Sentence Recall entry, completed-game per-card snapshots, weak-memory list, correct/incorrect outcomes, history and persistence.
+3. Finish Quiz DB/Auth and Chromium verification, including the disposable `user_preferences` fixture permission issue, without broadening production/staging RLS or grants.
+4. Complete one latest-head U3.0/U2.3/U2.5/U2.6/U2.7/U2.9 matrix, staging Google OAuth redirect/account switching/isolation and latest Cloudflare Pages deployment verification.
+5. Keep the owner-required Malaysian Standard Malay and independent translation editorial review, model/corpus licensing, Malaysia Copyright Act, PDPA/cross-border review and manual desktop/mobile staging acceptance as open release gates.
+
+Leaked-password protection remains explicitly excluded from active work at the owner's direction. Revisit only if password-based authentication is introduced or the owner requests it. No production migration, merge or deployment is authorised by this continuation.
