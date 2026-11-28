@@ -32,21 +32,21 @@ test("Malay Discovery catalogue sync preserves the 93 active scheduled entries",
 
 test("Chinese Weak Memory lookup indexes each source bank with a valid card kind",()=>{
  const flashcards=fs.readFileSync("flashcards.js","utf8");
- assert.match(flashcards,/add\\(bank\\.characters,"characters"\\)/);
- assert.match(flashcards,/add\\(bank\\.vocabulary,"vocabulary"\\)/);
- assert.match(flashcards,/add\\(bank\\.phrases,"phrases"\\)/);
- assert.match(flashcards,/cardKind:record\\.cardKind/);
- assert.match(flashcards,/const item=record\\.item/);
+ assert.ok(flashcards.includes('add(bank.characters,"characters")'));
+ assert.ok(flashcards.includes('add(bank.vocabulary,"vocabulary")'));
+ assert.ok(flashcards.includes('add(bank.phrases,"phrases")'));
+ assert.ok(flashcards.includes('cardKind:record.cardKind'));
+ assert.ok(flashcards.includes('const item=record.item'));
  assert.doesNotMatch(flashcards,/mapChineseReviewItems/);
 });
 
 test("Quiz course switching waits for the persisted selection and ignores stale switches",()=>{
- assert.match(index,/window\\.addEventListener\\("swiftdictionary:course-changed",async\\(event\\)=>/);
- assert.match(index,/const requestedCourse=event\\.detail\\?\\.learningLanguage\\|\\|quizEl\\("courseSelect"\\)\\.value\\|\\|course/);
- assert.match(index,/quizCourseSwitchRequest!==quizCourseSwitchRequestId/);
- assert.match(index,/await preferenceWriteQueue/);
- assert.match(index,/saved\\.data\\?\\.learning_language!==requestedCourse/);
- assert.match(index,/supports\\(requestedCourse,"quiz"\\)/);
+ assert.ok(index.includes('window.addEventListener("swiftdictionary:course-changed",async(event)=>'));
+ assert.ok(index.includes('event.detail?.learningLanguage||quizEl("courseSelect").value||course'));
+ assert.ok(index.includes('quizCourseSwitchRequest!==quizCourseSwitchRequestId'));
+ assert.ok(index.includes('await preferenceWriteQueue'));
+ assert.ok(index.includes('saved.data?.learning_language!==requestedCourse'));
+ assert.ok(index.includes('supports(requestedCourse,"quiz")'));
 });
 
 test("learning help copy reflects the three active learning courses",()=>{
