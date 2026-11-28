@@ -115,8 +115,7 @@
         definitionMs:word.definitionMs||support[word.word]||row.definitionMs||dictionaryDerivedMalaySupport(word,language),
         exampleMs:row.exampleMs||word.exampleMs||"",
         examples:(Array.isArray(word.examples)&&word.examples.length?word.examples:(row.exampleEn?[row.exampleEn]:[])),
-        exampleMsReviewed:language==="en"&&
-          (window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.en||[]).includes(wordKey.toLowerCase())
+        exampleMsReviewed:(window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.[language]||[]).some(key=>String(key).toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))
       };
     });
   }
