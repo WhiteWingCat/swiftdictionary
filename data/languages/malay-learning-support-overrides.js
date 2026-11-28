@@ -1241,7 +1241,31 @@
     "广场":{exampleMs:"Kanak-kanak bermain layang-layang di dataran."},
     "唱歌":{exampleMs:"Dia suka menyanyi sambil memasak."},
     "合唱":{exampleMs:"Para pelajar akan menyanyikan sebuah lagu secara berkumpulan di majlis itu."},
-    "一次":{exampleMs:"Semalam saya pergi ke perpustakaan sekali."}
+    "一次":{exampleMs:"Semalam saya pergi ke perpustakaan sekali."},
+    "你好":{exampleMs:"Hai! Gembira dapat berkenalan dengan anda."},
+    "谢谢":{exampleMs:"Terima kasih kerana membantu saya hari ini."},
+    "不客气":{exampleMs:"Sama-sama, memang sudah tanggungjawab saya."},
+    "再见":{exampleMs:"Jumpa esok. Selamat tinggal!"},
+    "请问":{exampleMs:"Maaf, boleh saya tanya, di manakah stesen MRT?"},
+    "对不起":{exampleMs:"Maaf, saya datang lewat."},
+    "没关系":{exampleMs:"Tidak mengapa, kita masih ada masa."},
+    "你好吗":{exampleMs:"Hai, sudah lama kita tidak berjumpa. Apa khabar?"},
+    "我叫":{exampleMs:"Hai, nama saya Xiao Ming."},
+    "我不知道":{exampleMs:"Saya tidak tahu jawapan bagi soalan ini."},
+    "我明白了":{exampleMs:"Terima kasih atas penjelasan anda. Sekarang saya faham."},
+    "等一下":{exampleMs:"Sila tunggu sebentar, saya akan kembali tidak lama lagi."},
+    "请再说一遍":{exampleMs:"Suara tadi terlalu perlahan. Boleh ulang sekali lagi?"},
+    "多少钱":{exampleMs:"Berapakah harga baju ini?"},
+    "在哪里":{exampleMs:"Maaf, boleh saya tanya, di manakah tandas?"},
+    "可以帮我吗":{exampleMs:"Saya tidak mampu mengangkat kotak ini. Boleh bantu saya?"},
+    "我想要":{exampleMs:"Saya mahu segelas air."},
+    "没问题":{exampleMs:"Saya akan periksa untuk anda esok. Tiada masalah."},
+    "慢慢来":{exampleMs:"Buat perlahan-lahan, tidak perlu tergesa-gesa."},
+    "祝你好运":{exampleMs:"Semoga berjaya dalam peperiksaan esok!"},
+    "一路平安":{exampleMs:"Bertolak esok. Semoga perjalanan anda selamat."},
+    "生日快乐":{exampleMs:"Selamat hari lahir! Semoga anda bergembira hari ini."},
+    "加油":{exampleMs:"Jangan risau. Teruskan usaha, anda pasti boleh melakukannya."},
+    "很高兴认识你":{exampleMs:"Hai, gembira dapat berkenalan dengan anda."}
   };
   for (const [word, correction] of Object.entries(flashcardExampleCorrectionsZh)) {
     const target = pack.flashcards?.zh?.[word];
