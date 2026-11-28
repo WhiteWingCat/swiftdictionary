@@ -858,23 +858,52 @@
   function openReviewPrompt(){
     state.reviewMode="word";state.reviewSelected=null;state.reviewNotice="";renderReviewPrompt();
   }
+  let reviewCustomCardsReference=null;
+  let reviewCustomCardIndexCache=new Map();
+  function reviewCustomCardIndex(){
+    if(state.data.cards!==reviewCustomCardsReference){
+      reviewCustomCardsReference=state.data.cards;
+      reviewCustomCardIndexCache=new Map((state.data.cards||[]).map(card=>[cardKey(card),card]));
+    }
+    return reviewCustomCardIndexCache;
+  }
+  function resolveWeakReviewCard(key){
+    const languageMatch=String(key||"").match(/^dict:([a-z]{2,3}):/);
+    if(languageMatch){
+      const language=languageMatch[1];
+      return reviewWordIndex(language).get(String(key).slice(languageMatch[0].length).toLocaleLowerCase("en"))||null;
+    }
+    if(String(key||"").startsWith("dict:")){
+      return reviewWordIndex("en").get(String(key).slice(5).toLocaleLowerCase("en"))||null;
+    }
+    const card=reviewCustomCardIndex().get(key);
+    return card?mapCustomCard(card):null;
+  }
+  function renderReviewDetail(){
+    const panel=overlayRoot?.querySelector("#flashReviewDetail");
+    if(!panel)return;
+    const selected=(state.data.review_items||[]).find(item=>item.mode===state.reviewMode&&item.card_key===state.reviewSelected);
+    const card=selected?resolveWeakReviewCard(selected.card_key):null;
+    panel.innerHTML=card
+      ? `<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`
+      : '<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
+  }
+  function openReviewPrompt(){
+    state.reviewMode="word";state.reviewSelected=null;state.reviewNotice="";renderReviewPrompt();
+  }
   function renderReviewPrompt(){
     const overlay=overlayRoot;if(!overlay)return;
     const labels=(adapterFor(course)?.flashcardModes||[]).includes("translation")?{word:uiText("Word","汉字"),definition:uiText("Definition","释义"),translation:uiText("Translation","翻译"),sentence:uiText("Sentence","句子")}:{word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
     const previousListScroll=overlay.querySelector(".flash-review-list")?.scrollTop||0;
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
-    const selected=items.find(item=>item.card_key===state.reviewSelected);
-    const customCardIndex=new Map(state.data.cards.map(card=>[cardKey(card),card]));
-    const resolve=key=>{const languageMatch=key.match(/^dict:([a-z]{2,3}):/);if(languageMatch){const code=languageMatch[1];return reviewWordIndex(code).get(key.slice(languageMatch[0].length).toLocaleLowerCase("en"))||null;}if(key.startsWith("dict:"))return reviewWordIndex("en").get(key.slice(5).toLocaleLowerCase("en"))||null;const card=customCardIndex.get(key);return card?mapCustomCard(card):null;};
-    const card=selected?resolve(selected.card_key):null;
-    const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`:'<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
     const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
     const removeLabel=uiText("Remove from weak-memory review","从薄弱记忆列表中移除");
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const card=resolveWeakReviewCard(item.card_key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}" aria-pressed="${item.card_key===state.reviewSelected}">${escapeHtml(card?.word||card?.front_text||item.card_key)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail"></div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
     const list=overlay.querySelector(".flash-review-list"),detailPanel=overlay.querySelector("#flashReviewDetail");
     if(list)list.scrollTop=previousListScroll;
     if(detailPanel)detailPanel.scrollTop=previousDetailScroll;
+    renderReviewDetail();
   }
   async function openGameReview(sessionId){
     if(!currentUser||!sessionId)return;
@@ -958,7 +987,12 @@
       if(action==="history-next"){if((state.historyPage+1)*10<state.data.history.length){state.historyPage++;render();}return;}
       if(action==="history-prev"){state.historyPage=Math.max(0,state.historyPage-1);render();return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
-      if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
+      if(action==="review-detail"){
+        state.reviewSelected=value;
+        overlayRoot.querySelectorAll(".flash-review-entry").forEach(entry=>entry.setAttribute("aria-pressed",String(entry.dataset.value===value)));
+        renderReviewDetail();
+        return;
+      }
       if(action==="dismiss-review-item"){
         const cardKey=button.dataset.cardKey,mode=button.dataset.mode;
         if(!cardKey||!mode)throw new Error("This weak-memory item could not be identified.");
@@ -1056,7 +1090,10 @@
   window.__swiftFlashcardsAuthHydration=Promise.resolve();
   window.addEventListener("swiftdictionary:content-packages-ready",()=>{
     reviewWordIndexCache.clear();
+    reviewCustomCardsReference=null;
+    reviewCustomCardIndexCache.clear();
     flashcardSupportLookupCache.clear();
+    malayGlossLookupCache=null;
     flashcardCorrectionSetCache.clear();
   });
   window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();state.ready=false;state.loading=false;state.finishing=false;if(currentUser){window.__swiftFlashcardsAuthHydration=loadData();}else{state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};window.__swiftFlashcardsAuthHydration=Promise.resolve();}render();});
