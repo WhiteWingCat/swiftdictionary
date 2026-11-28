@@ -217,6 +217,8 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
     return keys.every(key=>!!rows[key]?.definitionMs?.trim());
   });
   expect(reviewedExamples).toBe(18);
+  const reviewedChineseExamples=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.zh.length);
+  expect(reviewedChineseExamples).toBe(18);
   expect(reviewedDefinitions).toBe(true);
   expect(stats.malayDictionaryEntryCount).toBe(650);
   expect(stats.malaySupportEnglishCount).toBe(73);
@@ -234,7 +236,7 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   expect(stats.malayChinesePhraseCardCount).toBeGreaterThan(0);
   expect(stats.malayChinesePhraseSupportedCount).toBeGreaterThan(0);
   expect(stats.malayEnglishReviewedSentenceCardCount).toBe(18);
-  expect(stats.malayChineseReviewedSentenceCardCount).toBe(0);
+  expect(stats.malayChineseReviewedSentenceCardCount).toBe(18);
   expect(stats.customCardMalaySupportPolicy).toMatch(/user-supplied Malay translation/);
   await page.locator("#courseSelect").selectOption("ms");
   await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
@@ -259,6 +261,22 @@ test("English Sentence Recall shows its Malay example translation",async({page})
   });
   expect(curatedExamples).toContain(sentence);
 });
+test("Chinese Sentence Recall shows its curated Malay example translation",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("ms");
+  await beginRecall(page,"sentence","beginner","all");
+  await expect(page.locator(".flash-translation-hint")).toBeVisible();
+  await expect(page.locator(".flash-translation-hint")).toContainText("Terjemahan Bahasa Melayu:");
+  const sentence=(await page.locator(".flash-translation-hint").innerText()).replace("Terjemahan Bahasa Melayu:","").trim();
+  const curated=await page.evaluate(()=>{
+    const keys=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS.flashcards.zh;
+    const rows=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.flashcards.zh;
+    return keys.map(key=>rows[key]?.exampleMs).filter(Boolean);
+  });
+  expect(curated).toContain(sentence);
+});
+
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
