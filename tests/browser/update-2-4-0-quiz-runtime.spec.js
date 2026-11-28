@@ -111,6 +111,13 @@ async function openQuiz(page, session) {
   });
   page.on("pageerror", error => browserDiagnostics.push("pageerror: " + error.message));
   page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
+  page.on("request", request => {
+    if (request.url().includes("/rest/v1/user_preferences")) {
+      const headers=request.headers();
+      browserDiagnostics.push("user_preferences request auth=" + (headers.authorization ? "present" : "missing") +
+        " apikey=" + (headers.apikey ? "present" : "missing"));
+    }
+  });
   page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
   await page.goto("/#quiz");
   // Ask the installed Supabase JS client for its actual storage key instead of
@@ -156,7 +163,7 @@ async function openQuiz(page, session) {
       accountStatus: document.querySelector("#accountStatus")?.textContent,
       quizStatus: document.querySelector("#quizStatus")?.textContent,
       configLoaded: !!window.SWIFT_SUPABASE_CONFIG,
-      authStorageKeys: Object.keys(localStorage).filter(key => key.includes("auth-token"))
+      authStorageKeys: Object.keys(localStorage).filter(key => key.includes("auth-token")), localStorageKeys: Object.keys(localStorage), sessionStorageKeys: Object.keys(sessionStorage)
     }));
     throw new Error("Authenticated Quiz did not initialize. Browser diagnostics: " +
       JSON.stringify(diagnostics) + "; browser errors: " + browserDiagnostics.join(" | ") +
