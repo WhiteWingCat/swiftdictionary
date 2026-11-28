@@ -3,7 +3,7 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
   "schemaVersion": 1,
   "targetLanguage": "ms",
   "engine": "Argos Translate (offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9)",
-  "generatedAt": "2026-11-28T13:50:00.541772+00:00",
+  "generatedAt": "2026-11-28T14:06:27.469060+00:00",
   "status": "machine_assisted_draft",
   "reviewerId": null,
   "provenance": "Generated locally in GitHub Actions from SwiftDictionary's original-authored Dictionary definitions. No DBP/PRPM/Kamus Dewan text or third-party dictionary entries were imported. Human Malaysian Standard Malay review is pending.",
