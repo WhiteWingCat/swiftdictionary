@@ -1822,3 +1822,18 @@ Human pre-release editorial review remains waived by owner instruction; the owne
 
 
 **Test correction follow-up:** A subsequent architecture run exposed a malformed Unicode-property regex in the Malay lesson translation coverage test, causing distinct options to normalise incorrectly. The test regex now uses the intended Unicode letter/number class; the underlying b-sentence Malay options were confirmed distinct after the committed overrides. The new architecture run for feature head `235720f404859ab7b4458035d06fab7034f17a12` was queued at the time of this note. The code preview was successfully built for `959b1a8`; the later `235720f` commit only corrects the test.
+
+
+## Final merge status — 2026-11-28
+
+The owner explicitly authorised merging after the versioned What's New prompt was added.
+
+- **PR #20:** merged (squash) into `main`.
+- **Merge commit / current main head:** `0915718c9fcc886f17ac4aa6500e3a5e9c1b4e52`.
+- **PR status:** closed, merged.
+- **Cloudflare Pages main deployment:** queued immediately after merge at the time of this record update; production publication is not claimed until that deployment reports success.
+- **Feature preview:** latest feature-branch code preview for commit `235720f` reported successful.
+- **What's New behaviour:** versioned U3.0.0 manifest, one-time per-version dismissal, account/device-local fallback, and SwiftDictionary brand click to reopen latest notes are included in main.
+- **Cross-device dismissal:** the SQL migration is included in main but has **not** been applied to the production Supabase database. Until it is applied, dismissal is per account/device in local storage; after migration, signed-in dismissal can sync through the existing RLS-protected preference table. No production DB mutation was performed.
+- **Validation caveats:** the current-head architecture run was queued after fixing the Malay lesson test's over-escaped Unicode normalisation regex; no overall current-head CI pass is claimed. Interactive browser/OAuth verification of the new dialog was not available in this session. Machine-assisted Malay content remains draft/unreviewed by a human, as explicitly authorised by the owner.
+- **Remaining release considerations:** source-data provenance and model/corpus licensing/attribution, Malaysia Copyright Act 1987, PDPA 2010 and 2024 amendments, and cross-border processing remain outstanding general legal checks. Leaked-password protection remains excluded by owner instruction.
