@@ -87,7 +87,7 @@ test("Flashcards derive Malay support from authored dictionary translations and 
  const flash=html.indexOf('<script src="flashcards.js');
  assert.ok(support>=0&&flash>support,"Malay Flashcard support translations must load before Flashcards");
  const js=read("flashcards.js");
- assert.match(js,/function addMalayFlashcardSupport\(items,language,\{allowDictionaryFallback=true\}\)/);
+ assert.match(js,/function addMalayFlashcardSupport\(items,language,\{allowDictionaryFallback=true\}=\{\}\)/);
  assert.match(js,/SWIFT_FLASHCARD_MALAY_SUPPORT/);
  assert.match(js,/all=all\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
  assert.match(js,/malaySupportEnglishCount/);
