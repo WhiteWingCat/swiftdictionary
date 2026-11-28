@@ -3360,6 +3360,7 @@ async function completeLesson(x){
     // by authenticated RPCs; the browser never queries the private Quiz tables.
     let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], historyPage:0, saving:false, selectedReviewId:null, returnPage:"quiz" };
     let quizHomeRequestId=0;
+    let quizCourseSwitchRequestId=0;
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     const quizMalaySupport=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.quiz||{};
@@ -3809,26 +3810,26 @@ async function completeLesson(x){
     // Chinese-course availability. Dismissals are scoped to the signed-in
     // account; local storage is a graceful fallback until the migration is applied.
     const learningIntroCopy = {
-      lessons:{title:"Welcome to Lessons",intro:"Lessons build English skills through guided explanations, examples and short practice. Choose a difficulty, work at your own pace and return to unfinished learning.",faqs:[
+      lessons:{title:"Welcome to Lessons",intro:"Lessons build skills in your selected learning course through guided explanations, examples and short practice. Choose a difficulty, work at your own pace and return to unfinished learning.",faqs:[
         ["Do I need to finish a lesson in one sitting?","No. Unfinished lessons can be resumed. There is no timer or time pressure."],
         ["How is progress saved?","Completed lessons and supported practice progress are saved to your account when signed in."],
         ["Can I change the translation language?","Yes. Your translation preference is separate from the learning course."],
-        ["Why are Chinese lessons unavailable?","The current Lessons library contains English learning content only. Chinese learning content will be announced when it is ready."]
+        ["Which learning courses are available?","English, Simplified Chinese and Malaysian Standard Malay have separate lesson libraries and progress. Choose your learning course with the selector at the top of the page."]
       ]},
       quiz:{title:"Welcome to Quiz",intro:"Quiz offers mixed-topic questions at Beginner, Intermediate and Advanced levels. Sessions are untimed, answers can be changed before submission, and results show a score and percentage without pass or fail.",faqs:[
         ["Can I pause and resume?","Yes. Your unfinished session and saved answers remain available until you complete or explicitly abandon it."],
         ["Can I change an answer?","Yes. You can revisit questions and change answers until you submit the Quiz."],
         ["How does the daily allowance work?","Free accounts have one completed Quiz per day; Premium accounts have three. Only a completed Quiz consumes an allowance."],
         ["Why does an active Quiz keep its old translation?","The language pair is fixed when a Quiz session starts. A changed preference applies to the next Quiz if the active session does not contain that translation."],
-        ["Is Chinese Quiz available?","Not yet. The current approved Quiz content supports the English learning course only."]
+        ["Which learning courses are available?","Quiz supports English, Simplified Chinese and Malaysian Standard Malay. Your learning-course selection determines the question bank; your translation preference controls available support text."]
       ]},
-      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards offers four-choice Flash Recall using English vocabulary. Choose Word, Definition, Mixed or Sentence Recall, select a 60- or 120-second challenge, and set your difficulty and card range. Memory and answer windows adapt to the selected mode, and you can move on as soon as you are ready.",faqs:[
+      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards offers course-specific card banks and supported recall modes. Choose a mode, select a 60- or 120-second challenge, and set your difficulty and card range. Memory and answer windows adapt to the selected mode, and you can move on as soon as you are ready.",faqs:[
         ["What are the four Flash Recall modes?","Word Recall asks you to choose a word's meaning. Definition Recall asks you to identify the matching word. Mixed Recall combines word, definition and sentence prompts. Sentence Recall asks you to complete a sentence."],
         ["How do the timers work?","Memory and answer durations depend on the selected mode and difficulty. Both windows shorten by 0.2 seconds after each round until they reach their mode-specific minimums. Select Answer now to skip the remaining memory time, or Next to begin another round after answering."],
         ["How long is a challenge?","Choose either a 60-second or 120-second challenge before starting. The challenge ends when its overall timer reaches zero, then your results are saved and shown for review."],
         ["How do I choose the vocabulary?","Choose a card range in the setup prompt, such as all available words, common words, parts of speech, everyday phrases or subject terms. A question is not repeated within the same challenge."],
         ["What is Weak Memory?","Questions answered incorrectly or left unanswered are recorded for review. You can revisit these items from the Weak Memory section on the Flashcards page."],
-        ["Is Chinese Flashcards available?","The Flashcards learning course uses English vocabulary. Your selected translation language controls supported meanings and prompts; it does not change the learning course."]
+        "Which learning courses are available?","Flashcards supports English, Simplified Chinese and Malaysian Standard Malay. Each course uses its own card bank and available recall modes; your translation preference supplies supported meanings and prompts."
       ]}
     };
     let learningIntroCurrentPage = null;
@@ -3841,7 +3842,7 @@ async function completeLesson(x){
           ["提交前可以更改答案吗？","可以。提交测验前，你可以返回题目并更改答案。"],
           ["每日次数如何计算？","只有完成测验才会消耗每日次数；未完成或主动放弃的测验不会计入完成次数。"],
           ["为什么正在进行的测验不会立即切换翻译语言？","测验开始时会固定当次使用的语言设置；新的翻译偏好会应用于之后开始的测验。"],
-          ["目前支持中文学习课程吗？","目前已批准的测验内容仅支持英语学习课程。"]
+          ["目前支持哪些学习课程？","测验支持英语、简体中文和马来语。学习课程决定题库；翻译语言决定可用的辅助释义。"]
         ]},
         flashcards:{title:"欢迎使用闪卡",intro:"闪卡提供四选一的限时回忆挑战，使用英语词汇进行练习。你可以选择单词、释义、混合或句子回忆模式，设置 60 秒或 120 秒挑战，并选择难度和词汇范围。记忆与答题时间会根据模式调整；准备好时可以提前作答或直接进入下一题。",faqs:[
           ["四种 Flash Recall 模式有什么区别？","单词回忆要求你选择单词释义；释义回忆要求你找出对应的英文单词；混合回忆结合单词、释义和句子题目；句子回忆要求你选择合适的单词完成句子。"],
@@ -3849,7 +3850,7 @@ async function completeLesson(x){
           ["挑战持续多久？","开始前可以选择 60 秒或 120 秒。总计时结束后，系统会保存成绩并显示结果供你查看。"],
           ["如何选择练习词汇？","在开始设置中选择词汇范围，例如全部可用词汇、常用词、词性、日常短语或学科术语。同一场挑战中不会重复出现同一道题。"],
           ["什么是薄弱记忆？","答错或未作答的题目会被记录，供你之后复习。你可以在闪卡主页的“复习薄弱记忆”区域重新查看这些内容。"],
-          ["闪卡是否支持中文学习课程？","闪卡目前使用英语词汇。你选择的翻译语言会影响支持的释义和提示，但不会改变学习课程。"]
+          ["闪卡支持哪些学习课程？","闪卡支持英语、简体中文和马来语。每种课程都有独立的卡片内容和适用的回忆模式；翻译语言用于显示可用的辅助释义和提示。"]
         ]}
       };
       const data=translationLanguage==="zh"&&chineseIntroCopy[page]?chineseIntroCopy[page]:learningIntroCopy[page];if(!data)return;
@@ -4008,7 +4009,8 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
     document.getElementById("courseSelect").addEventListener("change",async()=>{
       const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
       const quizWasActive=!quizEl("quizPage").hidden||location.hash==="#quiz";
-      const requestedCourse=course;
+      const requestedCourse=quizEl("courseSelect").value||course;
+      const quizCourseSwitchRequest=++quizCourseSwitchRequestId;
       ls.topic="all";
       if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
       applyLearningCourseAvailability();
@@ -4032,7 +4034,11 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
             // Wait for the selected course to reach Supabase before calling
             // course-scoped availability/history/session RPCs.
             if(preferenceWriteQueue)await preferenceWriteQueue;
-            if(course!==requestedCourse||!window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz"))return;
+            if(quizCourseSwitchRequest!==quizCourseSwitchRequestId||quizEl("courseSelect").value!==requestedCourse)return;
+            await quizSyncCoursePreferences();
+            if(quizCourseSwitchRequest!==quizCourseSwitchRequestId||course!==requestedCourse||!window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz"))return;
+            applyLearningCourseAvailability();
+            quizApplyPageTranslation();
             await quizLoadHome();
           }catch(error){
             if(course===requestedCourse)quizStatus("Could not refresh Quiz for the selected course: "+(error.message||""),true);
@@ -4095,7 +4101,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
   <script src="data/chinese-flashcards.js?v=2.8.0-draft3"></script>
   <script src="data/languages/malay-dictionary-manual-overrides.js?v=3.0.0-ms2"></script>
   <script src="data/languages/malay-flashcard-translations.js?v=3.0.0-ms3"></script>
-  <script src="flashcards.js?v=3.0.0-ms26"></script>
+  <script src="flashcards.js?v=3.0.0-ms27"></script>
   <script src="js/core/legacy-content-bootstrap.js?v=3.0.0-ms3"></script>
   <script src="account-deletion.js?v=2.6.0-r4"></script>
   <script src="english-category-filters.js?v=2.9.0-p3"></script>
