@@ -784,6 +784,38 @@ test("Weak Memory review renders large lists without repeated dictionary scans",
   await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
 });
 
+test("Weak Memory review indexes large Chinese and Malay card banks without blocking detail lookup",async({page})=>{
+  await openMockFlashcards(page);
+  for(const language of ["zh","ms"]){
+    await page.locator("#courseSelect").selectOption(language);
+    await expect(page.locator("#courseSelect")).toHaveValue(language);
+    const seeded=await page.evaluate(async(language)=>{
+      const source=language==="zh"
+        ? [...(window.SWIFT_CHINESE_FLASHCARDS?.characters||[]),...(window.SWIFT_CHINESE_FLASHCARDS?.vocabulary||[]),...(window.SWIFT_CHINESE_FLASHCARDS?.phrases||[])]
+        : (window.SWIFT_MALAY_DICTIONARY||[]).filter(item=>item?.word&&item?.definition);
+      const words=source.filter(item=>item?.word).slice(0,80);
+      if(words.length<80)throw new Error("The "+language+" review fixtures must contain at least 80 cards.");
+      const now=new Date().toISOString();
+      window.__swiftDictionaryMock.seedFlashcardData({
+        reviewItems:words.map(item=>({
+          card_key:"dict:"+language+":"+String(item.word).trim().toLocaleLowerCase("en"),
+          mode:"word",incorrect_count:1,last_incorrect_at:now
+        })),
+        history:[]
+      });
+      await window.SwiftDictionaryFlashcards.refreshDashboardData();
+      return words.length;
+    },language);
+    expect(seeded).toBe(80);
+    await page.locator('[data-action="open-review"]').click();
+    await expect(page.locator(".flash-review-modal")).toBeVisible();
+    await expect(page.locator(".flash-review-item")).toHaveCount(80,{timeout:10000});
+    await page.locator(".flash-review-entry").last().click();
+    await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+    await page.locator('[data-action="close-overlay"]').first().click();
+  }
+});
+
 test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
   await openMockFlashcards(page);
   // Keep the fixed mock-control widget from intercepting the game-review button.
