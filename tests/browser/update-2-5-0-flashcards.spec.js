@@ -225,6 +225,17 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   expect(stats.malayGeneratedChineseFlashcardCount).toBeGreaterThan(0);
   expect(stats.malayGeneratedEnglishExampleCount).toBeGreaterThan(0);
   expect(stats.malayGeneratedChineseExampleCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishDictionaryCardCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishDictionarySupportedCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishPhraseCardCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishPhraseSupportedCount).toBeGreaterThan(0);
+  expect(stats.malayChineseDictionaryCardCount).toBeGreaterThan(0);
+  expect(stats.malayChineseDictionarySupportedCount).toBeGreaterThan(0);
+  expect(stats.malayChinesePhraseCardCount).toBeGreaterThan(0);
+  expect(stats.malayChinesePhraseSupportedCount).toBeGreaterThan(0);
+  expect(stats.malayEnglishReviewedSentenceCardCount).toBe(18);
+  expect(stats.malayChineseReviewedSentenceCardCount).toBe(0);
+  expect(stats.customCardMalaySupportPolicy).toMatch(/user-supplied Malay translation/);
   await page.locator("#courseSelect").selectOption("ms");
   await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
   await expect(page.locator("#translationSelect")).toHaveValue("en");
